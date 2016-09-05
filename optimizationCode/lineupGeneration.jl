@@ -28,7 +28,7 @@ Variables for solving the problem (change these)
 num_lineups = 100
 
 # num_overlap is the maximum overlap of players between the lineups that you create
-num_overlap = 6
+num_overlap = 4
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 path_offensive_players = "data_warehouse/offensive_players.csv"
