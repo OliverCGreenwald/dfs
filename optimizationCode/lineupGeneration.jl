@@ -90,7 +90,7 @@ function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overla
     # at least 3 different teams for the 8 skaters constraints
     @defVar(m, used_team[i=1:num_teams], Bin)
     @addConstraint(m, constr[i=1:num_teams], used_team[i] <= sum{offensive_players_teams[t, i]*offensive_players_lineup[t], t=1:num_offensive_players})
-    @addConstraint(m, sum{used_team[i], i=1:num_teams} >= 3)
+    @addConstraint(m, sum{used_team[i], i=1:num_teams} >= 2)
 
     # Overlap Constraint
     @addConstraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
@@ -176,7 +176,7 @@ Whose salaries sum to less than $55,000
     # at least 3 different teams for the 8 skaters constraints
     @defVar(m, used_team[i=1:num_teams], Bin)
     @addConstraint(m, constr[i=1:num_teams], used_team[i] <= sum{offensive_players_teams[t, i]*offensive_players_lineup[t], t=1:num_offensive_players})
-    @addConstraint(m, sum{used_team[i], i=1:num_teams} >= 3)
+    @addConstraint(m, sum{used_team[i], i=1:num_teams} >= 2)
 
     # No Defenses going against Offensive_Players constraint
     @addConstraint(m, constr[i=1:num_defenses], 6*defenses_lineup[i] + sum{defenses_opponents[k, i]*offensive_players_lineup[k], k=1:num_offensive_players}<=6)
