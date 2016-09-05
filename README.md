@@ -20,7 +20,7 @@ The original repo can be found here: https://github.com/dscotthunter/Fantasy-Hoc
 
 
 ## Running code
-Enter the directory
+Enter the `/optimizationCode/` directory 
 Run `exec '/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin/julia'` in terminal to start Julia
 Run
 ```julia
