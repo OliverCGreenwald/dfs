@@ -39,14 +39,6 @@ path_defenses = "data_warehouse/defenses.csv"
 # path_to_output is a string that gives the path to the csv file that will give the outputted results
 path_to_output= "output.csv"
 
-#=
-formulation is the type of formulation that you would like to use. 
-    Available Options: 
-        - one_lineup_no_stacking
-        - one_lineup_Type_1
-=#
-formulation = one_lineup_Type_1
-
 ############################  Lineup Generator Functions  ############################
 
 # This is a function that creates one lineup using the No Stacking formulation from the paper
@@ -223,6 +215,14 @@ Whose salaries sum to less than $55,000
         return(offensive_players_lineup_copy)
     end
 end
+
+#=
+formulation is the type of formulation that you would like to use. 
+    Available Options: 
+        - one_lineup_no_stacking
+        - one_lineup_Type_1
+=#
+formulation = one_lineup_Type_1
 
 function create_lineups(num_lineups, num_overlap, path_offensive_players, path_defenses, formulation, path_to_output)
     #=
