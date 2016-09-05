@@ -171,7 +171,7 @@ Whose salaries sum to less than $55,000
     @addConstraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
 
     # Financial Constraint
-    @addConstraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 55000)
+    @addConstraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 50000)
 
     # at least 3 different teams for the 8 skaters constraints
     @defVar(m, used_team[i=1:num_teams], Bin)
