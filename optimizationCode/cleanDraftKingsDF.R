@@ -1,4 +1,4 @@
-setwd("~/Desktop/Projects/football/")
+setwd("~/Projects/DFS/optimizationCode")
 
 data <- read.csv("DKSalaries.csv", stringsAsFactors = F)
 

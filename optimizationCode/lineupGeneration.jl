@@ -25,7 +25,7 @@ using JuMP
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 150
+num_lineups = 100
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 6
@@ -85,7 +85,7 @@ function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overla
     @addConstraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
 
     # Financial Constraint
-    @addConstraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 55000)
+    @addConstraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 50000)
 
     # at least 3 different teams for the 8 skaters constraints
     @defVar(m, used_team[i=1:num_teams], Bin)
