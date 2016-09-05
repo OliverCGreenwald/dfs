@@ -1,6 +1,6 @@
 setwd("~/Projects/DFS/optimizationCode")
 
-data <- read.csv("DKSalaries.csv", stringsAsFactors = F)
+data <- read.csv("data_warehouse/DKSalaries.csv", stringsAsFactors = F)
 
 data["FirstName"] <- ""
 data["LastName"] <- ""
