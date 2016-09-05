@@ -139,16 +139,17 @@ function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, nu
     # Variable for Defense in lineup.
     @defVar(m, defenses_lineup[i=1:num_defenses], Bin)
 
-#=
-DraftKings Fantasy Contests require the following lineup:
-    - 1xQB
-    - 2xRB
-    - 3xWR 
-    - 1xTE
-    - 1xFLEX (RB/WR/TE)
-    - 1xDST
-Whose salaries sum to less than $55,000
-=#
+    #=
+    DraftKings Fantasy Contests require the following lineup:
+        - 1xQB
+        - 2xRB
+        - 3xWR 
+        - 1xTE
+        - 1xFLEX (RB/WR/TE)
+        - 1xDST
+    Whose salaries sum to less than $55,000
+    =#
+
     # One Defense constraint
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
@@ -216,6 +217,8 @@ Whose salaries sum to less than $55,000
     end
 end
 
+############################  Setting Formation  ############################
+
 #=
 formulation is the type of formulation that you would like to use. 
     Available Options: 
@@ -223,6 +226,8 @@ formulation is the type of formulation that you would like to use.
         - one_lineup_Type_1
 =#
 formulation = one_lineup_Type_1
+
+############################  Setting Formation  ############################
 
 function create_lineups(num_lineups, num_overlap, path_offensive_players, path_defenses, formulation, path_to_output)
     #=
