@@ -37,7 +37,14 @@ write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.na
 dk.defense.data <- read.csv("data_warehouse/dk_defenses.csv", header = T, stringsAsFactors = F)
 roto.defense.data <- read.csv("data_warehouse/roto_defense.csv", header = T, stringsAsFactors = F)
 
-# team names are in different formats
+# reconcile team name differences
+team.names.data <- read.csv("data_warehouse/team_names.csv", header = T, stringsAsFactors = F)
+dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$Team, team.names.data$dk_name)]
+dk.defense.data$RotoProjection <- roto.defense.data$fpts[match(dk.defense.data$roto_name, roto.defense.data$team)]
+dk.defense.data$Projection <- dk.defense.data$RotoProjection
+dk.defense.data$RotoProjection <- NULL
+dk.defense.data$roto_name <- NULL
 
 # write to file
 write.csv(dk.defense.data, file = 'data_warehouse/defenses.csv', row.names = F)
+

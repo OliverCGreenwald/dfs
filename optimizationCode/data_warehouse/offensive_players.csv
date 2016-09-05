@@ -1,6 +1,6 @@
 "FirstName","LastName","Salary","Position","Team","Opponent","Projection"
 "Julio","Jones",9400,"WR","Atl","TB",27.57
-"Odell","Beckham Jr.",9300,"WR","NYG","Dal",0
+"Odell","Beckham",9300,"WR","NYG","Dal",22.51
 "DeAndre","Hopkins",8800,"WR","Hou","Chi",22.49
 "Aaron","Rodgers",8500,"QB","GB","Jax",23.19
 "Dez","Bryant",8500,"WR","Dal","NYG",17.95
@@ -79,7 +79,7 @@
 "John","Brown",5200,"WR","Ari","NE",13.3
 "Kevin","White",5200,"WR","Chi","Hou",10.67
 "Mohamed","Sanu",5100,"WR","Atl","TB",11.65
-"Duke","Johnson Jr.",5100,"RB","Cle","Phi",0
+"Duke","Johnson",5100,"RB","Cle","Phi",11.19
 "Corey","Coleman",5100,"WR","Cle","Phi",12.57
 "Josh","McCown",5000,"QB","Cle","Phi",0
 "Matt","Cassel",5000,"QB","Ten","Min",0
@@ -151,7 +151,7 @@
 "Joe","Callahan",5000,"QB","GB","Jax",0
 "Cardale","Jones",5000,"QB","Buf","Bal",0
 "Christian","Hackenberg",5000,"QB","NYJ","Cin",0
-"Steve","Smith Sr.",4900,"WR","Bal","Buf",0
+"Steve","Smith",4900,"WR","Bal","Buf",11.05
 "Coby","Fleener",4900,"TE","NO","Oak",14.87
 "Ameer","Abdullah",4900,"RB","Det","Ind",11.8
 "Sterling","Shepard",4900,"WR","NYG","Dal",12.47
@@ -164,7 +164,7 @@
 "Tyler","Eifert",4700,"TE","Cin","NYJ",0
 "Jeremy","Langford",4700,"RB","Chi","Hou",11.37
 "Justin","Forsett",4600,"RB","Bal","Buf",0
-"Marvin","Jones Jr.",4600,"WR","Det","Ind",0
+"Marvin","Jones",4600,"WR","Det","Ind",13.25
 "Robert","Woods",4600,"WR","Buf","Bal",10.44
 "Jerick","McKinnon",4600,"RB","Min","Ten",5.03
 "Melvin","Gordon",4600,"RB","SD","KC",10.54
@@ -331,7 +331,7 @@
 "Zach","Line",3000,"RB","Min","Ten",0
 "Griff","Whalen",3000,"WR","Mia","Sea",0
 "Jonathan","Grimes",3000,"RB","Hou","Chi",0
-"Frankie","Hammond Jr.",3000,"WR","KC","SD",0
+"Frankie","Hammond",3000,"WR","KC","SD",0
 "T.J.","Graham",3000,"WR","Phi","Cle",0
 "Chris","Givens",3000,"WR","Phi","Cle",0
 "Glenn","Winston",3000,"RB","Cle","Phi",0
@@ -472,7 +472,7 @@
 "Aaron","Ripkowski",3000,"RB","GB","Jax",0
 "David","Glidden",3000,"WR","Atl","TB",0
 "Jakeem","Grant",3000,"WR","Mia","Sea",0
-"James","Wilder Jr.",3000,"RB","Buf","Bal",0
+"James","Wilder",3000,"RB","Buf","Bal",0
 "Marcus","Leak",3000,"WR","Ind","Det",0
 "Brandon","Ross",3000,"RB","GB","Jax",0
 "Romar","Morris",3000,"RB","NYJ","Cin",0
