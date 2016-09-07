@@ -1,5 +1,3 @@
-#Author: Michael Chiang (mlchiang@princeton.edu)
-
 from bs4 import BeautifulSoup
 import urllib2
 import csv 
