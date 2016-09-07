@@ -1,0 +1,154 @@
+Position,Name,Team,Salary,ProductionPoints, ProjectedPoints,Depth,RandomStat,AvgFFPG,ProdValue,ProjValue,Opp,OPRK
+WR,Julio Jones,Atlanta Falcons,"$9,300",38.10,23.13,1,10.8,22.09,4.10,2.49,PHI,27
+RB,Carlos Hyde,San Francisco 49ers,"$5,300",35.20,2.97,1,5.0,5.69,6.64,0.56,MIN,20
+WR,Keenan Allen,San Diego Chargers,"$7,100",34.60,3.80,1,10.0,16.27,4.87,0.54,DET,1
+TE,Tyler Eifert,Cincinnati Bengals,"$3,500",34.40,4.60,1,--,--,9.83,1.31,@OAK,25
+WR,DeAndre Hopkins,Houston Texans,"$7,400",32.80,7.36,1,9.4,15.84,4.43,0.99,KC,24
+TE,Rob Gronkowski,New England Patriots,"$7,000",32.40,18.30,1,9.4,22.06,4.63,2.61,PIT,22
+TE,Travis Kelce,Kansas City Chiefs,"$4,800",31.60,9.50,1,5.6,11.65,6.58,1.98,@HOU,5
+WR,Antonio Brown,Pittsburgh Steelers,"$8,900",31.30,17.66,1,11.9,27.38,3.52,1.98,@NE,1
+TE,Austin Seferian-Jenkins,Tampa Bay Buccaneers,"$3,400",31.00,2.25,1,4.2,6.24,9.12,0.66,TEN,9
+RB,Matt Forte,Chicago Bears,"$7,800",30.60,11.00,1,17.2,20.58,3.92,1.41,GB,22
+QB,Carson Palmer,Arizona Cardinals,"$6,500",28.68,8.64,1,37.3,17.89,4.41,1.33,NO,4
+QB,Tom Brady,New England Patriots,"$7,700",27.62,4.69,1,37.3,20.63,3.59,0.61,PIT,1
+QB,Tony Romo,Dallas Cowboys,"$7,300",27.14,15.89,1,27.6,19.24,3.72,2.18,NYG,24
+TE,Jason Witten,Dallas Cowboys,"$4,000",26.00,10.24,1,6.1,12.08,6.50,2.56,NYG,15
+QB,Marcus Mariota,Tennessee Titans,"$6,000",24.96,4.19,3,--,--,4.16,0.70,@TB,22
+QB,Philip Rivers,San Diego Chargers,"$7,100",24.96,11.41,1,37.8,15.89,3.52,1.61,DET,1
+QB,Alex Smith,Kansas City Chiefs,"$6,200",23.22,8.52,1,30.9,14.93,3.75,1.37,@HOU,14
+WR,Jordan Matthews,Philadelphia Eagles,"$7,200",23.20,10.96,1,6.6,15.36,3.22,1.52,@ATL,20
+WR,Kendall Wright,Tennessee Titans,"$5,100",23.10,7.12,1,6.4,11.84,4.53,1.40,@TB,26
+QB,Aaron Rodgers,Green Bay Packers,"$8,600",23.06,11.80,1,34.3,25.68,2.68,1.37,@CHI,6
+RB,Chris Ivory,New York Jets,"$4,100",23.00,7.38,1,12.2,7.77,5.61,1.80,CLE,16
+RB,Bishop Sankey,Tennessee Titans,"$4,300",22.60,2.04,2,9.6,6.40,5.26,0.47,@TB,21
+RB,Danny Woodhead,San Diego Chargers,"$3,700",22.20,4.82,2,--,--,6.00,1.30,DET,11
+QB,Ben Roethlisberger,Pittsburgh Steelers,"$7,300",22.04,9.89,1,39.6,25.71,3.02,1.35,@NE,1
+WR,Julian Edelman,New England Patriots,"$6,600",21.60,21.90,1,9.9,18.71,3.27,3.32,PIT,1
+RB,Jamaal Charles,Kansas City Chiefs,"$7,900",21.30,7.20,1,14.2,18.69,2.70,0.91,@HOU,5
+DEF,Carolina Panthers,Carolina Panthers,"$3,100",21.00,11.80,--,--,8.89,6.77,3.81,@JAX,--
+QB,Nick Foles,St. Louis Rams,"$5,300",20.98,3.12,1,37.0,17.45,3.96,0.59,SEA,16
+WR,Jarvis Landry,Miami Dolphins,"$5,600",20.70,9.82,1,8.1,13.62,3.70,1.75,@WAS,22
+QB,Drew Brees,New Orleans Saints,"$8,000",20.50,15.32,1,39.6,22.02,2.56,1.92,@ARI,8
+RB,Mark Ingram,New Orleans Saints,"$5,600",20.20,7.10,1,19.2,16.15,3.61,1.27,@ARI,27
+WR,Steve Johnson,San Diego Chargers,"$3,700",20.20,10.30,1,3.0,3.67,5.46,2.78,DET,1
+WR,Percy Harvin,Buffalo Bills,"$4,400",19.80,10.38,--,6.5,10.88,4.50,2.36,IND,17
+QB,Andrew Luck,Indianapolis Colts,"$8,300",19.72,7.93,1,34.9,22.63,2.38,0.96,@BUF,27
+RB,Darren Sproles,Philadelphia Eagles,"$3,300",19.60,8.78,3,2.8,8.74,5.94,2.66,@ATL,25
+WR,Nate Washington,Houston Texans,"$3,000",19.50,6.98,1,4.8,9.98,6.50,2.32,KC,24
+RB,Ameer Abdullah,Detroit Lions,"$4,000",19.40,3.77,1,--,--,4.85,0.94,@SD,23
+TE,Jordan Reed,Washington Redskins,"$3,300",19.30,6.28,1,5.9,8.69,5.85,1.90,MIA,18
+DEF,Seattle Seahawks,Seattle Seahawks,"$3,400",19.00,15.20,--,--,11.80,5.59,4.47,@STL,--
+QB,Andy Dalton,Cincinnati Bengals,"$6,100",18.86,9.45,1,29.3,15.55,3.09,1.55,@OAK,19
+QB,Matt Ryan,Atlanta Falcons,"$7,500",18.62,9.20,1,38.9,19.98,2.48,1.23,PHI,32
+QB,Sam Bradford,Philadelphia Eagles,"$6,900",18.44,9.12,1,--,--,2.67,1.32,@ATL,30
+TE,Ladarius Green,San Diego Chargers,"$3,500",18.40,2.35,1,1.4,1.88,5.26,0.67,DET,22
+RB,Jeremy Hill,Cincinnati Bengals,"$7,100",18.30,10.52,1,18.2,17.36,2.58,1.48,@OAK,3
+TE,Darren Fells,Arizona Cardinals,"$2,500",18.20,4.03,1,1.6,1.73,7.28,1.61,NO,9
+WR,Brandon Marshall,New York Jets,"$6,600",18.20,8.00,1,8.3,14.70,2.76,1.21,CLE,23
+RB,DeMarco Murray,Philadelphia Eagles,"$6,700",18.00,14.68,1,22.9,22.66,2.69,2.19,@ATL,25
+WR,Travis Benjamin,Cleveland Browns,"$3,000",17.90,6.60,1,2.9,2.56,5.97,2.20,@NYJ,30
+RB,Eddie Lacy,Green Bay Packers,"$7,500",17.90,9.82,1,17.1,22.46,2.39,1.31,@CHI,7
+RB,Marcel Reece,Oakland Raiders,"$3,000",17.60,4.93,2,1.8,6.34,5.87,1.64,CIN,4
+RB,Marshawn Lynch,Seattle Seahawks,"$7,300",17.40,16.78,1,18.3,20.78,2.38,2.30,@STL,12
+RB,DeAngelo Williams,Pittsburgh Steelers,"$5,100",17.20,5.43,2,9.5,4.93,3.37,1.07,@NE,11
+TE,Jimmy Graham,Seattle Seahawks,"$5,600",17.10,8.24,1,7.6,14.33,3.05,1.47,@STL,9
+DEF,New York Jets,New York Jets,"$2,900",17.00,11.60,--,--,5.44,5.86,4.00,CLE,--
+WR,Donte Moncrief,Indianapolis Colts,"$3,000",16.60,3.65,2,4.2,9.12,5.53,1.22,@BUF,21
+TE,Martellus Bennett,Chicago Bears,"$4,300",16.50,7.06,1,7.8,12.82,3.84,1.64,GB,28
+TE,Heath Miller,Pittsburgh Steelers,"$3,300",16.40,8.45,1,6.1,11.62,4.97,2.56,@NE,22
+RB,Benjamin Cunningham,St. Louis Rams,"$3,000",16.20,4.80,3,3.0,6.71,5.40,1.60,SEA,31
+QB,Jameis Winston,Tampa Bay Buccaneers,"$6,000",16.20,8.28,1,--,--,2.70,1.38,TEN,4
+QB,Russell Wilson,Seattle Seahawks,"$7,800",16.14,4.86,1,27.7,19.86,2.07,0.62,@STL,4
+DEF,Baltimore Ravens,Baltimore Ravens,"$2,700",16.00,4.75,--,--,9.89,5.93,1.76,@DEN,--
+DEF,Denver Broncos,Denver Broncos,"$2,800",16.00,12.20,--,--,7.40,5.71,4.36,BAL,--
+RB,Dion Lewis,New England Patriots,"$3,000",16.00,14.50,1,--,--,5.33,4.83,PIT,11
+QB,Tyrod Taylor,Buffalo Bills,"$5,000",15.90,8.75,1,--,--,3.18,1.75,IND,7
+WR,Rashad Greene,Jacksonville Jaguars,"$3,000",15.80,4.45,3,--,--,5.27,1.48,CAR,6
+WR,TY Hilton,Indianapolis Colts,"$7,600",15.80,7.87,1,7.9,17.99,2.08,1.04,@BUF,21
+QB,Matthew Stafford,Detroit Lions,"$7,000",15.74,10.96,1,38.9,17.04,2.25,1.57,@SD,26
+WR,Jermaine Kearse,Seattle Seahawks,"$3,700",15.60,5.33,1,4.8,6.38,4.22,1.44,@STL,9
+WR,Tavon Austin,St. Louis Rams,"$3,300",15.50,4.80,1,3.0,6.77,4.70,1.45,SEA,18
+TE,Eric Ebron,Detroit Lions,"$2,900",15.30,3.12,1,3.9,4.21,5.28,1.08,@SD,17
+QB,Jay Cutler,Chicago Bears,"$6,800",15.10,5.51,1,37.3,18.40,2.22,0.81,GB,20
+RB,Alfred Morris,Washington Redskins,"$5,500",15.10,6.14,1,16.7,13.33,2.75,1.12,MIA,15
+RB,Lance Dunbar,Dallas Cowboys,"$3,000",15.00,2.00,2,1.6,2.91,5.00,0.67,NYG,17
+DEF,Tennessee Titans,Tennessee Titans,"$2,800",15.00,4.60,--,--,4.00,5.36,1.64,@TB,--
+DEF,Miami Dolphins,Miami Dolphins,"$3,000",15.00,6.40,--,--,7.80,5.00,2.13,@WAS,--
+RB,Latavius Murray,Oakland Raiders,"$5,700",15.00,7.82,1,8.7,9.78,2.63,1.37,CIN,4
+RB,Giovani Bernard,Cincinnati Bengals,"$4,700",14.80,9.00,2,10.7,12.30,3.15,1.91,@OAK,3
+WR,Randall Cobb,Green Bay Packers,"$8,000",14.80,14.33,1,8.8,19.26,1.85,1.79,@CHI,8
+WR,Larry Fitzgerald,Arizona Cardinals,"$5,500",14.70,5.76,1,8.0,12.76,2.67,1.05,NO,9
+WR,John Brown,Arizona Cardinals,"$4,500",14.60,7.54,2,7.0,9.56,3.24,1.68,NO,9
+WR,Jerricho Cotchery,Carolina Panthers,"$3,000",14.50,9.65,2,4.6,6.74,4.83,3.22,@JAX,1
+WR,Emmanuel Sanders,Denver Broncos,"$7,900",14.50,14.16,1,9.0,21.67,1.84,1.79,BAL,9
+WR,Brandon Coleman,New Orleans Saints,"$3,000",14.10,7.95,2,--,--,4.70,2.65,@ARI,2
+QB,Ryan Fitzpatrick,New York Jets,"$5,500",14.06,7.29,1,24.0,18.46,2.56,1.33,CLE,17
+DEF,St. Louis Rams,St. Louis Rams,"$2,800",14.00,8.25,--,--,12.10,5.00,2.95,SEA,--
+DEF,San Francisco 49ers,San Francisco 49ers,"$2,800",14.00,13.75,--,--,8.89,5.00,4.91,MIN,--
+RB,Joseph Randle,Dallas Cowboys,"$5,900",13.70,5.24,--,3.7,4.69,2.32,0.89,NYG,28
+RB,Andre Ellington,Arizona Cardinals,"$6,400",13.60,5.58,3,16.0,13.03,2.13,0.87,NO,12
+TE,Jared Cook,St. Louis Rams,"$2,900",13.50,3.17,1,5.4,7.54,4.66,1.09,SEA,10
+QB,Cam Newton,Carolina Panthers,"$7,600",13.50,12.32,1,30.3,19.51,1.78,1.62,@JAX,1
+WR,Rishard Matthews,Miami Dolphins,"$3,000",13.40,4.90,2,1.8,3.67,4.47,1.63,@WAS,22
+WR,Pierre Garcon,Washington Redskins,"$5,200",13.40,6.27,1,5.8,7.62,2.58,1.21,MIA,13
+WR,Tyler Lockett,Seattle Seahawks,"$3,000",13.40,9.23,2,--,--,4.47,3.08,@STL,9
+TE,Delanie Walker,Tennessee Titans,"$3,400",13.30,9.13,1,7.1,10.78,3.91,2.68,@TB,23
+DEF,Detroit Lions,Detroit Lions,"$2,800",13.00,9.80,--,--,6.78,4.64,3.50,@SD,--
+WR,Demaryius Thomas,Denver Broncos,"$9,100",13.00,16.54,1,12.0,21.87,1.43,1.82,BAL,9
+WR,Alshon Jeffery,Chicago Bears,"$8,300",12.80,18.40,1,10.2,18.52,1.54,2.22,GB,16
+QB,Ryan Tannehill,Miami Dolphins,"$7,400",12.74,14.46,1,37.2,19.26,1.72,1.95,@WAS,14
+RB,David Johnson,Arizona Cardinals,"$3,800",12.50,11.95,1,--,--,3.29,3.14,NO,12
+WR,Roddy White,Atlanta Falcons,"$6,500",12.40,15.98,1,8.8,16.85,1.91,2.46,PHI,27
+WR,Mike Wallace,Minnesota Vikings,"$6,000",12.30,10.67,1,6.3,12.03,2.05,1.78,@SF,3
+TE,Lance Kendricks,St. Louis Rams,"$2,500",12.20,4.24,1,1.8,3.72,4.88,1.70,SEA,10
+RB,Jonathan Stewart,Carolina Panthers,"$5,800",12.10,8.46,1,14.8,13.13,2.09,1.46,@JAX,11
+DEF,New York Giants,New York Giants,"$2,500",12.00,6.50,--,--,7.78,4.80,2.60,@DAL,--
+RB,Khiry Robinson,New Orleans Saints,"$3,000",12.00,8.08,--,3.0,4.48,4.00,2.69,@ARI,27
+QB,Blake Bortles,Jacksonville Jaguars,"$5,900",11.92,11.40,1,33.4,12.82,2.02,1.93,CAR,10
+RB,Ryan Mathews,Philadelphia Eagles,"$3,600",11.80,5.03,2,12.8,12.05,3.28,1.40,@ATL,25
+QB,Johnny Manziel,Cleveland Browns,"$5,000",11.78,5.95,3,11.3,4.63,2.36,1.19,@NYJ,19
+RB,Theo Riddick,Detroit Lions,"$3,300",11.70,5.20,3,1.2,8.16,3.55,1.58,@SD,23
+RB,LeSean McCoy,Buffalo Bills,"$7,200",11.70,9.58,1,19.8,14.08,1.63,1.33,IND,2
+WR,Eric Decker,New York Jets,"$6,000",11.70,12.60,1,8.1,14.66,1.95,2.10,CLE,23
+QB,Matt McGloin,Oakland Raiders,"$5,000",11.68,8.24,2,--,--,2.34,1.65,CIN,5
+RB,Karlos Williams,Buffalo Bills,"$3,000",11.50,14.30,2,--,--,3.83,4.77,IND,2
+QB,Brian Hoyer,Houston Texans,"$5,100",11.44,4.01,1,31.0,12.05,2.24,0.79,KC,5
+TE,Jordan Cameron,Miami Dolphins,"$3,800",11.30,5.78,1,4.4,8.28,2.97,1.52,@WAS,5
+WR,AJ Green,Cincinnati Bengals,"$7,800",11.30,6.53,1,10.1,17.38,1.45,0.84,@OAK,30
+RB,Rashad Jennings,New York Giants,"$5,100",11.20,4.26,1,12.7,11.17,2.20,0.84,@DAL,28
+WR,Terrance Williams,Dallas Cowboys,"$4,000",11.00,10.14,1,3.7,6.48,2.75,2.53,NYG,29
+TE,Dwayne Allen,Indianapolis Colts,"$3,400",10.70,5.17,1,2.8,5.83,3.15,1.52,@BUF,26
+QB,Colin Kaepernick,San Francisco 49ers,"$7,000",10.70,12.38,1,28.2,15.10,1.53,1.77,MIN,11
+QB,Ryan Mallett,Baltimore Ravens,"$5,100",10.52,4.77,--,37.5,10.95,2.06,0.93,@KC,3
+WR,Markus Wheaton,Pittsburgh Steelers,"$3,800",10.50,7.44,1,5.0,8.68,2.76,1.96,@NE,1
+WR,Doug Baldwin,Seattle Seahawks,"$4,600",10.50,9.26,1,6.3,11.03,2.28,2.01,@STL,9
+WR,Harry Douglas,Tennessee Titans,"$3,000",10.40,9.25,1,6.3,10.72,3.47,3.08,@TB,26
+TE,Kyle Rudolph,Minnesota Vikings,"$3,500",10.30,2.97,1,2.8,5.58,2.94,0.85,@SF,24
+WR,Jeremy Maclin,Kansas City Chiefs,"$6,900",10.20,10.36,1,8.3,19.03,1.48,1.50,@HOU,22
+RB,Shane Vereen,New York Giants,"$4,200",10.00,3.16,3,4.8,8.93,2.38,0.75,@DAL,28
+WR,Allen Hurns,Jacksonville Jaguars,"$4,000",10.00,5.40,1,6.2,10.02,2.50,1.35,CAR,6
+DEF,Cincinnati Bengals,Cincinnati Bengals,"$3,200",10.00,8.00,--,--,7.20,3.13,2.50,@OAK,--
+DEF,Kansas City Chiefs,Kansas City Chiefs,"$3,000",10.00,8.40,--,--,8.10,3.33,2.80,@HOU,--
+WR,Davante Adams,Green Bay Packers,"$4,400",9.90,3.33,3,4.4,6.20,2.25,0.76,@CHI,8
+QB,Teddy Bridgewater,Minnesota Vikings,"$6,600",9.84,9.37,1,32.1,16.78,1.49,1.42,@SF,2
+WR,Darrius Heyward-Bey,Pittsburgh Steelers,"$3,000",9.80,3.95,2,0.3,0.18,3.27,1.32,@NE,1
+RB,Bilal Powell,New York Jets,"$3,000",9.80,4.63,2,2.6,3.16,3.27,1.54,CLE,16
+WR,Dez Bryant,Dallas Cowboys,"$8,700",9.80,21.62,1,7.4,21.56,1.13,2.49,NYG,29
+QB,Kirk Cousins,Washington Redskins,"$5,000",9.74,10.63,1,--,--,1.95,2.13,MIA,9
+WR,Amari Cooper,Oakland Raiders,"$6,700",9.70,6.90,1,--,--,1.45,1.03,CIN,24
+RB,TJ Yeldon,Jacksonville Jaguars,"$5,500",9.70,9.20,1,--,--,1.76,1.67,CAR,10
+WR,Cecil Shorts,Houston Texans,"$3,600",9.70,9.42,2,7.9,8.83,2.69,2.62,KC,24
+RB,Justin Forsett,Baltimore Ravens,"$6,200",9.60,6.46,1,16.4,17.31,1.55,1.04,@DEN,13
+WR,Chris Owusu,New York Jets,"$3,000",9.50,8.20,3,0.8,3.62,3.17,2.73,CLE,23
+WR,Odell Beckham Jr.,New York Giants,"$9,200",9.40,28.47,1,12.8,30.79,1.02,3.09,@DAL,32
+WR,Brandin Cooks,New Orleans Saints,"$7,100",9.30,13.92,1,6.3,16.28,1.31,1.96,@ARI,2
+WR,Vincent Jackson,Tampa Bay Buccaneers,"$6,000",9.10,4.90,1,8.2,11.58,1.52,0.82,TEN,9
+DEF,Buffalo Bills,Buffalo Bills,"$2,900",9.00,9.20,--,--,12.22,3.10,3.17,IND,--
+WR,Stedman Bailey,St. Louis Rams,"$3,000",8.80,4.43,--,4.1,7.98,2.93,1.47,SEA,18
+TE,Gavin Escobar,Dallas Cowboys,"$2,500",8.80,5.03,1,0.4,1.11,3.52,2.01,NYG,15
+RB,CJ Anderson,Denver Broncos,"$7,000",8.80,14.62,1,16.6,20.98,1.26,2.09,BAL,12
+RB,Melvin Gordon,San Diego Chargers,"$5,500",8.70,3.60,1,--,--,1.58,0.65,DET,11
+WR,Michael Crabtree,Oakland Raiders,"$4,400",8.70,3.68,1,6.3,8.84,1.98,0.84,CIN,24
+QB,Eli Manning,New York Giants,"$7,400",8.52,11.75,1,41.8,19.78,1.15,1.59,@DAL,31
+RB,Lamar Miller,Miami Dolphins,"$5,500",8.50,14.52,1,13.5,13.48,1.55,2.64,@WAS,5
+TE,Charles Clay,Buffalo Bills,"$3,700",8.30,11.08,1,6.5,11.51,2.24,2.99,IND,3
