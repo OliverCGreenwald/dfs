@@ -1,22 +1,33 @@
 setwd("~/Projects/DFS/testingLineups")
 
 abbrev <- read.csv("data_warehouse/team_abbrev_list.csv", header = T, stringsAsFactors = F)
-data <- read.csv("data_warehouse/cleaned_2015_week_1.csv", header = T, stringsAsFactors = F)
+data <- read.csv("data_warehouse/cleaned_2015_week_4.csv", header = T, stringsAsFactors = F)
 data <- merge(data,abbrev, by = 'Team')
+data$Salary <- substr(data$Salary, 2, nchar(data$Salary))
+data$Salary <- as.numeric(gsub(",", "", data$Salary))
+colnames(data)[12] <- 'Opponent'
+data$Opponent <- gsub("@","", data$Opponent)
 
 #Clean Offense so Julia Code can use it: 
 offense <- subset(data, Position != "DEF")
-offense$Salary <- substr(offense$Salary, 2, nchar(offense$Salary))
-offense$Salary <- as.numeric(gsub(",", "", offense$Salary))
 # split roto names into first and last name columns
 library(stringr)
 first.last.name <- str_split_fixed(offense$Name, " ", 2)
 colnames(first.last.name) <- c("FirstName", "LastName")
 offense <- cbind(first.last.name, offense[,2:ncol(offense)])
 offense$Name <- NULL
-colnames(offense)[12] <- 'Opponent'
-offense$Opponent <- gsub("@","", offense$Opponent)
 
-#Get ready to send 
+offense <- offense[,c(1,2,4,3,14,12,5,6)]
+colnames(offense)[5] <- 'Team'
+offense$Team <- substr(offense$Team, 2, nchar(offense$Team)) # Weird Error where `Opponent` had an extra space infront of it i.e ' OAK'
+colnames(offense)[8] <- 'Projection'
+offense <- subset(offense, ProductionPoints != 0)
 
 defense <- subset(data, Position == "DEF")
+defense <- defense[,c(3,4,14,12,5,6)]
+colnames(defense)[3] <- 'Team'
+defense$Team <- substr(defense$Team, 2, nchar(defense$Team)) # Weird Error where `Opponent` had an extra space infront of it i.e ' OAK'
+colnames(defense)[6] <- 'Projection'
+
+write.csv(offense, file = 'data_warehouse/offensive_players.csv', row.names = FALSE)
+write.csv(defense, file = 'data_warehouse/defenses.csv', row.names = FALSE)
