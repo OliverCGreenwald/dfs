@@ -25,7 +25,7 @@ using JuMP
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 100
+num_lineups = 300
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 3
