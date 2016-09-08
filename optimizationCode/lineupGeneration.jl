@@ -35,18 +35,21 @@ exposure = 0.34
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-path_offensive_players = "../testingLineups/data_warehouse/offensive_players.csv"
-    #PRODUCTION PATH
-    #path_offensive_players = "data_warehouse/offensive_players.csv"
+#path_offensive_players = "../testingLineups/data_warehouse/offensive_players.csv"
+#PRODUCTION PATH
+path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-path_defenses = "../testingLineups/data_warehouse/defenses.csv"
-    #PRODUCTION PATH
-    #path_defenses = "data_warehouse/defenses.csv"
+#path_defenses = "../testingLineups/data_warehouse/defenses.csv"
+#PRODUCTION PATH
+path_defenses = "data_warehouse/defenses.csv"
 
 # path_to_output is a string that gives the path to the csv file that will give the outputted results
-path_to_output= "../testingLineups/output.csv"
+#TESTING PATH
+#path_to_output= "../testingLineups/output.csv"
+#PRODUCTION PATH
+path_to_output= "output.csv"
 
 ############################  Lineup Generator Functions  ############################
 
@@ -106,7 +109,7 @@ function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overla
 
     # Exposure Constraint
     @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
-    
+
     # Objective
     @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
 
