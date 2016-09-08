@@ -25,7 +25,7 @@ using JuMP
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 20
+num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 3
@@ -293,7 +293,7 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
 
     # Exposure Constraint
-    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i] + offensive_players_lineup[j] +1, i=1:size(lineups)[2]} <= (num_lineups * exposure) )
+    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= (num_lineups * exposure) )
 
     # Objective
     @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
