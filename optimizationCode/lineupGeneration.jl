@@ -25,10 +25,13 @@ using JuMP
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 300
+num_lineups = 20
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 3
+
+# exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
+exposure = 0.33
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
@@ -49,7 +52,7 @@ path_to_output= "../testingLineups/output.csv"
 
 # This is a function that creates one lineup using the No Stacking formulation from the paper
 # - Only Feasibility Constraints 
-function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs)
+function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure)
     m = Model(solver=GLPKSolverMIP())
 
     # Variable for skaters in lineup.
@@ -136,7 +139,7 @@ end
 # This is a function that creates one lineup using the No Stacking formulation from the paper
 # - Feasibility Constraints 
 # - Defense constraint (Defense can't be playing any offensive players)
-function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs)
+function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure)
     m = Model(solver=GLPKSolverMIP())
 
     # Variable for Offensive_Players in lineup.
@@ -227,7 +230,7 @@ end
 # - Feasibility Constraints 
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
-function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs)
+function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure)
     m = Model(solver=GLPKSolverMIP())
 
     # Variable for Offensive_Players in lineup.
@@ -289,6 +292,8 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
     # Overlap Constraint
     @addConstraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
 
+    # Exposure Constraint
+    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i] + offensive_players_lineup[j] +1, i=1:size(lineups)[2]} <= (num_lineups * exposure) )
 
     # Objective
     @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
@@ -417,7 +422,6 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
     end
     offensive_players_teams = player_info'
 
-
     for i=2:num_offensive_players
         player_info = zeros(Int, size(teams)[1])
         for j=1:size(teams)[1]
@@ -478,12 +482,12 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
     
 
     # Lineups using formulation as the stacking type
-    the_lineup= formulation(offensive_players, defenses, hcat(zeros(Int, num_offensive_players + num_defenses), zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs)
-    the_lineup2 = formulation(offensive_players, defenses, hcat(the_lineup, zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs)
+    the_lineup= formulation(offensive_players, defenses, hcat(zeros(Int, num_offensive_players + num_defenses), zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure)
+    the_lineup2 = formulation(offensive_players, defenses, hcat(the_lineup, zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure)
     tracer = hcat(the_lineup, the_lineup2)
     for i=1:(num_lineups-2)
         try
-            thelineup=formulation(offensive_players, defenses, tracer, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs)
+            thelineup=formulation(offensive_players, defenses, tracer, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure)
             tracer = hcat(tracer,thelineup)
         catch
             break
