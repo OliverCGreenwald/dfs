@@ -31,7 +31,7 @@ num_lineups = 150
 num_overlap = 3
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.33
+exposure = 0.34
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
@@ -104,7 +104,9 @@ function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overla
     # Overlap Constraint
     @addConstraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
 
-
+    # Exposure Constraint
+    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
+    
     # Objective
     @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
 
@@ -194,6 +196,8 @@ function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, nu
     # Overlap Constraint
     @addConstraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
 
+    # Exposure Constraint
+    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
 
     # Objective
     @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
@@ -293,7 +297,7 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
 
     # Exposure Constraint
-    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= (num_lineups * exposure) )
+    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
 
     # Objective
     @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
