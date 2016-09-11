@@ -1,7 +1,7 @@
 "Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection"
 "DST","Seahawks  (7148622)","Seahawks ",7148622,3900,"Mia@Sea 04:05PM ET","Sea","Seahawks","","Mia",10.9
 "DST","Chiefs  (7148613)","Chiefs ",7148613,3600,"SD@KC 01:00PM ET","KC","Chiefs","","SD",10.16
-"DST","Cardinals  (7148628)","Cardinals ",7148628,3500,"NE@Ari 08:30PM ET","Ari","Cardinals","","NE",8.68
+"DST","Cardinals  (7148628)","Cardinals ",7148628,3500,"NE@Ari 08:30PM ET","Ari","Cardinals","","NE",10.53
 "DST","Jets  (7148610)","Jets ",7148610,3400,"Cin@NYJ 01:00PM ET","NYJ","Jets","","Cin",7.75
 "DST","Eagles  (7148608)","Eagles ",7148608,3300,"Cle@Phi 01:00PM ET","Phi","Eagles","","Cle",8.64
 "DST","Texans  (7148617)","Texans ",7148617,3200,"Chi@Hou 01:00PM ET","Hou","Texans","","Chi",9.41
@@ -17,7 +17,7 @@
 "DST","Titans  (7148605)","Titans ",7148605,2600,"Min@Ten 01:00PM ET","Ten","Titans","","Min",6.78
 "DST","Buccaneers  (7148604)","Buccaneers ",7148604,2600,"TB@Atl 01:00PM ET","TB","Buccaneers","","Atl",7.88
 "DST","Bears  (7148618)","Bears ",7148618,2500,"Chi@Hou 01:00PM ET","Chi","Bears","","Hou",7.14
-"DST","Cowboys  (7148623)","Cowboys ",7148623,2500,"NYG@Dal 04:25PM ET","Dal","Cowboys","","NYG",7.54
+"DST","Cowboys  (7148623)","Cowboys ",7148623,2500,"NYG@Dal 04:25PM ET","Dal","Cowboys","","NYG",6.65
 "DST","Lions  (7148625)","Lions ",7148625,2500,"Det@Ind 04:25PM ET","Det","Lions","","Ind",8.23
 "DST","Chargers  (7148614)","Chargers ",7148614,2500,"SD@KC 01:00PM ET","SD","Chargers","","KC",5.45
 "DST","Raiders  (7148611)","Raiders ",7148611,2400,"Oak@NO 01:00PM ET","Oak","Raiders","","NO",5.86
