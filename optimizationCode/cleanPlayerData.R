@@ -11,8 +11,8 @@ data["Opponent"] <- ""
 #data["HomeTeam"] <- ""
 #data["AwayTeam"] <- ""
 
-colnames(data)[5] <- "Projection"
-colnames(data)[6] <- "Team"
+#colnames(data)[5] <- "Projection"
+colnames(data)[7] <- "Team"
 
 for (i in 1:nrow(data)) {
   gameInfo <- data[i, "GameInfo"]

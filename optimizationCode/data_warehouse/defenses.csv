@@ -1,27 +1,27 @@
-"Name","Salary","Team","Opponent","Projection"
-"Seahawks",3900,"Sea","Mia",10.9
-"Chiefs",3600,"KC","SD",10.16
-"Cardinals",3500,"Ari","NE",8.68
-"Jets",3400,"NYJ","Cin",7.75
-"Eagles",3300,"Phi","Cle",8.64
-"Texans",3200,"Hou","Chi",9.41
-"Vikings",3100,"Min","Ten",8.85
-"Bengals",3000,"Cin","NYJ",8.54
-"Bills",2900,"Buf","Bal",8.48
-"Patriots",2900,"NE","Ari",7.08
-"Falcons",2800,"Atl","TB",6.82
-"Packers",2800,"GB","Jax",9.08
-"Colts",2700,"Ind","Det",8.65
-"Giants",2700,"NYG","Dal",7.3
-"Ravens",2700,"Bal","Buf",6.6
-"Titans",2600,"Ten","Min",6.78
-"Buccaneers",2600,"TB","Atl",7.88
-"Bears",2500,"Chi","Hou",7.14
-"Cowboys",2500,"Dal","NYG",7.54
-"Lions",2500,"Det","Ind",8.23
-"Chargers",2500,"SD","KC",5.45
-"Raiders",2400,"Oak","NO",5.86
-"Jaguars",2400,"Jax","GB",6.5
-"Browns",2300,"Cle","Phi",7.66
-"Saints",2300,"NO","Oak",6.82
-"Dolphins",2200,"Mia","Sea",5.27
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection"
+"DST","Seahawks  (7148622)","Seahawks ",7148622,3900,"Mia@Sea 04:05PM ET","Sea","Seahawks","","Mia",10.9
+"DST","Chiefs  (7148613)","Chiefs ",7148613,3600,"SD@KC 01:00PM ET","KC","Chiefs","","SD",10.16
+"DST","Cardinals  (7148628)","Cardinals ",7148628,3500,"NE@Ari 08:30PM ET","Ari","Cardinals","","NE",8.68
+"DST","Jets  (7148610)","Jets ",7148610,3400,"Cin@NYJ 01:00PM ET","NYJ","Jets","","Cin",7.75
+"DST","Eagles  (7148608)","Eagles ",7148608,3300,"Cle@Phi 01:00PM ET","Phi","Eagles","","Cle",8.64
+"DST","Texans  (7148617)","Texans ",7148617,3200,"Chi@Hou 01:00PM ET","Hou","Texans","","Chi",9.41
+"DST","Vikings  (7148606)","Vikings ",7148606,3100,"Min@Ten 01:00PM ET","Min","Vikings","","Ten",8.85
+"DST","Bengals  (7148609)","Bengals ",7148609,3000,"Cin@NYJ 01:00PM ET","Cin","Bengals","","NYJ",8.54
+"DST","Bills  (7148615)","Bills ",7148615,2900,"Buf@Bal 01:00PM ET","Buf","Bills","","Bal",8.48
+"DST","Patriots  (7148627)","Patriots ",7148627,2900,"NE@Ari 08:30PM ET","NE","Patriots","","Ari",7.08
+"DST","Falcons  (7148603)","Falcons ",7148603,2800,"TB@Atl 01:00PM ET","Atl","Falcons","","TB",6.82
+"DST","Packers  (7148619)","Packers ",7148619,2800,"GB@Jax 01:00PM ET","GB","Packers","","Jax",9.08
+"DST","Colts  (7148626)","Colts ",7148626,2700,"Det@Ind 04:25PM ET","Ind","Colts","","Det",8.65
+"DST","Giants  (7148624)","Giants ",7148624,2700,"NYG@Dal 04:25PM ET","NYG","Giants","","Dal",7.3
+"DST","Ravens  (7148616)","Ravens ",7148616,2700,"Buf@Bal 01:00PM ET","Bal","Ravens","","Buf",6.6
+"DST","Titans  (7148605)","Titans ",7148605,2600,"Min@Ten 01:00PM ET","Ten","Titans","","Min",6.78
+"DST","Buccaneers  (7148604)","Buccaneers ",7148604,2600,"TB@Atl 01:00PM ET","TB","Buccaneers","","Atl",7.88
+"DST","Bears  (7148618)","Bears ",7148618,2500,"Chi@Hou 01:00PM ET","Chi","Bears","","Hou",7.14
+"DST","Cowboys  (7148623)","Cowboys ",7148623,2500,"NYG@Dal 04:25PM ET","Dal","Cowboys","","NYG",7.54
+"DST","Lions  (7148625)","Lions ",7148625,2500,"Det@Ind 04:25PM ET","Det","Lions","","Ind",8.23
+"DST","Chargers  (7148614)","Chargers ",7148614,2500,"SD@KC 01:00PM ET","SD","Chargers","","KC",5.45
+"DST","Raiders  (7148611)","Raiders ",7148611,2400,"Oak@NO 01:00PM ET","Oak","Raiders","","NO",5.86
+"DST","Jaguars  (7148620)","Jaguars ",7148620,2400,"GB@Jax 01:00PM ET","Jax","Jaguars","","GB",6.5
+"DST","Browns  (7148607)","Browns ",7148607,2300,"Cle@Phi 01:00PM ET","Cle","Browns","","Phi",7.66
+"DST","Saints  (7148612)","Saints ",7148612,2300,"Oak@NO 01:00PM ET","NO","Saints","","Oak",6.82
+"DST","Dolphins  (7148621)","Dolphins ",7148621,2200,"Mia@Sea 04:05PM ET","Mia","Dolphins","","Sea",5.27

@@ -31,7 +31,7 @@ num_lineups = 150
 num_overlap = 3
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.34
+exposure = 0.5
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
@@ -501,47 +501,107 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
         end
     end
 
+#     # FOR TESTING FILES WITHOUT PLAYER IDs
+#     # Create the output csv file
+#     # Write File in the following order:
+#     # Names of the QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX (RB/WR/TE), and DST
+#     lineup2 = ""
+#     for j = 1:size(tracer)[2]
+#         lineup = ["" "" "" "" "" "" "" "" ""]
+#         for i =1:num_offensive_players
+#             if tracer[i,j] == 1
+#                 if quarterBack[i]==1
+#                     lineup[1] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                 elseif runningBack[i] == 1
+#                     if lineup[2] == ""
+#                         lineup[2] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[3] == ""
+#                         lineup[3] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[8] == ""
+#                         lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     end
+#                 elseif wideReciever[i]==1
+#                     if lineup[4] == ""
+#                         lineup[4] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[5] ==""
+#                         lineup[5] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[6] == ""
+#                         lineup[6] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[8] == ""
+#                         lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     end
+#                 elseif tightEnd[i]==1
+#                     if lineup[7] == ""
+#                         lineup[7] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[8] ==""
+#                         lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     end
+#                 end
+#             end
+#         end
+#         for i =1:num_defenses
+#             if tracer[num_offensive_players+i,j] == 1
+#                 lineup[9] = string(defenses[i,1])
+#             end
+#         end
+#         for name in lineup
+#             lineup2 = string(lineup2, name, ",")
+#         end
+#         lineup2 = chop(lineup2)
+#         lineup2 = string(lineup2, """
 
-    # Create the output csv file
+#         """)
+#     end
+#     outfile = open(path_to_output, "w")
+#     write(outfile, lineup2)
+#     close(outfile)
+# end
+
+    # FOR REAL FILES WITH PLAYER IDs
+    # Create the output csv file FOR DRAFTKINGS INPUT
     # Write File in the following order:
     # Names of the QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX (RB/WR/TE), and DST
     lineup2 = ""
+    header = "QB,RB,RB,WR,WR,WR,TE,FLEX,DST"
+    header = string(header, """
+
+    """)
     for j = 1:size(tracer)[2]
         lineup = ["" "" "" "" "" "" "" "" ""]
         for i =1:num_offensive_players
             if tracer[i,j] == 1
                 if quarterBack[i]==1
-                    lineup[1] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                    lineup[1] = string(offensive_players[i,2])
                 elseif runningBack[i] == 1
                     if lineup[2] == ""
-                        lineup[2] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[2] = string(offensive_players[i,2])
                     elseif lineup[3] == ""
-                        lineup[3] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[3] = string(offensive_players[i,2])
                     elseif lineup[8] == ""
-                        lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[8] = string(offensive_players[i,2])
                     end
                 elseif wideReciever[i]==1
                     if lineup[4] == ""
-                        lineup[4] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[4] = string(offensive_players[i,2])
                     elseif lineup[5] ==""
-                        lineup[5] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[5] = string(offensive_players[i,2])
                     elseif lineup[6] == ""
-                        lineup[6] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[6] = string(offensive_players[i,2])
                     elseif lineup[8] == ""
-                        lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[8] = string(offensive_players[i,2])
                     end
                 elseif tightEnd[i]==1
                     if lineup[7] == ""
-                        lineup[7] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[7] = string(offensive_players[i,2])
                     elseif lineup[8] ==""
-                        lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+                        lineup[8] = string(offensive_players[i,2])
                     end
                 end
             end
         end
         for i =1:num_defenses
             if tracer[num_offensive_players+i,j] == 1
-                lineup[9] = string(defenses[i,1])
+                lineup[9] = string(defenses[i,2])
             end
         end
         for name in lineup
@@ -553,11 +613,10 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
         """)
     end
     outfile = open(path_to_output, "w")
+    write(outfile, header)
     write(outfile, lineup2)
     close(outfile)
 end
-
-
 
 
 # Running the code
