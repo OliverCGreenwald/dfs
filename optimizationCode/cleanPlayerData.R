@@ -74,7 +74,7 @@ nrow(roto.offense.data[roto.offense.data$fpts>0,])
 dk.offense.data$FullName <- paste(dk.offense.data$FirstName, dk.offense.data$LastName)
 
 # replace dk projections with roto projections
-dk.offense.data$RotoProjection <- roto.offense.data$fpts[match(dk.offense.data$FullName, roto.offense.data$player)]
+dk.offense.data$RotoProjection <- roto.offense.data$fpts[match(dk.offense.data$FullName, roto.offense.data$player) & match(dk.offense.data$Position, roto.offense.data$pos)]
 dk.offense.data$RotoProjection[is.na(dk.offense.data$RotoProjection)] <- 0
 dk.offense.data$Projection <- dk.offense.data$RotoProjection
 dk.offense.data$RotoProjection <- NULL
