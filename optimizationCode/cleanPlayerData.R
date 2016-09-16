@@ -28,6 +28,8 @@ for (i in 1:nrow(data)) {
   data[i, "FirstName"] <- FirstName
   
   LastName <- substr(name, regexpr(' ', name) + 1, nchar(name))
+  sub(' Sr.', '', LastName)
+  sub(' Jr.', '', LastName)
   data[i, "LastName"] <- LastName
   
   if(AwayTeam == (data[i, "Team"])) {
