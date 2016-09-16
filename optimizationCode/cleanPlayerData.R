@@ -16,6 +16,8 @@ colnames(data)[7] <- "Team"
 
 for (i in 1:nrow(data)) {
   gameInfo <- data[i, "GameInfo"]
+  data[i, "Name"] <- sub(' Sr.', '', data[i, "Name"])
+  data[i, "Name"] <- sub(' Jr.', '', data[i, "Name"])
   name <- data[i, "Name"]
   
   AwayTeam <- substr(gameInfo, 1, regexpr('@', gameInfo) - 1)
@@ -28,8 +30,6 @@ for (i in 1:nrow(data)) {
   data[i, "FirstName"] <- FirstName
   
   LastName <- substr(name, regexpr(' ', name) + 1, nchar(name))
-  LastName <- sub(' Sr.', '', LastName)
-  LastName <- sub(' Jr.', '', LastName)
   data[i, "LastName"] <- LastName
   
   if(AwayTeam == (data[i, "Team"])) {
