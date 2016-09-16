@@ -3,7 +3,7 @@ setwd("~/Projects/DFS/optimizationCode")
 
 #--------- Clean DK salaries data ---------#
 
-data <- read.csv("data_warehouse/draftkings/DKSalaries.csv", stringsAsFactors = F)
+data <- read.csv("data_warehouse/draftkings/DKSalaries_week2.csv", stringsAsFactors = F)
 
 data["FirstName"] <- ""
 data["LastName"] <- ""
@@ -28,8 +28,8 @@ for (i in 1:nrow(data)) {
   data[i, "FirstName"] <- FirstName
   
   LastName <- substr(name, regexpr(' ', name) + 1, nchar(name))
-  sub(' Sr.', '', LastName)
-  sub(' Jr.', '', LastName)
+  LastName <- sub(' Sr.', '', LastName)
+  LastName <- sub(' Jr.', '', LastName)
   data[i, "LastName"] <- LastName
   
   if(AwayTeam == (data[i, "Team"])) {
@@ -43,10 +43,10 @@ for (i in 1:nrow(data)) {
 
 #Create inputs for Julia Optimization
 offensive_players <- subset(data, Position != "DST")
-offensive_players <- offensive_players[,c("FirstName", "LastName", "Salary", "Position", "Team", "Opponent", "Projection")]
+#offensive_players <- offensive_players[,c("FirstName", "LastName", "Salary", "Position", "Team", "Opponent", "Projection")]
 
 defense <- subset(data, Position == "DST")
-defense <- defense[,c("FirstName", "Salary", "Team", "Opponent", "Projection")]
+#defense <- defense[,c("FirstName", "Salary", "Team", "Opponent", "Projection")]
 colnames(defense)[1] <- "Name"
 
 # uncomment if you'd like to use DraftKings predictions not RotoGrinders predictions
@@ -58,7 +58,7 @@ colnames(defense)[1] <- "Name"
 #--------- Replace DK offensive player predictions with RG predictions ---------#
 # read in data
 dk.offense.data <- offensive_players
-roto.offense.data <- read.csv("data_warehouse/rotogrinders/roto_offense.csv", header = T, stringsAsFactors = F)
+roto.offense.data <- read.csv("data_warehouse/rotogrinders/roto_offense_week2.csv", header = T, stringsAsFactors = F)
 
 # compare dk and roto data
 nrow(dk.offense.data[dk.offense.data$Projection>0,])
@@ -87,11 +87,11 @@ write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.na
 #--------- Replace DK defensive player predictions with RG predictions ---------#
 # read in data
 dk.defense.data <- defense
-roto.defense.data <- read.csv("data_warehouse/rotogrinders/roto_defense.csv", header = T, stringsAsFactors = F)
+roto.defense.data <- read.csv("data_warehouse/rotogrinders/roto_defense_week2.csv", header = T, stringsAsFactors = F)
 
 # reconcile team name differences
 team.names.data <- read.csv("data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
-dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$Team, team.names.data$dk_name)]
+dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$teamAbbrev, team.names.data$dk_name)]
 dk.defense.data$RotoProjection <- roto.defense.data$fpts[match(dk.defense.data$roto_name, roto.defense.data$team)]
 dk.defense.data$Projection <- dk.defense.data$RotoProjection
 dk.defense.data$RotoProjection <- NULL
