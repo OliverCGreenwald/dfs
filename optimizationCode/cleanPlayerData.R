@@ -16,8 +16,6 @@ colnames(data)[7] <- "Team"
 
 for (i in 1:nrow(data)) {
   gameInfo <- data[i, "GameInfo"]
-  data[i, "Name"] <- sub(' Sr.', '', data[i, "Name"])
-  data[i, "Name"] <- sub(' Jr.', '', data[i, "Name"])
   name <- data[i, "Name"]
   
   AwayTeam <- substr(gameInfo, 1, regexpr('@', gameInfo) - 1)
@@ -30,6 +28,8 @@ for (i in 1:nrow(data)) {
   data[i, "FirstName"] <- FirstName
   
   LastName <- substr(name, regexpr(' ', name) + 1, nchar(name))
+  LastName <- sub(' Sr.', '', LastName)
+  LastName <- sub(' Jr.', '', LastName)
   data[i, "LastName"] <- LastName
   
   if(AwayTeam == (data[i, "Team"])) {
@@ -91,7 +91,7 @@ roto.defense.data <- read.csv("data_warehouse/rotogrinders/roto_defense_week2.cs
 
 # reconcile team name differences
 team.names.data <- read.csv("data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
-dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$teamAbbrev, team.names.data$dk_name)]
+dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$Team, team.names.data$dk_name)]
 dk.defense.data$RotoProjection <- roto.defense.data$fpts[match(dk.defense.data$roto_name, roto.defense.data$team)]
 dk.defense.data$Projection <- dk.defense.data$RotoProjection
 dk.defense.data$RotoProjection <- NULL
