@@ -26,3 +26,16 @@ Run
 ```julia
 julia> include("lineupGeneration.jl")
 ```
+
+# 2016 Results
+
+## Week 1 (9/10/16)
+- Entered 150 Lineups for ($3 a piece) into DraftKings' `NFL $5M FANTASY FOOTBALL MILLIONAIRE [$1M TO 1ST]` 
+  - Our top lineup placed 3975 (199.42 points) out of 1436510 entries. (99.7 percentile)
+    - Lineup Consisted of `Drew Brees`, `Lamar Miller`, `Spencer Ware`, `Brandin Cooks`, `Michael Crabtree`, `Stefon Diggs`, `Delanie Walker`, `T.J. Yeldon`, `Seahawks Defense`
+    - Used formulation = `lineup_Type_3`
+      - Feasibility Constraints
+      - Defense Constraint
+      - QB-WR Stack
+      - QB-OpposingWR Stack
+- Won `$638.43` (41.78% ROI) 
