@@ -29,7 +29,7 @@
 "QB","Kirk Cousins (7395299)","Kirk Cousins",7395299,7000,"Dal@Was 01:00PM ET","Was","Kirk","Cousins","Dal",19.92
 "WR","T.Y. Hilton (7395623)","T.Y. Hilton",7395623,7000,"Ind@Den 04:25PM ET","Ind","T.Y.","Hilton","Den",13.12
 "RB","Adrian Peterson (7395480)","Adrian Peterson",7395480,7000,"GB@Min 08:30PM ET","Min","Adrian","Peterson","GB",16.36
-"TE","Rob Gronkowski (7395673)","Rob Gronkowski",7395673,6900,"Mia@NE 01:00PM ET","NE","Rob","Gronkowski","Mia",18.02
+"TE","Rob Gronkowski (7395673)","Rob Gronkowski",7395673,6900,"Mia@NE 01:00PM ET","NE","Rob","Gronkowski","Mia",0
 "QB","Carson Palmer (7395339)","Carson Palmer",7395339,6900,"TB@Ari 04:05PM ET","Ari","Carson","Palmer","TB",22.82
 "TE","Jordan Reed (7395655)","Jordan Reed",7395655,6800,"Dal@Was 01:00PM ET","Was","Jordan","Reed","Dal",18.08
 "WR","Golden Tate (7395559)","Golden Tate",7395559,6800,"Ten@Det 01:00PM ET","Det","Golden","Tate","Ten",16.26
@@ -84,7 +84,7 @@
 "QB","Trevor Siemian (7395357)","Trevor Siemian",7395357,5200,"Ind@Den 04:25PM ET","Den","Trevor","Siemian","Ind",14.3
 "RB","Carlos Hyde (7395369)","Carlos Hyde",7395369,5100,"SF@Car 01:00PM ET","SF","Carlos","Hyde","Car",14.17
 "QB","Case Keenum (7395334)","Case Keenum",7395334,5100,"Sea@LA 04:05PM ET","LA","Case","Keenum","Sea",10.85
-"WR","Stefon Diggs (7395640)","Stefon Diggs",7395640,5100,"GB@Min 08:30PM ET","Min","Stefon","Diggs","GB",10.02
+"WR","Stefon Diggs (7395640)","Stefon Diggs",7395640,5100,"GB@Min 08:30PM ET","Min","Stefon","Diggs","GB",15.54
 "QB","Derek Anderson (7395290)","Derek Anderson",7395290,5000,"SF@Car 01:00PM ET","Car","Derek","Anderson","SF",0
 "QB","Joe Webb (7395291)","Joe Webb",7395291,5000,"SF@Car 01:00PM ET","Car","Joe","Webb","SF",0
 "QB","Colin Kaepernick (7395292)","Colin Kaepernick",7395292,5000,"SF@Car 01:00PM ET","SF","Colin","Kaepernick","Car",0
@@ -147,11 +147,11 @@
 "RB","Matt Jones (7395379)","Matt Jones",7395379,4500,"Dal@Was 01:00PM ET","Was","Matt","Jones","Dal",11.65
 "TE","Tyler Eifert (7395660)","Tyler Eifert",7395660,4500,"Cin@Pit 01:00PM ET","Cin","Tyler","Eifert","Pit",0
 "WR","Anquan Boldin (7395555)","Anquan Boldin",7395555,4500,"Ten@Det 01:00PM ET","Det","Anquan","Boldin","Ten",9.62
-"TE","Delanie Walker (7395687)","Delanie Walker",7395687,4500,"Ten@Det 01:00PM ET","Ten","Delanie","Walker","Det",12.9
+"TE","Delanie Walker (7395687)","Delanie Walker",7395687,4500,"Ten@Det 01:00PM ET","Ten","Delanie","Walker","Det",14.24
 "RB","Duke Johnson Jr. (7395436)","Duke Johnson Jr.",7395436,4500,"Bal@Cle 01:00PM ET","Cle","Duke","Johnson","Bal",11.46
 "TE","Antonio Gates (7395718)","Antonio Gates",7395718,4500,"Jax@SD 04:25PM ET","SD","Antonio","Gates","Jax",12.74
 "RB","Tevin Coleman (7395471)","Tevin Coleman",7395471,4500,"Atl@Oak 04:25PM ET","Atl","Tevin","Coleman","Oak",10.44
-"TE","Martellus Bennett (7395672)","Martellus Bennett",7395672,4400,"Mia@NE 01:00PM ET","NE","Martellus","Bennett","Mia",8.5
+"TE","Martellus Bennett (7395672)","Martellus Bennett",7395672,4400,"Mia@NE 01:00PM ET","NE","Martellus","Bennett","Mia",9.94
 "RB","Justin Forsett (7395429)","Justin Forsett",7395429,4400,"Bal@Cle 01:00PM ET","Bal","Justin","Forsett","Cle",12.32
 "RB","Isaiah Crowell (7395434)","Isaiah Crowell",7395434,4400,"Bal@Cle 01:00PM ET","Cle","Isaiah","Crowell","Bal",9.23
 "RB","Charles Sims (7395451)","Charles Sims",7395451,4400,"TB@Ari 04:05PM ET","TB","Charles","Sims","Ari",10.3
@@ -168,7 +168,7 @@
 "RB","Giovani Bernard (7395384)","Giovani Bernard",7395384,4200,"Cin@Pit 01:00PM ET","Cin","Giovani","Bernard","Pit",10.91
 "WR","Will Fuller (7395552)","Will Fuller",7395552,4200,"KC@Hou 01:00PM ET","Hou","Will","Fuller","KC",13.62
 "WR","Davante Adams (7395637)","Davante Adams",7395637,4200,"GB@Min 08:30PM ET","GB","Davante","Adams","Min",8.8
-"WR","Eli Rogers (7395517)","Eli Rogers",7395517,4100,"Cin@Pit 01:00PM ET","Pit","Eli","Rogers","Cin",10.12
+"WR","Eli Rogers (7395517)","Eli Rogers",7395517,4100,"Cin@Pit 01:00PM ET","Pit","Eli","Rogers","Cin",12.12
 "WR","Tajae Sharpe (7395563)","Tajae Sharpe",7395563,4100,"Ten@Det 01:00PM ET","Ten","Tajae","Sharpe","Det",14.32
 "RB","Chris Ivory (7395454)","Chris Ivory",7395454,4100,"Jax@SD 04:25PM ET","Jax","Chris","Ivory","SD",0
 "WR","Brandon LaFell (7395511)","Brandon LaFell",7395511,4000,"Cin@Pit 01:00PM ET","Cin","Brandon","LaFell","Pit",10.15
@@ -222,7 +222,7 @@
 "WR","Terrance Williams (7395503)","Terrance Williams",7395503,3300,"Dal@Was 01:00PM ET","Dal","Terrance","Williams","Was",8.36
 "WR","Dwayne Harris (7395522)","Dwayne Harris",7395522,3300,"NO@NYG 01:00PM ET","NYG","Dwayne","Harris","NO",0
 "WR","Jaelen Strong (7395551)","Jaelen Strong",7395551,3300,"KC@Hou 01:00PM ET","Hou","Jaelen","Strong","KC",0
-"WR","Rishard Matthews (7395562)","Rishard Matthews",7395562,3300,"Ten@Det 01:00PM ET","Ten","Rishard","Matthews","Det",10.02
+"WR","Rishard Matthews (7395562)","Rishard Matthews",7395562,3300,"Ten@Det 01:00PM ET","Ten","Rishard","Matthews","Det",8.18
 "RB","Terrance West (7395432)","Terrance West",7395432,3300,"Bal@Cle 01:00PM ET","Bal","Terrance","West","Cle",9.21
 "WR","Brian Quick (7395577)","Brian Quick",7395577,3300,"Sea@LA 04:05PM ET","LA","Brian","Quick","Sea",4.04
 "WR","Pharoh Cooper (7395586)","Pharoh Cooper",7395586,3300,"Sea@LA 04:05PM ET","LA","Pharoh","Cooper","Sea",0
