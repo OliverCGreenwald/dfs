@@ -1,12 +1,10 @@
-# DFS
-
 ## Authors:
 [**Michael Chiang**](linkedin.com/in/mlchiang): mlchiang@princeton.edu
 
 [**Alan Du**](https://www.linkedin.com/in/alan-du-6525b28a): aydu@princeton.edu
 
 
-## Note:
+## Introduction:
 
 This is adaptation of the techniques mentioned in the paper [Picking Winners Using Integer Programming](http://arxiv.org/pdf/1604.01455v2.pdf) by [David Hunter](http://orc.scripts.mit.edu/people/student.php?name=dshunter), [Juan Pablo Vielma](http://www.mit.edu/~jvielma/), and [Tauhid Zaman](http://zlisto.scripts.mit.edu/home/). 
 The original repo can be found here: https://github.com/dscotthunter/Fantasy-Hockey-IP-Code
