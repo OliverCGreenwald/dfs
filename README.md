@@ -1,5 +1,13 @@
 # DFS
 
+## Authors:
+[**Michael Chiang**](linkedin.com/in/mlchiang): mlchiang@princeton.edu
+
+[**Alan Du**](https://www.linkedin.com/in/alan-du-6525b28a): aydu@princeton.edu
+
+
+## Note:
+
 This is adaptation of the techniques mentioned in the paper [Picking Winners Using Integer Programming](http://arxiv.org/pdf/1604.01455v2.pdf) by [David Hunter](http://orc.scripts.mit.edu/people/student.php?name=dshunter), [Juan Pablo Vielma](http://www.mit.edu/~jvielma/), and [Tauhid Zaman](http://zlisto.scripts.mit.edu/home/). 
 The original repo can be found here: https://github.com/dscotthunter/Fantasy-Hockey-IP-Code
 
@@ -42,4 +50,4 @@ julia> include("lineupGeneration.jl")
 5. `resultsAnalysis`
   - Any analysis of our weekly results in the GPP Draftkings contests are found here
 6. `results.md`
-  - Details of our results in our 2016 NFL Draftkings Contests.
+  - Details of our results in 2016 NFL Draftkings Contests.
