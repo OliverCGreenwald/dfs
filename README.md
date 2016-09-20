@@ -1,5 +1,5 @@
 ## Authors:
-[**Michael Chiang**](linkedin.com/in/mlchiang): mlchiang@princeton.edu
+[**Michael Chiang**](https://www.linkedin.com/in/mlchiang): mlchiang@princeton.edu
 
 [**Alan Du**](https://www.linkedin.com/in/alan-du-6525b28a): aydu@princeton.edu
 
