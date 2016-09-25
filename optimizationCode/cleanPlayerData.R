@@ -3,7 +3,7 @@ setwd("~/Projects/DFS/optimizationCode")
 
 #--------- Clean DK salaries data ---------#
 
-data <- read.csv("data_warehouse/draftkings/DKSalaries_week2.csv", stringsAsFactors = F)
+data <- read.csv("data_warehouse/draftkings/DKSalaries_week3.csv", stringsAsFactors = F)
 
 data["FirstName"] <- ""
 data["LastName"] <- ""
@@ -58,7 +58,7 @@ colnames(defense)[1] <- "Name"
 #--------- Replace DK offensive player predictions with RG predictions ---------#
 # read in data
 dk.offense.data <- offensive_players
-roto.offense.data <- read.csv("data_warehouse/rotogrinders/roto_offense_week2.csv", header = T, stringsAsFactors = F)
+roto.offense.data <- read.csv("data_warehouse/rotogrinders/roto_offense_week3.csv", header = T, stringsAsFactors = F)
 
 # compare dk and roto data
 nrow(dk.offense.data[dk.offense.data$Projection>0,])
@@ -87,7 +87,7 @@ write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.na
 #--------- Replace DK defensive player predictions with RG predictions ---------#
 # read in data
 dk.defense.data <- defense
-roto.defense.data <- read.csv("data_warehouse/rotogrinders/roto_defense_week2.csv", header = T, stringsAsFactors = F)
+roto.defense.data <- read.csv("data_warehouse/rotogrinders/roto_defense_week3.csv", header = T, stringsAsFactors = F)
 
 # reconcile team name differences
 team.names.data <- read.csv("data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
