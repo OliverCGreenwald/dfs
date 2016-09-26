@@ -1,9 +1,35 @@
 setwd("~/Projects/DFS/optimizationCode")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/optimizationCode")
 
-#--------- Clean DK salaries data ---------#
+#--------- Set week number automation purposes ---------#
+week.num <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1)
 
-data <- read.csv("data_warehouse/draftkings/DKSalaries_week3.csv", stringsAsFactors = F)
+#--------- Get RG projections (csv format) ---------#
+# create offense csv
+qb.data <- read.csv(file = "https://rotogrinders.com/projected-stats/nfl-qb.csv?site=draftkings", stringsAsFactors = F, header = F)
+colnames(qb.data) <- qb.data[nrow(qb.data),]
+qb.data <- qb.data[-nrow(qb.data),]
+
+flex.data <- read.csv(file = "https://rotogrinders.com/projected-stats/nfl-flex.csv?site=draftkings", stringsAsFactors = F, header = F)
+colnames(flex.data) <- flex.data[nrow(flex.data),]
+flex.data <- flex.data[-nrow(flex.data),]
+
+off.data <- rbind(qb.data, flex.data)
+file.name <- paste0("data_warehouse/rotogrinders/roto_offense_week", week.num, ".csv")
+write.csv(off.data, file = file.name, row.names = F)
+
+# create defense csv
+def.data <- read.csv(file = "https://rotogrinders.com/projected-stats/nfl-defense.csv?site=draftkings", stringsAsFactors = F, header = F)
+colnames(def.data) <- def.data[nrow(def.data),]
+def.data <- def.data[-nrow(def.data),]
+
+file.name <- paste0("data_warehouse/rotogrinders/roto_defense_week", week.num, ".csv")
+write.csv(def.data, file = file.name, row.names = F)
+
+
+#--------- Clean DK salaries data ---------#
+file.name <- paste0("data_warehouse/draftkings/DKSalaries_week", week.num, ".csv")
+data <- read.csv(file = file.name, stringsAsFactors = F)
 
 data["FirstName"] <- ""
 data["LastName"] <- ""
@@ -54,11 +80,11 @@ colnames(defense)[1] <- "Name"
 #write.csv(defense, file = 'data_warehouse/defenses.csv', row.names = FALSE)
 
 
-
 #--------- Replace DK offensive player predictions with RG predictions ---------#
 # read in data
 dk.offense.data <- offensive_players
-roto.offense.data <- read.csv("data_warehouse/rotogrinders/roto_offense_week3.csv", header = T, stringsAsFactors = F)
+file.name <- paste0("data_warehouse/rotogrinders/roto_offense_week", week.num, ".csv")
+roto.offense.data <- read.csv(file = file.name, header = T, stringsAsFactors = F)
 
 # compare dk and roto data
 nrow(dk.offense.data[dk.offense.data$Projection>0,])
@@ -87,7 +113,8 @@ write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.na
 #--------- Replace DK defensive player predictions with RG predictions ---------#
 # read in data
 dk.defense.data <- defense
-roto.defense.data <- read.csv("data_warehouse/rotogrinders/roto_defense_week3.csv", header = T, stringsAsFactors = F)
+file.name <- paste0("data_warehouse/rotogrinders/roto_defense_week", week.num, ".csv")
+roto.defense.data <- read.csv(file = file.name, header = T, stringsAsFactors = F)
 
 # reconcile team name differences
 team.names.data <- read.csv("data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
@@ -99,4 +126,3 @@ dk.defense.data$roto_name <- NULL
 
 # write to file
 write.csv(dk.defense.data, file = 'data_warehouse/defenses.csv', row.names = F) # input in julia code
-
