@@ -3,7 +3,7 @@
 
 [**Alan Du**](https://www.linkedin.com/in/alan-du-6525b28a): aydu@princeton.edu
 
-## Tasks:
+## Future Work:
 
 - [x] Find and add historical data to repo
  - [ ] Finish Testing Suite
