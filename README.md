@@ -32,7 +32,7 @@ Run
 julia> include("lineupGeneration.jl")
 ```
 
-## Organization of Reposity: (as of 9/19/16)
+## Organization of Repository: (as of 9/19/16)
 1. `exampleCodeFromPaper`
   - Contents of https://github.com/dscotthunter/Fantasy-Hockey-IP-Code
   - Was used as a reference 
