@@ -3,7 +3,17 @@
 
 [**Alan Du**](https://www.linkedin.com/in/alan-du-6525b28a): aydu@princeton.edu
 
+## Tasks:
 
+- [x] Find and add historical data to repo
+ - [ ] Finish Testing Suite
+ - [ ] Test for Optimal number of lineups `n` to enter. *(0 <= n <= 150)*
+ - [ ] Test for Optimal combination of variables (`overlap constraint` and `stack type`)
+- [ ] Integrate GUROBI
+ - [ ] Think about leaving a greedy integer program and move into large (1500 constraint program)
+- [ ] Check to see if there is a distribution of scores between the $3 game and the $20 game.
+
+    
 ## Introduction:
 
 This is adaptation of the techniques mentioned in the paper [Picking Winners Using Integer Programming](http://arxiv.org/pdf/1604.01455v2.pdf) by [David Hunter](http://orc.scripts.mit.edu/people/student.php?name=dshunter), [Juan Pablo Vielma](http://www.mit.edu/~jvielma/), and [Tauhid Zaman](http://zlisto.scripts.mit.edu/home/). 
