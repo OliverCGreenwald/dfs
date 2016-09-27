@@ -1,8 +1,9 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis")
+#setwd("~/Projects/DFS/resultsAnalysis")
 
-data.week1 <- read.csv("data_warehouse/results_week1.csv", stringsAsFactors = F)
-data.week2 <- read.csv("data_warehouse/results_week2.csv", stringsAsFactors = F)
-data.week3 <- read.csv("data_warehouse/results_week3.csv", stringsAsFactors = F)
+data.week1 <- read.csv("data_warehouse/personal_lineups_results/results_week1.csv", stringsAsFactors = F)
+data.week2 <- read.csv("data_warehouse/personal_lineups_results/results_week2.csv", stringsAsFactors = F)
+data.week3 <- read.csv("data_warehouse/personal_lineups_results/results_week3.csv", stringsAsFactors = F)
 
 max.points.week1 <- 250.52
 min.winner.week1 <- 135
