@@ -11,7 +11,8 @@
  - [ ] Test for Optimal combination of variables (`overlap constraint` and `stack type`)
 - [ ] Integrate GUROBI
  - [ ] Think about leaving a greedy integer program and move into large (1500 constraint program)
-- [ ] Check to see if there is a distribution of scores between the $3 game and the $20 game.
+- [ ] Check to see if there is a difference in the distribution of scores between the $3 game and the $20 game.
+- [ ] Look into 50-50 Games. Game Type where top 50% of lineup double money. 
 
     
 ## Introduction:
