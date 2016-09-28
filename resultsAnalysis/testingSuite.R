@@ -2,7 +2,7 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis")
 
 #--------- Set week number for testing ---------#
-week.num <- 2 # change this!
+week.num <- 1 # change this!
 
 ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA FOR THE WEEK #########
 file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
