@@ -1,8 +1,13 @@
 #setwd("~/Projects/DFS/resultsAnalysis")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis")
 
-#--------- Set week number for testing ---------#
-week.num <- 1 # change this!
+####### SET WEEK NUMBER, LINEUP FILE, AND ENTRY FEE FOR TESTING #########
+week.num <- 3 # change this! (any past week)
+
+file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
+lineups <- read.csv(file = file.name, stringsAsFactors = F)
+
+contest.entry.fee <- "$20" # change this! ($3 or $20)
 
 ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA FOR THE WEEK #########
 file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
@@ -10,10 +15,6 @@ player.performance <- read.csv(file = file.name, stringsAsFactors = F)
 
 player.performance$Player <- sub(' Sr.','', player.performance$Player)
 player.performance$Player <- sub(' Jr.','', player.performance$Player)
-
-######## IMPORT SUBMITTED LINEUPS ########
-file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv")
-lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
 ######## CALCULATE FPTS FOR EACH LINEUP ########
 for (i in 1:ncol(lineups)) {
@@ -33,4 +34,41 @@ for (index in 1:nrow(lineups)){
   lineups$total[index] <- sum(row$Actual.Score)
 }
 
-plot(lineups$total, main = paste0("Week ", week.num), ylab = "Lineup FPts")
+plot(lineups$total, main = paste0("Week ", week.num), xlab = "Lineup Index", ylab = "Lineup FPts")
+
+######## IMPORT PAYOUT STRUCTURE ########
+file.name <- paste0("data_warehouse/weekly_payout_structure/", contest.entry.fee, "_payout_structure_week", week.num, ".csv")
+payout.data <- read.csv(file = file.name, stringsAsFactors = F)
+
+######## CALCULATE PLACE AND PAYOUT FOR EACH LINEUP ########
+file.name <- paste0("data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv")
+full.results.data <- read.csv(file = file.name, stringsAsFactors = F)
+
+print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
+lineups$total[which(is.na(lineups$total))] <- 0 # temporary solution for dealing with NAs in lineups dataframe (due to NAs in player.performance)
+# lineups$total[1] <- 243 # sanity check
+
+for (i in 1:nrow(lineups)) {
+  lineups$place[i] <- which.min(abs(full.results.data$Points-lineups$total[i])) # not precise but good estimate (can be done better probably)
+  if (lineups$place[i] > payout.data$Place_hi[nrow(payout.data)]) {
+    lineups$payout[i] <- 0
+  }
+  else {
+    for (j in 1:nrow(payout.data)) {
+      if (lineups$place[i] >= payout.data$Place_lo[j] && lineups$place[i] <= payout.data$Place_hi[j]) {
+        lineups$payout[i] <- payout.data$Payout[j]
+        break
+      }
+    }
+  }
+}
+
+# the following won't be exact b/c not accounting for ties
+print(paste0("Total payout: ", sum(lineups$payout)))
+if (contest.entry.fee == "$3") {
+  print(paste0("Total PnL: ", sum(lineups$payout) - 3*nrow(lineups)))
+}
+if (contest.entry.fee == "$20") {
+  print(paste0("Total PnL: ", sum(lineups$payout) - 20*nrow(lineups)))
+}
+
