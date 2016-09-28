@@ -2,16 +2,17 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis")
 
 ####### SET WEEK NUMBER, LINEUP FILE, AND ENTRY FEE FOR TESTING #########
-week.num <- 3 # change this! (any past week)
+week.num <- 2 # change this! (any past week)
 
 file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
 lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
-contest.entry.fee <- "$20" # change this! ($3 or $20)
+contest.entry.fee <- "$3" # change this! ($3 or $20)
 
 ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA FOR THE WEEK #########
 file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
 player.performance <- read.csv(file = file.name, stringsAsFactors = F)
+player.performance$Actual.Score[is.na(player.performance$Actual.Score)] <- 0
 
 player.performance$Player <- sub(' Sr.','', player.performance$Player)
 player.performance$Player <- sub(' Jr.','', player.performance$Player)
@@ -45,7 +46,6 @@ file.name <- paste0("data_warehouse/contest_results/", contest.entry.fee, "_cont
 full.results.data <- read.csv(file = file.name, stringsAsFactors = F)
 
 print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
-lineups$total[which(is.na(lineups$total))] <- 0 # temporary solution for dealing with NAs in lineups dataframe (due to NAs in player.performance)
 # lineups$total[1] <- 243 # sanity check
 
 for (i in 1:nrow(lineups)) {
