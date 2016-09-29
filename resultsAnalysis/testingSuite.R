@@ -79,12 +79,12 @@ calculatePnL <- function(numberEntries, lineups) {
 }
 
 ######## FIND OPTIMAL NUMBER OF LINEUPS ########
-pnls <- rep(0,150)
+pnls <- rep(0,nrow(lineups))
 for (i in 1:length(pnls)) {
-  pnls[i] <- calculatePnL(150-i+1, lineups)
+  pnls[i] <- calculatePnL(nrow(lineups)-i+1, lineups)
   print(pnls[i])
 }
 
-numLineups <- seq(from = 150, to = 150-length(pnls)+1)
+numLineups <- seq(from = nrow(lineups), to = nrow(lineups)-length(pnls)+1)
 plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l")
 abline(h=0, col = "red")
