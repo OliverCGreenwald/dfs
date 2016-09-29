@@ -25,7 +25,7 @@ using JuMP
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 150
+num_lineups = 300
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 4
@@ -35,15 +35,15 @@ exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-#path_offensive_players = "../testingLineups/data_warehouse/offensive_players.csv"
+path_offensive_players = "data_warehouse/2016_cleaned_input/wk3/offensive_players.csv"
 #PRODUCTION PATH
-path_offensive_players = "data_warehouse/offensive_players.csv"
+#path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-#path_defenses = "../testingLineups/data_warehouse/defenses.csv"
+path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
 #PRODUCTION PATH
-path_defenses = "data_warehouse/defenses.csv"
+#path_defenses = "data_warehouse/defenses.csv"
 
 # path_to_output is a string that gives the path to the csv file that will give the outputted results
 #TESTING PATH
