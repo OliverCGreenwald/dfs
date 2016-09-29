@@ -14,10 +14,13 @@ because we found that it was slightly faster than Cbc in practice. For those tha
 very sophisticated models, they can buy Gurobi. To install GLPKMathProgInterface, simply run
 Pkg.add("GLPKMathProgInterface")
 =#
-using GLPKMathProgInterface
+#using GLPKMathProgInterface
+using Gurobi
 
 # Once again, to install run Pkg.add("JuMP")
 using JuMP
+
+
 
 ############################  Setting Variables  ############################
 
@@ -25,7 +28,7 @@ using JuMP
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 300
+num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 4
@@ -56,8 +59,8 @@ path_to_output= "output.csv"
 # This is a function that creates one lineup using the No Stacking formulation from the paper
 # - Only Feasibility Constraints 
 function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR)
-    m = Model(solver=GLPKSolverMIP())
-
+    #m = Model(solver=GLPKSolverMIP())
+    m = Model(solver=GurobiSolver())
     # Variable for skaters in lineup.
     @defVar(m, offensive_players_lineup[i=1:num_offensive_players], Bin)
 
@@ -145,7 +148,8 @@ end
 # - Feasibility Constraints 
 # - Defense constraint (Defense can't be playing any offensive players)
 function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR)
-    m = Model(solver=GLPKSolverMIP())
+    #m = Model(solver=GLPKSolverMIP())
+    m = Model(solver=GurobiSolver())
 
     # Variable for Offensive_Players in lineup.
     @defVar(m, offensive_players_lineup[i=1:num_offensive_players], Bin)
@@ -238,7 +242,8 @@ end
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR)
-    m = Model(solver=GLPKSolverMIP())
+    #m = Model(solver=GLPKSolverMIP())
+    m = Model(solver=GurobiSolver())
 
     # Variable for Offensive_Players in lineup.
     @defVar(m, offensive_players_lineup[i=1:num_offensive_players], Bin)
@@ -340,7 +345,8 @@ end
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - QB-oppWR
 function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR)
-    m = Model(solver=GLPKSolverMIP())
+    #m = Model(solver=GLPKSolverMIP())
+    m = Model(solver=GurobiSolver())
 
     # Variable for Offensive_Players in lineup.
     @variable(m, offensive_players_lineup[i=1:num_offensive_players], Bin)
