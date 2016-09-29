@@ -8,7 +8,7 @@ file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_li
 lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
 contest.entry.fee <- "$3" # change this! ($3 or $20)
-
+  
 ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA FOR THE WEEK #########
 file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
 player.performance <- read.csv(file = file.name, stringsAsFactors = F)
@@ -45,7 +45,7 @@ payout.data <- read.csv(file = file.name, stringsAsFactors = F)
 file.name <- paste0("data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv")
 full.results.data <- read.csv(file = file.name, stringsAsFactors = F)
 
-print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
+# print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
 # lineups$total[1] <- 243 # sanity check
 
 for (i in 1:nrow(lineups)) {
@@ -64,11 +64,27 @@ for (i in 1:nrow(lineups)) {
 }
 
 # the following won't be exact b/c not accounting for ties
-print(paste0("Total payout: ", sum(lineups$payout)))
-if (contest.entry.fee == "$3") {
-  print(paste0("Total PnL: ", sum(lineups$payout) - 3*nrow(lineups)))
-}
-if (contest.entry.fee == "$20") {
-  print(paste0("Total PnL: ", sum(lineups$payout) - 20*nrow(lineups)))
+# print(paste0("Total payout: ", sum(lineups$payout)))
+# if (contest.entry.fee == "$3") {
+#   print(paste0("Total PnL: ", sum(lineups$payout) - 3*nrow(lineups)))
+# }
+# if (contest.entry.fee == "$20") {
+#   print(paste0("Total PnL: ", sum(lineups$payout) - 20*nrow(lineups)))
+# }
+  
+######## FUNCTION FOR CALCULATING TOTAL PAYOUT OF LINEUPS ########
+calculatePnL <- function(numberEntries, lineups) {
+  lineups <- lineups[1:numberEntries,]  
+  return(sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
 }
 
+######## FIND OPTIMAL NUMBER OF LINEUPS ########
+pnls <- rep(0,150)
+for (i in 1:length(pnls)) {
+  pnls[i] <- calculatePnL(150-i+1, lineups)
+  print(pnls[i])
+}
+
+numLineups <- seq(from = 150, to = 150-length(pnls)+1)
+plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l")
+abline(h=0, col = "red")
