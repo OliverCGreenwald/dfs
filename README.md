@@ -33,6 +33,11 @@ The original repo can be found here: https://github.com/dscotthunter/Fantasy-Hoc
   - `julia> Pkg.add("DataFrames")`
 - [GLPKMathProgInterface.jl](https://github.com/JuliaOpt/GLPKMathProgInterface.jl)
   - `julia> Pkg.add("GLPKMathProgInterface")`
+- [Gurobi.jl](https://github.com/JuliaOpt/Gurobi.jl)
+  - `julia> Pkg.add("Gurobi")`
+- [Gurobi](http://www.gurobi.com/index)
+  - `Install Software and get license!`
+ 
 
 
 ## Running code
