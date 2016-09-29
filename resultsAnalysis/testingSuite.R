@@ -2,9 +2,10 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis")
 
 ####### SET WEEK NUMBER, LINEUP FILE, AND ENTRY FEE FOR TESTING #########
-week.num <- 2 # change this! (any past week)
+week.num <- 3 # change this! (any past week)
 
-file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
+#file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
+file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_300lineups.csv") # change this! (some file path)
 lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
 contest.entry.fee <- "$3" # change this! ($3 or $20)
