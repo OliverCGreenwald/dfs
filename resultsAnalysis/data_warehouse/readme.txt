@@ -25,3 +25,10 @@ $333 Entry - https://www.draftkings.com/contest/gamecenter/28229529
 $9 Entry - https://www.draftkings.com/contest/gamecenter/28269743
 $5 Entry - https://www.draftkings.com/contest/gamecenter/28269741
 
+Useful data: 
+
+NFL $5M Fantasy Football Millionaire Review: Week 1 - https://rotogrinders.com/articles/nfl-5m-fantasy-football-millionaire-review-week-1-1429542
+
+NFL $5M Fantasy Football Millionaire Review: Week 2 - https://rotogrinders.com/articles/nfl-5m-fantasy-football-millionaire-review-week-2-1438406
+
+NFL $4.44M Fantasy Football Millionaire Review: Week 3 - https://rotogrinders.com/articles/nfl-4-44m-fantasy-football-millionaire-review-week-3-1448259
