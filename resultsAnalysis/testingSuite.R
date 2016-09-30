@@ -98,26 +98,24 @@
 #   num_overlap 8: 95
 #   num_overlap 9: 600
 
+####### FUNCTION FOR SETTING WEEK NUMBER, LINEUP FILE, AND PARAMETERS FOR TESTING #########
+testParameters <- function(week.num, entry.fee, formulation, overlap, exposure) {
+  week.num <- 2 # change this! (any past week)
+  
+  #file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
+  #file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_300lineups.csv") # change this! (some file path)
+  file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, ".csv")
+  
+  lineups <- read.csv(file = file.name, stringsAsFactors = F)
+  list <- list(week.num, entry.fee, lineups)
+  return(list)
+}
 
-
-####### SET WEEK NUMBER, LINEUP FILE, AND ENTRY FEE FOR TESTING #########
-week.num <- 2 # change this! (any past week)
-
-#file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
-#file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_300lineups.csv") # change this! (some file path)
-
-#file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week3_formulation3_overlap_9.csv") # change this! (some file path)
-#file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week3_formulation2_overlap_9.csv") # change this! (some file path)
-#file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week3_formulation1_overlap_9.csv") # change this! (some file path)
-file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week3_formulation3_exposure_0.2.csv") # change this! (some file path)
-
-#file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week2_formulation3_overlap_9.csv") # change this! (some file path)
-#file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week2_formulation2_overlap_9.csv") # change this! (some file path)
-#file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week2_formulation1_overlap_9.csv") # change this! (some file path)
-
-lineups <- read.csv(file = file.name, stringsAsFactors = F)
-
-contest.entry.fee <- "$3" # change this! ($3 or $20)
+####### TEST VARIOUS PARAMETERS #########
+returnedParams <- testParameters(week.num = 2, entry.fee = "$3", formulation = 3, overlap = 2, exposure = 1)
+week.num <- returnedParams[[1]]
+contest.entry.fee <- returnedParams[[2]]
+lineups <- returnedParams[[3]]
   
 ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA FOR THE WEEK #########
 file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
@@ -172,17 +170,9 @@ for (i in 1:nrow(lineups)) {
     }
   }
 }
-
-# the following won't be exact b/c not accounting for ties
-# print(paste0("Total payout: ", sum(lineups$payout)))
-# if (contest.entry.fee == "$3") {
-#   print(paste0("Total PnL: ", sum(lineups$payout) - 3*nrow(lineups)))
-# }
-# if (contest.entry.fee == "$20") {
-#   print(paste0("Total PnL: ", sum(lineups$payout) - 20*nrow(lineups)))
-# }
   
 ######## FUNCTION FOR CALCULATING TOTAL PAYOUT OF LINEUPS ########
+# won't be exact b/c not accounting for ties
 calculatePnL <- function(numberEntries, lineups) {
   lineups <- lineups[1:numberEntries,]  
   return(sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
