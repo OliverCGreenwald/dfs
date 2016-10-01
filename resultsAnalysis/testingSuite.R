@@ -103,7 +103,7 @@ testParameters <- function(week.num, entry.fee, formulation, overlap, exposure) 
   
   #file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
   #file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_300lineups.csv") # change this! (some file path)
-  file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, ".csv")
+  file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_dfn_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, ".csv")
   
   lineups <- read.csv(file = file.name, stringsAsFactors = F)
   list <- list(week.num, entry.fee, lineups)
