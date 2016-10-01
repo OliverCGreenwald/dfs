@@ -100,7 +100,6 @@
 
 ####### FUNCTION FOR SETTING WEEK NUMBER, LINEUP FILE, AND PARAMETERS FOR TESTING #########
 testParameters <- function(week.num, entry.fee, formulation, overlap, exposure) {
-  week.num <- 2 # change this! (any past week)
   
   #file.name <- paste0("../optimizationCode/submitted_lineups/week", week.num, "_lineups.csv") # change this! (some file path)
   #file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_300lineups.csv") # change this! (some file path)
@@ -112,7 +111,7 @@ testParameters <- function(week.num, entry.fee, formulation, overlap, exposure) 
 }
 
 ####### TEST VARIOUS PARAMETERS #########
-returnedParams <- testParameters(week.num = 2, entry.fee = "$3", formulation = 3, overlap = 2, exposure = 1)
+returnedParams <- testParameters(week.num = 2, entry.fee = "$3", formulation = 2, overlap = 4, exposure = 1)
 week.num <- returnedParams[[1]]
 contest.entry.fee <- returnedParams[[2]]
 lineups <- returnedParams[[3]]

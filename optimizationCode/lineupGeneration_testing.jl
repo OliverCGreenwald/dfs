@@ -38,13 +38,13 @@ exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-path_offensive_players = "data_warehouse/2016_cleaned_input/wk2/offensive_players.csv"
+path_offensive_players = "data_warehouse/2016_cleaned_input/wk3/offensive_players.csv"
 #PRODUCTION PATH
 #path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-path_defenses = "data_warehouse/2016_cleaned_input/wk2/defenses.csv"
+path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
 #PRODUCTION PATH
 #path_defenses = "data_warehouse/defenses.csv"
 
@@ -53,7 +53,7 @@ path_defenses = "data_warehouse/2016_cleaned_input/wk2/defenses.csv"
 #path_to_output= "../testingLineups/output.csv"
 #PRODUCTION PATH
 #path_to_output= "/Users/Alan/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis/data_warehouse/testing_lineups/week3_overlap_1.csv"
-path_to_output= "/Users/Alan/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis/data_warehouse/testing_lineups/week2"
+path_to_output= "../resultsAnalysis/data_warehouse/testing_lineups/week3_dfn"
 
 ############################  Lineup Generator Functions  ############################
 
@@ -309,7 +309,7 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
 
     # Objective
-    @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
+    @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
 
 
     # Solve the integer programming problem
@@ -459,7 +459,7 @@ formulation is the type of formulation that you would like to use.
         - one_lineup_Type_2
         - one_lineup_Type_3
 =#
-formulation = one_lineup_Type_2
+formulation = one_lineup_Type_3
 
 ############################  Setting Formation  ############################
 
@@ -721,37 +721,37 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
         for i =1:num_offensive_players
             if tracer[i,j] == 1
                 if quarterBack[i]==1
-                    lineup[1] = string(offensive_players[i,2])
+                    lineup[1] = string(offensive_players[i,3])
                 elseif runningBack[i] == 1
                     if lineup[2] == ""
-                        lineup[2] = string(offensive_players[i,2])
+                        lineup[2] = string(offensive_players[i,3])
                     elseif lineup[3] == ""
-                        lineup[3] = string(offensive_players[i,2])
+                        lineup[3] = string(offensive_players[i,3])
                     elseif lineup[8] == ""
-                        lineup[8] = string(offensive_players[i,2])
+                        lineup[8] = string(offensive_players[i,3])
                     end
                 elseif wideReciever[i]==1
                     if lineup[4] == ""
-                        lineup[4] = string(offensive_players[i,2])
+                        lineup[4] = string(offensive_players[i,3])
                     elseif lineup[5] ==""
-                        lineup[5] = string(offensive_players[i,2])
+                        lineup[5] = string(offensive_players[i,3])
                     elseif lineup[6] == ""
-                        lineup[6] = string(offensive_players[i,2])
+                        lineup[6] = string(offensive_players[i,3])
                     elseif lineup[8] == ""
-                        lineup[8] = string(offensive_players[i,2])
+                        lineup[8] = string(offensive_players[i,3])
                     end
                 elseif tightEnd[i]==1
                     if lineup[7] == ""
-                        lineup[7] = string(offensive_players[i,2])
+                        lineup[7] = string(offensive_players[i,3])
                     elseif lineup[8] ==""
-                        lineup[8] = string(offensive_players[i,2])
+                        lineup[8] = string(offensive_players[i,3])
                     end
                 end
             end
         end
         for i =1:num_defenses
             if tracer[num_offensive_players+i,j] == 1
-                lineup[9] = string(defenses[i,2])
+                lineup[9] = string(defenses[i,3])
             end
         end
         for name in lineup
@@ -772,15 +772,15 @@ end
 # Running the code
 # create_lineups(num_lineups, num_overlap, path_offensive_players, path_defenses, formulation, path_to_output)
 
-# Varying num_lineups
-# for i=1:9
-#     create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation3_overlap_", i, "_exposure_", exposure, ".csv"))
-# end
+# # Varying num_lineups
+for i=1:9
+    create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation3_overlap_", i, "_exposure_", exposure, ".csv"))
+end
 
 # # Varying exposure (need to change code first)
-for i=1:9
-    create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation2_overlap_", num_overlap, "_exposure_0.", i, ".csv"))
-end
+# for i=1:9
+#     create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation2_overlap_", num_overlap, "_exposure_0.", i, ".csv"))
+# end
 
 
 
