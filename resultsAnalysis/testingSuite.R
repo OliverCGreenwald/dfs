@@ -111,7 +111,7 @@ testParameters <- function(week.num, entry.fee, formulation, overlap, exposure) 
 }
 
 ####### TEST VARIOUS PARAMETERS #########
-returnedParams <- testParameters(week.num = 2, entry.fee = "$3", formulation = 2, overlap = 4, exposure = 1)
+returnedParams <- testParameters(week.num = 3, entry.fee = "$3", formulation = 2, overlap = 4, exposure = 1)
 week.num <- returnedParams[[1]]
 contest.entry.fee <- returnedParams[[2]]
 lineups <- returnedParams[[3]]

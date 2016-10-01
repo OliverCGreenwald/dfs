@@ -135,6 +135,7 @@ dk.defense.data$RotoProjection <- roto.defense.data$fpts[match(dk.defense.data$r
 dk.defense.data$Projection <- dk.defense.data$RotoProjection
 dk.defense.data$RotoProjection <- NULL
 dk.defense.data$roto_name <- NULL
+colnames(dk.defense.data)[1] <- 'Position'
 
 #--------- Add Daily Fantasy Nerd Projections ---------#
 file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_defense_week", week.num, ".csv")
@@ -145,7 +146,7 @@ if(file.exists(file.name)) {
   dfn_defense <- dfn_defense[,c('Player.Name','Proj.FP')]
   colnames(dfn_defense) <- c('Name', 'Projection_dfn')
   
-  dk.defense.data <- merge(dk.defense.data, dfn_defense, by.x = 'Name.1')  
+  dk.defense.data <- merge(dk.defense.data, dfn_defense, by.x = 'Name')  
 }
 
 

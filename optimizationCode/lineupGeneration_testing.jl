@@ -38,13 +38,13 @@ exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-path_offensive_players = "data_warehouse/2016_cleaned_input/wk3/offensive_players.csv"
+path_offensive_players = "data_warehouse/2016_cleaned_input/wk1/offensive_players.csv"
 #PRODUCTION PATH
 #path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
+path_defenses = "data_warehouse/2016_cleaned_input/wk1/defenses.csv"
 #PRODUCTION PATH
 #path_defenses = "data_warehouse/defenses.csv"
 
@@ -53,7 +53,7 @@ path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
 #path_to_output= "../testingLineups/output.csv"
 #PRODUCTION PATH
 #path_to_output= "/Users/Alan/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis/data_warehouse/testing_lineups/week3_overlap_1.csv"
-path_to_output= "../resultsAnalysis/data_warehouse/testing_lineups/week3_dfn"
+path_to_output= "../resultsAnalysis/data_warehouse/testing_lineups/week1_dfn"
 
 ############################  Lineup Generator Functions  ############################
 
@@ -459,7 +459,7 @@ formulation is the type of formulation that you would like to use.
         - one_lineup_Type_2
         - one_lineup_Type_3
 =#
-formulation = one_lineup_Type_3
+formulation = one_lineup_Type_2
 
 ############################  Setting Formation  ############################
 
@@ -774,7 +774,7 @@ end
 
 # # Varying num_lineups
 for i=1:9
-    create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation3_overlap_", i, "_exposure_", exposure, ".csv"))
+    create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation2_overlap_", i, "_exposure_", exposure, ".csv"))
 end
 
 # # Varying exposure (need to change code first)
