@@ -1,4 +1,4 @@
-setwd("~/Projects/DFS/optimizationCode")
+#setwd("~/Projects/DFS/optimizationCode")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/optimizationCode")
 
 #--------- Set week number automation purposes ---------#
@@ -107,18 +107,25 @@ dk.offense.data$RotoProjection <- NULL
 dk.offense.data$FullName <- NULL
 
 #--------- Add Daily Fantasy Nerd Projections ---------#
-# file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_offense_week", week.num, ".csv")
-# if(file.exists(file.name)) {
-#   dfn_offense <- read.csv(file = file.name, header = T, stringsAsFactors = F)
-#   
-#   dfn_offense$Player.Name <- sub(' Sr.', '', dfn_offense$Player.Name)
-#   dfn_offense$Player.Name <- sub(' Jr.', '', dfn_offense$Player.Name)
-#   
-#   dfn_offense <- dfn_offense[,c('Player.Name','Proj.FP')]
-#   colnames(dfn_offense) <- c('Name', 'Projection_dfn')
-#   
-#   dk.offense.data <- merge(dk.offense.data, dfn_offense, by.x = 'Name')
-# }
+file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_offense_week", week.num, ".csv")
+if(file.exists(file.name)) {
+  dfn_offense <- read.csv(file = file.name, header = T, stringsAsFactors = F)
+
+  dfn_offense$Player.Name <- sub(' Sr.', '', dfn_offense$Player.Name)
+  dfn_offense$Player.Name <- sub(' Jr.', '', dfn_offense$Player.Name)
+
+  dfn_offense <- dfn_offense[,c('Player.Name','Proj.FP', 'Pos')]
+  colnames(dfn_offense) <- c('Name', 'Projection_dfn', 'Position')
+
+  #dk.offense.data <- merge(dk.offense.data, dfn_offense, by.x = 'Name')
+}
+
+# replace dk projections with DFN projections
+dk.offense.data$Projection_dfn <- dfn_offense$Projection_dfn[match(paste(dk.offense.data$Name,dk.offense.data$Position), paste(dfn_offense$Name,dfn_offense$Position))]
+dk.offense.data$Projection_dfn[is.na(dk.offense.data$Projection_dfn)] <- 0
+#dk.offense.data$Projection <- dk.offense.data$DfnProjection
+#dk.offense.data$DfnProjection <- NULL
+
 # write to file
 write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.names = F) # input in julia code
 
@@ -138,16 +145,19 @@ dk.defense.data$roto_name <- NULL
 colnames(dk.defense.data)[1] <- 'Position'
 
 #--------- Add Daily Fantasy Nerd Projections ---------#
-# file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_defense_week", week.num, ".csv")
-# if(file.exists(file.name)) {
-#   dfn_defense <- read.csv(file = file.name, header = T, stringsAsFactors = F)
-#   dfn_defense$Player.Name <- substr(dfn_defense$Player.Name, regexpr(" [^ ]*$", dfn_defense$Player.Name) + 1, nchar(dfn_defense$Player.Name))
-#   dfn_defense$Player.Name <- paste(dfn_defense$Player.Name, ' ', sep='')
-#   dfn_defense <- dfn_defense[,c('Player.Name','Proj.FP')]
-#   colnames(dfn_defense) <- c('Name', 'Projection_dfn')
-#   
-#   dk.defense.data <- merge(dk.defense.data, dfn_defense, by.x = 'Name')  
-# }c
+file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_defense_week", week.num, ".csv")
+if(file.exists(file.name)) {
+  dfn_defense <- read.csv(file = file.name, header = T, stringsAsFactors = F)
+  dfn_defense$Player.Name <- substr(dfn_defense$Player.Name, regexpr(" [^ ]*$", dfn_defense$Player.Name) + 1, nchar(dfn_defense$Player.Name))
+  dfn_defense$Player.Name <- paste(dfn_defense$Player.Name, ' ', sep='')
+  dfn_defense <- dfn_defense[,c('Player.Name','Proj.FP')]
+  colnames(dfn_defense) <- c('Name', 'Projection_dfn')
+
+  # dk.defense.data <- merge(dk.defense.data, dfn_defense, by.x = 'Name')
+}
+
+# merge
+dk.defense.data$Projection_dfn <- dfn_defense$Projection_dfn[match(dk.defense.data$Name, dfn_defense$Name)]
 
 
 # write to file
