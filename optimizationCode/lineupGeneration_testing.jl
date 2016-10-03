@@ -38,13 +38,13 @@ exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-path_offensive_players = "data_warehouse/2016_cleaned_input/wk1/offensive_players.csv"
+path_offensive_players = "data_warehouse/2016_cleaned_input/wk4/offensive_players.csv"
 #PRODUCTION PATH
 #path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-path_defenses = "data_warehouse/2016_cleaned_input/wk1/defenses.csv"
+path_defenses = "data_warehouse/2016_cleaned_input/wk4/defenses.csv"
 #PRODUCTION PATH
 #path_defenses = "data_warehouse/defenses.csv"
 
@@ -53,7 +53,7 @@ path_defenses = "data_warehouse/2016_cleaned_input/wk1/defenses.csv"
 #path_to_output= "../testingLineups/output.csv"
 #PRODUCTION PATH
 #path_to_output= "/Users/Alan/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis/data_warehouse/testing_lineups/week3_overlap_1.csv"
-path_to_output= "../resultsAnalysis/data_warehouse/testing_lineups/week1_dfn"
+path_to_output= "../resultsAnalysis/data_warehouse/testing_lineups/week4_dfn"
 
 ############################  Lineup Generator Functions  ############################
 
@@ -721,37 +721,37 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
         for i =1:num_offensive_players
             if tracer[i,j] == 1
                 if quarterBack[i]==1
-                    lineup[1] = string(offensive_players[i,3])
+                    lineup[1] = string(offensive_players[i,2])
                 elseif runningBack[i] == 1
                     if lineup[2] == ""
-                        lineup[2] = string(offensive_players[i,3])
+                        lineup[2] = string(offensive_players[i,2])
                     elseif lineup[3] == ""
-                        lineup[3] = string(offensive_players[i,3])
+                        lineup[3] = string(offensive_players[i,2])
                     elseif lineup[8] == ""
-                        lineup[8] = string(offensive_players[i,3])
+                        lineup[8] = string(offensive_players[i,2])
                     end
                 elseif wideReciever[i]==1
                     if lineup[4] == ""
-                        lineup[4] = string(offensive_players[i,3])
+                        lineup[4] = string(offensive_players[i,2])
                     elseif lineup[5] ==""
-                        lineup[5] = string(offensive_players[i,3])
+                        lineup[5] = string(offensive_players[i,2])
                     elseif lineup[6] == ""
-                        lineup[6] = string(offensive_players[i,3])
+                        lineup[6] = string(offensive_players[i,2])
                     elseif lineup[8] == ""
-                        lineup[8] = string(offensive_players[i,3])
+                        lineup[8] = string(offensive_players[i,2])
                     end
                 elseif tightEnd[i]==1
                     if lineup[7] == ""
-                        lineup[7] = string(offensive_players[i,3])
+                        lineup[7] = string(offensive_players[i,2])
                     elseif lineup[8] ==""
-                        lineup[8] = string(offensive_players[i,3])
+                        lineup[8] = string(offensive_players[i,2])
                     end
                 end
             end
         end
         for i =1:num_defenses
             if tracer[num_offensive_players+i,j] == 1
-                lineup[9] = string(defenses[i,3])
+                lineup[9] = string(defenses[i,2])
             end
         end
         for name in lineup
