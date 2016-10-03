@@ -104,7 +104,6 @@ dk.offense.data$RotoProjection <- roto.offense.data$fpts[match(paste(dk.offense.
 dk.offense.data$RotoProjection[is.na(dk.offense.data$RotoProjection)] <- 0
 dk.offense.data$Projection <- dk.offense.data$RotoProjection
 dk.offense.data$RotoProjection <- NULL
-dk.offense.data$FullName <- NULL
 
 #--------- Add Daily Fantasy Nerd Projections ---------#
 file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_offense_week", week.num, ".csv")
@@ -118,13 +117,13 @@ if(file.exists(file.name)) {
   colnames(dfn_offense) <- c('Name', 'Projection_dfn', 'Position')
 
   #dk.offense.data <- merge(dk.offense.data, dfn_offense, by.x = 'Name')
+  
+  dk.offense.data$Projection_dfn <- dfn_offense$Projection_dfn[match(paste(dk.offense.data$FullName,dk.offense.data$Position), paste(dfn_offense$Name,dfn_offense$Position))]
+  dk.offense.data$Projection_dfn[is.na(dk.offense.data$Projection_dfn)] <- 0
+  
+  dk.offense.data$FullName <- NULL
 }
 
-# replace dk projections with DFN projections
-dk.offense.data$Projection_dfn <- dfn_offense$Projection_dfn[match(paste(dk.offense.data$Name,dk.offense.data$Position), paste(dfn_offense$Name,dfn_offense$Position))]
-dk.offense.data$Projection_dfn[is.na(dk.offense.data$Projection_dfn)] <- 0
-#dk.offense.data$Projection <- dk.offense.data$DfnProjection
-#dk.offense.data$DfnProjection <- NULL
 
 # write to file
 write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.names = F) # input in julia code
@@ -153,11 +152,10 @@ if(file.exists(file.name)) {
   dfn_defense <- dfn_defense[,c('Player.Name','Proj.FP')]
   colnames(dfn_defense) <- c('Name', 'Projection_dfn')
 
-  # dk.defense.data <- merge(dk.defense.data, dfn_defense, by.x = 'Name')
+  # merge
+  dk.defense.data$Projection_dfn <- dfn_defense$Projection_dfn[match(dk.defense.data$Name, dfn_defense$Name)]
+  
 }
-
-# merge
-dk.defense.data$Projection_dfn <- dfn_defense$Projection_dfn[match(dk.defense.data$Name, dfn_defense$Name)]
 
 
 # write to file
