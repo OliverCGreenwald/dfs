@@ -48,7 +48,7 @@ Lifetime ROI: *(188.43-65+207) / 450* = **73.4%**
 ## Week 4 (10/02/16)
 - Entered 150 Lineups for ($3 a piece) into DraftKings' `NFL $1.25M Play-Action [$1,250,000 Guaranteed]` 
   - Our top lineup placed 908 (203.5 points) out of 490196 entries. (99.84 percentile)
-    - Lineup Consisted of `Ben Roethlisberger`, `Ezekiel Elliott`, `Mark Ingram`, `Antonio Brown`, `John Brown`, `Robert Woods`, `Jordan Reed`, `Terrance Williams`, `Texans`
+    - Lineup Consisted of `Ben Roethlisberger`, `Ezekiel Elliott`, `Mark Ingram`, `Antonio Brown`, `John Brown`, `Robert Woods`, `Jordan Reed`, `Terrance Williams`, `Texans Defense`
     - Used formulation = `lineup_Type_2`
       - Feasibility Constraints
       - Defense Constraint
