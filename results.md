@@ -45,7 +45,7 @@ Lifetime ROI: *(188.43-65+207) / 450* = **73.4%**
 - Won `$657.00` **Net $207** (46% ROI) 
 - *Takeaways: During this week we (1) updated our Projections from Rotogrinders to DailyFantasyNerd as they seem to be more accurate and (2) completed the TestingSuite that allows us to test/tune all of our parameters.*
 
-## Week 3 (10/02/16)
+## Week 4 (10/02/16)
 - Entered 150 Lineups for ($3 a piece) into DraftKings' `NFL $1.25M Play-Action [$1,250,000 Guaranteed]` 
   - Our top lineup placed 908 (203.5 points) out of 490196 entries. (99.84 percentile)
     - Lineup Consisted of `Ben Roethlisberger`, `Ezekiel Elliott`, `Mark Ingram`, `Antonio Brown`, `John Brown`, `Robert Woods`, `Jordan Reed`, `Terrance Williams`, `Texans`
