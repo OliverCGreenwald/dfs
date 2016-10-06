@@ -8,8 +8,8 @@
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.num <- 4
-contest.entry.fee <- "$20"
+week.num <- 3
+contest.entry.fee <- "$3"
 predictions.source <- "dfn"
 formulation <- 2
 overlap.lo <- 1 

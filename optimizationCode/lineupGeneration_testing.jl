@@ -418,7 +418,7 @@ function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
 
     # Objective
-    @objective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
+    @objective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
 
 
     # Solve the integer programming problem
@@ -459,7 +459,7 @@ formulation is the type of formulation that you would like to use.
         - one_lineup_Type_2
         - one_lineup_Type_3
 =#
-formulation = one_lineup_Type_2
+formulation = one_lineup_Type_3
 
 ############################  Setting Formation  ############################
 
@@ -774,7 +774,7 @@ end
 
 # # Varying num_lineups
 for i=1:9
-    create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation2_overlap_", i, "_exposure_", exposure, ".csv"))
+    create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation3_overlap_", i, "_exposure_", exposure, ".csv"))
 end
 
 # # Varying exposure (need to change code first)
