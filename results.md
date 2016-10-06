@@ -1,6 +1,6 @@
 
 # 2016 Results
-Lifetime ROI: *(188.43-65+207) / 450* = **73.4%**
+Lifetime ROI: *(188.43-65+207+83) / 450* = **91.9%**
 ## Week 1 (9/11/16)
 - Entered 150 Lineups for ($3 a piece) into DraftKings' `NFL $5M FANTASY FOOTBALL MILLIONAIRE [$1M TO 1ST]` 
   - Our top lineup placed 3975 (199.42 points) out of 1436510 entries. (99.7 percentile)
