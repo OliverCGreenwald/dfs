@@ -3,6 +3,7 @@
 
 #--------- Set week number automation purposes ---------#
 week.num <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1)
+# week.num <- 1
 
 #--------- Get RG projections (csv format) ---------#
 # create offense csv

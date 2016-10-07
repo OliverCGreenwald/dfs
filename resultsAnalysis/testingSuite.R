@@ -16,7 +16,7 @@ overlap.lo <- 1
 overlap.hi <- 9
 exposure <- 1
 
-####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
+####### INITIALIZE PNL MATRIX FOR STORING RESULTS #########
 pnlMatrix <- matrix(data = NA, nrow = 9, ncol = 2, dimnames = list(NULL, c("Overlap","PnL")))
 pnlMatrix[1:9,'Overlap'] <- 1:9
 
