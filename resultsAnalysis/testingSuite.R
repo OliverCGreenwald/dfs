@@ -8,7 +8,7 @@
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.num <- 3
+week.num <- 2
 contest.entry.fee <- "$3"
 predictions.source <- "dfn"
 formulation <- 2
