@@ -9,10 +9,10 @@
 
 ####### SET PARAMETER VALUES #########
 week.num <- 2
-contest.entry.fee <- "$3"
-predictions.source <- "dfn"
+contest.entry.fee <- "$20"
+predictions.source <- "_dfn" # Either "_dfn" or ""
 formulation <- 2
-overlap.lo <- 1 
+overlap.lo <- 1
 overlap.hi <- 9
 exposure <- 1
 
@@ -40,7 +40,7 @@ payout.data <- read.csv(file = file.name, stringsAsFactors = F)
 for (k in overlap.lo:overlap.hi) {
 
   ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
-  file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, "_", predictions.source, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
+  file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
   lineups <- read.csv(file = file.name, stringsAsFactors = F)
   
   ######## CALCULATE FPTS FOR EACH LINEUP ########
@@ -105,4 +105,4 @@ for (k in overlap.lo:overlap.hi) {
 }
 
 print(pnlMatrix)
-save(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week", week.num, "_", predictions.source, "_formulation", formulation, "_exposure_", exposure, ".RData"))
+#save(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", exposure, ".RData"))
