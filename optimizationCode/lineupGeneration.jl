@@ -38,15 +38,15 @@ exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-path_offensive_players = "data_warehouse/2016_cleaned_input/wk3/offensive_players.csv"
+#path_offensive_players = "data_warehouse/2016_cleaned_input/wk3/offensive_players.csv"
 #PRODUCTION PATH
-#path_offensive_players = "data_warehouse/offensive_players.csv"
+path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
+#path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
 #PRODUCTION PATH
-#path_defenses = "data_warehouse/defenses.csv"
+path_defenses = "data_warehouse/defenses.csv"
 
 # path_to_output is a string that gives the path to the csv file that will give the outputted results
 #TESTING PATH
@@ -458,7 +458,7 @@ formulation is the type of formulation that you would like to use.
         - one_lineup_Type_2
         - one_lineup_Type_3
 =#
-formulation = one_lineup_Type_3
+formulation = one_lineup_Type_2
 
 ############################  Setting Formation  ############################
 

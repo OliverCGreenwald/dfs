@@ -8,12 +8,12 @@
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.num <- 2
+week.num <- 3
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "_dfn" or ""
 formulation <- 2
-overlap.lo <- 1
-overlap.hi <- 9
+overlap.lo <- 4
+overlap.hi <- 4
 exposure <- 1
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
