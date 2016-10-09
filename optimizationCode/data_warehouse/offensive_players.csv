@@ -6,7 +6,7 @@
 "WR","Jordy Nelson (7545588)","Jordy Nelson",7545588,7900,"NYG@GB 08:30PM ET","GB","Jordy","Nelson","NYG",21.92,19
 "WR","Alshon Jeffery (7545488)","Alshon Jeffery",7545488,7800,"Chi@Ind 01:00PM ET","Chi","Alshon","Jeffery","Ind",15.1,16.4
 "WR","DeAndre Hopkins (7545523)","DeAndre Hopkins",7545523,7700,"Hou@Min 01:00PM ET","Hou","DeAndre","Hopkins","Min",14.91,18.2
-"WR","Dez Bryant (7545556)","Dez Bryant",7545556,7700,"Cin@Dal 04:25PM ET","Dal","Dez","Bryant","Cin",15.18,0
+"WR","Dez Bryant (7545556)","Dez Bryant",7545556,7700,"Cin@Dal 04:25PM ET","Dal","Dez","Bryant","Cin",0,0
 "QB","Aaron Rodgers (7545358)","Aaron Rodgers",7545358,7700,"NYG@GB 08:30PM ET","GB","Aaron","Rodgers","NYG",22.81,23.8
 "WR","Marvin Jones Jr. (7545478)","Marvin Jones Jr.",7545478,7600,"Phi@Det 01:00PM ET","Det","Marvin","Jones","Phi",18.59,17.8
 "QB","Tom Brady (7545300)","Tom Brady",7545300,7500,"NE@Cle 01:00PM ET","NE","Tom","Brady","Cle",21.63,24.2
@@ -38,15 +38,15 @@
 "QB","Carson Wentz (7545309)","Carson Wentz",7545309,6400,"Phi@Det 01:00PM ET","Phi","Carson","Wentz","Det",17.89,19
 "RB","Lamar Miller (7545410)","Lamar Miller",7545410,6300,"Hou@Min 01:00PM ET","Hou","Lamar","Miller","Min",15.01,19.8
 "WR","Stefon Diggs (7545526)","Stefon Diggs",7545526,6300,"Hou@Min 01:00PM ET","Min","Stefon","Diggs","Hou",0,0
-"QB","Joe Flacco (7545319)","Joe Flacco",7545319,6200,"Was@Bal 01:00PM ET","Bal","Joe","Flacco","Was",18.8,17.1
+"QB","Joe Flacco (7545319)","Joe Flacco",7545319,6200,"Was@Bal 01:00PM ET","Bal","Joe","Flacco","Was",18.09,17.1
 "RB","Matt Forte (7545417)","Matt Forte",7545417,6200,"NYJ@Pit 01:00PM ET","NYJ","Matt","Forte","Pit",14.89,14.8
 "WR","Randall Cobb (7545592)","Randall Cobb",7545592,6200,"NYG@GB 08:30PM ET","GB","Randall","Cobb","NYG",13.06,13.2
-"QB","Kirk Cousins (7545322)","Kirk Cousins",7545322,6100,"Was@Bal 01:00PM ET","Was","Kirk","Cousins","Bal",18.76,17.9
+"QB","Kirk Cousins (7545322)","Kirk Cousins",7545322,6100,"Was@Bal 01:00PM ET","Was","Kirk","Cousins","Bal",17.69,17.9
 "RB","DeAngelo Williams (7545416)","DeAngelo Williams",7545416,6100,"NYJ@Pit 01:00PM ET","Pit","DeAngelo","Williams","NYJ",6.45,5.3
 "WR","Eric Decker (7545533)","Eric Decker",7545533,6000,"NYJ@Pit 01:00PM ET","NYJ","Eric","Decker","Pit",0,0
 "QB","Tony Romo (7545341)","Tony Romo",7545341,6000,"Cin@Dal 04:25PM ET","Dal","Tony","Romo","Cin",0,0
 "QB","Eli Manning (7545359)","Eli Manning",7545359,6000,"NYG@GB 08:30PM ET","NYG","Eli","Manning","GB",16.93,16.9
-"WR","DeSean Jackson (7545510)","DeSean Jackson",7545510,5900,"Was@Bal 01:00PM ET","Was","DeSean","Jackson","Bal",13.3,14.4
+"WR","DeSean Jackson (7545510)","DeSean Jackson",7545510,5900,"Was@Bal 01:00PM ET","Was","DeSean","Jackson","Bal",11.87,14.4
 "QB","Andy Dalton (7545343)","Andy Dalton",7545343,5900,"Cin@Dal 04:25PM ET","Cin","Andy","Dalton","Dal",18.07,19
 "RB","Eddie Lacy (7545460)","Eddie Lacy",7545460,5900,"NYG@GB 08:30PM ET","GB","Eddie","Lacy","NYG",11.55,14.7
 "WR","Terrelle Pryor Sr. (7545468)","Terrelle Pryor Sr.",7545468,5800,"NE@Cle 01:00PM ET","Cle","Terrelle","Pryor","NE",16.15,15.2
@@ -67,7 +67,7 @@
 "QB","Trevor Siemian (7545339)","Trevor Siemian",7545339,5200,"Atl@Den 04:05PM ET","Den","Trevor","Siemian","Atl",0,0
 "QB","Paxton Lynch (7545340)","Paxton Lynch",7545340,5200,"Atl@Den 04:05PM ET","Den","Paxton","Lynch","Atl",14.67,15.9
 "QB","Tyrod Taylor (7545348)","Tyrod Taylor",7545348,5200,"Buf@LA 04:25PM ET","Buf","Tyrod","Taylor","LA",17.17,17.2
-"WR","Mike Wallace (7545511)","Mike Wallace",7545511,5100,"Was@Bal 01:00PM ET","Bal","Mike","Wallace","Was",11.04,10.6
+"WR","Mike Wallace (7545511)","Mike Wallace",7545511,5100,"Was@Bal 01:00PM ET","Bal","Mike","Wallace","Was",10.13,10.6
 "QB","Sam Bradford (7545325)","Sam Bradford",7545325,5100,"Hou@Min 01:00PM ET","Min","Sam","Bradford","Hou",15.62,12.3
 "QB","Ryan Fitzpatrick (7545329)","Ryan Fitzpatrick",7545329,5100,"NYJ@Pit 01:00PM ET","NYJ","Ryan","Fitzpatrick","Pit",16.62,21
 "QB","Josh McCown (7545301)","Josh McCown",7545301,5000,"NE@Cle 01:00PM ET","Cle","Josh","McCown","NE",0,0
@@ -132,7 +132,7 @@
 "RB","Darren Sproles (7545373)","Darren Sproles",7545373,4300,"Phi@Det 01:00PM ET","Phi","Darren","Sproles","Det",9.76,10
 "RB","Jeremy Langford (7545385)","Jeremy Langford",7545385,4300,"Chi@Ind 01:00PM ET","Chi","Jeremy","Langford","Ind",0,0
 "WR","Cole Beasley (7545560)","Cole Beasley",7545560,4300,"Cin@Dal 04:25PM ET","Dal","Cole","Beasley","Cin",12.1,10.5
-"WR","Eddie Royal (7545485)","Eddie Royal",7545485,4200,"Chi@Ind 01:00PM ET","Chi","Eddie","Royal","Ind",8.99,12.5
+"WR","Eddie Royal (7545485)","Eddie Royal",7545485,4200,"Chi@Ind 01:00PM ET","Chi","Eddie","Royal","Ind",11.82,12.5
 "RB","Jeremy Hill (7545436)","Jeremy Hill",7545436,4200,"Cin@Dal 04:25PM ET","Cin","Jeremy","Hill","Dal",11.56,11.4
 "TE","Tyler Eifert (7545664)","Tyler Eifert",7545664,4200,"Cin@Dal 04:25PM ET","Cin","Tyler","Eifert","Dal",0,0
 "RB","Latavius Murray (7545450)","Latavius Murray",7545450,4200,"SD@Oak 04:25PM ET","Oak","Latavius","Murray","SD",0,0
@@ -192,11 +192,11 @@
 "WR","Brandon LaFell (7545555)","Brandon LaFell",7545555,3200,"Cin@Dal 04:25PM ET","Cin","Brandon","LaFell","Dal",9.21,8.3
 "RB","Benny Cunningham (7545443)","Benny Cunningham",7545443,3200,"Buf@LA 04:25PM ET","LA","Benny","Cunningham","Buf",4.29,4.5
 "WR","Brian Quick (7545569)","Brian Quick",7545569,3200,"Buf@LA 04:25PM ET","LA","Brian","Quick","Buf",8.13,7.2
-"RB","Ka'Deem Carey (7545386)","Ka'Deem Carey",7545386,3100,"Chi@Ind 01:00PM ET","Chi","Ka'Deem","Carey","Ind",0,4
+"RB","Ka'Deem Carey (7545386)","Ka'Deem Carey",7545386,3100,"Chi@Ind 01:00PM ET","Chi","Ka'Deem","Carey","Ind",2.71,4
 "TE","Dwayne Allen (7545619)","Dwayne Allen",7545619,3100,"Chi@Ind 01:00PM ET","Ind","Dwayne","Allen","Chi",7.11,8.1
 "RB","Alfred Blue (7545412)","Alfred Blue",7545412,3100,"Hou@Min 01:00PM ET","Hou","Alfred","Blue","Min",2.25,3.7
 "WR","Jaelen Strong (7545527)","Jaelen Strong",7545527,3100,"Hou@Min 01:00PM ET","Hou","Jaelen","Strong","Min",4.48,3.8
-"WR","Adam Thielen (7545528)","Adam Thielen",7545528,3100,"Hou@Min 01:00PM ET","Min","Adam","Thielen","Hou",7.92,11.5
+"WR","Adam Thielen (7545528)","Adam Thielen",7545528,3100,"Hou@Min 01:00PM ET","Min","Adam","Thielen","Hou",8.55,11.5
 "WR","Robby Anderson (7545541)","Robby Anderson",7545541,3100,"NYJ@Pit 01:00PM ET","NYJ","Robby","Anderson","Pit",4.89,9
 "WR","Jalin Marshall (7545542)","Jalin Marshall",7545542,3100,"NYJ@Pit 01:00PM ET","NYJ","Jalin","Marshall","Pit",0,2.2
 "WR","Tyler Boyd (7545565)","Tyler Boyd",7545565,3100,"Cin@Dal 04:25PM ET","Cin","Tyler","Boyd","Dal",6.52,7.1
@@ -225,7 +225,7 @@
 "WR","Deonte Thompson (7545486)","Deonte Thompson",7545486,3000,"Chi@Ind 01:00PM ET","Chi","Deonte","Thompson","Ind",2.27,1.9
 "WR","Devin Street (7545489)","Devin Street",7545489,3000,"Chi@Ind 01:00PM ET","Ind","Devin","Street","Chi",0,0
 "WR","Joshua Bellamy (7545490)","Joshua Bellamy",7545490,3000,"Chi@Ind 01:00PM ET","Chi","Joshua","Bellamy","Ind",0,0
-"WR","Cameron Meredith (7545491)","Cameron Meredith",7545491,3000,"Chi@Ind 01:00PM ET","Chi","Cameron","Meredith","Ind",12.25,5.8
+"WR","Cameron Meredith (7545491)","Cameron Meredith",7545491,3000,"Chi@Ind 01:00PM ET","Chi","Cameron","Meredith","Ind",11.03,5.8
 "WR","Quan Bray (7545492)","Quan Bray",7545492,3000,"Chi@Ind 01:00PM ET","Ind","Quan","Bray","Chi",0,2.9
 "WR","Chester Rogers (7545495)","Chester Rogers",7545495,3000,"Chi@Ind 01:00PM ET","Ind","Chester","Rogers","Chi",5.22,6.7
 "RB","Isaiah Pead (7545392)","Isaiah Pead",7545392,3000,"Ten@Mia 01:00PM ET","Mia","Isaiah","Pead","Ten",7,5.2
@@ -252,11 +252,11 @@
 "RB","Ronnie Hillman (7545411)","Ronnie Hillman",7545411,3000,"Hou@Min 01:00PM ET","Min","Ronnie","Hillman","Hou",0,0
 "RB","Jay Prosch (7545413)","Jay Prosch",7545413,3000,"Hou@Min 01:00PM ET","Hou","Jay","Prosch","Min",0,0
 "RB","Tyler Ervin (7545415)","Tyler Ervin",7545415,3000,"Hou@Min 01:00PM ET","Hou","Tyler","Ervin","Min",0,1.1
-"WR","Charles Johnson (7545520)","Charles Johnson",7545520,3000,"Hou@Min 01:00PM ET","Min","Charles","Johnson","Hou",10.72,8
-"WR","Jarius Wright (7545521)","Jarius Wright",7545521,3000,"Hou@Min 01:00PM ET","Min","Jarius","Wright","Hou",0,0
+"WR","Charles Johnson (7545520)","Charles Johnson",7545520,3000,"Hou@Min 01:00PM ET","Min","Charles","Johnson","Hou",9.86,8
+"WR","Jarius Wright (7545521)","Jarius Wright",7545521,3000,"Hou@Min 01:00PM ET","Min","Jarius","Wright","Hou",4.08,0
 "WR","Keith Mumphery (7545522)","Keith Mumphery",7545522,3000,"Hou@Min 01:00PM ET","Hou","Keith","Mumphery","Min",0,0
 "WR","Braxton Miller (7545524)","Braxton Miller",7545524,3000,"Hou@Min 01:00PM ET","Hou","Braxton","Miller","Min",1.7,5.4
-"WR","Cordarrelle Patterson (7545525)","Cordarrelle Patterson",7545525,3000,"Hou@Min 01:00PM ET","Min","Cordarrelle","Patterson","Hou",9.84,7.2
+"WR","Cordarrelle Patterson (7545525)","Cordarrelle Patterson",7545525,3000,"Hou@Min 01:00PM ET","Min","Cordarrelle","Patterson","Hou",8.75,7.2
 "WR","Laquon Treadwell (7545529)","Laquon Treadwell",7545529,3000,"Hou@Min 01:00PM ET","Min","Laquon","Treadwell","Hou",0,1.6
 "RB","Fitzgerald Toussaint (7545419)","Fitzgerald Toussaint",7545419,3000,"NYJ@Pit 01:00PM ET","Pit","Fitzgerald","Toussaint","NYJ",0,0
 "RB","Roosevelt Nix (7545421)","Roosevelt Nix",7545421,3000,"NYJ@Pit 01:00PM ET","Pit","Roosevelt","Nix","NYJ",0,0
@@ -277,7 +277,7 @@
 "WR","Cody Latimer (7545553)","Cody Latimer",7545553,3000,"Atl@Den 04:05PM ET","Den","Cody","Latimer","Atl",0,1.8
 "WR","Taylor Gabriel (7545554)","Taylor Gabriel",7545554,3000,"Atl@Den 04:05PM ET","Atl","Taylor","Gabriel","Den",5.65,0
 "TE","Jacob Tamme (7545653)","Jacob Tamme",7545653,3000,"Atl@Den 04:05PM ET","Atl","Jacob","Tamme","Den",8.72,9.9
-"RB","Lance Dunbar (7545431)","Lance Dunbar",7545431,3000,"Cin@Dal 04:25PM ET","Dal","Lance","Dunbar","Cin",4.71,0
+"RB","Lance Dunbar (7545431)","Lance Dunbar",7545431,3000,"Cin@Dal 04:25PM ET","Dal","Lance","Dunbar","Cin",0,0
 "RB","Rex Burkhead (7545432)","Rex Burkhead",7545432,3000,"Cin@Dal 04:25PM ET","Cin","Rex","Burkhead","Dal",0,0
 "RB","Rod Smith (7545434)","Rod Smith",7545434,3000,"Cin@Dal 04:25PM ET","Dal","Rod","Smith","Cin",0,0
 "RB","Keith Smith (7545435)","Keith Smith",7545435,3000,"Cin@Dal 04:25PM ET","Dal","Keith","Smith","Cin",0,0
