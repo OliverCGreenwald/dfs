@@ -31,29 +31,28 @@ Variables for solving the problem (change these)
 num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
-num_overlap = 2
+num_overlap = 3
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
 exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-path_offensive_players = "data_warehouse/2016_cleaned_input/wk3/offensive_players.csv"
+#path_offensive_players = "data_warehouse/2016_cleaned_input/wk2/offensive_players.csv"
 #PRODUCTION PATH
-#path_offensive_players = "data_warehouse/offensive_players.csv"
+path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
+#path_defenses = "data_warehouse/2016_cleaned_input/wk2/defenses.csv"
 #PRODUCTION PATH
-#path_defenses = "data_warehouse/defenses.csv"
+path_defenses = "data_warehouse/defenses.csv"
 
 # path_to_output is a string that gives the path to the csv file that will give the outputted results
 #TESTING PATH
-#path_to_output= "../testingLineups/output.csv"
+path_to_output= "output.csv"
 #PRODUCTION PATH
-#path_to_output= "/Users/Alan/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis/data_warehouse/testing_lineups/week3_overlap_1.csv"
-path_to_output= "../resultsAnalysis/data_warehouse/testing_lineups/week3_dfn"
+#path_to_output= "../resultsAnalysis/data_warehouse/testing_lineups/week2_dfn_noflex"
 
 ############################  Lineup Generator Functions  ############################
 
@@ -281,8 +280,9 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 4)
 
     # between 1 and 2 TE (Because of FLEX player)
-    @addConstraint(m, 1 <= sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
-    @addConstraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
+    @addConstraint(m, 1 == sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    #@addConstraint(m, 1 <= sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    #@addConstraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
 
     # Financial Constraint
     @addConstraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 50000)
@@ -459,7 +459,7 @@ formulation is the type of formulation that you would like to use.
         - one_lineup_Type_2
         - one_lineup_Type_3
 =#
-formulation = one_lineup_Type_3
+formulation = one_lineup_Type_2
 
 ############################  Setting Formation  ############################
 
@@ -770,12 +770,12 @@ end
 
 
 # Running the code
-# create_lineups(num_lineups, num_overlap, path_offensive_players, path_defenses, formulation, path_to_output)
+ create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output)
 
 # # Varying num_lineups
-for i=1:9
-    create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation3_overlap_", i, "_exposure_", exposure, ".csv"))
-end
+# for i=1:9
+#     create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation2_overlap_", i, "_exposure_", exposure, ".csv"))
+# end
 
 # # Varying exposure (need to change code first)
 # for i=1:9

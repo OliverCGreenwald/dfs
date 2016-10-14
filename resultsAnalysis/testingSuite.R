@@ -9,11 +9,11 @@
 
 ####### SET PARAMETER VALUES #########
 week.num <- 4
-contest.entry.fee <- "$3"
-predictions.source <- "_dfn_noflex" # Either "_dfn" or ""
+contest.entry.fee <- "$20"
+predictions.source <- "_dfn" # Either "_dfn" or ""
 formulation <- 2
-overlap.lo <- 1
-overlap.hi <- 9
+overlap.lo <- 3
+overlap.hi <- 3
 exposure <- 1
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
