@@ -11,10 +11,11 @@
 week.num <- 4
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "_dfn" or ""
-formulation <- 2
-overlap.lo <- 3
-overlap.hi <- 3
+formulation <- 4
+overlap.lo <- 1
+overlap.hi <- 9
 exposure <- 1
+
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
 pnlMatrix <- matrix(data = NA, nrow = 9, ncol = 2, dimnames = list(NULL, c("Overlap","PnL")))
@@ -105,4 +106,4 @@ for (k in overlap.lo:overlap.hi) {
 }
 
 print(pnlMatrix)
-#save(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", exposure, ".RData"))
+saveRDS(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", exposure, ".rds"))

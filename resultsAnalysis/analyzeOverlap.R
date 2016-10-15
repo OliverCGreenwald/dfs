@@ -1,18 +1,21 @@
 #setwd("~/Projects/DFS/resultsAnalysis")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis")
 
-load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week3_dfn_formulation2_exposure_1.RData")
-allResults <- pnlMatrix
-colnames(allResults)[2] <- "wk3_form2"
+week.latest <- 5
+#week.num <- 5
+contest.entry.fee <- "$20"
+predictions.source <- "_dfn" # Either "_dfn" or ""
+formulation <- 4
+#overlap.lo <- 1
+#overlap.hi <- 9
+exposure <- 1
 
-load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation2_exposure_1.RData")
-allResults <- cbind(allResults, pnlMatrix[,'PnL'])
-colnames(allResults)[3] <- "wk2_form2"
+all <- matrix(data = NA, nrow=9, ncol = 0)
+all <- cbind(all, 1:9)
+for (i in 2:week.latest) {
+  temp <- readRDS(paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", i, predictions.source, "_formulation", formulation, "_exposure_", exposure, ".rds"))
+  all <- cbind(all, temp[,2])
+}
 
-load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week3_dfn_formulation3_exposure_1.RData")
-allResults <- cbind(allResults, pnlMatrix[,'PnL'])
-colnames(allResults)[4] <- "wk3_form3"
-
-load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
-allResults <- cbind(allResults, pnlMatrix[,'PnL'])
-colnames(allResults)[5] <- "wk2_form3"
+colnames(all) <- c('Overlap','PnL_Wk2','PnL_Wk3','PnL_Wk4','PnL_Wk5')
+View(all)
