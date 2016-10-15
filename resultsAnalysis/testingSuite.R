@@ -8,10 +8,11 @@
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.num <- 4
+week.lo <- 5
+week.hi <- 5
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "_dfn" or ""
-formulation <- 4
+formulation <- 5
 overlap.lo <- 1
 overlap.hi <- 9
 exposure <- 1
@@ -21,89 +22,93 @@ exposure <- 1
 pnlMatrix <- matrix(data = NA, nrow = 9, ncol = 2, dimnames = list(NULL, c("Overlap","PnL")))
 pnlMatrix[1:9,'Overlap'] <- 1:9
 
-####### LOAD FULL CONTEST RESULTS #########
-file.name <- paste0("data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv")
-full.results.data <- read.csv(file = file.name, stringsAsFactors = F)
+# Loop through weeks
+for (week.num in week.lo:week.hi) {
 
-####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA #########
-file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
-player.performance <- read.csv(file = file.name, stringsAsFactors = F)
-player.performance$Actual.Score[is.na(player.performance$Actual.Score)] <- 0
-
-player.performance$Player <- sub(' Sr.','', player.performance$Player)
-player.performance$Player <- sub(' Jr.','', player.performance$Player)
-
-######## IMPORT PAYOUT STRUCTURE ########
-file.name <- paste0("data_warehouse/weekly_payout_structure/", contest.entry.fee, "_payout_structure_week", week.num, ".csv")
-payout.data <- read.csv(file = file.name, stringsAsFactors = F)
-
-######## LOOP THROUGH OVERLAP PARAMETER VALUES ########
-for (k in overlap.lo:overlap.hi) {
-
-  ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
-  file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
-  lineups <- read.csv(file = file.name, stringsAsFactors = F)
+  ####### LOAD FULL CONTEST RESULTS #########
+  file.name <- paste0("data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv")
+  full.results.data <- read.csv(file = file.name, stringsAsFactors = F)
   
-  ######## CALCULATE FPTS FOR EACH LINEUP ########
-  for (i in 1:ncol(lineups)) {
-    lineups[,i] <- substr(lineups[,i], 1, regexpr('\\(', lineups[,i]) - 2)
-    lineups[,i] <- sub(' Sr.','', lineups[,i])
-    lineups[,i] <- sub(' Jr.','', lineups[,i]) 
-  }
-  lineups[,ncol(lineups)] <- substr(lineups[,ncol(lineups)], 1, nchar(lineups[,ncol(lineups)])-1)
+  ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA #########
+  file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
+  player.performance <- read.csv(file = file.name, stringsAsFactors = F)
+  player.performance$Actual.Score[is.na(player.performance$Actual.Score)] <- 0
   
-  total_results <- player.performance[,c('Player', 'Actual.Score')]
-  lineups$total <- 0
+  player.performance$Player <- sub(' Sr.','', player.performance$Player)
+  player.performance$Player <- sub(' Jr.','', player.performance$Player)
   
-  for (index in 1:nrow(lineups)){
-    row <- t(lineups[index,])
-    colnames(row) <- 'Player'
-    row <- merge(row, total_results, by = 'Player')
-    lineups$total[index] <- sum(row$Actual.Score)
-  }
+  ######## IMPORT PAYOUT STRUCTURE ########
+  file.name <- paste0("data_warehouse/weekly_payout_structure/", contest.entry.fee, "_payout_structure_week", week.num, ".csv")
+  payout.data <- read.csv(file = file.name, stringsAsFactors = F)
   
-  plot(lineups$total, main = paste0("Week ", week.num, ", Overlap ", k), xlab = "Lineup Index", ylab = "Lineup FPts")
+  ######## LOOP THROUGH OVERLAP PARAMETER VALUES ########
+  for (k in overlap.lo:overlap.hi) {
   
-
-  ######## CALCULATE PLACE AND PAYOUT FOR EACH LINEUP ########
-  # print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
-  # lineups$total[1] <- 243 # sanity check
-  for (i in 1:nrow(lineups)) {
-    lineups$place[i] <- which.min(abs(full.results.data$Points-lineups$total[i])) # not precise but good estimate (can be done better probably)
-    if (lineups$place[i] > payout.data$Place_hi[nrow(payout.data)]) {
-      lineups$payout[i] <- 0
+    ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
+    file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
+    lineups <- read.csv(file = file.name, stringsAsFactors = F)
+    
+    ######## CALCULATE FPTS FOR EACH LINEUP ########
+    for (i in 1:ncol(lineups)) {
+      lineups[,i] <- substr(lineups[,i], 1, regexpr('\\(', lineups[,i]) - 2)
+      lineups[,i] <- sub(' Sr.','', lineups[,i])
+      lineups[,i] <- sub(' Jr.','', lineups[,i]) 
     }
-    else {
-      for (j in 1:nrow(payout.data)) {
-        if (lineups$place[i] >= payout.data$Place_lo[j] && lineups$place[i] <= payout.data$Place_hi[j]) {
-          lineups$payout[i] <- payout.data$Payout[j]
-          break
+    lineups[,ncol(lineups)] <- substr(lineups[,ncol(lineups)], 1, nchar(lineups[,ncol(lineups)])-1)
+    
+    total_results <- player.performance[,c('Player', 'Actual.Score')]
+    lineups$total <- 0
+    
+    for (index in 1:nrow(lineups)){
+      row <- t(lineups[index,])
+      colnames(row) <- 'Player'
+      row <- merge(row, total_results, by = 'Player')
+      lineups$total[index] <- sum(row$Actual.Score)
+    }
+    
+    plot(lineups$total, main = paste0("Week ", week.num, ", Overlap ", k), xlab = "Lineup Index", ylab = "Lineup FPts")
+    
+  
+    ######## CALCULATE PLACE AND PAYOUT FOR EACH LINEUP ########
+    # print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
+    # lineups$total[1] <- 243 # sanity check
+    for (i in 1:nrow(lineups)) {
+      lineups$place[i] <- which.min(abs(full.results.data$Points-lineups$total[i])) # not precise but good estimate (can be done better probably)
+      if (lineups$place[i] > payout.data$Place_hi[nrow(payout.data)]) {
+        lineups$payout[i] <- 0
+      }
+      else {
+        for (j in 1:nrow(payout.data)) {
+          if (lineups$place[i] >= payout.data$Place_lo[j] && lineups$place[i] <= payout.data$Place_hi[j]) {
+            lineups$payout[i] <- payout.data$Payout[j]
+            break
+          }
         }
       }
     }
-  }
+      
+    ######## FUNCTION FOR CALCULATING TOTAL PNL OF LINEUPS ########
+    # won't be exact b/c not accounting for ties
+    calculatePnL <- function(numberEntries, lineups) {
+      lineups <- lineups[1:numberEntries,]  
+      return(sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
+    }
     
-  ######## FUNCTION FOR CALCULATING TOTAL PNL OF LINEUPS ########
-  # won't be exact b/c not accounting for ties
-  calculatePnL <- function(numberEntries, lineups) {
-    lineups <- lineups[1:numberEntries,]  
-    return(sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
+    ######## ADD TO PNL MATRIX ########
+    paste0("Total PnL: ", sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
+    pnlMatrix[k, 'PnL'] <- sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups)
+    
+    ######## PNL VS NUMBER OF LINEUPS ########
+    pnls <- rep(0,nrow(lineups))
+    for (i in 1:length(pnls)) {
+      pnls[i] <- calculatePnL(nrow(lineups)-i+1, lineups)
+    }
+    
+    numLineups <- seq(from = nrow(lineups), to = nrow(lineups)-length(pnls)+1)
+    plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l")
+    abline(h=0, col = "red")
   }
   
-  ######## ADD TO PNL MATRIX ########
-  paste0("Total PnL: ", sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
-  pnlMatrix[k, 'PnL'] <- sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups)
-  
-  ######## PNL VS NUMBER OF LINEUPS ########
-  pnls <- rep(0,nrow(lineups))
-  for (i in 1:length(pnls)) {
-    pnls[i] <- calculatePnL(nrow(lineups)-i+1, lineups)
-  }
-  
-  numLineups <- seq(from = nrow(lineups), to = nrow(lineups)-length(pnls)+1)
-  plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l")
-  abline(h=0, col = "red")
+  print(pnlMatrix)
+  saveRDS(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", exposure, ".rds"))
 }
-
-print(pnlMatrix)
-saveRDS(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", exposure, ".rds"))
