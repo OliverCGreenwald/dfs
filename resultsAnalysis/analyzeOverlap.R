@@ -16,13 +16,13 @@ for (i in 2:week.latest) {
   temp <- readRDS(paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", i, predictions.source, "_formulation", formulation, "_exposure_", exposure, ".rds"))
   all <- cbind(all, temp[,2])
 }
-
-colnames(all) <- c('Overlap','PnL_Wk2','PnL_Wk3','PnL_Wk4','PnL_Wk5')
+all <- cbind(all, rowSums(all[,-1]))
+colnames(all) <- c('Overlap','PnL_Wk2','PnL_Wk3','PnL_Wk4','PnL_Wk5', 'Sum')
 saveRDS(all, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_allweeks", predictions.source, "_formulation", formulation, "_exposure_", exposure, ".rds"))
-View(all)
 
 
 # Compare PnL matrices
 form2entry20 <- readRDS(file = "../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_allweeks_dfn_formulation2_exposure_1.rds")
 form4entry20 <- readRDS(file = "../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_allweeks_dfn_formulation4_exposure_1.rds")
 form5entry20 <- readRDS(file = "../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_allweeks_dfn_formulation5_exposure_1.rds")
+
