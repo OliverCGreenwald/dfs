@@ -5,7 +5,7 @@
 ############
 
 
-# Logs and databases #
+# R Files #
 ######################
 .RData
 .Rhistory
