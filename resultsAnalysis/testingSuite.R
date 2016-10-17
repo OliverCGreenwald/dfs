@@ -8,14 +8,14 @@
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 3
-week.hi <- 3
+week.lo <- 2
+week.hi <- 5
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "_dfn" or ""
-formulation <- 4
-overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
-overlap.hi <- 4
-exposure.range <- seq(from = 0.4, to = 0.4, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
+formulation <- 6
+overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
+overlap.hi <- 9
+exposure.range <- seq(from = 1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
 # exposure.range <- 0.4
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########

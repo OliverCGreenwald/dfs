@@ -5,9 +5,9 @@ week.latest <- 5
 #week.num <- 5
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "_dfn" or ""
-formulation <- 5
-#overlap.lo <- 1
-#overlap.hi <- 9
+formulation <- 6
+overlap.lo <- 1
+overlap.hi <- 9
 exposure <- 1
 
 all <- matrix(data = NA, nrow=9, ncol = 0)

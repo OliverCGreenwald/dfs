@@ -20,7 +20,7 @@ using Gurobi
 # Once again, to install run Pkg.add("JuMP")
 using JuMP
 
-
+include(formulations.jl)
 
 ############################  Setting Variables  ############################
 
@@ -28,7 +28,7 @@ using JuMP
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 5
+num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 4
@@ -38,145 +38,21 @@ exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-#path_offensive_players = "data_warehouse/2016_cleaned_input/wk3/offensive_players.csv"
+path_offensive_players = "data_warehouse/2016_cleaned_input/wk2/offensive_players.csv"
 #PRODUCTION PATH
-path_offensive_players = "data_warehouse/offensive_players.csv"
+# path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-#path_defenses = "data_warehouse/2016_cleaned_input/wk3/defenses.csv"
+path_defenses = "data_warehouse/2016_cleaned_input/wk2/defenses.csv"
 #PRODUCTION PATH
-path_defenses = "data_warehouse/defenses.csv"
+# path_defenses = "data_warehouse/defenses.csv"
 
 # path_to_output is a string that gives the path to the csv file that will give the outputted results
 #TESTING PATH
-#path_to_output= "../testingLineups/output.csv"
+#path_to_output = "../resultsAnalysis/data_warehouse/testing_lineups/week2_dfn"
 #PRODUCTION PATH
-path_to_output= "output.csv"
-
-##############
-
-# This is a function that creates one lineup using the No Stacking formulation from the paper
-# - Feasibility Constraints 
-# - Defense constraint (Defense can't be playing any offensive players)
-# - QB-WR Stack (If you have a QB then also include a WR from the same team)
-# - QB-oppWR
-function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR)
-    #m = Model(solver=GLPKSolverMIP())
-    m = Model(solver=GurobiSolver())
-
-    # Variable for Offensive_Players in lineup.
-    @variable(m, offensive_players_matrix[i=1:num_lineups, j=1:num_offensive_players], Bin)
-
-    # Variable for Defense in lineup.
-    @variable(m, defenses_lineup[i=1:num_lineups, j=1:num_defenses], Bin)
-
-    @variable(m, QBWR_stack[i=1:num_lineups, j=1:num_pairs], Bin)
-    # #=
-    # DraftKings Fantasy Contests require the following lineup:
-    #     - 1xQB
-    #     - 2xRB
-    #     - 3xWR 
-    #     - 1xTE
-    #     - 1xFLEX (RB/WR/TE)
-    #     - 1xDST
-    # Whose salaries sum to less than $55,000
-    # =#
-
-    @constraints(m, begin
-        #One Defense per lineup coinstraint
-        cell[i=1:num_lineups], sum(defenses_lineup[i,:]) == 1
-
-        #8 Offensive Players Constraint 
-        row[i=1:num_lineups], sum(offensive_players_matrix[i,:]) == 8
-    end)
-        
-    for lineup in 1:num_lineups
-        # One QB constraint
-        @constraint(m, sum{quarterBack[j]*offensive_players_matrix[lineup, j], j=1:num_offensive_players} == 1)
-
-        # between 2 and 3 RB (Because of FLEX player)
-        @constraint(m, 2<=sum{runningBack[j]*offensive_players_matrix[lineup, j], j=1:num_offensive_players})
-        @constraint(m, sum{runningBack[j]*offensive_players_matrix[lineup, j], j=1:num_offensive_players} <= 3)
-
-        # between 3 and 4 WR (Because of FLEX player)
-        @constraint(m, 3 <= sum{wideReciever[j]*offensive_players_matrix[lineup, j], j=1:num_offensive_players})
-        @constraint(m, sum{wideReciever[j]*offensive_players_matrix[lineup, j], j=1:num_offensive_players} <= 4)
-
-        # between 1 and 2 TE (Because of FLEX player)
-        @constraint(m, 1 <= sum{tightEnd[j]*offensive_players_matrix[lineup, j], j=1:num_offensive_players})
-        @constraint(m, sum{tightEnd[j]*offensive_players_matrix[lineup, j], j=1:num_offensive_players} <= 2)
-
-        # Financial Constraint
-        @constraint(m, sum{offensive_players[j,:Salary]*offensive_players_matrix[lineup, j], j=1:num_offensive_players} + sum{defenses[j,:Salary]*defenses_lineup[lineup, j], j=1:num_defenses} <= 50000)
-
-        # No Defenses going against Offensive_Players constraint
-        @constraint(m, constr[i=1:num_defenses], 6*defenses_lineup[lineup,i] + sum{defenses_opponents[k, i]*offensive_players_matrix[lineup, k], k=1:num_offensive_players}<=6)
-
-        # Must have a QB/WR Pair
-        # QB is weighted 9 and WR is weighted 1 so in order to have a sum >= 10 there must be 
-        # at least a QB/WR Pair
-
-        #@constraint(m, constr[i=1:num_pairs], 10*QBWR_stack[lineup,i] <= sum{team_pairs[k,i]*offensive_players_matrix[lineup, k], k=1:num_offensive_players})
-        #@constraint(m, sum{QBWR_stack[i], i=1:num_pairs} >= 1)
-    end
-
-    #Overlap Constraint
-    for index0 in 1:num_lineups
-        for index1 in index0+1:num_lineups
-            @constraint(m, sum{offensive_players_matrix[index0,j]*offensive_players_matrix[index1,j], j=1:num_offensive_players} + sum{defenses_lineup[index0,j]*defenses_lineup[index1,j], j=1:num_defenses} <= num_overlap)
-        end
-    end
-    #=
-
-    
-    
-
-    # Must have a QB/opp-WR Pair
-    @defVar(m, QBoppWR_stack[i=1:num_pairs_QBoppWR], Bin)
-    @addConstraint(m, constr[i=1:num_pairs_QBoppWR], 10*QBoppWR_stack[i] <= sum{team_pairs_QBoppWR[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
-    @addConstraint(m, sum{QBoppWR_stack[i], i=1:num_pairs_QBoppWR} >= 1)
-
-    # Overlap Constraint
-    @constraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
-
-    # Exposure Constraint
-    @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
-
-    =# #Objective
-    @objective(m, Max, sum{offensive_players[j,:Projection]*offensive_players_matrix[i,j], i=1:num_lineups, j=1:num_offensive_players} + sum{defenses[j,:Projection]*defenses_lineup[i,j], i=1:num_lineups, j=1:num_defenses})
-
-
-    # Solve the integer programming problem
-    println("Solving Problem...")
-    @printf("\n")
-    status = solve(m);
-
-
-    # Puts the output of one lineup into a format that will be used later
-    if status==:Optimal
-        solution = zeros(Int, 9, num_lineups)
-        for lineup=1:num_lineups
-            index = 1
-            for player=1:num_offensive_players
-                if(index < 9)
-                    if(getvalue(offensive_players_matrix[lineup,player]) >= 0.9 && getvalue(offensive_players_matrix[lineup,player]) <= 1.1)
-                        solution[index, lineup] = player
-                        index += 1
-                    end
-                end
-            end
-        end
-        for defense in 1:num_defenses, lineup in 1:num_lineups
-            if getvalue(defenses_lineup[num_lineups, defense]) >= 0.9 && getvalue(defenses_lineup[num_lineups, defense]) <= 1.1
-                solution[9,lineup] = defense
-            end
-        end
-        println("#-------- SOLVED --------#")
-        return(solution)
-    end
-end
-
+path_to_output = "output.csv"
 
 ############################  Setting Formation  ############################
 
@@ -187,12 +63,16 @@ formulation is the type of formulation that you would like to use.
         - one_lineup_Type_1
         - one_lineup_Type_2
         - one_lineup_Type_3
+        - one_lineup_Type_4
+        - one_lineup_Type_5
+        - one_lineup_Type_6
 =#
-formulation = one_lineup_Type_3
+formulation = one_lineup_Type_6
+
 
 ############################  Setting Formation  ############################
 
-function create_lineups(num_lineups, num_overlap, path_offensive_players, path_defenses, formulation, path_to_output)
+function create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output)
     #=
     num_lineups is an integer that is the number of lineups (Line 28)
     num_overlap is an integer that gives the overlap between each lineup (Line 31)
@@ -221,6 +101,9 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
     # runningBack stores the information on which players are runningBack
     runningBack = Array(Int64, 0)
 
+    # cheapRunningBack stores the information on which players are runningBack that is less than 5000
+    cheapRunningBack = Array(Int64, 0)
+
     # wideReciever stores the information on which players are wideReciever
     wideReciever = Array(Int64, 0)
 
@@ -238,21 +121,30 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
             runningBack=vcat(runningBack,fill(0,1))
             wideReciever=vcat(wideReciever,fill(0,1))
             tightEnd=vcat(tightEnd,fill(0,1))
+            cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
         elseif offensive_players[i,:Position] == "RB"
             quarterBack=vcat(quarterBack,fill(0,1))
             runningBack=vcat(runningBack,fill(1,1))
             wideReciever=vcat(wideReciever,fill(0,1))
             tightEnd=vcat(tightEnd,fill(0,1))
+            cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+            if offensive_players[i,:Salary] < 5000
+                cheapRunningBack=vcat(cheapRunningBack,fill(1,1))
+            else 
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+            end
         elseif offensive_players[i,:Position] == "WR"
             quarterBack=vcat(quarterBack,fill(0,1))
             runningBack=vcat(runningBack,fill(0,1))
             wideReciever=vcat(wideReciever,fill(1,1))
             tightEnd=vcat(tightEnd,fill(0,1))
+            cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
         else
             quarterBack=vcat(quarterBack,fill(0,1))
             runningBack=vcat(runningBack,fill(0,1))
             wideReciever=vcat(wideReciever,fill(0,1))
             tightEnd=vcat(tightEnd,fill(1,1))
+            cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
         end
     end
 
@@ -368,47 +260,119 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
 
 
     # Lineups using formulation as the stacking type
-    solution= formulation(offensive_players, defenses, hcat(zeros(Int, num_offensive_players + num_defenses), zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR)
+    the_lineup= formulation(offensive_players, defenses, hcat(zeros(Int, num_offensive_players + num_defenses), zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack)
+    the_lineup2 = formulation(offensive_players, defenses, hcat(the_lineup, zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack)
+    tracer = hcat(the_lineup, the_lineup2)
+    for i=1:(num_lineups-2)
+        try
+            thelineup=formulation(offensive_players, defenses, tracer, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack)
+            tracer = hcat(tracer,thelineup)
+        catch
+            break
+        end
+    end
 
+#     # FOR TESTING FILES WITHOUT PLAYER IDs
+#     # Create the output csv file
+#     # Write File in the following order:
+#     # Names of the QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX (RB/WR/TE), and DST
+#     lineup2 = ""
+#     for j = 1:size(tracer)[2]
+#         lineup = ["" "" "" "" "" "" "" "" ""]
+#         for i =1:num_offensive_players
+#             if tracer[i,j] == 1
+#                 if quarterBack[i]==1
+#                     lineup[1] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                 elseif runningBack[i] == 1
+#                     if lineup[2] == ""
+#                         lineup[2] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[3] == ""
+#                         lineup[3] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[8] == ""
+#                         lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     end
+#                 elseif wideReciever[i]==1
+#                     if lineup[4] == ""
+#                         lineup[4] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[5] ==""
+#                         lineup[5] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[6] == ""
+#                         lineup[6] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[8] == ""
+#                         lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     end
+#                 elseif tightEnd[i]==1
+#                     if lineup[7] == ""
+#                         lineup[7] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     elseif lineup[8] ==""
+#                         lineup[8] = string(offensive_players[i,1], " ", offensive_players[i,2])
+#                     end
+#                 end
+#             end
+#         end
+#         for i =1:num_defenses
+#             if tracer[num_offensive_players+i,j] == 1
+#                 lineup[9] = string(defenses[i,2])
+#             end
+#         end
+#         for name in lineup
+#             lineup2 = string(lineup2, name, ",")
+#         end
+#         lineup2 = chop(lineup2)
+#         lineup2 = string(lineup2, """
+
+#         """)
+#     end
+#     outfile = open(path_to_output, "w")
+#     write(outfile, lineup2)
+#     close(outfile)
+# end
+
+    # FOR REAL FILES WITH PLAYER IDs
+    # Create the output csv file FOR DRAFTKINGS INPUT
+    # Write File in the following order:
+    # Names of the QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX (RB/WR/TE), and DST
     lineup2 = ""
     header = "QB,RB,RB,WR,WR,WR,TE,FLEX,DST"
     header = string(header, """
 
     """)
-    for j = 1:size(solution, 2)
-        println(solution[:,1])
+    for j = 1:size(tracer)[2]
         lineup = ["" "" "" "" "" "" "" "" ""]
-        for i = 1:size(solution, 1)
-            playerId = solution[i,j]
-            if i == 9
-                lineup[9] = string(defenses[playerId,2])
+        for i =1:num_offensive_players
+            if tracer[i,j] == 1
+                if quarterBack[i]==1
+                    lineup[1] = string(offensive_players[i,2])
+                elseif runningBack[i] == 1
+                    if lineup[2] == ""
+                        lineup[2] = string(offensive_players[i,2])
+                    elseif lineup[3] == ""
+                        lineup[3] = string(offensive_players[i,2])
+                    elseif lineup[8] == ""
+                        lineup[8] = string(offensive_players[i,2])
+                    end
+                elseif wideReciever[i]==1
+                    if lineup[4] == ""
+                        lineup[4] = string(offensive_players[i,2])
+                    elseif lineup[5] ==""
+                        lineup[5] = string(offensive_players[i,2])
+                    elseif lineup[6] == ""
+                        lineup[6] = string(offensive_players[i,2])
+                    elseif lineup[8] == ""
+                        lineup[8] = string(offensive_players[i,2])
+                    end
+                elseif tightEnd[i]==1
+                    if lineup[7] == ""
+                        lineup[7] = string(offensive_players[i,2])
+                    elseif lineup[8] ==""
+                        lineup[8] = string(offensive_players[i,2])
+                    end
+                end
             end
-            if quarterBack[playerId]==1
-                lineup[1] = string(offensive_players[playerId,2])
-            elseif runningBack[playerId] == 1
-                if lineup[2] == ""
-                    lineup[2] = string(offensive_players[playerId,2])
-                elseif lineup[3] == ""
-                    lineup[3] = string(offensive_players[playerId,2])
-                elseif lineup[8] == ""
-                    lineup[8] = string(offensive_players[playerId,2])
-                end
-            elseif wideReciever[playerId]==1
-                if lineup[4] == ""
-                    lineup[4] = string(offensive_players[playerId,2])
-                elseif lineup[5] ==""
-                    lineup[5] = string(offensive_players[playerId,2])
-                elseif lineup[6] == ""
-                    lineup[6] = string(offensive_players[playerId,2])
-                elseif lineup[8] == ""
-                    lineup[8] = string(offensive_players[playerId,2])
-                end
-            elseif tightEnd[playerId]==1
-                if lineup[7] == ""
-                    lineup[7] = string(offensive_players[playerId,2])
-                elseif lineup[8] ==""
-                    lineup[8] = string(offensive_players[playerId,2])
-                end
+        end
+        for i =1:num_defenses
+            if tracer[num_offensive_players+i,j] == 1
+                lineup[9] = string(defenses[i,2])
             end
         end
         for name in lineup
@@ -423,9 +387,20 @@ function create_lineups(num_lineups, num_overlap, path_offensive_players, path_d
     write(outfile, header)
     write(outfile, lineup2)
     close(outfile)
-
 end
 
 
 # Running the code
-create_lineups(num_lineups, num_overlap, path_offensive_players, path_defenses, formulation, path_to_output)
+ create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output)
+
+# Varying num_lineups
+# for i=1:9
+#     create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation6_overlap_", i, "_exposure_", exposure, ".csv"))
+# end
+
+# # Varying exposure (need to change code first)
+# for i=1:9
+#     create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation5_overlap_", num_overlap, "_exposure_0.", i, ".csv"))
+# end
+
+
