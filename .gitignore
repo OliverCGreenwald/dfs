@@ -7,9 +7,8 @@
 
 # Logs and databases #
 ######################
-*.log
-*.sql
-*.sqlite
+.RData
+.Rhistory
 
 # OS generated files #
 ######################
