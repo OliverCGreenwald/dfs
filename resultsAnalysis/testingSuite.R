@@ -15,7 +15,7 @@ predictions.source <- "" # Either "_dfn" or ""
 formulation <- 4
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 4
-exposure.range <- seq(from = 1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
+exposure.range <- seq(from = 0.4, to = 0.4, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
 # exposure.range <- 0.4
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
