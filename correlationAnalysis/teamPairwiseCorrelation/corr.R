@@ -19,7 +19,7 @@ View(min.pairwise.corr.matrix)
 
 
 #--------- Preprocess data ---------#
-data <- read.csv("2015_data.csv", header = F, stringsAsFactors = F)
+data <- read.csv("2015_Corr.csv", header = F, stringsAsFactors = F)
 for (i in 1:nrow(data)) {
   data[i,2:ncol(data)] <- as.numeric(data[i,2:ncol(data)]) 
 }
