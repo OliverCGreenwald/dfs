@@ -100,3 +100,38 @@ fpts.offense.week6$Error_fpts_dfn <- NULL
 fpts.offense.week6$sd_dfn_error <- NULL
 
 write.csv(fpts.offense.week6, file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk6/offensive_players.csv', row.names = F) # input in julia code
+
+
+# Week 5
+fpts.offense.week5$sd_dfn_error <- fpts.offense.allweeks$sd_dfn_error[match(fpts.offense.week5$Name, fpts.offense.allweeks$Name)]
+fpts.offense.week5$sd_dfn_error[is.na(fpts.offense.week5$sd_dfn_error)==T] <- 0 # replace NAs with 0 b/c no perturbation
+fpts.offense.week5$Projection_dfn_perturbed <- NA
+
+for (i in 1:nrow(fpts.offense.week5)) {
+  perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week5$sd_dfn_error[i])
+  fpts.offense.week5$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week5$Projection_dfn[i] + perturbation)
+}
+
+fpts.offense.week5$Actual_fpts <- NULL
+fpts.offense.week5$Error_fpts_dfn <- NULL
+fpts.offense.week5$sd_dfn_error <- NULL
+
+write.csv(fpts.offense.week5, file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk5/offensive_players.csv', row.names = F) # input in julia code
+
+
+# Week 4
+fpts.offense.week4$sd_dfn_error <- fpts.offense.allweeks$sd_dfn_error[match(fpts.offense.week4$Name, fpts.offense.allweeks$Name)]
+fpts.offense.week4$sd_dfn_error[is.na(fpts.offense.week4$sd_dfn_error)==T] <- 0 # replace NAs with 0 b/c no perturbation
+fpts.offense.week4$Projection_dfn_perturbed <- NA
+
+for (i in 1:nrow(fpts.offense.week4)) {
+  perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week4$sd_dfn_error[i])
+  fpts.offense.week4$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week4$Projection_dfn[i] + perturbation)
+}
+
+fpts.offense.week4$Actual_fpts <- NULL
+fpts.offense.week4$Error_fpts_dfn <- NULL
+fpts.offense.week4$sd_dfn_error <- NULL
+
+write.csv(fpts.offense.week4, file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk4/offensive_players.csv', row.names = F) # input in julia code
+

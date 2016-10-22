@@ -514,7 +514,8 @@ function one_lineup_Type_4(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_fc")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
-
+    elseif (projections_source == "Projection_dfn_perturbed")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
