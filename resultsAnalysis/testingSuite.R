@@ -1,5 +1,5 @@
 #setwd("~/Projects/DFS/resultsAnalysis")
-#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/resultsAnalysis")
+#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 ####### VIEW RESULTS #########
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week3_dfn_formulation2_exposure_1.RData")
@@ -13,9 +13,9 @@ week.hi <- 6
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn_perturbed" # Either "_dfn" or "" or "_dfn_perturbed"
 formulation <- 4
-overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
-overlap.hi <- 9
-exposure.range <- seq(from = 1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
+overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
+overlap.hi <- 4
+exposure.range <- seq(from = 0.1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
 # exposure.range <- 0.4
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
@@ -31,11 +31,11 @@ if (length(exposure.range) == 1) {
 for (week.num in week.lo:week.hi) {
   
   ####### LOAD FULL CONTEST RESULTS #########
-  file.name <- paste0("data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv")
+  file.name <- paste0("resultsAnalysis/data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv")
   full.results.data <- read.csv(file = file.name, stringsAsFactors = F)
   
   ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA #########
-  file.name <- paste0("data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
+  file.name <- paste0("resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
   player.performance <- read.csv(file = file.name, stringsAsFactors = F)
   player.performance$Actual.Score[is.na(player.performance$Actual.Score)] <- 0
   
@@ -43,7 +43,7 @@ for (week.num in week.lo:week.hi) {
   player.performance$Player <- sub(' Jr.','', player.performance$Player)
   
   ######## IMPORT PAYOUT STRUCTURE ########
-  file.name <- paste0("data_warehouse/weekly_payout_structure/", contest.entry.fee, "_payout_structure_week", week.num, ".csv")
+  file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", contest.entry.fee, "_payout_structure_week", week.num, ".csv")
   payout.data <- read.csv(file = file.name, stringsAsFactors = F)
   
   ######## LOOP THROUGH OVERLAP PARAMETER VALUES ########
@@ -53,7 +53,7 @@ for (week.num in week.lo:week.hi) {
     for (exposure in exposure.range) {
       
       ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
-      file.name <- paste0("../resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
+      file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
       lineups <- read.csv(file = file.name, stringsAsFactors = F)
       
       ######## CALCULATE FPTS FOR EACH LINEUP ########
@@ -79,7 +79,6 @@ for (week.num in week.lo:week.hi) {
     
       ######## CALCULATE PLACE AND PAYOUT FOR EACH LINEUP ########
       # print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
-      # lineups$total[1] <- 243 # sanity check
       for (i in 1:nrow(lineups)) {
         lineups$place[i] <- which.min(abs(full.results.data$Points-lineups$total[i])) # not precise but good estimate (can be done better probably)
         if (lineups$place[i] > payout.data$Place_hi[nrow(payout.data)]) {
@@ -126,9 +125,9 @@ for (week.num in week.lo:week.hi) {
   print(paste0('Week: ', week.num, '; Overlap: ', overlap.lo, '; Formulation: ', formulation))
   print(pnlMatrix)
   if (length(exposure.range) == 1) {
-    saveRDS(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", 1, ".rds"))
+    saveRDS(pnlMatrix, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", 1, ".rds"))
   } else {
-    saveRDS(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_overlap_", overlap.lo, ".rds"))
+    saveRDS(pnlMatrix, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_overlap_", overlap.lo, ".rds"))
   }
 
 }
