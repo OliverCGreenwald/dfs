@@ -36,23 +36,13 @@ num_overlap = 4
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
 exposure = 1
 
-# path_offensive_players is a string that gives the path to the csv file with the offensive_players information
-#TESTING PATH
-path_offensive_players = "data_warehouse/2016_cleaned_input/wk4/offensive_players.csv"
-#PRODUCTION PATH
-# path_offensive_players = "data_warehouse/offensive_players.csv"
-
-# path_defense is a string that gives the path to the csv file with the defenses information
-#TESTING PATH
-path_defenses = "data_warehouse/2016_cleaned_input/wk4/defenses.csv"
-#PRODUCTION PATH
-# path_defenses = "data_warehouse/defenses.csv"
-
-# path_to_output is a string that gives the path to the csv file that will give the outputted results
-#TESTING PATH
-path_to_output = "../resultsAnalysis/data_warehouse/testing_lineups/week4_dfn_perturbed"
-#PRODUCTION PATH
-# path_to_output = "output.csv"
+#############  Setting Variables Related to Path  #############
+#= week sets which week of data we're looking at 
+    Available Options: 
+        - "LIVE" (Current week)
+        - 1 (1-6)
+=#
+week = 1
 
 ############################  Setting Formation  ############################
 
@@ -74,17 +64,30 @@ formulation = formulations.one_lineup_Type_4
 #=
 projections_source tells which Projections we're using for this generation
     Available Options: 
-        - "Projection" <- From roto 
+        - "Projection" <- From rotogrinders 
         - "Projection_dfn"
         - "Projection_fc"
-
+        - "Projection_dfn_perturbed"
 =#
-projections_source = "Projection_dfn_perturbed"  
+projections_source = "Projection_dfn"  
 
-############################  Run Code  ############################
+############################  Create Paths to data  ############################
 
-# Running the code
-# formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
+if (week == "LIVE") 
+    path_offensive_players = "data_warehouse/offensive_players.csv"
+    path_defenses = "data_warehouse/defenses.csv"
+    path_to_output = "output.csv"
+else
+    println(projections_source[11:end])
+    path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
+    path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
+    path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/week", week, projections_source[11:end])
+end
+
+
+########### Running the code ###########
+
+formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
 
 # Varying num_lineups
 # for i=1:9
@@ -92,8 +95,8 @@ projections_source = "Projection_dfn_perturbed"
 # end
 
 # # Varying exposure (need to change code first)
-for i=1:9
-    formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation4_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source)
-end
+# for i=1:9
+#     formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation4_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source)
+# end
 
 

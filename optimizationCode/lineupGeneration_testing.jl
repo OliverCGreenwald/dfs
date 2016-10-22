@@ -38,24 +38,24 @@ exposure = 1
 
 # path_offensive_players is a string that gives the path to the csv file with the offensive_players information
 #TESTING PATH
-# path_offensive_players = "data_warehouse/2016_cleaned_input/wk2/offensive_players.csv"
-path_offensive_players = "data_warehouse/2016_cleaned_input/wk6/perturbed/offensive_players.csv"
+path_offensive_players = "data_warehouse/2016_cleaned_input/wk2/offensive_players.csv"
+#path_offensive_players = "data_warehouse/2016_cleaned_input/wk6/perturbed/offensive_players.csv"
 #PRODUCTION PATH
 # path_offensive_players = "data_warehouse/offensive_players.csv"
 
 # path_defense is a string that gives the path to the csv file with the defenses information
 #TESTING PATH
-# path_defenses = "data_warehouse/2016_cleaned_input/wk2/defenses.csv"
-path_defenses = "data_warehouse/2016_cleaned_input/wk6/defenses.csv"
+path_defenses = "data_warehouse/2016_cleaned_input/wk2/defenses.csv"
+#path_defenses = "data_warehouse/2016_cleaned_input/wk6/defenses.csv"
 #PRODUCTION PATH
 # path_defenses = "data_warehouse/defenses.csv"
 
 # path_to_output is a string that gives the path to the csv file that will give the outputted results
 #TESTING PATH
-# path_to_output = "../resultsAnalysis/data_warehouse/testing_lineups/week2_dfn"
-path_to_output = "../resultsAnalysis/data_warehouse/testing_lineups/week6_dfn_perturbed"
+#path_to_output = "../resultsAnalysis/data_warehouse/testing_lineups/week2_dfn"
+#path_to_output = "../resultsAnalysis/data_warehouse/testing_lineups/week6_dfn_perturbed"
 #PRODUCTION PATH
-# path_to_output = "output.csv"
+ path_to_output = "output.csv"
 
 
 ############################  Lineup Generator Functions  ############################
@@ -1105,12 +1105,12 @@ end
 
 
 # Running the code
- # create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output)
+ create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output)
 
 # Varying num_lineups
-for i=1:9
-    create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation4_overlap_", i, "_exposure_", exposure, ".csv"))
-end
+# for i=1:9
+#     create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation4_overlap_", i, "_exposure_", exposure, ".csv"))
+# end
 
 # # # Varying exposure (need to change code first)
 # for i=1:9
