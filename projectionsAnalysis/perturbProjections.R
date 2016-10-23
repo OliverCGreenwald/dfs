@@ -85,6 +85,10 @@ fpts.offense.allweeks$sd_dfn_error[is.na(fpts.offense.allweeks$sd_dfn_error)==T]
 
 
 ####### PERTURB PROJECTIONS #########
+# Note: there's some look ahead bias b/c we won't have the variance for future weeks
+salary.lo <- 3000
+salary.hi <- 4000
+
 # Week 6
 fpts.offense.week6$sd_dfn_error <- fpts.offense.allweeks$sd_dfn_error[match(fpts.offense.week6$Name, fpts.offense.allweeks$Name)]
 fpts.offense.week6$sd_dfn_error[is.na(fpts.offense.week6$sd_dfn_error)==T] <- 0 # replace NAs with 0 b/c no perturbation
@@ -92,7 +96,11 @@ fpts.offense.week6$Projection_dfn_perturbed <- NA
 
 for (i in 1:nrow(fpts.offense.week6)) {
   perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week6$sd_dfn_error[i])
-  fpts.offense.week6$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week6$Projection_dfn[i] + perturbation)
+  if (salary.lo <= fpts.offense.week6$Salary[i] & fpts.offense.week6$Salary[i] <= salary.hi) {
+    fpts.offense.week6$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week6$Projection_dfn[i] + perturbation)
+  } else {
+    fpts.offense.week6$Projection_dfn_perturbed[i] <- fpts.offense.week6$Projection_dfn[i]
+  }
 }
 
 fpts.offense.week6$Actual_fpts <- NULL
@@ -109,7 +117,11 @@ fpts.offense.week5$Projection_dfn_perturbed <- NA
 
 for (i in 1:nrow(fpts.offense.week5)) {
   perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week5$sd_dfn_error[i])
-  fpts.offense.week5$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week5$Projection_dfn[i] + perturbation)
+  if (salary.lo <= fpts.offense.week5$Salary[i] & fpts.offense.week5$Salary[i] <= salary.hi) {
+    fpts.offense.week5$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week5$Projection_dfn[i] + perturbation)
+  } else {
+    fpts.offense.week5$Projection_dfn_perturbed[i] <- fpts.offense.week5$Projection_dfn[i]
+  }
 }
 
 fpts.offense.week5$Actual_fpts <- NULL
@@ -126,7 +138,11 @@ fpts.offense.week4$Projection_dfn_perturbed <- NA
 
 for (i in 1:nrow(fpts.offense.week4)) {
   perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week4$sd_dfn_error[i])
-  fpts.offense.week4$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week4$Projection_dfn[i] + perturbation)
+  if (salary.lo <= fpts.offense.week4$Salary[i] & fpts.offense.week4$Salary[i] <= salary.hi) {
+    fpts.offense.week4$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week4$Projection_dfn[i] + perturbation)
+  } else {
+    fpts.offense.week4$Projection_dfn_perturbed[i] <- fpts.offense.week4$Projection_dfn[i]
+  }
 }
 
 fpts.offense.week4$Actual_fpts <- NULL
@@ -134,4 +150,68 @@ fpts.offense.week4$Error_fpts_dfn <- NULL
 fpts.offense.week4$sd_dfn_error <- NULL
 
 write.csv(fpts.offense.week4, file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk4/offensive_players.csv', row.names = F) # input in julia code
+
+
+# Week 3
+fpts.offense.week3$sd_dfn_error <- fpts.offense.allweeks$sd_dfn_error[match(fpts.offense.week3$Name, fpts.offense.allweeks$Name)]
+fpts.offense.week3$sd_dfn_error[is.na(fpts.offense.week3$sd_dfn_error)==T] <- 0 # replace NAs with 0 b/c no perturbation
+fpts.offense.week3$Projection_dfn_perturbed <- NA
+
+for (i in 1:nrow(fpts.offense.week3)) {
+  perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week3$sd_dfn_error[i])
+  if (salary.lo <= fpts.offense.week3$Salary[i] & fpts.offense.week3$Salary[i] <= salary.hi) {
+    fpts.offense.week3$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week3$Projection_dfn[i] + perturbation)
+  } else {
+    fpts.offense.week3$Projection_dfn_perturbed[i] <- fpts.offense.week3$Projection_dfn[i]
+  }
+}
+
+fpts.offense.week3$Actual_fpts <- NULL
+fpts.offense.week3$Error_fpts_dfn <- NULL
+fpts.offense.week3$sd_dfn_error <- NULL
+
+write.csv(fpts.offense.week3, file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk3/offensive_players.csv', row.names = F) # input in julia code
+
+
+# Week 2
+fpts.offense.week2$sd_dfn_error <- fpts.offense.allweeks$sd_dfn_error[match(fpts.offense.week2$Name, fpts.offense.allweeks$Name)]
+fpts.offense.week2$sd_dfn_error[is.na(fpts.offense.week2$sd_dfn_error)==T] <- 0 # replace NAs with 0 b/c no perturbation
+fpts.offense.week2$Projection_dfn_perturbed <- NA
+
+for (i in 1:nrow(fpts.offense.week2)) {
+  perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week2$sd_dfn_error[i])
+  if (salary.lo <= fpts.offense.week2$Salary[i] & fpts.offense.week2$Salary[i] <= salary.hi) {
+    fpts.offense.week2$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week2$Projection_dfn[i] + perturbation)
+  } else {
+    fpts.offense.week2$Projection_dfn_perturbed[i] <- fpts.offense.week2$Projection_dfn[i]
+  }
+}
+
+fpts.offense.week2$Actual_fpts <- NULL
+fpts.offense.week2$Error_fpts_dfn <- NULL
+fpts.offense.week2$sd_dfn_error <- NULL
+
+write.csv(fpts.offense.week2, file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk2/offensive_players.csv', row.names = F) # input in julia code
+
+
+# Week 1
+fpts.offense.week1$sd_dfn_error <- fpts.offense.allweeks$sd_dfn_error[match(fpts.offense.week1$Name, fpts.offense.allweeks$Name)]
+fpts.offense.week1$sd_dfn_error[is.na(fpts.offense.week1$sd_dfn_error)==T] <- 0 # replace NAs with 0 b/c no perturbation
+fpts.offense.week1$Projection_dfn_perturbed <- NA
+
+for (i in 1:nrow(fpts.offense.week1)) {
+  perturbation <- rnorm(n = 1, mean = 0, sd = fpts.offense.week1$sd_dfn_error[i])
+  if (salary.lo <= fpts.offense.week1$Salary[i] & fpts.offense.week1$Salary[i] <= salary.hi) {
+    fpts.offense.week1$Projection_dfn_perturbed[i] <- max(0, fpts.offense.week1$Projection_dfn[i] + perturbation)
+  } else {
+    fpts.offense.week1$Projection_dfn_perturbed[i] <- fpts.offense.week1$Projection_dfn[i]
+  }
+}
+
+fpts.offense.week1$Actual_fpts <- NULL
+fpts.offense.week1$Error_fpts_dfn <- NULL
+fpts.offense.week1$sd_dfn_error <- NULL
+
+write.csv(fpts.offense.week1, file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk1/offensive_players.csv', row.names = F) # input in julia code
+
 
