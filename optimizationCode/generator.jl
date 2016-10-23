@@ -42,22 +42,24 @@ exposure = 1
         - "LIVE" (Current week)
         - 1 (1-6)
 =#
-week = 5
+week = 6
 
 ############################  Setting Formation  ############################
 
 #=
 formulation is the type of formulation that you would like to use. 
     Available Options: 
-        - one_lineup_no_stacking
-        - one_lineup_Type_1
-        - one_lineup_Type_2
-        - one_lineup_Type_3
-        - one_lineup_Type_4
-        - one_lineup_Type_5
-        - one_lineup_Type_6
+        - 0 <- one_lineup_no_stacking
+        - 1 <- one_lineup_Type_1
+        - 2 <- one_lineup_Type_2
+        - 3 <- one_lineup_Type_3
+        - 4 <- one_lineup_Type_4
+        - 5 <- one_lineup_Type_5
+        - 6 <- one_lineup_Type_6 BUGGED
+        - 7 <- one_lineup_Type_7 BUGGED
 =#
-formulation = formulations.one_lineup_Type_4
+formulation_type = 4
+
 
 ############################  Setting Projections Source  ############################
 
@@ -69,7 +71,7 @@ projections_source tells which Projections we're using for this generation
         - "Projection_fc"
         - "Projection_dfn_perturbed"
 =#
-projections_source = "Projection_dfn_perturbed"  
+projections_source = "Projection_dfn"  
 
 ############################  Create Paths to data  ############################
 
@@ -78,25 +80,41 @@ if (week == "LIVE")
     path_defenses = "data_warehouse/defenses.csv"
     path_to_output = "output.csv"
 else
-    println(projections_source[11:end])
     path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
     path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
     path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/week", week, projections_source[11:end])
 end
 
+if (formulation_type == 1) 
+    formulation = formulations.one_lineup_Type_1
+elseif (formulation_type == 2) 
+    formulation = formulations.one_lineup_Type_2
+elseif (formulation_type == 3)
+    formulation = formulations.one_lineup_Type_3
+elseif (formulation_type == 4) 
+    formulation = formulations.one_lineup_Type_4
+elseif (formulation_type == 5)
+    formulation = formulations.one_lineup_Type_5
+elseif (formulation_type == 6)
+    formulation = formulations.one_lineup_Type_6
+elseif (formulation_type == 7) 
+    formulation = formulations.one_lineup_Type_7  
+else
+    formulation = one_lineup_no_stacking 
+end
 
 ########### Running the code ###########
 
 # formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
 
-# Varying num_lineups
-for i=1:9
-    formulations.create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation4_overlap_", i, "_exposure_", exposure, ".csv"), projections_source)
-end
-
-# Varying exposure (need to change code first)
+# # Varying num_lineups
 # for i=1:9
-#     formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation4_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source)
+#     formulations.create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", i, "_exposure_", exposure, ".csv"), projections_source)
 # end
+
+# # Varying exposure (need to change code first)
+for i=1:9
+    formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source)
+end
 
 
