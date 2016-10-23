@@ -1,4 +1,4 @@
-#setwd("~/Projects/DFS/optimizationCode")
+#setwd("~/Projects/DFS/")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 data <- read.csv("optimizationCode/output.csv", stringsAsFactors = F, header = T)

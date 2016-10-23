@@ -42,7 +42,7 @@ exposure = 1
         - "LIVE" (Current week)
         - 1 (1-6)
 =#
-week = 6
+week = "LIVE"
 
 ############################  Setting Formation  ############################
 
@@ -105,7 +105,7 @@ end
 
 ########### Running the code ###########
 
-# formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
+formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
 
 # # Varying num_lineups
 # for i=1:9
@@ -113,8 +113,8 @@ end
 # end
 
 # # Varying exposure (need to change code first)
-for i=1:9
-    formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source)
-end
+# for i=1:9
+#     formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source)
+# end
 
 
