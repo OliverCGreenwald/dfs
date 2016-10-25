@@ -55,10 +55,10 @@ formulation is the type of formulation that you would like to use.
         - 3 <- one_lineup_Type_3
         - 4 <- one_lineup_Type_4
         - 5 <- one_lineup_Type_5
-        - 6 <- one_lineup_Type_6 BUGGED
+        - 6 <- one_lineup_Type_6 
         - 7 <- one_lineup_Type_7 BUGGED
 =#
-formulation_type = 4
+formulation_type = 7
 
 
 ############################  Setting Projections Source  ############################
@@ -119,7 +119,8 @@ end
 
 # Do all Posibilities for a week.
 for overlap_var =1:9
-    for exposure_var =1:10
+    for exposure_var =1:9
         formulations.create_lineups(num_lineups, overlap_var, exposure_var*0.1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_0.", exposure_var, ".csv"), projections_source)
     end
+    formulations.create_lineups(num_lineups, overlap_var, 1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_1", ".csv"), projections_source)
 end

@@ -11,11 +11,11 @@
 week.num <- 7
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
-formulation <- 4
+formulation <- 7
 overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 9
 exposure.range <- seq(from = 0.1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
-#exposure.range <- 0.3
+pnl_one_graph <- TRUE 
 
 
 
@@ -70,9 +70,13 @@ for (k in overlap.lo:overlap.hi) {
       row <- merge(row, total_results, by = 'Player')
       lineups$total[index] <- sum(row$Actual.Score)
     }
-      
-    plot(lineups$total, main = paste0("Week ", week.num, ", Overlap ", k), xlab = "Lineup Index", ylab = "Lineup FPts")
-      
+    
+    if(pnl_one_graph != TRUE) {
+      plot(lineups$total, main = paste0("Week ", week.num, ", Overlap ", k, ", Exposure ", exposure), xlab = "Lineup Index", ylab = "Lineup FPts")
+      abline(h=200, col = "black", lty= 2)
+      abline(h=220, col = "green")  
+    }
+    
       
     ######## CALCULATE PLACE AND PAYOUT FOR EACH LINEUP ########
     # print(paste0("Number of NAs: ", sum(is.na(lineups$total))))
@@ -111,8 +115,17 @@ for (k in overlap.lo:overlap.hi) {
     }
       
     numLineups <- seq(from = nrow(lineups), to = nrow(lineups)-length(pnls)+1)
-    plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l")
-    abline(h=0, col = "red")
+    if(k == 1 & exposure == 0.1 & pnl_one_graph == TRUE)
+    {
+      plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l", col= k, ylim = c(-3000,1000))
+      abline(h=0, col = "red")
+    } else if (pnl_one_graph == TRUE){
+      lines(numLineups, pnls, col = k)
+    } else {
+      plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l")
+      abline(h=0, col = "red")
+    }
+    
   }
     
 }

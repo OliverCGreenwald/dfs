@@ -815,7 +815,7 @@ function one_lineup_Type_7(offensive_players, defenses, lineups, num_overlap, nu
     #@addConstraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
     
     # Must have 1 Value RB 
-    @addConstraint(m, sum{cheapRunningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} >= 1)
+    @addConstraint(m, sum{cheapRunningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
 
     # Financial Constraint
     @addConstraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 50000)
