@@ -114,7 +114,7 @@ for (k in overlap.lo:overlap.hi) {
     numLineups <- seq(from = nrow(lineups), to = nrow(lineups)-length(pnls)+1)
     if(k == 1 & exposure == 0.1 & pnl_one_graph == TRUE)
     {
-      plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l", col= k, ylim = c(-3000,1000))
+      plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l", col= k, ylim = c(-3000,2000))
       abline(h=0, col = "red")
     } else if (pnl_one_graph == TRUE){
       lines(numLineups, pnls, col = k)
