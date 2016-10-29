@@ -658,7 +658,7 @@ end
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - no TE for flex
 # - QB-oppWR Stack
-function one_lineup_Type_6(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_Type_6(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -768,7 +768,7 @@ end
 # - no TE for flex
 # - QB-oppWR Stack
 # - Must have a Value RB (RB worth less than 5000)
-function one_lineup_Type_7(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_Type_7(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -958,7 +958,7 @@ function one_lineup_Type_8(offensive_players, defenses, lineups, num_overlap, nu
 
     # Can not have a WR/RB from the same team
     @defVar(m, RBWR_stack[i=1:num_pairs_RBWR], Bin)
-    @addConstraint(m, constr[i=1:num_pairs_RBWR], 10*RBWR_stack[i] < = sum{team_pairs_RBWR[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
+    @addConstraint(m, constr[i=1:num_pairs_RBWR], 10*RBWR_stack[i] <= sum{team_pairs_RBWR[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
     @addConstraint(m, sum{RBWR_stack[i], i=1:num_pairs_RBWR} >= 3)
 
     # Overlap Constraint
