@@ -8,10 +8,10 @@
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 6
-week.hi <- 6
+week.lo <- 4
+week.hi <- 4
 contest.entry.fee <- "$20"
-predictions.source <- "_dfn_perturbed" # Either "_dfn" or "" or "_dfn_perturbed"
+predictions.source <- "_dfn" # Either "_dfn" or "" or "_dfn_perturbed"
 formulation <- 4
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 4

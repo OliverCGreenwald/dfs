@@ -23,7 +23,7 @@ one_lineup_Type_4, one_lineup_Type_5, one_lineup_Type_6, one_lineup_Type_7, one_
 
 # This is a function that creates one lineup using the No Stacking formulation from the paper
 # - Only Feasibility Constraints 
-function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
     # Variable for skaters in lineup.
@@ -117,7 +117,7 @@ end
 # This is a function that creates one lineup using the No Stacking formulation from the paper
 # - Feasibility Constraints 
 # - Defense constraint (Defense can't be playing any offensive players)
-function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -217,7 +217,7 @@ end
 # - Feasibility Constraints 
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
-function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -324,7 +324,7 @@ end
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - QB-oppWR
-function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -437,7 +437,7 @@ end
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - no TE for flex
-function one_lineup_Type_4(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_Type_4(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -548,7 +548,7 @@ end
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - no TE or RB for flex (must be WR)
-function one_lineup_Type_5(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source)
+function one_lineup_Type_5(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 

@@ -42,7 +42,7 @@ exposure = 1
         - "LIVE" (Current week)
         - 1 (1-7)
 =#
-week = 5
+week = 6
 
 ############################  Setting Formation  ############################
 
