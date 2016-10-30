@@ -42,7 +42,7 @@ exposure = 1
         - "LIVE" (Current week)
         - 1 (1-7)
 =#
-week = 6
+week = 5
 
 ############################  Setting Formation  ############################
 
@@ -59,7 +59,7 @@ formulation is the type of formulation that you would like to use.
         - 7 <- one_lineup_Type_7 
         - 8 <- one_lineup_Type_8 In Progress
 =#
-formulation_type = 7
+formulation_type = 4
 
 
 ############################  Setting Projections Source  ############################

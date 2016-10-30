@@ -5,14 +5,14 @@
 
 
 ####### SET PARAMETER VALUES #########
-week.num <- 7
+week.num <- 3
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
 formulation <- 7
 overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 9
 exposure.range <- seq(from = 0.1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
-pnl_one_graph <- TRUE 
+pnl_one_graph <- FALSE 
 
 
 
