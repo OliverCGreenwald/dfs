@@ -23,6 +23,25 @@ for (i in 1:length(dfn_offense_allwks)) {
   write.csv(dfn_offense_allwks[[i]], file = paste0("optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week", i, ".csv"), row.names = F)
 }
 
+####### REMOVE FIRST AND LAST NAME FROM DFN UPDATED OFFENSE CSV #########
+dfn_offense_week1 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week1.csv", stringsAsFactors = F)
+dfn_offense_week2 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week2.csv", stringsAsFactors = F)
+dfn_offense_week3 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week3.csv", stringsAsFactors = F)
+dfn_offense_week4 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week4.csv", stringsAsFactors = F)
+dfn_offense_week5 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week5.csv", stringsAsFactors = F)
+dfn_offense_week6 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week6.csv", stringsAsFactors = F)
+dfn_offense_week7 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week7.csv", stringsAsFactors = F)
+
+dfn_offense_allwks <- list(dfn_offense_week1,dfn_offense_week2,dfn_offense_week3,dfn_offense_week4,dfn_offense_week5,dfn_offense_week6,dfn_offense_week7)
+
+for (i in 1:length(dfn_offense_allwks)) {
+  temp <- dfn_offense_allwks[[i]]
+  temp$Player.Name <- sub(' Sr.', '', temp$Player.Name)
+  temp$Player.Name <- sub(' Jr.', '', temp$Player.Name)
+  dfn_offense_allwks[[i]] <- temp
+  write.csv(dfn_offense_allwks[[i]], file = paste0("optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week", i, ".csv"), row.names = F)
+}
+
 ####### REMOVE FIRST AND LAST NAME FROM CLEANED INPUT OFFENSE CSV #########
 fpts.offense.week1 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk1/offensive_players.csv', stringsAsFactors = F)
 fpts.offense.week2 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk2/offensive_players.csv', stringsAsFactors = F)

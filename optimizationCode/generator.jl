@@ -34,7 +34,7 @@ num_lineups = 150
 num_overlap = 6
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.5
+exposure = 0.4
 
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 
@@ -63,7 +63,7 @@ formulation is the type of formulation that you would like to use.
         - 7 <- one_lineup_Type_7 
         - 8 <- one_lineup_Type_8 In Progress
 =#
-formulation_type = 7
+formulation_type = 4
 
 
 ############################  Setting Projections Source  ############################
