@@ -1,5 +1,5 @@
 #setwd("~/Projects/DFS/optimizationCode")
-#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/optimizationCode")
+#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 #--------- Set week number automation purposes ---------#
 week.num <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1)
@@ -15,7 +15,7 @@ colnames(flex.data) <- flex.data[nrow(flex.data),]
 flex.data <- flex.data[-nrow(flex.data),]
 
 off.data <- rbind(qb.data, flex.data)
-file.name <- paste0("data_warehouse/rotogrinders/roto_offense_week", week.num, ".csv")
+file.name <- paste0("optimizationCode/data_warehouse/rotogrinders/roto_offense_week", week.num, ".csv")
 write.csv(off.data, file = file.name, row.names = F)
 
 # create defense csv
@@ -23,12 +23,12 @@ def.data <- read.csv(file = "https://rotogrinders.com/projected-stats/nfl-defens
 colnames(def.data) <- def.data[nrow(def.data),]
 def.data <- def.data[-nrow(def.data),]
 
-file.name <- paste0("data_warehouse/rotogrinders/roto_defense_week", week.num, ".csv")
+file.name <- paste0("optimizationCode/data_warehouse/rotogrinders/roto_defense_week", week.num, ".csv")
 write.csv(def.data, file = file.name, row.names = F)
 
 
 #--------- Clean DK salaries data ---------#
-file.name <- paste0("data_warehouse/draftkings/DKSalaries_week", week.num, ".csv")
+file.name <- paste0("optimizationCode/data_warehouse/draftkings/DKSalaries_week", week.num, ".csv")
 data <- read.csv(file = file.name, stringsAsFactors = F)
 
 data["FirstName"] <- ""
@@ -65,7 +65,7 @@ for (i in 1:nrow(data)) {
   }
 }
 
-#write.csv(data, file = 'draftkings/cleaned_DKSalaries.csv')
+#write.csv(data, file = 'optimizationCode/data_warehouse/draftkings/cleaned_DKSalaries.csv')
 
 #Create inputs for Julia Optimization
 offensive_players <- subset(data, Position != "DST")
@@ -76,14 +76,14 @@ defense <- subset(data, Position == "DST")
 colnames(defense)[1] <- "Name"
 
 # uncomment if you'd like to use DraftKings predictions not RotoGrinders predictions
-#write.csv(offensive_players, file = 'data_warehouse/offensive_players.csv', row.names = FALSE)
-#write.csv(defense, file = 'data_warehouse/defenses.csv', row.names = FALSE)
+#write.csv(offensive_players, file = 'optimizationCode/data_warehouse/offensive_players.csv', row.names = FALSE)
+#write.csv(defense, file = 'optimizationCode/data_warehouse/defenses.csv', row.names = FALSE)
 
 
 #--------- Replace DK offensive player predictions with RG predictions ---------#
 # read in data
 dk.offense.data <- offensive_players
-file.name <- paste0("data_warehouse/rotogrinders/roto_offense_week", week.num, ".csv")
+file.name <- paste0("optimizationCode/data_warehouse/rotogrinders/roto_offense_week", week.num, ".csv")
 roto.offense.data <- read.csv(file = file.name, header = T, stringsAsFactors = F)
 
 # compare dk and roto data
@@ -106,7 +106,7 @@ dk.offense.data$Projection <- dk.offense.data$RotoProjection
 dk.offense.data$RotoProjection <- NULL
 
 #--------- Add Daily Fantasy Nerd Projections ---------#
-file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_offense_week", week.num, ".csv")
+file.name <- paste0("optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week", week.num, ".csv")
 if(file.exists(file.name)) {
   dfn_offense <- read.csv(file = file.name, header = T, stringsAsFactors = F)
 
@@ -128,16 +128,16 @@ if(file.exists(file.name)) {
 #dk.offense.data$Team <- dk.offense.data$teamAbbrev
 
 # write to file
-write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.names = F) # input in julia code
+write.csv(dk.offense.data, file = 'optimizationCode/data_warehouse/offensive_players.csv', row.names = F) # input in julia code
 
 #--------- Replace DK defensive player predictions with RG predictions ---------#
 # read in data
 dk.defense.data <- defense
-file.name <- paste0("data_warehouse/rotogrinders/roto_defense_week", week.num, ".csv")
+file.name <- paste0("optimizationCode/data_warehouse/rotogrinders/roto_defense_week", week.num, ".csv")
 roto.defense.data <- read.csv(file = file.name, header = T, stringsAsFactors = F)
 
 # reconcile team name differences
-team.names.data <- read.csv("data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
+team.names.data <- read.csv("optimizationCode/data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
 dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$Team, team.names.data$dk_name)] # dk.defense.data$Team # dk.defense.data$teamAbbrev
 dk.defense.data$RotoProjection <- roto.defense.data$fpts[match(dk.defense.data$roto_name, roto.defense.data$team)]
 dk.defense.data$Projection <- dk.defense.data$RotoProjection
@@ -146,7 +146,7 @@ dk.defense.data$roto_name <- NULL
 colnames(dk.defense.data)[1] <- 'Position'
 
 #--------- Add Daily Fantasy Nerd Projections ---------#
-file.name <- paste0("data_warehouse/dailyfantasynerd/dfn_defense_week", week.num, ".csv")
+file.name <- paste0("optimizationCode/data_warehouse/dailyfantasynerd/dfn_defense_week", week.num, ".csv")
 if(file.exists(file.name)) {
   dfn_defense <- read.csv(file = file.name, header = T, stringsAsFactors = F)
   dfn_defense$Player.Name <- substr(dfn_defense$Player.Name, regexpr(" [^ ]*$", dfn_defense$Player.Name) + 1, nchar(dfn_defense$Player.Name))
@@ -163,4 +163,4 @@ if(file.exists(file.name)) {
 #dk.defense.data$Team <- dk.defense.data$teamAbbrev
 
 # write to file
-write.csv(dk.defense.data, file = 'data_warehouse/defenses.csv', row.names = F) # input in julia code
+write.csv(dk.defense.data, file = 'optimizationCode/data_warehouse/defenses.csv', row.names = F) # input in julia code
