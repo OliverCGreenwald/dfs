@@ -124,6 +124,8 @@ if(file.exists(file.name)) {
   dk.offense.data$FullName <- NULL
 }
 
+#---- formatting changes to Roto made in wk 8 ----#
+#dk.offense.data$Team <- dk.offense.data$teamAbbrev
 
 # write to file
 write.csv(dk.offense.data, file = 'data_warehouse/offensive_players.csv', row.names = F) # input in julia code
@@ -136,7 +138,7 @@ roto.defense.data <- read.csv(file = file.name, header = T, stringsAsFactors = F
 
 # reconcile team name differences
 team.names.data <- read.csv("data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
-dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$Team, team.names.data$dk_name)]
+dk.defense.data$roto_name <- team.names.data$roto_name[match(dk.defense.data$Team, team.names.data$dk_name)] # dk.defense.data$Team # dk.defense.data$teamAbbrev
 dk.defense.data$RotoProjection <- roto.defense.data$fpts[match(dk.defense.data$roto_name, roto.defense.data$team)]
 dk.defense.data$Projection <- dk.defense.data$RotoProjection
 dk.defense.data$RotoProjection <- NULL
@@ -157,6 +159,8 @@ if(file.exists(file.name)) {
   
 }
 
+#---- formatting changes to Roto made in wk 8 ----#
+#dk.defense.data$Team <- dk.defense.data$teamAbbrev
 
 # write to file
 write.csv(dk.defense.data, file = 'data_warehouse/defenses.csv', row.names = F) # input in julia code
