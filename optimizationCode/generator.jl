@@ -31,7 +31,7 @@ Variables for solving the problem (change these)
 num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
-num_overlap = 4
+num_overlap = 6
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
 exposure = 0.5
@@ -42,11 +42,11 @@ exposure = 0.5
         - "LIVE" (Current week)
         - 1 (1-7)
 =#
-<<<<<<< Updated upstream
-week = 5
-=======
+# <<<<<<< Updated upstream
+# week = 5
+# =======
 week = "LIVE"
->>>>>>> Stashed changes
+# >>>>>>> Stashed changes
 
 ############################  Setting Formation  ############################
 
@@ -63,7 +63,7 @@ formulation is the type of formulation that you would like to use.
         - 7 <- one_lineup_Type_7 
         - 8 <- one_lineup_Type_8 In Progress
 =#
-formulation_type = 4
+formulation_type = 7
 
 
 ############################  Setting Projections Source  ############################
