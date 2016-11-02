@@ -3,7 +3,7 @@
 
 ####### DESCRIPTION #########
 # In this file we scrape targets (as well as completions, completion %, TDs, and target %) for every player
-# listed on nflsavant.com.
+# listed on nflsavant.com. Rolling stats are computed for all sttats besides target %.
 
 ####### IMPORT LIBRARIES #########
 library('rvest')
@@ -37,11 +37,35 @@ for (i in 1:week.latest) {
   targets.df$Week.Num <- i
   
   # aggregate (we want rolling stats, so add on previous week's data)
-  if (i != 1) {
-    # targets.df.prev <- eval(parse(text=paste("targets.df.wk", i-1, sep = ""))) # previous week's df
-    # targets.df$Completions[match(targets.df$Name, targets.df.prev$Name)] <- targets.df$Completions + targets.df.prev$Completions # add on previous week's completions
-    # targets.df$Targets[match(targets.df$Name, targets.df.prev$Name)] <- targets.df$Targets + targets.df.prev$Targets # add on previous week's targets
-    # targets.df$TDs[match(targets.df$Name, targets.df.prev$Name)] <- targets.df$TDs + targets.df.prev$TDs # add on previous week's TDs
+  if (i == 1) {
+    # initialize rolling stats
+    targets.df$Completions.Rolling <- targets.df$Completions
+    targets.df$Targets.Rolling <- targets.df$Targets
+    targets.df$TDs.Rolling <- targets.df$TDs
+  } else {
+    # store previous week's df
+    targets.df.prev <- eval(parse(text=paste("targets.df.wk", i-1, sep = "")))
+    
+    # aggregate completions
+    targets.df$Completions.Prev <- targets.df.prev$Completions[match(targets.df$Name, targets.df.prev$Name)]
+    targets.df$Completions.Prev[is.na(targets.df$Completions.Prev)] <- 0
+    targets.df$Completions.Rolling <- targets.df$Completions.Rolling + targets.df$Completions.Prev
+    #targets.df$Completions.Prev <- NULL
+    
+    # aggregate targets
+    targets.df$Targets.Prev <- targets.df.prev$Targets[match(targets.df$Name, targets.df.prev$Name)]
+    targets.df$Targets.Prev[is.na(targets.df$Targets.Prev)] <- 0
+    targets.df$Targets.Rolling <- targets.df$Targets.Rolling + targets.df$Targets.Prev
+    #targets.df$Targets.Prev <- NULL
+    
+    # recalculate completion %
+    targets.df$Comp.Pctg.Rolling <- targets.df$Completions.Rolling/targets.df$Targets.Rolling
+    
+    # aggregate TDs
+    targets.df$TDs.Prev <- targets.df.prev$TDs[match(targets.df$Name, targets.df.prev$Name)]
+    targets.df$TDs.Prev[is.na(targets.df$TDs.Prev)] <- 0
+    targets.df$TDs.Rolling <- targets.df$TDs.Rolling + targets.df$TDs.Prev
+    #targets.df$TDs.Prev <- NULL
   }
   
   # assign variable name (with week number) to targets.df
@@ -53,14 +77,30 @@ for (i in 1:week.latest) {
 
 ####### SET TEAM-LEVEL RANKING FOR EACH PLAYER #########
 # i <- 2
-# targets.df.prev <- targets.df.wk1
-# targets.df <- targets.df.wk2
+targets.df.prev <- targets.df.wk1
+targets.df <- targets.df.wk2
 # ind.match <- which(targets.df$Name %in% targets.df.prev$Name)
 # match(targets.df$Name, targets.df.prev$Name)
 # targets.df$Completions[ind.match] <- targets.df$Completions[ind.match] + targets.df.prev$Completions[targets.df.prev$Name==targets.df$Name] # add on previous week's completions
 # 
 # targets.df$Completions <- targets.df$Completions + targets.df.prev$Completions[match]
 # projections.data$Actual_fpts <- realized.data$Actual.Score[match(projections.data$Name, realized.data$Player)]
+targets.df$Completions.Prev <- targets.df.prev$Completions[match(targets.df$Name, targets.df.prev$Name)]
+targets.df$Completions.Prev[is.na(targets.df$Completions.Prev)] <- 0
+targets.df$Completions.Rolling <- targets.df$Completions + targets.df$Completions.Prev
+targets.df$Completions.Prev <- NULL
+
+targets.df$Targets.Prev <- targets.df.prev$Targets[match(targets.df$Name, targets.df.prev$Name)]
+targets.df$Targets.Prev[is.na(targets.df$Targets.Prev)] <- 0
+targets.df$Targets.Rolling <- targets.df$Targets + targets.df$Targets.Prev
+targets.df$Targets.Prev <- NULL
+
+targets.df$Comp.Pctg.Rolling <- targets.df$Completions.Rolling/targets.df$Targets.Rolling
+
+targets.df$TDs.Prev <- targets.df.prev$TDs[match(targets.df$Name, targets.df.prev$Name)]
+targets.df$TDs.Prev[is.na(targets.df$TDs.Prev)] <- 0
+targets.df$TDs.Rolling <- targets.df$TDs + targets.df$TDs.Prev
+targets.df$TDs.Prev <- NULL
 
 ####### WRITE TO FILE #########
 for (i in 1:week.latest) {
