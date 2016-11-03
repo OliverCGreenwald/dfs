@@ -3,9 +3,10 @@
 
 ####### DESCRIPTION #########
 # In this file we scrape targets (as well as completions, completion %, TDs, and target %) for every player
-# listed on nflsavant.com. Rolling stats are computed for all sttats besides target %.
-
-# TODO: add position and team
+# listed on nflsavant.com. Rolling stats are computed for completions, targets, and TDs. We also assign
+# three separate integer rankings to each player (based on rolling completions, rolling targets, and rolling
+# TDs) within each team. This ranking will be minimized in the objective function of our integer program
+# solved in julia.
 
 ####### IMPORT LIBRARIES #########
 library('rvest')
@@ -48,7 +49,7 @@ for (i in 1:week.latest) {
   #player.names <- c(player.names, targets.df$Name)
   #player.helper <- c(player.helper, paste0(targets.df$Name,'@', targets.df$Team,'@', targets.df$Pos.))
   player.names <- c(player.names, paste0(targets.df$Name,'@', targets.df$Team,'@', targets.df$Pos.)) # prevents double counting / missing players with same name
-  print(i)
+  print(paste0('Week ', i, 'done'))
 }
 
 # Set unique names
@@ -121,7 +122,17 @@ for (i in 1:week.latest) {
   assign(name, temp.df)
 }
 
-####### SET TEAM-LEVEL RANKING FOR EACH PLAYER #########
+####### ASSIGN INTEGER RANKING TO EACH PLAYER WITHIN TEAMS #########
+for (i in 1:week.latest) {
+  temp.wk <- eval(parse(text=paste0("rolling.stats.wk",i)))
+  
+  # add three ranking columns based on completions, targets, TDs (for ties, assign min rank)
+  temp.wk <- transform(temp.wk, Rank.Completions = ave(temp.wk$Completions.Rolling, temp.wk$Team, FUN = function(x) rank(-x, ties.method = "min")))
+  temp.wk <- transform(temp.wk, Rank.Targets = ave(temp.wk$Targets.Rolling, temp.wk$Team, FUN = function(x) rank(-x, ties.method = "min")))
+  temp.wk <- transform(temp.wk, Rank.TDs = ave(temp.wk$TDs.Rolling, temp.wk$Team, FUN = function(x) rank(-x, ties.method = "min")))
+  
+  assign(paste0("rolling.stats.wk",i), temp.wk)
+}
 
 ####### WRITE TO FILE #########
 for (i in 1:week.latest) {
