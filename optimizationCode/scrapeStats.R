@@ -2,14 +2,15 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 ####### DESCRIPTION #########
-# In this file we scrape targets (as well as completions, completion %, TDs, and target %) for every player
+# In this file we scrape completions, targets, completion %, TDs, and target % for every player
 # listed on nflsavant.com. Rolling stats are computed for completions, targets, and TDs. We also assign
 # three separate integer rankings to each player (based on rolling completions, rolling targets, and rolling
 # TDs) within each team. This ranking will be minimized in the objective function of our integer program
-# solved in julia.
+# solved in julia. Writes weekly rolling stats to the stats folder.
 
 ####### IMPORT LIBRARIES #########
 library('rvest')
+library('stringr')
 
 ####### SET YEAR, WEEK, POSITION #########
 yr <- '2016'
@@ -25,8 +26,8 @@ player.names <- c() # initialize (will store all player names)
 
 ####### SCRAPE HTML TABLE FOR ALL TEAMS #########
 for (i in 1:week.latest) {
-  targets.df <- data.frame(matrix(data = NA, nrow = 0, ncol = 9)) # initialize df to store targets data
-  #colnames(targets.df) <- c('Rank', 'Name', 'Team', 'Pos', 'Completions', 'Targets', 'Comp.Pct', 'TDs', 'Target.Pct')
+  stats.df <- data.frame(matrix(data = NA, nrow = 0, ncol = 9)) # initialize df to store targets data
+  #colnames(stats.df) <- c('Rank', 'Name', 'Team', 'Pos', 'Completions', 'Targets', 'Comp.Pct', 'TDs', 'Target.Pct')
   
   # iterate through all teams
   for (j in 1:length(team.names)) {
@@ -36,20 +37,20 @@ for (i in 1:week.latest) {
       html_nodes(xpath='//*[@id="tblTargetsTotal"]') %>%
       html_table()
     temp.df <- temp.df[[1]]
-    targets.df <- rbind(targets.df, temp.df)
+    stats.df <- rbind(stats.df, temp.df)
   }
   
   # add week number
-  targets.df$Week.Num <- i
+  stats.df$Week.Num <- i
   
-  # assign variable name (with week number) to targets.df
-  name <- paste("targets.df.wk", i, sep = "")
-  assign(name, targets.df)
+  # assign variable name (with week number) to stats.df
+  name <- paste("stats.df.wk", i, sep = "")
+  assign(name, stats.df)
   
-  #player.names <- c(player.names, targets.df$Name)
-  #player.helper <- c(player.helper, paste0(targets.df$Name,'@', targets.df$Team,'@', targets.df$Pos.))
-  player.names <- c(player.names, paste0(targets.df$Name,'@', targets.df$Team,'@', targets.df$Pos.)) # prevents double counting / missing players with same name
-  print(paste0('Week ', i, 'done'))
+  #player.names <- c(player.names, stats.df$Name)
+  #player.helper <- c(player.helper, paste0(stats.df$Name,'@', stats.df$Team,'@', stats.df$Pos.))
+  player.names <- c(player.names, paste0(stats.df$Name,'@', stats.df$Team,'@', stats.df$Pos.)) # prevents double counting / missing players with same name
+  print(paste0('Week ', i, ' done'))
 }
 
 # Set unique names
@@ -60,8 +61,8 @@ player.names <- unique(player.names)
 completions.weekly <- as.data.frame(matrix(data = 0, nrow = length(player.names), ncol = week.latest+1))
 completions.weekly[,1] <- player.names
 for (i in 2:(week.latest+1)) {
-  targets.df <- eval(parse(text=paste("targets.df.wk", i-1, sep = "")))
-  completions.weekly[,i] <- targets.df$Completions[match(completions.weekly[,1], paste0(targets.df$Name,'@', targets.df$Team,'@', targets.df$Pos.))]
+  stats.df <- eval(parse(text=paste("stats.df.wk", i-1, sep = "")))
+  completions.weekly[,i] <- stats.df$Completions[match(completions.weekly[,1], paste0(stats.df$Name,'@', stats.df$Team,'@', stats.df$Pos.))]
   completions.weekly[is.na(completions.weekly[,i]),i] <- 0
 }
 
@@ -69,8 +70,8 @@ for (i in 2:(week.latest+1)) {
 targets.weekly <- as.data.frame(matrix(data = 0, nrow = length(player.names), ncol = week.latest+1))
 targets.weekly[,1] <- player.names
 for (i in 2:(week.latest+1)) {
-  targets.df <- eval(parse(text=paste("targets.df.wk", i-1, sep = "")))
-  targets.weekly[,i] <- targets.df$Targets[match(targets.weekly[,1], paste0(targets.df$Name,'@', targets.df$Team,'@', targets.df$Pos.))]
+  stats.df <- eval(parse(text=paste("stats.df.wk", i-1, sep = "")))
+  targets.weekly[,i] <- stats.df$Targets[match(targets.weekly[,1], paste0(stats.df$Name,'@', stats.df$Team,'@', stats.df$Pos.))]
   targets.weekly[is.na(targets.weekly[,i]),i] <- 0
 }
 
@@ -78,8 +79,8 @@ for (i in 2:(week.latest+1)) {
 TDs.weekly <- as.data.frame(matrix(data = 0, nrow = length(player.names), ncol = week.latest+1))
 TDs.weekly[,1] <- player.names
 for (i in 2:(week.latest+1)) {
-  targets.df <- eval(parse(text=paste("targets.df.wk", i-1, sep = "")))
-  TDs.weekly[,i] <- targets.df$TDs[match(TDs.weekly[,1], paste0(targets.df$Name,'@', targets.df$Team,'@', targets.df$Pos.))]
+  stats.df <- eval(parse(text=paste("stats.df.wk", i-1, sep = "")))
+  TDs.weekly[,i] <- stats.df$TDs[match(TDs.weekly[,1], paste0(stats.df$Name,'@', stats.df$Team,'@', stats.df$Pos.))]
   TDs.weekly[is.na(TDs.weekly[,i]),i] <- 0
 }
 
@@ -117,7 +118,7 @@ for (i in 1:week.latest) {
   temp.df$Team <- name.team.pos[,2]
   temp.df$Pos <- name.team.pos[,3]
   
-  # assign variable name (with week number) to targets.df
+  # assign variable name (with week number) to stats.df
   name <- paste("rolling.stats.wk", i, sep = "")
   assign(name, temp.df)
 }
