@@ -91,21 +91,21 @@ for (i in 1:week.latest) {
   colnames(temp.df) <- c('Name','Completions.Rolling','Targets.Rolling','TDs.Rolling')
   temp.df$Name <- player.names
   
-  # Compute rolling completions
+  # Compute Rolling Completions
   if (i==1) {
     temp.df$Completions.Rolling <- completions.weekly[,i+1]
   } else {
     temp.df$Completions.Rolling <- rowSums(completions.weekly[,2:(i+1)])
   }
   
-  # Compute rolling targets
+  # Compute Rolling Targets
   if (i==1) {
     temp.df$Targets.Rolling <- targets.weekly[,i+1]
   } else {
     temp.df$Targets.Rolling <- rowSums(targets.weekly[,2:(i+1)])
   }
   
-  # Compute rolling TDs
+  # Compute Rolling TDs
   if (i==1) {
     temp.df$TDs.Rolling <- TDs.weekly[,i+1]
   } else {
@@ -142,10 +142,12 @@ for (i in 1:week.latest) {
 write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
 
 ####### APPEND TO 2016_cleaned_input FILES #########
+i <- 9
 temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
 temp$Temp.Name <- paste0(temp$LastName, ', ', temp$FirstName)
 temp$Rank.Targets <- rolling.stats.wk9$Rank.Targets[match(temp$Temp.Name, rolling.stats.wk9$Name)]
 temp$Rank.Targets[is.na(temp$Rank.Targets)==T] <- 0
+write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 
 
 
