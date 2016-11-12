@@ -136,6 +136,9 @@ for (i in 1:week.latest) {
 }
 
 ####### WRITE TO FILE #########
-for (i in 1:week.latest) {
-  write.csv(eval(parse(text=paste0("rolling.stats.wk",i))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
-}
+# for (i in 1:week.latest) {
+#   write.csv(eval(parse(text=paste0("rolling.stats.wk",i))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
+# }
+write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
+
+
