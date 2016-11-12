@@ -60,8 +60,10 @@ formulation is the type of formulation that you would like to use.
         - 7 <- one_lineup_Type_7 
         - 8 <- one_lineup_Type_8 In Progress
         - 9 <- one_lineup_Type_9
+        - 10 <- one_lineup_Type_10
+        - 11 <- one_lineup_Type_11 BUGGED
 =#
-formulation_type = 9
+formulation_type = 11
 
 
 ############################  Setting Projections Source  ############################
@@ -106,6 +108,10 @@ elseif (formulation_type == 8)
     formulation = formulations.one_lineup_Type_8  
 elseif (formulation_type == 9) 
     formulation = formulations.one_lineup_Type_9  
+elseif (formulation_type == 10) 
+    formulation = formulations.one_lineup_Type_10  
+elseif (formulation_type == 11) 
+    formulation = formulations.one_lineup_Type_11 
 else
     formulation = one_lineup_no_stacking 
 end
