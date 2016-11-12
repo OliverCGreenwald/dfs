@@ -84,7 +84,7 @@ for (i in 2:(week.latest+1)) {
   TDs.weekly[is.na(TDs.weekly[,i]),i] <- 0
 }
 
-# Compute rolling stats
+# Compute rolling stats for Completions, Targets, and TDs
 for (i in 1:week.latest) {
   # Initialize df
   temp.df <- as.data.frame(matrix(data = NA, nrow = length(player.names), ncol = 4))
@@ -123,6 +123,16 @@ for (i in 1:week.latest) {
   assign(name, temp.df)
 }
 
+# Compute rolling stats for target %
+i <- 9
+temp.wk <- eval(parse(text=paste0("rolling.stats.wk",i)))
+temp.agg <-  data.frame(temp.wk$Team, temp.wk$Targets.Rolling)
+temp.agg <- aggregate(temp.agg[,-c(1)], by = list(temp.agg$temp.wk.Team), FUN = sum)
+temp.wk$Targets.Rolling.Sum <- temp.agg$x[match(temp.wk$Team, temp.agg$Group.1)]
+temp.wk$Target.Ptcg.Rolling <- temp.wk$Targets.Rolling/temp.wk$Targets.Rolling.Sum
+temp.wk$Targets.Rolling.Sum <- NULL
+assign(paste0("rolling.stats.wk",i), temp.wk)
+
 ####### ASSIGN INTEGER RANKING TO EACH PLAYER WITHIN TEAMS #########
 for (i in 1:week.latest) {
   temp.wk <- eval(parse(text=paste0("rolling.stats.wk",i)))
@@ -145,8 +155,16 @@ write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste
 i <- 9
 temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
 temp$Temp.Name <- paste0(temp$LastName, ', ', temp$FirstName)
-temp$Rank.Targets <- rolling.stats.wk9$Rank.Targets[match(temp$Temp.Name, rolling.stats.wk9$Name)]
-temp$Rank.Targets[is.na(temp$Rank.Targets)==T] <- 0
+
+# add target rank
+temp$RankTargets <- rolling.stats.wk9$Rank.Targets[match(temp$Temp.Name, rolling.stats.wk9$Name)]
+temp$RankTargets[is.na(temp$RankTargets)==T] <- 0
+
+# add rolling target %
+temp$RollingTargetPctg <- rolling.stats.wk9$Target.Ptcg.Rolling[match(temp$Temp.Name, rolling.stats.wk9$Name)]
+temp$RollingTargetPctg[is.na(temp$RollingTargetPctg)==T] <- 0
+
+temp$Temp.Name <- NULL
 write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 
 
