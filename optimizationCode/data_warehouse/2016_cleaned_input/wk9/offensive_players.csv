@@ -4,7 +4,7 @@
 "RB","Ezekiel Elliott (7688617)","Ezekiel Elliott",7688617,7900,"Dal@Cle 01:00PM ET","Dal","Ezekiel","Elliott","Cle",25.85,23.5,6,0.0778210116731518
 "QB","Aaron Rodgers (7688563)","Aaron Rodgers",7688563,7800,"Ind@GB 04:25PM ET","GB","Aaron","Rodgers","Ind",23.53,23.8,0,0
 "WR","Jordy Nelson (7688761)","Jordy Nelson",7688761,7800,"Ind@GB 04:25PM ET","GB","Jordy","Nelson","Ind",20.28,19.4,1,0.229607250755287
-"RB","Le'Veon Bell (7688621)","Le'Veon Bell",7688621,7700,"Pit@Bal 01:00PM ET","Pit","Le'Veon","Bell","Bal",23.41,22,0,0
+"RB","Le'Veon Bell (7688621)","Le'Veon Bell",7688621,7700,"Pit@Bal 01:00PM ET","Pit","Le'Veon","Bell","Bal",23.41,22,2,0.145510835913313
 "WR","Amari Cooper (7688793)","Amari Cooper",7688793,7700,"Den@Oak 08:30PM ET","Oak","Amari","Cooper","Den",16.12,17.4,1,0.267379679144385
 "WR","T.Y. Hilton (7688763)","T.Y. Hilton",7688763,7600,"Ind@GB 04:25PM ET","Ind","T.Y.","Hilton","GB",19.03,23,1,0.277777777777778
 "RB","DeMarco Murray (7688653)","DeMarco Murray",7688653,7600,"Ten@SD 04:25PM ET","Ten","DeMarco","Murray","SD",18.97,15,4,0.139072847682119
@@ -218,7 +218,7 @@
 "WR","Arrelious Benn (7688704)","Arrelious Benn",7688704,3000,"Jax@KC 01:00PM ET","Jax","Arrelious","Benn","KC",3.42,0,8,0.0263157894736842
 "WR","Albert Wilson (7688706)","Albert Wilson",7688706,3000,"Jax@KC 01:00PM ET","KC","Albert","Wilson","Jax",4.02,3.4,5,0.0896551724137931
 "WR","Rashad Greene Sr. (7688709)","Rashad Greene Sr.",7688709,3000,"Jax@KC 01:00PM ET","Jax","Rashad","Greene","KC",0,1,9,0.0204678362573099
-"WR","De'Anthony Thomas (7688710)","De'Anthony Thomas",7688710,3000,"Jax@KC 01:00PM ET","KC","De'Anthony","Thomas","Jax",0,0,0,0
+"WR","De'Anthony Thomas (7688710)","De'Anthony Thomas",7688710,3000,"Jax@KC 01:00PM ET","KC","De'Anthony","Thomas","Jax",0,0,9,0.0172413793103448
 "WR","Demarcus Robinson (7688712)","Demarcus Robinson",7688712,3000,"Jax@KC 01:00PM ET","KC","Demarcus","Robinson","Jax",0,0,0,0
 "RB","Darren McFadden (7688608)","Darren McFadden",7688608,3000,"Dal@Cle 01:00PM ET","Dal","Darren","McFadden","Cle",0,0,0,0
 "RB","Lance Dunbar (7688610)","Lance Dunbar",7688610,3000,"Dal@Cle 01:00PM ET","Dal","Lance","Dunbar","Cle",0,4.2,8,0.0233463035019455
@@ -316,7 +316,7 @@
 "TE","Dominique Jones (7688817)","Dominique Jones",7688817,2500,"NYJ@Mia 01:00PM ET","Mia","Dominique","Jones","NYJ",0,4.2,8,0.04149377593361
 "TE","Marcedes Lewis (7688818)","Marcedes Lewis",7688818,2500,"Jax@KC 01:00PM ET","Jax","Marcedes","Lewis","KC",4.28,2.6,6,0.0701754385964912
 "TE","James Winchester (7688820)","James Winchester",7688820,2500,"Jax@KC 01:00PM ET","KC","James","Winchester","Jax",0,0,0,0
-"TE","James O'Shaughnessy (7688822)","James O'Shaughnessy",7688822,2500,"Jax@KC 01:00PM ET","KC","James","O'Shaughnessy","Jax",0,0,0,0
+"TE","James O'Shaughnessy (7688822)","James O'Shaughnessy",7688822,2500,"Jax@KC 01:00PM ET","KC","James","O'Shaughnessy","Jax",0,0,14,0.00344827586206897
 "TE","Neal Sterling (7688823)","Neal Sterling",7688823,2500,"Jax@KC 01:00PM ET","Jax","Neal","Sterling","KC",0,0,12,0.00584795321637427
 "TE","Ross Travis (7688824)","Ross Travis",7688824,2500,"Jax@KC 01:00PM ET","KC","Ross","Travis","Jax",0,0,10,0.0137931034482759
 "TE","Demetrius Harris (7688825)","Demetrius Harris",7688825,2500,"Jax@KC 01:00PM ET","KC","Demetrius","Harris","Jax",2.07,1.5,8,0.0620689655172414
