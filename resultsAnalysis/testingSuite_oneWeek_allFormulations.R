@@ -5,7 +5,7 @@
 
 
 ####### SET PARAMETER VALUES #########
-week.num <- 6
+week.num <- 9
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
 formulation <- 4

@@ -15,6 +15,7 @@ library('stringr')
 ####### SET YEAR, WEEK, POSITION #########
 yr <- '2016'
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+week.latest <- 10
 pos <- ''
 
 ####### SET TEAM NAMES FOLLOWING NFL SAVANT NAMING CONVENTION #########
