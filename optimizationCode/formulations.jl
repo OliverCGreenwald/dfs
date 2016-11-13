@@ -1316,7 +1316,7 @@ function one_lineup_Type_11(offensive_players, defenses, lineups, num_overlap, n
 
     # Must have a QB/opp-Top Target Pair
     @defVar(m, QBoppTarget_stack[i=1:num_pairs_QBoppTarget], Bin)
-    @addConstraint(m, constr[i=1:num_pairs_QBoppTarget], 11*QBoppTarget_stack[i] == sum{team_pairs_QBoppTarget[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
+    @addConstraint(m, constr[i=1:num_pairs_QBoppTarget], 11*QBoppTarget_stack[i] >= sum{team_pairs_QBoppTarget[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
     @addConstraint(m, sum{QBoppTarget_stack[i], i=1:num_pairs_QBoppTarget} >= 1)
 
     # Overlap Constraint
