@@ -5,14 +5,14 @@
 
 
 ####### SET PARAMETER VALUES #########
-week.num <- 9
+week.num <- 8
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
-formulation <- 4
+formulation <- 11
 overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 9
 exposure.range <- seq(from = 0.1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
-pnl_one_graph <- TRUE 
+pnl_one_graph <- TRUE
 
 
 
@@ -42,7 +42,9 @@ payout.data <- read.csv(file = file.name, stringsAsFactors = F)
   
 ######## LOOP THROUGH OVERLAP PARAMETER VALUES ########
 for (k in overlap.lo:overlap.hi) {
-    
+  
+  print(paste0("Overlap: ", k))
+  
   # Loop through exposures
   for (exposure in exposure.range) {
       
@@ -114,7 +116,7 @@ for (k in overlap.lo:overlap.hi) {
     numLineups <- seq(from = nrow(lineups), to = nrow(lineups)-length(pnls)+1)
     if(k == 1 & exposure == 0.1 & pnl_one_graph == TRUE)
     {
-      plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l", col= k)#, ylim = c(-3000,2000))
+      plot(numLineups, pnls, xlab="Number of Lineups", ylab="PnL", type = "l", col= k, ylim = c(-2000,1000))
       abline(h=0, col = "red")
     } else if (pnl_one_graph == TRUE){
       lines(numLineups, pnls, col = k)
