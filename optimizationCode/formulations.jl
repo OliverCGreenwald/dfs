@@ -176,6 +176,8 @@ function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, nu
     # Exposure Constraint
     @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
 
+    @addConstraint(m, constr[j=1:num_defenses], sum{lineups[j,i], i=1:size(lineups)[2]} + defenses_lineup[j] <= num_lineups * exposure)
+
     # Objective
     if (projections_source == "Projection")
         @setObjective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
@@ -282,6 +284,8 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
 
     # Exposure Constraint
     @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
+
+    @addConstraint(m, constr[j=1:num_defenses], sum{lineups[j,i], i=1:size(lineups)[2]} + defenses_lineup[j] <= num_lineups * exposure)
 
     # Objective
     if (projections_source == "Projection")
@@ -1197,6 +1201,8 @@ function one_lineup_Type_10(offensive_players, defenses, lineups, num_overlap, n
     # Exposure Constraint
     @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
 
+    @addConstraint(m, constr[j=1:num_defenses], sum{lineups[num_offensive_players + j,i], i=1:size(lineups)[2]} + defenses_lineup[j] <= num_lineups * exposure)
+
     # Objective
     # @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     if (projections_source == "Projection")
@@ -1324,6 +1330,8 @@ function one_lineup_Type_11(offensive_players, defenses, lineups, num_overlap, n
 
     # Exposure Constraint
     @addConstraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j] <= num_lineups * exposure)
+
+    @addConstraint(m, constr[j=1:num_defenses], sum{lineups[j,i], i=1:size(lineups)[2]} + defenses_lineup[j] <= num_lineups * exposure)
 
     # Objective
     if (projections_source == "Projection")

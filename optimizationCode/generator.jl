@@ -31,10 +31,10 @@ Variables for solving the problem (change these)
 num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
-num_overlap = 2
+num_overlap = 4
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.4
+exposure = 1
 
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 
@@ -64,7 +64,7 @@ formulation is the type of formulation that you would like to use.
         - 11 <- one_lineup_Type_11
         - 12 <- one_lineup_Type_12
 =#
-formulation_type = 10
+formulation_type = 4
 
 
 ############################  Setting Projections Source  ############################
@@ -84,7 +84,7 @@ projections_source = "Projection_dfn"
 if (week == "LIVE") 
     path_offensive_players = "data_warehouse/offensive_players.csv"
     path_defenses = "data_warehouse/defenses.csv"
-    path_to_output = "output.csv"
+    path_to_output = "output2.csv"
 else
     path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
     path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
