@@ -131,7 +131,7 @@ for (k in overlap.lo:overlap.hi) {
     }
     
     #Print Max of Lineup and 
-    print(paste0("Overlap: ", k, " | Exposure: ", exposure, " | Max Fpts: ", max(lineups$total), ' | Optimal Num Lineups: ', numLineups[which.max(pnls)]))
+    print(paste0("Overlap: ", k, " | Exposure: ", exposure, " | Max Fpts: ", max(lineups$total), ' | Optimal Num Lineups: ', numLineups[which.max(pnls)], ' | PnL @ Optimum: ', max(pnls))) # , ' | PnL @ Optimum: ', max(pnls)
   }
     
 }
