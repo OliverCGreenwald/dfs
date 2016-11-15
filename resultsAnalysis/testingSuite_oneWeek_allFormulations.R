@@ -5,14 +5,14 @@
 
 
 ####### SET PARAMETER VALUES #########
-week.num <- 9
-contest.entry.fee <- "$20"
+week.num <- 10
+contest.entry.fee <- "$4"
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
-formulation <- 4
+formulation <- 13
 overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 9
 exposure.range <- seq(from = 0.1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
-pnl_one_graph <- TRUE
+pnl_one_graph <- FALSE
 
 
 
@@ -62,6 +62,8 @@ for (k in overlap.lo:overlap.hi) {
       
     total_results <- player.performance[,c('Player', 'Actual.Score')]
     lineups$total <- 0
+    
+    
       
     for (index in 1:nrow(lineups)){
       row <- t(lineups[index,])
@@ -69,6 +71,9 @@ for (k in overlap.lo:overlap.hi) {
       row <- merge(row, total_results, by = 'Player')
       lineups$total[index] <- sum(row$Actual.Score)
     }
+    
+    #Print Max of Lineup 
+    print(paste0("Overlap: ", k, " | Exposure: ", exposure, " - ", max(lineups$total)))
     
     if(pnl_one_graph != TRUE) {
       plot(lineups$total, main = paste0("Week ", week.num, ", Overlap ", k, ", Exposure ", exposure), xlab = "Lineup Index", ylab = "Lineup FPts")

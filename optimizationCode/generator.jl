@@ -40,9 +40,9 @@ exposure = 1
 #= week sets which week of data we're looking at 
     Available Options: 
         - "LIVE" (Current week)
-        - 1 (1-9)
+        - 1 (1-10)
 =#
-week = "LIVE"
+week = 9
 
 
 ############################  Setting Formation  ############################
@@ -63,8 +63,9 @@ formulation is the type of formulation that you would like to use.
         - 10 <- one_lineup_Type_10
         - 11 <- one_lineup_Type_11
         - 12 <- one_lineup_Type_12
+        - 13 <- one_lineup_Type_13
 =#
-formulation_type = 4
+formulation_type = 13
 
 
 ############################  Setting Projections Source  ############################
@@ -115,13 +116,15 @@ elseif (formulation_type == 11)
     formulation = formulations.one_lineup_Type_11
 elseif (formulation_type == 12) 
     formulation = formulations.one_lineup_Type_12
+elseif (formulation_type == 13) 
+    formulation = formulations.one_lineup_Type_13
 else
     formulation = one_lineup_no_stacking 
 end
 
 ########### Running the code ###########
 
-formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
+#formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
 
 # Varying num_lineups
 # for i=1:9
@@ -133,10 +136,10 @@ formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_p
 #     formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source)
 # end
 
-# # Do all Posibilities for a week.
-# for overlap_var =1:9
-#     for exposure_var =1:9
-#         formulations.create_lineups(num_lineups, overlap_var, exposure_var*0.1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_0.", exposure_var, ".csv"), projections_source)
-#     end
-#     formulations.create_lineups(num_lineups, overlap_var, 1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_1", ".csv"), projections_source)
-# end
+# Do all Posibilities for a week.
+for overlap_var =1:9
+    for exposure_var =1:9
+        formulations.create_lineups(num_lineups, overlap_var, exposure_var*0.1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_0.", exposure_var, ".csv"), projections_source)
+    end
+    formulations.create_lineups(num_lineups, overlap_var, 1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_1", ".csv"), projections_source)
+end
