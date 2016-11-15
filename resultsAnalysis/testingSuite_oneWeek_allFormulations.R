@@ -5,8 +5,8 @@
 
 
 ####### SET PARAMETER VALUES #########
-week.num <- 10
-contest.entry.fee <- "$4"
+week.num <- 7
+contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
 formulation <- 13
 overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
@@ -72,8 +72,8 @@ for (k in overlap.lo:overlap.hi) {
       lineups$total[index] <- sum(row$Actual.Score)
     }
     
-    #Print Max of Lineup 
-    print(paste0("Overlap: ", k, " | Exposure: ", exposure, " - ", max(lineups$total)))
+    # #Print Max of Lineup 
+    # print(paste0("Overlap: ", k, " | Exposure: ", exposure, " - ", max(lineups$total)))
     
     if(pnl_one_graph != TRUE) {
       plot(lineups$total, main = paste0("Week ", week.num, ", Overlap ", k, ", Exposure ", exposure), xlab = "Lineup Index", ylab = "Lineup FPts")
@@ -130,6 +130,8 @@ for (k in overlap.lo:overlap.hi) {
       abline(h=0, col = "red")
     }
     
+    #Print Max of Lineup and 
+    print(paste0("Overlap: ", k, " | Exposure: ", exposure, " | Max Fpts: ", max(lineups$total), ' | Optimal Num Lineups: ', numLineups[which.max(pnls)]))
   }
     
 }
