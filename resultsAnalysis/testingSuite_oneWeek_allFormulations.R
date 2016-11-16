@@ -5,7 +5,7 @@
 
 
 ####### SET PARAMETER VALUES #########
-week.num <- 7
+week.num <- 5
 contest.entry.fee <- "$20"
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
 formulation <- 13
@@ -108,9 +108,9 @@ for (k in overlap.lo:overlap.hi) {
     }
       
     ######## ADD TO PNL MATRIX ########
-    paste0("Total PnL: ", sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
     pnlMatrix[pnlMatrix[,paste("Week", week.num)]==exposure, k+1] <- sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups)
-
+    print(sum(lineups$payout) - as.numeric(substring(contest.entry.fee, 2)) * nrow(lineups))
+    print(exposure)
       
     ######## PNL VS NUMBER OF LINEUPS ########
     pnls <- rep(0,nrow(lineups))
@@ -136,11 +136,12 @@ for (k in overlap.lo:overlap.hi) {
     
 }
   
-  
-print(pnlMatrix)
+
+# print(pnlMatrix)
+print(as.data.frame(pnlMatrix))
+
 #if (length(exposure.range) == 1) {
 #  saveRDS(pnlMatrix, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", 1, ".rds"))
 #} else {
 #  saveRDS(pnlMatrix, file = paste0("../resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_overlap_", overlap.lo, ".rds"))
 #}
-  

@@ -2,7 +2,9 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 ####### DESCRIPTION #########
-# In this file we test ceiling and floor projections from DFN.
+# In this file we test ceiling and floor projections from DFN. Filtered out players projected to get 0 fpts.
+# Note: Need to add latest week's files to dailyfantasynerd/updates folder (redownload from DFN to get actual fpts).
+# Be aware the updated data might have some differences with the original data b/c projections may have changed.
 
 ####### LOAD DFN FILES #########
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
@@ -25,7 +27,7 @@ for (i in 1:week.latest) {
   name <- paste("dfn_offense_week", i, sep = "")
   
   temp <- eval(parse(text=name)) # temp to counts week's dfn data
-  temp <- temp[temp$Proj.FP > 0,]
+  temp <- temp[temp$Proj.FP > 0,] # filter out players with projection 0
   temp$dummy <- 0
   temp[temp$Actual.FP < temp$Floor.FP, 'dummy'] <- -1 # -1: below floor
   temp[temp$Actual.FP >= temp$Floor.FP & temp$Actual.FP <= temp$Ceil.FP, 'dummy'] <- 0 # 0: in range
@@ -36,6 +38,7 @@ for (i in 1:week.latest) {
   print(paste0('Week ', i, ' below floor %: ', 100*sum(temp$dummy==-1)/nrow(temp)))
   print(paste0('Week ', i, ' in-range %: ', 100*sum(temp$dummy==0)/nrow(temp)))
   print(paste0('Week ', i, ' above ceiling %: ', 100*sum(temp$dummy==1)/nrow(temp)))
+  cat("\n")
 }
 
 # Sort and plot (to determine if higher/lower projection players underperform/overperform or vice versa)
@@ -60,6 +63,6 @@ for (i in 1:(length(ind)-1)) {
 }
 plot(ind[-1], counts.in, xlab = 'Index (Ranges)', ylab = 'Count', main = 'Number of -1s,0s,1s vs Ascending Projection', xaxt = 'n', ylim = c(min(counts.in,counts.below,counts.above), max(counts.in,counts.below,counts.above)))
 points(ind[-1], counts.below, col = "red")
-points(ind[-1], counts.above, col = "blue")
-axis(1, at = ind[-1], las=2) # e.g. "219" is "1-219" range and "430" is "219-430" range, where these are indicies in ascending order of projections
+points(ind[-1], counts.above, col = "green")
+axis(1, at = ind[-1], las=2) # e.g. "219" is "1-219" range and "430" is "219-430" range, where these are indicies in ASCENDING order of projections
 
