@@ -42,7 +42,7 @@ exposure = 1
         - "LIVE" (Current week)
         - 1 (1-10)
 =#
-week = 9
+week = 3
 
 
 ############################  Setting Formation  ############################
@@ -85,7 +85,7 @@ projections_source = "Projection_dfn"
 if (week == "LIVE") 
     path_offensive_players = "data_warehouse/offensive_players.csv"
     path_defenses = "data_warehouse/defenses.csv"
-    path_to_output = "output2.csv"
+    path_to_output = "output.csv"
 else
     path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
     path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
