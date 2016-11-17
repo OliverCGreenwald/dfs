@@ -5,9 +5,9 @@
 
 
 ####### SET PARAMETER VALUES #########
-week.num <- 5
-contest.entry.fee <- "$20"
-predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc"
+week.num <- 8
+contest.entry.fee <- "$3" # $3, $4 (wk 10 only), or $20
+predictions.source <- "_reg" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc" or "_reg"
 formulation <- 13
 overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 9

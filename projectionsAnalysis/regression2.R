@@ -100,9 +100,9 @@ for (i in 2:week.latest) {
   # Option 1: Use single regression model
   # temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
   
-  # Option 2: Use two regresion models (split at threshold)
+  # Option 2: Use two regression models (split at threshold)
   for (j in 1:nrow(temp)) {
-    if ((temp$Projection_dfn + temp$Projection)/2 > thresholds[i-1]) {
+    if ((temp$Projection_dfn[j] + temp$Projection[j])/2 > thresholds[i-1,1]) {
       temp$Projection_reg[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
     } else {
       temp$Projection_reg[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
