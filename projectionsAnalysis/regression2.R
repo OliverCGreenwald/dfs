@@ -98,16 +98,16 @@ for (i in 2:week.latest) {
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
   
   # Option 1: Use single regression model
-  temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
+  # temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
   
   # Option 2: Use two regression models (split at threshold)
-  # for (j in 1:nrow(temp)) {
-  #   if ((temp$Projection_dfn[j] + temp$Projection[j])/2 > thresholds[i-1,1]) {
-  #     temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
-  #   } else {
-  #     temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
-  #   }
-  # }
+  for (j in 1:nrow(temp)) {
+    if ((temp$Projection_dfn[j] + temp$Projection[j])/2 > thresholds[i-1,1]) {
+      temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+    } else {
+      temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+    }
+  }
   
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 }
