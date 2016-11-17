@@ -36,7 +36,12 @@ for (i in 1:week.latest) {
 }
 
 ####### RUN REGRESSIONS (ROLLING) FOR EACH WEEK #########
-threshold.pct <- 0.75
+threshold.pct <- 0.70 #0.70
+# threshold.pcts <- seq(from = 0.5, to = 0.9, by = 0.05)
+# threshold.tuning.mat <- as.data.frame(matrix(NA, nrow = length(threshold.pcts), ncol = week.latest*2))
+# for (i in 1:ncol(threshold.tuning.mat)) {
+#   colnames(threshold.tuning.mat)[i] <- paste0('')
+# }
 
 coeff.all <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 5)) # for storing coefficents and p-values
 coeff.upper <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 5)) # for storing coefficents and p-values
@@ -49,11 +54,11 @@ colnames(coeff.lower) <- c('Week','Proj.FP', 'Roto.Pred', 'Proj.FP.pval', 'Roto.
 colnames(thresholds) <- 'Threshold.Fpts'
 
 for (i in 1:week.latest) {
-  temp <- all.data[all.data$Week.Num <= i & all.data$Week.Num >= i-4, ] # if more than 5 weeks, use previous 5 weeks worth of data (rather than all prev weeks)
+  temp <- all.data[all.data$Week.Num <= i, ] # & all.data$Week.Num >= i-4 # if more than 5 weeks, use previous 5 weeks worth of data (rather than all prev weeks)
   model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp, na.action = na.omit)
-  print(paste0("Week ", i, " (all)"))
-  print(summary(model))
-  cat("\n")
+  # print(paste0("Week ", i, " (all)"))
+  # print(summary(model))
+  # cat("\n")
   coeff.all[i,1] <- i
   coeff.all[i,2] <- summary(model)$coefficients[2]
   coeff.all[i,3] <- summary(model)$coefficients[3]
@@ -63,44 +68,48 @@ for (i in 1:week.latest) {
   threshold <- quantile(temp$Actual.FP, na.rm = T, probs = threshold.pct) # we set this to threshold.pct percentile
   thresholds[i,1] <- threshold
   
-  temp.upper <- temp[temp$Actual.FP >= threshold, ] # only keep players where actual >= threshold
-  model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp.upper, na.action = na.omit)
-  print(paste0("Week ", i, " (above ", threshold.pct*100, "th pct: ", threshold, ")"))
-  print(summary(model))
-  cat("\n")
-  coeff.upper[i,1] <- i
-  coeff.upper[i,2] <- summary(model)$coefficients[2]
-  coeff.upper[i,3] <- summary(model)$coefficients[3]
-  coeff.upper[i,4] <- summary(model)$coefficients[11]
-  coeff.upper[i,5] <- summary(model)$coefficients[12]
-  
-  temp.lower <- temp[temp$Actual.FP < threshold, ] # only keep players where actual >= threshold
-  model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp.lower, na.action = na.omit)
-  print(paste0("Week ", i, " (below ", threshold.pct*100, "th pct: ", threshold, ")"))
-  print(summary(model))
-  cat("\n")
-  coeff.lower[i,1] <- i
-  coeff.lower[i,2] <- summary(model)$coefficients[2]
-  coeff.lower[i,3] <- summary(model)$coefficients[3]
-  coeff.lower[i,4] <- summary(model)$coefficients[11]
-  coeff.lower[i,5] <- summary(model)$coefficients[12]
+  if (i > 1) {
+    temp.upper <- temp[(temp$Proj.FP + temp$Roto.Pred)/2 >= thresholds[i-1,1], ] # only keep players where average > last week's threshold
+    model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp.upper, na.action = na.omit)
+    print(paste0("Week ", i, " (above ", threshold.pct*100, "th pct: ", threshold, ")"))
+    print(summary(model))
+    cat("\n")
+    coeff.upper[i,1] <- i
+    coeff.upper[i,2] <- summary(model)$coefficients[2]
+    coeff.upper[i,3] <- summary(model)$coefficients[3]
+    coeff.upper[i,4] <- summary(model)$coefficients[11]
+    coeff.upper[i,5] <- summary(model)$coefficients[12]
+    
+    temp.lower <- temp[(temp$Proj.FP + temp$Roto.Pred)/2 < thresholds[i-1,1], ] # only keep players where actual >= threshold
+    model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp.lower, na.action = na.omit)
+    print(paste0("Week ", i, " (below ", threshold.pct*100, "th pct: ", threshold, ")"))
+    print(summary(model))
+    cat("\n")
+    coeff.lower[i,1] <- i
+    coeff.lower[i,2] <- summary(model)$coefficients[2]
+    coeff.lower[i,3] <- summary(model)$coefficients[3]
+    coeff.lower[i,4] <- summary(model)$coefficients[11]
+    coeff.lower[i,5] <- summary(model)$coefficients[12]
+  }
 }
 
 ####### ADD REGRESSED PREDICTIONS TO 2016_CLEANED_INPUT FILES #########
 for (i in 2:week.latest) {
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
   
-  # for (j in 1:nrow(temp)) {
-  #   if (temp$)
-  # }
+  # Option 1: Use single regression model
+  # temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
   
-  temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
+  # Option 2: Use two regresion models (split at threshold)
+  for (j in 1:nrow(temp)) {
+    if ((temp$Projection_dfn + temp$Projection)/2 > thresholds[i-1]) {
+      temp$Projection_reg[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+    } else {
+      temp$Projection_reg[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+    }
+  }
   
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 }
-
-
-
-
 
 
