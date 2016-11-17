@@ -2,7 +2,7 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 ####### DESCRIPTION #########
-# In this file we test ceiling and floor projections from DFN. Filtered out players projected to get 0 fpts.
+# In this file we test ceiling and floor projections from DFN. Filtered out players projected to get 0 fpts. Offense only.
 # Note: Need to add latest week's files to dailyfantasynerd/updates folder (redownload from DFN to get actual fpts).
 # Be aware the updated data might have some differences with the original data b/c projections may have changed.
 
