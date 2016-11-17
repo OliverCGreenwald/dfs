@@ -1,133 +1,115 @@
 #setwd("~/Projects/DFS/resultsAnalysis")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
-####### Description #########
+####### DESCRIPTION #########
 # In this file we run a regression on Rotogrinders and Daily Fantasy Nerd projections to output combined predictions.
-# Split into defense and offense.
+# Filtered out players projected to get 0 fpts. Offense only.
 
-####### Offense #########
-####### Week 4 #########
-fpts.realized.week4 <- read.csv(file = 'resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week4.csv', stringsAsFactors = F)
-# fpts.realized.week4$Actual.Score[is.na(fpts.realized.week4$Actual.Score)] <- 0 # fix NA's
-fpts.realized.week4$Player <- sub(' Sr.', '', fpts.realized.week4$Player) # remove Sr.
-fpts.realized.week4$Player <- sub(' Jr.', '', fpts.realized.week4$Player) # remove Jr.
+####### LOAD DFN FILES #########
+week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+for (i in 1:week.latest) {
+  name <- paste("dfn_offense_week", i, sep = "")
+  assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+  
+  # add week column
+  temp.df <- eval(parse(text=name))
+  temp.df$Week.Num <- i
+  assign(name, temp.df)
+}
 
-#--- offense ---#
-# prepare matrix for regression
-fpts.roto.offense.week4 <- read.csv(file = 'optimizationCode/data_warehouse/rotogrinders/roto_offense_week4.csv', stringsAsFactors = F)
-fpts.dfn.offense.week4 <- read.csv(file = 'optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week4.csv', stringsAsFactors = F)
-fpts.dfn.offense.week4$Player.Name <- sub(' Sr.', '', fpts.dfn.offense.week4$Player.Name) # remove Sr.
-fpts.dfn.offense.week4$Player.Name <- sub(' Jr.', '', fpts.dfn.offense.week4$Player.Name) # remove Jr.
+####### AGGREGATE DATA #########
+all.data <- as.data.frame(matrix(NA, nrow = 0, ncol = 7)) # initialization purposes (for storing all weeks in one df)
+colnames(all.data) <- c('Player.Name', 'Floor.FP', 'Ceil.FP', 'Proj.FP', 'Actual.FP', 'Week.Num', 'Roto.Pred') # initialization purposes
 
-fpts.realized.week4$RotoPreds <- fpts.roto.offense.week4$fpts[match(fpts.realized.week4$Player, fpts.roto.offense.week4$player)]
-fpts.realized.week4$DfnPreds <- fpts.dfn.offense.week4$Proj.FP[match(fpts.realized.week4$Player, fpts.dfn.offense.week4$Player.Name)]
+for (i in 1:week.latest) {
+  name <- paste("dfn_offense_week", i, sep = "")
+  
+  temp <- eval(parse(text=name)) # temp to counts week's dfn data
+  temp <- temp[temp$Proj.FP > 0,] # filter out players with projection 0
+  
+  temp.roto <- read.csv(file = paste0('optimizationCode/data_warehouse/rotogrinders/roto_offense_week',i,'.csv'), stringsAsFactors = F)
+  temp$Player.Name <- sub(' Sr.', '', temp$Player.Name)
+  temp$Player.Name <- sub(' Jr.', '', temp$Player.Name)
+  temp$Roto.Pred <- temp.roto$fpts[match(temp$Player.Name, temp.roto$player)]
+  
+  all.data <- rbind(all.data, temp[,c('Player.Name', 'Floor.FP', 'Ceil.FP', 'Proj.FP', 'Actual.FP', 'Week.Num', 'Roto.Pred')]) # append
+}
 
-df.week4 <- as.data.frame(cbind(fpts.realized.week4$Actual.Score, fpts.realized.week4$RotoPreds, fpts.realized.week4$DfnPreds), stringsAsFactors = F)
-colnames(df.week4) <- c('Realized_fpts', 'Rotogrinders_ftps', 'Dfn_ftps')
+####### RUN REGRESSIONS (ROLLING) FOR EACH WEEK #########
+threshold.pct <- 0.70 #0.70
+# threshold.pcts <- seq(from = 0.5, to = 0.9, by = 0.05)
+# threshold.tuning.mat <- as.data.frame(matrix(NA, nrow = length(threshold.pcts), ncol = week.latest*2))
+# for (i in 1:ncol(threshold.tuning.mat)) {
+#   colnames(threshold.tuning.mat)[i] <- paste0('')
+# }
 
-# regression
-model.week4 <- lm(df.week4$Realized_fpts ~ df.week4$Rotogrinders_ftps + df.week4$Dfn_ftps, na.action = na.omit)
-summary(model.week4)
+coeff.all <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 5)) # for storing coefficents and p-values
+coeff.upper <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 5)) # for storing coefficents and p-values
+coeff.lower <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 5)) # for storing coefficents and p-values
+thresholds <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 1)) # for storing thresholds
 
-fpts.50th.percentile <- quantile(df.week4$Realized_fpts, na.rm = T)[3]
-df.week4.cut <- df.week4[df.week4$Realized_fpts >= fpts.50th.percentile,]
-model.week4.cut <- lm(df.week4.cut$Realized_fpts ~ df.week4.cut$Rotogrinders_ftps + df.week4.cut$Dfn_ftps, na.action = na.omit)
-summary(model.week4.cut)
+colnames(coeff.all) <- c('Week','Proj.FP', 'Roto.Pred', 'Proj.FP.pval', 'Roto.Pred.pval')
+colnames(coeff.upper) <- c('Week','Proj.FP', 'Roto.Pred', 'Proj.FP.pval', 'Roto.Pred.pval')
+colnames(coeff.lower) <- c('Week','Proj.FP', 'Roto.Pred', 'Proj.FP.pval', 'Roto.Pred.pval')
+colnames(thresholds) <- 'Threshold.Fpts'
 
-####### Week 3 #########
-fpts.realized.week3 <- read.csv(file = 'resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week3.csv', stringsAsFactors = F)
-# fpts.realized.week3$Actual.Score[is.na(fpts.realized.week3$Actual.Score)] <- 0 # fix NA's
-fpts.realized.week3$Player <- sub(' Sr.', '', fpts.realized.week3$Player) # remove Sr.
-fpts.realized.week3$Player <- sub(' Jr.', '', fpts.realized.week3$Player) # remove Jr.
+for (i in 1:week.latest) {
+  temp <- all.data[all.data$Week.Num <= i, ] # & all.data$Week.Num >= i-4 # if more than 5 weeks, use previous 5 weeks worth of data (rather than all prev weeks)
+  model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp, na.action = na.omit)
+  # print(paste0("Week ", i, " (all)"))
+  # print(summary(model))
+  # cat("\n")
+  coeff.all[i,1] <- i
+  coeff.all[i,2] <- summary(model)$coefficients[2]
+  coeff.all[i,3] <- summary(model)$coefficients[3]
+  coeff.all[i,4] <- summary(model)$coefficients[11]
+  coeff.all[i,5] <- summary(model)$coefficients[12]
+  
+  threshold <- quantile(temp$Actual.FP, na.rm = T, probs = threshold.pct) # we set this to threshold.pct percentile
+  thresholds[i,1] <- threshold
+  
+  if (i > 1) {
+    temp.upper <- temp[(temp$Proj.FP + temp$Roto.Pred)/2 >= thresholds[i-1,1], ] # only keep players where average > last week's threshold
+    model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp.upper, na.action = na.omit)
+    print(paste0("Week ", i, " (above ", threshold.pct*100, "th pct: ", threshold, ")"))
+    print(summary(model))
+    cat("\n")
+    coeff.upper[i,1] <- i
+    coeff.upper[i,2] <- summary(model)$coefficients[2]
+    coeff.upper[i,3] <- summary(model)$coefficients[3]
+    coeff.upper[i,4] <- summary(model)$coefficients[11]
+    coeff.upper[i,5] <- summary(model)$coefficients[12]
+    
+    temp.lower <- temp[(temp$Proj.FP + temp$Roto.Pred)/2 < thresholds[i-1,1], ] # only keep players where actual >= threshold
+    model <- lm(Actual.FP ~ Proj.FP + Roto.Pred, data = temp.lower, na.action = na.omit)
+    print(paste0("Week ", i, " (below ", threshold.pct*100, "th pct: ", threshold, ")"))
+    print(summary(model))
+    cat("\n")
+    coeff.lower[i,1] <- i
+    coeff.lower[i,2] <- summary(model)$coefficients[2]
+    coeff.lower[i,3] <- summary(model)$coefficients[3]
+    coeff.lower[i,4] <- summary(model)$coefficients[11]
+    coeff.lower[i,5] <- summary(model)$coefficients[12]
+  }
+}
 
-#--- offense ---#
-# prepare matrix for regression
-fpts.roto.offense.week3 <- read.csv(file = 'optimizationCode/data_warehouse/rotogrinders/roto_offense_week3.csv', stringsAsFactors = F)
-fpts.dfn.offense.week3 <- read.csv(file = 'optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week3.csv', stringsAsFactors = F)
-fpts.dfn.offense.week3$Player.Name <- sub(' Sr.', '', fpts.dfn.offense.week3$Player.Name) # remove Sr.
-fpts.dfn.offense.week3$Player.Name <- sub(' Jr.', '', fpts.dfn.offense.week3$Player.Name) # remove Jr.
+####### ADD REGRESSED PREDICTIONS TO 2016_CLEANED_INPUT FILES #########
+for (i in 2:week.latest) {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
+  
+  # Option 1: Use single regression model (if using this, comment out Option 2)
+  # temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
+  
+  # Option 2: Use two regression models (split at threshold) (if using this, comment out Option 1)
+  for (j in 1:nrow(temp)) {
+    if ((temp$Projection_dfn[j] + temp$Projection[j])/2 > thresholds[i-1,1]) {
+      temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+    } else {
+      temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+    }
+  }
+  
+  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
+}
 
-fpts.realized.week3$RotoPreds <- fpts.roto.offense.week3$fpts[match(fpts.realized.week3$Player, fpts.roto.offense.week3$player)]
-fpts.realized.week3$DfnPreds <- fpts.dfn.offense.week3$Proj.FP[match(fpts.realized.week3$Player, fpts.dfn.offense.week3$Player.Name)]
-
-df.week3 <- as.data.frame(cbind(fpts.realized.week3$Actual.Score, fpts.realized.week3$RotoPreds, fpts.realized.week3$DfnPreds), stringsAsFactors = F)
-colnames(df.week3) <- c('Realized_fpts', 'Rotogrinders_ftps', 'Dfn_ftps')
-
-# regression
-model.week3 <- lm(df.week3$Realized_fpts ~ df.week3$Rotogrinders_ftps + df.week3$Dfn_ftps, na.action = na.omit)
-summary(model.week3)
-
-fpts.50th.percentile <- quantile(df.week3$Realized_fpts, na.rm = T)[3]
-df.week3.cut <- df.week3[df.week3$Realized_fpts >= fpts.50th.percentile,]
-model.week3.cut <- lm(df.week3.cut$Realized_fpts ~ df.week3.cut$Rotogrinders_ftps + df.week3.cut$Dfn_ftps, na.action = na.omit)
-summary(model.week3.cut)
-
-####### Week 2 #########
-fpts.realized.week2 <- read.csv(file = 'resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week2.csv', stringsAsFactors = F)
-# fpts.realized.week2$Actual.Score[is.na(fpts.realized.week2$Actual.Score)] <- 0 # fix NA's
-fpts.realized.week2$Player <- sub(' Sr.', '', fpts.realized.week2$Player) # remove Sr.
-fpts.realized.week2$Player <- sub(' Jr.', '', fpts.realized.week2$Player) # remove Jr.
-
-#--- offense ---#
-# prepare matrix for regression
-fpts.roto.offense.week2 <- read.csv(file = 'optimizationCode/data_warehouse/rotogrinders/roto_offense_week2.csv', stringsAsFactors = F)
-fpts.dfn.offense.week2 <- read.csv(file = 'optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week2.csv', stringsAsFactors = F)
-fpts.dfn.offense.week2$Player.Name <- sub(' Sr.', '', fpts.dfn.offense.week2$Player.Name) # remove Sr.
-fpts.dfn.offense.week2$Player.Name <- sub(' Jr.', '', fpts.dfn.offense.week2$Player.Name) # remove Jr.
-
-fpts.realized.week2$RotoPreds <- fpts.roto.offense.week2$fpts[match(fpts.realized.week2$Player, fpts.roto.offense.week2$player)]
-fpts.realized.week2$DfnPreds <- fpts.dfn.offense.week2$Proj.FP[match(fpts.realized.week2$Player, fpts.dfn.offense.week2$Player.Name)]
-
-df.week2 <- as.data.frame(cbind(fpts.realized.week2$Actual.Score, fpts.realized.week2$RotoPreds, fpts.realized.week2$DfnPreds), stringsAsFactors = F)
-colnames(df.week2) <- c('Realized_fpts', 'Rotogrinders_ftps', 'Dfn_ftps')
-
-# regression
-model.week2 <- lm(df.week2$Realized_fpts ~ df.week2$Rotogrinders_ftps + df.week2$Dfn_ftps, na.action = na.omit)
-summary(model.week2)
-
-fpts.50th.percentile <- quantile(df.week2$Realized_fpts, na.rm = T)[3]
-df.week2.cut <- df.week2[df.week2$Realized_fpts >= fpts.50th.percentile,]
-model.week2.cut <- lm(df.week2.cut$Realized_fpts ~ df.week2.cut$Rotogrinders_ftps + df.week2.cut$Dfn_ftps, na.action = na.omit)
-summary(model.week2.cut)
-
-####### Week 1 #########
-fpts.realized.week1 <- read.csv(file = 'resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week1.csv', stringsAsFactors = F)
-# fpts.realized.week1$Actual.Score[is.na(fpts.realized.week1$Actual.Score)] <- 0 # fix NA's
-fpts.realized.week1$Player <- sub(' Sr.', '', fpts.realized.week1$Player) # remove Sr.
-fpts.realized.week1$Player <- sub(' Jr.', '', fpts.realized.week1$Player) # remove Jr.
-
-#--- offense ---#
-# prepare matrix for regression
-fpts.roto.offense.week1 <- read.csv(file = 'optimizationCode/data_warehouse/rotogrinders/roto_offense_week1.csv', stringsAsFactors = F)
-fpts.dfn.offense.week1 <- read.csv(file = 'optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week1.csv', stringsAsFactors = F)
-fpts.dfn.offense.week1$Player.Name <- sub(' Sr.', '', fpts.dfn.offense.week1$Player.Name) # remove Sr.
-fpts.dfn.offense.week1$Player.Name <- sub(' Jr.', '', fpts.dfn.offense.week1$Player.Name) # remove Jr.
-
-fpts.realized.week1$RotoPreds <- fpts.roto.offense.week1$fpts[match(fpts.realized.week1$Player, fpts.roto.offense.week1$player)]
-fpts.realized.week1$DfnPreds <- fpts.dfn.offense.week1$Proj.FP[match(fpts.realized.week1$Player, fpts.dfn.offense.week1$Player.Name)]
-
-df.week1 <- as.data.frame(cbind(fpts.realized.week1$Actual.Score, fpts.realized.week1$RotoPreds, fpts.realized.week1$DfnPreds), stringsAsFactors = F)
-colnames(df.week1) <- c('Realized_fpts', 'Rotogrinders_ftps', 'Dfn_ftps')
-
-# regression
-model.week1 <- lm(df.week1$Realized_fpts ~ df.week1$Rotogrinders_ftps + df.week1$Dfn_ftps, na.action = na.omit)
-summary(model.week1)
-
-fpts.50th.percentile <- quantile(df.week1$Realized_fpts, na.rm = T)[3]
-df.week1.cut <- df.week1[df.week1$Realized_fpts >= fpts.50th.percentile,]
-model.week1.cut <- lm(df.week1.cut$Realized_fpts ~ df.week1.cut$Rotogrinders_ftps + df.week1.cut$Dfn_ftps, na.action = na.omit)
-summary(model.week1.cut)
-
-####### Combined Weeks 1-4 #########
-df <- rbind(df.week1, df.week2, df.week3, df.week4)
-model <- lm(df$Realized_fpts ~ df$Rotogrinders_ftps + df$Dfn_ftps, na.action = na.omit)
-summary(model)
-
-fpts.50th.percentile <- quantile(df$Realized_fpts, na.rm = T)[3]
-df.cut <- df[df$Realized_fpts >= fpts.50th.percentile,]
-model.cut <- lm(df.cut$Realized_fpts ~ df.cut$Rotogrinders_ftps + df.cut$Dfn_ftps, na.action = na.omit)
-summary(model.cut)
-
-####### Defense #########
-#fpts.roto.defense.week1 <- read.csv(file = 'optimizationCode/data_warehouse/rotogrinders/roto_defense_week4.csv', stringsAsFactors = F)
 
