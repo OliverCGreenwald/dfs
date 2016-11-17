@@ -77,8 +77,9 @@ projections_source tells which Projections we're using for this generation
         - "Projection_dfn"
         - "Projection_fc"
         - "Projection_dfn_perturbed"
+        - "Projection_reg"
 =#
-projections_source = "Projection_dfn"  
+projections_source = "Projection_reg"  
 
 ############################  Create Paths to data  ############################
 
