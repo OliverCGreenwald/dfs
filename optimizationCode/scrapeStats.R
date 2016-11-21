@@ -15,7 +15,7 @@ library('stringr')
 ####### SET YEAR, WEEK, POSITION #########
 yr <- '2016'
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-week.latest <- 10
+# week.latest <- 11
 pos <- ''
 
 ####### SET TEAM NAMES FOLLOWING NFL SAVANT NAMING CONVENTION #########
@@ -161,6 +161,7 @@ write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste
 
 ####### APPEND TO 2016_cleaned_input FILES #########
 for (i in 2:week.latest) {
+  # i <- 11
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
   
   # name cleaning shit
@@ -169,6 +170,7 @@ for (i in 2:week.latest) {
   
   # add target rank
   temp.rolling.wk <- eval(parse(text=paste0("rolling.stats.wk",i-1))) # i-1 b/c we use previous weeks rolling stats
+  # temp.rolling.wk <- read.csv(file = "optimizationCode/data_warehouse/stats/rolling.stats.wk10.csv", stringsAsFactors = F)
   temp$RankTargets <- temp.rolling.wk$Rank.Targets[match(temp$Temp.Name, temp.rolling.wk$Name)]
   temp$RankTargets[is.na(temp$RankTargets)==T] <- 0
   

@@ -146,7 +146,7 @@
 "RB","DeAndre Washington (7608904)","DeAndre Washington",7608904,3900,"Oak@Jax 01:00PM ET","Oak","DeAndre","Washington","Jax",5.75,6.1,6,0.0555555555555556,5.56543086728959,5.53421390940592
 "TE","Julius Thomas (7609131)","Julius Thomas",7609131,3900,"Oak@Jax 01:00PM ET","Jax","Julius","Thomas","Oak",9.69,9.8,5,0.110552763819095,9.09049215415471,9.07460389466917
 "RB","DeAngelo Williams (7608937)","DeAngelo Williams",7608937,3900,"NE@Pit 04:25PM ET","Pit","DeAngelo","Williams","NE",0,0,5,0.100877192982456,0,0
-"RB","C.J. Spiller (7608947)","C.J. Spiller",7608947,3900,"Sea@Ari 08:30PM ET","Sea","C.J.","Spiller","Ari",4.19,4.4,0,0,4.02842539073573,4.00912471987105
+"RB","C.J. Spiller (7608947)","C.J. Spiller",7608947,3900,"Sea@Ari 08:30PM ET","Sea","C.J.","Spiller","Ari",4.19,4.4,13,0,4.02842539073573,4.00912471987105
 "WR","Michael Floyd (7609080)","Michael Floyd",7609080,3900,"Sea@Ari 08:30PM ET","Ari","Michael","Floyd","Sea",10.06,11.1,3,0.148305084745763,9.99418633685702,9.90684378553425
 "TE","Coby Fleener (7609089)","Coby Fleener",7609089,3800,"NO@KC 01:00PM ET","NO","Coby","Fleener","KC",10.36,11,3,0.158371040723982,10.0331005704587,9.9761370783257
 "RB","Darren Sproles (7608875)","Darren Sproles",7608875,3800,"Min@Phi 01:00PM ET","Phi","Darren","Sproles","Min",8.55,8.8,4,0.118421052631579,8.11296986046892,8.08724685391451
@@ -379,7 +379,7 @@
 "TE","Joshua Perkins (7609166)","Joshua Perkins",7609166,2500,"SD@Atl 04:05PM ET","Atl","Joshua","Perkins","SD",0,0,0,0,0,0
 "TE","Austin Hooper (7609167)","Austin Hooper",7609167,2500,"SD@Atl 04:05PM ET","Atl","Austin","Hooper","SD",4.82,3.9,10,0.028436018957346,3.93579891916897,4.00248677012248
 "TE","David Johnson (7609169)","David Johnson",7609169,2500,"NE@Pit 04:25PM ET","Pit","David","Johnson","NE",0,0,4,0.144067796610169,0,0
-"TE","Ladarius Green (7609172)","Ladarius Green",7609172,2500,"NE@Pit 04:25PM ET","Pit","Ladarius","Green","NE",0,0,0,0,0,0
+"TE","Ladarius Green (7609172)","Ladarius Green",7609172,2500,"NE@Pit 04:25PM ET","Pit","Ladarius","Green","NE",0,0,13,0,0,0
 "TE","A.J. Derby (7609173)","A.J. Derby",7609173,2500,"NE@Pit 04:25PM ET","NE","A.J.","Derby","Pit",0,0,13,0,0,0
 "TE","Xavier Grimble (7609174)","Xavier Grimble",7609174,2500,"NE@Pit 04:25PM ET","Pit","Xavier","Grimble","NE",0,1.1,7,0.0482456140350877,0.66131378739081,0.577135348523075
 "TE","Darren Fells (7609176)","Darren Fells",7609176,2500,"Sea@Ari 08:30PM ET","Ari","Darren","Fells","Sea",3.11,2.9,6,0.0593220338983051,2.77011265472702,2.78378545831916
