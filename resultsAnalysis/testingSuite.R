@@ -14,7 +14,7 @@
 ####### SET PARAMETER VALUES #########
 week.lo <- 11
 week.hi <- 11
-contest.entry.fee <- "$27"
+contest.entry.fee <- "$3"
 predictions.source <- "_dfn" # Either "_dfn" or "" or "_dfn_perturbed"
 formulation <- 13
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
