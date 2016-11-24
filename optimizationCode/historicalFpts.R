@@ -4,8 +4,15 @@
 ####### DESCRIPTION #########
 # In this file we create a dataframe of all weekly historical fpts for each player. We then add a column
 # to 2016_CLEANED_INPUT files that is in indicator function that takes on
-# value 1 if 
+# value 1 if:
+# (1) at least 25% games > 99.9 percentile fpts OR
+# (2) at least 25% games > 90 percentile fpts, at least 50% games > 75 percentile fpts, at most 25% games < 50 percentile fpts
+# (3) last 3 weeks all > 99.9 percentile fpts [not implemented yet]
 # and value 0 otherwise.
+
+
+####### IMPORT LIBRARIES #########
+library('stringr')
 
 
 ####### LOAD DFN FILES (UPDATES FOLDER B/C WE NEED HISTORICAL ACTUAL FPTS) #########
@@ -216,7 +223,7 @@ for (i in 1:week.latest) {
 
 # count 1's
 for (i in 2:(week.latest+1)) {
-  print(sum(freq.ind.data[,i]))
+  print(paste0("Count of 1's in Week ", i-1, ": ", sum(freq.ind.data[,i])))
 }
 
 
@@ -231,8 +238,8 @@ for (i in 2:week.latest) { # change to week.latest+1 once current week's data ha
   temp$FreqInd <- freq.ind.data[match(paste0(temp$Name.Clean,temp$Position), paste0(freq.ind.data$First.Name," ", freq.ind.data$Last.Name, freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
   temp$FreqInd[is.na(temp$FreqInd)] <- 0
   
-  print(sum(temp$FreqInd))
-  print(sum(freq.ind.data[,i]))
+  print(paste0("Week ", i-1, ": ", sum(temp$FreqInd)))
+  print(paste0("Week ", i-1, ": ", sum(freq.ind.data[,i]))) # will be less b/c bye weeks
   
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 }
