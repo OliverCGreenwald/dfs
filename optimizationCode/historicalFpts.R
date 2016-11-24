@@ -7,6 +7,7 @@
 # value 1 if 
 # and value 0 otherwise.
 
+
 ####### LOAD DFN FILES (UPDATES FOLDER B/C WE NEED HISTORICAL ACTUAL FPTS) #########
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
 for (i in 1:week.latest) {
@@ -17,6 +18,9 @@ for (i in 1:week.latest) {
   temp.df <- eval(parse(text=name))
   temp.df$Week.Num <- i
   
+  # clean names
+  temp.df$Player.Name <- sub("'", "", temp.df$Player.Name)
+  
   # add Unique.ID column for matching purposes
   temp.df$Unique.ID <- paste0(temp.df$Player.Name, temp.df$Team, temp.df$Pos)
   
@@ -24,12 +28,13 @@ for (i in 1:week.latest) {
   assign(name, temp.df)
 }
 
+
 ####### CREATE DATAFRAME OF ALL HISTORICAL ACTUAL FPTS #######
-# load list of player names (use this b/c players vary week to week. this aggregated all of them)
+# load list of player names (use this b/c players vary week to week. this aggregated all of them) # wait, why didn't we just do unique() on the DFN
 load(file = "projectionsAnalysis/player.names.RData")
 
 # intialize df and add player names
-historical.fpts.data <- as.data.frame(matrix(data = 0, nrow = length(player.names), ncol = week.latest+1))
+historical.fpts.data <- as.data.frame(matrix(data = NA, nrow = length(player.names), ncol = week.latest+1))
 historical.fpts.data[,1] <- player.names
 
 # add column names to df
@@ -47,14 +52,188 @@ historical.fpts.data$Pos <- str_split_fixed(historical.fpts.data$Unique.ID, "@",
 historical.fpts.data$Last.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,1]
 historical.fpts.data$First.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,2]
 
+# replace FB with RB in Pos column for matching
+historical.fpts.data$Pos[historical.fpts.data$Pos=="FB"] <- "RB"
+
 # replace Unique.ID for matching
 historical.fpts.data$Unique.ID <- paste0(historical.fpts.data$First.Name," ",historical.fpts.data$Last.Name,historical.fpts.data$Team,historical.fpts.data$Pos)
 
 for (i in 2:(week.latest+1)) {
   dfn.df <- eval(parse(text=paste("dfn_offense_week", i-1, sep = "")))
-  historical.fpts.data[,i] <- dfn.df$Actual.FP[match(paste0(historical.fpts.data$First.Name," ",historical.fpts.data$Last.Name,historical.fpts.data$Team,historical.fpts.data$Pos), paste0(dfn.df$Player.Name, dfn.df$Team, dfn.df$Pos))]
-  # historical.fpts.data[is.na(historical.fpts.data[,i]),i] <- 0
+  historical.fpts.data[,i] <- dfn.df$Actual.FP[match(historical.fpts.data$Unique.ID, dfn.df$Unique.ID)]
+}
+
+# injuries
+historical.fpts.data[historical.fpts.data$Unique.ID=="LeSean McCoyBUFRB",'Week8'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Steve SmithBALWR",'Week6'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Steve SmithBALWR",'Week7'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Eric EbronDETTE",'Week5'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Eric EbronDETTE",'Week6'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Eric EbronDETTE",'Week7'] <- NA
+
+# set all 0's to NA's b/c we don't have injury data
+is.na(historical.fpts.data[,2:(week.latest+1)]) <- !historical.fpts.data[,2:(week.latest+1)]
+
+# add mean column for analysis
+historical.fpts.data$mean <- NA
+for (j in 1:nrow(historical.fpts.data)) {
+  historical.fpts.data$mean[j] <- mean(as.numeric(historical.fpts.data[j,2:(week.latest+1)]), na.rm = TRUE)  
 }
 
 
+####### WRITE DATAFRAME TO FILE #######
+write.csv(historical.fpts.data, file = "optimizationCode/data_warehouse/historical_fpts/historical.fpts.csv", row.names = F)
+
+
+####### CREATE DATAFRAME OF INDICATOR FUNCTION AS DEFINED IN DESCRIPTION #######
+# store indicators in new df (note that these will hold indicators for use in the following week!)
+freq.ind.data <- historical.fpts.data
+for (i in 2:(week.latest+1)) {
+  freq.ind.data[,i] <- 0
+}
+
+# look at each position to help set thresholds for frequency indicator function
+historical.fpts.data.mean.wr <- historical.fpts.data$mean[historical.fpts.data$Pos=="WR"]
+historical.fpts.data.mean.rb <- historical.fpts.data$mean[historical.fpts.data$Pos=="RB"]
+historical.fpts.data.mean.te <- historical.fpts.data$mean[historical.fpts.data$Pos=="TE"]
+
+mean.wr <- mean(historical.fpts.data.mean.wr, na.rm = TRUE) # note: taking mean of mean
+mean.rb <- mean(historical.fpts.data.mean.rb, na.rm = TRUE)
+mean.te <- mean(historical.fpts.data.mean.te, na.rm = TRUE)
+
+sd.wr <- sd(historical.fpts.data.mean.wr, na.rm = TRUE)
+sd.rb <- sd(historical.fpts.data.mean.rb, na.rm = TRUE)
+sd.te <- sd(historical.fpts.data.mean.te, na.rm = TRUE)
+
+count.wr <- length(historical.fpts.data.mean.wr) - sum(is.na(historical.fpts.data.mean.wr))
+count.rb <- length(historical.fpts.data.mean.rb) - sum(is.na(historical.fpts.data.mean.rb))
+count.te <- length(historical.fpts.data.mean.te) - sum(is.na(historical.fpts.data.mean.te))
+
+par(mfrow=c(1,3))
+hist(historical.fpts.data.mean.wr, main = paste0("WR, (mean = ",format(round(mean.wr, 2), nsmall = 2),", sd = ",format(round(sd.wr, 2), nsmall = 2),")"), xlab = "Avg Fpts", ylab = paste0("Frequency (total count: ",count.wr,")"))
+hist(historical.fpts.data.mean.rb, main = paste0("RB, (mean = ",format(round(mean.rb, 2), nsmall = 2),", sd = ",format(round(sd.rb, 2), nsmall = 2),")"), xlab = "Avg Fpts", ylab = paste0("Frequency (total count: ",count.rb,")"))
+hist(historical.fpts.data.mean.te, main = paste0("TE, (mean = ",format(round(mean.te, 2), nsmall = 2),", sd = ",format(round(sd.te, 2), nsmall = 2),")"), xlab = "Avg Fpts", ylab = paste0("Frequency (total count: ",count.te,")"))
+
+quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.9, 0.95, 0.99))
+quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.9, 0.95, 0.99))
+quantile(historical.fpts.data.mean.te, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.9, 0.95, 0.99))
+
+# WR is 1 if
+# (1) at least 25% games > 25 fpts (99.9 pct) OR
+# (2) at least 25% games > 15 fpts (90 pct), at least 50% games > 12 fpts (75 pct), at most 25% games < 7.5 fpts (50 pct)
+# (3) last 3 weeks all > 25 fpts (99.9 pct) [not implemented yet]
+
+# Follow similar conditions for RB and TE (change threshold based on quantiles)
+
+cond1.pct1 <- 1/4
+cond2.pct1 <- 1/4
+cond2.pct2 <- 1/2
+cond2.pct3 <- 1/4
+
+for (i in 1:week.latest) {
+  for (j in 1:nrow(freq.ind.data)) {
+    # WRs
+    if (freq.ind.data$Pos[j]=="WR") {
+      # for condition (1)
+      temp.override <- historical.fpts.data[j,2:(i+1)] > 25 # ~99.9th percentile
+      num.override <- sum(temp.override, na.rm = T)
+      
+      # for condition (2)
+      temp.great <- historical.fpts.data[j,2:(i+1)] > 15 # ~90th percentile
+      num.great <- sum(temp.great, na.rm = T)
+      temp.good <- historical.fpts.data[j,2:(i+1)] > 12 # ~75th percentile
+      num.good <- sum(temp.good, na.rm = T)
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < 7.5 # ~50th percentile
+      num.bad <- sum(temp.bad, na.rm = T)
+      # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
+      # num.useless <- sum(temp.useless, na.rm = T)
+      
+      # total games played (so exclude NAs)
+      num.total <- length(temp.good) - sum(is.na(temp.good))
+      
+      # set to 1 if a condition is met
+      if (num.override >= num.total*cond1.pct1 | (num.great >= num.total*cond2.pct1 & num.good >= num.total*cond2.pct2 & num.bad <= num.total*cond2.pct3)) { #& num.useless <= ceiling(num.total*1/4)) {
+        freq.ind.data[j,i+1] <- 1
+      }
+    }
+    
+    # RBs
+    if (freq.ind.data$Pos[j]=="RB") {
+      # for condition (1)
+      temp.override <- historical.fpts.data[j,2:(i+1)] > 25 # ~99.9th percentile
+      num.override <- sum(temp.override, na.rm = T)
+      
+      # for condition (2)
+      temp.great <- historical.fpts.data[j,2:(i+1)] > 15.5 # ~90th percentile
+      num.great <- sum(temp.great, na.rm = T)
+      temp.good <- historical.fpts.data[j,2:(i+1)] > 11 # ~75th percentile
+      num.good <- sum(temp.good, na.rm = T)
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < 6 # ~50th percentile
+      num.bad <- sum(temp.bad, na.rm = T)
+      # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
+      # num.useless <- sum(temp.useless, na.rm = T)
+      
+      # total games played (so exclude NAs)
+      num.total <- length(temp.good) - sum(is.na(temp.good))
+      
+      # set to 1 if a condition is met
+      if (num.override >= num.total*cond1.pct1 | (num.great >= num.total*cond2.pct1 & num.good >= num.total*cond2.pct2 & num.bad <= num.total*cond2.pct3)) { #& num.useless <= ceiling(num.total*1/4)) {
+        freq.ind.data[j,i+1] <- 1
+      }
+    }
+    
+    # TEs
+    if (freq.ind.data$Pos[j]=="TE") {
+      # for condition (1)
+      temp.override <- historical.fpts.data[j,2:(i+1)] > 16 # ~99.9th percentile
+      num.override <- sum(temp.override, na.rm = T)
+      
+      # for condition (2)
+      temp.great <- historical.fpts.data[j,2:(i+1)] > 12 # ~90th percentile
+      num.great <- sum(temp.great, na.rm = T)
+      temp.good <- historical.fpts.data[j,2:(i+1)] > 9 # ~75th percentile
+      num.good <- sum(temp.good, na.rm = T)
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < 5.5 # ~50th percentile
+      num.bad <- sum(temp.bad, na.rm = T)
+      # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
+      # num.useless <- sum(temp.useless, na.rm = T)
+      
+      # total games played (so exclude NAs)
+      num.total <- length(temp.good) - sum(is.na(temp.good))
+      
+      # set to 1 if a condition is met
+      if (num.override >= num.total*cond1.pct1 | (num.great >= num.total*cond2.pct1 & num.good >= num.total*cond2.pct2 & num.bad <= num.total*cond2.pct3)) { #& num.useless <= ceiling(num.total*1/4)) {
+        freq.ind.data[j,i+1] <- 1
+      }
+    }
+    
+    # set to 0 if no games played
+    if (num.total == 0) {
+      freq.ind.data[j,i+1] <- 0
+    }
+  }  
+}
+
+# count 1's
+for (i in 2:(week.latest+1)) {
+  print(sum(freq.ind.data[,i]))
+}
+
+
+####### ADD FREQUENCY INDICATOR TO 2016_CLEANED_INPUT FILES #########
+for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
+  
+  # clean names
+  temp$Name.Clean <- sub("'", "", temp$Name)
+  
+  temp$FreqInd <- NA
+  temp$FreqInd <- freq.ind.data[match(paste0(temp$Name.Clean,temp$Position), paste0(freq.ind.data$First.Name," ", freq.ind.data$Last.Name, freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
+  temp$FreqInd[is.na(temp$FreqInd)] <- 0
+  
+  print(sum(temp$FreqInd))
+  print(sum(freq.ind.data[,i]))
+  
+  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
+}
 
