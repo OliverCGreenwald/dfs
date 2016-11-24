@@ -13,7 +13,7 @@
 "QB","Aaron Rodgers (7769907)","Aaron Rodgers",7769907,7600,"GB@Was 08:30PM ET","GB","Aaron","Rodgers","Was",22.24,21,0,0,"Aaron Rodgers",0
 "QB","Ben Roethlisberger (7769851)","Ben Roethlisberger",7769851,7500,"Pit@Cle 01:00PM ET","Pit","Ben","Roethlisberger","Cle",20.34,21.3,0,0,"Ben Roethlisberger",0
 "WR","Allen Robinson (7770047)","Allen Robinson",7770047,7400,"Jax@Det 01:00PM ET","Jax","Allen","Robinson","Det",16.89,17.4,1,0.25,"Allen Robinson",1
-"WR","Dez Bryant (7770029)","Dez Bryant",7770029,7200,"Bal@Dal 01:00PM ET","Dal","Dez","Bryant","Bal",17.24,14.1,3,0.179930795847751,"Dez Bryant",0
+"WR","Dez Bryant (7770029)","Dez Bryant",7770029,7200,"Bal@Dal 01:00PM ET","Dal","Dez","Bryant","Bal",17.24,14.1,3,0.179930795847751,"Dez Bryant",1
 "QB","Andrew Luck (7769869)","Andrew Luck",7769869,7200,"Ten@Ind 01:00PM ET","Ind","Andrew","Luck","Ten",23.3,19.9,0,0,"Andrew Luck",0
 "WR","Larry Fitzgerald (7770094)","Larry Fitzgerald",7770094,7100,"Ari@Min 01:00PM ET","Ari","Larry","Fitzgerald","Min",17.16,16.9,1,0.268229166666667,"Larry Fitzgerald",1
 "TE","Rob Gronkowski (7770223)","Rob Gronkowski",7770223,7100,"NE@SF 04:25PM ET","NE","Rob","Gronkowski","SF",0,0,4,0.128289473684211,"Rob Gronkowski",1
@@ -33,7 +33,7 @@
 "QB","Dak Prescott (7769861)","Dak Prescott",7769861,6000,"Bal@Dal 01:00PM ET","Dal","Dak","Prescott","Bal",18.05,15.7,0,0,"Dak Prescott",0
 "WR","Steve Smith Sr. (7770026)","Steve Smith",7770026,6000,"Bal@Dal 01:00PM ET","Bal","Steve","Smith","Dal",13.55,13.8,3,0.147368421052632,"Steve Smith",0
 "RB","Spencer Ware (7769960)","Spencer Ware",7769960,6000,"TB@KC 01:00PM ET","KC","Spencer","Ware","TB",16.05,18.5,6,0.0792682926829268,"Spencer Ware",1
-"RB","DeAngelo Williams (7769912)","DeAngelo Williams",7769912,5900,"Pit@Cle 01:00PM ET","Pit","DeAngelo","Williams","Cle",0,0,6,0.0616621983914209,"DeAngelo Williams",0
+"RB","DeAngelo Williams (7769912)","DeAngelo Williams",7769912,5900,"Pit@Cle 01:00PM ET","Pit","DeAngelo","Williams","Cle",0,0,6,0.0616621983914209,"DeAngelo Williams",1
 "QB","Jameis Winston (7769882)","Jameis Winston",7769882,5900,"TB@KC 01:00PM ET","TB","Jameis","Winston","KC",17.58,17.1,0,0,"Jameis Winston",0
 "WR","Randall Cobb (7770141)","Randall Cobb",7770141,5900,"GB@Was 08:30PM ET","GB","Randall","Cobb","Was",14.01,13.4,3,0.178756476683938,"Randall Cobb",1
 "TE","Jordan Reed (7770239)","Jordan Reed",7770239,5900,"GB@Was 08:30PM ET","Was","Jordan","Reed","GB",18.5,14.7,2,0.175342465753425,"Jordan Reed",1
@@ -114,7 +114,7 @@
 "QB","Brett Hundley (7769910)","Brett Hundley",7769910,5000,"GB@Was 08:30PM ET","GB","Brett","Hundley","Was",0,0,0,0,"Brett Hundley",0
 "QB","Nate Sudfeld (7769911)","Nate Sudfeld",7769911,5000,"GB@Was 08:30PM ET","Was","Nate","Sudfeld","GB",0,0,0,0,"Nate Sudfeld",0
 "WR","Robert Woods (7770068)","Robert Woods",7770068,4900,"Buf@Cin 01:00PM ET","Buf","Robert","Woods","Cin",12.63,11.6,1,0.221014492753623,"Robert Woods",0
-"RB","Carlos Hyde (7769993)","Carlos Hyde",7769993,4900,"NE@SF 04:25PM ET","SF","Carlos","Hyde","NE",14,12,6,0.0535714285714286,"Carlos Hyde",0
+"RB","Carlos Hyde (7769993)","Carlos Hyde",7769993,4900,"NE@SF 04:25PM ET","SF","Carlos","Hyde","NE",14,12,6,0.0535714285714286,"Carlos Hyde",1
 "RB","James White (7769994)","James White",7769994,4800,"NE@SF 04:25PM ET","NE","James","White","SF",9.56,11.9,2,0.171052631578947,"James White",0
 "WR","DeSean Jackson (7770139)","DeSean Jackson",7770139,4800,"GB@Was 08:30PM ET","Was","DeSean","Jackson","GB",12,12.3,4,0.167123287671233,"DeSean Jackson",0
 "WR","Corey Coleman (7770024)","Corey Coleman",7770024,4700,"Pit@Cle 01:00PM ET","Cle","Corey","Coleman","Pit",11.8,13.9,7,0.0700280112044818,"Corey Coleman",1
@@ -146,7 +146,7 @@
 "RB","Jeremy Langford (7769967)","Jeremy Langford",7769967,4000,"Chi@NYG 01:00PM ET","Chi","Jeremy","Langford","NYG",5.35,5,7,0.0492307692307692,"Jeremy Langford",0
 "WR","Michael Floyd (7770096)","Michael Floyd",7770096,4000,"Ari@Min 01:00PM ET","Ari","Michael","Floyd","Min",7.9,10.6,4,0.1328125,"Michael Floyd",0
 "RB","Benny Cunningham (7769981)","Benny Cunningham",7769981,4000,"Mia@LA 04:05PM ET","LA","Benny","Cunningham","Mia",3.71,8.2,6,0.0573248407643312,"Benny Cunningham",0
-"RB","DuJuan Harris (7769989)","DuJuan Harris",7769989,4000,"NE@SF 04:25PM ET","SF","DuJuan","Harris","NE",3.48,6.6,8,0.0321428571428571,"DuJuan Harris",0
+"RB","DuJuan Harris (7769989)","DuJuan Harris",7769989,4000,"NE@SF 04:25PM ET","SF","DuJuan","Harris","NE",3.48,6.6,8,0.0321428571428571,"DuJuan Harris",1
 "RB","Isaiah Crowell (7769916)","Isaiah Crowell",7769916,3900,"Pit@Cle 01:00PM ET","Cle","Isaiah","Crowell","Pit",10.61,13.1,6,0.0812324929971989,"Isaiah Crowell",1
 "WR","Sammie Coates (7770020)","Sammie Coates",7770020,3900,"Pit@Cle 01:00PM ET","Pit","Sammie","Coates","Cle",5.38,2.5,4,0.107238605898123,"Sammie Coates",0
 "RB","Kenneth Dixon (7769925)","Kenneth Dixon",7769925,3900,"Bal@Dal 01:00PM ET","Bal","Kenneth","Dixon","Dal",9.13,8.5,10,0.0315789473684211,"Kenneth Dixon",0

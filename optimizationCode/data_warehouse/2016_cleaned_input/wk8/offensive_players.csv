@@ -21,7 +21,7 @@
 "QB","Matt Ryan (7642352)","Matt Ryan",7642352,7000,"GB@Atl 04:25PM ET","Atl","Matt","Ryan","GB",19.5,22.5,0,0,20.066352772493,19.782601776649,"Matt Ryan",0
 "TE","Rob Gronkowski (7642619)","Rob Gronkowski",7642619,7000,"NE@Buf 01:00PM ET","NE","Rob","Gronkowski","Buf",18.11,15.3,5,0.0991379310344828,15.4124026082792,15.4353448973146,"Rob Gronkowski",1
 "QB","Drew Brees (7642335)","Drew Brees",7642335,6900,"Sea@NO 01:00PM ET","NO","Drew","Brees","Sea",20.69,19.5,0,0,18.7718703107536,18.694660892761,"Drew Brees",0
-"WR","Doug Baldwin (7642487)","Doug Baldwin",7642487,6900,"Sea@NO 01:00PM ET","Sea","Doug","Baldwin","NO",19.46,16.7,1,0.230046948356808,16.7107753890206,16.7221456424025,"Doug Baldwin",0
+"WR","Doug Baldwin (7642487)","Doug Baldwin",7642487,6900,"Sea@NO 01:00PM ET","Sea","Doug","Baldwin","NO",19.46,16.7,1,0.230046948356808,16.7107753890206,16.7221456424025,"Doug Baldwin",1
 "QB","Andrew Luck (7642327)","Andrew Luck",7642327,6800,"KC@Ind 01:00PM ET","Ind","Andrew","Luck","KC",20.89,19.5,0,0,18.8447479488148,18.7764413335524,"Andrew Luck",0
 "RB","Spencer Ware (7642380)","Spencer Ware",7642380,6800,"KC@Ind 01:00PM ET","KC","Spencer","Ware","Ind",20.24,18.3,4,0.0990566037735849,17.9166538618345,17.8808410983412,"Spencer Ware",1
 "WR","Michael Crabtree (7642477)","Michael Crabtree",7642477,6700,"Oak@TB 01:00PM ET","Oak","Michael","Crabtree","TB",16.3,12.8,2,0.216911764705882,13.3127729769892,13.3831198193207,"Michael Crabtree",1
@@ -41,7 +41,7 @@
 "WR","Terrelle Pryor Sr. (7642509)","Terrelle Pryor",7642509,6100,"NYJ@Cle 01:00PM ET","Cle","Terrelle","Pryor","NYJ",17.1,15.9,1,0.264,15.3899914177109,15.3372605726371,"Terrelle Pryor",1
 "QB","Philip Rivers (7642361)","Philip Rivers",7642361,6100,"SD@Den 04:05PM ET","SD","Philip","Rivers","Den",15.01,15.9,0,0,14.6284200999714,14.4826549663662,"Philip Rivers",0
 "WR","Jeremy Maclin (7642465)","Jeremy Maclin",7642465,6000,"KC@Ind 01:00PM ET","KC","Jeremy","Maclin","Ind",13.59,15.2,1,0.212264150943396,13.7077645078228,13.534622451874,"Jeremy Maclin",0
-"WR","Will Fuller (7642506)","Will Fuller",7642506,6000,"Det@Hou 01:00PM ET","Hou","Will","Fuller","Det",16.3,13.4,2,0.176691729323308,13.6583938586299,13.6980267206401,"Will Fuller",0
+"WR","Will Fuller (7642506)","Will Fuller",7642506,6000,"Det@Hou 01:00PM ET","Hou","Will","Fuller","Det",16.3,13.4,2,0.176691729323308,13.6583938586299,13.6980267206401,"Will Fuller",1
 "QB","Carson Palmer (7642366)","Carson Palmer",7642366,6000,"Ari@Car 01:00PM ET","Ari","Carson","Palmer","Car",18.19,19.5,0,0,17.8608998349887,17.6724053828675,"Carson Palmer",0
 "QB","Derek Carr (7642332)","Derek Carr",7642332,5900,"Oak@TB 01:00PM ET","Oak","Derek","Carr","TB",18.78,19,0,0,17.7878714659019,17.6512352654361,"Derek Carr",0
 "RB","C.J. Anderson (7642442)","C.J. Anderson",7642442,5900,"SD@Den 04:05PM ET","Den","C.J.","Anderson","SD",0,0,3,0.105042016806723,0,0,"C.J. Anderson",1
@@ -128,7 +128,7 @@
 "WR","Devin Funchess (7642562)","Devin Funchess",7642562,3800,"Ari@Car 01:00PM ET","Car","Devin","Funchess","Ari",6.49,5.1,6,0.0932203389830508,5.30265684903179,5.33048396489889,"Devin Funchess",0
 "WR","Brice Butler (7642564)","Brice Butler",7642564,3800,"Phi@Dal 08:30PM ET","Dal","Brice","Butler","Phi",4.91,2,5,0.106382978723404,2.94121561987137,3.05739949249564,"Brice Butler",0
 "RB","Zach Zenner (7642410)","Zach Zenner",7642410,3700,"Det@Hou 01:00PM ET","Det","Zach","Zenner","Hou",5.38,5,7,0.0281124497991968,4.84058247751871,4.82411803495295,"Zach Zenner",0
-"RB","Isaiah Crowell (7642416)","Isaiah Crowell",7642416,3700,"NYJ@Cle 01:00PM ET","Cle","Isaiah","Crowell","NYJ",9.29,9.4,6,0.072,8.79989343364692,8.73224292876908,"Isaiah Crowell",0
+"RB","Isaiah Crowell (7642416)","Isaiah Crowell",7642416,3700,"NYJ@Cle 01:00PM ET","Cle","Isaiah","Crowell","NYJ",9.29,9.4,6,0.072,8.79989343364692,8.73224292876908,"Isaiah Crowell",1
 "RB","Devontae Booker (7642445)","Devontae Booker",7642445,3700,"SD@Den 04:05PM ET","Den","Devontae","Booker","SD",16.07,14.9,6,0.0546218487394958,14.4386367789612,14.3912464670286,"Devontae Booker",0
 "TE","Hunter Henry (7642630)","Hunter Henry",7642630,3700,"SD@Den 04:05PM ET","SD","Hunter","Henry","Den",7.8,6.5,5,0.116,6.58645410216094,6.60092862182849,"Hunter Henry",1
 "RB","Darren Sproles (7642454)","Darren Sproles",7642454,3700,"Phi@Dal 08:30PM ET","Phi","Darren","Sproles","Dal",9.45,9.2,4,0.119318181818182,8.74298858354897,8.69269831429578,"Darren Sproles",0

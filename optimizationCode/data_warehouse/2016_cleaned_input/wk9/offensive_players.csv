@@ -43,7 +43,7 @@
 "WR","Ty Montgomery (7688766)","Ty Montgomery",7688766,5800,"Ind@GB 04:25PM ET","GB","Ty","Montgomery","Ind",15.02,19.7,4,0.0934256055363322,16.8243946829669,16.4448669655203,"Ty Montgomery",0
 "WR","Donte Moncrief (7688767)","Donte Moncrief",7688767,5800,"Ind@GB 04:25PM ET","Ind","Donte","Moncrief","GB",14.86,15.9,8,0.0584615384615385,14.5589176534613,14.2930814704825,"Donte Moncrief",0
 "QB","Eli Manning (7688524)","Eli Manning",7688524,5700,"Phi@NYG 01:00PM ET","NYG","Eli","Manning","Phi",16.54,17.9,0,0,16.3225077349712,16.0204350942136,"Eli Manning",0
-"WR","Jordan Matthews (7688683)","Jordan Matthews",7688683,5700,"Phi@NYG 01:00PM ET","Phi","Jordan","Matthews","NYG",13.95,15.5,1,0.252252252252252,14.0007288165925,13.7336506573822,"Jordan Matthews",0
+"WR","Jordan Matthews (7688683)","Jordan Matthews",7688683,5700,"Phi@NYG 01:00PM ET","Phi","Jordan","Matthews","NYG",13.95,15.5,1,0.252252252252252,14.0007288165925,13.7336506573822,"Jordan Matthews",1
 "QB","Ryan Fitzpatrick (7688529)","Ryan Fitzpatrick",7688529,5700,"NYJ@Mia 01:00PM ET","NYJ","Ryan","Fitzpatrick","Mia",16.83,16.7,0,0,15.7289897925038,15.4678560117582,"Ryan Fitzpatrick",0
 "QB","Matthew Stafford (7688522)","Matthew Stafford",7688522,5600,"Det@Min 01:00PM ET","Det","Matthew","Stafford","Min",17.61,18.6,0,0,17.1123024786795,16.8046756962942,"Matthew Stafford",0
 "WR","Marvin Jones Jr. (7688674)","Marvin Jones",7688674,5600,"Det@Min 01:00PM ET","Det","Marvin","Jones","Min",13.41,13.3,1,0.230508474576271,12.5289954643904,12.3211222907328,"Marvin Jones",1
@@ -112,7 +112,7 @@
 "RB","Alfred Morris (7688609)","Alfred Morris",7688609,4600,"Dal@Cle 01:00PM ET","Dal","Alfred","Morris","Cle",4,5.4,9,0.0131578947368421,4.56982499738729,4.46405930087244,"Alfred Morris",0
 "TE","Delanie Walker (7688865)","Delanie Walker",7688865,4600,"Ten@SD 04:25PM ET","Ten","Delanie","Walker","SD",12.88,13.9,2,0.169230769230769,12.6879386413415,12.4539020166011,"Delanie Walker",1
 "WR","Corey Coleman (7688722)","Corey Coleman",7688722,4500,"Dal@Cle 01:00PM ET","Cle","Corey","Coleman","Dal",9.96,10.4,7,0.04,9.60881526073978,9.4384882304149,"Corey Coleman",1
-"RB","DeAngelo Williams (7688618)","DeAngelo Williams",7688618,4500,"Pit@Bal 01:00PM ET","Pit","DeAngelo","Williams","Bal",4.8,3.5,5,0.0833333333333333,3.75209401242331,3.71618898846082,"DeAngelo Williams",0
+"RB","DeAngelo Williams (7688618)","DeAngelo Williams",7688618,4500,"Pit@Bal 01:00PM ET","Pit","DeAngelo","Williams","Bal",4.8,3.5,5,0.0833333333333333,3.75209401242331,3.71618898846082,"DeAngelo Williams",1
 "RB","Frank Gore (7688645)","Frank Gore",7688645,4500,"Ind@GB 04:25PM ET","Ind","Frank","Gore","GB",12.12,11.7,3,0.0953846153846154,11.1374534066922,10.9593680411749,"Frank Gore",1
 "RB","Charcandrick West (7688607)","Charcandrick West",7688607,4400,"Jax@KC 01:00PM ET","KC","Charcandrick","West","Jax",17.16,17.1,6,0.0703125,16.0795600301936,15.8110902199014,"Charcandrick West",0
 "WR","Kenny Britt (7688750)","Kenny Britt",7688750,4400,"Car@LA 04:05PM ET","LA","Kenny","Britt","Car",12.73,12.3,2,0.218487394957983,11.7044745199607,11.517085921614,"Kenny Britt",0

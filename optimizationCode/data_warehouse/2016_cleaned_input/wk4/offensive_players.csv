@@ -1,6 +1,6 @@
 "Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","Projection_fc","Projection_dfn_perturbed","RankTargets","RollingTargetPctg","Projection_reg","Projection_reg_split","Name.Clean","FreqInd"
 "WR","Antonio Brown (7498956)","Antonio Brown",7498956,9700,"KC@Pit 08:30PM ET","Pit","Antonio","Brown","KC",27.29,28.4,22.35,28.4,1,0.344827586206897,26.5486356910943,23.9414871655215,"Antonio Brown",1
-"WR","Julio Jones (7498881)","Julio Jones",7498881,9200,"Car@Atl 01:00PM ET","Atl","Julio","Jones","Car",19.41,25.2,19.64,25.2,1,0.194174757281553,22.4797200493212,20.2615981550539,"Julio Jones",0
+"WR","Julio Jones (7498881)","Julio Jones",7498881,9200,"Car@Atl 01:00PM ET","Atl","Julio","Jones","Car",19.41,25.2,19.64,25.2,1,0.194174757281553,22.4797200493212,20.2615981550539,"Julio Jones",1
 "WR","DeAndre Hopkins (7498839)","DeAndre Hopkins",7498839,8400,"Ten@Hou 01:00PM ET","Hou","DeAndre","Hopkins","Ten",19.09,18.3,19.49,18.3,1,0.242990654205607,17.4445896270896,15.7347888275147,"DeAndre Hopkins",1
 "WR","Dez Bryant (7498944)","Dez Bryant",7498944,7900,"Dal@SF 04:25PM ET","Dal","Dez","Bryant","SF",0,0,0,0,2,0.233009708737864,0,0,"Dez Bryant",0
 "QB","Cam Newton (7498689)","Cam Newton",7498689,7800,"Car@Atl 01:00PM ET","Car","Cam","Newton","Atl",23.46,24,22.74,24,0,0,22.524723192289,20.3136079378277,"Cam Newton",0
@@ -54,7 +54,7 @@
 "WR","Mohamed Sanu (7498883)","Mohamed Sanu",7498883,5700,"Car@Atl 01:00PM ET","Atl","Mohamed","Sanu","Car",11.07,11.9,10.96,11.9,3,0.174757281553398,11.0424260061868,9.95722830430276,"Mohamed Sanu",0
 "QB","Dak Prescott (7498720)","Dak Prescott",7498720,5700,"Dal@SF 04:25PM ET","Dal","Dak","Prescott","SF",19.22,19.2,16.58,19.2,0,0,18.1211379573861,16.3432845813953,"Dak Prescott",0
 "RB","Spencer Ware (7498828)","Spencer Ware",7498828,5700,"KC@Pit 08:30PM ET","KC","Spencer","Ware","Pit",13.58,11.2,10.93,11.2,4,0.103448275862069,11.1017541936208,10.0177194218916,"Spencer Ware",1
-"RB","Charles Sims (7498789)","Charles Sims",7498789,5600,"Den@TB 04:05PM ET","TB","Charles","Sims","Den",14.7,16.6,14.31,16.6,5,0.107142857142857,15.2372879745341,13.738197039391,"Charles Sims",0
+"RB","Charles Sims (7498789)","Charles Sims",7498789,5600,"Den@TB 04:05PM ET","TB","Charles","Sims","Den",14.7,16.6,14.31,16.6,5,0.107142857142857,15.2372879745341,13.738197039391,"Charles Sims",1
 "QB","Alex Smith (7498721)","Alex Smith",7498721,5600,"KC@Pit 08:30PM ET","KC","Alex","Smith","Pit",16.93,19.2,16.31,19.2,10,0.00862068965517241,17.6076135455704,15.8751607997692,"Alex Smith",0
 "QB","Marcus Mariota (7498667)","Marcus Mariota",7498667,5500,"Ten@Hou 01:00PM ET","Ten","Marcus","Mariota","Hou",15.42,17,15.2,17,0,0,15.6864771157247,14.1440116363846,"Marcus Mariota",0
 "RB","Devonta Freeman (7498765)","Devonta Freeman",7498765,5500,"Car@Atl 01:00PM ET","Atl","Devonta","Freeman","Car",11.8,12.7,13.88,12.7,5,0.087378640776699,11.7815892962582,10.6237186838994,"Devonta Freeman",1
@@ -63,7 +63,7 @@
 "QB","Trevor Siemian (7498703)","Trevor Siemian",7498703,5400,"Den@TB 04:05PM ET","Den","Trevor","Siemian","TB",14.62,16.3,14.66,16.3,0,0,15.0035494939404,13.5278696897016,"Trevor Siemian",0
 "QB","Jameis Winston (7498704)","Jameis Winston",7498704,5400,"Den@TB 04:05PM ET","TB","Jameis","Winston","Den",17.24,16.3,15.08,16.3,0,0,15.5910752402099,14.0634523568896,"Jameis Winston",0
 "RB","Jamaal Charles (7498824)","Jamaal Charles",7498824,5400,"KC@Pit 08:30PM ET","KC","Jamaal","Charles","Pit",8.82,10.1,10.03,10.1,12,0,9.24307887419062,8.33343927451694,"Jamaal Charles",0
-"WR","Will Fuller (7498843)","Will Fuller",7498843,5300,"Ten@Hou 01:00PM ET","Hou","Will","Fuller","Ten",15.34,12.1,13.97,12.1,2,0.233644859813084,12.1438242668255,10.9594211862747,"Will Fuller",0
+"WR","Will Fuller (7498843)","Will Fuller",7498843,5300,"Ten@Hou 01:00PM ET","Hou","Will","Fuller","Ten",15.34,12.1,13.97,12.1,2,0.233644859813084,12.1438242668255,10.9594211862747,"Will Fuller",1
 "QB","Ryan Fitzpatrick (7498674)","Ryan Fitzpatrick",7498674,5300,"Sea@NYJ 01:00PM ET","NYJ","Ryan","Fitzpatrick","Sea",15.36,16.7,14.41,16.7,0,0,15.4572235644918,13.937772704002,"Ryan Fitzpatrick",0
 "QB","Jay Cutler (7498695)","Jay Cutler",7498695,5300,"Det@Chi 01:00PM ET","Chi","Jay","Cutler","Det",0,0,0,0,0,0,0,0,"Jay Cutler",0
 "RB","Doug Martin (7498787)","Doug Martin",7498787,5300,"Den@TB 04:05PM ET","TB","Doug","Martin","Den",0,0,0,0,6,0.0357142857142857,0,0,"Doug Martin",0

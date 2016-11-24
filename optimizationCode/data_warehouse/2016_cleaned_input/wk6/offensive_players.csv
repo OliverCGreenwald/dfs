@@ -1,6 +1,6 @@
 "Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","Projection_fc","Projection_dfn_perturbed","RankTargets","RollingTargetPctg","Projection_reg","Projection_reg_split","Name.Clean","FreqInd"
 "WR","Antonio Brown (7572050)","Antonio Brown",7572050,10000,"Pit@Mia 01:00PM ET","Pit","Antonio","Brown","Mia",24.54,23.6,23.66,23.6,1,0.297435897435897,22.5328062790233,22.3983192948923,"Antonio Brown",1
-"WR","Julio Jones (7572084)","Julio Jones",7572084,8900,"Atl@Sea 04:25PM ET","Atl","Julio","Jones","Sea",18.09,21.2,17.42,21.2,1,0.247058823529412,19.0640008756257,18.7039973656394,"Julio Jones",0
+"WR","Julio Jones (7572084)","Julio Jones",7572084,8900,"Atl@Sea 04:25PM ET","Atl","Julio","Jones","Sea",18.09,21.2,17.42,21.2,1,0.247058823529412,19.0640008756257,18.7039973656394,"Julio Jones",1
 "WR","Odell Beckham Jr. (7572011)","Odell Beckham",7572011,8800,"Bal@NYG 01:00PM ET","NYG","Odell","Beckham","Bal",19.14,17.4,18.68,17.4,1,0.283505154639175,16.9248757379529,16.8890476786633,"Odell Beckham",1
 "WR","A.J. Green (7572063)","A.J. Green",7572063,8600,"Cin@NE 01:00PM ET","Cin","A.J.","Green","NE",19.24,23.3,18.68,23.3,1,0.287958115183246,20.7612949983464,20.3268016223495,"A.J. Green",1
 "QB","Cam Newton (7571815)","Cam Newton",7571815,8100,"Car@NO 01:00PM ET","Car","Cam","Newton","NO",27.67,27.4,22.2,27.4,0,0,25.9164301827499,25.7106065425236,"Cam Newton",0
@@ -50,7 +50,7 @@
 "WR","Randall Cobb (7572097)","Randall Cobb",7572097,6000,"Dal@GB 04:25PM ET","GB","Randall","Cobb","Dal",13.78,12.6,14.27,12.6,2,0.222972972972973,12.232126341695,12.2013428649756,"Randall Cobb",1
 "QB","Eli Manning (7571807)","Eli Manning",7571807,5900,"Bal@NYG 01:00PM ET","NYG","Eli","Manning","Bal",16.42,16.3,15.53,16.3,0,0,15.4053445931693,15.2804450237776,"Eli Manning",0
 "QB","Dak Prescott (7571852)","Dak Prescott",7571852,5900,"Dal@GB 04:25PM ET","Dal","Dak","Prescott","GB",18.51,17.9,15.48,17.9,0,0,17.0599049084378,16.9516717623271,"Dak Prescott",0
-"WR","Will Fuller (7572114)","Will Fuller",7572114,5900,"Ind@Hou 08:30PM ET","Hou","Will","Fuller","Ind",0,0,10.11,0,2,0.216216216216216,0,0,"Will Fuller",0
+"WR","Will Fuller (7572114)","Will Fuller",7572114,5900,"Ind@Hou 08:30PM ET","Hou","Will","Fuller","Ind",0,0,10.11,0,2,0.216216216216216,0,0,"Will Fuller",1
 "WR","DeSean Jackson (7571981)","DeSean Jackson",7571981,5800,"Phi@Was 01:00PM ET","Was","DeSean","Jackson","Phi",14.43,11.7,11.86,11.7,2,0.184615384615385,11.8449739777002,11.9152435863049,"DeSean Jackson",0
 "QB","Joe Flacco (7571806)","Joe Flacco",7571806,5800,"Bal@NYG 01:00PM ET","Bal","Joe","Flacco","NYG",17.58,18.2,16.32,18.2,0,0,16.976577119135,16.7915116829843,"Joe Flacco",0
 "QB","Brian Hoyer (7571817)","Brian Hoyer",7571817,5800,"Jax@Chi 01:00PM ET","Chi","Brian","Hoyer","Jax",17.65,17.6,14.01,17.6,0,0,16.6103014079711,16.4706274795711,"Brian Hoyer",0

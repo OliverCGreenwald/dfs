@@ -126,7 +126,7 @@ quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.
 quantile(historical.fpts.data.mean.te, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.9, 0.95, 0.99))
 
 # WR is 1 if
-# (1) at least 25% games > 25 fpts (99.9 pct) OR
+# (1) at least 25% games > 23 fpts (99.9 pct) OR
 # (2) at least 25% games > 15 fpts (90 pct), at least 50% games > 12 fpts (75 pct), at most 25% games < 7.5 fpts (50 pct)
 # (3) last 3 weeks all > 25 fpts (99.9 pct) [not implemented yet]
 
@@ -142,7 +142,7 @@ for (i in 1:week.latest) {
     # WRs
     if (freq.ind.data$Pos[j]=="WR") {
       # for condition (1)
-      temp.override <- historical.fpts.data[j,2:(i+1)] > 25 # ~99.9th percentile
+      temp.override <- historical.fpts.data[j,2:(i+1)] > 23 # ~99.9th percentile
       num.override <- sum(temp.override, na.rm = T)
       
       # for condition (2)
@@ -167,7 +167,7 @@ for (i in 1:week.latest) {
     # RBs
     if (freq.ind.data$Pos[j]=="RB") {
       # for condition (1)
-      temp.override <- historical.fpts.data[j,2:(i+1)] > 25 # ~99.9th percentile
+      temp.override <- historical.fpts.data[j,2:(i+1)] > 23 # ~99.9th percentile
       num.override <- sum(temp.override, na.rm = T)
       
       # for condition (2)

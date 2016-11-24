@@ -29,7 +29,7 @@
 "WR","Julian Edelman (7609070)","Julian Edelman",7609070,6500,"NE@Pit 04:25PM ET","NE","Julian","Edelman","Pit",15.59,14.9,1,0.234146341463415,14.1042455036803,14.1450293767463,"Julian Edelman",0
 "QB","Matthew Stafford (7608816)","Matthew Stafford",7608816,6400,"Was@Det 01:00PM ET","Det","Matthew","Stafford","Was",19.65,18.9,0,0,17.8492785637251,17.8915239686697,"Matthew Stafford",0
 "RB","Melvin Gordon (7608933)","Melvin Gordon",7608933,6400,"SD@Atl 04:05PM ET","SD","Melvin","Gordon","Atl",16.86,14.2,5,0.0966183574879227,14.1026519884928,14.2932126982683,"Melvin Gordon",1
-"WR","Doug Baldwin (7609079)","Doug Baldwin",7609079,6400,"Sea@Ari 08:30PM ET","Sea","Doug","Baldwin","Ari",16.61,14.9,1,0.22093023255814,14.4409599776651,14.5590138617808,"Doug Baldwin",0
+"WR","Doug Baldwin (7609079)","Doug Baldwin",7609079,6400,"Sea@Ari 08:30PM ET","Sea","Doug","Baldwin","Ari",16.61,14.9,1,0.22093023255814,14.4409599776651,14.5590138617808,"Doug Baldwin",1
 "QB","Derek Carr (7608821)","Derek Carr",7608821,6300,"Oak@Jax 01:00PM ET","Oak","Derek","Carr","Jax",18.63,18.2,0,0,17.091728043219,17.1102715345751,"Derek Carr",0
 "WR","Terrelle Pryor Sr. (7608993)","Terrelle Pryor",7608993,6200,"Cle@Cin 01:00PM ET","Cle","Terrelle","Pryor","Cin",12.9,12.5,1,0.281818181818182,11.7733771613867,11.7940423674759,"Terrelle Pryor",1
 "QB","Blake Bortles (7608822)","Blake Bortles",7608822,6200,"Oak@Jax 01:00PM ET","Jax","Blake","Bortles","Oak",20.91,22.1,0,0,20.1890418997201,20.0818557635334,"Blake Bortles",0
@@ -135,7 +135,7 @@
 "RB","Thomas Rawls (7608953)","Thomas Rawls",7608953,4200,"Sea@Ari 08:30PM ET","Sea","Thomas","Rawls","Ari",0,0,8,0.0348837209302326,0,0,"Thomas Rawls",0
 "WR","Phillip Dorsett (7608976)","Phillip Dorsett",7608976,4100,"Ind@Ten 01:00PM ET","Ind","Phillip","Dorsett","Ten",0,0,3,0.10655737704918,0,0,"Phillip Dorsett",0
 "RB","T.J. Yeldon (7608905)","T.J. Yeldon",7608905,4100,"Oak@Jax 01:00PM ET","Jax","T.J.","Yeldon","Oak",10.46,11.2,4,0.135678391959799,10.1863506638331,10.1216574922762,"T.J. Yeldon",0
-"RB","Isaiah Crowell (7608886)","Isaiah Crowell",7608886,4000,"Cle@Cin 01:00PM ET","Cle","Isaiah","Crowell","Cin",11.98,13.7,6,0.0636363636363636,12.1911071329498,12.0502467950493,"Isaiah Crowell",0
+"RB","Isaiah Crowell (7608886)","Isaiah Crowell",7608886,4000,"Cle@Cin 01:00PM ET","Cle","Isaiah","Crowell","Cin",11.98,13.7,6,0.0636363636363636,12.1911071329498,12.0502467950493,"Isaiah Crowell",1
 "RB","Jeremy Hill (7608888)","Jeremy Hill",7608888,4000,"Cle@Cin 01:00PM ET","Cin","Jeremy","Hill","Cle",11.06,10.8,6,0.04,10.1439402606018,10.1553103781277,"Jeremy Hill",0
 "WR","Anquan Boldin (7609003)","Anquan Boldin",7609003,4000,"Was@Det 01:00PM ET","Det","Anquan","Boldin","Was",10.25,10.8,3,0.178082191780822,9.87654935479036,9.82655799295327,"Anquan Boldin",0
 "TE","Dennis Pitta (7609143)","Dennis Pitta",7609143,4000,"Bal@NYJ 01:00PM ET","Bal","Dennis","Pitta","NYJ",12.22,12.9,2,0.181818181818182,11.7893785862663,11.7279201102492,"Dennis Pitta",1
@@ -145,7 +145,7 @@
 "WR","Brandon LaFell (7608992)","Brandon LaFell",7608992,3900,"Cle@Cin 01:00PM ET","Cin","Brandon","LaFell","Cle",11.37,8.9,2,0.173333333333333,9.10400578258517,9.28425904475782,"Brandon LaFell",0
 "RB","DeAndre Washington (7608904)","DeAndre Washington",7608904,3900,"Oak@Jax 01:00PM ET","Oak","DeAndre","Washington","Jax",5.75,6.1,6,0.0555555555555556,5.56543086728959,5.53421390940592,"DeAndre Washington",0
 "TE","Julius Thomas (7609131)","Julius Thomas",7609131,3900,"Oak@Jax 01:00PM ET","Jax","Julius","Thomas","Oak",9.69,9.8,5,0.110552763819095,9.09049215415471,9.07460389466917,"Julius Thomas",1
-"RB","DeAngelo Williams (7608937)","DeAngelo Williams",7608937,3900,"NE@Pit 04:25PM ET","Pit","DeAngelo","Williams","NE",0,0,5,0.100877192982456,0,0,"DeAngelo Williams",0
+"RB","DeAngelo Williams (7608937)","DeAngelo Williams",7608937,3900,"NE@Pit 04:25PM ET","Pit","DeAngelo","Williams","NE",0,0,5,0.100877192982456,0,0,"DeAngelo Williams",1
 "RB","C.J. Spiller (7608947)","C.J. Spiller",7608947,3900,"Sea@Ari 08:30PM ET","Sea","C.J.","Spiller","Ari",4.19,4.4,13,0,4.02842539073573,4.00912471987105,"C.J. Spiller",0
 "WR","Michael Floyd (7609080)","Michael Floyd",7609080,3900,"Sea@Ari 08:30PM ET","Ari","Michael","Floyd","Sea",10.06,11.1,3,0.148305084745763,9.99418633685702,9.90684378553425,"Michael Floyd",0
 "TE","Coby Fleener (7609089)","Coby Fleener",7609089,3800,"NO@KC 01:00PM ET","NO","Coby","Fleener","KC",10.36,11,3,0.158371040723982,10.0331005704587,9.9761370783257,"Coby Fleener",1
