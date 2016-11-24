@@ -6,7 +6,7 @@
 # Note: Need to add latest week's files to dailyfantasynerd/updates folder (redownload from DFN to get actual fpts).
 # Be aware the updated data might have some differences with the original data b/c projections may have changed.
 
-####### LOAD DFN FILES #########
+####### LOAD DFN FILES (UPDATES FOLDER B/C WE NEED HISTORICAL ACTUAL FPTS) #########
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
 for (i in 1:week.latest) {
   name <- paste("dfn_offense_week", i, sep = "")

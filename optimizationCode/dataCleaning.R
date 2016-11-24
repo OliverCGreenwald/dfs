@@ -3,6 +3,7 @@
 
 ####### DESCRIPTION #########
 # In this file we clean various csv files in the optimizationCode folder for ease of use in other scripts.
+# TODO: clean up this hard coded shit
 
 ####### REMOVE FIRST AND LAST NAME FROM DFN OFFENSE CSV #########
 dfn_offense_week1 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week1.csv", stringsAsFactors = F)
@@ -12,8 +13,13 @@ dfn_offense_week4 <- read.csv(file = "optimizationCode/data_warehouse/dailyfanta
 dfn_offense_week5 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week5.csv", stringsAsFactors = F)
 dfn_offense_week6 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week6.csv", stringsAsFactors = F)
 dfn_offense_week7 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week7.csv", stringsAsFactors = F)
+dfn_offense_week8 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week8.csv", stringsAsFactors = F)
+dfn_offense_week9 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week9.csv", stringsAsFactors = F)
+dfn_offense_week10 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week10.csv", stringsAsFactors = F)
+dfn_offense_week11 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week11.csv", stringsAsFactors = F)
 
-dfn_offense_allwks <- list(dfn_offense_week1,dfn_offense_week2,dfn_offense_week3,dfn_offense_week4,dfn_offense_week5,dfn_offense_week6,dfn_offense_week7)
+dfn_offense_allwks <- list(dfn_offense_week1,dfn_offense_week2,dfn_offense_week3,dfn_offense_week4,dfn_offense_week5,dfn_offense_week6,dfn_offense_week7,
+                           dfn_offense_week8,dfn_offense_week9,dfn_offense_week10,dfn_offense_week11)
 
 for (i in 1:length(dfn_offense_allwks)) {
   temp <- dfn_offense_allwks[[i]]
@@ -31,8 +37,13 @@ dfn_offense_week4 <- read.csv(file = "optimizationCode/data_warehouse/dailyfanta
 dfn_offense_week5 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week5.csv", stringsAsFactors = F)
 dfn_offense_week6 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week6.csv", stringsAsFactors = F)
 dfn_offense_week7 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week7.csv", stringsAsFactors = F)
+dfn_offense_week8 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week8.csv", stringsAsFactors = F)
+dfn_offense_week9 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week9.csv", stringsAsFactors = F)
+dfn_offense_week10 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week10.csv", stringsAsFactors = F)
+dfn_offense_week11 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week11.csv", stringsAsFactors = F)
 
-dfn_offense_allwks <- list(dfn_offense_week1,dfn_offense_week2,dfn_offense_week3,dfn_offense_week4,dfn_offense_week5,dfn_offense_week6,dfn_offense_week7)
+dfn_offense_allwks <- list(dfn_offense_week1,dfn_offense_week2,dfn_offense_week3,dfn_offense_week4,dfn_offense_week5,dfn_offense_week6,dfn_offense_week7,
+                           dfn_offense_week8,dfn_offense_week9,dfn_offense_week10,dfn_offense_week11)
 
 for (i in 1:length(dfn_offense_allwks)) {
   temp <- dfn_offense_allwks[[i]]
@@ -50,8 +61,13 @@ fpts.offense.week4 <- read.csv(file = 'optimizationCode/data_warehouse/2016_clea
 fpts.offense.week5 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk5/offensive_players.csv', stringsAsFactors = F)
 fpts.offense.week6 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk6/offensive_players.csv', stringsAsFactors = F)
 fpts.offense.week7 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk7/offensive_players.csv', stringsAsFactors = F)
+fpts.offense.week8 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk8/offensive_players.csv', stringsAsFactors = F)
+fpts.offense.week9 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk9/offensive_players.csv', stringsAsFactors = F)
+fpts.offense.week10 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk10/offensive_players.csv', stringsAsFactors = F)
+fpts.offense.week11 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk11/offensive_players.csv', stringsAsFactors = F)
 
-fpts.offense.allwks <- list(fpts.offense.week1,fpts.offense.week2,fpts.offense.week3,fpts.offense.week4,fpts.offense.week5,fpts.offense.week6,fpts.offense.week7)
+fpts.offense.allwks <- list(fpts.offense.week1,fpts.offense.week2,fpts.offense.week3,fpts.offense.week4,fpts.offense.week5,fpts.offense.week6,fpts.offense.week7,
+                            fpts.offense.week8,fpts.offense.week9,fpts.offense.week10,fpts.offense.week11)
 
 for (i in 1:length(fpts.offense.allwks)) {
   temp <- fpts.offense.allwks[[i]]

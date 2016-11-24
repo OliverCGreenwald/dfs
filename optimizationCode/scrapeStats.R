@@ -56,6 +56,8 @@ for (i in 1:week.latest) {
 
 # Set unique names
 player.names <- unique(player.names)
+save(player.names, file = "projectionsAnalysis/player.names.RData")
+# write.csv(player.names, file = "projectionsAnalysis/playernames.csv", row.names = F) # for use in other files
 #player.helper <- unique(player.helper)
 
 # Completions df
