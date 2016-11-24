@@ -5,53 +5,40 @@
 # In this file we clean various csv files in the optimizationCode folder for ease of use in other scripts.
 # TODO: clean up this hard coded shit
 
-####### REMOVE FIRST AND LAST NAME FROM DFN OFFENSE CSV #########
-dfn_offense_week1 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week1.csv", stringsAsFactors = F)
-dfn_offense_week2 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week2.csv", stringsAsFactors = F)
-dfn_offense_week3 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week3.csv", stringsAsFactors = F)
-dfn_offense_week4 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week4.csv", stringsAsFactors = F)
-dfn_offense_week5 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week5.csv", stringsAsFactors = F)
-dfn_offense_week6 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week6.csv", stringsAsFactors = F)
-dfn_offense_week7 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week7.csv", stringsAsFactors = F)
-dfn_offense_week8 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week8.csv", stringsAsFactors = F)
-dfn_offense_week9 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week9.csv", stringsAsFactors = F)
-dfn_offense_week10 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week10.csv", stringsAsFactors = F)
-dfn_offense_week11 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week11.csv", stringsAsFactors = F)
 
-dfn_offense_allwks <- list(dfn_offense_week1,dfn_offense_week2,dfn_offense_week3,dfn_offense_week4,dfn_offense_week5,dfn_offense_week6,dfn_offense_week7,
-                           dfn_offense_week8,dfn_offense_week9,dfn_offense_week10,dfn_offense_week11)
-
-for (i in 1:length(dfn_offense_allwks)) {
-  temp <- dfn_offense_allwks[[i]]
+####### REMOVE FIRST AND LAST NAME FROM (ORIGINAL) DFN OFFENSE CSV #########
+week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+for (i in 1:week.latest) {
+  # load files
+  name <- paste("dfn_offense_week", i, sep = "")
+  assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+  
+  # remove Sr. and Jr.
+  temp <- eval(parse(text=name))
   temp$Player.Name <- sub(' Sr.', '', temp$Player.Name)
   temp$Player.Name <- sub(' Jr.', '', temp$Player.Name)
-  dfn_offense_allwks[[i]] <- temp
-  write.csv(dfn_offense_allwks[[i]], file = paste0("optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week", i, ".csv"), row.names = F)
+  
+  # write to file
+  write.csv(temp, file = paste0("optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week", i, ".csv"), row.names = F)
 }
 
-####### REMOVE FIRST AND LAST NAME FROM DFN UPDATED OFFENSE CSV #########
-dfn_offense_week1 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week1.csv", stringsAsFactors = F)
-dfn_offense_week2 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week2.csv", stringsAsFactors = F)
-dfn_offense_week3 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week3.csv", stringsAsFactors = F)
-dfn_offense_week4 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week4.csv", stringsAsFactors = F)
-dfn_offense_week5 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week5.csv", stringsAsFactors = F)
-dfn_offense_week6 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week6.csv", stringsAsFactors = F)
-dfn_offense_week7 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week7.csv", stringsAsFactors = F)
-dfn_offense_week8 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week8.csv", stringsAsFactors = F)
-dfn_offense_week9 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week9.csv", stringsAsFactors = F)
-dfn_offense_week10 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week10.csv", stringsAsFactors = F)
-dfn_offense_week11 <- read.csv(file = "optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week11.csv", stringsAsFactors = F)
 
-dfn_offense_allwks <- list(dfn_offense_week1,dfn_offense_week2,dfn_offense_week3,dfn_offense_week4,dfn_offense_week5,dfn_offense_week6,dfn_offense_week7,
-                           dfn_offense_week8,dfn_offense_week9,dfn_offense_week10,dfn_offense_week11)
-
-for (i in 1:length(dfn_offense_allwks)) {
-  temp <- dfn_offense_allwks[[i]]
+####### REMOVE FIRST AND LAST NAME FROM (UPDATED) DFN OFFENSE CSV #########
+week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+for (i in 1:week.latest) {
+  # load files
+  name <- paste("dfn_offense_updated_week", i, sep = "")
+  assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+  
+  # remove Sr. and Jr.
+  temp <- eval(parse(text=name))
   temp$Player.Name <- sub(' Sr.', '', temp$Player.Name)
   temp$Player.Name <- sub(' Jr.', '', temp$Player.Name)
-  dfn_offense_allwks[[i]] <- temp
-  write.csv(dfn_offense_allwks[[i]], file = paste0("optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week", i, ".csv"), row.names = F)
+  
+  # write to file
+  write.csv(temp, file = paste0("optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week", i, ".csv"), row.names = F)
 }
+
 
 ####### REMOVE FIRST AND LAST NAME FROM CLEANED INPUT OFFENSE CSV #########
 fpts.offense.week1 <- read.csv(file = 'optimizationCode/data_warehouse/2016_cleaned_input/wk1/offensive_players.csv', stringsAsFactors = F)
