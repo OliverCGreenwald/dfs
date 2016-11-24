@@ -16,7 +16,7 @@ using Gurobi
 using JuMP
 
 export one_lineup_no_stacking, one_lineup_Type_1, one_lineup_Type_2, one_lineup_Type_3,
-one_lineup_Type_4, one_lineup_Type_5, one_lineup_Type_6, one_lineup_Type_7, one_lineup_Type_8, one_lineup_Type_9, one_lineup_Type_10, one_lineup_Type_11,one_lineup_Type_12, one_lineup_Type_13
+one_lineup_Type_4, one_lineup_Type_5, one_lineup_Type_6, one_lineup_Type_7, one_lineup_Type_8, one_lineup_Type_9, one_lineup_Type_10, one_lineup_Type_11,one_lineup_Type_12, one_lineup_Type_13, one_lineup_Type_14
 
 
 ############################  Lineup Generator Functions  ############################
@@ -47,7 +47,10 @@ function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overla
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -144,7 +147,10 @@ function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -248,7 +254,10 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -474,7 +483,10 @@ function one_lineup_Type_4(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -587,7 +599,10 @@ function one_lineup_Type_5(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -699,7 +714,10 @@ function one_lineup_Type_6(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -811,7 +829,10 @@ function one_lineup_Type_7(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -932,7 +953,10 @@ function one_lineup_Type_8(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -1057,7 +1081,10 @@ function one_lineup_Type_9(offensive_players, defenses, lineups, num_overlap, nu
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -1175,7 +1202,10 @@ function one_lineup_Type_10(offensive_players, defenses, lineups, num_overlap, n
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -1298,7 +1328,10 @@ function one_lineup_Type_11(offensive_players, defenses, lineups, num_overlap, n
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -1420,7 +1453,10 @@ function one_lineup_Type_12(offensive_players, defenses, lineups, num_overlap, n
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -1545,7 +1581,10 @@ function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, n
     @addConstraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
 
     # Eight Offensive_Players constraint
-    @addConstraint(m, sum{offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
 
     # One QB constraint
     @addConstraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
@@ -1637,9 +1676,10 @@ function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, n
         return(offensive_players_lineup_copy)
     end
 end
+
 ############################  Setting Formation  ############################
 
-function create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source)
+function create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind)
     #=
     num_lineups is an integer that is the number of lineups (Line 28)
     num_overlap is an integer that gives the overlap between each lineup (Line 31)
@@ -1677,50 +1717,103 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
     # tightEnd stores the information on which players are tightEnd
     tightEnd = Array(Int64, 0)
 
+    if(use_Freq_Ind)
+        println("# -------------------------------- USING CORRECT IF LOOP -------------------------------- #")
+        for i =1:num_offensive_players
+            if offensive_players[i,:Position] == "QB" 
+                quarterBack=vcat(quarterBack,fill(1,1))
+                runningBack=vcat(runningBack,fill(0,1))
+                wideReciever=vcat(wideReciever,fill(0,1))
+                tightEnd=vcat(tightEnd,fill(0,1))
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                topWideReciever=vcat(topWideReciever,fill(0,1))
+            elseif (offensive_players[i,:Position] == "RB" && offensive_players[i,:FreqInd] == 1)
+                println("HERE", offensive_players[i,:Name], offensive_players[i,:FreqInd])
+                quarterBack=vcat(quarterBack,fill(0,1))
+                runningBack=vcat(runningBack,fill(1,1))
+                wideReciever=vcat(wideReciever,fill(0,1))
+                tightEnd=vcat(tightEnd,fill(0,1))
+                topWideReciever=vcat(topWideReciever,fill(0,1))
+                if offensive_players[i,:Salary] < 5000
+                    cheapRunningBack=vcat(cheapRunningBack,fill(1,1))
+                else 
+                    cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                end
+            elseif (offensive_players[i,:Position] == "WR" && offensive_players[i,:FreqInd] == 1)
+                quarterBack=vcat(quarterBack,fill(0,1))
+                runningBack=vcat(runningBack,fill(0,1))
+                wideReciever=vcat(wideReciever,fill(1,1))
+                tightEnd=vcat(tightEnd,fill(0,1))
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                if offensive_players[i,:RankTargets] < 4
+                    topWideReciever=vcat(topWideReciever,fill(1,1))
+                else 
+                    topWideReciever=vcat(topWideReciever,fill(0,1))
+                end
+            elseif offensive_players[i,:Position] == "TE" && offensive_players[i,:FreqInd] == 1
+                quarterBack=vcat(quarterBack,fill(0,1))
+                runningBack=vcat(runningBack,fill(0,1))
+                wideReciever=vcat(wideReciever,fill(0,1))
+                tightEnd=vcat(tightEnd,fill(1,1))
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                topWideReciever=vcat(topWideReciever,fill(0,1))
+            else
+                println("DO NOT USE", offensive_players[i,:Name], offensive_players[i,:FreqInd])
+                quarterBack=vcat(quarterBack,fill(0,1))
+                runningBack=vcat(runningBack,fill(0,1))
+                wideReciever=vcat(wideReciever,fill(0,1))
+                tightEnd=vcat(tightEnd,fill(0,1))
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                topWideReciever=vcat(topWideReciever,fill(0,1))
+            end
+        end
+    else
+        for i =1:num_offensive_players
+            if offensive_players[i,:Position] == "QB" 
+                quarterBack=vcat(quarterBack,fill(1,1))
+                runningBack=vcat(runningBack,fill(0,1))
+                wideReciever=vcat(wideReciever,fill(0,1))
+                tightEnd=vcat(tightEnd,fill(0,1))
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                topWideReciever=vcat(topWideReciever,fill(0,1))
+            elseif offensive_players[i,:Position] == "RB"
+                quarterBack=vcat(quarterBack,fill(0,1))
+                runningBack=vcat(runningBack,fill(1,1))
+                wideReciever=vcat(wideReciever,fill(0,1))
+                tightEnd=vcat(tightEnd,fill(0,1))
+                topWideReciever=vcat(topWideReciever,fill(0,1))
+                if offensive_players[i,:Salary] < 5000
+                    cheapRunningBack=vcat(cheapRunningBack,fill(1,1))
+                else 
+                    cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                end
+            elseif offensive_players[i,:Position] == "WR"
+                quarterBack=vcat(quarterBack,fill(0,1))
+                runningBack=vcat(runningBack,fill(0,1))
+                wideReciever=vcat(wideReciever,fill(1,1))
+                tightEnd=vcat(tightEnd,fill(0,1))
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                if offensive_players[i,:RankTargets] < 4
+                    topWideReciever=vcat(topWideReciever,fill(1,1))
+                else 
+                    topWideReciever=vcat(topWideReciever,fill(0,1))
+                end
+            else
+                quarterBack=vcat(quarterBack,fill(0,1))
+                runningBack=vcat(runningBack,fill(0,1))
+                wideReciever=vcat(wideReciever,fill(0,1))
+                tightEnd=vcat(tightEnd,fill(1,1))
+                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
+                topWideReciever=vcat(topWideReciever,fill(0,1))
+            end
+        end
+    end
 
     #=
     Process the position information in the skaters file to populate the 
     skill_positions (QB, RB, WR, TE) with the corresponding correct information
     =#
-    for i =1:num_offensive_players
-        if offensive_players[i,:Position] == "QB" 
-            quarterBack=vcat(quarterBack,fill(1,1))
-            runningBack=vcat(runningBack,fill(0,1))
-            wideReciever=vcat(wideReciever,fill(0,1))
-            tightEnd=vcat(tightEnd,fill(0,1))
-            cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
-            topWideReciever=vcat(topWideReciever,fill(0,1))
-        elseif offensive_players[i,:Position] == "RB"
-            quarterBack=vcat(quarterBack,fill(0,1))
-            runningBack=vcat(runningBack,fill(1,1))
-            wideReciever=vcat(wideReciever,fill(0,1))
-            tightEnd=vcat(tightEnd,fill(0,1))
-            topWideReciever=vcat(topWideReciever,fill(0,1))
-            if offensive_players[i,:Salary] < 5000
-                cheapRunningBack=vcat(cheapRunningBack,fill(1,1))
-            else 
-                cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
-            end
-        elseif offensive_players[i,:Position] == "WR"
-            quarterBack=vcat(quarterBack,fill(0,1))
-            runningBack=vcat(runningBack,fill(0,1))
-            wideReciever=vcat(wideReciever,fill(1,1))
-            tightEnd=vcat(tightEnd,fill(0,1))
-            cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
-            if offensive_players[i,:RankTargets] < 4
-                topWideReciever=vcat(topWideReciever,fill(1,1))
-            else 
-                topWideReciever=vcat(topWideReciever,fill(0,1))
-            end
-        else
-            quarterBack=vcat(quarterBack,fill(0,1))
-            runningBack=vcat(runningBack,fill(0,1))
-            wideReciever=vcat(wideReciever,fill(0,1))
-            tightEnd=vcat(tightEnd,fill(1,1))
-            cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
-            topWideReciever=vcat(topWideReciever,fill(0,1))
-        end
-    end
+    
 
 
     # Create team indicators from the information in the offensive_players file
