@@ -1554,7 +1554,6 @@ end
 # - QB-Top Reciever Target Stack (If you have a QB then also include a WR from the same team)
 # - Can not have more than 3 players from the same team
 # - no TE for flex
-# - Must have a Value RB (RB worth less than 5000)
 # - at least 3 receivers must be in the top 4 Target Leaders for their team (If Flex is WR, does not have to follow this rule)
 function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever)
     #m = Model(solver=GLPKSolverMIP())
@@ -1718,7 +1717,6 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
     tightEnd = Array(Int64, 0)
 
     if(use_Freq_Ind)
-        println("# -------------------------------- USING CORRECT IF LOOP -------------------------------- #")
         for i =1:num_offensive_players
             if offensive_players[i,:Position] == "QB" 
                 quarterBack=vcat(quarterBack,fill(1,1))
@@ -1728,7 +1726,6 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
                 cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
                 topWideReciever=vcat(topWideReciever,fill(0,1))
             elseif (offensive_players[i,:Position] == "RB" && offensive_players[i,:FreqInd] == 1)
-                println("HERE", offensive_players[i,:Name], offensive_players[i,:FreqInd])
                 quarterBack=vcat(quarterBack,fill(0,1))
                 runningBack=vcat(runningBack,fill(1,1))
                 wideReciever=vcat(wideReciever,fill(0,1))
@@ -1758,7 +1755,6 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
                 cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
                 topWideReciever=vcat(topWideReciever,fill(0,1))
             else
-                println("DO NOT USE", offensive_players[i,:Name], offensive_players[i,:FreqInd])
                 quarterBack=vcat(quarterBack,fill(0,1))
                 runningBack=vcat(runningBack,fill(0,1))
                 wideReciever=vcat(wideReciever,fill(0,1))
@@ -1808,6 +1804,7 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
             end
         end
     end
+
 
     #=
     Process the position information in the skaters file to populate the 

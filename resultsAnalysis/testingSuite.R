@@ -12,14 +12,15 @@
 # load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 11
-week.hi <- 11
-contest.entry.fee <- "$3"
+week.lo <- 10
+week.hi <- 10
+contest.entry.fee <- "$4"
 predictions.source <- "_dfn" # Either "_dfn" or "" or "_dfn_perturbed"
 formulation <- 13
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
-overlap.hi <- 4
-exposure.range <- seq(from = 0.4, to = 0.4, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
+overlap.hi <- 9
+exposure.range <- seq(from = 0.4, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
+freqInd <- "_FreqInd"
 # exposure.range <- 0.4
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
@@ -57,7 +58,7 @@ for (week.num in week.lo:week.hi) {
     for (exposure in exposure.range) {
       
       ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
-      file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
+      file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, ".csv")
       lineups <- read.csv(file = file.name, stringsAsFactors = F)
       
       ######## CALCULATE FPTS FOR EACH LINEUP ########

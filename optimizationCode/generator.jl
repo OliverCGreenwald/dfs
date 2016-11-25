@@ -42,7 +42,7 @@ exposure = 0.4
         - "LIVE" (Current week)
         - 1 (1-11)
 =#
-week = 11
+week = 10
 ############################  Setting Formation  ############################
 
 use_Freq_Ind = true
@@ -68,7 +68,7 @@ formulation is the type of formulation that you would like to use.
         - 12 <- one_lineup_Type_12
         - 13 <- one_lineup_Type_13
 =#
-formulation_type = 4
+formulation_type = 10
 
 
 ############################  Setting Projections Source  ############################
