@@ -244,3 +244,10 @@ for (i in 2:week.latest) { # change to week.latest+1 once current week's data ha
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 }
 
+
+####### DEBUGGING #########
+for (i in 2:week.latest) {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
+  print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='WR': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<3 & temp$Position=="WR",])))
+  #View(temp[temp$FreqInd==1 & temp$RankTargets<3 & temp$Position=="WR",])
+}
