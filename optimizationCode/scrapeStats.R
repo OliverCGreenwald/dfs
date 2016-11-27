@@ -162,7 +162,7 @@ for (i in 1:week.latest) {
 write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
 
 ####### APPEND TO 2016_cleaned_input FILES #########
-for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
   # i <- 11
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
   

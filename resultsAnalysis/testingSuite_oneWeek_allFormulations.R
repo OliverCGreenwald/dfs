@@ -8,12 +8,12 @@
 week.num <- 11
 contest.entry.fee <- "$27" # $3, $4 (wk 10 only), or $20, $27 (wk 11)
 predictions.source <- "_dfn" # Either "" or "_dfn" or "_dfn_perturbed" or "_fc" or "_reg"
-formulation <- 13
+formulation <- 6
 overlap.lo <- 1 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 9
 exposure.range <- seq(from = 0.1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
 pnl_one_graph <- FALSE
-freqInd <- "_FreqInd"
+freqInd <- "" # "_FreqInd" or ""
 
 
 

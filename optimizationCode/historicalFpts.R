@@ -142,15 +142,15 @@ for (i in 1:week.latest) {
     # WRs
     if (freq.ind.data$Pos[j]=="WR") {
       # for condition (1)
-      temp.override <- historical.fpts.data[j,2:(i+1)] > 23 # ~99.9th percentile
+      temp.override <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.99)) # 23 # ~99.9th percentile
       num.override <- sum(temp.override, na.rm = T)
       
       # for condition (2)
-      temp.great <- historical.fpts.data[j,2:(i+1)] > 15 # ~90th percentile
+      temp.great <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.85)) # 15 # ~90th percentile
       num.great <- sum(temp.great, na.rm = T)
-      temp.good <- historical.fpts.data[j,2:(i+1)] > 12 # ~75th percentile
+      temp.good <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.50)) # 12 # ~75th percentile
       num.good <- sum(temp.good, na.rm = T)
-      temp.bad <- historical.fpts.data[j,2:(i+1)] < 7.5 # ~50th percentile
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.25)) # 7.5 # ~50th percentile
       num.bad <- sum(temp.bad, na.rm = T)
       # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
       # num.useless <- sum(temp.useless, na.rm = T)
@@ -167,15 +167,15 @@ for (i in 1:week.latest) {
     # RBs
     if (freq.ind.data$Pos[j]=="RB") {
       # for condition (1)
-      temp.override <- historical.fpts.data[j,2:(i+1)] > 23 # ~99.9th percentile
+      temp.override <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.99)) # 23 # ~99.9th percentile
       num.override <- sum(temp.override, na.rm = T)
       
       # for condition (2)
-      temp.great <- historical.fpts.data[j,2:(i+1)] > 15.5 # ~90th percentile
+      temp.great <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.85)) # 15.5 # ~90th percentile
       num.great <- sum(temp.great, na.rm = T)
-      temp.good <- historical.fpts.data[j,2:(i+1)] > 11 # ~75th percentile
+      temp.good <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.60)) # 11 # ~75th percentile
       num.good <- sum(temp.good, na.rm = T)
-      temp.bad <- historical.fpts.data[j,2:(i+1)] < 6 # ~50th percentile
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.35)) # 6 # ~50th percentile
       num.bad <- sum(temp.bad, na.rm = T)
       # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
       # num.useless <- sum(temp.useless, na.rm = T)
@@ -192,15 +192,15 @@ for (i in 1:week.latest) {
     # TEs
     if (freq.ind.data$Pos[j]=="TE") {
       # for condition (1)
-      temp.override <- historical.fpts.data[j,2:(i+1)] > 16 # ~99.9th percentile
+      temp.override <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.te, na.rm = T, c(0.99)) # 16 # ~99.9th percentile
       num.override <- sum(temp.override, na.rm = T)
       
       # for condition (2)
-      temp.great <- historical.fpts.data[j,2:(i+1)] > 12 # ~90th percentile
+      temp.great <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.te, na.rm = T, c(0.85)) #12 # ~90th percentile
       num.great <- sum(temp.great, na.rm = T)
-      temp.good <- historical.fpts.data[j,2:(i+1)] > 9 # ~75th percentile
+      temp.good <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.te, na.rm = T, c(0.60)) # 9 # ~75th percentile
       num.good <- sum(temp.good, na.rm = T)
-      temp.bad <- historical.fpts.data[j,2:(i+1)] < 5.5 # ~50th percentile
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < quantile(historical.fpts.data.mean.te, na.rm = T, c(0.25)) # 5.5 # ~50th percentile
       num.bad <- sum(temp.bad, na.rm = T)
       # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
       # num.useless <- sum(temp.useless, na.rm = T)
@@ -228,7 +228,7 @@ for (i in 2:(week.latest+1)) {
 
 
 ####### ADD FREQUENCY INDICATOR TO 2016_CLEANED_INPUT FILES #########
-for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
   
   # clean names
@@ -246,8 +246,13 @@ for (i in 2:week.latest) { # change to week.latest+1 once current week's data ha
 
 
 ####### DEBUGGING #########
-for (i in 2:week.latest) {
+for (i in 2:week.latest+1) {
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
-  print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='WR': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<3 & temp$Position=="WR",])))
-  #View(temp[temp$FreqInd==1 & temp$RankTargets<3 & temp$Position=="WR",])
+  # print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='WR': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="WR",])))
+  # print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='RB': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="RB",])))
+  # print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='TE': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="TE",])))
+  
+  print(paste0("Week ",i," count FreqInd==1, Position=='WR': ",nrow(temp[temp$FreqInd==1 & temp$Position=="WR",])))
+  print(paste0("Week ",i," count FreqInd==1, Position=='RB': ",nrow(temp[temp$FreqInd==1 & temp$Position=="RB",])))
+  print(paste0("Week ",i," count FreqInd==1, Position=='TE': ",nrow(temp[temp$FreqInd==1 & temp$Position=="TE",])))
 }

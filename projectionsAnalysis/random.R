@@ -1,0 +1,82 @@
+#setwd("~/Projects/DFS/resultsAnalysis")
+#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
+
+####### DESCRIPTION #######
+# In this file we look at how the fpts distribution of contest entries has changed week to week.
+
+
+####### LOAD RDATA FILE #######
+# load("projectionsAnalysis/random.RData")
+
+####### $20 CONTESTS #######
+# weeks we have
+wks.20 <- c(2:9)
+wks.27 <- c(11)
+
+# load $20 contest results and payout structure
+for (i in wks.20) {
+  name <- paste0("contest_20_results_wk", i)
+  assign(name, read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/$20_contest_full_results_week", i, ".csv"), stringsAsFactors = F))
+
+  name <- paste0("payout_20_structure_wk", i)
+  assign(name, read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/$20_payout_structure_week", i, ".csv"), stringsAsFactors = F))
+}
+
+# load $27 contest results (as $20 results for naming convention) and payout structure
+for (i in wks.27) {
+  name <- paste0("contest_20_results_wk", i)
+  assign(name, read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/$27_contest_full_results_week", i, ".csv"), stringsAsFactors = F))
+
+  name <- paste0("payout_20_structure_wk", i)
+  assign(name, read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/$27_payout_structure_week", i, ".csv"), stringsAsFactors = F))
+}
+
+# Plot histogram of placing lineups fpts
+par(mfrow=c(3,3)) # hard coded for now
+for (i in c(wks.20, wks.27)) {
+  # load dfs
+  temp.results <- eval(parse(text=paste0("contest_20_results_wk", i)))
+  temp.payout <- eval(parse(text=paste0("payout_20_structure_wk", i)))
+  
+  # subset to placing lineups only
+  place.last <- temp.payout$Place_hi[nrow(temp.payout)]
+  temp.results <- temp.results[1:place.last,]
+  
+  # plot histogram
+  hist(temp.results$Points, main = paste0("Placing Lineups ($20 Entry) Week ", i), xlab = paste0("Fpts (min: ", min(temp.results$Points), ", max: ", max(temp.results$Points),")"))
+}
+
+# Plot histogram of generated lineups fpts
+par(mfrow=c(3,3)) # hard coded for now
+for (w in c(wks.20, wks.27)) {
+  # load dfs and clean
+  lineups <- read.csv(paste0("resultsAnalysis/data_warehouse/testing_lineups/week", w, "_dfn_formulation4_overlap_4_exposure_0.4.csv"))
+  player.performance <- read.csv(file = paste0("resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week", w, ".csv"), stringsAsFactors = F)
+  player.performance$Actual.Score[is.na(player.performance$Actual.Score)] <- 0
+  player.performance$Player <- sub(' Sr.','', player.performance$Player)
+  player.performance$Player <- sub(' Jr.','', player.performance$Player)
+  
+  # compute fpts
+  for (i in 1:ncol(lineups)) {
+    lineups[,i] <- substr(lineups[,i], 1, regexpr('\\(', lineups[,i]) - 2)
+    lineups[,i] <- sub(' Sr.','', lineups[,i])
+    lineups[,i] <- sub(' Jr.','', lineups[,i]) 
+  }
+  lineups[,ncol(lineups)] <- substr(lineups[,ncol(lineups)], 1, nchar(lineups[,ncol(lineups)])-1)
+  
+  total_results <- player.performance[,c('Player', 'Actual.Score')]
+  lineups$total <- 0
+  
+  for (index in 1:nrow(lineups)){
+    row <- t(lineups[index,])
+    colnames(row) <- 'Player'
+    row <- merge(row, total_results, by = 'Player')
+    lineups$total[index] <- sum(row$Actual.Score)
+  }
+  
+  # plot histogram
+  hist(lineups$total, main = paste0("Week ", w), xlab = paste0("Fpts (min: ", min(lineups$total), ", max: ", max(lineups$total),")"), xlim = c(50, 270))
+}
+
+####### SAVE VARIABLES TO RDATA FILE #######
+# save.image(file = "projectionsAnalysis/random.RData")
