@@ -28,7 +28,7 @@ include("formulations.jl")
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 10
+num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 6
@@ -45,7 +45,7 @@ exposure = 0.7
 week = "LIVE"
 ############################  Setting Formation  ############################
 
-use_Freq_Ind = true
+use_Freq_Ind = false
 
 
 ############################  Setting Formation  ############################
@@ -68,7 +68,7 @@ formulation is the type of formulation that you would like to use.
         - 12 <- one_lineup_Type_12
         - 13 <- one_lineup_Type_13
 =#
-formulation_type = 10
+formulation_type = 0
 
 
 ############################  Setting Projections Source  ############################
@@ -129,7 +129,7 @@ elseif (formulation_type == 13)
 elseif (formulation_type == 14) 
     formulation = formulations.one_lineup_Type_14
 else
-    formulation = one_lineup_no_stacking 
+    formulation = formulations.one_lineup_no_stacking 
 end
 
 ########### Running the code ###########

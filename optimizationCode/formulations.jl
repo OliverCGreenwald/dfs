@@ -90,6 +90,8 @@ function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overla
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -1554,7 +1556,7 @@ end
 # - QB-Top Reciever Target Stack (If you have a QB then also include a WR from the same team)
 # - Can not have more than 3 players from the same team
 # - no TE for flex
-# - at least 3 receivers must be in the top 4 Target Leaders for their team (If Flex is WR, does not have to follow this rule)
+# - at least 3 receivers must be in the top 3 Target Leaders for their team (If Flex is WR, does not have to follow this rule)
 function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
@@ -1647,6 +1649,8 @@ function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, n
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
