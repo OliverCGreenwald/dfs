@@ -39,10 +39,11 @@ exposure = 0.7
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 
     Available Options: 
-        - "LIVE" (Current week)
-        - 1 (1-11)
+        - live = true or false
+        - if live false, set week to any week 1-12
 =#
-week = "LIVE"
+week = 12
+live = true
 ############################  Setting Formation  ############################
 
 use_Freq_Ind = false
@@ -86,9 +87,9 @@ projections_source = "Projection_dfn"
 
 ############################  Create Paths to data  ############################
 
-if (week == "LIVE") 
-    path_offensive_players = "data_warehouse/offensive_players.csv"
-    path_defenses = "data_warehouse/defenses.csv"
+if (live) 
+    path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
+    path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
     path_to_output = "output.csv"
 elseif (use_Freq_Ind)
     path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
