@@ -94,7 +94,7 @@ for (i in 1:week.latest) {
 }
 
 ####### ADD REGRESSED PREDICTIONS TO 2016_CLEANED_INPUT FILES #########
-for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
   
   # Option 1: Use single regression model (if using this, comment out Option 2)
