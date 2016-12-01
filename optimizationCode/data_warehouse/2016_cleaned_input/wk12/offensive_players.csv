@@ -1,6 +1,6 @@
 "Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","RankTargets","RollingTargetPctg","Name.Clean","FreqInd","Projection_reg"
 "RB","David Johnson (7809693)","David Johnson",7809693,8900,"Ari@Atl 01:00PM ET","Ari","David","Johnson","Atl",24.43,19.8,2,0.174940898345154,"David Johnson",1,21.4695496193226
-"WR","Odell Beckham Jr. (7809820)","Odell Beckham Jr.",7809820,8800,"NYG@Cle 01:00PM ET","NYG","Odell","Beckham","Cle",21.42,29.3,1,0.261964735516373,"Odell Beckham Jr.",0,25.3993435605974
+"WR","Odell Beckham Jr. (7809820)","Odell Beckham",7809820,8800,"NYG@Cle 01:00PM ET","NYG","Odell","Beckham","Cle",21.42,29.3,1,0.261964735516373,"Odell Beckham Jr.",0,25.3993435605974
 "WR","Julio Jones (7809806)","Julio Jones",7809806,8500,"Ari@Atl 01:00PM ET","Atl","Julio","Jones","Ari",18.07,19.7,1,0.278409090909091,"Julio Jones",1,18.6638258795209
 "WR","A.J. Green (7809796)","A.J. Green",7809796,7800,"Cin@Bal 01:00PM ET","Cin","A.J.","Green","Bal",0,0,1,0.294277929155313,"A.J. Green",1,0
 "QB","Tom Brady (7809657)","Tom Brady",7809657,7800,"NE@NYJ 04:25PM ET","NE","Tom","Brady","NYJ",24.36,20.3,0,0,"Tom Brady",0,21.7146223492229
@@ -33,7 +33,7 @@
 "QB","Derek Carr (7809649)","Derek Carr",7809649,6100,"Car@Oak 04:25PM ET","Oak","Derek","Carr","Car",20.18,19.3,0,0,"Derek Carr",0,19.3561079347142
 "RB","Spencer Ware (7809751)","Spencer Ware",7809751,6100,"KC@Den 08:30PM ET","KC","Spencer","Ware","Den",14.37,18.8,7,0.0777777777777778,"Spencer Ware",1,16.5679774609057
 "WR","Brandon Marshall (7809894)","Brandon Marshall",7809894,6100,"NE@NYJ 04:25PM ET","NYJ","Brandon","Marshall","NE",15,16.3,1,0.272206303724928,"Brandon Marshall",1,15.4637117992093
-"WR","Steve Smith Sr. (7809791)","Steve Smith Sr.",7809791,6000,"Cin@Bal 01:00PM ET","Bal","Steve","Smith","Cin",13.97,13,3,0.155875299760192,"Steve Smith Sr.",0,13.2009525039913
+"WR","Steve Smith Sr. (7809791)","Steve Smith",7809791,6000,"Cin@Bal 01:00PM ET","Bal","Steve","Smith","Cin",13.97,13,3,0.155875299760192,"Steve Smith Sr.",0,13.2009525039913
 "WR","Tyrell Williams (7809859)","Tyrell Williams",7809859,6000,"SD@Hou 01:00PM ET","SD","Tyrell","Williams","Hou",14.18,10.4,1,0.179624664879357,"Tyrell Williams",0,11.8599704152169
 "QB","Tyrod Taylor (7809603)","Tyrod Taylor",7809603,5900,"Jax@Buf 01:00PM ET","Buf","Tyrod","Taylor","Jax",18.18,15.9,0,0,"Tyrod Taylor",0,16.6187611649438
 "WR","Jarvis Landry (7809843)","Jarvis Landry",7809843,5900,"SF@Mia 01:00PM ET","Mia","Jarvis","Landry","SF",17.32,14.3,1,0.282392026578073,"Jarvis Landry",1,15.3657062193314
@@ -47,7 +47,7 @@
 "QB","Blake Bortles (7809605)","Blake Bortles",7809605,5600,"Jax@Buf 01:00PM ET","Jax","Blake","Bortles","Buf",18.46,16.7,0,0,"Blake Bortles",0,17.1804147157114
 "TE","Tyler Eifert (7809925)","Tyler Eifert",7809925,5600,"Cin@Bal 01:00PM ET","Cin","Tyler","Eifert","Bal",14.9,14.5,6,0.0681198910081744,"Tyler Eifert",1,14.4292125011846
 "RB","Rashad Jennings (7809697)","Rashad Jennings",7809697,5600,"NYG@Cle 01:00PM ET","NYG","Rashad","Jennings","Cle",14.39,20,5,0.0654911838790932,"Rashad Jennings",1,17.2374606616213
-"WR","Terrelle Pryor Sr. (7809819)","Terrelle Pryor Sr.",7809819,5600,"NYG@Cle 01:00PM ET","Cle","Terrelle","Pryor","NYG",14.26,14.7,1,0.255,"Terrelle Pryor Sr.",0,14.2625559912278
+"WR","Terrelle Pryor Sr. (7809819)","Terrelle Pryor",7809819,5600,"NYG@Cle 01:00PM ET","Cle","Terrelle","Pryor","NYG",14.26,14.7,1,0.255,"Terrelle Pryor Sr.",0,14.2625559912278
 "RB","Devontae Booker (7809756)","Devontae Booker",7809756,5600,"KC@Den 08:30PM ET","Den","Devontae","Booker","KC",13.67,14.2,5,0.0718390804597701,"Devontae Booker",1,13.7320380043582
 "WR","Sterling Shepard (7809822)","Sterling Shepard",7809822,5500,"NYG@Cle 01:00PM ET","NYG","Sterling","Shepard","Cle",13.03,12.8,2,0.183879093198992,"Sterling Shepard",1,12.6842703684762
 "QB","Ryan Tannehill (7809633)","Ryan Tannehill",7809633,5500,"SF@Mia 01:00PM ET","Mia","Ryan","Tannehill","SF",17.35,16.4,0,0,"Ryan Tannehill",0,16.5351393565158
@@ -163,7 +163,7 @@
 "RB","Damien Williams (7809719)","Damien Williams",7809719,3900,"SF@Mia 01:00PM ET","Mia","Damien","Williams","SF",3.88,6.6,5,0.0598006644518272,"Damien Williams",1,5.31265551116954
 "RB","Peyton Barber (7809739)","Peyton Barber",7809739,3900,"Sea@TB 04:05PM ET","TB","Peyton","Barber","Sea",2.62,3.4,11,0.0151898734177215,"Peyton Barber",0,3.00549231419618
 "RB","DeAndre Washington (7809746)","DeAndre Washington",7809746,3900,"Car@Oak 04:25PM ET","Oak","DeAndre","Washington","Car",4.08,4.6,7,0.041871921182266,"DeAndre Washington",1,4.29776516648115
-"WR","Ted Ginn Jr. (7809872)","Ted Ginn Jr.",7809872,3900,"Car@Oak 04:25PM ET","Car","Ted","Ginn","Oak",0,9.1,3,0.141304347826087,"Ted Ginn Jr.",0,5.01131952869892
+"WR","Ted Ginn Jr. (7809872)","Ted Ginn",7809872,3900,"Car@Oak 04:25PM ET","Car","Ted","Ginn","Oak",0,9.1,3,0.141304347826087,"Ted Ginn Jr.",0,5.01131952869892
 "RB","Jeremy Langford (7809664)","Jeremy Langford",7809664,3800,"Ten@Chi 01:00PM ET","Chi","Jeremy","Langford","Ten",5.36,4.3,7,0.0532212885154062,"Jeremy Langford",1,4.68614763176519
 "WR","Eddie Royal (7809768)","Eddie Royal",7809768,3800,"Ten@Chi 01:00PM ET","Chi","Eddie","Royal","Ten",10.23,10.4,4,0.123249299719888,"Eddie Royal",1,10.1516238015371
 "RB","Kenneth Dixon (7809686)","Kenneth Dixon",7809686,3800,"Cin@Bal 01:00PM ET","Bal","Kenneth","Dixon","Cin",8.31,10.5,10,0.0311750599520384,"Kenneth Dixon",1,9.37630704481491
@@ -175,7 +175,7 @@
 "WR","Percy Harvin (7809780)","Percy Harvin",7809780,3600,"Jax@Buf 01:00PM ET","Buf","Percy","Harvin","Jax",0,7.6,14,0.0132450331125828,"Percy Harvin",1,4.18527784814415
 "WR","Marquise Goodwin (7809782)","Marquise Goodwin",7809782,3600,"Jax@Buf 01:00PM ET","Buf","Marquise","Goodwin","Jax",10.34,10.1,3,0.135761589403974,"Marquise Goodwin",1,10.033989674921
 "WR","Taylor Gabriel (7809814)","Taylor Gabriel",7809814,3600,"Ari@Atl 01:00PM ET","Atl","Taylor","Gabriel","Ari",5.83,5.6,5,0.0681818181818182,"Taylor Gabriel",1,5.60532204396654
-"RB","Duke Johnson Jr. (7809704)","Duke Johnson Jr.",7809704,3600,"NYG@Cle 01:00PM ET","Cle","Duke","Johnson","NYG",9.18,10.5,3,0.1525,"Duke Johnson Jr.",0,9.75257579263806
+"RB","Duke Johnson Jr. (7809704)","Duke Johnson",7809704,3600,"NYG@Cle 01:00PM ET","Cle","Duke","Johnson","NYG",9.18,10.5,3,0.1525,"Duke Johnson Jr.",0,9.75257579263806
 "TE","Gary Barnidge (7809938)","Gary Barnidge",7809938,3600,"NYG@Cle 01:00PM ET","Cle","Gary","Barnidge","NYG",9.21,8.1,2,0.155,"Gary Barnidge",0,8.44388388815813
 "WR","Brian Quick (7809828)","Brian Quick",7809828,3600,"LA@NO 01:00PM ET","LA","Brian","Quick","NO",9.31,7.3,4,0.135838150289017,"Brian Quick",1,8.04657760655457
 "WR","Kenny Stills (7809841)","Kenny Stills",7809841,3600,"SF@Mia 01:00PM ET","Mia","Kenny","Stills","SF",8.95,7.2,3,0.149501661129568,"Kenny Stills",1,7.83581074829192
@@ -223,7 +223,7 @@
 "WR","Arrelious Benn (7809781)","Arrelious Benn",7809781,3000,"Jax@Buf 01:00PM ET","Jax","Arrelious","Benn","Buf",0,0,8,0.0210772833723653,"Arrelious Benn",1,0
 "WR","Justin Hunter (7809784)","Justin Hunter",7809784,3000,"Jax@Buf 01:00PM ET","Buf","Justin","Hunter","Jax",4.91,2.7,6,0.0496688741721854,"Justin Hunter",0,3.61041473972468
 "WR","Walt Powell (7809785)","Walt Powell",7809785,3000,"Jax@Buf 01:00PM ET","Buf","Walt","Powell","Jax",0,0,5,0.0860927152317881,"Walt Powell",0,0
-"WR","Rashad Greene Sr. (7809789)","Rashad Greene Sr.",7809789,3000,"Jax@Buf 01:00PM ET","Jax","Rashad","Greene","Buf",1.73,0,10,0.0163934426229508,"Rashad Greene Sr.",0,0.748212567510418
+"WR","Rashad Greene Sr. (7809789)","Rashad Greene",7809789,3000,"Jax@Buf 01:00PM ET","Jax","Rashad","Greene","Buf",1.73,0,10,0.0163934426229508,"Rashad Greene Sr.",0,0.748212567510418
 "TE","Julius Thomas (7809918)","Julius Thomas",7809918,3000,"Jax@Buf 01:00PM ET","Jax","Julius","Thomas","Buf",0,0,4,0.126463700234192,"Julius Thomas",1,0
 "RB","Rex Burkhead (7809680)","Rex Burkhead",7809680,3000,"Cin@Bal 01:00PM ET","Cin","Rex","Burkhead","Bal",6.65,7.2,10,0.00817438692098093,"Rex Burkhead",1,6.84107727703529
 "RB","Kyle Juszczyk (7809681)","Kyle Juszczyk",7809681,3000,"Cin@Bal 01:00PM ET","Bal","Kyle","Juszczyk","Cin",3.89,3.8,6,0.0815347721822542,"Kyle Juszczyk",0,3.77503596893654

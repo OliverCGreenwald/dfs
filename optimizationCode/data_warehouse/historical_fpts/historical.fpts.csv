@@ -1,7 +1,7 @@
 "Unique.ID","Week1","Week2","Week3","Week4","Week5","Week6","Week7","Week8","Week9","Week10","Week11","Week12","FullName","Team","Pos","mean"
 "Antonio Brown@PIT@WR",35.6,7.9,29,22.4,22.8,8.5,21.9,NA,21.5,37.4,15.6,32.1,"Antonio Brown","PIT","WR",23.1545454545455
 "Julio Jones@ATL@WR",16.6,24.6,2.6,51,4.9,29.9,29.4,5.9,28.1,26.5,NA,7.5,"Julio Jones","ATL","WR",20.6363636363636
-"Odell Beckham@NYG@WR",11.3,16.6,22.1,5.3,16.6,44.2,9.9,NA,20.6,25.7,9.6,NA,"Odell Beckham","NYG","WR",18.19
+"Odell Beckham@NYG@WR",11.3,16.6,22.1,5.3,16.6,44.2,9.9,NA,20.6,25.7,9.6,27.6,"Odell Beckham","NYG","WR",19.0454545454545
 "DeAndre Hopkins@HOU@WR",16.4,27.3,9.6,1.4,16.6,16.1,8.6,8.4,NA,9.8,10.8,12,"DeAndre Hopkins","HOU","WR",12.4545454545455
 "Dez Bryant@DAL@WR",1.8,20.2,13,NA,NA,NA,NA,24.3,2.9,26.6,26,12.2,"Dez Bryant","DAL","WR",15.875
 "Aaron Rodgers@GB@QB",23.6,19.4,26.4,NA,17.9,14.5,27.7,33.8,27.2,32.5,32.3,26.1,"Aaron Rodgers","GB","QB",25.5818181818182
@@ -15,7 +15,7 @@
 "Todd Gurley@LA@RB",5.2,8,21,13.2,18.8,13.7,15.2,NA,11.4,8.2,13.6,12.9,"Todd Gurley","LA","RB",12.8363636363636
 "Ben Roethlisberger@PIT@QB",25.8,21.8,9,36.9,33.2,11.6,NA,NA,19.9,31.4,8.7,20.8,"Ben Roethlisberger","PIT","QB",21.91
 "Brandon Marshall@NYJ@WR",6.2,19.1,5.7,18.9,28.4,10,6.9,10.8,10.5,5.5,NA,18.7,"Brandon Marshall","NYJ","WR",12.7909090909091
-"Brandin Cooks@NO@WR",36.4,13.8,3.9,6.1,NA,33.5,18.8,14.4,11.6,18.8,11.9,NA,"Brandin Cooks","NO","WR",16.92
+"Brandin Cooks@NO@WR",36.4,13.8,3.9,6.1,NA,33.5,18.8,14.4,11.6,18.8,11.9,0,"Brandin Cooks","NO","WR",15.3818181818182
 "Cam Newton@CAR@QB",22.2,34.8,16.1,15.6,NA,31,NA,12.8,14.6,24.8,12.4,22.4,"Cam Newton","CAR","QB",20.67
 "Jordy Nelson@GB@WR",15.2,18.3,31.1,NA,13.8,10.8,1.9,19.4,22.4,33.6,11.8,17.1,"Jordy Nelson","GB","WR",17.7636363636364
 "Randall Cobb@GB@WR",12.8,9.3,4.3,NA,22.8,18.3,28.6,NA,9.4,7.1,11.4,10.1,"Randall Cobb","GB","WR",13.41
@@ -23,7 +23,7 @@
 "David Johnson@ARI@RB",23.2,17.3,26.1,15.4,36.5,37.8,28.1,17.8,NA,27.1,38,33.1,"David Johnson","ARI","RB",27.3090909090909
 "Eli Manning@NYG@QB",19.3,16.3,19,9.4,11.1,29.1,7.6,NA,23.9,20,17.2,19.6,"Eli Manning","NYG","QB",17.5
 "T.Y. Hilton@IND@WR",13.9,8.1,34.4,17.2,36.1,7.9,29.3,3,14.2,NA,20.7,8.4,"T.Y. Hilton","IND","WR",17.5636363636364
-"LeVeon Bell@PIT@RB",NA,NA,NA,25.8,24.4,18.8,24.9,NA,13,34.4,37.1,27.2,"LeVeon Bell","PIT","RB",25.7
+"Le'Veon Bell@PIT@RB",NA,NA,NA,25.8,24.4,18.8,24.9,NA,13,34.4,37.1,27.2,"Le'Veon Bell","PIT","RB",25.7
 "Tom Brady@NE@QB",NA,NA,NA,NA,32.6,30.2,18.2,33.1,NA,15.3,28.4,19,"Tom Brady","NE","QB",25.2571428571429
 "Mike Evans@TB@WR",20.9,19,32.2,10.9,20.9,NA,29.6,11,41,10.6,19.5,33.4,"Mike Evans","TB","WR",22.6363636363636
 "Rob Gronkowski@NE@TE",NA,NA,NA,2.1,18.9,32.2,19.3,24.9,NA,8.6,NA,NA,"Rob Gronkowski","NE","TE",17.6666666666667
@@ -285,7 +285,7 @@
 "James Jones@SD@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"James Jones","SD","WR",NA
 "Ben Watson@BAL@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Ben Watson","BAL","TE",NA
 "Fitzgerald Toussaint@PIT@RB",0.6,2.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,2.8,"Fitzgerald Toussaint","PIT","RB",1.9
-"KaDeem Carey@CHI@RB",0.4,1.6,NA,NA,2.7,5,6.7,0.3,NA,2.5,NA,2.8,"KaDeem Carey","CHI","RB",2.75
+"Ka'Deem Carey@CHI@RB",0.4,1.6,NA,NA,2.7,5,6.7,0.3,NA,2.5,NA,2.8,"Ka'Deem Carey","CHI","RB",2.75
 "Rashad Greene@JAX@WR",1.9,1.7,NA,1.8,NA,NA,1.8,NA,NA,NA,NA,NA,"Rashad Greene","JAX","WR",1.8
 "Josh Ferguson@IND@RB",4.4,8.6,6.1,10.1,3.3,NA,NA,NA,1.9,NA,NA,NA,"Josh Ferguson","IND","RB",5.73333333333333
 "Terrell Watson@CLE@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Terrell Watson","CLE","RB",NA
@@ -398,7 +398,7 @@
 "Antwan Goodley@SEA@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Antwan Goodley","SEA","WR",NA
 "Matt Hazel@MIA@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Matt Hazel","MIA","WR",NA
 "Keith Mumphery@HOU@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3.2,NA,"Keith Mumphery","HOU","WR",3.2
-"DaRon Brown@KC@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"DaRon Brown","KC","WR",NA
+"Da'Ron Brown@KC@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Da'Ron Brown","KC","WR",NA
 "Kevin Smith@SEA@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Kevin Smith","SEA","WR",NA
 "Corey Fuller@DET@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Corey Fuller","DET","WR",NA
 "Jake Kumerow@CIN@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Jake Kumerow","CIN","WR",NA
@@ -466,7 +466,7 @@
 "Jeremy Butler@BAL@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Jeremy Butler","BAL","WR",NA
 "Daniel Lasco@NO@RB",NA,NA,NA,2.9,NA,1.9,NA,1.5,NA,NA,NA,NA,"Daniel Lasco","NO","RB",2.1
 "Tra Carson@CIN@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Tra Carson","CIN","RB",NA
-"DeAnthony Thomas@KC@WR",NA,NA,NA,NA,NA,3.4,3.2,0.2,NA,NA,NA,1.4,"DeAnthony Thomas","KC","WR",2.05
+"De'Anthony Thomas@KC@WR",NA,NA,NA,NA,NA,3.4,3.2,0.2,NA,NA,NA,1.4,"De'Anthony Thomas","KC","WR",2.05
 "Bishop Sankey@TEN@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Bishop Sankey","TEN","RB",NA
 "Kasen Williams@SEA@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Kasen Williams","SEA","WR",NA
 "Tommylee Lewis@NO@WR",NA,0.9,7.4,2.3,NA,4.4,NA,NA,NA,NA,NA,0.7,"Tommylee Lewis","NO","WR",3.14
@@ -694,7 +694,7 @@
 "Jarius Wright@MIN@WR",NA,NA,NA,NA,7.2,NA,NA,NA,NA,1.9,NA,NA,"Jarius Wright","MIN","WR",4.55
 "Brandon Bolden@NE@RB",0.4,NA,NA,3.5,NA,NA,NA,NA,NA,NA,NA,NA,"Brandon Bolden","NE","RB",1.95
 "Lance Dunbar@DAL@RB",2.6,5.2,6.1,3.6,NA,NA,NA,NA,NA,NA,3.6,1.1,"Lance Dunbar","DAL","RB",3.7
-"Cedric ONeal@PHI@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Cedric ONeal","PHI","RB",NA
+"Cedric O'Neal@PHI@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Cedric O'Neal","PHI","RB",NA
 "Larry Donnell@NYG@TE",8.5,6.4,4.1,NA,NA,9.4,0.8,NA,NA,NA,NA,NA,"Larry Donnell","NYG","TE",5.84
 "Virgil Green@DEN@TE",6.8,7.6,NA,NA,NA,5.1,NA,9.5,5.7,4.4,NA,NA,"Virgil Green","DEN","TE",6.51666666666667
 "Cameron Brate@TB@TE",6,4.6,21.6,11.7,4.8,NA,5.9,11.2,15.3,21.4,3.8,8.9,"Cameron Brate","TB","TE",10.4727272727273
@@ -732,7 +732,7 @@
 "Austin Traylor@DAL@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Austin Traylor","DAL","TE",NA
 "Nick Vannett@SEA@TE",NA,NA,NA,NA,NA,NA,NA,1.7,NA,NA,NA,NA,"Nick Vannett","SEA","TE",1.7
 "Matt LaCosse@NYG@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Matt LaCosse","NYG","TE",NA
-"Nick OLeary@BUF@TE",NA,NA,3.8,4,NA,4.9,1.7,4,NA,NA,NA,NA,"Nick OLeary","BUF","TE",3.68
+"Nick O'Leary@BUF@TE",NA,NA,3.8,4,NA,4.9,1.7,4,NA,NA,NA,NA,"Nick O'Leary","BUF","TE",3.68
 "Mitchell Henry@GB@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Mitchell Henry","GB","TE",NA
 "Demetrius Harris@KC@TE",4,NA,9.4,2.2,NA,2.1,2,4.3,NA,NA,NA,2,"Demetrius Harris","KC","TE",3.71428571428571
 "Ross Travis@KC@TE",NA,NA,3,NA,NA,NA,NA,NA,NA,1.5,NA,NA,"Ross Travis","KC","TE",2.25
@@ -755,7 +755,7 @@
 "C.J. Fiedorowicz@HOU@TE",1.6,1.1,NA,14.8,10.1,20.5,8.5,15.3,NA,5.6,14.2,8.2,"C.J. Fiedorowicz","HOU","TE",9.99
 "MyCole Pruitt@MIN@TE",NA,NA,NA,1.7,NA,NA,NA,NA,NA,NA,NA,NA,"MyCole Pruitt","MIN","TE",1.7
 "Colton Underwood@OAK@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Colton Underwood","OAK","TE",NA
-"James OShaughnessy@KC@TE",NA,NA,NA,NA,NA,NA,NA,NA,1,NA,NA,0.9,"James OShaughnessy","KC","TE",0.95
+"James O'Shaughnessy@KC@TE",NA,NA,NA,NA,NA,NA,NA,NA,1,NA,NA,0.9,"James O'Shaughnessy","KC","TE",0.95
 "Erik Swoope@IND@TE",NA,NA,NA,NA,NA,6.2,7.1,5,1.7,NA,NA,4.5,"Erik Swoope","IND","TE",4.9
 "A.J. Derby@NE@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"A.J. Derby","NE","TE",NA
 "Gerald Christian@ARI@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Gerald Christian","ARI","TE",NA
@@ -804,7 +804,7 @@
 "Gabe Hughes@MIA@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Gabe Hughes","MIA","TE",NA
 "Dominique Jones@MIA@TE",NA,NA,NA,NA,NA,1.8,NA,NA,13.2,NA,NA,NA,"Dominique Jones","MIA","TE",7.5
 "Ben Braunecker@CHI@TE",NA,NA,NA,NA,NA,NA,NA,1.8,NA,NA,NA,2.4,"Ben Braunecker","CHI","TE",2.1
-"Ryan OMalley@OAK@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Ryan OMalley","OAK","TE",NA
+"Ryan O'Malley@OAK@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Ryan O'Malley","OAK","TE",NA
 "Clayton Echard@SEA@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Clayton Echard","SEA","TE",NA
 "Hakeem Valles@ARI@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Hakeem Valles","ARI","TE",NA
 "Danny Vitale@TB@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Danny Vitale","TB","TE",NA
@@ -842,7 +842,7 @@
 "Marcel Jensen@WAS@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Marcel Jensen","WAS","TE",NA
 "Justice Cunningham@LA@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Justice Cunningham","LA","TE",NA
 "Blake Bell@SF@TE",NA,1.6,NA,NA,1.4,NA,NA,NA,NA,NA,NA,NA,"Blake Bell","SF","TE",1.5
-"JeRon Hamm@SF@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"JeRon Hamm","SF","TE",NA
+"Je'Ron Hamm@SF@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Je'Ron Hamm","SF","TE",NA
 "Marcus Lucas@CAR@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Marcus Lucas","CAR","TE",NA
 "Xavier Grimble@PIT@TE",NA,10.6,NA,2.9,3.3,2.1,3.4,NA,2,1.5,NA,NA,"Xavier Grimble","PIT","TE",3.68571428571429
 "Scott Simonson@CAR@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Scott Simonson","CAR","TE",NA
@@ -925,7 +925,6 @@
 "Joe Kerridge@GB@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Joe Kerridge","GB","RB",NA
 "John Phillips@NO@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1,NA,"John Phillips","NO","TE",1
 "Derek Carrier@WAS@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.4,"Derek Carrier","WAS","TE",1.4
-"Odell Beckham Jr.@NYG@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,27.6,"Odell Beckham Jr.","NYG","WR",27.6
 "Christine Michael@GB@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0.4,"Christine Michael","GB","RB",0.4
 "Geremy Davis@SD@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Geremy Davis","SD","WR",NA
 "Troymaine Pope@SEA@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Troymaine Pope","SEA","RB",NA
