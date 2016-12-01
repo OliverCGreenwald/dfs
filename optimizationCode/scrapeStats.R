@@ -155,13 +155,15 @@ for (i in 1:week.latest) {
   assign(paste0("rolling.stats.wk",i), temp.wk)
 }
 
+
 ####### WRITE TO FILE #########
 # for (i in 1:week.latest) {
 #   write.csv(eval(parse(text=paste0("rolling.stats.wk",i))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
 # }
 write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',week.latest,'.csv'), row.names = F)
 
-####### APPEND TO 2016_cleaned_input FILES (only run this section after current week's data is prepared) #########
+
+####### APPEND TO 2016_cleaned_input FILES (only run after current week's data is prepared) #########
 # for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
   i <- week.latest + 1 # make sure current week's data has been prepared already
 
@@ -187,8 +189,10 @@ write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste
 # }
 
 
-####### ADD TO 2016_CLEANED_INPUT/ALL_DATA FILES #########
-for (i in 2:week.latest) {
+####### ADD TO 2016_CLEANED_INPUT/ALL_DATA FILES (only run after current week's data is prepared) #########
+# for (i in 2:week.latest) {
+  i <- week.latest + 1
+  
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
   
   # temp name cleaning
@@ -210,4 +214,4 @@ for (i in 2:week.latest) {
   
   # write to file
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
-}
+# }
