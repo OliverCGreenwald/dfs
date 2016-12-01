@@ -7,6 +7,7 @@
 # three separate integer rankings to each player (based on rolling completions, rolling targets, and rolling
 # TDs) within each team. This ranking will be minimized in the objective function of our integer program
 # solved in julia. Writes weekly rolling stats to the stats folder.
+# We also add Completions.Rolling, Targets.Rolling, TDs.Rolling, Rank.Completions, Rank.TDs, Rank.Targets and Target.Ptcg.Rolling to the 2016_cleaned_input/all_data folder.
 
 ####### IMPORT LIBRARIES #########
 library('rvest')
@@ -208,7 +209,7 @@ for (i in 1:week.latest) {
   temp$RankCompletions <- temp.rolling.wk$Rank.Completions[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
   temp$RankTDs <- temp.rolling.wk$Rank.TDs[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
   
-  # re-add target rank and rolling target % (but this time don't replace NAs with 0s)
+  # re-add Rank.Targets and Target.Ptcg.Rolling (but this time don't replace NAs with 0s)
   temp$RankTargets <- temp.rolling.wk$Rank.Targets[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
   temp$RollingTargetPctg <- temp.rolling.wk$Target.Ptcg.Rolling[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
   

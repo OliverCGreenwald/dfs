@@ -4,6 +4,7 @@
 ####### DESCRIPTION #########
 # In this file we run a regression on Rotogrinders and Daily Fantasy Nerd projections to output combined predictions.
 # Filtered out players projected to get 0 fpts. Offense only.
+# We also add floor, ceiling, and actual fpts to the 2016_cleaned_input/all_data folder.
 
 ####### LOAD DFN FILES #########
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
@@ -34,6 +35,7 @@ for (i in 1:week.latest) {
   
   all.data <- rbind(all.data, temp[,c('Player.Name', 'Floor.FP', 'Ceil.FP', 'Proj.FP', 'Actual.FP', 'Week.Num', 'Roto.Pred')]) # append
 }
+
 
 ####### RUN REGRESSIONS (ROLLING) FOR EACH WEEK #########
 threshold.pct <- 0.70 #0.70
