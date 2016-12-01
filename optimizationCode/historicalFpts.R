@@ -269,35 +269,34 @@ for (i in 2:(week.latest+1)) {
 
 
 ####### ADD FREQUENCY INDICATOR TO 2016_CLEANED_INPUT FILES #########
-for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
+for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
   
-  # clean names
-  temp$Name.Clean <- sub("'", "", temp$Name)
+  # # clean names
+  # temp$Name.Clean <- sub("'", "", temp$Name)
+
+  # match
+  temp$FreqInd <- NA
+  temp$FreqInd <- freq.ind.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
+  temp$FreqInd[is.na(temp$FreqInd)] <- 0
   
-  # # match
-  # temp$FreqInd <- NA
-  # temp$FreqInd <- freq.ind.data[match(paste0(temp$Name.Clean,temp$Position), paste0(freq.ind.data$First.Name," ", freq.ind.data$Last.Name, freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
-  # temp$FreqInd[is.na(temp$FreqInd)] <- 0
-  # 
-  # print(paste0("Week ", i-1, ": ", sum(temp$FreqInd)))
-  # print(paste0("Week ", i-1, ": ", sum(freq.ind.data[,i]))) # will be less b/c bye weeks
+  print(paste0("Week ", i-1, ": ", sum(temp$FreqInd)))
+  print(paste0("Week ", i-1, ": ", sum(freq.ind.data[,i]))) # will be less b/c bye weeks
   
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 }
 
 
 ####### ADD ALL DATA TO 2016_CLEANED_INPUT/ALL_DATA FILES #########
-i <- 12
-for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+for (i in 2:week.latest) {
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
   
-  # clean names
-  temp$Name.Clean <- sub("'", "", temp$Name)
+  # # clean names
+  # temp$Name.Clean <- sub("'", "", temp$Name)
   
   # match
-  temp[,(ncol(temp)+1):(ncol(temp)+1+i-1)] <- historical.fpts.data[match(paste0(temp$Name.Clean,temp$Position), paste0(historical.fpts.data$First.Name," ", historical.fpts.data$Last.Name, historical.fpts.data$Pos)),2:(i+1)]
-  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
+  temp[,(ncol(temp)+1):(ncol(temp)+i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), 2:i]
+  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_inputall_data//wk', i,'/offensive_players.csv'), row.names = F)
 }
 
 
