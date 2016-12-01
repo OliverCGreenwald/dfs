@@ -17,7 +17,7 @@ library('stringr')
 
 ####### LOAD DFN FILES (UPDATES FOLDER B/C WE NEED HISTORICAL ACTUAL FPTS) #########
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-player.names.qbs <- c() # record QBs for adding to player.names
+# player.names.qbs <- c() # record QBs for adding to player.names
 player.names <- c()
 for (i in 1:week.latest) {
   name <- paste("dfn_offense_week", i, sep = "")
@@ -28,13 +28,13 @@ for (i in 1:week.latest) {
   temp.df$Week.Num <- i
   
   # clean names
-  temp.df$Player.Name <- sub("'", "", temp.df$Player.Name)
+  # temp.df$Player.Name <- sub("'", "", temp.df$Player.Name)
   
   # add Unique.ID column for matching purposes
   temp.df$Unique.ID <- paste0(temp.df$Player.Name, '@', temp.df$Team, '@', temp.df$Pos)
   
   # concatenate QBs who played this week to player.names.qbs
-  player.names.qbs <- c(player.names.qbs, temp.df[temp.df$Pos=='QB','Player.Name'])
+  # player.names.qbs <- c(player.names.qbs, temp.df[temp.df$Pos=='QB','Player.Name'])
   
   #
   player.names <- c(player.names, temp.df$Unique.ID)
@@ -117,6 +117,9 @@ historical.fpts.data[historical.fpts.data$Unique.ID=="Eric Ebron@DET@TE",'Week7'
 
 # actually, let's just set all 0's to NA's b/c we don't have injury data
 is.na(historical.fpts.data[,2:(week.latest+1)]) <- !historical.fpts.data[,2:(week.latest+1)]
+
+# replace NA's with 0's for any game we know player actually got 0 fpts
+historical.fpts.data[historical.fpts.data$Unique.ID=="Brandin Cooks@NO@WR",'Week12'] <- 0
 
 # add mean column for analysis
 historical.fpts.data$mean <- NA
@@ -272,13 +275,13 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
   # clean names
   temp$Name.Clean <- sub("'", "", temp$Name)
   
-  # match
-  temp$FreqInd <- NA
-  temp$FreqInd <- freq.ind.data[match(paste0(temp$Name.Clean,temp$Position), paste0(freq.ind.data$First.Name," ", freq.ind.data$Last.Name, freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
-  temp$FreqInd[is.na(temp$FreqInd)] <- 0
-  
-  print(paste0("Week ", i-1, ": ", sum(temp$FreqInd)))
-  print(paste0("Week ", i-1, ": ", sum(freq.ind.data[,i]))) # will be less b/c bye weeks
+  # # match
+  # temp$FreqInd <- NA
+  # temp$FreqInd <- freq.ind.data[match(paste0(temp$Name.Clean,temp$Position), paste0(freq.ind.data$First.Name," ", freq.ind.data$Last.Name, freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
+  # temp$FreqInd[is.na(temp$FreqInd)] <- 0
+  # 
+  # print(paste0("Week ", i-1, ": ", sum(temp$FreqInd)))
+  # print(paste0("Week ", i-1, ": ", sum(freq.ind.data[,i]))) # will be less b/c bye weeks
   
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 }
