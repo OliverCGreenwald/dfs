@@ -212,7 +212,7 @@
 "RB","Mike Davis (7769996)","Mike Davis",7769996,3100,"NE@SF 04:25PM ET","SF","Mike","Davis","NE",0,0,11,0.0178571428571429,0,0,0.1,2,NA,NA,0.4,2.9,8.1,NA,2,NA,"Davis, Mike",3,5,0,10,6,-0.6,5,0
 "RB","Fitzgerald Toussaint (7769913)","Fitzgerald Toussaint",7769913,3000,"Pit@Cle 01:00PM ET","Pit","Fitzgerald","Toussaint","Cle",2.26,4.3,13,0.00268096514745308,0,3.33602430836895,0.6,2.3,NA,NA,NA,NA,NA,NA,NA,NA,"Toussaint, Fitzgerald",1,1,0,13,11,-0.4,1.4,0
 "RB","Roosevelt Nix (7769915)","Roosevelt Nix",7769915,3000,"Pit@Cle 01:00PM ET","Pit","Roosevelt","Nix","Cle",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Nix, Roosevelt",NA,NA,NA,NA,NA,0,0,0
-"RB","George Atkinson III (7769917)","George Atkinson III",7769917,3000,"Pit@Cle 01:00PM ET","Cle","George","Atkinson III","Pit",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Atkinson III, George",NA,NA,NA,NA,NA,NA,NA,NA
+"RB","George Atkinson III (7769917)","George Atkinson III",7769917,3000,"Pit@Cle 01:00PM ET","Cle","George","Atkinson III","Pit",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Atkinson III, George",NA,NA,NA,NA,NA,NA,NA,0
 "WR","Darrius Heyward-Bey (7770015)","Darrius Heyward-Bey",7770015,3000,"Pit@Cle 01:00PM ET","Pit","Darrius","Heyward-Bey","Cle",0,0,8,0.0428954423592493,0,0,NA,1.7,NA,10.1,NA,12,12,NA,NA,NA,"Heyward-Bey, Darrius",6,16,3,8,2,0,12,0
 "WR","Markus Wheaton (7770018)","Markus Wheaton",7770018,3000,"Pit@Cle 01:00PM ET","Pit","Markus","Wheaton","Cle",0,0,10,0.0268096514745308,0,0,NA,NA,1.2,12,3.9,NA,NA,NA,NA,NA,"Wheaton, Markus",4,10,1,11,6,0.1,11.3,0
 "WR","Cobi Hamilton (7770019)","Cobi Hamilton",7770019,3000,"Pit@Cle 01:00PM ET","Pit","Cobi","Hamilton","Cle",6.16,5,9,0.0348525469168901,0,5.50741220653574,NA,NA,NA,NA,NA,NA,6.6,NA,NA,4.9,"Hamilton, Cobi",6,13,1,8,6,1,10.6,3.1
@@ -230,7 +230,7 @@
 "WR","Lucky Whitehead (7770036)","Lucky Whitehead",7770036,3000,"Bal@Dal 01:00PM ET","Dal","Lucky","Whitehead","Bal",0,0,11,0.0069204152249135,0,0,NA,NA,0.3,0.8,0.9,7.1,NA,1.7,0.2,1.5,"Whitehead, Lucky",2,2,0,10,8,-0.8,3.6,0
 "RB","Justin Forsett (7769929)","Justin Forsett",7769929,3000,"Jax@Det 01:00PM ET","Det","Justin","Forsett","Jax",0,0,9,0.00903614457831325,0,0,8.6,7.6,9.2,NA,NA,NA,NA,NA,NA,NA,"Forsett, Justin",2,3,0,10,8,3,10,0
 "RB","Denard Robinson (7769932)","Denard Robinson",7769932,3000,"Jax@Det 01:00PM ET","Jax","Denard","Robinson","Det",0,0,12,0.00510204081632653,0,0,0.7,2.4,NA,NA,NA,NA,NA,NA,NA,NA,"Robinson, Denard",1,2,0,12,9,-0.2,2.3,3.5
-"RB","Michael Burton (7769933)","Michael Burton",7769933,3000,"Jax@Det 01:00PM ET","Det","Michael","Burton","Jax",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Burton, Michael",NA,NA,NA,NA,NA,NA,NA,NA
+"RB","Michael Burton (7769933)","Michael Burton",7769933,3000,"Jax@Det 01:00PM ET","Det","Michael","Burton","Jax",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Burton, Michael",NA,NA,NA,NA,NA,NA,NA,0
 "RB","Corey Grant (7769934)","Corey Grant",7769934,3000,"Jax@Det 01:00PM ET","Jax","Corey","Grant","Det",0,0,14,0.00255102040816327,0,0,NA,8.5,NA,NA,NA,NA,NA,NA,NA,NA,"Grant, Corey",1,1,1,12,4,-2.1,6.4,0
 "RB","Zach Zenner (7769935)","Zach Zenner",7769935,3000,"Jax@Det 01:00PM ET","Det","Zach","Zenner","Jax",0,3.2,NA,NA,0,1.70727588154479,NA,NA,NA,4.4,5.2,9.7,8.9,1.7,NA,NA,"Zenner, Zach",NA,NA,NA,NA,NA,2.7,9.3,0
 "WR","Bryan Walters (7770038)","Bryan Walters",7770038,3000,"Jax@Det 01:00PM ET","Jax","Bryan","Walters","Det",0,1.6,11,0.0102040816326531,0,0.853637940772397,NA,NA,NA,NA,NA,NA,NA,9.4,-1,NA,"Walters, Bryan",2,4,1,11,4,-2.8,7,0
@@ -262,7 +262,7 @@
 "WR","Tyler Boyd (7770071)","Tyler Boyd",7770071,3000,"Buf@Cin 01:00PM ET","Cin","Tyler","Boyd","Buf",8.5,8.1,4,0.128440366972477,0,8.24008849622957,4.4,12.8,4.8,2,6.3,11.9,1.3,9.1,NA,3.2,"Boyd, Tyler",27,42,0,4,5,2,10.4,17.4
 "RB","Anthony Sherman (7769956)","Anthony Sherman",7769956,3000,"TB@KC 01:00PM ET","KC","Anthony","Sherman","TB",0,0,NA,NA,0,0,NA,NA,1.3,NA,NA,NA,1,NA,1.6,NA,"Sherman, Anthony",NA,NA,NA,NA,NA,0.3,1.7,0
 "RB","Bishop Sankey (7769961)","Bishop Sankey",7769961,3000,"TB@KC 01:00PM ET","KC","Bishop","Sankey","TB",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Sankey, Bishop",NA,NA,NA,NA,NA,0,0,0
-"WR","Cecil Shorts III (7770075)","Cecil Shorts III",7770075,3000,"TB@KC 01:00PM ET","TB","Cecil","Shorts III","KC",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Shorts III, Cecil",NA,NA,NA,NA,NA,NA,NA,NA
+"WR","Cecil Shorts III (7770075)","Cecil Shorts III",7770075,3000,"TB@KC 01:00PM ET","TB","Cecil","Shorts III","KC",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Shorts III, Cecil",NA,NA,NA,NA,NA,NA,NA,0
 "WR","Freddie Martino (7770076)","Freddie Martino",7770076,3000,"TB@KC 01:00PM ET","TB","Freddie","Martino","KC",4.6,0,13,0.0113314447592068,0,2.12062512199045,NA,NA,NA,NA,NA,NA,NA,NA,1.9,11.3,"Martino, Freddie",2,4,1,14,4,-1.7,10.5,0
 "WR","De'Anthony Thomas (7770080)","De'Anthony Thomas",7770080,3000,"TB@KC 01:00PM ET","KC","De'Anthony","Thomas","TB",0,1.1,NA,NA,0,0.586876084281023,NA,NA,NA,NA,NA,3.4,3.2,0.2,NA,NA,"Thomas, De'Anthony",NA,NA,NA,NA,NA,-0.2,3.6,0
 "WR","Demarcus Robinson (7770081)","Demarcus Robinson",7770081,3000,"TB@KC 01:00PM ET","KC","Demarcus","Robinson","TB",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Robinson, Demarcus",NA,NA,NA,NA,NA,0,0,0
@@ -272,7 +272,7 @@
 "WR","Dwayne Harris (7770085)","Dwayne Harris",7770085,3000,"Chi@NYG 01:00PM ET","NYG","Dwayne","Harris","Chi",0,0,14,0.00278551532033426,0,0,NA,NA,NA,-1,NA,NA,NA,NA,NA,NA,"Harris, Dwayne",1,1,0,13,7,-0.4,0.2,0
 "WR","Deonte Thompson (7770086)","Deonte Thompson",7770086,3000,"Chi@NYG 01:00PM ET","Chi","Deonte","Thompson","NYG",3.56,7,11,0.00923076923076923,0,5.37584543311533,NA,NA,NA,NA,NA,NA,1.4,NA,NA,NA,"Thompson, Deonte",1,3,0,11,6,-0.3,0.7,2
 "WR","Tavarres King (7770087)","Tavarres King",7770087,3000,"Chi@NYG 01:00PM ET","NYG","Tavarres","King","Chi",0,0,13,0.00835654596100279,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.6,"King, Tavarres",1,3,0,13,7,-0.3,1.9,0
-"WR","Joshua Bellamy (7770089)","Joshua Bellamy",7770089,3000,"Chi@NYG 01:00PM ET","Chi","Joshua","Bellamy","NYG",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Bellamy, Joshua",NA,NA,NA,NA,NA,NA,NA,NA
+"WR","Joshua Bellamy (7770089)","Joshua Bellamy",7770089,3000,"Chi@NYG 01:00PM ET","Chi","Joshua","Bellamy","NYG",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Bellamy, Joshua",NA,NA,NA,NA,NA,NA,NA,0
 "RB","Zach Line (7769973)","Zach Line",7769973,3000,"Ari@Min 01:00PM ET","Min","Zach","Line","Ari",0,0,NA,NA,0,0,NA,NA,NA,0.6,NA,NA,0.2,NA,NA,0.5,"Line, Zach",NA,NA,NA,NA,NA,0,0.6,0
 "RB","Stepfan Taylor (7769975)","Stepfan Taylor",7769975,3000,"Ari@Min 01:00PM ET","Ari","Stepfan","Taylor","Min",0,0,NA,NA,0,0,NA,NA,NA,NA,-0.2,1.4,NA,NA,NA,NA,"Taylor, Stepfan",NA,NA,NA,NA,NA,-0.5,1.7,0
 "RB","Kerwynn Williams (7769976)","Kerwynn Williams",7769976,3000,"Ari@Min 01:00PM ET","Ari","Kerwynn","Williams","Min",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Williams, Kerwynn",NA,NA,NA,NA,NA,0,0,0
@@ -294,7 +294,7 @@
 "RB","James Develin (7769988)","James Develin",7769988,3000,"NE@SF 04:25PM ET","NE","James","Develin","SF",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Develin, James",NA,NA,NA,NA,NA,0,0,0
 "RB","Brandon Bolden (7769991)","Brandon Bolden",7769991,3000,"NE@SF 04:25PM ET","NE","Brandon","Bolden","SF",0,1.7,9,0.0131578947368421,0,0.906990312070671,0.4,NA,NA,3.5,NA,NA,NA,NA,NA,NA,"Bolden, Brandon",2,4,0,9,7,-0.7,2.7,0
 "RB","D.J. Foster (7769995)","D.J. Foster",7769995,3000,"NE@SF 04:25PM ET","NE","D.J.","Foster","SF",0,0,10,0.00657894736842105,0,0,NA,1.9,NA,NA,1.7,NA,NA,NA,NA,NA,"Foster, D.J.",1,2,0,10,7,0.2,2.2,0
-"WR","Matthew Slater (7770118)","Matthew Slater",7770118,3000,"NE@SF 04:25PM ET","NE","Matthew","Slater","SF",0,0,11,0.00328947368421053,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Slater, Matthew",0,1,0,12,7,NA,NA,NA
+"WR","Matthew Slater (7770118)","Matthew Slater",7770118,3000,"NE@SF 04:25PM ET","NE","Matthew","Slater","SF",0,0,11,0.00328947368421053,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Slater, Matthew",0,1,0,12,7,NA,NA,0
 "WR","Rod Streater (7770123)","Rod Streater",7770123,3000,"NE@SF 04:25PM ET","SF","Rod","Streater","NE",5.38,6.8,8,0.0321428571428571,0,6.10817063008891,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Streater, Rod",4,9,0,9,6,0.3,3,0
 "WR","Quinton Patton (7770125)","Quinton Patton",7770125,3000,"NE@SF 04:25PM ET","SF","Quinton","Patton","NE",11.45,10,2,0.178571428571429,0,10.6137496617385,11,5.5,1.8,2.3,3.6,9.2,4.3,NA,19.6,8.2,"Patton, Quinton",29,50,0,2,6,1.7,12.9,3.7
 "WR","Malcolm Mitchell (7770126)","Malcolm Mitchell",7770126,3000,"NE@SF 04:25PM ET","NE","Malcolm","Mitchell","SF",5.14,7.1,7,0.0460526315789474,0,6.15758643327119,5.3,2.5,3.7,NA,2.7,NA,NA,NA,NA,2.3,"Mitchell, Malcolm",7,14,0,7,7,1,4.5,19.8
@@ -342,26 +342,26 @@
 "TE","Neal Sterling (7770169)","Neal Sterling",7770169,2500,"Jax@Det 01:00PM ET","Jax","Neal","Sterling","Det",0,0,12,0.00510204081632653,0,0,NA,NA,NA,2,NA,NA,NA,NA,NA,NA,"Sterling, Neal",1,2,0,12,9,2,2,0
 "TE","Ben Koyack (7770171)","Ben Koyack",7770171,2500,"Jax@Det 01:00PM ET","Jax","Ben","Koyack","Det",0,0,9,0.0204081632653061,0,0,NA,NA,NA,NA,NA,NA,NA,9.1,NA,6.5,"Koyack, Ben",8,8,0,8,9,6,9.6,0
 "TE","Anthony Fasano (7770172)","Anthony Fasano",7770172,2500,"Ten@Ind 01:00PM ET","Ten","Anthony","Fasano","Ind",1.97,0,7,0.0364741641337386,0,0.908180758765477,NA,1.1,NA,NA,2,8.5,2,NA,1.9,7.9,"Fasano, Anthony",6,12,2,8,5,-0.1,6.7,0
-"TE","Beau Brinkley (7770174)","Beau Brinkley",7770174,2500,"Ten@Ind 01:00PM ET","Ten","Beau","Brinkley","Ind",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Brinkley, Beau",NA,NA,NA,NA,NA,NA,NA,NA
+"TE","Beau Brinkley (7770174)","Beau Brinkley",7770174,2500,"Ten@Ind 01:00PM ET","Ten","Beau","Brinkley","Ind",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Brinkley, Beau",NA,NA,NA,NA,NA,NA,NA,0
 "TE","Erik Swoope (7770177)","Erik Swoope",7770177,2500,"Ten@Ind 01:00PM ET","Ind","Erik","Swoope","Ten",0,0,10,0.0367231638418079,0,0,NA,NA,NA,NA,NA,6.2,7.1,5,1.7,NA,"Swoope, Erik",7,13,0,10,7,2.6,7.4,0
 "TE","Jace Amaro (7770178)","Jace Amaro",7770178,2500,"Ten@Ind 01:00PM ET","Ten","Jace","Amaro","Ind",0,0,11,0.0121580547112462,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Amaro, Jace",3,4,0,11,10,8.9,8.9,0
 "TE","Phillip Supernaw (7770179)","Phillip Supernaw",7770179,2500,"Ten@Ind 01:00PM ET","Ten","Phillip","Supernaw","Ind",0,0,10,0.0182370820668693,0,0,NA,1.7,NA,NA,NA,4.5,NA,4,NA,NA,"Supernaw, Phillip",4,6,1,10,7,0.5,4.6,0
-"TE","Clark Harris (7770180)","Clark Harris",7770180,2500,"Buf@Cin 01:00PM ET","Cin","Clark","Harris","Buf",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Harris, Clark",NA,NA,NA,NA,NA,NA,NA,NA
+"TE","Clark Harris (7770180)","Clark Harris",7770180,2500,"Buf@Cin 01:00PM ET","Cin","Clark","Harris","Buf",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Harris, Clark",NA,NA,NA,NA,NA,NA,NA,0
 "TE","Ryan Hewitt (7770182)","Ryan Hewitt",7770182,2500,"Buf@Cin 01:00PM ET","Cin","Ryan","Hewitt","Buf",0,0,12,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Hewitt, Ryan",0,0,0,12,5,0,0,0
 "TE","Gerald Christian (7770184)","Gerald Christian",7770184,2500,"Buf@Cin 01:00PM ET","Buf","Gerald","Christian","Cin",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Christian, Gerald",NA,NA,NA,NA,NA,0,0,0
 "TE","Tyler Kroft (7770185)","Tyler Kroft",7770185,2500,"Buf@Cin 01:00PM ET","Cin","Tyler","Kroft","Buf",2.21,1.1,8,0.0336391437308868,0,1.60569815375905,NA,6.5,NA,NA,5.9,3.9,1.3,1.6,NA,NA,"Kroft, Tyler",10,11,0,7,5,0.6,5.8,0
 "TE","C.J. Uzomah (7770186)","C.J. Uzomah",7770186,2500,"Buf@Cin 01:00PM ET","Cin","C.J.","Uzomah","Buf",0,0,5,0.0886850152905199,0,0,7.9,3.9,5.1,8.5,9.3,1.6,NA,NA,NA,NA,"Uzomah, C.J.",17,29,0,5,5,3,9.1,0
 "TE","Nick O'Leary (7770187)","Nick O'Leary",7770187,2500,"Buf@Cin 01:00PM ET","Buf","Nick","O'Leary","Cin",2.86,1.6,NA,NA,0,2.1721135600969,NA,NA,3.8,4,NA,4.9,1.7,4,NA,NA,"O'Leary, Nick",NA,NA,NA,NA,NA,1.2,4.9,0
 "TE","Brandon Myers (7770188)","Brandon Myers",7770188,2500,"TB@KC 01:00PM ET","TB","Brandon","Myers","KC",0,0,9,0.0198300283286119,0,0,7.4,NA,1.7,NA,2.2,NA,NA,NA,2,1.6,"Myers, Brandon",5,7,1,9,4,0.5,5.5,0
-"TE","Andrew DePaola (7770189)","Andrew DePaola",7770189,2500,"TB@KC 01:00PM ET","TB","Andrew","DePaola","KC",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"DePaola, Andrew",NA,NA,NA,NA,NA,NA,NA,NA
+"TE","Andrew DePaola (7770189)","Andrew DePaola",7770189,2500,"TB@KC 01:00PM ET","TB","Andrew","DePaola","KC",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"DePaola, Andrew",NA,NA,NA,NA,NA,NA,NA,0
 "TE","Luke Stocker (7770190)","Luke Stocker",7770190,2500,"TB@KC 01:00PM ET","TB","Luke","Stocker","KC",0,0,13,0.0113314447592068,0,0,NA,NA,NA,NA,NA,NA,NA,2.8,NA,2.1,"Stocker, Luke",3,4,0,13,8,2,2.9,0
-"TE","James Winchester (7770192)","James Winchester",7770192,2500,"TB@KC 01:00PM ET","KC","James","Winchester","TB",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Winchester, James",NA,NA,NA,NA,NA,NA,NA,NA
+"TE","James Winchester (7770192)","James Winchester",7770192,2500,"TB@KC 01:00PM ET","KC","James","Winchester","TB",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Winchester, James",NA,NA,NA,NA,NA,NA,NA,0
 "TE","James O'Shaughnessy (7770193)","James O'Shaughnessy",7770193,2500,"TB@KC 01:00PM ET","KC","James","O'Shaughnessy","TB",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,1,NA,"O'Shaughnessy, James",NA,NA,NA,NA,NA,1,1,0
 "TE","Ross Travis (7770195)","Ross Travis",7770195,2500,"TB@KC 01:00PM ET","KC","Ross","Travis","TB",0,0,9,0.0182370820668693,0,0,NA,NA,3,NA,NA,NA,NA,NA,NA,1.5,"Travis, Ross",3,6,0,10,6,-0.3,2.6,0
 "TE","Demetrius Harris (7770196)","Demetrius Harris",7770196,2500,"TB@KC 01:00PM ET","KC","Demetrius","Harris","TB",2.32,1.2,8,0.0577507598784195,0,1.70976112580057,4,NA,9.4,2.2,NA,2.1,2,4.3,NA,NA,"Harris, Demetrius",10,19,0,8,6,-0.3,5.7,0
 "TE","Alan Cross (7770197)","Alan Cross",7770197,2500,"TB@KC 01:00PM ET","TB","Alan","Cross","KC",0,0,NA,NA,0,0,NA,NA,NA,NA,1.5,NA,NA,NA,NA,NA,"Cross, Alan",NA,NA,NA,NA,NA,-0.4,1.4,7.3
 "TE","Logan Paulsen (7770199)","Logan Paulsen",7770199,2500,"Chi@NYG 01:00PM ET","Chi","Logan","Paulsen","NYG",0,0,9,0.0215384615384615,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Paulsen, Logan",3,7,0,10,6,-0.4,2.2,0
-"TE","Patrick Scales (7770200)","Patrick Scales",7770200,2500,"Chi@NYG 01:00PM ET","Chi","Patrick","Scales","NYG",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Scales, Patrick",NA,NA,NA,NA,NA,NA,NA,NA
+"TE","Patrick Scales (7770200)","Patrick Scales",7770200,2500,"Chi@NYG 01:00PM ET","Chi","Patrick","Scales","NYG",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Scales, Patrick",NA,NA,NA,NA,NA,NA,NA,0
 "TE","Larry Donnell (7770201)","Larry Donnell",7770201,2500,"Chi@NYG 01:00PM ET","NYG","Larry","Donnell","Chi",4.62,0,6,0.0584958217270195,0,2.1298452312165,8.5,6.4,4.1,NA,NA,9.4,0.8,NA,NA,NA,"Donnell, Larry",15,21,1,6,4,2.4,9.3,0
 "TE","Daniel Brown (7770203)","Daniel Brown",7770203,2500,"Chi@NYG 01:00PM ET","Chi","Daniel","Brown","NYG",0,0,14,0,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Brown, Daniel",0,0,0,14,6,0,0,0
 "TE","Ben Braunecker (7770204)","Ben Braunecker",7770204,2500,"Chi@NYG 01:00PM ET","Chi","Ben","Braunecker","NYG",0,0,12,0.00307692307692308,0,0,NA,NA,NA,NA,NA,NA,NA,1.8,NA,NA,"Braunecker, Ben",1,1,0,11,6,1.8,1.8,0
@@ -369,7 +369,7 @@
 "TE","Darren Fells (7770206)","Darren Fells",7770206,2500,"Ari@Min 01:00PM ET","Ari","Darren","Fells","Min",2.76,1.5,8,0.0364583333333333,0,2.07266064266839,NA,7.1,3.5,2.7,NA,1.8,NA,NA,NA,NA,"Fells, Darren",10,14,0,8,7,1.5,6.1,3.2
 "TE","Jermaine Gresham (7770207)","Jermaine Gresham",7770207,2500,"Ari@Min 01:00PM ET","Ari","Jermaine","Gresham","Min",2.22,4.6,6,0.0651041666666667,0,3.47764120381169,8.1,NA,NA,NA,1.4,2.4,3.5,6.2,NA,7.7,"Gresham, Jermaine",15,25,0,6,7,-0.1,6.6,11.3
 "TE","Rhett Ellison (7770208)","Rhett Ellison",7770208,2500,"Ari@Min 01:00PM ET","Min","Rhett","Ellison","Ari",1.62,1.6,9,0.0157728706624606,0,1.60046678808208,NA,NA,2.8,1.2,NA,NA,NA,NA,7.5,2.8,"Ellison, Rhett",5,5,0,9,5,0.9,6.3,0.8
-"TE","Kevin McDermott (7770209)","Kevin McDermott",7770209,2500,"Ari@Min 01:00PM ET","Min","Kevin","McDermott","Ari",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"McDermott, Kevin",NA,NA,NA,NA,NA,NA,NA,NA
+"TE","Kevin McDermott (7770209)","Kevin McDermott",7770209,2500,"Ari@Min 01:00PM ET","Min","Kevin","McDermott","Ari",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"McDermott, Kevin",NA,NA,NA,NA,NA,NA,NA,0
 "TE","David Morgan (7770211)","David Morgan",7770211,2500,"Ari@Min 01:00PM ET","Min","David","Morgan","Ari",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Morgan, David",NA,NA,NA,NA,NA,0,0,0
 "TE","Hakeem Valles (7770212)","Hakeem Valles",7770212,2500,"Ari@Min 01:00PM ET","Ari","Hakeem","Valles","Min",0,0,12,0.00520833333333333,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Valles, Hakeem",0,2,0,13,7,0,0,0
 "TE","Cory Harkey (7770214)","Cory Harkey",7770214,2500,"Mia@LA 04:05PM ET","LA","Cory","Harkey","Mia",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Harkey, Cory",NA,NA,NA,NA,NA,0,0,0
@@ -379,7 +379,7 @@
 "TE","Temarrick Hemingway (7770218)","Temarrick Hemingway",7770218,2500,"Mia@LA 04:05PM ET","LA","Temarrick","Hemingway","Mia",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Hemingway, Temarrick",NA,NA,NA,NA,NA,0,0,0
 "TE","Dominique Jones (7770219)","Dominique Jones",7770219,2500,"Mia@LA 04:05PM ET","Mia","Dominique","Jones","LA",2.98,2.7,7,0.0415094339622641,0,2.81431029973419,NA,NA,NA,NA,NA,1.8,NA,NA,13.2,NA,"Jones, Dominique",7,11,2,8,2,-1.6,10.3,0
 "TE","Thomas Duarte (7770220)","Thomas Duarte",7770220,2500,"Mia@LA 04:05PM ET","Mia","Thomas","Duarte","LA",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Duarte, Thomas",NA,NA,NA,NA,NA,0,0,0
-"TE","Kyle Nelson (7770222)","Kyle Nelson",7770222,2500,"NE@SF 04:25PM ET","SF","Kyle","Nelson","NE",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Nelson, Kyle",NA,NA,NA,NA,NA,NA,NA,NA
+"TE","Kyle Nelson (7770222)","Kyle Nelson",7770222,2500,"NE@SF 04:25PM ET","SF","Kyle","Nelson","NE",0,0,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Nelson, Kyle",NA,NA,NA,NA,NA,NA,NA,0
 "TE","Matt Lengel (7770226)","Matt Lengel",7770226,2500,"NE@SF 04:25PM ET","NE","Matt","Lengel","SF",0,4.4,NA,NA,0,2.34750433712409,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Lengel, Matt",NA,NA,NA,NA,NA,0,0,0
 "TE","Blake Bell (7770227)","Blake Bell",7770227,2500,"NE@SF 04:25PM ET","SF","Blake","Bell","NE",0,0,11,0.0178571428571429,0,0,NA,1.6,NA,NA,1.4,NA,NA,NA,NA,NA,"Bell, Blake",2,5,0,11,6,0.1,1.9,0
 "TE","Je'Ron Hamm (7770228)","Je'Ron Hamm",7770228,2500,"NE@SF 04:25PM ET","SF","Je'Ron","Hamm","NE",0,0,NA,NA,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Hamm, Je'Ron",NA,NA,NA,NA,NA,0,0,0
