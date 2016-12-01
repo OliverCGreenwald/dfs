@@ -5,15 +5,10 @@
 # In this file we compute the PnLs of lineups for testing purposes.
 # Special notes for contest.entry.fee: for week 9, use $4 in lieu of $3 and for week 10, $27 in lieu of $20
 
-####### VIEW RESULTS #########
-# load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week3_dfn_formulation2_exposure_1.RData")
-# load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week3_dfn_formulation3_exposure_1.RData")
-# load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation2_exposure_1.RData")
-# load("../resultsAnalysis/data_warehouse/testing_lineups/RData_files/pnlMatrix_week2_dfn_formulation3_exposure_1.RData")
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 6
-week.hi <- 6
+week.lo <- 2
+week.hi <- 2
 contest.entry.fee <- "$3"
 predictions.source <- "" # Either "_dfn" or "" or "_dfn_perturbed"
 formulation <- 0
@@ -21,7 +16,7 @@ overlap.lo <- 8 # overlap.lo and overlap.hi must be the same if exposure.range i
 overlap.hi <- 8
 exposure.range <- seq(from = 1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
 freqInd <- "" # _FreqInd or ""
-# exposure.range <- 0.4
+
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
 if (length(exposure.range) == 1) {
@@ -106,7 +101,7 @@ for (week.num in week.lo:week.hi) {
           }
         }
       }
-        
+      
       ######## FUNCTION FOR CALCULATING TOTAL PNL OF LINEUPS ########
       # won't be exact b/c not accounting for ties
       calculatePnL <- function(numberEntries, lineups) {
@@ -134,7 +129,7 @@ for (week.num in week.lo:week.hi) {
     }
   }
   
-
+  # print
   print(paste0('Week: ', week.num, '; Overlap: ', overlap.lo, '; Formulation: ', formulation))
   print(pnlMatrix)
   # if (length(exposure.range) == 1) {

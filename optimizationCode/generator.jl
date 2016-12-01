@@ -43,7 +43,7 @@ exposure = 1
         - if live false, set week to any week 1-12 (if true then doesn't matter)
 =#
 live = false
-week = 12
+week = 2
 ############################  Setting Formation  ############################
 
 use_Freq_Ind = false
@@ -136,7 +136,9 @@ end
 
 ########### Running the code ###########
 
-formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind)
+# formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind)
+
+formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind)
 
 # Varying num_lineups
 # for i=1:9
