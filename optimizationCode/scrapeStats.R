@@ -56,9 +56,9 @@ for (i in 1:week.latest) {
 
 # Set unique names
 player.names <- unique(player.names)
-save(player.names, file = "projectionsAnalysis/player.names.RData")
+# save(player.names, file = "projectionsAnalysis/player.names.RData")
 # write.csv(player.names, file = "projectionsAnalysis/playernames.csv", row.names = F) # for use in other files
-#player.helper <- unique(player.helper)
+# player.helper <- unique(player.helper)
 
 # Completions df
 completions.weekly <- as.data.frame(matrix(data = 0, nrow = length(player.names), ncol = week.latest+1))
@@ -159,29 +159,55 @@ for (i in 1:week.latest) {
 # for (i in 1:week.latest) {
 #   write.csv(eval(parse(text=paste0("rolling.stats.wk",i))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
 # }
-write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)
+write.csv(eval(parse(text=paste0("rolling.stats.wk",week.latest))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',week.latest,'.csv'), row.names = F)
 
-####### APPEND TO 2016_cleaned_input FILES #########
-for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
-  # i <- 11
+####### APPEND TO 2016_cleaned_input FILES (only run this section after current week's data is prepared) #########
+# for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+  i <- week.latest + 1 # make sure current week's data has been prepared already
+
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
   
-  # name cleaning shit
+  # temp name cleaning
   temp$Temp.Name <- paste0(temp$LastName, ', ', temp$FirstName)
   temp$Temp.Name <- sub("'", "", temp$Temp.Name)
   
-  # add target rank
+  # eval
   temp.rolling.wk <- eval(parse(text=paste0("rolling.stats.wk",i-1))) # i-1 b/c we use previous weeks rolling stats
-  # temp.rolling.wk <- read.csv(file = "optimizationCode/data_warehouse/stats/rolling.stats.wk10.csv", stringsAsFactors = F)
-  temp$RankTargets <- temp.rolling.wk$Rank.Targets[match(temp$Temp.Name, temp.rolling.wk$Name)]
+  
+  # add target rank
+  temp$RankTargets <- temp.rolling.wk$Rank.Targets[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
   temp$RankTargets[is.na(temp$RankTargets)==T] <- 0
   
   # add rolling target %
-  temp$RollingTargetPctg <- temp.rolling.wk$Target.Ptcg.Rolling[match(temp$Temp.Name, temp.rolling.wk$Name)]
+  temp$RollingTargetPctg <- temp.rolling.wk$Target.Ptcg.Rolling[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
   temp$RollingTargetPctg[is.na(temp$RollingTargetPctg)==T] <- 0
   
   temp$Temp.Name <- NULL
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
+# }
+
+
+####### ADD TO 2016_CLEANED_INPUT/ALL_DATA FILES #########
+for (i in 2:week.latest) {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
+  
+  # temp name cleaning
+  temp$Temp.Name <- paste0(temp$LastName, ', ', temp$FirstName)
+  
+  # eval
+  temp.rolling.wk <- eval(parse(text=paste0("rolling.stats.wk",i-1))) # i-1 b/c we use previous weeks rolling stats
+  
+  # add Completions.Rolling, Targets.Rolling, TDs.Rolling, Rank.Completions, Rank.TDs
+  temp$CompletionsRolling <- temp.rolling.wk$Completions.Rolling[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
+  temp$TargetsRolling <- temp.rolling.wk$Targets.Rolling[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
+  temp$TDsRolling <- temp.rolling.wk$TDs.Rolling[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
+  temp$RankCompletions <- temp.rolling.wk$Rank.Completions[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
+  temp$RankTDs <- temp.rolling.wk$Rank.TDs[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
+  
+  # re-add target rank and rolling target % (but this time don't replace NAs with 0s)
+  temp$RankTargets <- temp.rolling.wk$Rank.Targets[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
+  temp$RollingTargetPctg <- temp.rolling.wk$Target.Ptcg.Rolling[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
+  
+  # write to file
+  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
 }
-
-
