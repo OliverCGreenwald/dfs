@@ -18,6 +18,24 @@ for (i in 1:week.latest) {
   assign(name, temp.df)
 }
 
+
+####### ADD FLOOR, CEIL, ACTUAL TO 2016_CLEANED_INPUT/ALL_DATA FILES (only run after current week's data is prepared) #########
+# for (i in 2:week.latest) {
+  i <- week.latest + 1
+  
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
+  temp.dfn <- eval(parse(text=paste0("dfn_offense_week", i)))
+  
+  # add Projection_dfn_floor, Projection_dfn_ceiling, Actual
+  temp$Projection_dfn_floor <- temp.dfn$Floor.FP[match(paste0(temp$Name,temp$Position), paste0(temp.dfn$Player.Name,temp.dfn$Pos))]
+  temp$Projection_dfn_ceiling <- temp.dfn$Ceil.FP[match(paste0(temp$Name,temp$Position), paste0(temp.dfn$Player.Name,temp.dfn$Pos))]
+  temp$Actual <- temp.dfn$Actual.FP[match(paste0(temp$Name,temp$Position), paste0(temp.dfn$Player.Name,temp.dfn$Pos))]
+  
+  # write to file
+  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
+# }
+
+
 ####### AGGREGATE DATA #########
 all.data <- as.data.frame(matrix(NA, nrow = 0, ncol = 7)) # initialization purposes (for storing all weeks in one df)
 colnames(all.data) <- c('Player.Name', 'Floor.FP', 'Ceil.FP', 'Proj.FP', 'Actual.FP', 'Week.Num', 'Roto.Pred') # initialization purposes
