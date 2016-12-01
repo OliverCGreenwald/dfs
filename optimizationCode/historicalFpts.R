@@ -288,16 +288,24 @@ for (i in 2:week.latest) { # change to week.latest+1 once current week's data ha
 
 
 ####### ADD ALL DATA TO 2016_CLEANED_INPUT/ALL_DATA FILES #########
-for (i in 2:week.latest) {
+# for (i in 2:week.latest) {
+  i <- week.latest
+
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
   
   # # clean names
   # temp$Name.Clean <- sub("'", "", temp$Name)
   
-  # match
-  temp[,(ncol(temp)+1):(ncol(temp)+i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), 2:i] # df is already offset by 1 so don't need 2:(i+1)
+  # add historical fpts
+  # temp[,(ncol(temp)+1):(ncol(temp)+i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), 2:i] # df is already offset by 1 so don't need 2:(i+1)
+  temp[,paste0("Week", i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), i]
+  
+  # re-add FreqInd (this time don't replace NAs with 0s)
+  temp$FreqInd <- freq.ind.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
+  
+  # write to file
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
-}
+# }
 
 
 
