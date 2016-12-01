@@ -28,22 +28,22 @@ include("formulations.jl")
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 150
+num_lineups = 1000
 
 # num_overlap is the maximum overlap of players between the lineups that you create
-num_overlap = 6
+num_overlap = 8
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.7
+exposure = 1
 
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 
     Available Options: 
         - live = true or false
-        - if live false, set week to any week 1-12
+        - if live false, set week to any week 1-12 (if true then doesn't matter)
 =#
+live = false
 week = 12
-live = true
 ############################  Setting Formation  ############################
 
 use_Freq_Ind = false
@@ -82,8 +82,9 @@ projections_source tells which Projections we're using for this generation
         - "Projection_fc"
         - "Projection_dfn_perturbed"
         - "Projection_reg"
+        - "Actual" (historical)
 =#
-projections_source = "Projection_dfn"  
+projections_source = "Actual"  
 
 ############################  Create Paths to data  ############################
 
@@ -148,7 +149,6 @@ formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_p
 # end
 
 # Do all Possibilities for a week.
-
 # for overlap_var =1:9
 #     for exposure_var =1:9
 #         formulations.create_lineups(num_lineups, overlap_var, exposure_var*0.1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_0.", exposure_var, ".csv"), projections_source, use_Freq_Ind)
