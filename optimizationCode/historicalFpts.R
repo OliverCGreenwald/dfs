@@ -9,6 +9,7 @@
 # (2) at least 25% games > 90 percentile fpts, at least 50% games > 75 percentile fpts, at most 25% games < 50 percentile fpts
 # (3) last 3 weeks all > 99.9 percentile fpts [not implemented yet]
 # and value 0 otherwise.
+# We also add historical fpts to the 2016_cleaned_input/all_data folder.
 
 
 ####### IMPORT LIBRARIES #########
@@ -287,7 +288,7 @@ for (i in 2:week.latest) { # change to week.latest+1 once current week's data ha
 }
 
 
-####### ADD ALL DATA TO 2016_CLEANED_INPUT/ALL_DATA FILES #########
+####### ADD ALL DATA TO 2016_CLEANED_INPUT/ALL_DATA FILES (only run after current week's data is prepared) #########
 # for (i in 2:week.latest) {
   i <- week.latest
 
