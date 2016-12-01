@@ -17,6 +17,8 @@ library('stringr')
 
 ####### LOAD DFN FILES (UPDATES FOLDER B/C WE NEED HISTORICAL ACTUAL FPTS) #########
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+player.names.qbs <- c() # record QBs for adding to player.names
+player.names <- c()
 for (i in 1:week.latest) {
   name <- paste("dfn_offense_week", i, sep = "")
   assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
@@ -29,7 +31,13 @@ for (i in 1:week.latest) {
   temp.df$Player.Name <- sub("'", "", temp.df$Player.Name)
   
   # add Unique.ID column for matching purposes
-  temp.df$Unique.ID <- paste0(temp.df$Player.Name, temp.df$Team, temp.df$Pos)
+  temp.df$Unique.ID <- paste0(temp.df$Player.Name, '@', temp.df$Team, '@', temp.df$Pos)
+  
+  # concatenate QBs who played this week to player.names.qbs
+  player.names.qbs <- c(player.names.qbs, temp.df[temp.df$Pos=='QB','Player.Name'])
+  
+  #
+  player.names <- c(player.names, temp.df$Unique.ID)
   
   # assign
   assign(name, temp.df)
@@ -37,12 +45,11 @@ for (i in 1:week.latest) {
 
 
 ####### CREATE DATAFRAME OF ALL HISTORICAL ACTUAL FPTS #######
-# load list of player names (use this b/c players vary week to week. this aggregated all of them) # wait, why didn't we just do unique() on the DFN
-load(file = "projectionsAnalysis/player.names.RData")
+player.names <- unique(player.names)
 
 # intialize df and add player names
 historical.fpts.data <- as.data.frame(matrix(data = NA, nrow = length(player.names), ncol = week.latest+1))
-historical.fpts.data[,1] <- player.names
+historical.fpts.data[,1] <- unique(player.names)
 
 # add column names to df
 colnames(historical.fpts.data)[1] <- "Unique.ID"
@@ -50,35 +57,65 @@ for (i in 2:(week.latest+1)) {
   colnames(historical.fpts.data)[i] <- paste0("Week", i-1)
 }
 
-# split Unique.ID column (using @ symbol) for matching purposes
+# split Unique.ID column (using @ symbol) for later use
 historical.fpts.data$FullName <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,1]
 historical.fpts.data$Team <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,2]
 historical.fpts.data$Pos <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,3]
 
-# further split FullName column (using ", ") for matching purposes
-historical.fpts.data$Last.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,1]
-historical.fpts.data$First.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,2]
-
-# replace FB with RB in Pos column for matching
-historical.fpts.data$Pos[historical.fpts.data$Pos=="FB"] <- "RB"
-
-# replace Unique.ID for matching
-historical.fpts.data$Unique.ID <- paste0(historical.fpts.data$First.Name," ",historical.fpts.data$Last.Name,historical.fpts.data$Team,historical.fpts.data$Pos)
-
+# match
 for (i in 2:(week.latest+1)) {
   dfn.df <- eval(parse(text=paste("dfn_offense_week", i-1, sep = "")))
   historical.fpts.data[,i] <- dfn.df$Actual.FP[match(historical.fpts.data$Unique.ID, dfn.df$Unique.ID)]
 }
 
-# injuries
-historical.fpts.data[historical.fpts.data$Unique.ID=="LeSean McCoyBUFRB",'Week8'] <- NA
-historical.fpts.data[historical.fpts.data$Unique.ID=="Steve SmithBALWR",'Week6'] <- NA
-historical.fpts.data[historical.fpts.data$Unique.ID=="Steve SmithBALWR",'Week7'] <- NA
-historical.fpts.data[historical.fpts.data$Unique.ID=="Eric EbronDETTE",'Week5'] <- NA
-historical.fpts.data[historical.fpts.data$Unique.ID=="Eric EbronDETTE",'Week6'] <- NA
-historical.fpts.data[historical.fpts.data$Unique.ID=="Eric EbronDETTE",'Week7'] <- NA
+# # load list of player names (use this b/c players vary week to week. this aggregated all of them) # wait, why didn't we just do unique() on the DFN
+# load(file = "projectionsAnalysis/player.names.RData")
+# # also add in QB's
+# player.names.qbs
+# player.names <- c(player.names, unique(player.names.qbs))
+# player.names
+# unique(player.names)
+# 
+# # intialize df and add player names
+# historical.fpts.data <- as.data.frame(matrix(data = NA, nrow = length(player.names), ncol = week.latest+1))
+# historical.fpts.data[,1] <- player.names
+# 
+# # add column names to df
+# colnames(historical.fpts.data)[1] <- "Unique.ID"
+# for (i in 2:(week.latest+1)) {
+#   colnames(historical.fpts.data)[i] <- paste0("Week", i-1)
+# }
+# 
+# # split Unique.ID column (using @ symbol) for matching purposes
+# historical.fpts.data$FullName <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,1]
+# historical.fpts.data$Team <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,2]
+# historical.fpts.data$Pos <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,3]
+# 
+# # further split FullName column (using ", ") for matching purposes
+# historical.fpts.data$Last.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,1]
+# historical.fpts.data$First.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,2]
+# 
+# # replace FB with RB in Pos column for matching
+# historical.fpts.data$Pos[historical.fpts.data$Pos=="FB"] <- "RB"
+# 
+# # replace Unique.ID for matching
+# historical.fpts.data$Unique.ID <- paste0(historical.fpts.data$First.Name," ",historical.fpts.data$Last.Name, '@', historical.fpts.data$Team, '@', historical.fpts.data$Pos)
+# 
+# # match
+# for (i in 2:(week.latest+1)) {
+#   dfn.df <- eval(parse(text=paste("dfn_offense_week", i-1, sep = "")))
+#   historical.fpts.data[,i] <- dfn.df$Actual.FP[match(historical.fpts.data$Unique.ID, dfn.df$Unique.ID)]
+# }
 
-# set all 0's to NA's b/c we don't have injury data
+# injuries
+historical.fpts.data[historical.fpts.data$Unique.ID=="LeSean McCoy@BUF@RB",'Week8'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Steve Smith@BAL@WR",'Week6'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Steve Smith@BAL@WR",'Week7'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Eric Ebron@DET@TE",'Week5'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Eric Ebron@DET@TE",'Week6'] <- NA
+historical.fpts.data[historical.fpts.data$Unique.ID=="Eric Ebron@DET@TE",'Week7'] <- NA
+
+# actually, let's just set all 0's to NA's b/c we don't have injury data
 is.na(historical.fpts.data[,2:(week.latest+1)]) <- !historical.fpts.data[,2:(week.latest+1)]
 
 # add mean column for analysis
@@ -95,6 +132,7 @@ write.csv(historical.fpts.data, file = "optimizationCode/data_warehouse/historic
 ####### CREATE DATAFRAME OF INDICATOR FUNCTION AS DEFINED IN DESCRIPTION #######
 # store indicators in new df (note that these will hold indicators for use in the following week!)
 freq.ind.data <- historical.fpts.data
+freq.ind.data$mean <- NULL
 for (i in 2:(week.latest+1)) {
   freq.ind.data[,i] <- 0
 }
@@ -234,6 +272,7 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
   # clean names
   temp$Name.Clean <- sub("'", "", temp$Name)
   
+  # match
   temp$FreqInd <- NA
   temp$FreqInd <- freq.ind.data[match(paste0(temp$Name.Clean,temp$Position), paste0(freq.ind.data$First.Name," ", freq.ind.data$Last.Name, freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
   temp$FreqInd[is.na(temp$FreqInd)] <- 0
@@ -243,6 +282,27 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
   
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
 }
+
+
+####### ADD ALL DATA TO 2016_CLEANED_INPUT/ALL_DATA FILES #########
+i <- 12
+for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
+  
+  # clean names
+  temp$Name.Clean <- sub("'", "", temp$Name)
+  
+  # match
+  temp[,(ncol(temp)+1):(ncol(temp)+1+i-1)] <- historical.fpts.data[match(paste0(temp$Name.Clean,temp$Position), paste0(historical.fpts.data$First.Name," ", historical.fpts.data$Last.Name, historical.fpts.data$Pos)),2:(i+1)]
+  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
+}
+
+
+
+
+
+
+
 
 
 ####### DEBUGGING #########
