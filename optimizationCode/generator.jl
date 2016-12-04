@@ -34,7 +34,7 @@ num_lineups = 150
 num_overlap = 5
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.4
+exposure = 0.5
 
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 

@@ -69,45 +69,6 @@ for (i in 2:(week.latest+1)) {
   historical.fpts.data[,i] <- dfn.df$Actual.FP[match(historical.fpts.data$Unique.ID, dfn.df$Unique.ID)]
 }
 
-# # load list of player names (use this b/c players vary week to week. this aggregated all of them) # wait, why didn't we just do unique() on the DFN
-# load(file = "projectionsAnalysis/player.names.RData")
-# # also add in QB's
-# player.names.qbs
-# player.names <- c(player.names, unique(player.names.qbs))
-# player.names
-# unique(player.names)
-# 
-# # intialize df and add player names
-# historical.fpts.data <- as.data.frame(matrix(data = NA, nrow = length(player.names), ncol = week.latest+1))
-# historical.fpts.data[,1] <- player.names
-# 
-# # add column names to df
-# colnames(historical.fpts.data)[1] <- "Unique.ID"
-# for (i in 2:(week.latest+1)) {
-#   colnames(historical.fpts.data)[i] <- paste0("Week", i-1)
-# }
-# 
-# # split Unique.ID column (using @ symbol) for matching purposes
-# historical.fpts.data$FullName <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,1]
-# historical.fpts.data$Team <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,2]
-# historical.fpts.data$Pos <- str_split_fixed(historical.fpts.data$Unique.ID, "@", 3)[,3]
-# 
-# # further split FullName column (using ", ") for matching purposes
-# historical.fpts.data$Last.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,1]
-# historical.fpts.data$First.Name <- str_split_fixed(historical.fpts.data$FullName, ", ", 2)[,2]
-# 
-# # replace FB with RB in Pos column for matching
-# historical.fpts.data$Pos[historical.fpts.data$Pos=="FB"] <- "RB"
-# 
-# # replace Unique.ID for matching
-# historical.fpts.data$Unique.ID <- paste0(historical.fpts.data$First.Name," ",historical.fpts.data$Last.Name, '@', historical.fpts.data$Team, '@', historical.fpts.data$Pos)
-# 
-# # match
-# for (i in 2:(week.latest+1)) {
-#   dfn.df <- eval(parse(text=paste("dfn_offense_week", i-1, sep = "")))
-#   historical.fpts.data[,i] <- dfn.df$Actual.FP[match(historical.fpts.data$Unique.ID, dfn.df$Unique.ID)]
-# }
-
 # injuries
 historical.fpts.data[historical.fpts.data$Unique.ID=="LeSean McCoy@BUF@RB",'Week8'] <- NA
 historical.fpts.data[historical.fpts.data$Unique.ID=="Steve Smith@BAL@WR",'Week6'] <- NA
@@ -168,9 +129,9 @@ quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.
 quantile(historical.fpts.data.mean.te, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.9, 0.95, 0.99))
 
 # WR is 0 if any of the following are true:
-# (1) more than 25% games < 15th percentile fpts (get rid of generally shitty players)
-# (2) less than 25% games > 65th percentile fpts (get rid of players that never go off)
-# (3) last three games < 40th percentile fpts (trend)
+# (1) more than 33% games < 15th percentile fpts (get rid of generally shitty players)
+# (2) less than 20% games > 75th percentile fpts (get rid of players that never go off)
+# (3) last three games < 25th percentile fpts (trend)
 
 # Follow similar conditions for RB and TE (change threshold based on quantiles)
 
@@ -235,7 +196,7 @@ for (i in 1:week.latest) {
           break
         }
       }
-      temp.cond3 <- historical.fpts.data[j,(i+1):(ind)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.25))
+      temp.cond3 <- historical.fpts.data[j,(i+1):(ind)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.75))
       num.cond3 <- sum(temp.cond3, na.rm = T)
       
       # total games played (so exclude NAs)
@@ -297,9 +258,6 @@ for (i in 2:(week.latest+1)) {
 ####### ADD FREQUENCY INDICATOR TO 2016_CLEANED_INPUT FILES #########
 for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
-  
-  # # clean names
-  # temp$Name.Clean <- sub("'", "", temp$Name)
 
   # match
   temp$FreqInd <- NA
@@ -318,9 +276,6 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
   w <- week.latest + 1
 
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', w, '/offensive_players.csv'), stringsAsFactors = F)
-  
-  # # clean names
-  # temp$Name.Clean <- sub("'", "", temp$Name)
   
   # add historical fpts
   # temp[,(ncol(temp)+1):(ncol(temp)+i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), 2:i] # df is already offset by 1 so don't need 2:(i+1)
@@ -344,9 +299,10 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
 ####### DEBUGGING #########
 for (i in 2:week.latest+1) {
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
-  # print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='WR': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="WR",])))
-  # print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='RB': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="RB",])))
-  # print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='TE': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="TE",])))
+  
+  print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='WR': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="WR",])))
+  print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='RB': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="RB",])))
+  print(paste0("Week ",i," count FreqInd==1, RankTargets<=3, Position=='TE': ",nrow(temp[temp$FreqInd==1 & temp$RankTargets<=3 & temp$Position=="TE",])))
   
   print(paste0("Week ",i," count FreqInd==1, Position=='WR': ",nrow(temp[temp$FreqInd==1 & temp$Position=="WR",])))
   print(paste0("Week ",i," count FreqInd==1, Position=='RB': ",nrow(temp[temp$FreqInd==1 & temp$Position=="RB",])))
