@@ -8,10 +8,14 @@
 
 ####### LOAD DFN FILES #########
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-for (i in 1:week.latest) {
+for (i in 1:(week.latest+1)) {
   #--- offense ---#
   name <- paste("dfn_offense_week", i, sep = "")
-  assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+  if (i == (week.latest+1)) {
+    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+  } else {
+    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+  }
   
   # add week column
   temp.df <- eval(parse(text=name))
@@ -20,7 +24,11 @@ for (i in 1:week.latest) {
   
   #--- defense (only used for appending Actual to 2016_cleaned_input) ---#
   name <- paste("dfn_defense_week", i, sep = "")
-  assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_defense_week', i, '.csv'), stringsAsFactors = F))
+  if (i == (week.latest+1)) {
+    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+  } else {
+    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_defense_week', i, '.csv'), stringsAsFactors = F))
+  }
 }
 
 
@@ -145,22 +153,24 @@ for (i in 1:week.latest) {
 }
 
 ####### ADD REGRESSED PREDICTIONS TO 2016_CLEANED_INPUT FILES #########
-for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
+# for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
+  i <- week.latest + 1
+  
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
   
   # Option 1: Use single regression model (if using this, comment out Option 2)
-  # temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
+  temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
   
   # Option 2: Use two regression models (split at threshold) (if using this, comment out Option 1)
-  for (j in 1:nrow(temp)) {
-    if ((temp$Projection_dfn[j] + temp$Projection[j])/2 > thresholds[i-1,1]) {
-      temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
-    } else {
-      temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
-    }
-  }
+  # for (j in 1:nrow(temp)) {
+  #   if ((temp$Projection_dfn[j] + temp$Projection[j])/2 > thresholds[i-1,1]) {
+  #     temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+  #   } else {
+  #     temp$Projection_reg_split[j] <- coeff.upper[i-1,'Proj.FP']*temp$Projection_dfn[j] + coeff.upper[i-1,'Roto.Pred']*temp$Projection[j]
+  #   }
+  # }
   
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
-}
+# }
 
 

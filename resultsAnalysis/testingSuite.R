@@ -37,12 +37,10 @@ week.num <- 12
 for (week.num in week.lo:week.hi) {
   
   ####### LOAD FULL CONTEST RESULTS #########
-  file.name <- paste0("resultsAnalysis/data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv")
-  full.results.data <- read.csv(file = file.name, stringsAsFactors = F)
+  full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
   
   ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA #########
-  # file.name <- paste0("resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv")
-  # player.performance <- read.csv(file = file.name, stringsAsFactors = F)
+  # player.performance <- read.csv(file = paste0("resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv"), stringsAsFactors = F)
   # player.performance$Actual.Score[is.na(player.performance$Actual.Score)] <- 0
   # 
   # player.performance$Player <- sub(' Sr.','', player.performance$Player)
