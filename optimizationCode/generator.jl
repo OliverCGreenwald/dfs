@@ -43,7 +43,7 @@ exposure = 0.4
         - if live false, set week to any week 1-12 (if true then doesn't matter)
 =#
 live = true
-week = 12
+week = 13
 ############################  Setting Formation  ############################
 
 use_Freq_Ind = true

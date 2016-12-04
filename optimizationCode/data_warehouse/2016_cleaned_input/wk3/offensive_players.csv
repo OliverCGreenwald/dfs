@@ -81,7 +81,7 @@
 "WR","Travis Benjamin (7451820)","Travis Benjamin",7451820,5200,"SD@Ind 04:25PM ET","SD","Travis","Benjamin","Ind",15.51,17.6,15.57,17.6,1,0.227272727272727,15.7227092347724,15.5369073722624,0,11.2
 "RB","Jeremy Langford (7451685)","Jeremy Langford",7451685,5200,"Chi@Dal 08:30PM ET","Chi","Jeremy","Langford","Dal",11.41,13.6,12.95,13.6,5,0.11864406779661,11.8926775751721,11.5975138530973,0,6.6
 "RB","Rashad Jennings (7451590)","Rashad Jennings",7451590,5100,"Was@NYG 01:00PM ET","NYG","Rashad","Jennings","Was",0,0,0,0,7,0.0547945205479452,0,0,0,0
-"QB","Trevor Siemian (7451532)","Trevor Siemian",7451532,5100,"Den@Cin 01:00PM ET","Den","Trevor","Siemian","Cin",11.23,11.1,13.27,11.1,0,0,10.5624916360424,10.8270847799007,0,32
+"QB","Trevor Siemian (7451532)","Trevor Siemian",7451532,5100,"Den@Cin 01:00PM ET","Den","Trevor","Siemian","Cin",11.23,11.1,13.27,11.1,0,0,10.5624916360424,10.8270847799007,1,32
 "WR","Stefon Diggs (7451781)","Stefon Diggs",7451781,5100,"Min@Car 01:00PM ET","Min","Stefon","Diggs","Car",16.24,15.7,14.83,15.7,1,0.318181818181818,15.0987204832798,15.5668517985053,0,8
 "QB","Drew Stanton (7451500)","Drew Stanton",7451500,5000,"Ari@Buf 01:00PM ET","Ari","Drew","Stanton","Buf",0,0,0,0,0,0,0,0,1,0
 "QB","EJ Manuel (7451502)","EJ Manuel",7451502,5000,"Ari@Buf 01:00PM ET","Buf","EJ","Manuel","Ari",0,0,0,0,0,0,0,0,1,0
@@ -117,7 +117,7 @@
 "QB","Jared Goff (7451545)","Jared Goff",7451545,5000,"LA@TB 04:05PM ET","LA","Jared","Goff","TB",0,0,0,0,0,0,0,0,1,0
 "QB","Colin Kaepernick (7451546)","Colin Kaepernick",7451546,5000,"SF@Sea 04:05PM ET","SF","Colin","Kaepernick","Sea",0,1.1,0,1.1,0,0,0.549925741539768,0.282752906959279,1,0
 "QB","Christian Ponder (7451547)","Christian Ponder",7451547,5000,"SF@Sea 04:05PM ET","SF","Christian","Ponder","Sea",0,0,0,0,0,0,0,0,1,0
-"QB","Blaine Gabbert (7451549)","Blaine Gabbert",7451549,5000,"SF@Sea 04:05PM ET","SF","Blaine","Gabbert","Sea",14.52,12.4,12.15,12.4,10,0.0136986301369863,12.6811093788001,13.4973087010464,0,6
+"QB","Blaine Gabbert (7451549)","Blaine Gabbert",7451549,5000,"SF@Sea 04:05PM ET","SF","Blaine","Gabbert","Sea",14.52,12.4,12.15,12.4,10,0.0136986301369863,12.6811093788001,13.4973087010464,1,6
 "QB","Trevone Boykin (7451550)","Trevone Boykin",7451550,5000,"SF@Sea 04:05PM ET","Sea","Trevone","Boykin","SF",0,0,0,0,0,0,0,0,1,5.4
 "RB","Christine Michael (7451650)","Christine Michael",7451650,5000,"SF@Sea 04:05PM ET","Sea","Christine","Michael","SF",16.12,15.6,13.28,15.6,0,0,14.9951574284772,15.4559411020435,0,28.1
 "QB","Nick Foles (7451553)","Nick Foles",7451553,5000,"NYJ@KC 04:25PM ET","KC","Nick","Foles","NYJ",0,0,0,0,0,0,0,0,1,0
