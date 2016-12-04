@@ -28,13 +28,13 @@ include("formulations.jl")
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 150
+num_lineups = 32
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 5
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.5
+exposure = 0.4
 
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 
