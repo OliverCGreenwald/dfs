@@ -138,7 +138,7 @@ write.csv(historical.fpts.data, file = "optimizationCode/data_warehouse/historic
 freq.ind.data <- historical.fpts.data
 freq.ind.data$mean <- NULL
 for (i in 2:(week.latest+1)) {
-  freq.ind.data[,i] <- 1
+  freq.ind.data[,i] <- 0
 }
 
 # look at each position to help set thresholds for frequency indicator function
@@ -168,61 +168,96 @@ quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.
 quantile(historical.fpts.data.mean.te, na.rm = T, c(0.25,0.5,0.75, 0.8, 0.85, 0.9, 0.95, 0.99))
 
 # WR is 1 if
-# (1) at most 25% games < 15th percentile fpts
+# (1) at least 25% games > 23 fpts (99.9 pct) OR
+# (2) at least 25% games > 15 fpts (90 pct), at least 50% games > 12 fpts (75 pct), at most 25% games < 7.5 fpts (50 pct)
+# (3) last 3 weeks all > 25 fpts (99.9 pct) [not implemented yet]
 
 # Follow similar conditions for RB and TE (change threshold based on quantiles)
 
 cond1.pct1 <- 1/4
+cond2.pct1 <- 1/4
+cond2.pct2 <- 1/2
+cond2.pct3 <- 1/4
 
 for (i in 1:week.latest) {
   for (j in 1:nrow(freq.ind.data)) {
     # WRs
     if (freq.ind.data$Pos[j]=="WR") {
-      # condition (1)
-      temp.bad <- historical.fpts.data[j,2:i] < quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.15))
+      # for condition (1)
+      temp.override <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.99)) # 23 # ~99.9th percentile
+      num.override <- sum(temp.override, na.rm = T)
+      
+      # for condition (2)
+      temp.great <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.85)) # 15 # ~90th percentile
+      num.great <- sum(temp.great, na.rm = T)
+      temp.good <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.50)) # 12 # ~75th percentile
+      num.good <- sum(temp.good, na.rm = T)
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < quantile(historical.fpts.data.mean.wr, na.rm = T, c(0.25)) # 7.5 # ~50th percentile
       num.bad <- sum(temp.bad, na.rm = T)
+      # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
+      # num.useless <- sum(temp.useless, na.rm = T)
       
       # total games played (so exclude NAs)
-      num.games <- length(temp.bad[!is.na(temp.bad)])
+      num.total <- length(temp.good) - sum(is.na(temp.good))
       
       # set to 1 if a condition is met
-      if (num.bad >= floor(num.games*cond1.pct1)) {
-        freq.ind.data[j,i+1] <- 0
+      if (num.override >= num.total*cond1.pct1 | (num.great >= num.total*cond2.pct1 & num.good >= num.total*cond2.pct2 & num.bad <= num.total*cond2.pct3)) { #& num.useless <= ceiling(num.total*1/4)) {
+        freq.ind.data[j,i+1] <- 1
       }
     }
     
     # RBs
     if (freq.ind.data$Pos[j]=="RB") {
-      # condition (1)
-      temp.bad <- historical.fpts.data[j,2:i] < quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.30))
+      # for condition (1)
+      temp.override <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.99)) # 23 # ~99.9th percentile
+      num.override <- sum(temp.override, na.rm = T)
+      
+      # for condition (2)
+      temp.great <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.85)) # 15.5 # ~90th percentile
+      num.great <- sum(temp.great, na.rm = T)
+      temp.good <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.60)) # 11 # ~75th percentile
+      num.good <- sum(temp.good, na.rm = T)
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < quantile(historical.fpts.data.mean.rb, na.rm = T, c(0.35)) # 6 # ~50th percentile
       num.bad <- sum(temp.bad, na.rm = T)
+      # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
+      # num.useless <- sum(temp.useless, na.rm = T)
       
       # total games played (so exclude NAs)
-      num.games <- length(temp.bad[!is.na(temp.bad)])
+      num.total <- length(temp.good) - sum(is.na(temp.good))
       
       # set to 1 if a condition is met
-      if (num.bad >= floor(num.games*cond1.pct1)) {
-        freq.ind.data[j,i+1] <- 0
+      if (num.override >= num.total*cond1.pct1 | (num.great >= num.total*cond2.pct1 & num.good >= num.total*cond2.pct2 & num.bad <= num.total*cond2.pct3)) { #& num.useless <= ceiling(num.total*1/4)) {
+        freq.ind.data[j,i+1] <- 1
       }
     }
     
     # TEs
     if (freq.ind.data$Pos[j]=="TE") {
-      # condition (1)
-      temp.bad <- historical.fpts.data[j,2:i] < quantile(historical.fpts.data.mean.te, na.rm = T, c(0.20))
+      # for condition (1)
+      temp.override <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.te, na.rm = T, c(0.99)) # 16 # ~99.9th percentile
+      num.override <- sum(temp.override, na.rm = T)
+      
+      # for condition (2)
+      temp.great <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.te, na.rm = T, c(0.85)) #12 # ~90th percentile
+      num.great <- sum(temp.great, na.rm = T)
+      temp.good <- historical.fpts.data[j,2:(i+1)] > quantile(historical.fpts.data.mean.te, na.rm = T, c(0.60)) # 9 # ~75th percentile
+      num.good <- sum(temp.good, na.rm = T)
+      temp.bad <- historical.fpts.data[j,2:(i+1)] < quantile(historical.fpts.data.mean.te, na.rm = T, c(0.25)) # 5.5 # ~50th percentile
       num.bad <- sum(temp.bad, na.rm = T)
+      # temp.useless <- historical.fpts.data[j,2:(week.latest+1)] < 5.0
+      # num.useless <- sum(temp.useless, na.rm = T)
       
       # total games played (so exclude NAs)
-      num.games <- length(temp.bad[!is.na(temp.bad)])
+      num.total <- length(temp.good) - sum(is.na(temp.good))
       
       # set to 1 if a condition is met
-      if (num.bad >= floor(num.games*cond1.pct1)) {
-        freq.ind.data[j,i+1] <- 0
+      if (num.override >= num.total*cond1.pct1 | (num.great >= num.total*cond2.pct1 & num.good >= num.total*cond2.pct2 & num.bad <= num.total*cond2.pct3)) { #& num.useless <= ceiling(num.total*1/4)) {
+        freq.ind.data[j,i+1] <- 1
       }
     }
     
     # set to 0 if no games played
-    if (num.games == 0) {
+    if (num.total == 0) {
       freq.ind.data[j,i+1] <- 0
     }
   }  
@@ -240,7 +275,7 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
   
   # # clean names
   # temp$Name.Clean <- sub("'", "", temp$Name)
-
+  
   # match
   temp$FreqInd <- NA
   temp$FreqInd <- freq.ind.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
@@ -255,22 +290,22 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
 
 ####### ADD ALL DATA TO 2016_CLEANED_INPUT/ALL_DATA FILES (only run after current week's data is prepared) #########
 # for (i in 2:week.latest) {
-  i <- week.latest + 1
+i <- week.latest + 1
 
-  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
-  
-  # # clean names
-  # temp$Name.Clean <- sub("'", "", temp$Name)
-  
-  # add historical fpts
-  # temp[,(ncol(temp)+1):(ncol(temp)+i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), 2:i] # df is already offset by 1 so don't need 2:(i+1)
-  temp[,paste0("Week", i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), i]
-  
-  # re-add FreqInd (this time don't replace NAs with 0s)
-  temp$FreqInd <- freq.ind.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
-  
-  # write to file
-  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
+temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
+
+# # clean names
+# temp$Name.Clean <- sub("'", "", temp$Name)
+
+# add historical fpts
+# temp[,(ncol(temp)+1):(ncol(temp)+i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), 2:i] # df is already offset by 1 so don't need 2:(i+1)
+temp[,paste0("Week", i-1)] <- historical.fpts.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), i]
+
+# re-add FreqInd (this time don't replace NAs with 0s)
+temp$FreqInd <- freq.ind.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)),i] # df is already offset by 1 so don't need i+1
+
+# write to file
+write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
 # }
 
 

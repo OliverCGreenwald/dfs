@@ -90,6 +90,8 @@ function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overla
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Actual")
         @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
@@ -197,6 +199,10 @@ function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
 
@@ -311,6 +317,10 @@ function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -426,6 +436,10 @@ function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -542,6 +556,10 @@ function one_lineup_Type_4(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -656,6 +674,10 @@ function one_lineup_Type_5(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -770,6 +792,10 @@ function one_lineup_Type_6(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -893,6 +919,10 @@ function one_lineup_Type_7(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -1022,6 +1052,10 @@ function one_lineup_Type_8(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -1143,6 +1177,10 @@ function one_lineup_Type_9(offensive_players, defenses, lineups, num_overlap, nu
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -1268,6 +1306,10 @@ function one_lineup_Type_10(offensive_players, defenses, lineups, num_overlap, n
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -1394,6 +1436,10 @@ function one_lineup_Type_11(offensive_players, defenses, lineups, num_overlap, n
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -1520,6 +1566,10 @@ function one_lineup_Type_12(offensive_players, defenses, lineups, num_overlap, n
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
 
     # Solve the integer programming problem
@@ -1649,6 +1699,8 @@ function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, n
         @setObjective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Projection_reg")
         @setObjective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @setObjective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     elseif (projections_source == "Actual")
         @setObjective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
     end
