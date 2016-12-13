@@ -4,7 +4,7 @@
 "WR","Antonio Brown (7852363)","Antonio Brown",7852363,9100,"NYG@Pit 04:25PM ET","Pit","Antonio","Brown","NYG",25.86,24.3,0,24.1389717206172,24.8747085877924,1,0.291954022988506,1
 "WR","Julio Jones (7852259)","Julio Jones",7852259,8700,"KC@Atl 01:00PM ET","Atl","Julio","Jones","KC",21.64,21.4,0,20.7632800552597,21.3890073242008,1,0.272727272727273,1
 "WR","Mike Evans (7852390)","Mike Evans",7852390,8600,"TB@SD 04:25PM ET","TB","Mike","Evans","SD",22.09,23.3,0,21.9645311889529,22.6169986200019,1,0.318396226415094,1
-"WR","Odell Beckham Jr. (7852366)","Odell Beckham Jr.",7852366,8500,"NYG@Pit 04:25PM ET","NYG","Odell","Beckham","Pit",21.49,21,0,20.4862630292833,21.1052784807156,1,0.27122641509434,1
+"WR","Odell Beckham Jr. (7852366)","Odell Beckham",7852366,8500,"NYG@Pit 04:25PM ET","NYG","Odell","Beckham","Pit",21.49,21,0,20.4862630292833,21.1052784807156,1,0.27122641509434,1
 "RB","LeSean McCoy (7852212)","LeSean McCoy",7852212,7800,"Buf@Oak 04:05PM ET","Buf","LeSean","McCoy","Oak",17.9,17.9,0,17.2797912946901,17.7992484185477,4,0.109034267912773,1
 "QB","Drew Brees (7852075)","Drew Brees",7852075,7600,"Det@NO 01:00PM ET","NO","Drew","Brees","Det",28.55,20.8,0,23.4621409647691,24.2175369969755,0,0,1
 "QB","Tom Brady (7852080)","Tom Brady",7852080,7500,"LA@NE 01:00PM ET","NE","Tom","Brady","LA",26.24,20.5,0,22.2951820886965,23.0025069857687,0,0,1
@@ -51,7 +51,7 @@
 "WR","Allen Robinson (7852301)","Allen Robinson",7852301,5800,"Den@Jax 01:00PM ET","Jax","Allen","Robinson","Den",13.12,14.1,0,13.1836913510488,13.5736797022853,1,0.247240618101545,1
 "WR","Jamison Crowder (7852379)","Jamison Crowder",7852379,5800,"Was@Ari 04:25PM ET","Was","Jamison","Crowder","Ari",13.63,14,0,13.3534176944901,13.7524506881283,3,0.168141592920354,1
 "WR","Jordan Matthews (7852317)","Jordan Matthews",7852317,5700,"Phi@Cin 01:00PM ET","Phi","Jordan","Matthews","Cin",0,0,0,0,0,1,0.235142118863049,1
-"WR","Steve Smith Sr. (7852325)","Steve Smith Sr.",7852325,5700,"Mia@Bal 01:00PM ET","Bal","Steve","Smith","Mia",13.07,13,0,12.5801236939543,12.9587539832653,3,0.155555555555556,1
+"WR","Steve Smith Sr. (7852325)","Steve Smith",7852325,5700,"Mia@Bal 01:00PM ET","Bal","Steve","Smith","Mia",13.07,13,0,12.5801236939543,12.9587539832653,3,0.155555555555556,1
 "QB","Tyrod Taylor (7852111)","Tyrod Taylor",7852111,5700,"Buf@Oak 04:05PM ET","Buf","Tyrod","Taylor","Oak",18.83,18.3,0,17.8972738329034,18.4387188025573,0,0,1
 "RB","DeAngelo Williams (7852219)","DeAngelo Williams",7852219,5700,"NYG@Pit 04:25PM ET","Pit","DeAngelo","Williams","NYG",0,0,0,0,0,6,0.0528735632183908,0
 "RB","Doug Martin (7852237)","Doug Martin",7852237,5700,"TB@SD 04:25PM ET","TB","Doug","Martin","SD",13.39,11,0,11.6620874077815,12.0281141868153,8,0.0306603773584906,1
@@ -143,7 +143,7 @@
 "WR","Travis Benjamin (7852384)","Travis Benjamin",7852384,4600,"TB@SD 04:25PM ET","SD","Travis","Benjamin","TB",8.94,8.9,0,8.60908784375449,8.86814879419664,3,0.155555555555556,1
 "RB","Jacquizz Rodgers (7852238)","Jacquizz Rodgers",7852238,4500,"TB@SD 04:25PM ET","TB","Jacquizz","Rodgers","SD",0,4.1,0,2.16831461233045,2.20699933988155,8,0.0306603773584906,0
 "WR","Mohamed Sanu (7852260)","Mohamed Sanu",7852260,4400,"KC@Atl 01:00PM ET","Atl","Mohamed","Sanu","KC",10.89,12.7,0,11.4699090699211,11.8030142288126,2,0.184415584415584,1
-"WR","Marvin Jones Jr. (7852271)","Marvin Jones Jr.",7852271,4400,"Det@NO 01:00PM ET","Det","Marvin","Jones","NO",0,0,0,0,0,2,0.216417910447761,0
+"WR","Marvin Jones Jr. (7852271)","Marvin Jones",7852271,4400,"Det@NO 01:00PM ET","Det","Marvin","Jones","NO",0,0,0,0,0,2,0.216417910447761,0
 "WR","Chris Hogan (7852284)","Chris Hogan",7852284,4400,"LA@NE 01:00PM ET","NE","Chris","Hogan","LA",9.03,9.6,0,9.0185723816994,9.28600066037202,5,0.10126582278481,1
 "RB","James Starks (7852176)","James Starks",7852176,4400,"Hou@GB 01:00PM ET","GB","James","Starks","Hou",12.13,11.2,0,11.217876101749,11.5611132795834,7,0.0531914893617021,1
 "RB","Darren Sproles (7852186)","Darren Sproles",7852186,4400,"Phi@Cin 01:00PM ET","Phi","Darren","Sproles","Cin",9.93,14.1,0,11.7912747048494,12.1187880173199,3,0.144702842377261,1
@@ -170,7 +170,7 @@
 "WR","Marquess Wilson (7852343)","Marquess Wilson",7852343,4000,"SF@Chi 01:00PM ET","Chi","Marquess","Wilson","SF",12.17,9,0,10.0718499820641,10.3951128872786,9,0.0364077669902913,0
 "RB","Shane Vereen (7852221)","Shane Vereen",7852221,4000,"NYG@Pit 04:25PM ET","NYG","Shane","Vereen","Pit",0,0,0,0,0,10,0.0330188679245283,0
 "RB","Charles Sims (7852240)","Charles Sims",7852240,4000,"TB@SD 04:25PM ET","TB","Charles","Sims","SD",0,0,0,0,0,7,0.0424528301886792,1
-"WR","Ted Ginn Jr. (7852394)","Ted Ginn Jr.",7852394,4000,"Car@Sea 08:30PM ET","Car","Ted","Ginn","Sea",7.59,8,0,7.54384911076924,7.76797901202039,3,0.155,0
+"WR","Ted Ginn Jr. (7852394)","Ted Ginn",7852394,4000,"Car@Sea 08:30PM ET","Car","Ted","Ginn","Sea",7.59,8,0,7.54384911076924,7.76797901202039,3,0.155,0
 "TE","Eric Ebron (7852418)","Eric Ebron",7852418,3900,"Det@NO 01:00PM ET","Det","Eric","Ebron","NO",14.08,12.8,0,12.9152114383725,13.3117351659702,5,0.124378109452736,1
 "WR","Tavon Austin (7852283)","Tavon Austin",7852283,3900,"LA@NE 01:00PM ET","LA","Tavon","Austin","NE",0,0,0,0,0,2,0.207446808510638,1
 "RB","Ryan Mathews (7852188)","Ryan Mathews",7852188,3900,"Phi@Cin 01:00PM ET","Phi","Ryan","Mathews","Cin",0,0,0,0,0,8,0.0284237726098191,1
@@ -265,7 +265,7 @@
 "WR","Bennie Fowler (7852294)","Bennie Fowler",7852294,3000,"Den@Jax 01:00PM ET","Den","Bennie","Fowler","Jax",0,0,0,0,0,7,0.0469973890339426,0
 "WR","Marlon Brown (7852295)","Marlon Brown",7852295,3000,"Den@Jax 01:00PM ET","Den","Marlon","Brown","Jax",0,0,0,0,0,0,0,0
 "WR","Jordan Taylor (7852297)","Jordan Taylor",7852297,3000,"Den@Jax 01:00PM ET","Den","Jordan","Taylor","Jax",0,3.2,0,1.69234311206279,1.72253607015145,8,0.0391644908616188,0
-"WR","Rashad Greene Sr. (7852299)","Rashad Greene Sr.",7852299,3000,"Den@Jax 01:00PM ET","Jax","Rashad","Greene","Den",0,0,0,0,0,10,0.0154525386313466,0
+"WR","Rashad Greene Sr. (7852299)","Rashad Greene",7852299,3000,"Den@Jax 01:00PM ET","Jax","Rashad","Greene","Den",0,0,0,0,0,10,0.0154525386313466,0
 "WR","Cody Latimer (7852300)","Cody Latimer",7852300,3000,"Den@Jax 01:00PM ET","Den","Cody","Latimer","Jax",0,0,0,0,0,11,0.0130548302872063,0
 "RB","Jonathan Grimes (7852177)","Jonathan Grimes",7852177,3000,"Hou@GB 01:00PM ET","Hou","Jonathan","Grimes","GB",0,0,0,0,0,9,0.0174129353233831,0
 "RB","Jay Prosch (7852181)","Jay Prosch",7852181,3000,"Hou@GB 01:00PM ET","Hou","Jay","Prosch","GB",0,0,0,0,0,0,0,0
