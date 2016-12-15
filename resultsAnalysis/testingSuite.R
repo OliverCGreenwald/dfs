@@ -11,16 +11,16 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 2
-week.hi <- 2
+week.lo <- 13
+week.hi <- 13
 contest.entry.fee <- "$3"
 predictions.source <- "_actual" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
-formulation <- 0
+formulation <- 4
 overlap.lo <- 8 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 8
 exposure.range <- seq(from = 1, to = 1, by = 0.1) # must be from 1 to 1 if overlap.lo != overlap.hi
 freqInd <- "" # _FreqInd or ""
-num.lineups <- "_numlineups_5000" # "" or "_numlineups_1000"
+num.lineups <- "_numlineups_10000" # "" or "_numlineups_1000"
 
 
 ####### INITALIZE PNL MATRIX FOR STORING RESULTS #########
