@@ -1,0 +1,23 @@
+Position,Name...ID,Name,ID,Salary,GameInfo,Team,FirstName,LastName,Opponent,Projection,Projection_dfn
+DST,Broncos  (7852862),Broncos ,7852862,3800,DEN@TEN,DEN,Broncos,,Ten,NA,6
+DST,Lions  (7852858),Lions ,7852858,3600,CHI@DET,DET,Lions,,Chi,NA,6.8
+DST,Bengals  (7852866),Bengals ,7852866,3500,CIN@CLE,CIN,Bengals,,Cle,NA,7.2
+DST,Cardinals  (7852876),Cardinals ,7852876,3200,ARI@MIA,ARI,Cardinals,,Mia,NA,9
+DST,Falcons  (7852856),Falcons ,7852856,3100,ATL@LA,ATL,Falcons,,LA,NA,9.4
+DST,Seahawks  (7852880),Seahawks ,7852880,3000,SEA@GB,SEA,Seahawks,,GB,NA,7.2
+DST,Eagles  (7852867),Eagles ,7852867,2900,WAS@PHI,PHI,Eagles,,Was,NA,7.7
+DST,Panthers  (7852881),Panthers ,7852881,2900,SD@CAR,CAR,Panthers,,SD,NA,6.5
+DST,Steelers  (7852875),Steelers ,7852875,2800,PIT@BUF,PIT,Steelers,,Buf,NA,6.6
+DST,Texans  (7852864),Texans ,7852864,2800,HOU@IND,HOU,Texans,,Ind,NA,7.1
+DST,Redskins  (7852877),Redskins ,7852877,2700,WAS@PHI,WAS,Redskins,,Phi,NA,7.6
+DST,49ers  (7852871),49ers ,7852871,2600,NYJ@SF,SF,49ers,,NYJ,4.28,6.4
+DST,Chargers  (7852878),Chargers ,7852878,2600,SD@CAR,SD,Chargers,,Car,7.56,6.6
+DST,Dolphins  (7852868),Dolphins ,7852868,2600,ARI@MIA,MIA,Dolphins,,Ari,NA,9.8
+DST,Giants  (7852874),Giants ,7852874,2600,DAL@NYG,NYG,Giants,,Dal,8.8,6.7
+DST,Packers  (7852865),Packers ,7852865,2600,SEA@GB,GB,Packers,,Sea,7.1,5.1
+DST,Bills  (7852872),Bills ,7852872,2500,PIT@BUF,BUF,Bills,,Pit,NA,7
+DST,Jaguars  (7852863),Jaguars ,7852863,2500,MIN@JAX,JAX,Jaguars,,Min,NA,6.7
+DST,Rams  (7852860),Rams ,7852860,2500,ATL@LA,LA,Rams,,Atl,5.6,7.5
+DST,Buccaneers  (7852879),Buccaneers ,7852879,2400,NO@TB,TB,Buccaneers,,NO,5.23,7.4
+DST,Saints  (7852859),Saints ,7852859,2400,NO@TB,NO,Saints,,TB,5.4,8.6
+DST,Bears  (7852870),Bears ,7852870,2300,CHI@DET,CHI,Bears,,Det,NA,5.1
