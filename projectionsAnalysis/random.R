@@ -23,7 +23,7 @@ library("emdbook")
 library("ggplot2")
 
 ####### SET PARAMETERS FOR THIS FILE #########
-week.latest <- 13
+week.latest <- 14
 
 
 ####### LOAD $20 CONTEST FILES #######

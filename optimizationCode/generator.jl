@@ -28,10 +28,10 @@ include("formulations.jl")
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 32
+num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
-num_overlap = 5
+num_overlap = 4
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
 exposure = 0.4
@@ -43,10 +43,10 @@ exposure = 0.4
         - if live false, set week to any week 1-12 (if true then doesn't matter)
 =#
 live = true
-week = 13
+week = 15
 ############################  Setting Formation  ############################
 
-use_Freq_Ind = true
+use_Freq_Ind = false
 
 
 ############################  Setting Formation  ############################
@@ -69,7 +69,7 @@ formulation is the type of formulation that you would like to use.
         - 12 <- one_lineup_Type_12
         - 13 <- one_lineup_Type_13
 =#
-formulation_type = 13
+formulation_type = 4
 
 
 ############################  Setting Projections Source  ############################
@@ -85,7 +85,7 @@ projections_source tells which Projections we're using for this generation
         - "Projection_reg_split"
         - "Actual" (historical)
 =#
-projections_source = "Projection_reg_split"  
+projections_source = "Projection_dfn"  
 
 ############################  Create Paths to data  ############################
 
