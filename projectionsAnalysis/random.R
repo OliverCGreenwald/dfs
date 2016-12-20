@@ -20,10 +20,9 @@
 ####### IMPORT LIBRARIES #########
 library('stringr')
 library("emdbook")
-library("ggplot2")
 
 ####### SET PARAMETERS FOR THIS FILE #########
-week.latest <- 14
+week.latest <- 15
 
 
 ####### LOAD $20 CONTEST FILES #######
@@ -193,8 +192,9 @@ num.unique.players
 num.unique.players.table <- t(as.table(num.unique.players))
 
 # plot
+par(mfrow=c(1,1))
 matplot(num.unique.players.table, type = 'b', pch = c('o'), xlab = "Week", ylab = "Num Unique Players", main = "Num Unique Players, Varying Place Threshold")
-legend("bottomleft", colnames(num.unique.players.table),col=seq_len(ncol(num.unique.players.table)), cex=1, fill=seq_len(ncol(num.unique.players.table)))
+# legend("bottomleft", colnames(num.unique.players.table),col=seq_len(ncol(num.unique.players.table)), cex=1, fill=seq_len(ncol(num.unique.players.table)))
 
 # Number of games each week (sunday):
 num.games <- c(13,14,14,13,12,13,13,11,11,12,12,12,13,14,13) # up to wk 15
