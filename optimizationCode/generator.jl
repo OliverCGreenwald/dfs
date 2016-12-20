@@ -37,10 +37,10 @@ num_overlap = 4
 exposure = 0.4
 
 #Only used for Formulation 14
-exposure_defense = 0.3
-exposure_wr = 0.3
-exposure_rb = 0.7
-exposure_te = 0.9
+exposure_defense = 0.2
+exposure_wr = 0.2
+exposure_rb = 0.4
+exposure_te = 0.2
 exposure_qb = 0.4
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 
@@ -48,9 +48,9 @@ exposure_qb = 0.4
         - live = true or false
         - if live false, set week to any week 1-12 (if true then doesn't matter)
 =#
-live = true
-week = 15
-############################  Setting Formation  ############################
+live = false
+week = 12
+###########################  Setting Formation  ############################
 
 use_Freq_Ind = false
 
@@ -146,7 +146,7 @@ end
 
 
 
-formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+# formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
 
 # formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, "_numlineups_", num_lineups,".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
 

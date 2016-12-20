@@ -11,17 +11,31 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 12
+week.lo <- 2
 week.hi <- 15
+
 contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
+
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
+source.actual.fpts <- 'FC' # 'FC' or 'DFN'
+
 formulation <- 14
+
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 4
+
+exposure.pos.bool <- T # if TRUE then exposure.range is ignored, if FALSE then position exposures ignored
 exposure.range <- seq(from = 0.4, to = 0.4, by = 0) # must be from 1 to 1 if overlap.lo != overlap.hi
+exposure.def <- 0.4
+exposure.wr <- 0.9
+exposure.rb <- 0.4
+exposure.te <- 0.4
+exposure.qb <- 0.4
+
 freqInd <- "" # _FreqInd or ""
+
 num.lineups <- "" # "" or "_numlineups_1000"
-source.actual.fpts <- 'FC' # 'FC' or 'DFN'
+
 missing.data.1M.contest.wk <- c(10) # enter weeks that we don't have complete data for in the $1M to 1st contest
 missing.data.50k.contest.wk <- c() # enter weeks that we don't have complete data for in the $50k to 1st contest
 
@@ -41,7 +55,7 @@ if (week.lo != week.hi & overlap.lo == overlap.hi & length(exposure.range) == 1)
   pnlMatrix[1:weeks.count,'Week'] <- week.lo:week.hi
 } else if (length(exposure.range) == 1) {
   pnlMatrix <- matrix(data = NA, nrow = 9, ncol = 2, dimnames = list(NULL, c("Overlap","PnL")))
-  pnlMatrix[1:9,'Overlap'] <- 1:9  
+  pnlMatrix[1:9,'Overlap'] <- 1:9
 } else {
   pnlMatrix <- matrix(data = NA, nrow = 10, ncol = 2, dimnames = list(NULL, c("Exposure","PnL")))
   pnlMatrix[1:10, 'Exposure'] <- exposure.range
@@ -105,7 +119,11 @@ for (week.num in week.lo:week.hi) {
       for (exposure in exposure.range) {
         
         ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
-        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv")
+        if (exposure.pos.bool == F) {
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
+        } else {
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") 
+        }
         lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
         ######## CALCULATE FPTS FOR EACH LINEUP ########
@@ -188,21 +206,24 @@ for (week.num in week.lo:week.hi) {
 
     # print
     if (week.lo != week.hi & overlap.lo == overlap.hi & length(exposure.range) == 1) {
-      print(paste0('Formulation: ', formulation, '; Overlap: ', overlap.lo, '; Exposure: ', exposure.range[1], '; Contest: ', contest.name))
+      if (exposure.pos.bool == F) {
+        print(paste0('Formulation: ', formulation, '; Overlap: ', overlap.lo, '; Exposure: ', exposure.range[1], '; Contest: ', contest.name))
+      } else {
+        print(paste0('Formulation: ', formulation, '; Overlap: ', overlap.lo, '; Exposures: ', exposure.def, ', ', exposure.wr, ', ', exposure.rb, ', ', exposure.te, ', ', exposure.qb, '; Contest: ', contest.name))
+      }
     } else {
       print(paste0('Week: ', week.num, '; Overlap: ', overlap.lo, '; Formulation: ', formulation))
     }
     print(pnlMatrix)
   }
-    # if (length(exposure.range) == 1) {
-    #   saveRDS(pnlMatrix, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_exposure_", 1, ".rds"))
-    # } else {
-    #   saveRDS(pnlMatrix, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_week", week.num, predictions.source, "_formulation", formulation, "_overlap_", overlap.lo, ".rds"))
-    # }
 }
 
 # write lineups to file
-# write.csv(lineups, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, "_results.csv"), row.names = F)
+# if (exposure.pos.bool == F) {
+#   write.csv(lineups, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, "_results.csv"), row.names = F)
+# } else {
+#   write.csv(lineups, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, "_results.csv"), row.names = F) 
+# }
 
 # plotting across weeks
 # par(mfrow=c(1,1))
