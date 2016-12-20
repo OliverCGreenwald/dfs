@@ -1,370 +1,483 @@
 Position,Name...ID,Name,ID,Salary,GameInfo,TeamAbbrev
-RB,David Johnson (7852233),David Johnson,7852233,9800,ARI@MIA,ARI
-RB,Le'Veon Bell (7852224),Le'Veon Bell,7852224,9000,PIT@BUF,PIT
-WR,Mike Evans (7852390),Mike Evans,7852390,8900,NO@TB,TB
-WR,Antonio Brown (7852363),Antonio Brown,7852363,8700,PIT@BUF,PIT
-WR,Julio Jones (7852259),Julio Jones,7852259,8500,ATL@LA,ATL
-RB,LeSean McCoy (7852212),LeSean McCoy,7852212,8200,PIT@BUF,BUF
-WR,Odell Beckham Jr. (7852366),Odell Beckham Jr.,7852366,8000,DAL@NYG,NYG
-WR,A.J. Green (7852315),A.J. Green,7852315,7700,CIN@CLE,CIN
-QB,Drew Brees (7852075),Drew Brees,7852075,7400,NO@TB,NO
-RB,Melvin Gordon (7852242),Melvin Gordon,7852242,7400,SD@CAR,SD
-QB,Cam Newton (7852135),Cam Newton,7852135,7200,SD@CAR,CAR
-WR,Larry Fitzgerald (7852371),Larry Fitzgerald,7852371,7100,ARI@MIA,ARI
-QB,Ben Roethlisberger (7852118),Ben Roethlisberger,7852118,7000,PIT@BUF,PIT
-WR,Doug Baldwin (7852395),Doug Baldwin,7852395,6800,SEA@GB,SEA
-WR,Jordy Nelson (7852302),Jordy Nelson,7852302,6800,SEA@GB,GB
-QB,Matthew Stafford (7852078),Matthew Stafford,7852078,6800,CHI@DET,DET
-QB,Jameis Winston (7852132),Jameis Winston,7852132,6700,NO@TB,TB
-WR,Michael Thomas (7852276),Michael Thomas,7852276,6700,NO@TB,NO
-WR,Golden Tate (7852270),Golden Tate,7852270,6600,CHI@DET,DET
-QB,Philip Rivers (7852129),Philip Rivers,7852129,6600,SD@CAR,SD
-QB,Russell Wilson (7852136),Russell Wilson,7852136,6600,SEA@GB,SEA
-QB,Matt Ryan (7852070),Matt Ryan,7852070,6500,ATL@LA,ATL
-QB,Aaron Rodgers (7852091),Aaron Rodgers,7852091,6400,SEA@GB,GB
-WR,Brandin Cooks (7852274),Brandin Cooks,7852274,6400,NO@TB,NO
-RB,Jordan Howard (7852208),Jordan Howard,7852208,6400,CHI@DET,CHI
-QB,Kirk Cousins (7852126),Kirk Cousins,7852126,6300,WAS@PHI,WAS
-RB,Doug Martin (7852237),Doug Martin,7852237,6200,NO@TB,TB
-WR,Kelvin Benjamin (7852402),Kelvin Benjamin,7852402,6200,SD@CAR,CAR
-QB,Andy Dalton (7852097),Andy Dalton,7852097,6100,CIN@CLE,CIN
-RB,Devonta Freeman (7852143),Devonta Freeman,7852143,6100,ATL@LA,ATL
-WR,Tyrell Williams (7852393),Tyrell Williams,7852393,6100,SD@CAR,SD
-WR,Alshon Jeffery (7852340),Alshon Jeffery,7852340,6000,CHI@DET,CHI
-WR,Demaryius Thomas (7852292),Demaryius Thomas,7852292,6000,DEN@TEN,DEN
-TE,Tyler Eifert (7852442),Tyler Eifert,7852442,6000,CIN@CLE,CIN
-RB,Jay Ajayi (7852194),Jay Ajayi,7852194,5900,ARI@MIA,MIA
-TE,Jordan Reed (7852478),Jordan Reed,7852478,5900,WAS@PHI,WAS
-QB,Colin Kaepernick (7852106),Colin Kaepernick,7852106,5800,NYJ@SF,SF
-WR,DeAndre Hopkins (7852305),DeAndre Hopkins,7852305,5800,HOU@IND,HOU
-RB,Jeremy Hill (7852191),Jeremy Hill,7852191,5800,CIN@CLE,CIN
-QB,Carson Palmer (7852123),Carson Palmer,7852123,5700,ARI@MIA,ARI
-WR,Emmanuel Sanders (7852290),Emmanuel Sanders,7852290,5700,DEN@TEN,DEN
-RB,Thomas Rawls (7852251),Thomas Rawls,7852251,5700,SEA@GB,SEA
-RB,DeAngelo Williams (7852219),DeAngelo Williams,7852219,5600,PIT@BUF,PIT
-RB,Jacquizz Rodgers (7852238),Jacquizz Rodgers,7852238,5600,NO@TB,TB
-WR,Jamison Crowder (7852379),Jamison Crowder,7852379,5600,WAS@PHI,WAS
-WR,Jarvis Landry (7852330),Jarvis Landry,7852330,5600,ARI@MIA,MIA
-WR,Davante Adams (7852308),Davante Adams,7852308,5500,SEA@GB,GB
-QB,Eli Manning (7852117),Eli Manning,7852117,5500,DAL@NYG,NYG
-TE,Jimmy Graham (7852491),Jimmy Graham,7852491,5500,SEA@GB,SEA
-RB,Theo Riddick (7852151),Theo Riddick,7852151,5500,CHI@DET,DET
-RB,Jonathan Stewart (7852247),Jonathan Stewart,7852247,5400,SD@CAR,CAR
-WR,Jordan Matthews (7852317),Jordan Matthews,7852317,5400,WAS@PHI,PHI
-QB,Tyrod Taylor (7852111),Tyrod Taylor,7852111,5400,PIT@BUF,BUF
-QB,Brock Osweiler (7852093),Brock Osweiler,7852093,5300,HOU@IND,HOU
-WR,DeVante Parker (7852331),DeVante Parker,7852331,5300,ARI@MIA,MIA
-RB,Mark Ingram (7852150),Mark Ingram,7852150,5300,NO@TB,NO
-WR,Sammy Watkins (7852356),Sammy Watkins,7852356,5300,PIT@BUF,BUF
-WR,DeSean Jackson (7852372),DeSean Jackson,7852372,5200,WAS@PHI,WAS
-WR,Kenny Britt (7852281),Kenny Britt,7852281,5200,ATL@LA,LA
-QB,Ryan Tannehill (7852104),Ryan Tannehill,7852104,5200,ARI@MIA,MIA
-WR,Willie Snead (7852273),Willie Snead,7852273,5200,NO@TB,NO
-QB,Carson Wentz (7852100),Carson Wentz,7852100,5100,WAS@PHI,PHI
-RB,Lamar Miller (7852178),Lamar Miller,7852178,5100,HOU@IND,HOU
-QB,Trevor Siemian (7852087),Trevor Siemian,7852087,5100,DEN@TEN,DEN
-QB,AJ McCarron (7852098),AJ McCarron,7852098,5000,CIN@CLE,CIN
-WR,Allen Robinson (7852301),Allen Robinson,7852301,5000,MIN@JAX,JAX
-RB,Ameer Abdullah (7852155),Ameer Abdullah,7852155,5000,CHI@DET,DET
-QB,Austin Davis (7852086),Austin Davis,7852086,5000,DEN@TEN,DEN
-QB,Blaine Gabbert (7852108),Blaine Gabbert,7852108,5000,NYJ@SF,SF
-QB,Blake Bortles (7852088),Blake Bortles,7852088,5000,MIN@JAX,JAX
-QB,Brandon Allen (7852089),Brandon Allen,7852089,5000,MIN@JAX,JAX
-WR,Brandon LaFell (7852314),Brandon LaFell,7852314,5000,CIN@CLE,CIN
-QB,Brandon Weeden (7852092),Brandon Weeden,7852092,5000,HOU@IND,HOU
-QB,Brett Hundley (7852095),Brett Hundley,7852095,5000,SEA@GB,GB
-QB,Cardale Jones (7852116),Cardale Jones,7852116,5000,PIT@BUF,BUF
-QB,Case Keenum (7852081),Case Keenum,7852081,5000,ATL@LA,LA
-QB,Chad Henne (7852085),Chad Henne,7852085,5000,MIN@JAX,JAX
-QB,Chase Daniel (7852096),Chase Daniel,7852096,5000,WAS@PHI,PHI
-QB,Christian Ponder (7852107),Christian Ponder,7852107,5000,NYJ@SF,SF
-QB,Colt McCoy (7852125),Colt McCoy,7852125,5000,WAS@PHI,WAS
-QB,Dan Orlovsky (7852076),Dan Orlovsky,7852076,5000,CHI@DET,DET
-QB,David Fales (7852110),David Fales,7852110,5000,CHI@DET,CHI
-QB,Derek Anderson (7852133),Derek Anderson,7852133,5000,SD@CAR,CAR
-QB,Drew Stanton (7852124),Drew Stanton,7852124,5000,ARI@MIA,ARI
-QB,EJ Manuel (7852112),EJ Manuel,7852112,5000,PIT@BUF,BUF
-TE,Greg Olsen (7852490),Greg Olsen,7852490,5000,SD@CAR,CAR
-QB,Jake Rudock (7852079),Jake Rudock,7852079,5000,CHI@DET,DET
-QB,Jared Goff (7852084),Jared Goff,7852084,5000,ATL@LA,LA
-QB,Jay Cutler (7852105),Jay Cutler,7852105,5000,CHI@DET,CHI
-QB,Jeff Driskel (7852099),Jeff Driskel,7852099,5000,CIN@CLE,CIN
-QB,Joe Webb (7852134),Joe Webb,7852134,5000,SD@CAR,CAR
-QB,Josh Johnson (7852119),Josh Johnson,7852119,5000,DAL@NYG,NYG
-QB,Kellen Clemens (7852128),Kellen Clemens,7852128,5000,SD@CAR,SD
-QB,Landry Jones (7852120),Landry Jones,7852120,5000,PIT@BUF,PIT
-QB,Luke McCown (7852077),Luke McCown,7852077,5000,NO@TB,NO
-QB,Matt Barkley (7852109),Matt Barkley,7852109,5000,CHI@DET,CHI
-QB,Matt Moore (7852101),Matt Moore,7852101,5000,ARI@MIA,MIA
-QB,Matt Schaub (7852072),Matt Schaub,7852072,5000,ATL@LA,ATL
-QB,Mike Glennon (7852130),Mike Glennon,7852130,5000,NO@TB,TB
-QB,Nate Sudfeld (7852127),Nate Sudfeld,7852127,5000,WAS@PHI,WAS
-QB,Paxton Lynch (7852090),Paxton Lynch,7852090,5000,DEN@TEN,DEN
-WR,Randall Cobb (7852303),Randall Cobb,7852303,5000,SEA@GB,GB
-QB,Ryan Griffin (7852131),Ryan Griffin,7852131,5000,NO@TB,TB
-QB,Ryan Nassib (7852121),Ryan Nassib,7852121,5000,DAL@NYG,NYG
-QB,Sean Mannion (7852083),Sean Mannion,7852083,5000,ATL@LA,LA
-RB,Todd Gurley (7852167),Todd Gurley,7852167,5000,ATL@LA,LA
-QB,Tom Savage (7852094),Tom Savage,7852094,5000,HOU@IND,HOU
-QB,Trevone Boykin (7852137),Trevone Boykin,7852137,5000,SEA@GB,SEA
-QB,Zach Mettenberger (7852122),Zach Mettenberger,7852122,5000,PIT@BUF,PIT
-RB,Carlos Hyde (7852203),Carlos Hyde,7852203,4900,NYJ@SF,SF
-WR,Marvin Jones Jr. (7852271),Marvin Jones Jr.,7852271,4900,CHI@DET,DET
-RB,Rashad Jennings (7852220),Rashad Jennings,7852220,4900,DAL@NYG,NYG
-WR,Tyler Boyd (7852324),Tyler Boyd,7852324,4900,CIN@CLE,CIN
-TE,Zach Ertz (7852440),Zach Ertz,7852440,4900,WAS@PHI,PHI
-RB,Devontae Booker (7852175),Devontae Booker,7852175,4800,DEN@TEN,DEN
-WR,Dontrelle Inman (7852383),Dontrelle Inman,7852383,4800,SD@CAR,SD
-RB,C.J. Prosise (7852252),C.J. Prosise,7852252,4700,SEA@GB,SEA
-RB,Mike Gillislee (7852214),Mike Gillislee,7852214,4600,PIT@BUF,BUF
-WR,Sterling Shepard (7852369),Sterling Shepard,7852369,4600,DAL@NYG,NYG
-WR,Anquan Boldin (7852268),Anquan Boldin,7852268,4500,CHI@DET,DET
-RB,Tim Hightower (7852146),Tim Hightower,7852146,4500,NO@TB,NO
-WR,Will Fuller (7852311),Will Fuller,7852311,4500,HOU@IND,HOU
-RB,Alfred Blue (7852180),Alfred Blue,7852180,4400,HOU@IND,HOU
-RB,Darren Sproles (7852186),Darren Sproles,7852186,4400,WAS@PHI,PHI
-RB,Fitzgerald Toussaint (7852223),Fitzgerald Toussaint,7852223,4300,PIT@BUF,PIT
-WR,Taylor Gabriel (7852266),Taylor Gabriel,7852266,4300,ATL@LA,ATL
-WR,Mohamed Sanu (7852260),Mohamed Sanu,7852260,4200,ATL@LA,ATL
-WR,Pierre Garcon (7852373),Pierre Garcon,7852373,4200,WAS@PHI,WAS
-RB,Rob Kelley (7852235),Rob Kelley,7852235,4200,WAS@PHI,WAS
-TE,Cameron Brate (7852486),Cameron Brate,7852486,4100,NO@TB,TB
-RB,Jeremy Langford (7852204),Jeremy Langford,7852204,4100,CHI@DET,CHI
-WR,Travis Benjamin (7852384),Travis Benjamin,7852384,4100,SD@CAR,SD
-RB,Benny Cunningham (7852163),Benny Cunningham,7852163,4000,ATL@LA,LA
-WR,Cameron Meredith (7852344),Cameron Meredith,7852344,4000,CHI@DET,CHI
-RB,Charles Sims (7852240),Charles Sims,7852240,4000,NO@TB,TB
-RB,Kapri Bibbs (7852172),Kapri Bibbs,7852172,4000,DEN@TEN,DEN
-RB,Ryan Mathews (7852188),Ryan Mathews,7852188,4000,WAS@PHI,PHI
-RB,Shane Vereen (7852221),Shane Vereen,7852221,4000,DAL@NYG,NYG
-WR,Ted Ginn Jr. (7852394),Ted Ginn Jr.,7852394,4000,SD@CAR,CAR
-RB,Tevin Coleman (7852144),Tevin Coleman,7852144,4000,ATL@LA,ATL
-TE,C.J. Fiedorowicz (7852435),C.J. Fiedorowicz,7852435,3900,HOU@IND,HOU
-RB,Damien Williams (7852197),Damien Williams,7852197,3900,ARI@MIA,MIA
-RB,DuJuan Harris (7852202),DuJuan Harris,7852202,3900,NYJ@SF,SF
-TE,Ladarius Green (7852470),Ladarius Green,7852470,3900,PIT@BUF,PIT
-WR,Michael Floyd (7852374),Michael Floyd,7852374,3900,ARI@MIA,ARI
-WR,Robert Woods (7852354),Robert Woods,7852354,3900,PIT@BUF,BUF
-WR,Tavon Austin (7852283),Tavon Austin,7852283,3900,ATL@LA,LA
-WR,Ty Montgomery (7852307),Ty Montgomery,7852307,3900,SEA@GB,GB
-TE,Antonio Gates (7852481),Antonio Gates,7852481,3800,SD@CAR,SD
-RB,Cameron Artis-Payne (7852254),Cameron Artis-Payne,7852254,3800,SD@CAR,CAR
-WR,Eli Rogers (7852368),Eli Rogers,7852368,3800,PIT@BUF,PIT
-TE,Eric Ebron (7852418),Eric Ebron,7852418,3800,CHI@DET,DET
-RB,James Starks (7852176),James Starks,7852176,3800,SEA@GB,GB
-WR,John Brown (7852375),John Brown,7852375,3800,ARI@MIA,ARI
-WR,Marquess Wilson (7852343),Marquess Wilson,7852343,3800,CHI@DET,CHI
-RB,Paul Perkins (7852228),Paul Perkins,7852228,3800,DAL@NYG,NYG
-RB,T.J. Yeldon (7852173),T.J. Yeldon,7852173,3800,MIN@JAX,JAX
-RB,Wendell Smallwood (7852192),Wendell Smallwood,7852192,3800,WAS@PHI,PHI
-DST,Broncos  (7852862),Broncos ,7852862,3800,DEN@TEN,DEN
-WR,Adam Humphries (7852391),Adam Humphries,7852391,3700,NO@TB,TB
-RB,Chris Ivory (7852168),Chris Ivory,7852168,3700,MIN@JAX,JAX
-RB,Chris Thompson (7852232),Chris Thompson,7852232,3700,WAS@PHI,WAS
-TE,Coby Fleener (7852416),Coby Fleener,7852416,3700,NO@TB,NO
-RB,Kenneth Farrow (7852244),Kenneth Farrow,7852244,3700,SD@CAR,SD
-WR,Kenny Stills (7852329),Kenny Stills,7852329,3700,ARI@MIA,MIA
-WR,Marqise Lee (7852298),Marqise Lee,7852298,3700,MIN@JAX,JAX
-WR,Paul Turner (7852318),Paul Turner,7852318,3700,WAS@PHI,PHI
-WR,Tyler Lockett (7852401),Tyler Lockett,7852401,3700,SEA@GB,SEA
-WR,Dorial Green-Beckham (7852320),Dorial Green-Beckham,7852320,3600,WAS@PHI,PHI
-WR,J.J. Nelson (7852377),J.J. Nelson,7852377,3600,ARI@MIA,ARI
-RB,Kenjon Barner (7852189),Kenjon Barner,7852189,3600,WAS@PHI,PHI
-DST,Lions  (7852858),Lions ,7852858,3600,CHI@DET,DET
-RB,Andre Ellington (7852229),Andre Ellington,7852229,3500,ARI@MIA,ARI
-RB,Dwayne Washington (7852157),Dwayne Washington,7852157,3500,CHI@DET,DET
-RB,Rex Burkhead (7852190),Rex Burkhead,7852190,3500,CIN@CLE,CIN
-WR,Russell Shepard (7852385),Russell Shepard,7852385,3500,NO@TB,TB
-WR,Torrey Smith (7852338),Torrey Smith,7852338,3500,NYJ@SF,SF
-TE,Vernon Davis (7852475),Vernon Davis,7852475,3500,WAS@PHI,WAS
-DST,Bengals  (7852866),Bengals ,7852866,3500,CIN@CLE,CIN
-WR,Allen Hurns (7852296),Allen Hurns,7852296,3400,MIN@JAX,JAX
-WR,Jeremy Kerley (7852339),Jeremy Kerley,7852339,3400,NYJ@SF,SF
-WR,Marquise Goodwin (7852351),Marquise Goodwin,7852351,3400,PIT@BUF,BUF
-RB,Matt Jones (7852236),Matt Jones,7852236,3400,WAS@PHI,WAS
-RB,Christine Michael (7852179),Christine Michael,7852179,3300,SEA@GB,GB
-WR,Devin Funchess (7852403),Devin Funchess,7852403,3300,SD@CAR,CAR
-WR,Victor Cruz (7852360),Victor Cruz,7852360,3300,DAL@NYG,NYG
-RB,Denard Robinson (7852169),Denard Robinson,7852169,3200,MIN@JAX,JAX
-WR,Nelson Agholor (7852322),Nelson Agholor,7852322,3200,WAS@PHI,PHI
-WR,Percy Harvin (7852350),Percy Harvin,7852350,3200,PIT@BUF,BUF
-WR,Quinton Patton (7852345),Quinton Patton,7852345,3200,NYJ@SF,SF
-DST,Cardinals  (7852876),Cardinals ,7852876,3200,ARI@MIA,ARI
-WR,Brian Quick (7852282),Brian Quick,7852282,3100,ATL@LA,LA
-WR,Eddie Royal (7852336),Eddie Royal,7852336,3100,CHI@DET,CHI
-DST,Falcons  (7852856),Falcons ,7852856,3100,ATL@LA,ATL
-WR,Aaron Burbridge (7852347),Aaron Burbridge,7852347,3000,NYJ@SF,SF
-RB,Aaron Ripkowski (7852183),Aaron Ripkowski,7852183,3000,SEA@GB,GB
-RB,Akeem Hunt (7852185),Akeem Hunt,7852185,3000,HOU@IND,HOU
-WR,Aldrick Robinson (7852258),Aldrick Robinson,7852258,3000,ATL@LA,ATL
-RB,Alex Collins (7852255),Alex Collins,7852255,3000,SEA@GB,SEA
-WR,Alex Erickson (7852319),Alex Erickson,7852319,3000,CIN@CLE,CIN
-WR,Andre Roberts (7852269),Andre Roberts,7852269,3000,CHI@DET,DET
-WR,Arrelious Benn (7852293),Arrelious Benn,7852293,3000,MIN@JAX,JAX
-WR,Bennie Fowler (7852294),Bennie Fowler,7852294,3000,DEN@TEN,DEN
-RB,Bobby Rainey (7852222),Bobby Rainey,7852222,3000,DAL@NYG,NYG
-WR,Bradley Marquez (7852285),Bradley Marquez,7852285,3000,ATL@LA,LA
-WR,Brandon Coleman (7852272),Brandon Coleman,7852272,3000,NO@TB,NO
-WR,Brandon Tate (7852348),Brandon Tate,7852348,3000,PIT@BUF,BUF
-WR,Braxton Miller (7852306),Braxton Miller,7852306,3000,HOU@IND,HOU
-WR,Brenton Bersin (7852397),Brenton Bersin,7852397,3000,SD@CAR,CAR
-WR,Brittan Golden (7852381),Brittan Golden,7852381,3000,ARI@MIA,ARI
-WR,Bryan Walters (7852291),Bryan Walters,7852291,3000,MIN@JAX,JAX
-WR,Bryce Treggs (7852321),Bryce Treggs,7852321,3000,WAS@PHI,PHI
-RB,Cedric Peerman (7852187),Cedric Peerman,7852187,3000,CIN@CLE,CIN
-RB,Chase Reynolds (7852158),Chase Reynolds,7852158,3000,ATL@LA,LA
-WR,Chris Harper (7852346),Chris Harper,7852346,3000,NYJ@SF,SF
-WR,Cobi Hamilton (7852365),Cobi Hamilton,7852365,3000,PIT@BUF,PIT
-WR,Cody Core (7852323),Cody Core,7852323,3000,CIN@CLE,CIN
-WR,Cody Latimer (7852300),Cody Latimer,7852300,3000,DEN@TEN,DEN
-WR,Corey Brown (7852399),Corey Brown,7852399,3000,SD@CAR,CAR
-RB,Corey Grant (7852171),Corey Grant,7852171,3000,MIN@JAX,JAX
-RB,Daniel Lasco (7852156),Daniel Lasco,7852156,3000,NO@TB,NO
-WR,Darrius Heyward-Bey (7852361),Darrius Heyward-Bey,7852361,3000,PIT@BUF,PIT
-RB,Daryl Richardson (7852227),Daryl Richardson,7852227,3000,PIT@BUF,PIT
-WR,Deonte Thompson (7852337),Deonte Thompson,7852337,3000,CHI@DET,CHI
-RB,Derek Watt (7852243),Derek Watt,7852243,3000,SD@CAR,SD
-WR,Dwayne Harris (7852362),Dwayne Harris,7852362,3000,DAL@NYG,NYG
-WR,Eric Weems (7852256),Eric Weems,7852256,3000,ATL@LA,ATL
-RB,Fozzy Whittaker (7852248),Fozzy Whittaker,7852248,3000,SD@CAR,CAR
-WR,Freddie Martino (7852389),Freddie Martino,7852389,3000,NO@TB,TB
-RB,George Farmer (7852250),George Farmer,7852250,3000,SEA@GB,SEA
-WR,Geremy Davis (7852387),Geremy Davis,7852387,3000,SD@CAR,SD
-WR,Geronimo Allison (7852313),Geronimo Allison,7852313,3000,SEA@GB,GB
-WR,Isaiah Burse (7852388),Isaiah Burse,7852388,3000,SD@CAR,SD
-WR,Jaelen Strong (7852310),Jaelen Strong,7852310,3000,HOU@IND,HOU
-WR,Jake Lampman (7852277),Jake Lampman,7852277,3000,NO@TB,NO
-WR,Jakeem Grant (7852332),Jakeem Grant,7852332,3000,ARI@MIA,MIA
-WR,James Wright (7852316),James Wright,7852316,3000,CIN@CLE,CIN
-RB,Jay Prosch (7852181),Jay Prosch,7852181,3000,HOU@IND,HOU
-WR,Jeff Janis (7852312),Jeff Janis,7852312,3000,SEA@GB,GB
-WR,Jeremy Butler (7852392),Jeremy Butler,7852392,3000,SD@CAR,SD
-WR,Jermaine Kearse (7852396),Jermaine Kearse,7852396,3000,SEA@GB,SEA
-RB,Jerome Felton (7852210),Jerome Felton,7852210,3000,PIT@BUF,BUF
-RB,Joe Kerridge (7852184),Joe Kerridge,7852184,3000,SEA@GB,GB
-RB,John Kuhn (7852148),John Kuhn,7852148,3000,NO@TB,NO
-RB,Jonathan Grimes (7852177),Jonathan Grimes,7852177,3000,HOU@IND,HOU
-RB,Jonathan Williams (7852218),Jonathan Williams,7852218,3000,PIT@BUF,BUF
-WR,Jordan Norwood (7852289),Jordan Norwood,7852289,3000,DEN@TEN,DEN
-WR,Jordan Taylor (7852297),Jordan Taylor,7852297,3000,DEN@TEN,DEN
-WR,Justin Hardy (7852262),Justin Hardy,7852262,3000,ATL@LA,ATL
-WR,Justin Hunter (7852352),Justin Hunter,7852352,3000,PIT@BUF,BUF
-RB,Juwan Thompson (7852170),Juwan Thompson,7852170,3000,DEN@TEN,DEN
-RB,Ka'Deem Carey (7852205),Ka'Deem Carey,7852205,3000,CHI@DET,CHI
-WR,Keith Mumphery (7852304),Keith Mumphery,7852304,3000,HOU@IND,HOU
-RB,Kenyan Drake (7852199),Kenyan Drake,7852199,3000,ARI@MIA,MIA
-RB,Kerwynn Williams (7852231),Kerwynn Williams,7852231,3000,ARI@MIA,ARI
-WR,Leonte Carroo (7852335),Leonte Carroo,7852335,3000,ARI@MIA,MIA
-RB,Mack Brown (7852234),Mack Brown,7852234,3000,WAS@PHI,WAS
-RB,Malcolm Brown (7852165),Malcolm Brown,7852165,3000,ATL@LA,LA
-RB,Marcus Murphy (7852152),Marcus Murphy,7852152,3000,NO@TB,NO
-WR,Marlon Brown (7852295),Marlon Brown,7852295,3000,DEN@TEN,DEN
-WR,Marquis Bundy (7852382),Marquis Bundy,7852382,3000,ARI@MIA,ARI
-WR,Maurice Harris (7852380),Maurice Harris,7852380,3000,WAS@PHI,WAS
-RB,Mike Davis (7852207),Mike Davis,7852207,3000,NYJ@SF,SF
-WR,Mike Thomas (7852288),Mike Thomas,7852288,3000,ATL@LA,LA
-RB,Mike Tolbert (7852246),Mike Tolbert,7852246,3000,SD@CAR,CAR
-RB,Patrick DiMarco (7852139),Patrick DiMarco,7852139,3000,ATL@LA,ATL
-RB,Paul Lasike (7852206),Paul Lasike,7852206,3000,CHI@DET,CHI
-WR,Paul Richardson (7852398),Paul Richardson,7852398,3000,SEA@GB,SEA
-RB,Peyton Barber (7852245),Peyton Barber,7852245,3000,NO@TB,TB
-WR,Pharoh Cooper (7852287),Pharoh Cooper,7852287,3000,ATL@LA,LA
-WR,Rashad Ross (7852378),Rashad Ross,7852378,3000,WAS@PHI,WAS
-RB,Reggie Bush (7852209),Reggie Bush,7852209,3000,PIT@BUF,BUF
-WR,Rod Streater (7852341),Rod Streater,7852341,3000,NYJ@SF,SF
-WR,Roger Lewis (7852370),Roger Lewis,7852370,3000,DAL@NYG,NYG
-RB,Ronnie Hillman (7852241),Ronnie Hillman,7852241,3000,SD@CAR,SD
-RB,Roosevelt Nix (7852226),Roosevelt Nix,7852226,3000,PIT@BUF,PIT
-WR,Ryan Grant (7852376),Ryan Grant,7852376,3000,WAS@PHI,WAS
-WR,Sammie Coates (7852367),Sammie Coates,7852367,3000,PIT@BUF,PIT
-RB,Shaun Draughn (7852201),Shaun Draughn,7852201,3000,NYJ@SF,SF
-RB,Stepfan Taylor (7852230),Stepfan Taylor,7852230,3000,ARI@MIA,ARI
-WR,Tanner McEvoy (7852400),Tanner McEvoy,7852400,3000,SEA@GB,SEA
-WR,Tavarres King (7852364),Tavarres King,7852364,3000,DAL@NYG,NYG
-RB,Terron Ward (7852142),Terron Ward,7852142,3000,ATL@LA,ATL
-WR,Tommylee Lewis (7852275),Tommylee Lewis,7852275,3000,NO@TB,NO
-RB,Travaris Cadet (7852149),Travaris Cadet,7852149,3000,NO@TB,NO
-WR,Trevor Davis (7852309),Trevor Davis,7852309,3000,SEA@GB,GB
-RB,Troymaine Pope (7852253),Troymaine Pope,7852253,3000,SEA@GB,SEA
-RB,Tyler Ervin (7852182),Tyler Ervin,7852182,3000,HOU@IND,HOU
-TE,Vance McDonald (7852459),Vance McDonald,7852459,3000,NYJ@SF,SF
-RB,Will Tukuafu (7852249),Will Tukuafu,7852249,3000,SEA@GB,SEA
-RB,Zach Zenner (7852154),Zach Zenner,7852154,3000,CHI@DET,DET
-DST,Seahawks  (7852880),Seahawks ,7852880,3000,SEA@GB,SEA
-TE,Hunter Henry (7852489),Hunter Henry,7852489,2900,SD@CAR,SD
-DST,Eagles  (7852867),Eagles ,7852867,2900,WAS@PHI,PHI
-DST,Panthers  (7852881),Panthers ,7852881,2900,SD@CAR,CAR
-TE,Julius Thomas (7852428),Julius Thomas,7852428,2800,MIN@JAX,JAX
-TE,Lance Kendricks (7852420),Lance Kendricks,7852420,2800,ATL@LA,LA
-TE,Will Tye (7852471),Will Tye,7852471,2800,DAL@NYG,NYG
-DST,Steelers  (7852875),Steelers ,7852875,2800,PIT@BUF,PIT
-DST,Texans  (7852864),Texans ,7852864,2800,HOU@IND,HOU
-TE,Jared Cook (7852433),Jared Cook,7852433,2700,SEA@GB,GB
-DST,Redskins  (7852877),Redskins ,7852877,2700,WAS@PHI,WAS
-TE,Charles Clay (7852464),Charles Clay,7852464,2600,PIT@BUF,BUF
-TE,Richard Rodgers (7852437),Richard Rodgers,7852437,2600,SEA@GB,GB
-DST,49ers  (7852871),49ers ,7852871,2600,NYJ@SF,SF
-DST,Chargers  (7852878),Chargers ,7852878,2600,SD@CAR,SD
-DST,Dolphins  (7852868),Dolphins ,7852868,2600,ARI@MIA,MIA
-DST,Giants  (7852874),Giants ,7852874,2600,DAL@NYG,NYG
-DST,Packers  (7852865),Packers ,7852865,2600,SEA@GB,GB
-TE,A.J. Derby (7852427),A.J. Derby,7852427,2500,DEN@TEN,DEN
-TE,Alan Cross (7852488),Alan Cross,7852488,2500,NO@TB,TB
-TE,Alex Ellis (7852431),Alex Ellis,7852431,2500,MIN@JAX,JAX
-TE,Asante Cleveland (7852487),Asante Cleveland,7852487,2500,SD@CAR,SD
-TE,Austin Hooper (7852411),Austin Hooper,7852411,2500,ATL@LA,ATL
-TE,Ben Braunecker (7852463),Ben Braunecker,7852463,2500,CHI@DET,CHI
-TE,Ben Koyack (7852432),Ben Koyack,7852432,2500,MIN@JAX,JAX
-TE,Blake Bell (7852460),Blake Bell,7852460,2500,NYJ@SF,SF
-TE,Brandon Myers (7852482),Brandon Myers,7852482,2500,NO@TB,TB
-TE,Brandon Pettigrew (7852412),Brandon Pettigrew,7852412,2500,CHI@DET,DET
-TE,Brandon Williams (7852494),Brandon Williams,7852494,2500,SEA@GB,SEA
-TE,Brent Celek (7852439),Brent Celek,7852439,2500,WAS@PHI,PHI
-TE,C.J. Uzomah (7852446),C.J. Uzomah,7852446,2500,CIN@CLE,CIN
-TE,Chris Manhertz (7852495),Chris Manhertz,7852495,2500,SD@CAR,CAR
-TE,Clay Harbor (7852413),Clay Harbor,7852413,2500,CHI@DET,DET
-TE,Cory Harkey (7852422),Cory Harkey,7852422,2500,ATL@LA,LA
-TE,Daniel Brown (7852462),Daniel Brown,7852462,2500,CHI@DET,CHI
-TE,Darren Fells (7852476),Darren Fells,7852476,2500,ARI@MIA,ARI
-TE,David Johnson (7852468),David Johnson,7852468,2500,PIT@BUF,PIT
-TE,Derek Carrier (7852479),Derek Carrier,7852479,2500,WAS@PHI,WAS
-TE,Dion Sims (7852449),Dion Sims,7852449,2500,ARI@MIA,MIA
-TE,Dominique Jones (7852453),Dominique Jones,7852453,2500,ARI@MIA,MIA
-TE,Ed Dickson (7852492),Ed Dickson,7852492,2500,SD@CAR,CAR
-TE,Garrett Celek (7852458),Garrett Celek,7852458,2500,NYJ@SF,SF
-TE,Hakeem Valles (7852480),Hakeem Valles,7852480,2500,ARI@MIA,ARI
-TE,Je'Ron Hamm (7852461),Je'Ron Hamm,7852461,2500,NYJ@SF,SF
-TE,Jeff Heuerman (7852430),Jeff Heuerman,7852430,2500,DEN@TEN,DEN
-TE,Jerell Adams (7852474),Jerell Adams,7852474,2500,DAL@NYG,NYG
-TE,Jermaine Gresham (7852477),Jermaine Gresham,7852477,2500,ARI@MIA,ARI
-TE,Jesse James (7852473),Jesse James,7852473,2500,PIT@BUF,PIT
-TE,John Phillips (7852414),John Phillips,7852414,2500,NO@TB,NO
-TE,Josh Hill (7852417),Josh Hill,7852417,2500,NO@TB,NO
-TE,Joshua Perkins (7852410),Joshua Perkins,7852410,2500,ATL@LA,ATL
-TE,Larry Donnell (7852469),Larry Donnell,7852469,2500,DAL@NYG,NYG
-TE,Levine Toilolo (7852406),Levine Toilolo,7852406,2500,ATL@LA,ATL
-TE,Logan Paulsen (7852455),Logan Paulsen,7852455,2500,CHI@DET,CHI
-TE,Luke Stocker (7852484),Luke Stocker,7852484,2500,NO@TB,TB
-TE,Luke Willson (7852493),Luke Willson,7852493,2500,SEA@GB,SEA
-TE,MarQueis Gray (7852448),MarQueis Gray,7852448,2500,ARI@MIA,MIA
-TE,Matthew Mulligan (7852415),Matthew Mulligan,7852415,2500,CHI@DET,DET
-TE,Neal Sterling (7852429),Neal Sterling,7852429,2500,MIN@JAX,JAX
-TE,Nick O'Leary (7852467),Nick O'Leary,7852467,2500,PIT@BUF,BUF
-TE,Nick Vannett (7852496),Nick Vannett,7852496,2500,SEA@GB,SEA
-TE,Ryan Griffin (7852434),Ryan Griffin,7852434,2500,HOU@IND,HOU
-TE,Ryan Hewitt (7852441),Ryan Hewitt,7852441,2500,CIN@CLE,CIN
-TE,Sean McGrath (7852485),Sean McGrath,7852485,2500,SD@CAR,SD
-TE,Stephen Anderson (7852436),Stephen Anderson,7852436,2500,HOU@IND,HOU
-TE,Temarrick Hemingway (7852425),Temarrick Hemingway,7852425,2500,ATL@LA,LA
-TE,Thomas Duarte (7852454),Thomas Duarte,7852454,2500,ARI@MIA,MIA
-TE,Trey Burton (7852443),Trey Burton,7852443,2500,WAS@PHI,PHI
-TE,Tyler Higbee (7852424),Tyler Higbee,7852424,2500,ATL@LA,LA
-TE,Tyler Kroft (7852445),Tyler Kroft,7852445,2500,CIN@CLE,CIN
-TE,Virgil Green (7852426),Virgil Green,7852426,2500,DEN@TEN,DEN
-TE,Xavier Grimble (7852472),Xavier Grimble,7852472,2500,PIT@BUF,PIT
-DST,Bills  (7852872),Bills ,7852872,2500,PIT@BUF,BUF
-DST,Jaguars  (7852863),Jaguars ,7852863,2500,MIN@JAX,JAX
-DST,Rams  (7852860),Rams ,7852860,2500,ATL@LA,LA
-DST,Buccaneers  (7852879),Buccaneers ,7852879,2400,NO@TB,TB
-DST,Saints  (7852859),Saints ,7852859,2400,NO@TB,NO
-DST,Bears  (7852870),Bears ,7852870,2300,CHI@DET,CHI
+RB,David Johnson,David Johnson,9800,9800,ARI@MIA,ARI
+RB,Le'Veon Bell,Le'Veon Bell,9000,9000,PIT@BUF,PIT
+WR,Mike Evans,Mike Evans,8900,8900,NO@TB,TB
+WR,Antonio Brown,Antonio Brown,8700,8700,PIT@BUF,PIT
+WR,Julio Jones,Julio Jones,8500,8500,ATL@LA,ATL
+RB,Ezekiel Elliott,Ezekiel Elliott,8400,8400,DAL@NYG,DAL
+RB,LeSean McCoy,LeSean McCoy,8200,8200,PIT@BUF,BUF
+WR,Odell Beckham Jr.,Odell Beckham Jr.,8000,8000,DAL@NYG,NYG
+WR,A.J. Green,A.J. Green,7700,7700,CIN@CLE,CIN
+WR,T.Y. Hilton,T.Y. Hilton,7500,7500,HOU@IND,IND
+QB,Drew Brees,Drew Brees,7400,7400,NO@TB,NO
+RB,Melvin Gordon,Melvin Gordon,7400,7400,SD@CAR,SD
+QB,Cam Newton,Cam Newton,7200,7200,SD@CAR,CAR
+WR,Larry Fitzgerald,Larry Fitzgerald,7100,7100,ARI@MIA,ARI
+RB,DeMarco Murray,DeMarco Murray,7000,7000,DEN@TEN,TEN
+WR,Brandon Marshall,Brandon Marshall,7000,7000,NYJ@SF,NYJ
+QB,Ben Roethlisberger,Ben Roethlisberger,7000,7000,PIT@BUF,PIT
+QB,Andrew Luck,Andrew Luck,6900,6900,HOU@IND,IND
+WR,Dez Bryant,Dez Bryant,6900,6900,DAL@NYG,DAL
+RB,Matt Forte,Matt Forte,6800,6800,NYJ@SF,NYJ
+WR,Jordy Nelson,Jordy Nelson,6800,6800,SEA@GB,GB
+QB,Matthew Stafford,Matthew Stafford,6800,6800,CHI@DET,DET
+WR,Doug Baldwin,Doug Baldwin,6800,6800,SEA@GB,SEA
+WR,Michael Thomas,Michael Thomas,6700,6700,NO@TB,NO
+QB,Jameis Winston,Jameis Winston,6700,6700,NO@TB,TB
+QB,Philip Rivers,Philip Rivers,6600,6600,SD@CAR,SD
+WR,Golden Tate,Golden Tate,6600,6600,CHI@DET,DET
+QB,Russell Wilson,Russell Wilson,6600,6600,SEA@GB,SEA
+QB,Matt Ryan,Matt Ryan,6500,6500,ATL@LA,ATL
+WR,Stefon Diggs,Stefon Diggs,6500,6500,MIN@JAX,MIN
+QB,Aaron Rodgers,Aaron Rodgers,6400,6400,SEA@GB,GB
+WR,Brandin Cooks,Brandin Cooks,6400,6400,NO@TB,NO
+RB,Jordan Howard,Jordan Howard,6400,6400,CHI@DET,CHI
+WR,Donte Moncrief,Donte Moncrief,6300,6300,HOU@IND,IND
+QB,Kirk Cousins,Kirk Cousins,6300,6300,WAS@PHI,WAS
+RB,Doug Martin,Doug Martin,6200,6200,NO@TB,TB
+WR,Kelvin Benjamin,Kelvin Benjamin,6200,6200,SD@CAR,CAR
+QB,Marcus Mariota,Marcus Mariota,6200,6200,DEN@TEN,TEN
+QB,Andy Dalton,Andy Dalton,6100,6100,CIN@CLE,CIN
+WR,Tyrell Williams,Tyrell Williams,6100,6100,SD@CAR,SD
+RB,Devonta Freeman,Devonta Freeman,6100,6100,ATL@LA,ATL
+WR,Demaryius Thomas,Demaryius Thomas,6000,6000,DEN@TEN,DEN
+TE,Tyler Eifert,Tyler Eifert,6000,6000,CIN@CLE,CIN
+WR,Alshon Jeffery,Alshon Jeffery,6000,6000,CHI@DET,CHI
+TE,Jordan Reed,Jordan Reed,5900,5900,WAS@PHI,WAS
+QB,Dak Prescott,Dak Prescott,5900,5900,DAL@NYG,DAL
+RB,Jay Ajayi,Jay Ajayi,5900,5900,ARI@MIA,MIA
+WR,Terrelle Pryor,Terrelle Pryor,5900,5900,CIN@CLE,CLE
+WR,DeAndre Hopkins,DeAndre Hopkins,5800,5800,HOU@IND,HOU
+RB,Jeremy Hill,Jeremy Hill,5800,5800,CIN@CLE,CIN
+QB,Colin Kaepernick,Colin Kaepernick,5800,5800,NYJ@SF,SF
+QB,Carson Palmer,Carson Palmer,5700,5700,ARI@MIA,ARI
+RB,Thomas Rawls,Thomas Rawls,5700,5700,SEA@GB,SEA
+WR,Emmanuel Sanders,Emmanuel Sanders,5700,5700,DEN@TEN,DEN
+WR,Jarvis Landry,Jarvis Landry,5600,5600,ARI@MIA,MIA
+RB,DeAngelo Williams,DeAngelo Williams,5600,5600,PIT@BUF,PIT
+QB,Ryan Fitzpatrick,Ryan Fitzpatrick,5600,5600,NYJ@SF,NYJ
+RB,Jacquizz Rodgers,Jacquizz Rodgers,5600,5600,NO@TB,TB
+WR,Jamison Crowder,Jamison Crowder,5600,5600,WAS@PHI,WAS
+QB,Eli Manning,Eli Manning,5500,5500,DAL@NYG,NYG
+RB,Theo Riddick,Theo Riddick,5500,5500,CHI@DET,DET
+WR,Davante Adams,Davante Adams,5500,5500,SEA@GB,GB
+TE,Jimmy Graham,Jimmy Graham,5500,5500,SEA@GB,SEA
+WR,Jordan Matthews,Jordan Matthews,5400,5400,WAS@PHI,PHI
+RB,Jonathan Stewart,Jonathan Stewart,5400,5400,SD@CAR,CAR
+QB,Tyrod Taylor,Tyrod Taylor,5400,5400,PIT@BUF,BUF
+WR,Sammy Watkins,Sammy Watkins,5300,5300,PIT@BUF,BUF
+QB,Brock Osweiler,Brock Osweiler,5300,5300,HOU@IND,HOU
+RB,Mark Ingram,Mark Ingram,5300,5300,NO@TB,NO
+WR,DeVante Parker,DeVante Parker,5300,5300,ARI@MIA,MIA
+RB,Derrick Henry,Derrick Henry,5200,5200,DEN@TEN,TEN
+WR,DeSean Jackson,DeSean Jackson,5200,5200,WAS@PHI,WAS
+QB,Ryan Tannehill,Ryan Tannehill,5200,5200,ARI@MIA,MIA
+WR,Kenny Britt,Kenny Britt,5200,5200,ATL@LA,LA
+WR,Cole Beasley,Cole Beasley,5200,5200,DAL@NYG,DAL
+WR,Willie Snead,Willie Snead,5200,5200,NO@TB,NO
+WR,Rishard Matthews,Rishard Matthews,5100,5100,DEN@TEN,TEN
+QB,Carson Wentz,Carson Wentz,5100,5100,WAS@PHI,PHI
+RB,Lamar Miller,Lamar Miller,5100,5100,HOU@IND,HOU
+QB,Sam Bradford,Sam Bradford,5100,5100,MIN@JAX,MIN
+QB,Tony Romo,Tony Romo,5100,5100,DAL@NYG,DAL
+QB,Trevor Siemian,Trevor Siemian,5100,5100,DEN@TEN,DEN
+QB,Landry Jones,Landry Jones,5000,5000,PIT@BUF,PIT
+QB,EJ Manuel,EJ Manuel,5000,5000,PIT@BUF,BUF
+QB,Zach Mettenberger,Zach Mettenberger,5000,5000,PIT@BUF,PIT
+QB,Cardale Jones,Cardale Jones,5000,5000,PIT@BUF,BUF
+QB,Matt Cassel,Matt Cassel,5000,5000,DEN@TEN,TEN
+QB,Austin Davis,Austin Davis,5000,5000,DEN@TEN,DEN
+QB,Paxton Lynch,Paxton Lynch,5000,5000,DEN@TEN,DEN
+QB,Luke McCown,Luke McCown,5000,5000,NO@TB,NO
+QB,Mike Glennon,Mike Glennon,5000,5000,NO@TB,TB
+QB,Ryan Griffin,Ryan Griffin,5000,5000,NO@TB,TB
+QB,Chase Daniel,Chase Daniel,5000,5000,WAS@PHI,PHI
+QB,Colt McCoy,Colt McCoy,5000,5000,WAS@PHI,WAS
+QB,Nate Sudfeld,Nate Sudfeld,5000,5000,WAS@PHI,WAS
+QB,Matt Moore,Matt Moore,5000,5000,ARI@MIA,MIA
+QB,Drew Stanton,Drew Stanton,5000,5000,ARI@MIA,ARI
+QB,Derek Anderson,Derek Anderson,5000,5000,SD@CAR,CAR
+QB,Kellen Clemens,Kellen Clemens,5000,5000,SD@CAR,SD
+QB,Joe Webb,Joe Webb,5000,5000,SD@CAR,CAR
+TE,Greg Olsen,Greg Olsen,5000,5000,SD@CAR,CAR
+QB,Josh McCown,Josh McCown,5000,5000,CIN@CLE,CLE
+QB,Robert Griffin,Robert Griffin,5000,5000,CIN@CLE,CLE
+QB,AJ McCarron,AJ McCarron,5000,5000,CIN@CLE,CIN
+QB,Cody Kessler,Cody Kessler,5000,5000,CIN@CLE,CLE
+QB,Jeff Driskel,Jeff Driskel,5000,5000,CIN@CLE,CIN
+QB,Kevin Hogan,Kevin Hogan,5000,5000,CIN@CLE,CLE
+WR,Brandon LaFell,Brandon LaFell,5000,5000,CIN@CLE,CIN
+QB,Jay Cutler,Jay Cutler,5000,5000,CHI@DET,CHI
+QB,Dan Orlovsky,Dan Orlovsky,5000,5000,CHI@DET,DET
+QB,Matt Barkley,Matt Barkley,5000,5000,CHI@DET,CHI
+QB,David Fales,David Fales,5000,5000,CHI@DET,CHI
+QB,Jake Rudock,Jake Rudock,5000,5000,CHI@DET,DET
+RB,Ameer Abdullah,Ameer Abdullah,5000,5000,CHI@DET,DET
+QB,Scott Tolzien,Scott Tolzien,5000,5000,HOU@IND,IND
+QB,Brandon Weeden,Brandon Weeden,5000,5000,HOU@IND,HOU
+QB,Tom Savage,Tom Savage,5000,5000,HOU@IND,HOU
+QB,Shaun Hill,Shaun Hill,5000,5000,MIN@JAX,MIN
+QB,Chad Henne,Chad Henne,5000,5000,MIN@JAX,JAX
+QB,Taylor Heinicke,Taylor Heinicke,5000,5000,MIN@JAX,MIN
+QB,Brandon Allen,Brandon Allen,5000,5000,MIN@JAX,JAX
+RB,Adrian Peterson,Adrian Peterson,5000,5000,MIN@JAX,MIN
+WR,Allen Robinson,Allen Robinson,5000,5000,MIN@JAX,JAX
+QB,Christian Ponder,Christian Ponder,5000,5000,NYJ@SF,SF
+QB,Blaine Gabbert,Blaine Gabbert,5000,5000,NYJ@SF,SF
+QB,Bryce Petty,Bryce Petty,5000,5000,NYJ@SF,NYJ
+QB,Christian Hackenberg,Christian Hackenberg,5000,5000,NYJ@SF,NYJ
+RB,Bilal Powell,Bilal Powell,5000,5000,NYJ@SF,NYJ
+QB,Matt Schaub,Matt Schaub,5000,5000,ATL@LA,ATL
+QB,Case Keenum,Case Keenum,5000,5000,ATL@LA,LA
+QB,Sean Mannion,Sean Mannion,5000,5000,ATL@LA,LA
+QB,Jared Goff,Jared Goff,5000,5000,ATL@LA,LA
+RB,Todd Gurley,Todd Gurley,5000,5000,ATL@LA,LA
+QB,Brett Hundley,Brett Hundley,5000,5000,SEA@GB,GB
+QB,Trevone Boykin,Trevone Boykin,5000,5000,SEA@GB,SEA
+WR,Randall Cobb,Randall Cobb,5000,5000,SEA@GB,GB
+QB,Josh Johnson,Josh Johnson,5000,5000,DAL@NYG,NYG
+QB,Mark Sanchez,Mark Sanchez,5000,5000,DAL@NYG,DAL
+QB,Ryan Nassib,Ryan Nassib,5000,5000,DAL@NYG,NYG
+QB,Blake Bortles,Blake Bortles,5000,5000,MIN@JAX,JAX
+WR,Tyler Boyd,Tyler Boyd,4900,4900,CIN@CLE,CIN
+WR,Marvin Jones Jr.,Marvin Jones Jr.,4900,4900,CHI@DET,DET
+RB,Carlos Hyde,Carlos Hyde,4900,4900,NYJ@SF,SF
+WR,Quincy Enunwa,Quincy Enunwa,4900,4900,NYJ@SF,NYJ
+RB,Rashad Jennings,Rashad Jennings,4900,4900,DAL@NYG,NYG
+RB,Alfred Morris,Alfred Morris,4900,4900,DAL@NYG,DAL
+TE,Zach Ertz,Zach Ertz,4900,4900,WAS@PHI,PHI
+WR,Dontrelle Inman,Dontrelle Inman,4800,4800,SD@CAR,SD
+RB,Frank Gore,Frank Gore,4800,4800,HOU@IND,IND
+RB,Devontae Booker,Devontae Booker,4800,4800,DEN@TEN,DEN
+RB,C.J. Prosise,C.J. Prosise,4700,4700,SEA@GB,SEA
+WR,Adam Thielen,Adam Thielen,4700,4700,MIN@JAX,MIN
+WR,Sterling Shepard,Sterling Shepard,4600,4600,DAL@NYG,NYG
+RB,Mike Gillislee,Mike Gillislee,4600,4600,PIT@BUF,BUF
+RB,Tim Hightower,Tim Hightower,4500,4500,NO@TB,NO
+WR,Anquan Boldin,Anquan Boldin,4500,4500,CHI@DET,DET
+WR,Will Fuller,Will Fuller,4500,4500,HOU@IND,HOU
+TE,Delanie Walker,Delanie Walker,4400,4400,DEN@TEN,TEN
+WR,Corey Coleman,Corey Coleman,4400,4400,CIN@CLE,CLE
+RB,Alfred Blue,Alfred Blue,4400,4400,HOU@IND,HOU
+RB,Darren Sproles,Darren Sproles,4400,4400,WAS@PHI,PHI
+RB,Fitzgerald Toussaint,Fitzgerald Toussaint,4300,4300,PIT@BUF,PIT
+WR,Taylor Gabriel,Taylor Gabriel,4300,4300,ATL@LA,ATL
+RB,Rob Kelley,Rob Kelley,4200,4200,WAS@PHI,WAS
+WR,Pierre Garcon,Pierre Garcon,4200,4200,WAS@PHI,WAS
+WR,Mohamed Sanu,Mohamed Sanu,4200,4200,ATL@LA,ATL
+RB,Jeremy Langford,Jeremy Langford,4100,4100,CHI@DET,CHI
+WR,Travis Benjamin,Travis Benjamin,4100,4100,SD@CAR,SD
+TE,Cameron Brate,Cameron Brate,4100,4100,NO@TB,TB
+RB,Kapri Bibbs,Kapri Bibbs,4000,4000,DEN@TEN,DEN
+WR,Ted Ginn Jr.,Ted Ginn Jr.,4000,4000,SD@CAR,CAR
+WR,Cameron Meredith,Cameron Meredith,4000,4000,CHI@DET,CHI
+TE,Kyle Rudolph,Kyle Rudolph,4000,4000,MIN@JAX,MIN
+RB,Benny Cunningham,Benny Cunningham,4000,4000,ATL@LA,LA
+RB,Tevin Coleman,Tevin Coleman,4000,4000,ATL@LA,ATL
+RB,Shane Vereen,Shane Vereen,4000,4000,DAL@NYG,NYG
+RB,Charles Sims,Charles Sims,4000,4000,NO@TB,TB
+RB,Ryan Mathews,Ryan Mathews,4000,4000,WAS@PHI,PHI
+WR,Robert Woods,Robert Woods,3900,3900,PIT@BUF,BUF
+RB,Damien Williams,Damien Williams,3900,3900,ARI@MIA,MIA
+WR,Michael Floyd,Michael Floyd,3900,3900,ARI@MIA,ARI
+RB,Isaiah Crowell,Isaiah Crowell,3900,3900,CIN@CLE,CLE
+TE,C.J. Fiedorowicz,C.J. Fiedorowicz,3900,3900,HOU@IND,HOU
+TE,Ladarius Green,Ladarius Green,3900,3900,PIT@BUF,PIT
+RB,DuJuan Harris,DuJuan Harris,3900,3900,NYJ@SF,SF
+WR,Tavon Austin,Tavon Austin,3900,3900,ATL@LA,LA
+WR,Ty Montgomery,Ty Montgomery,3900,3900,SEA@GB,GB
+DST,Vikings ,Vikings ,3900,3900,MIN@JAX,MIN
+RB,Wendell Smallwood,Wendell Smallwood,3800,3800,WAS@PHI,PHI
+WR,John Brown,John Brown,3800,3800,ARI@MIA,ARI
+RB,Cameron Artis-Payne,Cameron Artis-Payne,3800,3800,SD@CAR,CAR
+WR,Eli Rogers,Eli Rogers,3800,3800,PIT@BUF,PIT
+WR,Marquess Wilson,Marquess Wilson,3800,3800,CHI@DET,CHI
+TE,Eric Ebron,Eric Ebron,3800,3800,CHI@DET,DET
+RB,T.J. Yeldon,T.J. Yeldon,3800,3800,MIN@JAX,JAX
+RB,James Starks,James Starks,3800,3800,SEA@GB,GB
+RB,Paul Perkins,Paul Perkins,3800,3800,DAL@NYG,NYG
+TE,Antonio Gates,Antonio Gates,3800,3800,SD@CAR,SD
+DST,Broncos ,Broncos ,3800,3800,DEN@TEN,DEN
+WR,Adam Humphries,Adam Humphries,3700,3700,NO@TB,TB
+RB,Chris Thompson,Chris Thompson,3700,3700,WAS@PHI,WAS
+WR,Paul Turner,Paul Turner,3700,3700,WAS@PHI,PHI
+WR,Kenny Stills,Kenny Stills,3700,3700,ARI@MIA,MIA
+RB,Kenneth Farrow,Kenneth Farrow,3700,3700,SD@CAR,SD
+RB,Chris Ivory,Chris Ivory,3700,3700,MIN@JAX,JAX
+WR,Marqise Lee,Marqise Lee,3700,3700,MIN@JAX,JAX
+WR,Tyler Lockett,Tyler Lockett,3700,3700,SEA@GB,SEA
+TE,Coby Fleener,Coby Fleener,3700,3700,NO@TB,NO
+WR,Dorial Green-Beckham,Dorial Green-Beckham,3600,3600,WAS@PHI,PHI
+RB,Jerick McKinnon,Jerick McKinnon,3600,3600,MIN@JAX,MIN
+WR,Cordarrelle Patterson,Cordarrelle Patterson,3600,3600,MIN@JAX,MIN
+RB,Kenjon Barner,Kenjon Barner,3600,3600,WAS@PHI,PHI
+WR,J.J. Nelson,J.J. Nelson,3600,3600,ARI@MIA,ARI
+DST,Lions ,Lions ,3600,3600,CHI@DET,DET
+WR,Russell Shepard,Russell Shepard,3500,3500,NO@TB,TB
+TE,Vernon Davis,Vernon Davis,3500,3500,WAS@PHI,WAS
+RB,Andre Ellington,Andre Ellington,3500,3500,ARI@MIA,ARI
+RB,Rex Burkhead,Rex Burkhead,3500,3500,CIN@CLE,CIN
+RB,Duke Johnson,Duke Johnson,3500,3500,CIN@CLE,CLE
+RB,Dwayne Washington,Dwayne Washington,3500,3500,CHI@DET,DET
+WR,Josh Bellamy,Josh Bellamy,3500,3500,CHI@DET,CHI
+WR,Torrey Smith,Torrey Smith,3500,3500,NYJ@SF,SF
+DST,Bengals ,Bengals ,3500,3500,CIN@CLE,CIN
+WR,Tajae Sharpe,Tajae Sharpe,3400,3400,DEN@TEN,TEN
+WR,Marquise Goodwin,Marquise Goodwin,3400,3400,PIT@BUF,BUF
+WR,Allen Hurns,Allen Hurns,3400,3400,MIN@JAX,JAX
+WR,Jeremy Kerley,Jeremy Kerley,3400,3400,NYJ@SF,SF
+RB,Matt Jones,Matt Jones,3400,3400,WAS@PHI,WAS
+WR,Kendall Wright,Kendall Wright,3300,3300,DEN@TEN,TEN
+TE,Gary Barnidge,Gary Barnidge,3300,3300,CIN@CLE,CLE
+RB,Robert Turbin,Robert Turbin,3300,3300,HOU@IND,IND
+RB,Matt Asiata,Matt Asiata,3300,3300,MIN@JAX,MIN
+RB,Christine Michael,Christine Michael,3300,3300,SEA@GB,GB
+WR,Victor Cruz,Victor Cruz,3300,3300,DAL@NYG,NYG
+WR,Devin Funchess,Devin Funchess,3300,3300,SD@CAR,CAR
+DST,Titans ,Titans ,3300,3300,DEN@TEN,TEN
+WR,Percy Harvin,Percy Harvin,3200,3200,PIT@BUF,BUF
+WR,Nelson Agholor,Nelson Agholor,3200,3200,WAS@PHI,PHI
+WR,T.J. Jones,T.J. Jones,3200,3200,CHI@DET,DET
+WR,Phillip Dorsett,Phillip Dorsett,3200,3200,HOU@IND,IND
+RB,Denard Robinson,Denard Robinson,3200,3200,MIN@JAX,JAX
+WR,Quinton Patton,Quinton Patton,3200,3200,NYJ@SF,SF
+WR,Terrance Williams,Terrance Williams,3200,3200,DAL@NYG,DAL
+DST,Cardinals ,Cardinals ,3200,3200,ARI@MIA,ARI
+WR,Eddie Royal,Eddie Royal,3100,3100,CHI@DET,CHI
+WR,Brian Quick,Brian Quick,3100,3100,ATL@LA,LA
+TE,Jason Witten,Jason Witten,3100,3100,DAL@NYG,DAL
+DST,Jets ,Jets ,3100,3100,NYJ@SF,NYJ
+DST,Falcons ,Falcons ,3100,3100,ATL@LA,ATL
+RB,Reggie Bush,Reggie Bush,3000,3000,PIT@BUF,BUF
+RB,Jerome Felton,Jerome Felton,3000,3000,PIT@BUF,BUF
+RB,Roosevelt Nix,Roosevelt Nix,3000,3000,PIT@BUF,PIT
+RB,Daryl Richardson,Daryl Richardson,3000,3000,PIT@BUF,PIT
+RB,Jonathan Williams,Jonathan Williams,3000,3000,PIT@BUF,BUF
+WR,Darrius Heyward-Bey,Darrius Heyward-Bey,3000,3000,PIT@BUF,PIT
+WR,Brandon Tate,Brandon Tate,3000,3000,PIT@BUF,BUF
+WR,Cobi Hamilton,Cobi Hamilton,3000,3000,PIT@BUF,PIT
+WR,Justin Hunter,Justin Hunter,3000,3000,PIT@BUF,BUF
+WR,Sammie Coates,Sammie Coates,3000,3000,PIT@BUF,PIT
+WR,Dezmin Lewis,Dezmin Lewis,3000,3000,PIT@BUF,BUF
+RB,Jalston Fowler,Jalston Fowler,3000,3000,DEN@TEN,TEN
+RB,Juwan Thompson,Juwan Thompson,3000,3000,DEN@TEN,DEN
+RB,David Fluellen,David Fluellen,3000,3000,DEN@TEN,TEN
+RB,Antonio Andrews,Antonio Andrews,3000,3000,DEN@TEN,TEN
+WR,Harry Douglas,Harry Douglas,3000,3000,DEN@TEN,TEN
+WR,Jordan Norwood,Jordan Norwood,3000,3000,DEN@TEN,DEN
+WR,Marc Mariani,Marc Mariani,3000,3000,DEN@TEN,TEN
+WR,Bennie Fowler,Bennie Fowler,3000,3000,DEN@TEN,DEN
+WR,Marlon Brown,Marlon Brown,3000,3000,DEN@TEN,DEN
+WR,Jordan Taylor,Jordan Taylor,3000,3000,DEN@TEN,DEN
+WR,Tre McBride,Tre McBride,3000,3000,DEN@TEN,TEN
+WR,Cody Latimer,Cody Latimer,3000,3000,DEN@TEN,DEN
+WR,Kalif Raymond,Kalif Raymond,3000,3000,DEN@TEN,DEN
+RB,John Kuhn,John Kuhn,3000,3000,NO@TB,NO
+RB,Travaris Cadet,Travaris Cadet,3000,3000,NO@TB,NO
+RB,Marcus Murphy,Marcus Murphy,3000,3000,NO@TB,NO
+RB,Daniel Lasco,Daniel Lasco,3000,3000,NO@TB,NO
+RB,Peyton Barber,Peyton Barber,3000,3000,NO@TB,TB
+WR,Brandon Coleman,Brandon Coleman,3000,3000,NO@TB,NO
+WR,Cecil Shorts,Cecil Shorts,3000,3000,NO@TB,TB
+WR,Freddie Martino,Freddie Martino,3000,3000,NO@TB,TB
+WR,Tommylee Lewis,Tommylee Lewis,3000,3000,NO@TB,NO
+WR,Jake Lampman,Jake Lampman,3000,3000,NO@TB,NO
+RB,Mack Brown,Mack Brown,3000,3000,WAS@PHI,WAS
+WR,Ryan Grant,Ryan Grant,3000,3000,WAS@PHI,WAS
+WR,Rashad Ross,Rashad Ross,3000,3000,WAS@PHI,WAS
+WR,Maurice Harris,Maurice Harris,3000,3000,WAS@PHI,WAS
+WR,Bryce Treggs,Bryce Treggs,3000,3000,WAS@PHI,PHI
+RB,Stepfan Taylor,Stepfan Taylor,3000,3000,ARI@MIA,ARI
+RB,Kerwynn Williams,Kerwynn Williams,3000,3000,ARI@MIA,ARI
+RB,Kenyan Drake,Kenyan Drake,3000,3000,ARI@MIA,MIA
+WR,Rashawn Scott,Rashawn Scott,3000,3000,ARI@MIA,MIA
+WR,Jakeem Grant,Jakeem Grant,3000,3000,ARI@MIA,MIA
+WR,Brittan Golden,Brittan Golden,3000,3000,ARI@MIA,ARI
+WR,Marquis Bundy,Marquis Bundy,3000,3000,ARI@MIA,ARI
+WR,Leonte Carroo,Leonte Carroo,3000,3000,ARI@MIA,MIA
+RB,Mike Tolbert,Mike Tolbert,3000,3000,SD@CAR,CAR
+RB,Fozzy Whittaker,Fozzy Whittaker,3000,3000,SD@CAR,CAR
+RB,Ronnie Hillman,Ronnie Hillman,3000,3000,SD@CAR,SD
+RB,Derek Watt,Derek Watt,3000,3000,SD@CAR,SD
+WR,Brenton Bersin,Brenton Bersin,3000,3000,SD@CAR,CAR
+WR,Geremy Davis,Geremy Davis,3000,3000,SD@CAR,SD
+WR,Isaiah Burse,Isaiah Burse,3000,3000,SD@CAR,SD
+WR,Corey Brown,Corey Brown,3000,3000,SD@CAR,CAR
+WR,Jeremy Butler,Jeremy Butler,3000,3000,SD@CAR,SD
+RB,Cedric Peerman,Cedric Peerman,3000,3000,CIN@CLE,CIN
+RB,George Atkinson,George Atkinson,3000,3000,CIN@CLE,CLE
+WR,Andrew Hawkins,Andrew Hawkins,3000,3000,CIN@CLE,CLE
+WR,James Wright,James Wright,3000,3000,CIN@CLE,CIN
+WR,Alex Erickson,Alex Erickson,3000,3000,CIN@CLE,CIN
+WR,Jordan Payton,Jordan Payton,3000,3000,CIN@CLE,CLE
+WR,Ricardo Louis,Ricardo Louis,3000,3000,CIN@CLE,CLE
+WR,Cody Core,Cody Core,3000,3000,CIN@CLE,CIN
+WR,Rashard Higgins,Rashard Higgins,3000,3000,CIN@CLE,CLE
+RB,Mike Burton,Mike Burton,3000,3000,CHI@DET,DET
+RB,Zach Zenner,Zach Zenner,3000,3000,CHI@DET,DET
+RB,Ka'Deem Carey,Ka'Deem Carey,3000,3000,CHI@DET,CHI
+RB,Paul Lasike,Paul Lasike,3000,3000,CHI@DET,CHI
+WR,Andre Roberts,Andre Roberts,3000,3000,CHI@DET,DET
+WR,Deonte Thompson,Deonte Thompson,3000,3000,CHI@DET,CHI
+WR,Daniel Braverman,Daniel Braverman,3000,3000,CHI@DET,CHI
+RB,Jonathan Grimes,Jonathan Grimes,3000,3000,HOU@IND,HOU
+RB,Jordan Todman,Jordan Todman,3000,3000,HOU@IND,IND
+RB,Jay Prosch,Jay Prosch,3000,3000,HOU@IND,HOU
+RB,Tyler Ervin,Tyler Ervin,3000,3000,HOU@IND,HOU
+RB,Josh Ferguson,Josh Ferguson,3000,3000,HOU@IND,IND
+RB,Akeem Hunt,Akeem Hunt,3000,3000,HOU@IND,HOU
+WR,Keith Mumphery,Keith Mumphery,3000,3000,HOU@IND,HOU
+WR,Braxton Miller,Braxton Miller,3000,3000,HOU@IND,HOU
+WR,Chester Rogers,Chester Rogers,3000,3000,HOU@IND,IND
+WR,Jaelen Strong,Jaelen Strong,3000,3000,HOU@IND,HOU
+RB,Zach Line,Zach Line,3000,3000,MIN@JAX,MIN
+RB,Corey Grant,Corey Grant,3000,3000,MIN@JAX,JAX
+WR,Bryan Walters,Bryan Walters,3000,3000,MIN@JAX,JAX
+WR,Arrelious Benn,Arrelious Benn,3000,3000,MIN@JAX,JAX
+WR,Charles Johnson,Charles Johnson,3000,3000,MIN@JAX,MIN
+WR,Jarius Wright,Jarius Wright,3000,3000,MIN@JAX,MIN
+WR,Shane Wynn,Shane Wynn,3000,3000,MIN@JAX,JAX
+WR,Laquon Treadwell,Laquon Treadwell,3000,3000,MIN@JAX,MIN
+RB,Shaun Draughn,Shaun Draughn,3000,3000,NYJ@SF,SF
+RB,C.J. Spiller,C.J. Spiller,3000,3000,NYJ@SF,NYJ
+RB,Mike Davis,Mike Davis,3000,3000,NYJ@SF,SF
+WR,Jeremy Ross,Jeremy Ross,3000,3000,NYJ@SF,NYJ
+WR,Rod Streater,Rod Streater,3000,3000,NYJ@SF,SF
+WR,Charone Peake,Charone Peake,3000,3000,NYJ@SF,NYJ
+WR,Devin Smith,Devin Smith,3000,3000,NYJ@SF,NYJ
+WR,Robby Anderson,Robby Anderson,3000,3000,NYJ@SF,NYJ
+WR,Chris Harper,Chris Harper,3000,3000,NYJ@SF,SF
+WR,Aaron Burbridge,Aaron Burbridge,3000,3000,NYJ@SF,SF
+WR,Jalin Marshall,Jalin Marshall,3000,3000,NYJ@SF,NYJ
+TE,Vance McDonald,Vance McDonald,3000,3000,NYJ@SF,SF
+RB,Chase Reynolds,Chase Reynolds,3000,3000,ATL@LA,LA
+RB,Patrick DiMarco,Patrick DiMarco,3000,3000,ATL@LA,ATL
+RB,Terron Ward,Terron Ward,3000,3000,ATL@LA,ATL
+RB,Malcolm Brown,Malcolm Brown,3000,3000,ATL@LA,LA
+WR,Eric Weems,Eric Weems,3000,3000,ATL@LA,ATL
+WR,Aldrick Robinson,Aldrick Robinson,3000,3000,ATL@LA,ATL
+WR,Justin Hardy,Justin Hardy,3000,3000,ATL@LA,ATL
+WR,Bradley Marquez,Bradley Marquez,3000,3000,ATL@LA,LA
+WR,Pharoh Cooper,Pharoh Cooper,3000,3000,ATL@LA,LA
+WR,Mike Thomas,Mike Thomas,3000,3000,ATL@LA,LA
+RB,Will Tukuafu,Will Tukuafu,3000,3000,SEA@GB,SEA
+RB,George Farmer,George Farmer,3000,3000,SEA@GB,SEA
+RB,Aaron Ripkowski,Aaron Ripkowski,3000,3000,SEA@GB,GB
+RB,Joe Kerridge,Joe Kerridge,3000,3000,SEA@GB,GB
+RB,Troymaine Pope,Troymaine Pope,3000,3000,SEA@GB,SEA
+RB,Alex Collins,Alex Collins,3000,3000,SEA@GB,SEA
+WR,Jermaine Kearse,Jermaine Kearse,3000,3000,SEA@GB,SEA
+WR,Paul Richardson,Paul Richardson,3000,3000,SEA@GB,SEA
+WR,Tanner McEvoy,Tanner McEvoy,3000,3000,SEA@GB,SEA
+WR,Trevor Davis,Trevor Davis,3000,3000,SEA@GB,GB
+WR,Jeff Janis,Jeff Janis,3000,3000,SEA@GB,GB
+WR,Geronimo Allison,Geronimo Allison,3000,3000,SEA@GB,GB
+RB,Darren McFadden,Darren McFadden,3000,3000,DAL@NYG,DAL
+RB,Bobby Rainey,Bobby Rainey,3000,3000,DAL@NYG,NYG
+RB,Lance Dunbar,Lance Dunbar,3000,3000,DAL@NYG,DAL
+RB,Keith Smith,Keith Smith,3000,3000,DAL@NYG,DAL
+RB,Darius Jackson,Darius Jackson,3000,3000,DAL@NYG,DAL
+WR,Dwayne Harris,Dwayne Harris,3000,3000,DAL@NYG,NYG
+WR,Tavarres King,Tavarres King,3000,3000,DAL@NYG,NYG
+WR,Brice Butler,Brice Butler,3000,3000,DAL@NYG,DAL
+WR,Lucky Whitehead,Lucky Whitehead,3000,3000,DAL@NYG,DAL
+WR,Vince Mayle,Vince Mayle,3000,3000,DAL@NYG,DAL
+WR,Roger Lewis,Roger Lewis,3000,3000,DAL@NYG,NYG
+DST,Seahawks ,Seahawks ,3000,3000,SEA@GB,SEA
+TE,Hunter Henry,Hunter Henry,2900,2900,SD@CAR,SD
+DST,Eagles ,Eagles ,2900,2900,WAS@PHI,PHI
+DST,Panthers ,Panthers ,2900,2900,SD@CAR,CAR
+TE,Lance Kendricks,Lance Kendricks,2800,2800,ATL@LA,LA
+TE,Will Tye,Will Tye,2800,2800,DAL@NYG,NYG
+TE,Julius Thomas,Julius Thomas,2800,2800,MIN@JAX,JAX
+DST,Texans ,Texans ,2800,2800,HOU@IND,HOU
+DST,Steelers ,Steelers ,2800,2800,PIT@BUF,PIT
+TE,Jack Doyle,Jack Doyle,2700,2700,HOU@IND,IND
+TE,Jared Cook,Jared Cook,2700,2700,SEA@GB,GB
+DST,Redskins ,Redskins ,2700,2700,WAS@PHI,WAS
+DST,Cowboys ,Cowboys ,2700,2700,DAL@NYG,DAL
+TE,Dwayne Allen,Dwayne Allen,2600,2600,HOU@IND,IND
+TE,Richard Rodgers,Richard Rodgers,2600,2600,SEA@GB,GB
+TE,Charles Clay,Charles Clay,2600,2600,PIT@BUF,BUF
+DST,Dolphins ,Dolphins ,2600,2600,ARI@MIA,MIA
+DST,Chargers ,Chargers ,2600,2600,SD@CAR,SD
+DST,Colts ,Colts ,2600,2600,HOU@IND,IND
+DST,49ers ,49ers ,2600,2600,NYJ@SF,SF
+DST,Packers ,Packers ,2600,2600,SEA@GB,GB
+DST,Giants ,Giants ,2600,2600,DAL@NYG,NYG
+TE,David Johnson,David Johnson,2500,2500,PIT@BUF,PIT
+TE,Logan Thomas,Logan Thomas,2500,2500,PIT@BUF,BUF
+TE,Gerald Christian,Gerald Christian,2500,2500,PIT@BUF,BUF
+TE,Xavier Grimble,Xavier Grimble,2500,2500,PIT@BUF,PIT
+TE,Nick O'Leary,Nick O'Leary,2500,2500,PIT@BUF,BUF
+TE,Jesse James,Jesse James,2500,2500,PIT@BUF,PIT
+TE,Anthony Fasano,Anthony Fasano,2500,2500,DEN@TEN,TEN
+TE,Virgil Green,Virgil Green,2500,2500,DEN@TEN,DEN
+TE,A.J. Derby,A.J. Derby,2500,2500,DEN@TEN,DEN
+TE,Jeff Heuerman,Jeff Heuerman,2500,2500,DEN@TEN,DEN
+TE,Jace Amaro,Jace Amaro,2500,2500,DEN@TEN,TEN
+TE,Phillip Supernaw,Phillip Supernaw,2500,2500,DEN@TEN,TEN
+TE,Brandon Myers,Brandon Myers,2500,2500,NO@TB,TB
+TE,John Phillips,John Phillips,2500,2500,NO@TB,NO
+TE,Luke Stocker,Luke Stocker,2500,2500,NO@TB,TB
+TE,Josh Hill,Josh Hill,2500,2500,NO@TB,NO
+TE,Alan Cross,Alan Cross,2500,2500,NO@TB,TB
+TE,Brent Celek,Brent Celek,2500,2500,WAS@PHI,PHI
+TE,Trey Burton,Trey Burton,2500,2500,WAS@PHI,PHI
+TE,Derek Carrier,Derek Carrier,2500,2500,WAS@PHI,WAS
+TE,Darren Fells,Darren Fells,2500,2500,ARI@MIA,ARI
+TE,Jermaine Gresham,Jermaine Gresham,2500,2500,ARI@MIA,ARI
+TE,MarQueis Gray,MarQueis Gray,2500,2500,ARI@MIA,MIA
+TE,Dion Sims,Dion Sims,2500,2500,ARI@MIA,MIA
+TE,Dominique Jones,Dominique Jones,2500,2500,ARI@MIA,MIA
+TE,Hakeem Valles,Hakeem Valles,2500,2500,ARI@MIA,ARI
+TE,Thomas Duarte,Thomas Duarte,2500,2500,ARI@MIA,MIA
+TE,Ed Dickson,Ed Dickson,2500,2500,SD@CAR,CAR
+TE,Sean McGrath,Sean McGrath,2500,2500,SD@CAR,SD
+TE,Asante Cleveland,Asante Cleveland,2500,2500,SD@CAR,SD
+TE,Chris Manhertz,Chris Manhertz,2500,2500,SD@CAR,CAR
+TE,Ryan Hewitt,Ryan Hewitt,2500,2500,CIN@CLE,CIN
+TE,Randall Telfer,Randall Telfer,2500,2500,CIN@CLE,CLE
+TE,Tyler Kroft,Tyler Kroft,2500,2500,CIN@CLE,CIN
+TE,C.J. Uzomah,C.J. Uzomah,2500,2500,CIN@CLE,CIN
+TE,Seth DeValve,Seth DeValve,2500,2500,CIN@CLE,CLE
+TE,Danny Vitale,Danny Vitale,2500,2500,CIN@CLE,CLE
+TE,Brandon Pettigrew,Brandon Pettigrew,2500,2500,CHI@DET,DET
+TE,Clay Harbor,Clay Harbor,2500,2500,CHI@DET,DET
+TE,Logan Paulsen,Logan Paulsen,2500,2500,CHI@DET,CHI
+TE,Matthew Mulligan,Matthew Mulligan,2500,2500,CHI@DET,DET
+TE,Daniel Brown,Daniel Brown,2500,2500,CHI@DET,CHI
+TE,Ben Braunecker,Ben Braunecker,2500,2500,CHI@DET,CHI
+TE,Ryan Griffin,Ryan Griffin,2500,2500,HOU@IND,HOU
+TE,Erik Swoope,Erik Swoope,2500,2500,HOU@IND,IND
+TE,Stephen Anderson,Stephen Anderson,2500,2500,HOU@IND,HOU
+TE,Rhett Ellison,Rhett Ellison,2500,2500,MIN@JAX,MIN
+TE,Neal Sterling,Neal Sterling,2500,2500,MIN@JAX,JAX
+TE,Alex Ellis,Alex Ellis,2500,2500,MIN@JAX,JAX
+TE,Ben Koyack,Ben Koyack,2500,2500,MIN@JAX,JAX
+TE,David Morgan,David Morgan,2500,2500,MIN@JAX,MIN
+TE,Garrett Celek,Garrett Celek,2500,2500,NYJ@SF,SF
+TE,Brandon Bostick,Brandon Bostick,2500,2500,NYJ@SF,NYJ
+TE,Blake Bell,Blake Bell,2500,2500,NYJ@SF,SF
+TE,Je'Ron Hamm,Je'Ron Hamm,2500,2500,NYJ@SF,SF
+TE,Eric Tomlinson,Eric Tomlinson,2500,2500,NYJ@SF,NYJ
+TE,Austin Seferian-Jenkins,Austin Seferian-Jenkins,2500,2500,NYJ@SF,NYJ
+TE,Cory Harkey,Cory Harkey,2500,2500,ATL@LA,LA
+TE,Levine Toilolo,Levine Toilolo,2500,2500,ATL@LA,ATL
+TE,Tyler Higbee,Tyler Higbee,2500,2500,ATL@LA,LA
+TE,Joshua Perkins,Joshua Perkins,2500,2500,ATL@LA,ATL
+TE,Temarrick Hemingway,Temarrick Hemingway,2500,2500,ATL@LA,LA
+TE,Austin Hooper,Austin Hooper,2500,2500,ATL@LA,ATL
+TE,Luke Willson,Luke Willson,2500,2500,SEA@GB,SEA
+TE,Brandon Williams,Brandon Williams,2500,2500,SEA@GB,SEA
+TE,Nick Vannett,Nick Vannett,2500,2500,SEA@GB,SEA
+TE,Larry Donnell,Larry Donnell,2500,2500,DAL@NYG,NYG
+TE,Gavin Escobar,Gavin Escobar,2500,2500,DAL@NYG,DAL
+TE,Jerell Adams,Jerell Adams,2500,2500,DAL@NYG,NYG
+DST,Bills ,Bills ,2500,2500,PIT@BUF,BUF
+DST,Jaguars ,Jaguars ,2500,2500,MIN@JAX,JAX
+DST,Rams ,Rams ,2500,2500,ATL@LA,LA
+DST,Saints ,Saints ,2400,2400,NO@TB,NO
+DST,Buccaneers ,Buccaneers ,2400,2400,NO@TB,TB
+DST,Bears ,Bears ,2300,2300,CHI@DET,CHI
+DST,Browns ,Browns ,2200,2200,CIN@CLE,CLE
