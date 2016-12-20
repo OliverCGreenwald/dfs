@@ -166,7 +166,7 @@ plot(actual.max.vec, type = 'b', xlab = "Week", ylab = "Max Fpts", main = "Max F
 plot(actual.min.vec, type = 'b', xlab = "Week", ylab = "Min Fpts", main = "Min Fpts of Top 1000 Lineups Using Actual")
 
 
-####### II. PLOT NUMBER OF UNIQUE PLAYERS IN PLACING LINEUPS #######
+####### III. PLOT NUMBER OF UNIQUE PLAYERS IN PLACING LINEUPS #######
 # cleaning
 splitPlayers <- function(x) {
   return(str_split_fixed(x, "QB | RB | WR | TE | FLEX | DST ", 10)[2:10])
@@ -195,6 +195,14 @@ num.unique.players.table <- t(as.table(num.unique.players))
 # plot
 matplot(num.unique.players.table, type = 'b', pch = c('o'), xlab = "Week", ylab = "Num Unique Players", main = "Num Unique Players, Varying Place Threshold")
 legend("bottomleft", colnames(num.unique.players.table),col=seq_len(ncol(num.unique.players.table)), cex=1, fill=seq_len(ncol(num.unique.players.table)))
+
+# Number of games each week (sunday):
+num.games <- c(13,14,14,13,12,13,13,11,11,12,12,12,13,14,13) # up to wk 15
+num.games <- cbind(1:15, num.games)
+colnames(num.games) <- c('Week','Num.Games')
+num.games
+par(mfrow=c(1,1))
+plot(num.games[,1], num.games[,2], type = 'b', xlab = 'Week', ylab = 'Number of Games', main = 'Number of Sunday Games Each Week')
 
 # View place.last for each week (very different between $20 and $27)
 # for (i in 1:week.latest) {
