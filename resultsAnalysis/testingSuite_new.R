@@ -15,7 +15,7 @@ week.lo <- 12
 week.hi <- 15
 contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
-formulation <- 4
+formulation <- 14
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 4
 exposure.range <- seq(from = 0.4, to = 0.4, by = 0) # must be from 1 to 1 if overlap.lo != overlap.hi
