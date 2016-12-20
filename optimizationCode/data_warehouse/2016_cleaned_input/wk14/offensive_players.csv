@@ -1,455 +1,455 @@
 "Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","RankTargets","RollingTargetPctg"
-"RB","David Johnson","David Johnson",9800,9800,"ARI@MIA","Ari","David","Johnson","Mia",18.71,24.5,2,0.220224719
-"RB","Le'Veon Bell","Le'Veon Bell",9000,9000,"PIT@BUF","Pit","Le'Veon","Bell","Buf",0,27.7,2,0.165605096
-"WR","Mike Evans","Mike Evans",8900,8900,"NO@TB","TB","Mike","Evans","No",18.54,21.8,1,0.3125
-"WR","Antonio Brown","Antonio Brown",8700,8700,"PIT@BUF","Pit","Antonio","Brown","Buf",30.3,22.9,1,0.284501062
-"WR","Julio Jones","Julio Jones",8500,8500,"ATL@LA","Atl","Julio","Jones","La",27.81,17.3,1,0.272511848
-"RB","Ezekiel Elliott","Ezekiel Elliott",8400,8400,"DAL@NYG","Dal","Ezekiel","Elliott","Nyg",17.07,19.1,5,0.092140921
-"RB","LeSean McCoy","LeSean McCoy",8200,8200,"PIT@BUF","Buf","LeSean","McCoy","Pit",17.67,15.7,4,0.117647059
-"WR","Odell Beckham Jr.","Odell Beckham Jr.",8000,8000,"DAL@NYG","NYG","Odell","Beckham","Dal",22.51,21.3,1,0.289079229
-"WR","A.J. Green","A.J. Green",7700,7700,"CIN@CLE","Cin","A.J.","Green","Cle",19.1,0,1,0.241610738
-"WR","T.Y. Hilton","T.Y. Hilton",7500,7500,"HOU@IND","Ind","T.Y.","Hilton","Hou",15.98,19.1,1,0.271929825
-"QB","Drew Brees","Drew Brees",7400,7400,"NO@TB","NO","Drew","Brees","Tb",24.75,20.6,0,0
-"RB","Melvin Gordon","Melvin Gordon",7400,7400,"SD@CAR","SD","Melvin","Gordon","Car",10.54,19,5,0.134433962
-"QB","Cam Newton","Cam Newton",7200,7200,"SD@CAR","Car","Cam","Newton","Sd",19.86,21.2,0,0
-"WR","Larry Fitzgerald","Larry Fitzgerald",7100,7100,"ARI@MIA","Ari","Larry","Fitzgerald","Mia",15.96,17.9,1,0.28988764
-"RB","DeMarco Murray","DeMarco Murray",7000,7000,"DEN@TEN","Ten","DeMarco","Murray","Den",12.56,20.6,4,0.137055838
-"WR","Brandon Marshall","Brandon Marshall",7000,7000,"NYJ@SF","NYJ","Brandon","Marshall","Sf",18.93,15.6,1,0.26746988
-"QB","Ben Roethlisberger","Ben Roethlisberger",7000,7000,"PIT@BUF","Pit","Ben","Roethlisberger","Buf",22.83,18.9,0,0
-"QB","Andrew Luck","Andrew Luck",6900,6900,"HOU@IND","Ind","Andrew","Luck","Hou",21.57,20.1,0,0
-"WR","Dez Bryant","Dez Bryant",6900,6900,"DAL@NYG","Dal","Dez","Bryant","Nyg",17.95,16.6,3,0.197831978
-"RB","Matt Forte","Matt Forte",6800,6800,"NYJ@SF","NYJ","Matt","Forte","Sf",14.54,18.6,5,0.101204819
-"WR","Jordy Nelson","Jordy Nelson",6800,6800,"SEA@GB","GB","Jordy","Nelson","Sea",18.78,16.5,1,0.247983871
-"QB","Matthew Stafford","Matthew Stafford",6800,6800,"CHI@DET","Det","Matthew","Stafford","Chi",18.45,18.8,0,0
-"WR","Doug Baldwin","Doug Baldwin",6800,6800,"SEA@GB","Sea","Doug","Baldwin","Gb",16.12,14.5,1,0.245478036
-"WR","Michael Thomas","Michael Thomas",6700,6700,"NO@TB","NO","Michael","Thomas","Tb",7.31,14.6,1,0.185258964
-"QB","Jameis Winston","Jameis Winston",6700,6700,"NO@TB","TB","Jameis","Winston","No",18.88,19.3,0,0
-"QB","Philip Rivers","Philip Rivers",6600,6600,"SD@CAR","SD","Philip","Rivers","Car",16.84,20,0,0
-"WR","Golden Tate","Golden Tate",6600,6600,"CHI@DET","Det","Golden","Tate","Chi",18.45,14.2,1,0.226244344
-"QB","Russell Wilson","Russell Wilson",6600,6600,"SEA@GB","Sea","Russell","Wilson","Gb",21.57,19.7,13,0.005167959
-"QB","Matt Ryan","Matt Ryan",6500,6500,"ATL@LA","Atl","Matt","Ryan","La",17.7,19.5,0,0
-"WR","Stefon Diggs","Stefon Diggs",6500,6500,"MIN@JAX","Min","Stefon","Diggs","Jax",13.3,15.5,1,0.225806452
-"QB","Aaron Rodgers","Aaron Rodgers",6400,6400,"SEA@GB","GB","Aaron","Rodgers","Sea",23.19,18.6,0,0
-"WR","Brandin Cooks","Brandin Cooks",6400,6400,"NO@TB","NO","Brandin","Cooks","Tb",16.81,14.3,2,0.171314741
-"RB","Jordan Howard","Jordan Howard",6400,6400,"CHI@DET","Chi","Jordan","Howard","Det",4.61,14,5,0.094470046
-"WR","Donte Moncrief","Donte Moncrief",6300,6300,"HOU@IND","Ind","Donte","Moncrief","Hou",15.28,14.2,3,0.10745614
-"QB","Kirk Cousins","Kirk Cousins",6300,6300,"WAS@PHI","Was","Kirk","Cousins","Phi",18.56,19.3,0,0
-"RB","Doug Martin","Doug Martin",6200,6200,"NO@TB","TB","Doug","Martin","No",17.35,11.5,8,0.03125
-"WR","Kelvin Benjamin","Kelvin Benjamin",6200,6200,"SD@CAR","Car","Kelvin","Benjamin","Sd",11.86,13.3,2,0.222222222
-"QB","Marcus Mariota","Marcus Mariota",6200,6200,"DEN@TEN","Ten","Marcus","Mariota","Den",18.67,16.7,0,0
-"QB","Andy Dalton","Andy Dalton",6100,6100,"CIN@CLE","Cin","Andy","Dalton","Cle",17.67,20.2,0,0
-"WR","Tyrell Williams","Tyrell Williams",6100,6100,"SD@CAR","SD","Tyrell","Williams","Car",6.53,15.7,1,0.200471698
-"RB","Devonta Freeman","Devonta Freeman",6100,6100,"ATL@LA","Atl","Devonta","Freeman","La",16.35,15.1,3,0.116113744
-"WR","Demaryius Thomas","Demaryius Thomas",6000,6000,"DEN@TEN","Den","Demaryius","Thomas","Ten",16.04,16.8,2,0.281862745
-"TE","Tyler Eifert","Tyler Eifert",6000,6000,"CIN@CLE","Cin","Tyler","Eifert","Cle",0,14.3,5,0.085011186
-"WR","Alshon Jeffery","Alshon Jeffery",6000,6000,"CHI@DET","Chi","Alshon","Jeffery","Det",17.28,0,1,0.170506912
-"TE","Jordan Reed","Jordan Reed",5900,5900,"WAS@PHI","Was","Jordan","Reed","Phi",16.97,10.6,3,0.170081967
-"QB","Dak Prescott","Dak Prescott",5900,5900,"DAL@NYG","Dal","Dak","Prescott","Nyg",18.73,18.4,0,0
-"RB","Jay Ajayi","Jay Ajayi",5900,5900,"ARI@MIA","Mia","Jay","Ajayi","Ari",0,13.9,4,0.08401084
-"WR","Terrelle Pryor","Terrelle Pryor",5900,5900,"CIN@CLE","Cle","Terrelle","Pryor","Cin",7.45,14.1,1,0.261958998
-"WR","DeAndre Hopkins","DeAndre Hopkins",5800,5800,"HOU@IND","Hou","DeAndre","Hopkins","Ind",22.49,15,1,0.266514806
-"RB","Jeremy Hill","Jeremy Hill",5800,5800,"CIN@CLE","Cin","Jeremy","Hill","Cle",9.63,18.6,7,0.051454139
-"QB","Colin Kaepernick","Colin Kaepernick",5800,5800,"NYJ@SF","SF","Colin","Kaepernick","Nyj",0,18.7,0,0
-"QB","Carson Palmer","Carson Palmer",5700,5700,"ARI@MIA","Ari","Carson","Palmer","Mia",19.51,18,0,0
-"RB","Thomas Rawls","Thomas Rawls",5700,5700,"SEA@GB","Sea","Thomas","Rawls","Gb",7.43,12,8,0.031007752
-"WR","Emmanuel Sanders","Emmanuel Sanders",5700,5700,"DEN@TEN","Den","Emmanuel","Sanders","Ten",15.19,15.7,1,0.286764706
-"WR","Jarvis Landry","Jarvis Landry",5600,5600,"ARI@MIA","Mia","Jarvis","Landry","Ari",16.02,13.3,1,0.284552846
-"RB","DeAngelo Williams","DeAngelo Williams",5600,5600,"PIT@BUF","Pit","DeAngelo","Williams","Buf",19.66,3.4,6,0.048832272
-"QB","Ryan Fitzpatrick","Ryan Fitzpatrick",5600,5600,"NYJ@SF","NYJ","Ryan","Fitzpatrick","Sf",17.35,0,0,0
-"RB","Jacquizz Rodgers","Jacquizz Rodgers",5600,5600,"NO@TB","TB","Jacquizz","Rodgers","No",0,4.4,8,0.03125
-"WR","Jamison Crowder","Jamison Crowder",5600,5600,"WAS@PHI","Was","Jamison","Crowder","Phi",7.73,14.2,2,0.172131148
-"QB","Eli Manning","Eli Manning",5500,5500,"DAL@NYG","NYG","Eli","Manning","Dal",18.71,18.6,0,0
-"RB","Theo Riddick","Theo Riddick",5500,5500,"CHI@DET","Det","Theo","Riddick","Chi",11.1,0,4,0.156108597
-"WR","Davante Adams","Davante Adams",5500,5500,"SEA@GB","GB","Davante","Adams","Sea",7.32,11.6,2,0.197580645
-"TE","Jimmy Graham","Jimmy Graham",5500,5500,"SEA@GB","Sea","Jimmy","Graham","Gb",9.94,12.6,2,0.209302326
-"WR","Jordan Matthews","Jordan Matthews",5400,5400,"WAS@PHI","Phi","Jordan","Matthews","Was",13.9,16.6,1,0.204954955
-"RB","Jonathan Stewart","Jonathan Stewart",5400,5400,"SD@CAR","Car","Jonathan","Stewart","Sd",13.11,11.6,7,0.037037037
-"QB","Tyrod Taylor","Tyrod Taylor",5400,5400,"PIT@BUF","Buf","Tyrod","Taylor","Pit",18.86,16.8,0,0
-"WR","Sammy Watkins","Sammy Watkins",5300,5300,"PIT@BUF","Buf","Sammy","Watkins","Pit",17.09,15,6,0.06162465
-"QB","Brock Osweiler","Brock Osweiler",5300,5300,"HOU@IND","Hou","Brock","Osweiler","Ind",16.36,15.2,14,0.002277904
-"RB","Mark Ingram","Mark Ingram",5300,5300,"NO@TB","NO","Mark","Ingram","Tb",17.07,13,5,0.081673307
-"WR","DeVante Parker","DeVante Parker",5300,5300,"ARI@MIA","Mia","DeVante","Parker","Ari",0,11.1,2,0.181571816
-"RB","Derrick Henry","Derrick Henry",5200,5200,"DEN@TEN","Ten","Derrick","Henry","Den",6.69,6,9,0.027918782
-"WR","DeSean Jackson","DeSean Jackson",5200,5200,"WAS@PHI","Was","DeSean","Jackson","Phi",12.99,13.7,4,0.163934426
-"QB","Ryan Tannehill","Ryan Tannehill",5200,5200,"ARI@MIA","Mia","Ryan","Tannehill","Ari",14.99,14,0,0
-"WR","Kenny Britt","Kenny Britt",5200,5200,"ATL@LA","LA","Kenny","Britt","Atl",8.1,13.9,1,0.225490196
-"WR","Cole Beasley","Cole Beasley",5200,5200,"DAL@NYG","Dal","Cole","Beasley","Nyg",7.31,11,1,0.219512195
-"WR","Willie Snead","Willie Snead",5200,5200,"NO@TB","NO","Willie","Snead","Tb",12.5,13,3,0.153386454
-"WR","Rishard Matthews","Rishard Matthews",5100,5100,"DEN@TEN","Ten","Rishard","Matthews","Den",10.47,13.5,3,0.185279188
-"QB","Carson Wentz","Carson Wentz",5100,5100,"WAS@PHI","Phi","Carson","Wentz","Was",15.51,15.9,0,0
-"RB","Lamar Miller","Lamar Miller",5100,5100,"HOU@IND","Hou","Lamar","Miller","Ind",18.88,13,5,0.08428246
-"QB","Sam Bradford","Sam Bradford",5100,5100,"MIN@JAX","Min","Sam","Bradford","Jax",0,14.7,13,0.002304147
-"QB","Tony Romo","Tony Romo",5100,5100,"DAL@NYG","Dal","Tony","Romo","Nyg",0,0,0,0
-"QB","Trevor Siemian","Trevor Siemian",5100,5100,"DEN@TEN","Den","Trevor","Siemian","Ten",15.28,16.3,0,0
-"QB","Landry Jones","Landry Jones",5000,5000,"PIT@BUF","Pit","Landry","Jones","Buf",0,0,0,0
-"QB","EJ Manuel","EJ Manuel",5000,5000,"PIT@BUF","Buf","EJ","Manuel","Pit",0,0,0,0
-"QB","Zach Mettenberger","Zach Mettenberger",5000,5000,"PIT@BUF","Pit","Zach","Mettenberger","Buf",0,0,0,0
-"QB","Cardale Jones","Cardale Jones",5000,5000,"PIT@BUF","Buf","Cardale","Jones","Pit",0,0,0,0
-"QB","Matt Cassel","Matt Cassel",5000,5000,"DEN@TEN","Ten","Matt","Cassel","Den",0,0,0,0
-"QB","Austin Davis","Austin Davis",5000,5000,"DEN@TEN","Den","Austin","Davis","Ten",0,0,0,0
-"QB","Paxton Lynch","Paxton Lynch",5000,5000,"DEN@TEN","Den","Paxton","Lynch","Ten",0,0,0,0
-"QB","Luke McCown","Luke McCown",5000,5000,"NO@TB","NO","Luke","McCown","Tb",0,0,0,0
-"QB","Mike Glennon","Mike Glennon",5000,5000,"NO@TB","TB","Mike","Glennon","No",0,0,0,0
-"QB","Ryan Griffin","Ryan Griffin",5000,5000,"NO@TB","TB","Ryan","Griffin","No",0,0,0,0
-"QB","Chase Daniel","Chase Daniel",5000,5000,"WAS@PHI","Phi","Chase","Daniel","Was",0,0,0,0
-"QB","Colt McCoy","Colt McCoy",5000,5000,"WAS@PHI","Was","Colt","McCoy","Phi",0,0,0,0
-"QB","Nate Sudfeld","Nate Sudfeld",5000,5000,"WAS@PHI","Was","Nate","Sudfeld","Phi",0,0,0,0
-"QB","Matt Moore","Matt Moore",5000,5000,"ARI@MIA","Mia","Matt","Moore","Ari",0,0,0,0
-"QB","Drew Stanton","Drew Stanton",5000,5000,"ARI@MIA","Ari","Drew","Stanton","Mia",0,0,0,0
-"QB","Derek Anderson","Derek Anderson",5000,5000,"SD@CAR","Car","Derek","Anderson","Sd",0,0,0,0
-"QB","Kellen Clemens","Kellen Clemens",5000,5000,"SD@CAR","SD","Kellen","Clemens","Car",0,0,0,0
-"QB","Joe Webb","Joe Webb",5000,5000,"SD@CAR","Car","Joe","Webb","Sd",0,0,11,0.002314815
-"TE","Greg Olsen","Greg Olsen",5000,5000,"SD@CAR","Car","Greg","Olsen","Sd",16.32,16.2,1,0.231481481
-"QB","Josh McCown","Josh McCown",5000,5000,"CIN@CLE","Cle","Josh","McCown","Cin",0,0,0,0
-"QB","Robert Griffin","Robert Griffin",5000,5000,"CIN@CLE","Cle","Robert","Griffin","Cin",0,16.8,0,0
-"QB","AJ McCarron","AJ McCarron",5000,5000,"CIN@CLE","Cin","AJ","McCarron","Cle",0,0,0,0
-"QB","Cody Kessler","Cody Kessler",5000,5000,"CIN@CLE","Cle","Cody","Kessler","Cin",0,0,0,0
-"QB","Jeff Driskel","Jeff Driskel",5000,5000,"CIN@CLE","Cin","Jeff","Driskel","Cle",0,0,0,0
-"QB","Kevin Hogan","Kevin Hogan",5000,5000,"CIN@CLE","Cle","Kevin","Hogan","Cin",0,0,0,0
-"WR","Brandon LaFell","Brandon LaFell",5000,5000,"CIN@CLE","Cin","Brandon","LaFell","Cle",9.82,11.4,2,0.167785235
-"QB","Jay Cutler","Jay Cutler",5000,5000,"CHI@DET","Chi","Jay","Cutler","Det",15.94,0,0,0
-"QB","Dan Orlovsky","Dan Orlovsky",5000,5000,"CHI@DET","Det","Dan","Orlovsky","Chi",0,0,0,0
-"QB","Matt Barkley","Matt Barkley",5000,5000,"CHI@DET","Chi","Matt","Barkley","Det",0,15.6,0,0
-"QB","David Fales","David Fales",5000,5000,"CHI@DET","Chi","David","Fales","Det",0,0,0,0
-"QB","Jake Rudock","Jake Rudock",5000,5000,"CHI@DET","Det","Jake","Rudock","Chi",0,0,0,0
-"RB","Ameer Abdullah","Ameer Abdullah",5000,5000,"CHI@DET","Det","Ameer","Abdullah","Chi",11.8,0,9,0.011312217
-"QB","Scott Tolzien","Scott Tolzien",5000,5000,"HOU@IND","Ind","Scott","Tolzien","Hou",0,0,0,0
-"QB","Brandon Weeden","Brandon Weeden",5000,5000,"HOU@IND","Hou","Brandon","Weeden","Ind",0,0,0,0
-"QB","Tom Savage","Tom Savage",5000,5000,"HOU@IND","Hou","Tom","Savage","Ind",0,0,0,0
-"QB","Shaun Hill","Shaun Hill",5000,5000,"MIN@JAX","Min","Shaun","Hill","Jax",12.68,0,0,0
-"QB","Chad Henne","Chad Henne",5000,5000,"MIN@JAX","Jax","Chad","Henne","Min",0,0,0,0
-"QB","Taylor Heinicke","Taylor Heinicke",5000,5000,"MIN@JAX","Min","Taylor","Heinicke","Jax",0,0,0,0
-"QB","Brandon Allen","Brandon Allen",5000,5000,"MIN@JAX","Jax","Brandon","Allen","Min",0,0,0,0
-"RB","Adrian Peterson","Adrian Peterson",5000,5000,"MIN@JAX","Min","Adrian","Peterson","Jax",18.29,0,10,0.011520737
-"WR","Allen Robinson","Allen Robinson",5000,5000,"MIN@JAX","Jax","Allen","Robinson","Min",18.72,13.7,1,0.244444444
-"QB","Christian Ponder","Christian Ponder",5000,5000,"NYJ@SF","SF","Christian","Ponder","Nyj",0,0,0,0
-"QB","Blaine Gabbert","Blaine Gabbert",5000,5000,"NYJ@SF","SF","Blaine","Gabbert","Nyj",14.63,0,14,0.002666667
-"QB","Bryce Petty","Bryce Petty",5000,5000,"NYJ@SF","NYJ","Bryce","Petty","Sf",0,15.2,0,0
-"QB","Christian Hackenberg","Christian Hackenberg",5000,5000,"NYJ@SF","NYJ","Christian","Hackenberg","Sf",0,0,0,0
-"RB","Bilal Powell","Bilal Powell",5000,5000,"NYJ@SF","NYJ","Bilal","Powell","Sf",10.02,12.2,3,0.122891566
-"QB","Matt Schaub","Matt Schaub",5000,5000,"ATL@LA","Atl","Matt","Schaub","La",0,0,0,0
-"QB","Case Keenum","Case Keenum",5000,5000,"ATL@LA","LA","Case","Keenum","Atl",13.14,0,0,0
-"QB","Sean Mannion","Sean Mannion",5000,5000,"ATL@LA","LA","Sean","Mannion","Atl",0,0,0,0
-"QB","Jared Goff","Jared Goff",5000,5000,"ATL@LA","LA","Jared","Goff","Atl",0,15.1,0,0
-"RB","Todd Gurley","Todd Gurley",5000,5000,"ATL@LA","LA","Todd","Gurley","Atl",19.29,16.8,5,0.107843137
-"QB","Brett Hundley","Brett Hundley",5000,5000,"SEA@GB","GB","Brett","Hundley","Sea",0,0,0,0
-"QB","Trevone Boykin","Trevone Boykin",5000,5000,"SEA@GB","Sea","Trevone","Boykin","Gb",0,0,0,0
-"WR","Randall Cobb","Randall Cobb",5000,5000,"SEA@GB","GB","Randall","Cobb","Sea",17.1,11,3,0.171370968
-"QB","Josh Johnson","Josh Johnson",5000,5000,"DAL@NYG","NYG","Josh","Johnson","Dal",0,0,0,0
-"QB","Mark Sanchez","Mark Sanchez",5000,5000,"DAL@NYG","Dal","Mark","Sanchez","Nyg",0,0,0,0
-"QB","Ryan Nassib","Ryan Nassib",5000,5000,"DAL@NYG","NYG","Ryan","Nassib","Dal",0,0,0,0
-"QB","Blake Bortles","Blake Bortles",5000,5000,"MIN@JAX","Jax","Blake","Bortles","Min",19.02,14.3,0,0
-"WR","Tyler Boyd","Tyler Boyd",4900,4900,"CIN@CLE","Cin","Tyler","Boyd","Cle",8.39,13.2,3,0.147651007
-"WR","Marvin Jones Jr.","Marvin Jones Jr.",4900,4900,"CHI@DET","Det","Marvin","Jones","Chi",13.25,12.5,2,0.196832579
-"RB","Carlos Hyde","Carlos Hyde",4900,4900,"NYJ@SF","SF","Carlos","Hyde","Nyj",12.5,12.5,6,0.069333333
-"WR","Quincy Enunwa","Quincy Enunwa",4900,4900,"NYJ@SF","NYJ","Quincy","Enunwa","Sf",4.82,8.8,2,0.185542169
-"RB","Rashad Jennings","Rashad Jennings",4900,4900,"DAL@NYG","NYG","Rashad","Jennings","Dal",12.12,9.2,5,0.072805139
-"RB","Alfred Morris","Alfred Morris",4900,4900,"DAL@NYG","Dal","Alfred","Morris","Nyg",3.01,3.9,9,0.010840108
-"TE","Zach Ertz","Zach Ertz",4900,4900,"WAS@PHI","Phi","Zach","Ertz","Was",14.12,11.6,2,0.15990991
-"WR","Dontrelle Inman","Dontrelle Inman",4800,4800,"SD@CAR","SD","Dontrelle","Inman","Car",5.81,9.9,2,0.176886792
-"RB","Frank Gore","Frank Gore",4800,4800,"HOU@IND","Ind","Frank","Gore","Hou",10.92,13.3,6,0.089912281
-"RB","Devontae Booker","Devontae Booker",4800,4800,"DEN@TEN","Den","Devontae","Booker","Ten",6.9,12.6,5,0.068627451
-"RB","C.J. Prosise","C.J. Prosise",4700,4700,"SEA@GB","Sea","C.J.","Prosise","Gb",4.7,0,6,0.051679587
-"WR","Adam Thielen","Adam Thielen",4700,4700,"MIN@JAX","Min","Adam","Thielen","Jax",0,12.2,3,0.16359447
-"WR","Sterling Shepard","Sterling Shepard",4600,4600,"DAL@NYG","NYG","Sterling","Shepard","Dal",12.47,13.8,2,0.173447537
-"RB","Mike Gillislee","Mike Gillislee",4600,4600,"PIT@BUF","Buf","Mike","Gillislee","Pit",4.73,3,10,0.030812325
-"RB","Tim Hightower","Tim Hightower",4500,4500,"NO@TB","NO","Tim","Hightower","Tb",4.92,10.4,9,0.039840637
-"WR","Anquan Boldin","Anquan Boldin",4500,4500,"CHI@DET","Det","Anquan","Boldin","Chi",10.93,12.2,3,0.174208145
-"WR","Will Fuller","Will Fuller",4500,4500,"HOU@IND","Hou","Will","Fuller","Ind",10.52,9.3,3,0.15261959
-"TE","Delanie Walker","Delanie Walker",4400,4400,"DEN@TEN","Ten","Delanie","Walker","Den",13.8,10.4,2,0.187817259
-"WR","Corey Coleman","Corey Coleman",4400,4400,"CIN@CLE","Cle","Corey","Coleman","Cin",12.57,12,5,0.102505695
-"RB","Alfred Blue","Alfred Blue",4400,4400,"HOU@IND","Hou","Alfred","Blue","Ind",4.43,3.4,10,0.013667426
-"RB","Darren Sproles","Darren Sproles",4400,4400,"WAS@PHI","Phi","Darren","Sproles","Was",10.5,9.6,4,0.13963964
-"RB","Fitzgerald Toussaint","Fitzgerald Toussaint",4300,4300,"PIT@BUF","Pit","Fitzgerald","Toussaint","Buf",3.42,0,13,0.002123142
-"WR","Taylor Gabriel","Taylor Gabriel",4300,4300,"ATL@LA","Atl","Taylor","Gabriel","La",0,12.3,4,0.08056872
-"RB","Rob Kelley","Rob Kelley",4200,4200,"WAS@PHI","Was","Rob","Kelley","Phi",0,12.1,9,0.020491803
-"WR","Pierre Garcon","Pierre Garcon",4200,4200,"WAS@PHI","Was","Pierre","Garcon","Phi",11.6,13.1,1,0.182377049
-"WR","Mohamed Sanu","Mohamed Sanu",4200,4200,"ATL@LA","Atl","Mohamed","Sanu","La",11.65,0,2,0.177725118
-"RB","Jeremy Langford","Jeremy Langford",4100,4100,"CHI@DET","Chi","Jeremy","Langford","Det",11.37,4.2,8,0.048387097
-"WR","Travis Benjamin","Travis Benjamin",4100,4100,"SD@CAR","SD","Travis","Benjamin","Car",10.28,8.9,3,0.158018868
-"TE","Cameron Brate","Cameron Brate",4100,4100,"NO@TB","TB","Cameron","Brate","No",6.74,10.4,2,0.15625
-"RB","Kapri Bibbs","Kapri Bibbs",4000,4000,"DEN@TEN","Den","Kapri","Bibbs","Ten",0,0,12,0.009803922
-"WR","Ted Ginn Jr.","Ted Ginn Jr.",4000,4000,"SD@CAR","Car","Ted","Ginn","Sd",7.85,9.1,3,0.157407407
-"WR","Cameron Meredith","Cameron Meredith",4000,4000,"CHI@DET","Chi","Cameron","Meredith","Det",0,12.5,2,0.149769585
-"TE","Kyle Rudolph","Kyle Rudolph",4000,4000,"MIN@JAX","Min","Kyle","Rudolph","Jax",8.39,10.3,2,0.218894009
-"RB","Benny Cunningham","Benny Cunningham",4000,4000,"ATL@LA","LA","Benny","Cunningham","Atl",4.98,0,6,0.051470588
-"RB","Tevin Coleman","Tevin Coleman",4000,4000,"ATL@LA","Atl","Tevin","Coleman","La",6.8,8.9,5,0.071090047
-"RB","Shane Vereen","Shane Vereen",4000,4000,"DAL@NYG","NYG","Shane","Vereen","Dal",9.89,7.6,10,0.029978587
-"RB","Charles Sims","Charles Sims",4000,4000,"NO@TB","TB","Charles","Sims","No",10.45,4.8,7,0.040178571
-"RB","Ryan Mathews","Ryan Mathews",4000,4000,"WAS@PHI","Phi","Ryan","Mathews","Was",14.74,6.4,9,0.024774775
-"WR","Robert Woods","Robert Woods",3900,3900,"PIT@BUF","Buf","Robert","Woods","Pit",10.44,7.2,1,0.179271709
-"RB","Damien Williams","Damien Williams",3900,3900,"ARI@MIA","Mia","Damien","Williams","Ari",3.21,4.8,6,0.059620596
-"WR","Michael Floyd","Michael Floyd",3900,3900,"ARI@MIA","Ari","Michael","Floyd","Mia",13.76,11.2,0,0
-"RB","Isaiah Crowell","Isaiah Crowell",3900,3900,"CIN@CLE","Cle","Isaiah","Crowell","Cin",8.57,12.9,6,0.093394077
-"TE","C.J. Fiedorowicz","C.J. Fiedorowicz",3900,3900,"HOU@IND","Hou","C.J.","Fiedorowicz","Ind",3.32,9,2,0.154897494
-"TE","Ladarius Green","Ladarius Green",3900,3900,"PIT@BUF","Pit","Ladarius","Green","Buf",0,9.3,8,0.042462845
-"RB","DuJuan Harris","DuJuan Harris",3900,3900,"NYJ@SF","SF","DuJuan","Harris","Nyj",0,2.3,10,0.024
-"WR","Tavon Austin","Tavon Austin",3900,3900,"ATL@LA","LA","Tavon","Austin","Atl",12.32,12.1,2,0.191176471
-"WR","Ty Montgomery","Ty Montgomery",3900,3900,"SEA@GB","GB","Ty","Montgomery","Sea",0,7.6,0,0
-"RB","Wendell Smallwood","Wendell Smallwood",3800,3800,"WAS@PHI","Phi","Wendell","Smallwood","Was",0,5.2,7,0.027027027
-"WR","John Brown","John Brown",3800,3800,"ARI@MIA","Ari","John","Brown","Mia",13.3,7.8,3,0.141573034
-"RB","Cameron Artis-Payne","Cameron Artis-Payne",3800,3800,"SD@CAR","Car","Cameron","Artis-Payne","Sd",0,0,11,0.002314815
-"WR","Eli Rogers","Eli Rogers",3800,3800,"PIT@BUF","Pit","Eli","Rogers","Buf",8.73,8.9,4,0.097664544
-"WR","Marquess Wilson","Marquess Wilson",3800,3800,"CHI@DET","Chi","Marquess","Wilson","Det",0,0,10,0.036866359
-"TE","Eric Ebron","Eric Ebron",3800,3800,"CHI@DET","Det","Eric","Ebron","Chi",9.86,10.5,5,0.126696833
-"RB","T.J. Yeldon","T.J. Yeldon",3800,3800,"MIN@JAX","Jax","T.J.","Yeldon","Min",13.57,14.8,4,0.109090909
-"RB","James Starks","James Starks",3800,3800,"SEA@GB","GB","James","Starks","Sea",7.85,6.6,7,0.050403226
-"RB","Paul Perkins","Paul Perkins",3800,3800,"DAL@NYG","NYG","Paul","Perkins","Dal",0,2.4,8,0.040685225
-"TE","Antonio Gates","Antonio Gates",3800,3800,"SD@CAR","SD","Antonio","Gates","Car",11.85,12,4,0.143867925
-"WR","Adam Humphries","Adam Humphries",3700,3700,"NO@TB","TB","Adam","Humphries","No",6.64,0,2,0.15625
-"RB","Chris Thompson","Chris Thompson",3700,3700,"WAS@PHI","Was","Chris","Thompson","Phi",6.53,8.3,5,0.092213115
-"WR","Paul Turner","Paul Turner",3700,3700,"WAS@PHI","Phi","Paul","Turner","Was",0,5.2,10,0.018018018
-"WR","Kenny Stills","Kenny Stills",3700,3700,"ARI@MIA","Mia","Kenny","Stills","Ari",9.97,6.8,3,0.151761518
-"RB","Kenneth Farrow","Kenneth Farrow",3700,3700,"SD@CAR","SD","Kenneth","Farrow","Car",0,2.1,10,0.007075472
-"RB","Chris Ivory","Chris Ivory",3700,3700,"MIN@JAX","Jax","Chris","Ivory","Min",0,0,7,0.042424242
-"WR","Marqise Lee","Marqise Lee",3700,3700,"MIN@JAX","Jax","Marqise","Lee","Min",4.97,11.4,2,0.163636364
-"WR","Tyler Lockett","Tyler Lockett",3700,3700,"SEA@GB","Sea","Tyler","Lockett","Gb",12.75,9.4,4,0.139534884
-"TE","Coby Fleener","Coby Fleener",3700,3700,"NO@TB","NO","Coby","Fleener","Tb",14.87,9,4,0.131474104
-"WR","Dorial Green-Beckham","Dorial Green-Beckham",3600,3600,"WAS@PHI","Phi","Dorial","Green-Beckham","Was",8.47,0,3,0.148648649
-"RB","Jerick McKinnon","Jerick McKinnon",3600,3600,"MIN@JAX","Min","Jerick","McKinnon","Jax",5.03,12.5,5,0.069124424
-"WR","Cordarrelle Patterson","Cordarrelle Patterson",3600,3600,"MIN@JAX","Min","Cordarrelle","Patterson","Jax",0,5.2,4,0.126728111
-"RB","Kenjon Barner","Kenjon Barner",3600,3600,"WAS@PHI","Phi","Kenjon","Barner","Was",0,1.1,12,0.015765766
-"WR","J.J. Nelson","J.J. Nelson",3600,3600,"ARI@MIA","Ari","J.J.","Nelson","Mia",0,9.5,4,0.098876404
-"WR","Russell Shepard","Russell Shepard",3500,3500,"NO@TB","TB","Russell","Shepard","No",0,6.8,6,0.053571429
-"TE","Vernon Davis","Vernon Davis",3500,3500,"WAS@PHI","Was","Vernon","Davis","Phi",2.11,2.9,5,0.092213115
-"RB","Andre Ellington","Andre Ellington",3500,3500,"ARI@MIA","Ari","Andre","Ellington","Mia",5.16,2.9,7,0.035955056
-"RB","Rex Burkhead","Rex Burkhead",3500,3500,"CIN@CLE","Cin","Rex","Burkhead","Cle",0,7.7,10,0.022371365
-"RB","Duke Johnson","Duke Johnson",3500,3500,"CIN@CLE","Cle","Duke","Johnson","Cin",11.19,10.4,2,0.150341686
-"RB","Dwayne Washington","Dwayne Washington",3500,3500,"CHI@DET","Det","Dwayne","Washington","Chi",0,11.1,8,0.015837104
-"WR","Josh Bellamy","Josh Bellamy",3500,3500,"CHI@DET","Chi","Josh","Bellamy","Det",2.9,9.3,7,0.059907834
-"WR","Torrey Smith","Torrey Smith",3500,3500,"NYJ@SF","SF","Torrey","Smith","Nyj",12.14,8,3,0.136
-"WR","Tajae Sharpe","Tajae Sharpe",3400,3400,"DEN@TEN","Ten","Tajae","Sharpe","Den",11.83,8.1,1,0.195431472
-"WR","Marquise Goodwin","Marquise Goodwin",3400,3400,"PIT@BUF","Buf","Marquise","Goodwin","Pit",0,5.8,3,0.148459384
-"WR","Allen Hurns","Allen Hurns",3400,3400,"MIN@JAX","Jax","Allen","Hurns","Min",13.08,0,3,0.157575758
-"WR","Jeremy Kerley","Jeremy Kerley",3400,3400,"NYJ@SF","SF","Jeremy","Kerley","Nyj",9.5,10.3,1,0.218666667
-"RB","Matt Jones","Matt Jones",3400,3400,"WAS@PHI","Was","Matt","Jones","Phi",10.56,0,8,0.022540984
-"WR","Kendall Wright","Kendall Wright",3300,3300,"DEN@TEN","Ten","Kendall","Wright","Den",0,5.6,5,0.091370558
-"TE","Gary Barnidge","Gary Barnidge",3300,3300,"CIN@CLE","Cle","Gary","Barnidge","Cin",12.98,7.8,2,0.150341686
-"RB","Robert Turbin","Robert Turbin",3300,3300,"HOU@IND","Ind","Robert","Turbin","Hou",3.09,5,9,0.043859649
-"RB","Matt Asiata","Matt Asiata",3300,3300,"MIN@JAX","Min","Matt","Asiata","Jax",0,9.3,6,0.066820276
-"RB","Christine Michael","Christine Michael",3300,3300,"SEA@GB","GB","Christine","Michael","Sea",12.44,2.4,0,0
-"WR","Victor Cruz","Victor Cruz",3300,3300,"DAL@NYG","NYG","Victor","Cruz","Dal",7.73,8.6,3,0.109207709
-"WR","Devin Funchess","Devin Funchess",3300,3300,"SD@CAR","Car","Devin","Funchess","Sd",9.46,6.5,4,0.115740741
-"WR","Percy Harvin","Percy Harvin",3200,3200,"PIT@BUF","Buf","Percy","Harvin","Pit",0,0,14,0.011204482
-"WR","Nelson Agholor","Nelson Agholor",3200,3200,"WAS@PHI","Phi","Nelson","Agholor","Was",7.36,6.7,5,0.130630631
-"WR","T.J. Jones","T.J. Jones",3200,3200,"CHI@DET","Det","T.J.","Jones","Chi",0,0,9,0.011312217
-"WR","Phillip Dorsett","Phillip Dorsett",3200,3200,"HOU@IND","Ind","Phillip","Dorsett","Hou",10.9,7,4,0.098684211
-"RB","Denard Robinson","Denard Robinson",3200,3200,"MIN@JAX","Jax","Denard","Robinson","Min",3.63,0,13,0.008080808
-"WR","Quinton Patton","Quinton Patton",3200,3200,"NYJ@SF","SF","Quinton","Patton","Nyj",9.97,10,2,0.149333333
-"WR","Terrance Williams","Terrance Williams",3200,3200,"DAL@NYG","Dal","Terrance","Williams","Nyg",9.18,8.2,4,0.12195122
-"WR","Eddie Royal","Eddie Royal",3100,3100,"CHI@DET","Chi","Eddie","Royal","Det",6.9,0,4,0.103686636
-"WR","Brian Quick","Brian Quick",3100,3100,"ATL@LA","LA","Brian","Quick","Atl",4.43,7.9,4,0.144607843
-"TE","Jason Witten","Jason Witten",3100,3100,"DAL@NYG","Dal","Jason","Witten","Nyg",12.15,10.9,2,0.203252033
-"RB","Reggie Bush","Reggie Bush",3000,3000,"PIT@BUF","Buf","Reggie","Bush","Pit",4.57,2.3,8,0.033613445
-"RB","Jerome Felton","Jerome Felton",3000,3000,"PIT@BUF","Buf","Jerome","Felton","Pit",0,0,0,0
-"RB","Roosevelt Nix","Roosevelt Nix",3000,3000,"PIT@BUF","Pit","Roosevelt","Nix","Buf",0,0,0,0
-"RB","Daryl Richardson","Daryl Richardson",3000,3000,"PIT@BUF","Pit","Daryl","Richardson","Buf",0,0,0,0
-"RB","Jonathan Williams","Jonathan Williams",3000,3000,"PIT@BUF","Buf","Jonathan","Williams","Pit",0,0,15,0.005602241
-"WR","Darrius Heyward-Bey","Darrius Heyward-Bey",3000,3000,"PIT@BUF","Pit","Darrius","Heyward-Bey","Buf",3.11,0,10,0.033970276
-"WR","Brandon Tate","Brandon Tate",3000,3000,"PIT@BUF","Buf","Brandon","Tate","Pit",3.55,0,10,0.030812325
-"WR","Cobi Hamilton","Cobi Hamilton",3000,3000,"PIT@BUF","Pit","Cobi","Hamilton","Buf",0,4.6,7,0.04670913
-"WR","Justin Hunter","Justin Hunter",3000,3000,"PIT@BUF","Buf","Justin","Hunter","Pit",0,2.6,7,0.056022409
-"WR","Sammie Coates","Sammie Coates",3000,3000,"PIT@BUF","Pit","Sammie","Coates","Buf",11.01,1.9,5,0.091295117
-"WR","Dezmin Lewis","Dezmin Lewis",3000,3000,"PIT@BUF","Buf","Dezmin","Lewis","Pit",0,0,17,0.00280112
-"RB","Jalston Fowler","Jalston Fowler",3000,3000,"DEN@TEN","Ten","Jalston","Fowler","Den",0,0,0,0
-"RB","Juwan Thompson","Juwan Thompson",3000,3000,"DEN@TEN","Den","Juwan","Thompson","Ten",0,1.1,0,0
-"RB","David Fluellen","David Fluellen",3000,3000,"DEN@TEN","Ten","David","Fluellen","Den",0,0,0,0
-"RB","Antonio Andrews","Antonio Andrews",3000,3000,"DEN@TEN","Ten","Antonio","Andrews","Den",0,1,0,0
-"WR","Harry Douglas","Harry Douglas",3000,3000,"DEN@TEN","Ten","Harry","Douglas","Den",7.96,0,7,0.038071066
-"WR","Jordan Norwood","Jordan Norwood",3000,3000,"DEN@TEN","Den","Jordan","Norwood","Ten",3.73,2.3,3,0.078431373
-"WR","Marc Mariani","Marc Mariani",3000,3000,"DEN@TEN","Ten","Marc","Mariani","Den",4.98,0,0,0
-"WR","Bennie Fowler","Bennie Fowler",3000,3000,"DEN@TEN","Den","Bennie","Fowler","Ten",0,0,7,0.044117647
-"WR","Marlon Brown","Marlon Brown",3000,3000,"DEN@TEN","Den","Marlon","Brown","Ten",0,0,0,0
-"WR","Jordan Taylor","Jordan Taylor",3000,3000,"DEN@TEN","Den","Jordan","Taylor","Ten",0,3.8,8,0.036764706
-"WR","Tre McBride","Tre McBride",3000,3000,"DEN@TEN","Ten","Tre","McBride","Den",0,0,0,0
-"WR","Cody Latimer","Cody Latimer",3000,3000,"DEN@TEN","Den","Cody","Latimer","Ten",3.65,1.7,11,0.014705882
-"WR","Kalif Raymond","Kalif Raymond",3000,3000,"DEN@TEN","Den","Kalif","Raymond","Ten",0,0,0,0
-"RB","John Kuhn","John Kuhn",3000,3000,"NO@TB","NO","John","Kuhn","Tb",0,2.2,0,0
-"RB","Travaris Cadet","Travaris Cadet",3000,3000,"NO@TB","NO","Travaris","Cadet","Tb",0,1.1,5,0.081673307
-"RB","Marcus Murphy","Marcus Murphy",3000,3000,"NO@TB","NO","Marcus","Murphy","Tb",0,0,13,0.001992032
-"RB","Daniel Lasco","Daniel Lasco",3000,3000,"NO@TB","NO","Daniel","Lasco","Tb",0,0,12,0.007968127
-"RB","Peyton Barber","Peyton Barber",3000,3000,"NO@TB","TB","Peyton","Barber","No",0,0,12,0.015625
-"WR","Brandon Coleman","Brandon Coleman",3000,3000,"NO@TB","NO","Brandon","Coleman","Tb",4.45,1.3,7,0.049800797
-"WR","Cecil Shorts","Cecil Shorts",3000,3000,"NO@TB","TB","Cecil","Shorts","No",0,0,5,0.0625
-"WR","Freddie Martino","Freddie Martino",3000,3000,"NO@TB","TB","Freddie","Martino","No",0,8.7,11,0.017857143
-"WR","Tommylee Lewis","Tommylee Lewis",3000,3000,"NO@TB","NO","Tommylee","Lewis","Tb",0,0,11,0.021912351
-"WR","Jake Lampman","Jake Lampman",3000,3000,"NO@TB","NO","Jake","Lampman","Tb",0,0,0,0
-"RB","Mack Brown","Mack Brown",3000,3000,"WAS@PHI","Was","Mack","Brown","Phi",0,0,0,0
-"WR","Ryan Grant","Ryan Grant",3000,3000,"WAS@PHI","Was","Ryan","Grant","Phi",0,2.3,7,0.036885246
-"WR","Rashad Ross","Rashad Ross",3000,3000,"WAS@PHI","Was","Rashad","Ross","Phi",0,0,13,0.004098361
-"WR","Maurice Harris","Maurice Harris",3000,3000,"WAS@PHI","Was","Maurice","Harris","Phi",0,0,10,0.018442623
-"WR","Bryce Treggs","Bryce Treggs",3000,3000,"WAS@PHI","Phi","Bryce","Treggs","Was",0,3.9,10,0.018018018
-"RB","Stepfan Taylor","Stepfan Taylor",3000,3000,"ARI@MIA","Ari","Stepfan","Taylor","Mia",0,0,0,0
-"RB","Kerwynn Williams","Kerwynn Williams",3000,3000,"ARI@MIA","Ari","Kerwynn","Williams","Mia",0,0,0,0
-"RB","Kenyan Drake","Kenyan Drake",3000,3000,"ARI@MIA","Mia","Kenyan","Drake","Ari",0,1.4,11,0.024390244
-"WR","Rashawn Scott","Rashawn Scott",3000,3000,"ARI@MIA","Mia","Rashawn","Scott","Ari",0,0,0,0
-"WR","Jakeem Grant","Jakeem Grant",3000,3000,"ARI@MIA","Mia","Jakeem","Grant","Ari",0,0,13,0.002710027
-"WR","Brittan Golden","Brittan Golden",3000,3000,"ARI@MIA","Ari","Brittan","Golden","Mia",0,0,9,0.013483146
-"WR","Marquis Bundy","Marquis Bundy",3000,3000,"ARI@MIA","Ari","Marquis","Bundy","Mia",0,0,0,0
-"WR","Leonte Carroo","Leonte Carroo",3000,3000,"ARI@MIA","Mia","Leonte","Carroo","Ari",4.4,0,12,0.013550136
-"RB","Mike Tolbert","Mike Tolbert",3000,3000,"SD@CAR","Car","Mike","Tolbert","Sd",0,1.7,0,0
-"RB","Fozzy Whittaker","Fozzy Whittaker",3000,3000,"SD@CAR","Car","Fozzy","Whittaker","Sd",3.82,4.1,6,0.069444444
-"RB","Ronnie Hillman","Ronnie Hillman",3000,3000,"SD@CAR","SD","Ronnie","Hillman","Car",0,0,0,0
-"RB","Derek Watt","Derek Watt",3000,3000,"SD@CAR","SD","Derek","Watt","Car",0,0,0,0
-"WR","Brenton Bersin","Brenton Bersin",3000,3000,"SD@CAR","Car","Brenton","Bersin","Sd",0,0,10,0.00462963
-"WR","Geremy Davis","Geremy Davis",3000,3000,"SD@CAR","SD","Geremy","Davis","Car",0,0,0,0
-"WR","Isaiah Burse","Isaiah Burse",3000,3000,"SD@CAR","SD","Isaiah","Burse","Car",0,0,14,0.002358491
-"WR","Corey Brown","Corey Brown",3000,3000,"SD@CAR","Car","Corey","Brown","Sd",0,4.6,5,0.094907407
-"WR","Jeremy Butler","Jeremy Butler",3000,3000,"SD@CAR","SD","Jeremy","Butler","Car",0,1.4,12,0.004716981
-"RB","Cedric Peerman","Cedric Peerman",3000,3000,"CIN@CLE","Cin","Cedric","Peerman","Cle",0,0,0,0
-"RB","George Atkinson","George Atkinson",3000,3000,"CIN@CLE","Cle","George","Atkinson","Cin",0,0,0,0
-"WR","Andrew Hawkins","Andrew Hawkins",3000,3000,"CIN@CLE","Cle","Andrew","Hawkins","Cin",4.83,5.6,4,0.104783599
-"WR","James Wright","James Wright",3000,3000,"CIN@CLE","Cin","James","Wright","Cle",0,0,8,0.042505593
-"WR","Alex Erickson","Alex Erickson",3000,3000,"CIN@CLE","Cin","Alex","Erickson","Cle",0,1.3,11,0.011185682
-"WR","Jordan Payton","Jordan Payton",3000,3000,"CIN@CLE","Cle","Jordan","Payton","Cin",0,0,11,0.006833713
-"WR","Ricardo Louis","Ricardo Louis",3000,3000,"CIN@CLE","Cle","Ricardo","Louis","Cin",0,1.1,7,0.072892938
-"WR","Cody Core","Cody Core",3000,3000,"CIN@CLE","Cin","Cody","Core","Cle",0,0,12,0.006711409
-"WR","Rashard Higgins","Rashard Higgins",3000,3000,"CIN@CLE","Cle","Rashard","Higgins","Cin",0,0,8,0.022779043
-"RB","Mike Burton","Mike Burton",3000,3000,"CHI@DET","Det","Mike","Burton","Chi",0,0,0,0
-"RB","Zach Zenner","Zach Zenner",3000,3000,"CHI@DET","Det","Zach","Zenner","Chi",4.12,7.8,0,0
-"RB","Ka'Deem Carey","Ka'Deem Carey",3000,3000,"CHI@DET","Chi","Ka'Deem","Carey","Det",4.37,2.4,12,0.016129032
-"RB","Paul Lasike","Paul Lasike",3000,3000,"CHI@DET","Chi","Paul","Lasike","Det",0,0,0,0
-"WR","Andre Roberts","Andre Roberts",3000,3000,"CHI@DET","Det","Andre","Roberts","Chi",0,1.6,6,0.047511312
-"WR","Deonte Thompson","Deonte Thompson",3000,3000,"CHI@DET","Chi","Deonte","Thompson","Det",0,10,9,0.041474654
-"WR","Daniel Braverman","Daniel Braverman",3000,3000,"CHI@DET","Chi","Daniel","Braverman","Det",0,0,0,0
-"RB","Jonathan Grimes","Jonathan Grimes",3000,3000,"HOU@IND","Hou","Jonathan","Grimes","Ind",0,1.9,9,0.018223235
-"RB","Jordan Todman","Jordan Todman",3000,3000,"HOU@IND","Ind","Jordan","Todman","Hou",0,0,13,0.002192982
-"RB","Jay Prosch","Jay Prosch",3000,3000,"HOU@IND","Hou","Jay","Prosch","Ind",0,1.1,0,0
-"RB","Tyler Ervin","Tyler Ervin",3000,3000,"HOU@IND","Hou","Tyler","Ervin","Ind",0,0,11,0.011389522
-"RB","Josh Ferguson","Josh Ferguson",3000,3000,"HOU@IND","Ind","Josh","Ferguson","Hou",0,1.3,7,0.057017544
-"RB","Akeem Hunt","Akeem Hunt",3000,3000,"HOU@IND","Hou","Akeem","Hunt","Ind",0,0,12,0.004555809
-"WR","Keith Mumphery","Keith Mumphery",3000,3000,"HOU@IND","Hou","Keith","Mumphery","Ind",0,2,12,0.004555809
-"WR","Braxton Miller","Braxton Miller",3000,3000,"HOU@IND","Hou","Braxton","Miller","Ind",4.36,0,6,0.063781321
-"WR","Chester Rogers","Chester Rogers",3000,3000,"HOU@IND","Ind","Chester","Rogers","Hou",0,0,8,0.048245614
-"WR","Jaelen Strong","Jaelen Strong",3000,3000,"HOU@IND","Hou","Jaelen","Strong","Ind",3.91,0,7,0.054669704
-"RB","Zach Line","Zach Line",3000,3000,"MIN@JAX","Min","Zach","Line","Jax",0,0,0,0
-"RB","Corey Grant","Corey Grant",3000,3000,"MIN@JAX","Jax","Corey","Grant","Min",0,0,14,0.002020202
-"WR","Bryan Walters","Bryan Walters",3000,3000,"MIN@JAX","Jax","Bryan","Walters","Min",0,7.9,10,0.02020202
-"WR","Arrelious Benn","Arrelious Benn",3000,3000,"MIN@JAX","Jax","Arrelious","Benn","Min",0,3.5,11,0.018181818
-"WR","Charles Johnson","Charles Johnson",3000,3000,"MIN@JAX","Min","Charles","Johnson","Jax",6.19,1.6,7,0.062211982
-"WR","Jarius Wright","Jarius Wright",3000,3000,"MIN@JAX","Min","Jarius","Wright","Jax",0,0,9,0.013824885
-"WR","Shane Wynn","Shane Wynn",3000,3000,"MIN@JAX","Jax","Shane","Wynn","Min",0,0,0,0
-"WR","Laquon Treadwell","Laquon Treadwell",3000,3000,"MIN@JAX","Min","Laquon","Treadwell","Jax",6.78,0,11,0.006912442
-"RB","Shaun Draughn","Shaun Draughn",3000,3000,"NYJ@SF","SF","Shaun","Draughn","Nyj",5.25,3.4,6,0.069333333
-"RB","C.J. Spiller","C.J. Spiller",3000,3000,"NYJ@SF","NYJ","C.J.","Spiller","Sf",0,0,11,0.009638554
-"RB","Mike Davis","Mike Davis",3000,3000,"NYJ@SF","SF","Mike","Davis","Nyj",0,0,13,0.013333333
-"WR","Jeremy Ross","Jeremy Ross",3000,3000,"NYJ@SF","NYJ","Jeremy","Ross","Sf",0,0,0,0
-"WR","Rod Streater","Rod Streater",3000,3000,"NYJ@SF","SF","Rod","Streater","Nyj",0,2.9,8,0.042666667
-"WR","Charone Peake","Charone Peake",3000,3000,"NYJ@SF","NYJ","Charone","Peake","Sf",0,2,6,0.05060241
-"WR","Devin Smith","Devin Smith",3000,3000,"NYJ@SF","NYJ","Devin","Smith","Sf",0,0,0,0
-"WR","Robby Anderson","Robby Anderson",3000,3000,"NYJ@SF","NYJ","Robby","Anderson","Sf",0,7.7,4,0.120481928
-"WR","Chris Harper","Chris Harper",3000,3000,"NYJ@SF","SF","Chris","Harper","Nyj",0,0,9,0.026666667
-"WR","Aaron Burbridge","Aaron Burbridge",3000,3000,"NYJ@SF","SF","Aaron","Burbridge","Nyj",0,1.6,11,0.021333333
-"WR","Jalin Marshall","Jalin Marshall",3000,3000,"NYJ@SF","NYJ","Jalin","Marshall","Sf",0,0,8,0.048192771
-"TE","Vance McDonald","Vance McDonald",3000,3000,"NYJ@SF","SF","Vance","McDonald","Nyj",7.2,6.5,4,0.117333333
-"RB","Chase Reynolds","Chase Reynolds",3000,3000,"ATL@LA","LA","Chase","Reynolds","Atl",0,0,0,0
-"RB","Patrick DiMarco","Patrick DiMarco",3000,3000,"ATL@LA","Atl","Patrick","DiMarco","La",0,0,0,0
-"RB","Terron Ward","Terron Ward",3000,3000,"ATL@LA","Atl","Terron","Ward","La",0,0,12,0.004739336
-"RB","Malcolm Brown","Malcolm Brown",3000,3000,"ATL@LA","LA","Malcolm","Brown","Atl",0,3,11,0.004901961
-"WR","Eric Weems","Eric Weems",3000,3000,"ATL@LA","Atl","Eric","Weems","La",0,0,0,0
-"WR","Aldrick Robinson","Aldrick Robinson",3000,3000,"ATL@LA","Atl","Aldrick","Robinson","La",0,8.1,9,0.045023697
-"WR","Justin Hardy","Justin Hardy",3000,3000,"ATL@LA","Atl","Justin","Hardy","La",6.01,5.8,8,0.047393365
-"WR","Bradley Marquez","Bradley Marquez",3000,3000,"ATL@LA","LA","Bradley","Marquez","Atl",0,0,8,0.019607843
-"WR","Pharoh Cooper","Pharoh Cooper",3000,3000,"ATL@LA","LA","Pharoh","Cooper","Atl",0,2,9,0.017156863
-"WR","Mike Thomas","Mike Thomas",3000,3000,"ATL@LA","LA","Mike","Thomas","Atl",0,0,10,0.007352941
-"RB","Will Tukuafu","Will Tukuafu",3000,3000,"SEA@GB","Sea","Will","Tukuafu","Gb",0,0,0,0
-"RB","George Farmer","George Farmer",3000,3000,"SEA@GB","Sea","George","Farmer","Gb",0,0,11,0.007751938
-"RB","Aaron Ripkowski","Aaron Ripkowski",3000,3000,"SEA@GB","GB","Aaron","Ripkowski","Sea",0,1.4,0,0
-"RB","Joe Kerridge","Joe Kerridge",3000,3000,"SEA@GB","GB","Joe","Kerridge","Sea",0,0,0,0
-"RB","Troymaine Pope","Troymaine Pope",3000,3000,"SEA@GB","Sea","Troymaine","Pope","Gb",0,2.8,15,0.002583979
-"RB","Alex Collins","Alex Collins",3000,3000,"SEA@GB","Sea","Alex","Collins","Gb",0,0,11,0.007751938
-"WR","Jermaine Kearse","Jermaine Kearse",3000,3000,"SEA@GB","Sea","Jermaine","Kearse","Gb",7.84,9.4,3,0.173126615
-"WR","Paul Richardson","Paul Richardson",3000,3000,"SEA@GB","Sea","Paul","Richardson","Gb",2.96,3.9,5,0.062015504
-"WR","Tanner McEvoy","Tanner McEvoy",3000,3000,"SEA@GB","Sea","Tanner","McEvoy","Gb",0,0,9,0.012919897
-"WR","Trevor Davis","Trevor Davis",3000,3000,"SEA@GB","GB","Trevor","Davis","Sea",0,0,9,0.016129032
-"WR","Jeff Janis","Jeff Janis",3000,3000,"SEA@GB","GB","Jeff","Janis","Sea",0,1.2,8,0.036290323
-"WR","Geronimo Allison","Geronimo Allison",3000,3000,"SEA@GB","GB","Geronimo","Allison","Sea",0,0,9,0.016129032
-"RB","Darren McFadden","Darren McFadden",3000,3000,"DAL@NYG","Dal","Darren","McFadden","Nyg",0,0,0,0
-"RB","Bobby Rainey","Bobby Rainey",3000,3000,"DAL@NYG","NYG","Bobby","Rainey","Dal",0,0,6,0.047109208
-"RB","Lance Dunbar","Lance Dunbar",3000,3000,"DAL@NYG","Dal","Lance","Dunbar","Nyg",0,2.5,7,0.029810298
-"RB","Keith Smith","Keith Smith",3000,3000,"DAL@NYG","Dal","Keith","Smith","Nyg",0,0,0,0
-"RB","Darius Jackson","Darius Jackson",3000,3000,"DAL@NYG","Dal","Darius","Jackson","Nyg",0,0,0,0
-"WR","Dwayne Harris","Dwayne Harris",3000,3000,"DAL@NYG","NYG","Dwayne","Harris","Dal",2.65,0,14,0.004282655
-"WR","Tavarres King","Tavarres King",3000,3000,"DAL@NYG","NYG","Tavarres","King","Dal",0,0,13,0.006423983
-"WR","Brice Butler","Brice Butler",3000,3000,"DAL@NYG","Dal","Brice","Butler","Nyg",2.14,2,6,0.073170732
-"WR","Lucky Whitehead","Lucky Whitehead",3000,3000,"DAL@NYG","Dal","Lucky","Whitehead","Nyg",0,0,11,0.008130081
-"WR","Vince Mayle","Vince Mayle",3000,3000,"DAL@NYG","Dal","Vince","Mayle","Nyg",0,0,0,0
-"WR","Roger Lewis","Roger Lewis",3000,3000,"DAL@NYG","NYG","Roger","Lewis","Dal",0,1.2,9,0.03640257
-"TE","Hunter Henry","Hunter Henry",2900,2900,"SD@CAR","SD","Hunter","Henry","Car",0,7.1,6,0.094339623
-"TE","Lance Kendricks","Lance Kendricks",2800,2800,"ATL@LA","LA","Lance","Kendricks","Atl",8.29,10.1,3,0.178921569
-"TE","Will Tye","Will Tye",2800,2800,"DAL@NYG","NYG","Will","Tye","Dal",7.54,8.3,4,0.107066381
-"TE","Julius Thomas","Julius Thomas",2800,2800,"MIN@JAX","Jax","Julius","Thomas","Min",10.5,0,4,0.109090909
-"TE","Jack Doyle","Jack Doyle",2700,2700,"HOU@IND","Ind","Jack","Doyle","Hou",2.34,6.6,2,0.122807018
-"TE","Jared Cook","Jared Cook",2700,2700,"SEA@GB","GB","Jared","Cook","Sea",11.01,7.1,6,0.060483871
-"TE","Dwayne Allen","Dwayne Allen",2600,2600,"HOU@IND","Ind","Dwayne","Allen","Hou",9.96,7.6,5,0.094298246
-"TE","Richard Rodgers","Richard Rodgers",2600,2600,"SEA@GB","GB","Richard","Rodgers","Sea",7,3.8,4,0.08266129
-"TE","Charles Clay","Charles Clay",2600,2600,"PIT@BUF","Buf","Charles","Clay","Pit",10.46,8.3,2,0.173669468
-"TE","David Johnson","David Johnson",2500,2500,"PIT@BUF","Pit","David","Johnson","Buf",0,0,12,0.01910828
-"TE","Logan Thomas","Logan Thomas",2500,2500,"PIT@BUF","Buf","Logan","Thomas","Pit",0,0,0,0
-"TE","Gerald Christian","Gerald Christian",2500,2500,"PIT@BUF","Buf","Gerald","Christian","Pit",0,0,15,0.005602241
-"TE","Xavier Grimble","Xavier Grimble",2500,2500,"PIT@BUF","Pit","Xavier","Grimble","Buf",0,0,9,0.040339703
-"TE","Nick O'Leary","Nick O'Leary",2500,2500,"PIT@BUF","Buf","Nick","O'Leary","Pit",0,1.5,8,0.033613445
-"TE","Jesse James","Jesse James",2500,2500,"PIT@BUF","Pit","Jesse","James","Buf",10.64,2.4,3,0.106157113
-"TE","Anthony Fasano","Anthony Fasano",2500,2500,"DEN@TEN","Ten","Anthony","Fasano","Den",4.02,0,8,0.032994924
-"TE","Virgil Green","Virgil Green",2500,2500,"DEN@TEN","Den","Virgil","Green","Ten",9.31,3.9,4,0.071078431
-"TE","A.J. Derby","A.J. Derby",2500,2500,"DEN@TEN","Den","A.J.","Derby","Ten",0,6,9,0.022058824
-"TE","Jeff Heuerman","Jeff Heuerman",2500,2500,"DEN@TEN","Den","Jeff","Heuerman","Ten",0,0,13,0.007352941
-"TE","Jace Amaro","Jace Amaro",2500,2500,"DEN@TEN","Ten","Jace","Amaro","Den",5.44,0,11,0.010152284
-"TE","Phillip Supernaw","Phillip Supernaw",2500,2500,"DEN@TEN","Ten","Phillip","Supernaw","Den",0,0,10,0.015228426
-"TE","Brandon Myers","Brandon Myers",2500,2500,"NO@TB","TB","Brandon","Myers","No",0,0,10,0.020089286
-"TE","John Phillips","John Phillips",2500,2500,"NO@TB","NO","John","Phillips","Tb",0,3.1,13,0.001992032
-"TE","Luke Stocker","Luke Stocker",2500,2500,"NO@TB","TB","Luke","Stocker","No",0,0,14,0.011160714
-"TE","Josh Hill","Josh Hill",2500,2500,"NO@TB","NO","Josh","Hill","Tb",0,0,8,0.041832669
-"TE","Alan Cross","Alan Cross",2500,2500,"NO@TB","TB","Alan","Cross","No",0,0,0,0
-"TE","Brent Celek","Brent Celek",2500,2500,"WAS@PHI","Phi","Brent","Celek","Was",6.42,1.3,7,0.027027027
-"TE","Trey Burton","Trey Burton",2500,2500,"WAS@PHI","Phi","Trey","Burton","Was",0,2,6,0.085585586
-"TE","Derek Carrier","Derek Carrier",2500,2500,"WAS@PHI","Was","Derek","Carrier","Phi",0,0,13,0.004098361
-"TE","Darren Fells","Darren Fells",2500,2500,"ARI@MIA","Ari","Darren","Fells","Mia",5.11,1.5,7,0.035955056
-"TE","Jermaine Gresham","Jermaine Gresham",2500,2500,"ARI@MIA","Ari","Jermaine","Gresham","Mia",2.59,7.4,5,0.096629213
-"TE","MarQueis Gray","MarQueis Gray",2500,2500,"ARI@MIA","Mia","MarQueis","Gray","Ari",0,1.7,7,0.037940379
-"TE","Dion Sims","Dion Sims",2500,2500,"ARI@MIA","Mia","Dion","Sims","Ari",1.81,3.4,5,0.067750678
-"TE","Dominique Jones","Dominique Jones",2500,2500,"ARI@MIA","Mia","Dominique","Jones","Ari",0,2,8,0.032520325
-"TE","Hakeem Valles","Hakeem Valles",2500,2500,"ARI@MIA","Ari","Hakeem","Valles","Mia",0,0,11,0.004494382
-"TE","Thomas Duarte","Thomas Duarte",2500,2500,"ARI@MIA","Mia","Thomas","Duarte","Ari",0,0,0,0
-"TE","Ed Dickson","Ed Dickson",2500,2500,"SD@CAR","Car","Ed","Dickson","Sd",2.64,1.4,7,0.037037037
-"TE","Sean McGrath","Sean McGrath",2500,2500,"SD@CAR","SD","Sean","McGrath","Car",0,0,12,0.004716981
-"TE","Asante Cleveland","Asante Cleveland",2500,2500,"SD@CAR","SD","Asante","Cleveland","Car",0,0,0,0
-"TE","Chris Manhertz","Chris Manhertz",2500,2500,"SD@CAR","Car","Chris","Manhertz","Sd",0,0,0,0
-"TE","Ryan Hewitt","Ryan Hewitt",2500,2500,"CIN@CLE","Cin","Ryan","Hewitt","Cle",0,0,13,0.004474273
-"TE","Randall Telfer","Randall Telfer",2500,2500,"CIN@CLE","Cle","Randall","Telfer","Cin",0,1.1,10,0.011389522
-"TE","Tyler Kroft","Tyler Kroft",2500,2500,"CIN@CLE","Cin","Tyler","Kroft","Cle",7.68,1.3,9,0.024608501
-"TE","C.J. Uzomah","C.J. Uzomah",2500,2500,"CIN@CLE","Cin","C.J.","Uzomah","Cle",2.24,0,6,0.064876957
-"TE","Seth DeValve","Seth DeValve",2500,2500,"CIN@CLE","Cle","Seth","DeValve","Cin",0,1.1,9,0.01594533
-"TE","Danny Vitale","Danny Vitale",2500,2500,"CIN@CLE","Cle","Danny","Vitale","Cin",0,0,0,0
-"TE","Brandon Pettigrew","Brandon Pettigrew",2500,2500,"CHI@DET","Det","Brandon","Pettigrew","Chi",1.76,0,0,0
-"TE","Clay Harbor","Clay Harbor",2500,2500,"CHI@DET","Det","Clay","Harbor","Chi",0,2,11,0.00678733
-"TE","Logan Paulsen","Logan Paulsen",2500,2500,"CHI@DET","Chi","Logan","Paulsen","Det",0,2.7,11,0.023041475
-"TE","Matthew Mulligan","Matthew Mulligan",2500,2500,"CHI@DET","Det","Matthew","Mulligan","Chi",0,0,0,0
-"TE","Daniel Brown","Daniel Brown",2500,2500,"CHI@DET","Chi","Daniel","Brown","Det",0,6.4,12,0.016129032
-"TE","Ben Braunecker","Ben Braunecker",2500,2500,"CHI@DET","Chi","Ben","Braunecker","Det",0,6.7,14,0.004608295
-"TE","Ryan Griffin","Ryan Griffin",2500,2500,"HOU@IND","Hou","Ryan","Griffin","Ind",6.88,3.9,4,0.134396355
-"TE","Erik Swoope","Erik Swoope",2500,2500,"HOU@IND","Ind","Erik","Swoope","Hou",0,0,10,0.039473684
-"TE","Stephen Anderson","Stephen Anderson",2500,2500,"HOU@IND","Hou","Stephen","Anderson","Ind",0,1.5,8,0.031890661
-"TE","Rhett Ellison","Rhett Ellison",2500,2500,"MIN@JAX","Min","Rhett","Ellison","Jax",0,1.7,8,0.02764977
-"TE","Neal Sterling","Neal Sterling",2500,2500,"MIN@JAX","Jax","Neal","Sterling","Min",0,3.8,9,0.022222222
-"TE","Alex Ellis","Alex Ellis",2500,2500,"MIN@JAX","Jax","Alex","Ellis","Min",0,0,0,0
-"TE","Ben Koyack","Ben Koyack",2500,2500,"MIN@JAX","Jax","Ben","Koyack","Min",0,5.1,8,0.028282828
-"TE","David Morgan","David Morgan",2500,2500,"MIN@JAX","Min","David","Morgan","Jax",0,0,0,0
-"TE","Garrett Celek","Garrett Celek",2500,2500,"NYJ@SF","SF","Garrett","Celek","Nyj",0,4.4,5,0.093333333
-"TE","Brandon Bostick","Brandon Bostick",2500,2500,"NYJ@SF","NYJ","Brandon","Bostick","Sf",0,0,10,0.01686747
-"TE","Blake Bell","Blake Bell",2500,2500,"NYJ@SF","SF","Blake","Bell","Nyj",0,0,12,0.016
-"TE","Je'Ron Hamm","Je'Ron Hamm",2500,2500,"NYJ@SF","SF","Je'Ron","Hamm","Nyj",0,0,0,0
-"TE","Eric Tomlinson","Eric Tomlinson",2500,2500,"NYJ@SF","NYJ","Eric","Tomlinson","Sf",0,0,0,0
-"TE","Austin Seferian-Jenkins","Austin Seferian-Jenkins",2500,2500,"NYJ@SF","NYJ","Austin","Seferian-Jenkins","Sf",8.85,1.4,9,0.021686747
-"TE","Cory Harkey","Cory Harkey",2500,2500,"ATL@LA","LA","Cory","Harkey","Atl",0,0,0,0
-"TE","Levine Toilolo","Levine Toilolo",2500,2500,"ATL@LA","Atl","Levine","Toilolo","La",2.04,2,10,0.033175355
-"TE","Tyler Higbee","Tyler Higbee",2500,2500,"ATL@LA","LA","Tyler","Higbee","Atl",0,1.2,6,0.051470588
-"TE","Joshua Perkins","Joshua Perkins",2500,2500,"ATL@LA","Atl","Joshua","Perkins","La",0,1.3,0,0
-"TE","Temarrick Hemingway","Temarrick Hemingway",2500,2500,"ATL@LA","LA","Temarrick","Hemingway","Atl",0,0,0,0
-"TE","Austin Hooper","Austin Hooper",2500,2500,"ATL@LA","Atl","Austin","Hooper","La",0,6.3,7,0.059241706
-"TE","Luke Willson","Luke Willson",2500,2500,"SEA@GB","Sea","Luke","Willson","Gb",6.93,1.4,7,0.033591731
-"TE","Brandon Williams","Brandon Williams",2500,2500,"SEA@GB","Sea","Brandon","Williams","Gb",0,0,13,0.005167959
-"TE","Nick Vannett","Nick Vannett",2500,2500,"SEA@GB","Sea","Nick","Vannett","Gb",0,0,10,0.010335917
-"TE","Larry Donnell","Larry Donnell",2500,2500,"DAL@NYG","NYG","Larry","Donnell","Dal",5.71,0,7,0.04496788
-"TE","Gavin Escobar","Gavin Escobar",2500,2500,"DAL@NYG","Dal","Gavin","Escobar","Nyg",2.1,0,9,0.010840108
-"TE","Jerell Adams","Jerell Adams",2500,2500,"DAL@NYG","NYG","Jerell","Adams","Dal",0,2.4,10,0.029978587
+"RB","David Johnson (1000000)","David Johnson",9800,9800,"ARI@MIA","Ari","David","Johnson","Mia",18.71,24.5,2,0.220224719
+"RB","Le'Veon Bell (1000000)","Le'Veon Bell",9000,9000,"PIT@BUF","Pit","Le'Veon","Bell","Buf",0,27.7,2,0.165605096
+"WR","Mike Evans (1000000)","Mike Evans",8900,8900,"NO@TB","TB","Mike","Evans","No",18.54,21.8,1,0.3125
+"WR","Antonio Brown (1000000)","Antonio Brown",8700,8700,"PIT@BUF","Pit","Antonio","Brown","Buf",30.3,22.9,1,0.284501062
+"WR","Julio Jones (1000000)","Julio Jones",8500,8500,"ATL@LA","Atl","Julio","Jones","La",27.81,17.3,1,0.272511848
+"RB","Ezekiel Elliott (1000000)","Ezekiel Elliott",8400,8400,"DAL@NYG","Dal","Ezekiel","Elliott","Nyg",17.07,19.1,5,0.092140921
+"RB","LeSean McCoy (1000000)","LeSean McCoy",8200,8200,"PIT@BUF","Buf","LeSean","McCoy","Pit",17.67,15.7,4,0.117647059
+"WR","Odell Beckham Jr. (1000000)","Odell Beckham Jr.",8000,8000,"DAL@NYG","NYG","Odell","Beckham","Dal",22.51,21.3,1,0.289079229
+"WR","A.J. Green (1000000)","A.J. Green",7700,7700,"CIN@CLE","Cin","A.J.","Green","Cle",19.1,0,1,0.241610738
+"WR","T.Y. Hilton (1000000)","T.Y. Hilton",7500,7500,"HOU@IND","Ind","T.Y.","Hilton","Hou",15.98,19.1,1,0.271929825
+"QB","Drew Brees (1000000)","Drew Brees",7400,7400,"NO@TB","NO","Drew","Brees","Tb",24.75,20.6,0,0
+"RB","Melvin Gordon (1000000)","Melvin Gordon",7400,7400,"SD@CAR","SD","Melvin","Gordon","Car",10.54,19,5,0.134433962
+"QB","Cam Newton (1000000)","Cam Newton",7200,7200,"SD@CAR","Car","Cam","Newton","Sd",19.86,21.2,0,0
+"WR","Larry Fitzgerald (1000000)","Larry Fitzgerald",7100,7100,"ARI@MIA","Ari","Larry","Fitzgerald","Mia",15.96,17.9,1,0.28988764
+"RB","DeMarco Murray (1000000)","DeMarco Murray",7000,7000,"DEN@TEN","Ten","DeMarco","Murray","Den",12.56,20.6,4,0.137055838
+"WR","Brandon Marshall (1000000)","Brandon Marshall",7000,7000,"NYJ@SF","NYJ","Brandon","Marshall","Sf",18.93,15.6,1,0.26746988
+"QB","Ben Roethlisberger (1000000)","Ben Roethlisberger",7000,7000,"PIT@BUF","Pit","Ben","Roethlisberger","Buf",22.83,18.9,0,0
+"QB","Andrew Luck (1000000)","Andrew Luck",6900,6900,"HOU@IND","Ind","Andrew","Luck","Hou",21.57,20.1,0,0
+"WR","Dez Bryant (1000000)","Dez Bryant",6900,6900,"DAL@NYG","Dal","Dez","Bryant","Nyg",17.95,16.6,3,0.197831978
+"RB","Matt Forte (1000000)","Matt Forte",6800,6800,"NYJ@SF","NYJ","Matt","Forte","Sf",14.54,18.6,5,0.101204819
+"WR","Jordy Nelson (1000000)","Jordy Nelson",6800,6800,"SEA@GB","GB","Jordy","Nelson","Sea",18.78,16.5,1,0.247983871
+"QB","Matthew Stafford (1000000)","Matthew Stafford",6800,6800,"CHI@DET","Det","Matthew","Stafford","Chi",18.45,18.8,0,0
+"WR","Doug Baldwin (1000000)","Doug Baldwin",6800,6800,"SEA@GB","Sea","Doug","Baldwin","Gb",16.12,14.5,1,0.245478036
+"WR","Michael Thomas (1000000)","Michael Thomas",6700,6700,"NO@TB","NO","Michael","Thomas","Tb",7.31,14.6,1,0.185258964
+"QB","Jameis Winston (1000000)","Jameis Winston",6700,6700,"NO@TB","TB","Jameis","Winston","No",18.88,19.3,0,0
+"QB","Philip Rivers (1000000)","Philip Rivers",6600,6600,"SD@CAR","SD","Philip","Rivers","Car",16.84,20,0,0
+"WR","Golden Tate (1000000)","Golden Tate",6600,6600,"CHI@DET","Det","Golden","Tate","Chi",18.45,14.2,1,0.226244344
+"QB","Russell Wilson (1000000)","Russell Wilson",6600,6600,"SEA@GB","Sea","Russell","Wilson","Gb",21.57,19.7,13,0.005167959
+"QB","Matt Ryan (1000000)","Matt Ryan",6500,6500,"ATL@LA","Atl","Matt","Ryan","La",17.7,19.5,0,0
+"WR","Stefon Diggs (1000000)","Stefon Diggs",6500,6500,"MIN@JAX","Min","Stefon","Diggs","Jax",13.3,15.5,1,0.225806452
+"QB","Aaron Rodgers (1000000)","Aaron Rodgers",6400,6400,"SEA@GB","GB","Aaron","Rodgers","Sea",23.19,18.6,0,0
+"WR","Brandin Cooks (1000000)","Brandin Cooks",6400,6400,"NO@TB","NO","Brandin","Cooks","Tb",16.81,14.3,2,0.171314741
+"RB","Jordan Howard (1000000)","Jordan Howard",6400,6400,"CHI@DET","Chi","Jordan","Howard","Det",4.61,14,5,0.094470046
+"WR","Donte Moncrief (1000000)","Donte Moncrief",6300,6300,"HOU@IND","Ind","Donte","Moncrief","Hou",15.28,14.2,3,0.10745614
+"QB","Kirk Cousins (1000000)","Kirk Cousins",6300,6300,"WAS@PHI","Was","Kirk","Cousins","Phi",18.56,19.3,0,0
+"RB","Doug Martin (1000000)","Doug Martin",6200,6200,"NO@TB","TB","Doug","Martin","No",17.35,11.5,8,0.03125
+"WR","Kelvin Benjamin (1000000)","Kelvin Benjamin",6200,6200,"SD@CAR","Car","Kelvin","Benjamin","Sd",11.86,13.3,2,0.222222222
+"QB","Marcus Mariota (1000000)","Marcus Mariota",6200,6200,"DEN@TEN","Ten","Marcus","Mariota","Den",18.67,16.7,0,0
+"QB","Andy Dalton (1000000)","Andy Dalton",6100,6100,"CIN@CLE","Cin","Andy","Dalton","Cle",17.67,20.2,0,0
+"WR","Tyrell Williams (1000000)","Tyrell Williams",6100,6100,"SD@CAR","SD","Tyrell","Williams","Car",6.53,15.7,1,0.200471698
+"RB","Devonta Freeman (1000000)","Devonta Freeman",6100,6100,"ATL@LA","Atl","Devonta","Freeman","La",16.35,15.1,3,0.116113744
+"WR","Demaryius Thomas (1000000)","Demaryius Thomas",6000,6000,"DEN@TEN","Den","Demaryius","Thomas","Ten",16.04,16.8,2,0.281862745
+"TE","Tyler Eifert (1000000)","Tyler Eifert",6000,6000,"CIN@CLE","Cin","Tyler","Eifert","Cle",0,14.3,5,0.085011186
+"WR","Alshon Jeffery (1000000)","Alshon Jeffery",6000,6000,"CHI@DET","Chi","Alshon","Jeffery","Det",17.28,0,1,0.170506912
+"TE","Jordan Reed (1000000)","Jordan Reed",5900,5900,"WAS@PHI","Was","Jordan","Reed","Phi",16.97,10.6,3,0.170081967
+"QB","Dak Prescott (1000000)","Dak Prescott",5900,5900,"DAL@NYG","Dal","Dak","Prescott","Nyg",18.73,18.4,0,0
+"RB","Jay Ajayi (1000000)","Jay Ajayi",5900,5900,"ARI@MIA","Mia","Jay","Ajayi","Ari",0,13.9,4,0.08401084
+"WR","Terrelle Pryor (1000000)","Terrelle Pryor",5900,5900,"CIN@CLE","Cle","Terrelle","Pryor","Cin",7.45,14.1,1,0.261958998
+"WR","DeAndre Hopkins (1000000)","DeAndre Hopkins",5800,5800,"HOU@IND","Hou","DeAndre","Hopkins","Ind",22.49,15,1,0.266514806
+"RB","Jeremy Hill (1000000)","Jeremy Hill",5800,5800,"CIN@CLE","Cin","Jeremy","Hill","Cle",9.63,18.6,7,0.051454139
+"QB","Colin Kaepernick (1000000)","Colin Kaepernick",5800,5800,"NYJ@SF","SF","Colin","Kaepernick","Nyj",0,18.7,0,0
+"QB","Carson Palmer (1000000)","Carson Palmer",5700,5700,"ARI@MIA","Ari","Carson","Palmer","Mia",19.51,18,0,0
+"RB","Thomas Rawls (1000000)","Thomas Rawls",5700,5700,"SEA@GB","Sea","Thomas","Rawls","Gb",7.43,12,8,0.031007752
+"WR","Emmanuel Sanders (1000000)","Emmanuel Sanders",5700,5700,"DEN@TEN","Den","Emmanuel","Sanders","Ten",15.19,15.7,1,0.286764706
+"WR","Jarvis Landry (1000000)","Jarvis Landry",5600,5600,"ARI@MIA","Mia","Jarvis","Landry","Ari",16.02,13.3,1,0.284552846
+"RB","DeAngelo Williams (1000000)","DeAngelo Williams",5600,5600,"PIT@BUF","Pit","DeAngelo","Williams","Buf",19.66,3.4,6,0.048832272
+"QB","Ryan Fitzpatrick (1000000)","Ryan Fitzpatrick",5600,5600,"NYJ@SF","NYJ","Ryan","Fitzpatrick","Sf",17.35,0,0,0
+"RB","Jacquizz Rodgers (1000000)","Jacquizz Rodgers",5600,5600,"NO@TB","TB","Jacquizz","Rodgers","No",0,4.4,8,0.03125
+"WR","Jamison Crowder (1000000)","Jamison Crowder",5600,5600,"WAS@PHI","Was","Jamison","Crowder","Phi",7.73,14.2,2,0.172131148
+"QB","Eli Manning (1000000)","Eli Manning",5500,5500,"DAL@NYG","NYG","Eli","Manning","Dal",18.71,18.6,0,0
+"RB","Theo Riddick (1000000)","Theo Riddick",5500,5500,"CHI@DET","Det","Theo","Riddick","Chi",11.1,0,4,0.156108597
+"WR","Davante Adams (1000000)","Davante Adams",5500,5500,"SEA@GB","GB","Davante","Adams","Sea",7.32,11.6,2,0.197580645
+"TE","Jimmy Graham (1000000)","Jimmy Graham",5500,5500,"SEA@GB","Sea","Jimmy","Graham","Gb",9.94,12.6,2,0.209302326
+"WR","Jordan Matthews (1000000)","Jordan Matthews",5400,5400,"WAS@PHI","Phi","Jordan","Matthews","Was",13.9,16.6,1,0.204954955
+"RB","Jonathan Stewart (1000000)","Jonathan Stewart",5400,5400,"SD@CAR","Car","Jonathan","Stewart","Sd",13.11,11.6,7,0.037037037
+"QB","Tyrod Taylor (1000000)","Tyrod Taylor",5400,5400,"PIT@BUF","Buf","Tyrod","Taylor","Pit",18.86,16.8,0,0
+"WR","Sammy Watkins (1000000)","Sammy Watkins",5300,5300,"PIT@BUF","Buf","Sammy","Watkins","Pit",17.09,15,6,0.06162465
+"QB","Brock Osweiler (1000000)","Brock Osweiler",5300,5300,"HOU@IND","Hou","Brock","Osweiler","Ind",16.36,15.2,14,0.002277904
+"RB","Mark Ingram (1000000)","Mark Ingram",5300,5300,"NO@TB","NO","Mark","Ingram","Tb",17.07,13,5,0.081673307
+"WR","DeVante Parker (1000000)","DeVante Parker",5300,5300,"ARI@MIA","Mia","DeVante","Parker","Ari",0,11.1,2,0.181571816
+"RB","Derrick Henry (1000000)","Derrick Henry",5200,5200,"DEN@TEN","Ten","Derrick","Henry","Den",6.69,6,9,0.027918782
+"WR","DeSean Jackson (1000000)","DeSean Jackson",5200,5200,"WAS@PHI","Was","DeSean","Jackson","Phi",12.99,13.7,4,0.163934426
+"QB","Ryan Tannehill (1000000)","Ryan Tannehill",5200,5200,"ARI@MIA","Mia","Ryan","Tannehill","Ari",14.99,14,0,0
+"WR","Kenny Britt (1000000)","Kenny Britt",5200,5200,"ATL@LA","LA","Kenny","Britt","Atl",8.1,13.9,1,0.225490196
+"WR","Cole Beasley (1000000)","Cole Beasley",5200,5200,"DAL@NYG","Dal","Cole","Beasley","Nyg",7.31,11,1,0.219512195
+"WR","Willie Snead (1000000)","Willie Snead",5200,5200,"NO@TB","NO","Willie","Snead","Tb",12.5,13,3,0.153386454
+"WR","Rishard Matthews (1000000)","Rishard Matthews",5100,5100,"DEN@TEN","Ten","Rishard","Matthews","Den",10.47,13.5,3,0.185279188
+"QB","Carson Wentz (1000000)","Carson Wentz",5100,5100,"WAS@PHI","Phi","Carson","Wentz","Was",15.51,15.9,0,0
+"RB","Lamar Miller (1000000)","Lamar Miller",5100,5100,"HOU@IND","Hou","Lamar","Miller","Ind",18.88,13,5,0.08428246
+"QB","Sam Bradford (1000000)","Sam Bradford",5100,5100,"MIN@JAX","Min","Sam","Bradford","Jax",0,14.7,13,0.002304147
+"QB","Tony Romo (1000000)","Tony Romo",5100,5100,"DAL@NYG","Dal","Tony","Romo","Nyg",0,0,0,0
+"QB","Trevor Siemian (1000000)","Trevor Siemian",5100,5100,"DEN@TEN","Den","Trevor","Siemian","Ten",15.28,16.3,0,0
+"QB","Landry Jones (1000000)","Landry Jones",5000,5000,"PIT@BUF","Pit","Landry","Jones","Buf",0,0,0,0
+"QB","EJ Manuel (1000000)","EJ Manuel",5000,5000,"PIT@BUF","Buf","EJ","Manuel","Pit",0,0,0,0
+"QB","Zach Mettenberger (1000000)","Zach Mettenberger",5000,5000,"PIT@BUF","Pit","Zach","Mettenberger","Buf",0,0,0,0
+"QB","Cardale Jones (1000000)","Cardale Jones",5000,5000,"PIT@BUF","Buf","Cardale","Jones","Pit",0,0,0,0
+"QB","Matt Cassel (1000000)","Matt Cassel",5000,5000,"DEN@TEN","Ten","Matt","Cassel","Den",0,0,0,0
+"QB","Austin Davis (1000000)","Austin Davis",5000,5000,"DEN@TEN","Den","Austin","Davis","Ten",0,0,0,0
+"QB","Paxton Lynch (1000000)","Paxton Lynch",5000,5000,"DEN@TEN","Den","Paxton","Lynch","Ten",0,0,0,0
+"QB","Luke McCown (1000000)","Luke McCown",5000,5000,"NO@TB","NO","Luke","McCown","Tb",0,0,0,0
+"QB","Mike Glennon (1000000)","Mike Glennon",5000,5000,"NO@TB","TB","Mike","Glennon","No",0,0,0,0
+"QB","Ryan Griffin (1000000)","Ryan Griffin",5000,5000,"NO@TB","TB","Ryan","Griffin","No",0,0,0,0
+"QB","Chase Daniel (1000000)","Chase Daniel",5000,5000,"WAS@PHI","Phi","Chase","Daniel","Was",0,0,0,0
+"QB","Colt McCoy (1000000)","Colt McCoy",5000,5000,"WAS@PHI","Was","Colt","McCoy","Phi",0,0,0,0
+"QB","Nate Sudfeld (1000000)","Nate Sudfeld",5000,5000,"WAS@PHI","Was","Nate","Sudfeld","Phi",0,0,0,0
+"QB","Matt Moore (1000000)","Matt Moore",5000,5000,"ARI@MIA","Mia","Matt","Moore","Ari",0,0,0,0
+"QB","Drew Stanton (1000000)","Drew Stanton",5000,5000,"ARI@MIA","Ari","Drew","Stanton","Mia",0,0,0,0
+"QB","Derek Anderson (1000000)","Derek Anderson",5000,5000,"SD@CAR","Car","Derek","Anderson","Sd",0,0,0,0
+"QB","Kellen Clemens (1000000)","Kellen Clemens",5000,5000,"SD@CAR","SD","Kellen","Clemens","Car",0,0,0,0
+"QB","Joe Webb (1000000)","Joe Webb",5000,5000,"SD@CAR","Car","Joe","Webb","Sd",0,0,11,0.002314815
+"TE","Greg Olsen (1000000)","Greg Olsen",5000,5000,"SD@CAR","Car","Greg","Olsen","Sd",16.32,16.2,1,0.231481481
+"QB","Josh McCown (1000000)","Josh McCown",5000,5000,"CIN@CLE","Cle","Josh","McCown","Cin",0,0,0,0
+"QB","Robert Griffin (1000000)","Robert Griffin",5000,5000,"CIN@CLE","Cle","Robert","Griffin","Cin",0,16.8,0,0
+"QB","AJ McCarron (1000000)","AJ McCarron",5000,5000,"CIN@CLE","Cin","AJ","McCarron","Cle",0,0,0,0
+"QB","Cody Kessler (1000000)","Cody Kessler",5000,5000,"CIN@CLE","Cle","Cody","Kessler","Cin",0,0,0,0
+"QB","Jeff Driskel (1000000)","Jeff Driskel",5000,5000,"CIN@CLE","Cin","Jeff","Driskel","Cle",0,0,0,0
+"QB","Kevin Hogan (1000000)","Kevin Hogan",5000,5000,"CIN@CLE","Cle","Kevin","Hogan","Cin",0,0,0,0
+"WR","Brandon LaFell (1000000)","Brandon LaFell",5000,5000,"CIN@CLE","Cin","Brandon","LaFell","Cle",9.82,11.4,2,0.167785235
+"QB","Jay Cutler (1000000)","Jay Cutler",5000,5000,"CHI@DET","Chi","Jay","Cutler","Det",15.94,0,0,0
+"QB","Dan Orlovsky (1000000)","Dan Orlovsky",5000,5000,"CHI@DET","Det","Dan","Orlovsky","Chi",0,0,0,0
+"QB","Matt Barkley (1000000)","Matt Barkley",5000,5000,"CHI@DET","Chi","Matt","Barkley","Det",0,15.6,0,0
+"QB","David Fales (1000000)","David Fales",5000,5000,"CHI@DET","Chi","David","Fales","Det",0,0,0,0
+"QB","Jake Rudock (1000000)","Jake Rudock",5000,5000,"CHI@DET","Det","Jake","Rudock","Chi",0,0,0,0
+"RB","Ameer Abdullah (1000000)","Ameer Abdullah",5000,5000,"CHI@DET","Det","Ameer","Abdullah","Chi",11.8,0,9,0.011312217
+"QB","Scott Tolzien (1000000)","Scott Tolzien",5000,5000,"HOU@IND","Ind","Scott","Tolzien","Hou",0,0,0,0
+"QB","Brandon Weeden (1000000)","Brandon Weeden",5000,5000,"HOU@IND","Hou","Brandon","Weeden","Ind",0,0,0,0
+"QB","Tom Savage (1000000)","Tom Savage",5000,5000,"HOU@IND","Hou","Tom","Savage","Ind",0,0,0,0
+"QB","Shaun Hill (1000000)","Shaun Hill",5000,5000,"MIN@JAX","Min","Shaun","Hill","Jax",12.68,0,0,0
+"QB","Chad Henne (1000000)","Chad Henne",5000,5000,"MIN@JAX","Jax","Chad","Henne","Min",0,0,0,0
+"QB","Taylor Heinicke (1000000)","Taylor Heinicke",5000,5000,"MIN@JAX","Min","Taylor","Heinicke","Jax",0,0,0,0
+"QB","Brandon Allen (1000000)","Brandon Allen",5000,5000,"MIN@JAX","Jax","Brandon","Allen","Min",0,0,0,0
+"RB","Adrian Peterson (1000000)","Adrian Peterson",5000,5000,"MIN@JAX","Min","Adrian","Peterson","Jax",18.29,0,10,0.011520737
+"WR","Allen Robinson (1000000)","Allen Robinson",5000,5000,"MIN@JAX","Jax","Allen","Robinson","Min",18.72,13.7,1,0.244444444
+"QB","Christian Ponder (1000000)","Christian Ponder",5000,5000,"NYJ@SF","SF","Christian","Ponder","Nyj",0,0,0,0
+"QB","Blaine Gabbert (1000000)","Blaine Gabbert",5000,5000,"NYJ@SF","SF","Blaine","Gabbert","Nyj",14.63,0,14,0.002666667
+"QB","Bryce Petty (1000000)","Bryce Petty",5000,5000,"NYJ@SF","NYJ","Bryce","Petty","Sf",0,15.2,0,0
+"QB","Christian Hackenberg (1000000)","Christian Hackenberg",5000,5000,"NYJ@SF","NYJ","Christian","Hackenberg","Sf",0,0,0,0
+"RB","Bilal Powell (1000000)","Bilal Powell",5000,5000,"NYJ@SF","NYJ","Bilal","Powell","Sf",10.02,12.2,3,0.122891566
+"QB","Matt Schaub (1000000)","Matt Schaub",5000,5000,"ATL@LA","Atl","Matt","Schaub","La",0,0,0,0
+"QB","Case Keenum (1000000)","Case Keenum",5000,5000,"ATL@LA","LA","Case","Keenum","Atl",13.14,0,0,0
+"QB","Sean Mannion (1000000)","Sean Mannion",5000,5000,"ATL@LA","LA","Sean","Mannion","Atl",0,0,0,0
+"QB","Jared Goff (1000000)","Jared Goff",5000,5000,"ATL@LA","LA","Jared","Goff","Atl",0,15.1,0,0
+"RB","Todd Gurley (1000000)","Todd Gurley",5000,5000,"ATL@LA","LA","Todd","Gurley","Atl",19.29,16.8,5,0.107843137
+"QB","Brett Hundley (1000000)","Brett Hundley",5000,5000,"SEA@GB","GB","Brett","Hundley","Sea",0,0,0,0
+"QB","Trevone Boykin (1000000)","Trevone Boykin",5000,5000,"SEA@GB","Sea","Trevone","Boykin","Gb",0,0,0,0
+"WR","Randall Cobb (1000000)","Randall Cobb",5000,5000,"SEA@GB","GB","Randall","Cobb","Sea",17.1,11,3,0.171370968
+"QB","Josh Johnson (1000000)","Josh Johnson",5000,5000,"DAL@NYG","NYG","Josh","Johnson","Dal",0,0,0,0
+"QB","Mark Sanchez (1000000)","Mark Sanchez",5000,5000,"DAL@NYG","Dal","Mark","Sanchez","Nyg",0,0,0,0
+"QB","Ryan Nassib (1000000)","Ryan Nassib",5000,5000,"DAL@NYG","NYG","Ryan","Nassib","Dal",0,0,0,0
+"QB","Blake Bortles (1000000)","Blake Bortles",5000,5000,"MIN@JAX","Jax","Blake","Bortles","Min",19.02,14.3,0,0
+"WR","Tyler Boyd (1000000)","Tyler Boyd",4900,4900,"CIN@CLE","Cin","Tyler","Boyd","Cle",8.39,13.2,3,0.147651007
+"WR","Marvin Jones Jr. (1000000)","Marvin Jones Jr.",4900,4900,"CHI@DET","Det","Marvin","Jones","Chi",13.25,12.5,2,0.196832579
+"RB","Carlos Hyde (1000000)","Carlos Hyde",4900,4900,"NYJ@SF","SF","Carlos","Hyde","Nyj",12.5,12.5,6,0.069333333
+"WR","Quincy Enunwa (1000000)","Quincy Enunwa",4900,4900,"NYJ@SF","NYJ","Quincy","Enunwa","Sf",4.82,8.8,2,0.185542169
+"RB","Rashad Jennings (1000000)","Rashad Jennings",4900,4900,"DAL@NYG","NYG","Rashad","Jennings","Dal",12.12,9.2,5,0.072805139
+"RB","Alfred Morris (1000000)","Alfred Morris",4900,4900,"DAL@NYG","Dal","Alfred","Morris","Nyg",3.01,3.9,9,0.010840108
+"TE","Zach Ertz (1000000)","Zach Ertz",4900,4900,"WAS@PHI","Phi","Zach","Ertz","Was",14.12,11.6,2,0.15990991
+"WR","Dontrelle Inman (1000000)","Dontrelle Inman",4800,4800,"SD@CAR","SD","Dontrelle","Inman","Car",5.81,9.9,2,0.176886792
+"RB","Frank Gore (1000000)","Frank Gore",4800,4800,"HOU@IND","Ind","Frank","Gore","Hou",10.92,13.3,6,0.089912281
+"RB","Devontae Booker (1000000)","Devontae Booker",4800,4800,"DEN@TEN","Den","Devontae","Booker","Ten",6.9,12.6,5,0.068627451
+"RB","C.J. Prosise (1000000)","C.J. Prosise",4700,4700,"SEA@GB","Sea","C.J.","Prosise","Gb",4.7,0,6,0.051679587
+"WR","Adam Thielen (1000000)","Adam Thielen",4700,4700,"MIN@JAX","Min","Adam","Thielen","Jax",0,12.2,3,0.16359447
+"WR","Sterling Shepard (1000000)","Sterling Shepard",4600,4600,"DAL@NYG","NYG","Sterling","Shepard","Dal",12.47,13.8,2,0.173447537
+"RB","Mike Gillislee (1000000)","Mike Gillislee",4600,4600,"PIT@BUF","Buf","Mike","Gillislee","Pit",4.73,3,10,0.030812325
+"RB","Tim Hightower (1000000)","Tim Hightower",4500,4500,"NO@TB","NO","Tim","Hightower","Tb",4.92,10.4,9,0.039840637
+"WR","Anquan Boldin (1000000)","Anquan Boldin",4500,4500,"CHI@DET","Det","Anquan","Boldin","Chi",10.93,12.2,3,0.174208145
+"WR","Will Fuller (1000000)","Will Fuller",4500,4500,"HOU@IND","Hou","Will","Fuller","Ind",10.52,9.3,3,0.15261959
+"TE","Delanie Walker (1000000)","Delanie Walker",4400,4400,"DEN@TEN","Ten","Delanie","Walker","Den",13.8,10.4,2,0.187817259
+"WR","Corey Coleman (1000000)","Corey Coleman",4400,4400,"CIN@CLE","Cle","Corey","Coleman","Cin",12.57,12,5,0.102505695
+"RB","Alfred Blue (1000000)","Alfred Blue",4400,4400,"HOU@IND","Hou","Alfred","Blue","Ind",4.43,3.4,10,0.013667426
+"RB","Darren Sproles (1000000)","Darren Sproles",4400,4400,"WAS@PHI","Phi","Darren","Sproles","Was",10.5,9.6,4,0.13963964
+"RB","Fitzgerald Toussaint (1000000)","Fitzgerald Toussaint",4300,4300,"PIT@BUF","Pit","Fitzgerald","Toussaint","Buf",3.42,0,13,0.002123142
+"WR","Taylor Gabriel (1000000)","Taylor Gabriel",4300,4300,"ATL@LA","Atl","Taylor","Gabriel","La",0,12.3,4,0.08056872
+"RB","Rob Kelley (1000000)","Rob Kelley",4200,4200,"WAS@PHI","Was","Rob","Kelley","Phi",0,12.1,9,0.020491803
+"WR","Pierre Garcon (1000000)","Pierre Garcon",4200,4200,"WAS@PHI","Was","Pierre","Garcon","Phi",11.6,13.1,1,0.182377049
+"WR","Mohamed Sanu (1000000)","Mohamed Sanu",4200,4200,"ATL@LA","Atl","Mohamed","Sanu","La",11.65,0,2,0.177725118
+"RB","Jeremy Langford (1000000)","Jeremy Langford",4100,4100,"CHI@DET","Chi","Jeremy","Langford","Det",11.37,4.2,8,0.048387097
+"WR","Travis Benjamin (1000000)","Travis Benjamin",4100,4100,"SD@CAR","SD","Travis","Benjamin","Car",10.28,8.9,3,0.158018868
+"TE","Cameron Brate (1000000)","Cameron Brate",4100,4100,"NO@TB","TB","Cameron","Brate","No",6.74,10.4,2,0.15625
+"RB","Kapri Bibbs (1000000)","Kapri Bibbs",4000,4000,"DEN@TEN","Den","Kapri","Bibbs","Ten",0,0,12,0.009803922
+"WR","Ted Ginn Jr. (1000000)","Ted Ginn Jr.",4000,4000,"SD@CAR","Car","Ted","Ginn","Sd",7.85,9.1,3,0.157407407
+"WR","Cameron Meredith (1000000)","Cameron Meredith",4000,4000,"CHI@DET","Chi","Cameron","Meredith","Det",0,12.5,2,0.149769585
+"TE","Kyle Rudolph (1000000)","Kyle Rudolph",4000,4000,"MIN@JAX","Min","Kyle","Rudolph","Jax",8.39,10.3,2,0.218894009
+"RB","Benny Cunningham (1000000)","Benny Cunningham",4000,4000,"ATL@LA","LA","Benny","Cunningham","Atl",4.98,0,6,0.051470588
+"RB","Tevin Coleman (1000000)","Tevin Coleman",4000,4000,"ATL@LA","Atl","Tevin","Coleman","La",6.8,8.9,5,0.071090047
+"RB","Shane Vereen (1000000)","Shane Vereen",4000,4000,"DAL@NYG","NYG","Shane","Vereen","Dal",9.89,7.6,10,0.029978587
+"RB","Charles Sims (1000000)","Charles Sims",4000,4000,"NO@TB","TB","Charles","Sims","No",10.45,4.8,7,0.040178571
+"RB","Ryan Mathews (1000000)","Ryan Mathews",4000,4000,"WAS@PHI","Phi","Ryan","Mathews","Was",14.74,6.4,9,0.024774775
+"WR","Robert Woods (1000000)","Robert Woods",3900,3900,"PIT@BUF","Buf","Robert","Woods","Pit",10.44,7.2,1,0.179271709
+"RB","Damien Williams (1000000)","Damien Williams",3900,3900,"ARI@MIA","Mia","Damien","Williams","Ari",3.21,4.8,6,0.059620596
+"WR","Michael Floyd (1000000)","Michael Floyd",3900,3900,"ARI@MIA","Ari","Michael","Floyd","Mia",13.76,11.2,0,0
+"RB","Isaiah Crowell (1000000)","Isaiah Crowell",3900,3900,"CIN@CLE","Cle","Isaiah","Crowell","Cin",8.57,12.9,6,0.093394077
+"TE","C.J. Fiedorowicz (1000000)","C.J. Fiedorowicz",3900,3900,"HOU@IND","Hou","C.J.","Fiedorowicz","Ind",3.32,9,2,0.154897494
+"TE","Ladarius Green (1000000)","Ladarius Green",3900,3900,"PIT@BUF","Pit","Ladarius","Green","Buf",0,9.3,8,0.042462845
+"RB","DuJuan Harris (1000000)","DuJuan Harris",3900,3900,"NYJ@SF","SF","DuJuan","Harris","Nyj",0,2.3,10,0.024
+"WR","Tavon Austin (1000000)","Tavon Austin",3900,3900,"ATL@LA","LA","Tavon","Austin","Atl",12.32,12.1,2,0.191176471
+"WR","Ty Montgomery (1000000)","Ty Montgomery",3900,3900,"SEA@GB","GB","Ty","Montgomery","Sea",0,7.6,0,0
+"RB","Wendell Smallwood (1000000)","Wendell Smallwood",3800,3800,"WAS@PHI","Phi","Wendell","Smallwood","Was",0,5.2,7,0.027027027
+"WR","John Brown (1000000)","John Brown",3800,3800,"ARI@MIA","Ari","John","Brown","Mia",13.3,7.8,3,0.141573034
+"RB","Cameron Artis-Payne (1000000)","Cameron Artis-Payne",3800,3800,"SD@CAR","Car","Cameron","Artis-Payne","Sd",0,0,11,0.002314815
+"WR","Eli Rogers (1000000)","Eli Rogers",3800,3800,"PIT@BUF","Pit","Eli","Rogers","Buf",8.73,8.9,4,0.097664544
+"WR","Marquess Wilson (1000000)","Marquess Wilson",3800,3800,"CHI@DET","Chi","Marquess","Wilson","Det",0,0,10,0.036866359
+"TE","Eric Ebron (1000000)","Eric Ebron",3800,3800,"CHI@DET","Det","Eric","Ebron","Chi",9.86,10.5,5,0.126696833
+"RB","T.J. Yeldon (1000000)","T.J. Yeldon",3800,3800,"MIN@JAX","Jax","T.J.","Yeldon","Min",13.57,14.8,4,0.109090909
+"RB","James Starks (1000000)","James Starks",3800,3800,"SEA@GB","GB","James","Starks","Sea",7.85,6.6,7,0.050403226
+"RB","Paul Perkins (1000000)","Paul Perkins",3800,3800,"DAL@NYG","NYG","Paul","Perkins","Dal",0,2.4,8,0.040685225
+"TE","Antonio Gates (1000000)","Antonio Gates",3800,3800,"SD@CAR","SD","Antonio","Gates","Car",11.85,12,4,0.143867925
+"WR","Adam Humphries (1000000)","Adam Humphries",3700,3700,"NO@TB","TB","Adam","Humphries","No",6.64,0,2,0.15625
+"RB","Chris Thompson (1000000)","Chris Thompson",3700,3700,"WAS@PHI","Was","Chris","Thompson","Phi",6.53,8.3,5,0.092213115
+"WR","Paul Turner (1000000)","Paul Turner",3700,3700,"WAS@PHI","Phi","Paul","Turner","Was",0,5.2,10,0.018018018
+"WR","Kenny Stills (1000000)","Kenny Stills",3700,3700,"ARI@MIA","Mia","Kenny","Stills","Ari",9.97,6.8,3,0.151761518
+"RB","Kenneth Farrow (1000000)","Kenneth Farrow",3700,3700,"SD@CAR","SD","Kenneth","Farrow","Car",0,2.1,10,0.007075472
+"RB","Chris Ivory (1000000)","Chris Ivory",3700,3700,"MIN@JAX","Jax","Chris","Ivory","Min",0,0,7,0.042424242
+"WR","Marqise Lee (1000000)","Marqise Lee",3700,3700,"MIN@JAX","Jax","Marqise","Lee","Min",4.97,11.4,2,0.163636364
+"WR","Tyler Lockett (1000000)","Tyler Lockett",3700,3700,"SEA@GB","Sea","Tyler","Lockett","Gb",12.75,9.4,4,0.139534884
+"TE","Coby Fleener (1000000)","Coby Fleener",3700,3700,"NO@TB","NO","Coby","Fleener","Tb",14.87,9,4,0.131474104
+"WR","Dorial Green-Beckham (1000000)","Dorial Green-Beckham",3600,3600,"WAS@PHI","Phi","Dorial","Green-Beckham","Was",8.47,0,3,0.148648649
+"RB","Jerick McKinnon (1000000)","Jerick McKinnon",3600,3600,"MIN@JAX","Min","Jerick","McKinnon","Jax",5.03,12.5,5,0.069124424
+"WR","Cordarrelle Patterson (1000000)","Cordarrelle Patterson",3600,3600,"MIN@JAX","Min","Cordarrelle","Patterson","Jax",0,5.2,4,0.126728111
+"RB","Kenjon Barner (1000000)","Kenjon Barner",3600,3600,"WAS@PHI","Phi","Kenjon","Barner","Was",0,1.1,12,0.015765766
+"WR","J.J. Nelson (1000000)","J.J. Nelson",3600,3600,"ARI@MIA","Ari","J.J.","Nelson","Mia",0,9.5,4,0.098876404
+"WR","Russell Shepard (1000000)","Russell Shepard",3500,3500,"NO@TB","TB","Russell","Shepard","No",0,6.8,6,0.053571429
+"TE","Vernon Davis (1000000)","Vernon Davis",3500,3500,"WAS@PHI","Was","Vernon","Davis","Phi",2.11,2.9,5,0.092213115
+"RB","Andre Ellington (1000000)","Andre Ellington",3500,3500,"ARI@MIA","Ari","Andre","Ellington","Mia",5.16,2.9,7,0.035955056
+"RB","Rex Burkhead (1000000)","Rex Burkhead",3500,3500,"CIN@CLE","Cin","Rex","Burkhead","Cle",0,7.7,10,0.022371365
+"RB","Duke Johnson (1000000)","Duke Johnson",3500,3500,"CIN@CLE","Cle","Duke","Johnson","Cin",11.19,10.4,2,0.150341686
+"RB","Dwayne Washington (1000000)","Dwayne Washington",3500,3500,"CHI@DET","Det","Dwayne","Washington","Chi",0,11.1,8,0.015837104
+"WR","Josh Bellamy (1000000)","Josh Bellamy",3500,3500,"CHI@DET","Chi","Josh","Bellamy","Det",2.9,9.3,7,0.059907834
+"WR","Torrey Smith (1000000)","Torrey Smith",3500,3500,"NYJ@SF","SF","Torrey","Smith","Nyj",12.14,8,3,0.136
+"WR","Tajae Sharpe (1000000)","Tajae Sharpe",3400,3400,"DEN@TEN","Ten","Tajae","Sharpe","Den",11.83,8.1,1,0.195431472
+"WR","Marquise Goodwin (1000000)","Marquise Goodwin",3400,3400,"PIT@BUF","Buf","Marquise","Goodwin","Pit",0,5.8,3,0.148459384
+"WR","Allen Hurns (1000000)","Allen Hurns",3400,3400,"MIN@JAX","Jax","Allen","Hurns","Min",13.08,0,3,0.157575758
+"WR","Jeremy Kerley (1000000)","Jeremy Kerley",3400,3400,"NYJ@SF","SF","Jeremy","Kerley","Nyj",9.5,10.3,1,0.218666667
+"RB","Matt Jones (1000000)","Matt Jones",3400,3400,"WAS@PHI","Was","Matt","Jones","Phi",10.56,0,8,0.022540984
+"WR","Kendall Wright (1000000)","Kendall Wright",3300,3300,"DEN@TEN","Ten","Kendall","Wright","Den",0,5.6,5,0.091370558
+"TE","Gary Barnidge (1000000)","Gary Barnidge",3300,3300,"CIN@CLE","Cle","Gary","Barnidge","Cin",12.98,7.8,2,0.150341686
+"RB","Robert Turbin (1000000)","Robert Turbin",3300,3300,"HOU@IND","Ind","Robert","Turbin","Hou",3.09,5,9,0.043859649
+"RB","Matt Asiata (1000000)","Matt Asiata",3300,3300,"MIN@JAX","Min","Matt","Asiata","Jax",0,9.3,6,0.066820276
+"RB","Christine Michael (1000000)","Christine Michael",3300,3300,"SEA@GB","GB","Christine","Michael","Sea",12.44,2.4,0,0
+"WR","Victor Cruz (1000000)","Victor Cruz",3300,3300,"DAL@NYG","NYG","Victor","Cruz","Dal",7.73,8.6,3,0.109207709
+"WR","Devin Funchess (1000000)","Devin Funchess",3300,3300,"SD@CAR","Car","Devin","Funchess","Sd",9.46,6.5,4,0.115740741
+"WR","Percy Harvin (1000000)","Percy Harvin",3200,3200,"PIT@BUF","Buf","Percy","Harvin","Pit",0,0,14,0.011204482
+"WR","Nelson Agholor (1000000)","Nelson Agholor",3200,3200,"WAS@PHI","Phi","Nelson","Agholor","Was",7.36,6.7,5,0.130630631
+"WR","T.J. Jones (1000000)","T.J. Jones",3200,3200,"CHI@DET","Det","T.J.","Jones","Chi",0,0,9,0.011312217
+"WR","Phillip Dorsett (1000000)","Phillip Dorsett",3200,3200,"HOU@IND","Ind","Phillip","Dorsett","Hou",10.9,7,4,0.098684211
+"RB","Denard Robinson (1000000)","Denard Robinson",3200,3200,"MIN@JAX","Jax","Denard","Robinson","Min",3.63,0,13,0.008080808
+"WR","Quinton Patton (1000000)","Quinton Patton",3200,3200,"NYJ@SF","SF","Quinton","Patton","Nyj",9.97,10,2,0.149333333
+"WR","Terrance Williams (1000000)","Terrance Williams",3200,3200,"DAL@NYG","Dal","Terrance","Williams","Nyg",9.18,8.2,4,0.12195122
+"WR","Eddie Royal (1000000)","Eddie Royal",3100,3100,"CHI@DET","Chi","Eddie","Royal","Det",6.9,0,4,0.103686636
+"WR","Brian Quick (1000000)","Brian Quick",3100,3100,"ATL@LA","LA","Brian","Quick","Atl",4.43,7.9,4,0.144607843
+"TE","Jason Witten (1000000)","Jason Witten",3100,3100,"DAL@NYG","Dal","Jason","Witten","Nyg",12.15,10.9,2,0.203252033
+"RB","Reggie Bush (1000000)","Reggie Bush",3000,3000,"PIT@BUF","Buf","Reggie","Bush","Pit",4.57,2.3,8,0.033613445
+"RB","Jerome Felton (1000000)","Jerome Felton",3000,3000,"PIT@BUF","Buf","Jerome","Felton","Pit",0,0,0,0
+"RB","Roosevelt Nix (1000000)","Roosevelt Nix",3000,3000,"PIT@BUF","Pit","Roosevelt","Nix","Buf",0,0,0,0
+"RB","Daryl Richardson (1000000)","Daryl Richardson",3000,3000,"PIT@BUF","Pit","Daryl","Richardson","Buf",0,0,0,0
+"RB","Jonathan Williams (1000000)","Jonathan Williams",3000,3000,"PIT@BUF","Buf","Jonathan","Williams","Pit",0,0,15,0.005602241
+"WR","Darrius Heyward-Bey (1000000)","Darrius Heyward-Bey",3000,3000,"PIT@BUF","Pit","Darrius","Heyward-Bey","Buf",3.11,0,10,0.033970276
+"WR","Brandon Tate (1000000)","Brandon Tate",3000,3000,"PIT@BUF","Buf","Brandon","Tate","Pit",3.55,0,10,0.030812325
+"WR","Cobi Hamilton (1000000)","Cobi Hamilton",3000,3000,"PIT@BUF","Pit","Cobi","Hamilton","Buf",0,4.6,7,0.04670913
+"WR","Justin Hunter (1000000)","Justin Hunter",3000,3000,"PIT@BUF","Buf","Justin","Hunter","Pit",0,2.6,7,0.056022409
+"WR","Sammie Coates (1000000)","Sammie Coates",3000,3000,"PIT@BUF","Pit","Sammie","Coates","Buf",11.01,1.9,5,0.091295117
+"WR","Dezmin Lewis (1000000)","Dezmin Lewis",3000,3000,"PIT@BUF","Buf","Dezmin","Lewis","Pit",0,0,17,0.00280112
+"RB","Jalston Fowler (1000000)","Jalston Fowler",3000,3000,"DEN@TEN","Ten","Jalston","Fowler","Den",0,0,0,0
+"RB","Juwan Thompson (1000000)","Juwan Thompson",3000,3000,"DEN@TEN","Den","Juwan","Thompson","Ten",0,1.1,0,0
+"RB","David Fluellen (1000000)","David Fluellen",3000,3000,"DEN@TEN","Ten","David","Fluellen","Den",0,0,0,0
+"RB","Antonio Andrews (1000000)","Antonio Andrews",3000,3000,"DEN@TEN","Ten","Antonio","Andrews","Den",0,1,0,0
+"WR","Harry Douglas (1000000)","Harry Douglas",3000,3000,"DEN@TEN","Ten","Harry","Douglas","Den",7.96,0,7,0.038071066
+"WR","Jordan Norwood (1000000)","Jordan Norwood",3000,3000,"DEN@TEN","Den","Jordan","Norwood","Ten",3.73,2.3,3,0.078431373
+"WR","Marc Mariani (1000000)","Marc Mariani",3000,3000,"DEN@TEN","Ten","Marc","Mariani","Den",4.98,0,0,0
+"WR","Bennie Fowler (1000000)","Bennie Fowler",3000,3000,"DEN@TEN","Den","Bennie","Fowler","Ten",0,0,7,0.044117647
+"WR","Marlon Brown (1000000)","Marlon Brown",3000,3000,"DEN@TEN","Den","Marlon","Brown","Ten",0,0,0,0
+"WR","Jordan Taylor (1000000)","Jordan Taylor",3000,3000,"DEN@TEN","Den","Jordan","Taylor","Ten",0,3.8,8,0.036764706
+"WR","Tre McBride (1000000)","Tre McBride",3000,3000,"DEN@TEN","Ten","Tre","McBride","Den",0,0,0,0
+"WR","Cody Latimer (1000000)","Cody Latimer",3000,3000,"DEN@TEN","Den","Cody","Latimer","Ten",3.65,1.7,11,0.014705882
+"WR","Kalif Raymond (1000000)","Kalif Raymond",3000,3000,"DEN@TEN","Den","Kalif","Raymond","Ten",0,0,0,0
+"RB","John Kuhn (1000000)","John Kuhn",3000,3000,"NO@TB","NO","John","Kuhn","Tb",0,2.2,0,0
+"RB","Travaris Cadet (1000000)","Travaris Cadet",3000,3000,"NO@TB","NO","Travaris","Cadet","Tb",0,1.1,5,0.081673307
+"RB","Marcus Murphy (1000000)","Marcus Murphy",3000,3000,"NO@TB","NO","Marcus","Murphy","Tb",0,0,13,0.001992032
+"RB","Daniel Lasco (1000000)","Daniel Lasco",3000,3000,"NO@TB","NO","Daniel","Lasco","Tb",0,0,12,0.007968127
+"RB","Peyton Barber (1000000)","Peyton Barber",3000,3000,"NO@TB","TB","Peyton","Barber","No",0,0,12,0.015625
+"WR","Brandon Coleman (1000000)","Brandon Coleman",3000,3000,"NO@TB","NO","Brandon","Coleman","Tb",4.45,1.3,7,0.049800797
+"WR","Cecil Shorts (1000000)","Cecil Shorts",3000,3000,"NO@TB","TB","Cecil","Shorts","No",0,0,5,0.0625
+"WR","Freddie Martino (1000000)","Freddie Martino",3000,3000,"NO@TB","TB","Freddie","Martino","No",0,8.7,11,0.017857143
+"WR","Tommylee Lewis (1000000)","Tommylee Lewis",3000,3000,"NO@TB","NO","Tommylee","Lewis","Tb",0,0,11,0.021912351
+"WR","Jake Lampman (1000000)","Jake Lampman",3000,3000,"NO@TB","NO","Jake","Lampman","Tb",0,0,0,0
+"RB","Mack Brown (1000000)","Mack Brown",3000,3000,"WAS@PHI","Was","Mack","Brown","Phi",0,0,0,0
+"WR","Ryan Grant (1000000)","Ryan Grant",3000,3000,"WAS@PHI","Was","Ryan","Grant","Phi",0,2.3,7,0.036885246
+"WR","Rashad Ross (1000000)","Rashad Ross",3000,3000,"WAS@PHI","Was","Rashad","Ross","Phi",0,0,13,0.004098361
+"WR","Maurice Harris (1000000)","Maurice Harris",3000,3000,"WAS@PHI","Was","Maurice","Harris","Phi",0,0,10,0.018442623
+"WR","Bryce Treggs (1000000)","Bryce Treggs",3000,3000,"WAS@PHI","Phi","Bryce","Treggs","Was",0,3.9,10,0.018018018
+"RB","Stepfan Taylor (1000000)","Stepfan Taylor",3000,3000,"ARI@MIA","Ari","Stepfan","Taylor","Mia",0,0,0,0
+"RB","Kerwynn Williams (1000000)","Kerwynn Williams",3000,3000,"ARI@MIA","Ari","Kerwynn","Williams","Mia",0,0,0,0
+"RB","Kenyan Drake (1000000)","Kenyan Drake",3000,3000,"ARI@MIA","Mia","Kenyan","Drake","Ari",0,1.4,11,0.024390244
+"WR","Rashawn Scott (1000000)","Rashawn Scott",3000,3000,"ARI@MIA","Mia","Rashawn","Scott","Ari",0,0,0,0
+"WR","Jakeem Grant (1000000)","Jakeem Grant",3000,3000,"ARI@MIA","Mia","Jakeem","Grant","Ari",0,0,13,0.002710027
+"WR","Brittan Golden (1000000)","Brittan Golden",3000,3000,"ARI@MIA","Ari","Brittan","Golden","Mia",0,0,9,0.013483146
+"WR","Marquis Bundy (1000000)","Marquis Bundy",3000,3000,"ARI@MIA","Ari","Marquis","Bundy","Mia",0,0,0,0
+"WR","Leonte Carroo (1000000)","Leonte Carroo",3000,3000,"ARI@MIA","Mia","Leonte","Carroo","Ari",4.4,0,12,0.013550136
+"RB","Mike Tolbert (1000000)","Mike Tolbert",3000,3000,"SD@CAR","Car","Mike","Tolbert","Sd",0,1.7,0,0
+"RB","Fozzy Whittaker (1000000)","Fozzy Whittaker",3000,3000,"SD@CAR","Car","Fozzy","Whittaker","Sd",3.82,4.1,6,0.069444444
+"RB","Ronnie Hillman (1000000)","Ronnie Hillman",3000,3000,"SD@CAR","SD","Ronnie","Hillman","Car",0,0,0,0
+"RB","Derek Watt (1000000)","Derek Watt",3000,3000,"SD@CAR","SD","Derek","Watt","Car",0,0,0,0
+"WR","Brenton Bersin (1000000)","Brenton Bersin",3000,3000,"SD@CAR","Car","Brenton","Bersin","Sd",0,0,10,0.00462963
+"WR","Geremy Davis (1000000)","Geremy Davis",3000,3000,"SD@CAR","SD","Geremy","Davis","Car",0,0,0,0
+"WR","Isaiah Burse (1000000)","Isaiah Burse",3000,3000,"SD@CAR","SD","Isaiah","Burse","Car",0,0,14,0.002358491
+"WR","Corey Brown (1000000)","Corey Brown",3000,3000,"SD@CAR","Car","Corey","Brown","Sd",0,4.6,5,0.094907407
+"WR","Jeremy Butler (1000000)","Jeremy Butler",3000,3000,"SD@CAR","SD","Jeremy","Butler","Car",0,1.4,12,0.004716981
+"RB","Cedric Peerman (1000000)","Cedric Peerman",3000,3000,"CIN@CLE","Cin","Cedric","Peerman","Cle",0,0,0,0
+"RB","George Atkinson (1000000)","George Atkinson",3000,3000,"CIN@CLE","Cle","George","Atkinson","Cin",0,0,0,0
+"WR","Andrew Hawkins (1000000)","Andrew Hawkins",3000,3000,"CIN@CLE","Cle","Andrew","Hawkins","Cin",4.83,5.6,4,0.104783599
+"WR","James Wright (1000000)","James Wright",3000,3000,"CIN@CLE","Cin","James","Wright","Cle",0,0,8,0.042505593
+"WR","Alex Erickson (1000000)","Alex Erickson",3000,3000,"CIN@CLE","Cin","Alex","Erickson","Cle",0,1.3,11,0.011185682
+"WR","Jordan Payton (1000000)","Jordan Payton",3000,3000,"CIN@CLE","Cle","Jordan","Payton","Cin",0,0,11,0.006833713
+"WR","Ricardo Louis (1000000)","Ricardo Louis",3000,3000,"CIN@CLE","Cle","Ricardo","Louis","Cin",0,1.1,7,0.072892938
+"WR","Cody Core (1000000)","Cody Core",3000,3000,"CIN@CLE","Cin","Cody","Core","Cle",0,0,12,0.006711409
+"WR","Rashard Higgins (1000000)","Rashard Higgins",3000,3000,"CIN@CLE","Cle","Rashard","Higgins","Cin",0,0,8,0.022779043
+"RB","Mike Burton (1000000)","Mike Burton",3000,3000,"CHI@DET","Det","Mike","Burton","Chi",0,0,0,0
+"RB","Zach Zenner (1000000)","Zach Zenner",3000,3000,"CHI@DET","Det","Zach","Zenner","Chi",4.12,7.8,0,0
+"RB","Ka'Deem Carey (1000000)","Ka'Deem Carey",3000,3000,"CHI@DET","Chi","Ka'Deem","Carey","Det",4.37,2.4,12,0.016129032
+"RB","Paul Lasike (1000000)","Paul Lasike",3000,3000,"CHI@DET","Chi","Paul","Lasike","Det",0,0,0,0
+"WR","Andre Roberts (1000000)","Andre Roberts",3000,3000,"CHI@DET","Det","Andre","Roberts","Chi",0,1.6,6,0.047511312
+"WR","Deonte Thompson (1000000)","Deonte Thompson",3000,3000,"CHI@DET","Chi","Deonte","Thompson","Det",0,10,9,0.041474654
+"WR","Daniel Braverman (1000000)","Daniel Braverman",3000,3000,"CHI@DET","Chi","Daniel","Braverman","Det",0,0,0,0
+"RB","Jonathan Grimes (1000000)","Jonathan Grimes",3000,3000,"HOU@IND","Hou","Jonathan","Grimes","Ind",0,1.9,9,0.018223235
+"RB","Jordan Todman (1000000)","Jordan Todman",3000,3000,"HOU@IND","Ind","Jordan","Todman","Hou",0,0,13,0.002192982
+"RB","Jay Prosch (1000000)","Jay Prosch",3000,3000,"HOU@IND","Hou","Jay","Prosch","Ind",0,1.1,0,0
+"RB","Tyler Ervin (1000000)","Tyler Ervin",3000,3000,"HOU@IND","Hou","Tyler","Ervin","Ind",0,0,11,0.011389522
+"RB","Josh Ferguson (1000000)","Josh Ferguson",3000,3000,"HOU@IND","Ind","Josh","Ferguson","Hou",0,1.3,7,0.057017544
+"RB","Akeem Hunt (1000000)","Akeem Hunt",3000,3000,"HOU@IND","Hou","Akeem","Hunt","Ind",0,0,12,0.004555809
+"WR","Keith Mumphery (1000000)","Keith Mumphery",3000,3000,"HOU@IND","Hou","Keith","Mumphery","Ind",0,2,12,0.004555809
+"WR","Braxton Miller (1000000)","Braxton Miller",3000,3000,"HOU@IND","Hou","Braxton","Miller","Ind",4.36,0,6,0.063781321
+"WR","Chester Rogers (1000000)","Chester Rogers",3000,3000,"HOU@IND","Ind","Chester","Rogers","Hou",0,0,8,0.048245614
+"WR","Jaelen Strong (1000000)","Jaelen Strong",3000,3000,"HOU@IND","Hou","Jaelen","Strong","Ind",3.91,0,7,0.054669704
+"RB","Zach Line (1000000)","Zach Line",3000,3000,"MIN@JAX","Min","Zach","Line","Jax",0,0,0,0
+"RB","Corey Grant (1000000)","Corey Grant",3000,3000,"MIN@JAX","Jax","Corey","Grant","Min",0,0,14,0.002020202
+"WR","Bryan Walters (1000000)","Bryan Walters",3000,3000,"MIN@JAX","Jax","Bryan","Walters","Min",0,7.9,10,0.02020202
+"WR","Arrelious Benn (1000000)","Arrelious Benn",3000,3000,"MIN@JAX","Jax","Arrelious","Benn","Min",0,3.5,11,0.018181818
+"WR","Charles Johnson (1000000)","Charles Johnson",3000,3000,"MIN@JAX","Min","Charles","Johnson","Jax",6.19,1.6,7,0.062211982
+"WR","Jarius Wright (1000000)","Jarius Wright",3000,3000,"MIN@JAX","Min","Jarius","Wright","Jax",0,0,9,0.013824885
+"WR","Shane Wynn (1000000)","Shane Wynn",3000,3000,"MIN@JAX","Jax","Shane","Wynn","Min",0,0,0,0
+"WR","Laquon Treadwell (1000000)","Laquon Treadwell",3000,3000,"MIN@JAX","Min","Laquon","Treadwell","Jax",6.78,0,11,0.006912442
+"RB","Shaun Draughn (1000000)","Shaun Draughn",3000,3000,"NYJ@SF","SF","Shaun","Draughn","Nyj",5.25,3.4,6,0.069333333
+"RB","C.J. Spiller (1000000)","C.J. Spiller",3000,3000,"NYJ@SF","NYJ","C.J.","Spiller","Sf",0,0,11,0.009638554
+"RB","Mike Davis (1000000)","Mike Davis",3000,3000,"NYJ@SF","SF","Mike","Davis","Nyj",0,0,13,0.013333333
+"WR","Jeremy Ross (1000000)","Jeremy Ross",3000,3000,"NYJ@SF","NYJ","Jeremy","Ross","Sf",0,0,0,0
+"WR","Rod Streater (1000000)","Rod Streater",3000,3000,"NYJ@SF","SF","Rod","Streater","Nyj",0,2.9,8,0.042666667
+"WR","Charone Peake (1000000)","Charone Peake",3000,3000,"NYJ@SF","NYJ","Charone","Peake","Sf",0,2,6,0.05060241
+"WR","Devin Smith (1000000)","Devin Smith",3000,3000,"NYJ@SF","NYJ","Devin","Smith","Sf",0,0,0,0
+"WR","Robby Anderson (1000000)","Robby Anderson",3000,3000,"NYJ@SF","NYJ","Robby","Anderson","Sf",0,7.7,4,0.120481928
+"WR","Chris Harper (1000000)","Chris Harper",3000,3000,"NYJ@SF","SF","Chris","Harper","Nyj",0,0,9,0.026666667
+"WR","Aaron Burbridge (1000000)","Aaron Burbridge",3000,3000,"NYJ@SF","SF","Aaron","Burbridge","Nyj",0,1.6,11,0.021333333
+"WR","Jalin Marshall (1000000)","Jalin Marshall",3000,3000,"NYJ@SF","NYJ","Jalin","Marshall","Sf",0,0,8,0.048192771
+"TE","Vance McDonald (1000000)","Vance McDonald",3000,3000,"NYJ@SF","SF","Vance","McDonald","Nyj",7.2,6.5,4,0.117333333
+"RB","Chase Reynolds (1000000)","Chase Reynolds",3000,3000,"ATL@LA","LA","Chase","Reynolds","Atl",0,0,0,0
+"RB","Patrick DiMarco (1000000)","Patrick DiMarco",3000,3000,"ATL@LA","Atl","Patrick","DiMarco","La",0,0,0,0
+"RB","Terron Ward (1000000)","Terron Ward",3000,3000,"ATL@LA","Atl","Terron","Ward","La",0,0,12,0.004739336
+"RB","Malcolm Brown (1000000)","Malcolm Brown",3000,3000,"ATL@LA","LA","Malcolm","Brown","Atl",0,3,11,0.004901961
+"WR","Eric Weems (1000000)","Eric Weems",3000,3000,"ATL@LA","Atl","Eric","Weems","La",0,0,0,0
+"WR","Aldrick Robinson (1000000)","Aldrick Robinson",3000,3000,"ATL@LA","Atl","Aldrick","Robinson","La",0,8.1,9,0.045023697
+"WR","Justin Hardy (1000000)","Justin Hardy",3000,3000,"ATL@LA","Atl","Justin","Hardy","La",6.01,5.8,8,0.047393365
+"WR","Bradley Marquez (1000000)","Bradley Marquez",3000,3000,"ATL@LA","LA","Bradley","Marquez","Atl",0,0,8,0.019607843
+"WR","Pharoh Cooper (1000000)","Pharoh Cooper",3000,3000,"ATL@LA","LA","Pharoh","Cooper","Atl",0,2,9,0.017156863
+"WR","Mike Thomas (1000000)","Mike Thomas",3000,3000,"ATL@LA","LA","Mike","Thomas","Atl",0,0,10,0.007352941
+"RB","Will Tukuafu (1000000)","Will Tukuafu",3000,3000,"SEA@GB","Sea","Will","Tukuafu","Gb",0,0,0,0
+"RB","George Farmer (1000000)","George Farmer",3000,3000,"SEA@GB","Sea","George","Farmer","Gb",0,0,11,0.007751938
+"RB","Aaron Ripkowski (1000000)","Aaron Ripkowski",3000,3000,"SEA@GB","GB","Aaron","Ripkowski","Sea",0,1.4,0,0
+"RB","Joe Kerridge (1000000)","Joe Kerridge",3000,3000,"SEA@GB","GB","Joe","Kerridge","Sea",0,0,0,0
+"RB","Troymaine Pope (1000000)","Troymaine Pope",3000,3000,"SEA@GB","Sea","Troymaine","Pope","Gb",0,2.8,15,0.002583979
+"RB","Alex Collins (1000000)","Alex Collins",3000,3000,"SEA@GB","Sea","Alex","Collins","Gb",0,0,11,0.007751938
+"WR","Jermaine Kearse (1000000)","Jermaine Kearse",3000,3000,"SEA@GB","Sea","Jermaine","Kearse","Gb",7.84,9.4,3,0.173126615
+"WR","Paul Richardson (1000000)","Paul Richardson",3000,3000,"SEA@GB","Sea","Paul","Richardson","Gb",2.96,3.9,5,0.062015504
+"WR","Tanner McEvoy (1000000)","Tanner McEvoy",3000,3000,"SEA@GB","Sea","Tanner","McEvoy","Gb",0,0,9,0.012919897
+"WR","Trevor Davis (1000000)","Trevor Davis",3000,3000,"SEA@GB","GB","Trevor","Davis","Sea",0,0,9,0.016129032
+"WR","Jeff Janis (1000000)","Jeff Janis",3000,3000,"SEA@GB","GB","Jeff","Janis","Sea",0,1.2,8,0.036290323
+"WR","Geronimo Allison (1000000)","Geronimo Allison",3000,3000,"SEA@GB","GB","Geronimo","Allison","Sea",0,0,9,0.016129032
+"RB","Darren McFadden (1000000)","Darren McFadden",3000,3000,"DAL@NYG","Dal","Darren","McFadden","Nyg",0,0,0,0
+"RB","Bobby Rainey (1000000)","Bobby Rainey",3000,3000,"DAL@NYG","NYG","Bobby","Rainey","Dal",0,0,6,0.047109208
+"RB","Lance Dunbar (1000000)","Lance Dunbar",3000,3000,"DAL@NYG","Dal","Lance","Dunbar","Nyg",0,2.5,7,0.029810298
+"RB","Keith Smith (1000000)","Keith Smith",3000,3000,"DAL@NYG","Dal","Keith","Smith","Nyg",0,0,0,0
+"RB","Darius Jackson (1000000)","Darius Jackson",3000,3000,"DAL@NYG","Dal","Darius","Jackson","Nyg",0,0,0,0
+"WR","Dwayne Harris (1000000)","Dwayne Harris",3000,3000,"DAL@NYG","NYG","Dwayne","Harris","Dal",2.65,0,14,0.004282655
+"WR","Tavarres King (1000000)","Tavarres King",3000,3000,"DAL@NYG","NYG","Tavarres","King","Dal",0,0,13,0.006423983
+"WR","Brice Butler (1000000)","Brice Butler",3000,3000,"DAL@NYG","Dal","Brice","Butler","Nyg",2.14,2,6,0.073170732
+"WR","Lucky Whitehead (1000000)","Lucky Whitehead",3000,3000,"DAL@NYG","Dal","Lucky","Whitehead","Nyg",0,0,11,0.008130081
+"WR","Vince Mayle (1000000)","Vince Mayle",3000,3000,"DAL@NYG","Dal","Vince","Mayle","Nyg",0,0,0,0
+"WR","Roger Lewis (1000000)","Roger Lewis",3000,3000,"DAL@NYG","NYG","Roger","Lewis","Dal",0,1.2,9,0.03640257
+"TE","Hunter Henry (1000000)","Hunter Henry",2900,2900,"SD@CAR","SD","Hunter","Henry","Car",0,7.1,6,0.094339623
+"TE","Lance Kendricks (1000000)","Lance Kendricks",2800,2800,"ATL@LA","LA","Lance","Kendricks","Atl",8.29,10.1,3,0.178921569
+"TE","Will Tye (1000000)","Will Tye",2800,2800,"DAL@NYG","NYG","Will","Tye","Dal",7.54,8.3,4,0.107066381
+"TE","Julius Thomas (1000000)","Julius Thomas",2800,2800,"MIN@JAX","Jax","Julius","Thomas","Min",10.5,0,4,0.109090909
+"TE","Jack Doyle (1000000)","Jack Doyle",2700,2700,"HOU@IND","Ind","Jack","Doyle","Hou",2.34,6.6,2,0.122807018
+"TE","Jared Cook (1000000)","Jared Cook",2700,2700,"SEA@GB","GB","Jared","Cook","Sea",11.01,7.1,6,0.060483871
+"TE","Dwayne Allen (1000000)","Dwayne Allen",2600,2600,"HOU@IND","Ind","Dwayne","Allen","Hou",9.96,7.6,5,0.094298246
+"TE","Richard Rodgers (1000000)","Richard Rodgers",2600,2600,"SEA@GB","GB","Richard","Rodgers","Sea",7,3.8,4,0.08266129
+"TE","Charles Clay (1000000)","Charles Clay",2600,2600,"PIT@BUF","Buf","Charles","Clay","Pit",10.46,8.3,2,0.173669468
+"TE","David Johnson (1000000)","David Johnson",2500,2500,"PIT@BUF","Pit","David","Johnson","Buf",0,0,12,0.01910828
+"TE","Logan Thomas (1000000)","Logan Thomas",2500,2500,"PIT@BUF","Buf","Logan","Thomas","Pit",0,0,0,0
+"TE","Gerald Christian (1000000)","Gerald Christian",2500,2500,"PIT@BUF","Buf","Gerald","Christian","Pit",0,0,15,0.005602241
+"TE","Xavier Grimble (1000000)","Xavier Grimble",2500,2500,"PIT@BUF","Pit","Xavier","Grimble","Buf",0,0,9,0.040339703
+"TE","Nick O'Leary (1000000)","Nick O'Leary",2500,2500,"PIT@BUF","Buf","Nick","O'Leary","Pit",0,1.5,8,0.033613445
+"TE","Jesse James (1000000)","Jesse James",2500,2500,"PIT@BUF","Pit","Jesse","James","Buf",10.64,2.4,3,0.106157113
+"TE","Anthony Fasano (1000000)","Anthony Fasano",2500,2500,"DEN@TEN","Ten","Anthony","Fasano","Den",4.02,0,8,0.032994924
+"TE","Virgil Green (1000000)","Virgil Green",2500,2500,"DEN@TEN","Den","Virgil","Green","Ten",9.31,3.9,4,0.071078431
+"TE","A.J. Derby (1000000)","A.J. Derby",2500,2500,"DEN@TEN","Den","A.J.","Derby","Ten",0,6,9,0.022058824
+"TE","Jeff Heuerman (1000000)","Jeff Heuerman",2500,2500,"DEN@TEN","Den","Jeff","Heuerman","Ten",0,0,13,0.007352941
+"TE","Jace Amaro (1000000)","Jace Amaro",2500,2500,"DEN@TEN","Ten","Jace","Amaro","Den",5.44,0,11,0.010152284
+"TE","Phillip Supernaw (1000000)","Phillip Supernaw",2500,2500,"DEN@TEN","Ten","Phillip","Supernaw","Den",0,0,10,0.015228426
+"TE","Brandon Myers (1000000)","Brandon Myers",2500,2500,"NO@TB","TB","Brandon","Myers","No",0,0,10,0.020089286
+"TE","John Phillips (1000000)","John Phillips",2500,2500,"NO@TB","NO","John","Phillips","Tb",0,3.1,13,0.001992032
+"TE","Luke Stocker (1000000)","Luke Stocker",2500,2500,"NO@TB","TB","Luke","Stocker","No",0,0,14,0.011160714
+"TE","Josh Hill (1000000)","Josh Hill",2500,2500,"NO@TB","NO","Josh","Hill","Tb",0,0,8,0.041832669
+"TE","Alan Cross (1000000)","Alan Cross",2500,2500,"NO@TB","TB","Alan","Cross","No",0,0,0,0
+"TE","Brent Celek (1000000)","Brent Celek",2500,2500,"WAS@PHI","Phi","Brent","Celek","Was",6.42,1.3,7,0.027027027
+"TE","Trey Burton (1000000)","Trey Burton",2500,2500,"WAS@PHI","Phi","Trey","Burton","Was",0,2,6,0.085585586
+"TE","Derek Carrier (1000000)","Derek Carrier",2500,2500,"WAS@PHI","Was","Derek","Carrier","Phi",0,0,13,0.004098361
+"TE","Darren Fells (1000000)","Darren Fells",2500,2500,"ARI@MIA","Ari","Darren","Fells","Mia",5.11,1.5,7,0.035955056
+"TE","Jermaine Gresham (1000000)","Jermaine Gresham",2500,2500,"ARI@MIA","Ari","Jermaine","Gresham","Mia",2.59,7.4,5,0.096629213
+"TE","MarQueis Gray (1000000)","MarQueis Gray",2500,2500,"ARI@MIA","Mia","MarQueis","Gray","Ari",0,1.7,7,0.037940379
+"TE","Dion Sims (1000000)","Dion Sims",2500,2500,"ARI@MIA","Mia","Dion","Sims","Ari",1.81,3.4,5,0.067750678
+"TE","Dominique Jones (1000000)","Dominique Jones",2500,2500,"ARI@MIA","Mia","Dominique","Jones","Ari",0,2,8,0.032520325
+"TE","Hakeem Valles (1000000)","Hakeem Valles",2500,2500,"ARI@MIA","Ari","Hakeem","Valles","Mia",0,0,11,0.004494382
+"TE","Thomas Duarte (1000000)","Thomas Duarte",2500,2500,"ARI@MIA","Mia","Thomas","Duarte","Ari",0,0,0,0
+"TE","Ed Dickson (1000000)","Ed Dickson",2500,2500,"SD@CAR","Car","Ed","Dickson","Sd",2.64,1.4,7,0.037037037
+"TE","Sean McGrath (1000000)","Sean McGrath",2500,2500,"SD@CAR","SD","Sean","McGrath","Car",0,0,12,0.004716981
+"TE","Asante Cleveland (1000000)","Asante Cleveland",2500,2500,"SD@CAR","SD","Asante","Cleveland","Car",0,0,0,0
+"TE","Chris Manhertz (1000000)","Chris Manhertz",2500,2500,"SD@CAR","Car","Chris","Manhertz","Sd",0,0,0,0
+"TE","Ryan Hewitt (1000000)","Ryan Hewitt",2500,2500,"CIN@CLE","Cin","Ryan","Hewitt","Cle",0,0,13,0.004474273
+"TE","Randall Telfer (1000000)","Randall Telfer",2500,2500,"CIN@CLE","Cle","Randall","Telfer","Cin",0,1.1,10,0.011389522
+"TE","Tyler Kroft (1000000)","Tyler Kroft",2500,2500,"CIN@CLE","Cin","Tyler","Kroft","Cle",7.68,1.3,9,0.024608501
+"TE","C.J. Uzomah (1000000)","C.J. Uzomah",2500,2500,"CIN@CLE","Cin","C.J.","Uzomah","Cle",2.24,0,6,0.064876957
+"TE","Seth DeValve (1000000)","Seth DeValve",2500,2500,"CIN@CLE","Cle","Seth","DeValve","Cin",0,1.1,9,0.01594533
+"TE","Danny Vitale (1000000)","Danny Vitale",2500,2500,"CIN@CLE","Cle","Danny","Vitale","Cin",0,0,0,0
+"TE","Brandon Pettigrew (1000000)","Brandon Pettigrew",2500,2500,"CHI@DET","Det","Brandon","Pettigrew","Chi",1.76,0,0,0
+"TE","Clay Harbor (1000000)","Clay Harbor",2500,2500,"CHI@DET","Det","Clay","Harbor","Chi",0,2,11,0.00678733
+"TE","Logan Paulsen (1000000)","Logan Paulsen",2500,2500,"CHI@DET","Chi","Logan","Paulsen","Det",0,2.7,11,0.023041475
+"TE","Matthew Mulligan (1000000)","Matthew Mulligan",2500,2500,"CHI@DET","Det","Matthew","Mulligan","Chi",0,0,0,0
+"TE","Daniel Brown (1000000)","Daniel Brown",2500,2500,"CHI@DET","Chi","Daniel","Brown","Det",0,6.4,12,0.016129032
+"TE","Ben Braunecker (1000000)","Ben Braunecker",2500,2500,"CHI@DET","Chi","Ben","Braunecker","Det",0,6.7,14,0.004608295
+"TE","Ryan Griffin (1000000)","Ryan Griffin",2500,2500,"HOU@IND","Hou","Ryan","Griffin","Ind",6.88,3.9,4,0.134396355
+"TE","Erik Swoope (1000000)","Erik Swoope",2500,2500,"HOU@IND","Ind","Erik","Swoope","Hou",0,0,10,0.039473684
+"TE","Stephen Anderson (1000000)","Stephen Anderson",2500,2500,"HOU@IND","Hou","Stephen","Anderson","Ind",0,1.5,8,0.031890661
+"TE","Rhett Ellison (1000000)","Rhett Ellison",2500,2500,"MIN@JAX","Min","Rhett","Ellison","Jax",0,1.7,8,0.02764977
+"TE","Neal Sterling (1000000)","Neal Sterling",2500,2500,"MIN@JAX","Jax","Neal","Sterling","Min",0,3.8,9,0.022222222
+"TE","Alex Ellis (1000000)","Alex Ellis",2500,2500,"MIN@JAX","Jax","Alex","Ellis","Min",0,0,0,0
+"TE","Ben Koyack (1000000)","Ben Koyack",2500,2500,"MIN@JAX","Jax","Ben","Koyack","Min",0,5.1,8,0.028282828
+"TE","David Morgan (1000000)","David Morgan",2500,2500,"MIN@JAX","Min","David","Morgan","Jax",0,0,0,0
+"TE","Garrett Celek (1000000)","Garrett Celek",2500,2500,"NYJ@SF","SF","Garrett","Celek","Nyj",0,4.4,5,0.093333333
+"TE","Brandon Bostick (1000000)","Brandon Bostick",2500,2500,"NYJ@SF","NYJ","Brandon","Bostick","Sf",0,0,10,0.01686747
+"TE","Blake Bell (1000000)","Blake Bell",2500,2500,"NYJ@SF","SF","Blake","Bell","Nyj",0,0,12,0.016
+"TE","Je'Ron Hamm (1000000)","Je'Ron Hamm",2500,2500,"NYJ@SF","SF","Je'Ron","Hamm","Nyj",0,0,0,0
+"TE","Eric Tomlinson (1000000)","Eric Tomlinson",2500,2500,"NYJ@SF","NYJ","Eric","Tomlinson","Sf",0,0,0,0
+"TE","Austin Seferian-Jenkins (1000000)","Austin Seferian-Jenkins",2500,2500,"NYJ@SF","NYJ","Austin","Seferian-Jenkins","Sf",8.85,1.4,9,0.021686747
+"TE","Cory Harkey (1000000)","Cory Harkey",2500,2500,"ATL@LA","LA","Cory","Harkey","Atl",0,0,0,0
+"TE","Levine Toilolo (1000000)","Levine Toilolo",2500,2500,"ATL@LA","Atl","Levine","Toilolo","La",2.04,2,10,0.033175355
+"TE","Tyler Higbee (1000000)","Tyler Higbee",2500,2500,"ATL@LA","LA","Tyler","Higbee","Atl",0,1.2,6,0.051470588
+"TE","Joshua Perkins (1000000)","Joshua Perkins",2500,2500,"ATL@LA","Atl","Joshua","Perkins","La",0,1.3,0,0
+"TE","Temarrick Hemingway (1000000)","Temarrick Hemingway",2500,2500,"ATL@LA","LA","Temarrick","Hemingway","Atl",0,0,0,0
+"TE","Austin Hooper (1000000)","Austin Hooper",2500,2500,"ATL@LA","Atl","Austin","Hooper","La",0,6.3,7,0.059241706
+"TE","Luke Willson (1000000)","Luke Willson",2500,2500,"SEA@GB","Sea","Luke","Willson","Gb",6.93,1.4,7,0.033591731
+"TE","Brandon Williams (1000000)","Brandon Williams",2500,2500,"SEA@GB","Sea","Brandon","Williams","Gb",0,0,13,0.005167959
+"TE","Nick Vannett (1000000)","Nick Vannett",2500,2500,"SEA@GB","Sea","Nick","Vannett","Gb",0,0,10,0.010335917
+"TE","Larry Donnell (1000000)","Larry Donnell",2500,2500,"DAL@NYG","NYG","Larry","Donnell","Dal",5.71,0,7,0.04496788
+"TE","Gavin Escobar (1000000)","Gavin Escobar",2500,2500,"DAL@NYG","Dal","Gavin","Escobar","Nyg",2.1,0,9,0.010840108
+"TE","Jerell Adams (1000000)","Jerell Adams",2500,2500,"DAL@NYG","NYG","Jerell","Adams","Dal",0,2.4,10,0.029978587
