@@ -34,8 +34,7 @@ num_lineups = 150
 num_overlap = 4
 
 # exposure is a number from 0-1 that gives the total % of lineups that a single player can be in
-exposure = 0.4
-
+exposure = 0.4 # (dummy)
 
 ###########################  Setting Formation  ############################
 
@@ -46,21 +45,7 @@ use_Freq_Ind = false
 
 #=
 formulation is the type of formulation that you would like to use. 
-    Available Options: 
-        - 0 <- one_lineup_no_stacking
-        - 1 <- one_lineup_Type_1
-        - 2 <- one_lineup_Type_2
-        - 3 <- one_lineup_Type_3
-        - 4 <- one_lineup_Type_4
-        - 5 <- one_lineup_Type_5
-        - 6 <- one_lineup_Type_6 
-        - 7 <- one_lineup_Type_7 
-        - 8 <- one_lineup_Type_8 In Progress
-        - 9 <- one_lineup_Type_9
-        - 10 <- one_lineup_Type_10
-        - 11 <- one_lineup_Type_11
-        - 12 <- one_lineup_Type_12
-        - 13 <- one_lineup_Type_13
+    Available Options:
         - 14 <- one_lineup_Type_14 (form 4 with position exposures)
 =#
 formulation_type = 14
@@ -152,29 +137,8 @@ for week=2:2
                         # formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, "_numlineups_", num_lineups,".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
 
                         # Output to testing_alan
-                        if (formulation_type == 14)
-                            formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
-                        else
-                            formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
-                        end
+                        formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
 
-                        # Varying num_lineups
-                        # for i=1:9
-                        #     formulations.create_lineups(num_lineups, i, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", i, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
-                        # end
-
-                        # # Varying exposure (need to change code first)
-                        # for i=1:9
-                        #     formulations.create_lineups(num_lineups, num_overlap, 0.1*i, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_0.", i, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
-                        # end
-
-                        # Do all Possibilities for a week.
-                        # for overlap_var =1:9
-                        #     for exposure_var =1:9
-                        #         formulations.create_lineups(num_lineups, overlap_var, exposure_var*0.1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_0.", exposure_var, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
-                        #     end
-                        #     formulations.create_lineups(num_lineups, overlap_var, 1, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", overlap_var, "_exposure_1", ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
-                        # end
                     end
                 end
             end

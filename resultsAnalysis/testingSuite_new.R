@@ -27,7 +27,7 @@ overlap.hi <- 4
 exposure.pos.bool <- T # if TRUE then exposure.range is ignored, if FALSE then position exposures ignored
 exposure.range <- seq(from = 0.4, to = 0.4, by = 0) # must be from 1 to 1 if overlap.lo != overlap.hi
 exposure.def <- 0.4
-exposure.wr <- 0.9
+exposure.wr <- 0.2
 exposure.rb <- 0.4
 exposure.te <- 0.4
 exposure.qb <- 0.4
