@@ -12,7 +12,7 @@ for (i in 1:(week.latest+1)) {
   #--- offense ---#
   name <- paste("dfn_offense_week", i, sep = "")
   if (i == (week.latest+1)) {
-    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_desfense_week', i, '.csv'), stringsAsFactors = F))
   } else {
     assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
   }
