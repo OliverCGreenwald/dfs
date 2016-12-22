@@ -12,7 +12,7 @@ for (i in 1:(week.latest+1)) {
   #--- offense ---#
   name <- paste("dfn_offense_week", i, sep = "")
   if (i == (week.latest+1)) {
-    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_desfense_week', i, '.csv'), stringsAsFactors = F))
+    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
   } else {
     assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
   }
@@ -25,7 +25,7 @@ for (i in 1:(week.latest+1)) {
   #--- defense (only used for appending Actual to 2016_cleaned_input) ---#
   name <- paste("dfn_defense_week", i, sep = "")
   if (i == (week.latest+1)) {
-    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_offense_week', i, '.csv'), stringsAsFactors = F))
+    assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/dfn_deffense_week', i, '.csv'), stringsAsFactors = F))
   } else {
     assign(name, read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_defense_week', i, '.csv'), stringsAsFactors = F))
   }
