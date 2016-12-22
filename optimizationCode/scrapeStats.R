@@ -16,7 +16,6 @@ library('stringr')
 ####### SET YEAR, WEEK, POSITION #########
 yr <- '2016'
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-# week.latest <- 11
 pos <- ''
 
 ####### SET TEAM NAMES FOLLOWING NFL SAVANT NAMING CONVENTION #########
@@ -214,5 +213,6 @@ for (i in 1:week.latest) {
   temp$RollingTargetPctg <- temp.rolling.wk$Target.Ptcg.Rolling[match(paste0(temp$Temp.Name,temp$Position), paste0(temp.rolling.wk$Name,temp.rolling.wk$Pos))]
   
   # write to file
+  temp$Temp.Name <- NULL
   write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
 # }
