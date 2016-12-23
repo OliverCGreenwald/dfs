@@ -11,21 +11,22 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 2
-week.hi <- 15
+week.lo <- 14
+week.hi <- 14
 
-contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
+contest.entry.fee <- "$4" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
+thu_mon.bool <- T # True if using thursday-monday games, False if using only Sunday games
 
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
-source.actual.fpts <- 'FC' # 'FC' or 'DFN'
+source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
 
-formulation <- 14
+formulation <- 4
 
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 4
 
-exposure.pos.bool <- T # if TRUE then exposure.range is ignored, if FALSE then position exposures ignored
 exposure.range <- seq(from = 0.4, to = 0.4, by = 0) # must be from 1 to 1 if overlap.lo != overlap.hi
+exposure.pos.bool <- F # if TRUE then exposure.range is ignored, if FALSE then position exposures (def, wr, rb, te, qb) ignored
 exposure.def <- 0.4
 exposure.wr <- 0.2
 exposure.rb <- 0.4
@@ -42,7 +43,7 @@ missing.data.50k.contest.wk <- c() # enter weeks that we don't have complete dat
 
 ####### MISCELLANEOUS #########
 # for printing stuff later
-if (contest.entry.fee == '$3') {
+if (contest.entry.fee == '$3' | contest.entry.fee == '$4') {
   contest.name <- "$50K"
 } else {
   contest.name <- "$1M"
@@ -68,10 +69,12 @@ for (week.num in week.lo:week.hi) {
     # do nothing
   } else {
     ####### LOAD FULL CONTEST RESULTS #########
-    if (contest.entry.fee=='$3' & week.num == 10) {
+    if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num == 10) {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", '$4', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
-    } else if (contest.entry.fee=='$20' & week.num > 9) {
+    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num > 9) {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", '$27', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
+    } else if (thu_mon.bool==T & contest.entry.fee=='$4') {
+      full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/includes_thu-mon/", '$4', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
     } else {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", contest.entry.fee, "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F) 
     }
@@ -104,10 +107,12 @@ for (week.num in week.lo:week.hi) {
     }
 
     ######## IMPORT PAYOUT STRUCTURE ########
-    if (contest.entry.fee=='$3' & week.num == 10) {
+    if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num == 10) {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", '$4', "_payout_structure_week", week.num, ".csv") 
-    } else if (contest.entry.fee=='$20' & week.num > 9) {
+    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num > 9) {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", '$27', "_payout_structure_week", week.num, ".csv") 
+    } else if (thu_mon.bool==T & contest.entry.fee=='$4') {
+      file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/includes_thu-mon/", '$4', "_payout_structure_week", week.num, ".csv") 
     } else {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", contest.entry.fee, "_payout_structure_week", week.num, ".csv") 
     }
@@ -119,8 +124,10 @@ for (week.num in week.lo:week.hi) {
       for (exposure in exposure.range) {
         
         ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
-        if (exposure.pos.bool == F) {
+        if (thu_mon.bool==F & exposure.pos.bool == F) {
           file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
+        } else if (thu_mon.bool==T & exposure.pos.bool == F) {
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
         } else {
           file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") 
         }

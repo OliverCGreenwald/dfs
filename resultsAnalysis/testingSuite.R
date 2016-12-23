@@ -162,4 +162,3 @@ for (week.num in week.lo:week.hi) {
 # write lineups to file
 write.csv(lineups, file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, "_results.csv"), row.names = F)
 
-

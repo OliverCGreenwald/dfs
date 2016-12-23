@@ -1,0 +1,197 @@
+#setwd("~/Projects/DFS/")
+#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
+
+####### DESCRIPTION #########
+# In this file we compute the PnLs of lineups for testing purposes.
+# Special notes for contest.entry.fee: for week 9, use $4 in lieu of $3 and for week 10, $27 in lieu of $20
+
+
+####### IMPORT LIBRARIES #########
+library('stringr')
+
+
+####### SET PARAMETER VALUES #########
+week.lo <- 2
+week.hi <- 15
+
+contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
+thu_mon.bool <- F # True if using thursday-monday games, False if using only Sunday games
+
+predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
+source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
+
+formulation <- 4
+
+overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
+overlap.hi <- 4
+
+exposure.range <- seq(from = 0.4, to = 0.4, by = 0) # must be from 1 to 1 if overlap.lo != overlap.hi
+exposure.pos.bool <- F # if TRUE then exposure.range is ignored, if FALSE then position exposures (def, wr, rb, te, qb) ignored
+exposure.def <- 0.4
+exposure.wr <- 0.2
+exposure.rb <- 0.4
+exposure.te <- 0.4
+exposure.qb <- 0.4
+
+freqInd <- "" # _FreqInd or ""
+
+num.lineups <- "" # "" or "_numlineups_1000"
+
+missing.data.1M.contest.wk <- c(10) # enter weeks that we don't have complete data for in the $1M to 1st contest
+missing.data.50k.contest.wk <- c() # enter weeks that we don't have complete data for in the $50k to 1st contest
+
+
+####### MISCELLANEOUS #########
+# for printing stuff later
+if (contest.entry.fee == '$3' | contest.entry.fee == '$4') {
+  contest.name <- "$50K"
+} else {
+  contest.name <- "$1M"
+}
+
+# Init
+if (thu_mon.bool == T) {
+  num.cashing.full.slate.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Cashing")))
+  num.cashing.full.slate.mat[,'Week'] <- week.lo:week.hi
+  cashing.full.slate.dat <- read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/includes_thu-mon/full_slate_cashing.csv"), stringsAsFactors = F) 
+} else {
+  num.cashing.50K.contest.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Cashing")))
+  num.cashing.50K.contest.mat[,'Week'] <- week.lo:week.hi
+  cashing.50K.contest.dat <- read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/contest_50K_cashing.csv"), stringsAsFactors = F)
+}
+
+num.above.190 <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Above.190")))
+num.above.190[,'Week'] <- week.lo:week.hi
+
+# Loop through weeks
+par(mfrow=c(1,2))
+for (week.num in week.lo:week.hi) {
+  if ((week.num %in% missing.data.1M.contest.wk & contest.entry.fee == '$20') | (week.num %in% missing.data.50k.contest.wk & contest.entry.fee == '$3')) {
+    # do nothing
+  } else {
+    ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA #########
+    # Use Fantasy Cruncher for actual fpts data
+    if (source.actual.fpts == 'FC') {
+      player.performance <- read.csv(file = paste0("resultsAnalysis/data_warehouse/player_weekly_performance/draftkings_player_production_week", week.num, ".csv"), stringsAsFactors = F)
+      player.performance$Player <- sub(' Sr.','', player.performance$Player)
+      player.performance$Player <- sub(' Jr.','', player.performance$Player)
+      player.performance$Player.Name <- player.performance$Player # to keep column name consistent
+      player.performance$Actual.Score[is.na(player.performance$Actual.Score)] <- 0
+      player.performance$Actual.FP <- player.performance$Actual.Score # to keep column name consistent
+    }
+    # Use DFN for actual fpts data
+    else if (source.actual.fpts == 'DFN') {
+      player.performance <- read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', week.num, ".csv"), stringsAsFactors = F)
+      player.performance.def <- read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_defense_week', week.num, ".csv"), stringsAsFactors = F)
+      # clean defense names
+      temp.def.names <- str_split_fixed(player.performance.def$Player.Name, " ", 3) # split at " "
+      for (z in 1:nrow(temp.def.names)) {
+        if (temp.def.names[z,3] == "") {
+          player.performance.def$Player.Name[z] <- temp.def.names[z,2]
+        } else {
+          player.performance.def$Player.Name[z] <- temp.def.names[z,3]
+        }
+      }
+      player.performance$Actual.FP[is.na(player.performance$Actual.FP)] <- 0 # be careful with this
+      player.performance.def$Actual.FP[is.na(player.performance.def$Actual.FP)] <- 0 # be careful with this
+    }
+    
+    ######## LOOP THROUGH OVERLAP AND EXPOSURE PARAMETER VALUES ########
+    for (k in overlap.lo:overlap.hi) {
+      
+      for (exposure in exposure.range) {
+        
+        ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
+        if (thu_mon.bool==F & exposure.pos.bool == F) {
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
+        } else if (thu_mon.bool==T & exposure.pos.bool == F) {
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
+        } else {
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") 
+        }
+        lineups <- read.csv(file = file.name, stringsAsFactors = F)
+        
+        ######## CALCULATE FPTS FOR EACH LINEUP ########
+        for (i in 1:ncol(lineups)) {
+          lineups[,i] <- substr(lineups[,i], 1, regexpr('\\(', lineups[,i]) - 2)
+          lineups[,i] <- sub(' Sr.','', lineups[,i])
+          lineups[,i] <- sub(' Jr.','', lineups[,i]) 
+        }
+        lineups[,ncol(lineups)] <- substr(lineups[,ncol(lineups)], 1, nchar(lineups[,ncol(lineups)])-1)
+        
+        total_results <- player.performance[,c('Player.Name', 'Actual.FP')]
+        if (source.actual.fpts == 'DFN') {
+          total_results <- rbind(total_results, player.performance.def[,c('Player.Name', 'Actual.FP')])
+        }
+        lineups$total <- 0
+        
+        for (index in 1:nrow(lineups)){
+          row <- t(lineups[index,])
+          colnames(row) <- 'Player.Name'
+          row <- merge(row, total_results, by = 'Player.Name')
+          lineups$total[index] <- sum(row$Actual.FP)
+        }
+        
+        plot(lineups$total, main = paste0("Week ", week.num, ", Overlap ", k), xlab = "Lineup Index", ylab = "Lineup FPts")
+      }
+    }
+    
+    hist(lineups$total)
+    
+    if (thu_mon.bool == T) {
+      num.cashing.full.slate.mat[week.num-week.lo+1,'Num.Cashing'] <- sum(lineups$total > cashing.full.slate.dat[week.num,'Min'])
+    } else {
+      num.cashing.50K.contest.mat[week.num-week.lo+1,'Num.Cashing'] <- sum(lineups$total > cashing.50K.contest.dat[week.num,'Min'])
+    }
+    num.above.190[week.num-week.lo+1,'Num.Above.190'] <- sum(lineups$total > 190)
+  }
+}
+
+
+par(mfrow=c(1,1))
+# number of lineups that cash
+if (thu_mon.bool == T) {
+  num.cashing.full.slate.mat
+  plot(week.lo:week.hi, num.cashing.full.slate.mat[,'Num.Cashing'], type = 'b', xlab = 'Week', ylab = 'Num Cashing Lineups', main = 'Number of Cashing Lineups (150K Contest)')
+} else {
+  num.cashing.50K.contest.mat
+  plot(week.lo:week.hi, num.cashing.50K.contest.mat[,'Num.Cashing'], type = 'b', xlab = 'Week', ylab = 'Num Cashing Lineups', main = 'Number of Cashing Lineups (50K Contest)')
+}
+
+# number of lineups above 190 fpts
+plot(week.lo:week.hi, num.above.190[,'Num.Above.190'], type = 'b', xlab = 'Week', ylab = 'Num Cashing Lineups', main = 'Number Lineups > 190 Fpts (150K Contest)')
+
+
+
+
+
+
+
+
+
+
+
+# #############################
+# for (i in 2:15) {
+#   if (i == 10) {
+#     assign(paste0("contest_50K_results_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/$4_contest_full_results_week", i, ".csv"), stringsAsFactors = F))
+#     assign(paste0("payout_50K_structure_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/$4_payout_structure_week", i, ".csv"), stringsAsFactors = F))
+#   } else {
+#     assign(paste0("contest_50K_results_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/$3_contest_full_results_week", i, ".csv"), stringsAsFactors = F))
+#     assign(paste0("payout_50K_structure_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/$3_payout_structure_week", i, ".csv"), stringsAsFactors = F))
+#   }
+#   print(i)
+# }
+# 
+# contest_50K_cashing <- matrix(data = NA, nrow = 0, ncol = 3, dimnames = list(NULL, c("Week","Min","Max")))
+# contest_50K_cashing  <- rbind(contest_50K_cashing, c(1, '', ''))
+# for (i in 2:15) {
+#   temp.results <- eval(parse(text=paste0("contest_50K_results_wk", i)))
+#   temp.payout <- eval(parse(text=paste0("payout_50K_structure_wk", i)))
+#   place.last <- temp.payout$Place_hi[nrow(temp.payout)]
+#   temp.max <- temp.results$Points[1]
+#   temp.min <- temp.results$Points[place.last]
+#   contest_50K_cashing  <- rbind(contest_50K_cashing, c(i, temp.min, temp.max))
+# }
+# write.csv(contest_50K_cashing, file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/contest_50K_cashing.csv"), row.names = F)
+# 

@@ -1,0 +1,27 @@
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn"
+"DST","Vikings  (0000000)","Vikings ",0,4000,"Det@Min 00:00PM ET","Min","Vikings","","Det",13.06,10.5
+"DST","Seahawks  (0000000)","Seahawks ",0,3900,"Buf@Sea 00:00PM ET","Sea","Seahawks","","Buf",10.98,7.9
+"DST","Broncos  (0000000)","Broncos ",0,3700,"Den@Oak 00:00PM ET","Den","Broncos","","Oak",9.76,7
+"DST","Chiefs  (0000000)","Chiefs ",0,3500,"Jax@KC 00:00PM ET","KC","Chiefs","","Jax",10.08,11.7
+"DST","Cowboys  (0000000)","Cowboys ",0,3400,"Dal@Cle 00:00PM ET","Dal","Cowboys","","Cle",7.56,9.4
+"DST","Panthers  (0000000)","Panthers ",0,3400,"Car@LA 00:00PM ET","Car","Panthers","","LA",8.72,6.2
+"DST","Ravens  (0000000)","Ravens ",0,3300,"Pit@Bal 00:00PM ET","Bal","Ravens","","Pit",7.38,7.2
+"DST","Giants  (0000000)","Giants ",0,3200,"Phi@NYG 00:00PM ET","NYG","Giants","","Phi",6.3,7.5
+"DST","Eagles  (0000000)","Eagles ",0,3100,"Phi@NYG 00:00PM ET","Phi","Eagles","","NYG",9.69,9.6
+"DST","Dolphins  (0000000)","Dolphins ",0,3100,"NYJ@Mia 00:00PM ET","Mia","Dolphins","","NYJ",9,8.9
+"DST","Chargers  (0000000)","Chargers ",0,3000,"Ten@SD 00:00PM ET","SD","Chargers","","Ten",8.56,8.7
+"DST","Steelers  (0000000)","Steelers ",0,2900,"Pit@Bal 00:00PM ET","Pit","Steelers","","Bal",6.27,7.1
+"DST","Jets  (0000000)","Jets ",0,2800,"NYJ@Mia 00:00PM ET","NYJ","Jets","","Mia",6.52,8.3
+"DST","Bills  (0000000)","Bills ",0,2800,"Buf@Sea 00:00PM ET","Buf","Bills","","Sea",7.8,7.3
+"DST","Packers  (0000000)","Packers ",0,2700,"Ind@GB 00:00PM ET","GB","Packers","","Ind",8.12,7
+"DST","Raiders  (0000000)","Raiders ",0,2700,"Den@Oak 00:00PM ET","Oak","Raiders","","Den",6.16,7.8
+"DST","Falcons  (0000000)","Falcons ",0,2700,"Atl@TB 00:00PM ET","Atl","Falcons","","TB",7.76,8.9
+"DST","Titans  (0000000)","Titans ",0,2600,"Ten@SD 00:00PM ET","Ten","Titans","","SD",6.78,5.7
+"DST","Buccaneers  (0000000)","Buccaneers ",0,2500,"Atl@TB 00:00PM ET","TB","Buccaneers","","Atl",5.23,6.1
+"DST","Lions  (0000000)","Lions ",0,2500,"Det@Min 00:00PM ET","Det","Lions","","Min",6.48,4.7
+"DST","Rams  (0000000)","Rams ",0,2400,"Car@LA 00:00PM ET","LA","Rams","","Car",8.02,8.1
+"DST","Jaguars  (0000000)","Jaguars ",0,2300,"Jax@KC 00:00PM ET","Jax","Jaguars","","KC",4.74,6
+"DST","Saints  (0000000)","Saints ",0,2300,"NO@SF 00:00PM ET","NO","Saints","","SF",5.4,7.2
+"DST","Browns  (0000000)","Browns ",0,2200,"Dal@Cle 00:00PM ET","Cle","Browns","","Dal",5.55,4.1
+"DST","49ers  (0000000)","49ers ",0,2100,"NO@SF 00:00PM ET","SF","49ers","","NO",4.28,4.7
+"DST","Colts  (0000000)","Colts ",0,2100,"Ind@GB 00:00PM ET","Ind","Colts","","GB",5.43,5.1
