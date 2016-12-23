@@ -9,7 +9,7 @@ library('stringr')
 
 ####### SET PARAMETER VALUES #########
 week.lo <- 2
-week.hi <- 13
+week.hi <- 15
 
 contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
 
@@ -199,6 +199,13 @@ for (week.num in week.lo:week.hi) {
 
 pnlMatrix$profit <- as.numeric(pnlMatrix$PnL > 100)
 pnlMatrix$loss <- as.numeric(pnlMatrix$PnL < 0)
+num.games <- c(13,14,14,13,12,13,13,11,11,12,12,12,13,14,13)
+many_games <- pnlMatrix[pnlMatrix$Week != 5,] 
+many_games <- many_games[many_games$Week != 8,] 
+many_games <- many_games[many_games$Week != 9,] 
+many_games <- many_games[many_games$Week != 10,]  
+many_games <- many_games[many_games$Week != 11,]  
+many_games <- many_games[many_games$Week != 12,]  
 
 results <- unique(within(pnlMatrix, {
      PnL <- ave(PnL, Exposure, FUN = sum)
@@ -207,4 +214,6 @@ results <- unique(within(pnlMatrix, {
      rm(Week, profit, loss)
 }))
 
-save(pnlMatrix, results, file="player_exposure_pnl.RData")
+temp <- subset(many_games, Exposure == "defexp_0.5 wrexp_0.25 rbexp_0.25 teexp_0.75 qbexp_0.25")
+
+#save(pnlMatrix, results, file="player_exposure_pnl.RData")
