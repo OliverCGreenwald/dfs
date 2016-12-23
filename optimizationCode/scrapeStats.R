@@ -16,15 +16,20 @@ library('rvest')
 library('stringr')
 
 
-####### Set Parameters #######
-live.bool <- F # True if live week (i.e. write stats to file), False if historical
-thu_mon.bool <- T # True if using thursday-monday games, False if using only Sunday games
+####### WRITE TO FILE? #######
+write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+
+
+####### SET PARAMETERS #######
+live.bool <- T # True if live week (i.e. write stats to file), False if historical
+slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or ""
 yr <- '2016'
-# week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1 # live
-week.latest <- 15 - 1  # historical
-pos <- ''
+week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1 # live
+# week.latest <- 15 - 1  # historical
+pos <- '' # should always be ""
 
 
+# Scrape
 if (live.bool == T) {
   ####### SET TEAM NAMES FOLLOWING NFL SAVANT NAMING CONVENTION #########
   team.names <- c('ARI','ATL','BAL','BUF','CAR','CHI','CIN','CLE','DAL','DEN','DET','GB','HOU','IND','JAX','KC',
@@ -64,9 +69,6 @@ if (live.bool == T) {
   
   # Set unique names
   player.names <- unique(player.names)
-  # save(player.names, file = "projectionsAnalysis/player.names.RData")
-  # write.csv(player.names, file = "projectionsAnalysis/playernames.csv", row.names = F) # for use in other files
-  # player.helper <- unique(player.helper)
   
   # Completions df
   completions.weekly <- as.data.frame(matrix(data = 0, nrow = length(player.names), ncol = week.latest+1))
@@ -167,7 +169,9 @@ if (live.bool == T) {
   ####### WRITE TO FILE #########
   # for (i in 1:week.latest) {
       i <- week.latest
-      write.csv(eval(parse(text=paste0("rolling.stats.wk",i))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F) 
+      if (write.bool==T) {
+        write.csv(eval(parse(text=paste0("rolling.stats.wk",i))), file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',i,'.csv'), row.names = F)  
+      }
   # }
 } else {
   assign(paste0("rolling.stats.wk",week.latest), read.csv(file = paste0('optimizationCode/data_warehouse/stats/rolling.stats.wk',week.latest,'.csv'), stringsAsFactors = F))
@@ -177,8 +181,10 @@ if (live.bool == T) {
 # for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
   i <- week.latest + 1 # make sure current week's data has been prepared already
   
-  if (thu_mon.bool == T) {
+  if (slate.days=="thu-mon") {
     temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/includes_thu-mon/offensive_players.csv'), stringsAsFactors = F) 
+  } else if (slate.days=="sun-mon") {
+    temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/includes_sun-mon/offensive_players.csv'), stringsAsFactors = F) 
   } else {
     temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i, '/offensive_players.csv'), stringsAsFactors = F) 
   }
@@ -200,10 +206,14 @@ if (live.bool == T) {
   
   temp$Temp.Name <- NULL
   
-  if (thu_mon.bool == T) {
-    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/includes_thu-mon/offensive_players.csv'), row.names = F) 
-  } else {
-    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F) 
+  if (write.bool==T) {
+    if (slate.days=="thu-mon") {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/includes_thu-mon/offensive_players.csv'), row.names = F) 
+    } else if (slate.days=="sun-mon") {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/includes_sun-mon/offensive_players.csv'), row.names = F) 
+    } else {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F) 
+    } 
   }
 # }
 
@@ -212,8 +222,10 @@ if (live.bool == T) {
 # for (i in 2:week.latest) {
   i <- week.latest + 1
   
-  if (thu_mon.bool == T) {
+  if (slate.days=="thu-mon") {
     temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/includes_thu-mon/offensive_players.csv'), stringsAsFactors = F)
+  } else if (slate.days=="sun-mon") {
+    temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/includes_sun-mon/offensive_players.csv'), stringsAsFactors = F)
   } else {
     temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), stringsAsFactors = F)
   }
@@ -238,9 +250,13 @@ if (live.bool == T) {
   temp$Temp.Name <- NULL
   
   # write to file
-  if (thu_mon.bool == T) {
-    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/includes_thu-mon/offensive_players.csv'), row.names = F)
-  } else {
-    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
+  if (write.bool==T) {
+    if (slate.days=="thu-mon") {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/includes_thu-mon/offensive_players.csv'), row.names = F)
+    } else if (slate.days=="sun-mon") {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/includes_sun-mon/offensive_players.csv'), row.names = F)
+    } else {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', i, '/offensive_players.csv'), row.names = F)
+    } 
   }
 # }
