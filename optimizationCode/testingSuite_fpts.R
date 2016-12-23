@@ -41,14 +41,6 @@ missing.data.1M.contest.wk <- c(10) # enter weeks that we don't have complete da
 missing.data.50k.contest.wk <- c() # enter weeks that we don't have complete data for in the $50k to 1st contest
 
 
-####### MISCELLANEOUS #########
-# for printing stuff later
-if (contest.entry.fee == '$3' | contest.entry.fee == '$4') {
-  contest.name <- "$50K"
-} else {
-  contest.name <- "$1M"
-}
-
 # Init
 if (thu_mon.bool == T) {
   num.cashing.full.slate.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Cashing")))
