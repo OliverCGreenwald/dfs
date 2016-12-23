@@ -1,12 +1,22 @@
 #setwd("~/Projects/DFS/resultsAnalysis")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
+
 ####### DESCRIPTION #########
 # In this file we run a regression on Rotogrinders and Daily Fantasy Nerd projections to output combined predictions.
 # Filtered out players projected to get 0 fpts. Offense only.
 
+
+####### WRITE TO FILE? #######
+write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+
+
+####### SET PARAMETERS #######
+week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1 # notice the -1
+slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or ""
+
+
 ####### LOAD DFN FILES #########
-week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
 for (i in 1:(week.latest+1)) {
   #--- offense ---#
   name <- paste("dfn_offense_week", i, sep = "")
@@ -104,7 +114,13 @@ for (i in 1:week.latest) {
 # for (i in 2:week.latest) { # change to week.latest+1 once current week's data has been scraped
   i <- week.latest+1
   
-  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
+  if (slate.days=="thu-mon") {
+    temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/includes_thu-mon/offensive_players.csv'), stringsAsFactors = F)
+  } else if (slate.days=="sun-mon") {
+    temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/includes_sun-mon/offensive_players.csv'), stringsAsFactors = F)
+  } else {
+    temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
+  }
   
   # Option 1: Use single regression model (if using this, comment out Option 2)
   temp$Projection_reg <- coeff.all[i-1,'Proj.FP']*temp$Projection_dfn + coeff.all[i-1,'Roto.Pred']*temp$Projection
@@ -118,7 +134,15 @@ for (i in 1:week.latest) {
     }
   }
   
-  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
+  if (write.bool==T) {
+    if (slate.days=="thu-mon") {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/includes_thu-mon/offensive_players.csv'), row.names = F) 
+    } else if (slate.days=="sun-mon") {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/includes_sun-mon/offensive_players.csv'), row.names = F) 
+    } else {
+      write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F) 
+    }
+  }
 # }
 
 
