@@ -25,7 +25,7 @@ library("emdbook")
 week.latest <- 15
 
 
-####### LOAD $20 CONTEST FILES #######
+####### LOAD $20/$27 CONTEST FILES #######
 # weeks we have
 wks.20 <- c(2:9)
 wks.27 <- c(11:week.latest)

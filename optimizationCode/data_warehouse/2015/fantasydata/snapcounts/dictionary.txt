@@ -1,0 +1,11 @@
+Snap Count Dictionary
+
+Snaps  total offensive or defensive snaps played by player
+Snaps/Gm  Average number of offensive or defensive snaps played per game
+Snap Pct  Percentage of offensive or defensive snaps played (only includes games where player played)
+Rush Pct  Percentage of snaps played where player had a rushing attempt
+Tgt Pct  Percentage of snaps played where player was targeted by a pass attempt
+Touch Pct  Percentage of snaps played where player touched the football (includes pass attempts, rush attempts and receptions)
+Util Pct  Percentage of snaps played where player touched the football or was targeted (includes pass attempts, rush attempts and receiving targets)
+Fantasy Points  Fantasy points scored by player
+Points/100 Snaps  Average fantasy points scored by player per 100 snaps
