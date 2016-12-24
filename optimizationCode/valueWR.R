@@ -4,6 +4,7 @@
 ####### DESCRIPTION #######
 # In this file we examine look for signs that a cheap player could go off.
 # We also add a column ValueWR to cleaned_input_files
+# TODO: 
 
 
 ####### WRITE TO FILE? #######
@@ -11,14 +12,15 @@ write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 
 
 ####### SET PARAMETERS #######
-week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+# week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+week.latest <- 7 # must be wk - 1
 salary.threshold <- 5000 # defining cheap
 fpts.threshold <- 18.5 # defining cheap + value
 historical.threshold <- 18.5 # used for Above.x.Fpts column
 num.games.above.historical.threshold <- 1 # 1 or 2 suggested
 
-slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or "" (for writing to file only)
-wk <- 16 # (for writing to file only)
+slate.days <- "" # "thu-mon" or "sun-mon" or "" (for writing to file only)
+wk <- week.latest + 1 # load this wk's cleaned_input (must be week.latest + 1)
 
 
 ####### PREPARE DATAFRAME OF CHEAP WR THAT GO OFF #######
@@ -133,7 +135,7 @@ for (i in temp.ind:(temp.ind+week.latest-1)) {
 #   temp.wr.cheap[i,(temp.ind+week.latest-1):ncol(temp.wr.cheap)] <- "." # get rid of weeks not played yet
 # }
 
-# this is hard coded, only will work if adding to current week
+# this is hard coded, only will work if adding to current week (need to get above commented code working)
 for (i in 1:nrow(temp.wr.cheap)) {
   if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.games.above.historical.threshold) {
     temp.wr.cheap$ValueWR[i] <- 1
@@ -157,8 +159,9 @@ if (write.bool==T) {
   }
 }
 
-
-
+# also write temp.wr.cheap 1's
+# temp.wr.cheap.1s <- temp.wr.cheap[temp.wr.cheap$ValueWR==1,]
+# write.csv(temp.wr.cheap.1s, file = "valueWR.csv", row.names = F)
 
 
 
