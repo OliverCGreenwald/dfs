@@ -49,7 +49,7 @@ exposure_qb = 0.5
 exposure_valuewr = 0.1
 #############  Setting Variables Related to Path  #############
 #= week sets which week of data we're looking at 
-    Available Options: 
+    Available Options:
         - live = true or false (if live false, set week to any week 1-16 (if true then doesn't matter))
         - thu_mon = true or false (if false, then sunday players only; if true, all players Thu - Mon)
 =#

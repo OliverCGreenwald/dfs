@@ -1874,11 +1874,9 @@ function one_lineup_Type_14(offensive_players, defenses, lineups, num_overlap, n
 end
 
 # This is a function that creates one lineup using the No Stacking formulation from the paper
-# - Feasibility Constraints 
-# - Defense constraint (Defense can't be playing any offensive players)
-# - QB-WR Stack (If you have a QB then also include a WR from the same team)
-# - no TE for flex
-# - Same as Formulation 4 with Position Exposure Constraints
+# - Same as Formulation 14 with two additional constraints:
+#   - exposure_valuewr constraint: must have one value wr
+#   - DST Salary >= 2700 and <= 3100
 function one_lineup_Type_15(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
