@@ -12,10 +12,10 @@ write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 
 ####### SET PARAMETERS #######
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-salary.threshold <- 4500 # defining cheap
-fpts.threshold <- 18 # defining cheap + value
-historical.threshold <- 18 # used for Above.x.Fpts column
-num.games.above.historical.threshold <- 2 # 1 or 2 suggested
+salary.threshold <- 5000 # defining cheap
+fpts.threshold <- 18.5 # defining cheap + value
+historical.threshold <- 18.5 # used for Above.x.Fpts column
+num.games.above.historical.threshold <- 1 # 1 or 2 suggested
 
 slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or "" (for writing to file only)
 wk <- 16 # (for writing to file only)
@@ -29,11 +29,11 @@ for (i in 4:week.latest) {
   assign(paste0("dfn_offense_week", i), read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, ".csv"), stringsAsFactors = F))
   temp <- eval(parse(text=paste0("dfn_offense_week", i)))
   
-  temp.hit <- temp[temp$Salary < salary.threshold & temp$Actual.FP >= fpts.threshold & temp$Pos=='WR', c('Player.Name','Salary','Team','Opp','Vegas.Pts','Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  temp.hit <- temp[temp$Salary <= salary.threshold & temp$Actual.FP >= fpts.threshold & temp$Pos=='WR', c('Player.Name','Salary','Team','Opp','Vegas.Pts','Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
   temp.hit$Week.Num <- i
   wr.value <- rbind(wr.value, temp.hit) # append
   
-  temp.miss <- temp[temp$Salary < salary.threshold & temp$Actual.FP < fpts.threshold & temp$Pos=='WR', c('Player.Name','Salary','Team','Opp','Vegas.Pts','Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  temp.miss <- temp[temp$Salary <= salary.threshold & temp$Actual.FP < fpts.threshold & temp$Pos=='WR', c('Player.Name','Salary','Team','Opp','Vegas.Pts','Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
   temp.miss$Week.Num <- i
   wr.miss <- rbind(wr.miss, temp.miss) # append
   
@@ -121,7 +121,7 @@ if (slate.days=="thu-mon") {
 }
 temp$ValueWR <- 0 # init
 
-temp.wr.cheap <- temp[temp$Salary < salary.threshold & temp$Position=='WR',]
+temp.wr.cheap <- temp[temp$Salary <= salary.threshold & temp$Position=='WR',]
 temp.ind <- ncol(temp.wr.cheap)+1
 temp.wr.cheap[,temp.ind:(temp.ind+week.latest-1)] <- NA # add extra cols
 for (i in temp.ind:(temp.ind+week.latest-1)) {
@@ -129,21 +129,22 @@ for (i in temp.ind:(temp.ind+week.latest-1)) {
   temp.wr.cheap[,i] <- historical.fpts[,i-temp.ind+2][match(temp.wr.cheap$Name, historical.fpts$FullName)] # match
 }
 
+# for (i in 1:nrow(temp.wr.cheap)) {
+#   temp.wr.cheap[i,(temp.ind+week.latest-1):ncol(temp.wr.cheap)] <- "." # get rid of weeks not played yet
+# }
+
 # this is hard coded, only will work if adding to current week
 for (i in 1:nrow(temp.wr.cheap)) {
   if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.games.above.historical.threshold) {
     temp.wr.cheap$ValueWR[i] <- 1
   }
 }
-# for (i in 1:nrow(wr.value)) {
-#   wr.value[i,(13+wr.value$Week.Num[i]):ncol(wr.value)] <- "." # get rid of weeks not played yet
-# }
 
 sum(temp.wr.cheap$ValueWR)
 sum(temp.wr.cheap$ValueWR)/nrow(temp.wr.cheap)
 
 # add to temp
-temp[temp$Salary < salary.threshold & temp$Position=='WR','ValueWR'] <- temp.wr.cheap$ValueWR
+temp[temp$Salary <= salary.threshold & temp$Position=='WR','ValueWR'] <- temp.wr.cheap$ValueWR
 
 # write
 if (write.bool==T) {
