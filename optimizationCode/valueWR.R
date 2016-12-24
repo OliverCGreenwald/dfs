@@ -19,7 +19,7 @@ slate.days <- "" # "thu-mon" or "sun-mon" or ""
 salary.threshold <- 5000 # defining cheap
 fpts.threshold <- 18.5 # defining cheap + value
 historical.threshold <- 18.5 # used for Above.x.Fpts column
-num.games.above.historical.threshold <- 1 # 1 or 2 suggested
+num.gm.over.hist.thresh <- 1 # 1 or 2 suggested
 
 # don't edit this
 wk <- week.latest + 1 # load this wk's cleaned_input (must be week.latest + 1)
@@ -96,21 +96,21 @@ for (i in 1:nrow(wr.miss)) {
   wr.miss$Above.x.Fpts[i] <- sum(as.numeric(wr.miss[i,14:(14+wr.miss$Week.Num[i]-2)]) > historical.threshold, na.rm = T)
 }
 
-# For each week, print % of value WRs that had at least num.games.above.historical.threshold games > fpts.threshold
+# For each week, print % of value WRs that had at least num.gm.over.hist.thresh games > fpts.threshold
 one.game.above.fpts.threshold.wr.value <- as.data.frame(matrix(NA, nrow = length(4:week.latest), ncol = 2, dimnames = list(NULL, c("Week","Pctg.ValueWR.one.game.above.fpts.threshold.wr.value"))))
 for (i in 4:week.latest) {
   one.game.above.fpts.threshold.wr.value[i-3,1] <- i # week num
   temp <- wr.value$Above.x.Fpts[wr.value$Week.Num==i]
-  one.game.above.fpts.threshold.wr.value[i-3,2] <- sum(temp >= num.games.above.historical.threshold)/length(temp)
+  one.game.above.fpts.threshold.wr.value[i-3,2] <- sum(temp >= num.gm.over.hist.thresh)/length(temp)
 }
 plot(one.game.above.fpts.threshold.wr.value, type = 'b')
 
-# For each week, print % of miss WRs that had at least num.games.above.historical.threshold games > fpts.threshold
+# For each week, print % of miss WRs that had at least num.gm.over.hist.thresh games > fpts.threshold
 one.game.above.fpts.threshold.wr.miss <- as.data.frame(matrix(NA, nrow = length(4:week.latest), ncol = 2, dimnames = list(NULL, c("Week","Pctg.ValueWR.one.game.above.fpts.threshold.wr.miss"))))
 for (i in 4:week.latest) {
   one.game.above.fpts.threshold.wr.miss[i-3,1] <- i # week num
   temp <- wr.miss$Above.x.Fpts[wr.miss$Week.Num==i]
-  one.game.above.fpts.threshold.wr.miss[i-3,2] <- sum(temp >= num.games.above.historical.threshold)/length(temp)
+  one.game.above.fpts.threshold.wr.miss[i-3,2] <- sum(temp >= num.gm.over.hist.thresh)/length(temp)
 }
 plot(one.game.above.fpts.threshold.wr.miss, type = 'b')
 
@@ -139,7 +139,7 @@ for (i in temp.ind:(temp.ind+week.latest-1)) {
 
 # this is hard coded, only will work if adding to current week (need to get above commented code working). NVM should work
 for (i in 1:nrow(temp.wr.cheap)) {
-  if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.games.above.historical.threshold) {
+  if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.gm.over.hist.thresh) {
     temp.wr.cheap$ValueWR[i] <- 1
   }
 }
@@ -190,7 +190,7 @@ for (i in temp.ind:(temp.ind+week.latest-1)) {
 
 # this is hard coded, only will work if adding to current week (need to get above commented code working). NVM should work
 for (i in 1:nrow(temp.wr.cheap)) {
-  if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.games.above.historical.threshold) {
+  if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.gm.over.hist.thresh) {
     temp.wr.cheap$ValueWR[i] <- 1
   }
 }
@@ -211,5 +211,5 @@ if (write.bool==T) {
 
 
 #######  PRINT NUMBER OF VALUEWR #######
-sum(temp.wr.cheap$ValueWR)
+paste0("Number of Value WR (has at least game 'num.gm.over.hist.thresh' above 'historical.threshold'): ", sum(temp.wr.cheap$ValueWR))
 sum(temp.wr.cheap$ValueWR)/nrow(temp.wr.cheap)
