@@ -13,13 +13,15 @@ write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 
 ####### SET PARAMETERS #######
 # week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-week.latest <- 7 # must be wk - 1
+week.latest <- 7 # wk we write to will be week.latest+1
+slate.days <- "" # "thu-mon" or "sun-mon" or ""
+
 salary.threshold <- 5000 # defining cheap
 fpts.threshold <- 18.5 # defining cheap + value
 historical.threshold <- 18.5 # used for Above.x.Fpts column
 num.games.above.historical.threshold <- 1 # 1 or 2 suggested
 
-slate.days <- "" # "thu-mon" or "sun-mon" or "" (for writing to file only)
+# don't edit this
 wk <- week.latest + 1 # load this wk's cleaned_input (must be week.latest + 1)
 
 
@@ -135,7 +137,7 @@ for (i in temp.ind:(temp.ind+week.latest-1)) {
 #   temp.wr.cheap[i,(temp.ind+week.latest-1):ncol(temp.wr.cheap)] <- "." # get rid of weeks not played yet
 # }
 
-# this is hard coded, only will work if adding to current week (need to get above commented code working)
+# this is hard coded, only will work if adding to current week (need to get above commented code working). NVM should work
 for (i in 1:nrow(temp.wr.cheap)) {
   if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.games.above.historical.threshold) {
     temp.wr.cheap$ValueWR[i] <- 1
@@ -157,33 +159,57 @@ if (write.bool==T) {
   } else {
     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/offensive_players.csv'), row.names = F)
   }
+  
+  # also write temp.wr.cheap 1's
+  temp.wr.cheap.1s <- temp.wr.cheap[temp.wr.cheap$ValueWR==1,]
+  write.csv(temp.wr.cheap.1s, file = "optimizationCode/data_warehouse/2016_cleaned_input/valueWR/week",wk,"_valueWR.csv", row.names = F)
 }
 
-# also write temp.wr.cheap 1's
-# temp.wr.cheap.1s <- temp.wr.cheap[temp.wr.cheap$ValueWR==1,]
-# write.csv(temp.wr.cheap.1s, file = "valueWR.csv", row.names = F)
 
+#######  ValueWR column to 2016_cleaned_input/add_data #######
+if (slate.days=="thu-mon") {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/add_data/wk', wk, '/includes_thu-mon/offensive_players.csv'), stringsAsFactors = F) 
+} else if (slate.days=="sun-mon") {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/add_data/wk', wk, '/includes_sun-mon/offensive_players.csv'), stringsAsFactors = F) 
+} else {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/add_data/wk', wk, '/offensive_players.csv'), stringsAsFactors = F) 
+}
+temp$ValueWR <- 0 # init
 
+temp.wr.cheap <- temp[temp$Salary <= salary.threshold & temp$Position=='WR',]
+temp.ind <- ncol(temp.wr.cheap)+1
+temp.wr.cheap[,temp.ind:(temp.ind+week.latest-1)] <- NA # add extra cols
+for (i in temp.ind:(temp.ind+week.latest-1)) {
+  colnames(temp.wr.cheap)[i] <- paste0("Week", i-temp.ind+1) # name cols
+  temp.wr.cheap[,i] <- historical.fpts[,i-temp.ind+2][match(temp.wr.cheap$Name, historical.fpts$FullName)] # match
+}
 
-
-
-
-
-# # Adding ValueWR column to 2016_cleaned_input/all_data
-# if (slate.days=="thu-mon") {
-#   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_thu-mon/offensive_players.csv'), stringsAsFactors = F)
-# } else if (slate.days=="sun-mon") {
-#   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_sun-mon/offensive_players.csv'), stringsAsFactors = F)
-# } else {
-#   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/offensive_players.csv'), stringsAsFactors = F)
+# for (i in 1:nrow(temp.wr.cheap)) {
+#   temp.wr.cheap[i,(temp.ind+week.latest-1):ncol(temp.wr.cheap)] <- "." # get rid of weeks not played yet
 # }
-# 
-# if (write.bool==T) {
-#   if (slate.days=="thu-mon") {
-#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_thu-mon/offensive_players.csv'), row.names = F)
-#   } else if (slate.days=="sun-mon") {
-#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_sun-mon/offensive_players.csv'), row.names = F)
-#   } else {
-#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/offensive_players.csv'), row.names = F)
-#   } 
-# }
+
+# this is hard coded, only will work if adding to current week (need to get above commented code working). NVM should work
+for (i in 1:nrow(temp.wr.cheap)) {
+  if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.games.above.historical.threshold) {
+    temp.wr.cheap$ValueWR[i] <- 1
+  }
+}
+
+# add to temp
+temp[temp$Salary <= salary.threshold & temp$Position=='WR','ValueWR'] <- temp.wr.cheap$ValueWR
+
+# write
+if (write.bool==T) {
+  if (slate.days=="thu-mon") {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/add_data/wk', wk,'/includes_thu-mon/offensive_players.csv'), row.names = F)
+  } else if (slate.days=="sun-mon") {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/add_data/wk', wk,'/includes_sun-mon/offensive_players.csv'), row.names = F)
+  } else {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/add_data/wk', wk,'/offensive_players.csv'), row.names = F)
+  }
+}
+
+
+#######  PRINT NUMBER OF VALUEWR #######
+sum(temp.wr.cheap$ValueWR)
+sum(temp.wr.cheap$ValueWR)/nrow(temp.wr.cheap)
