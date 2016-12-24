@@ -7,14 +7,15 @@
 
 
 ####### WRITE TO FILE? #######
-write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
 salary.threshold <- 4500 # defining cheap
 fpts.threshold <- 18 # defining cheap + value
-historical.threshold <- 15 # used for Above.x.Fpts column
+historical.threshold <- 18 # used for Above.x.Fpts column
+num.games.above.historical.threshold <- 2 # 1 or 2 suggested
 
 slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or "" (for writing to file only)
 wk <- 16 # (for writing to file only)
@@ -91,21 +92,21 @@ for (i in 1:nrow(wr.miss)) {
   wr.miss$Above.x.Fpts[i] <- sum(as.numeric(wr.miss[i,14:(14+wr.miss$Week.Num[i]-2)]) > historical.threshold, na.rm = T)
 }
 
-# For each week, print % of value WRs that had at least one game > fpts.threshold
+# For each week, print % of value WRs that had at least num.games.above.historical.threshold games > fpts.threshold
 one.game.above.fpts.threshold.wr.value <- as.data.frame(matrix(NA, nrow = length(4:week.latest), ncol = 2, dimnames = list(NULL, c("Week","Pctg.ValueWR.one.game.above.fpts.threshold.wr.value"))))
 for (i in 4:week.latest) {
   one.game.above.fpts.threshold.wr.value[i-3,1] <- i # week num
   temp <- wr.value$Above.x.Fpts[wr.value$Week.Num==i]
-  one.game.above.fpts.threshold.wr.value[i-3,2] <- sum(temp > 0)/length(temp)
+  one.game.above.fpts.threshold.wr.value[i-3,2] <- sum(temp >= num.games.above.historical.threshold)/length(temp)
 }
 plot(one.game.above.fpts.threshold.wr.value, type = 'b')
 
-# For each week, print % of miss WRs that had at least one game > fpts.threshold
+# For each week, print % of miss WRs that had at least num.games.above.historical.threshold games > fpts.threshold
 one.game.above.fpts.threshold.wr.miss <- as.data.frame(matrix(NA, nrow = length(4:week.latest), ncol = 2, dimnames = list(NULL, c("Week","Pctg.ValueWR.one.game.above.fpts.threshold.wr.miss"))))
 for (i in 4:week.latest) {
   one.game.above.fpts.threshold.wr.miss[i-3,1] <- i # week num
   temp <- wr.miss$Above.x.Fpts[wr.miss$Week.Num==i]
-  one.game.above.fpts.threshold.wr.miss[i-3,2] <- sum(temp > 0)/length(temp)
+  one.game.above.fpts.threshold.wr.miss[i-3,2] <- sum(temp >= num.games.above.historical.threshold)/length(temp)
 }
 plot(one.game.above.fpts.threshold.wr.miss, type = 'b')
 
@@ -119,27 +120,41 @@ if (slate.days=="thu-mon") {
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk, '/offensive_players.csv'), stringsAsFactors = F) 
 }
 temp$ValueWR <- 0 # init
+
 temp.wr.cheap <- temp[temp$Salary < salary.threshold & temp$Position=='WR',]
-
-wr.value[,14:(14+week.latest-1)] <- NA # add extra cols
-for (i in 14:(14+week.latest-1)) {
-  colnames(wr.value)[i] <- paste0("Week", i-13) # name cols
-  wr.value[,i] <- historical.fpts[,i-12][match(wr.value$Player.Name, historical.fpts$FullName)] # match
-}
-for (i in 1:nrow(wr.value)) {
-  wr.value[i,(13+wr.value$Week.Num[i]):ncol(wr.value)] <- "." # get rid of weeks not played yet
+temp.ind <- ncol(temp.wr.cheap)+1
+temp.wr.cheap[,temp.ind:(temp.ind+week.latest-1)] <- NA # add extra cols
+for (i in temp.ind:(temp.ind+week.latest-1)) {
+  colnames(temp.wr.cheap)[i] <- paste0("Week", i-temp.ind+1) # name cols
+  temp.wr.cheap[,i] <- historical.fpts[,i-temp.ind+2][match(temp.wr.cheap$Name, historical.fpts$FullName)] # match
 }
 
-# # write
-# if (write.bool==T) {
-#   if (slate.days=="thu-mon") {
-#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/includes_thu-mon/offensive_players.csv'), row.names = F) 
-#   } else if (slate.days=="sun-mon") {
-#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/includes_sun-mon/offensive_players.csv'), row.names = F) 
-#   } else {
-#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/offensive_players.csv'), row.names = F) 
-#   } 
+# this is hard coded, only will work if adding to current week
+for (i in 1:nrow(temp.wr.cheap)) {
+  if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.games.above.historical.threshold) {
+    temp.wr.cheap$ValueWR[i] <- 1
+  }
+}
+# for (i in 1:nrow(wr.value)) {
+#   wr.value[i,(13+wr.value$Week.Num[i]):ncol(wr.value)] <- "." # get rid of weeks not played yet
 # }
+
+sum(temp.wr.cheap$ValueWR)
+sum(temp.wr.cheap$ValueWR)/nrow(temp.wr.cheap)
+
+# add to temp
+temp[temp$Salary < salary.threshold & temp$Position=='WR','ValueWR'] <- temp.wr.cheap$ValueWR
+
+# write
+if (write.bool==T) {
+  if (slate.days=="thu-mon") {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/includes_thu-mon/offensive_players.csv'), row.names = F)
+  } else if (slate.days=="sun-mon") {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/includes_sun-mon/offensive_players.csv'), row.names = F)
+  } else {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/offensive_players.csv'), row.names = F)
+  }
+}
 
 
 
