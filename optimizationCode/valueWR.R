@@ -3,6 +3,7 @@
 
 ####### DESCRIPTION #######
 # In this file we examine look for signs that a cheap player could go off.
+# We also add a column ValueWR to cleaned_input_files
 
 
 ####### WRITE TO FILE? #######
@@ -14,6 +15,9 @@ week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11"
 salary.threshold <- 4500 # defining cheap
 fpts.threshold <- 18 # defining cheap + value
 historical.threshold <- 15 # used for Above.x.Fpts column
+
+slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or "" (for writing to file only)
+wk <- 16 # (for writing to file only)
 
 
 ####### PREPARE DATAFRAME OF CHEAP WR THAT GO OFF #######
@@ -106,4 +110,61 @@ for (i in 4:week.latest) {
 plot(one.game.above.fpts.threshold.wr.miss, type = 'b')
 
 
+#######  ValueWR column to 2016_cleaned_input #######
+if (slate.days=="thu-mon") {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk, '/includes_thu-mon/offensive_players.csv'), stringsAsFactors = F) 
+} else if (slate.days=="sun-mon") {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk, '/includes_sun-mon/offensive_players.csv'), stringsAsFactors = F) 
+} else {
+  temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk, '/offensive_players.csv'), stringsAsFactors = F) 
+}
+temp$ValueWR <- 0 # init
+temp.wr.cheap <- temp[temp$Salary < salary.threshold & temp$Position=='WR',]
 
+wr.value[,14:(14+week.latest-1)] <- NA # add extra cols
+for (i in 14:(14+week.latest-1)) {
+  colnames(wr.value)[i] <- paste0("Week", i-13) # name cols
+  wr.value[,i] <- historical.fpts[,i-12][match(wr.value$Player.Name, historical.fpts$FullName)] # match
+}
+for (i in 1:nrow(wr.value)) {
+  wr.value[i,(13+wr.value$Week.Num[i]):ncol(wr.value)] <- "." # get rid of weeks not played yet
+}
+
+# # write
+# if (write.bool==T) {
+#   if (slate.days=="thu-mon") {
+#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/includes_thu-mon/offensive_players.csv'), row.names = F) 
+#   } else if (slate.days=="sun-mon") {
+#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/includes_sun-mon/offensive_players.csv'), row.names = F) 
+#   } else {
+#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', wk,'/offensive_players.csv'), row.names = F) 
+#   } 
+# }
+
+
+
+
+
+
+
+
+
+
+# # Adding ValueWR column to 2016_cleaned_input/all_data
+# if (slate.days=="thu-mon") {
+#   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_thu-mon/offensive_players.csv'), stringsAsFactors = F)
+# } else if (slate.days=="sun-mon") {
+#   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_sun-mon/offensive_players.csv'), stringsAsFactors = F)
+# } else {
+#   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/offensive_players.csv'), stringsAsFactors = F)
+# }
+# 
+# if (write.bool==T) {
+#   if (slate.days=="thu-mon") {
+#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_thu-mon/offensive_players.csv'), row.names = F)
+#   } else if (slate.days=="sun-mon") {
+#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/includes_sun-mon/offensive_players.csv'), row.names = F)
+#   } else {
+#     write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', wk, '/offensive_players.csv'), row.names = F)
+#   } 
+# }
