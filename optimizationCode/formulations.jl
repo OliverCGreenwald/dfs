@@ -23,7 +23,7 @@ one_lineup_Type_4, one_lineup_Type_5, one_lineup_Type_6, one_lineup_Type_7, one_
 
 # This is a function that creates one lineup using the No Stacking formulation from the paper
 # - Only Feasibility Constraints 
-function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_no_stacking(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
     # Variable for skaters in lineup.
@@ -126,7 +126,7 @@ end
 # This is a function that creates one lineup using the No Stacking formulation from the paper
 # - Feasibility Constraints 
 # - Defense constraint (Defense can't be playing any offensive players)
-function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_1(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -237,7 +237,7 @@ end
 # - Feasibility Constraints 
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
-function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_2(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -355,7 +355,7 @@ end
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - QB-oppWR
-function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_3(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -474,7 +474,7 @@ end
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - no TE for flex
-function one_lineup_Type_4(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_4(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -594,7 +594,7 @@ end
 # - Defense constraint (Defense can't be playing any offensive players)
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - no TE or RB for flex (must be WR)
-function one_lineup_Type_5(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_5(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -713,7 +713,7 @@ end
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - no TE for flex
 # - QB-oppWR Stack
-function one_lineup_Type_6(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_6(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -832,7 +832,7 @@ end
 # - no TE for flex
 # - QB-oppWR Stack
 # - Must have a Value RB (RB worth less than 5000)
-function one_lineup_Type_7(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_7(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -960,7 +960,7 @@ end
 # - QB-oppWR Stack
 # - Must have a Value RB (RB worth less than 5000)
 # - RB can not be from the same team as a WR or TE. 
-function one_lineup_Type_8(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source,team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_8(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source,team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -1092,7 +1092,7 @@ end
 #   - WR must be #1/#2 in terms of Targets Rank 
 # - no TE for flex
 # - Must have a Value RB (RB worth less than 5000)
-function one_lineup_Type_9(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_9(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -1217,7 +1217,7 @@ end
 # - Can not have 3 players from the same team
 # - no TE for flex
 # - This is just Formulation 4 + the Top Reciever instead of Random WR Stack + no 3 players from same team. 
-function one_lineup_Type_10(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_10(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -1347,7 +1347,7 @@ end
 # - no TE for flex
 # - Must have a Value RB (RB worth less than 5000)
 # - This is just Formulation 7 + the Top Reciever instead of Random WR Stack + + no 3 players from same team 
-function one_lineup_Type_11(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_11(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -1476,7 +1476,7 @@ end
 # - no TE for flex
 # - This is just Formulation 10 but allows for 3 players on the same team instead of 2
 
-function one_lineup_Type_12(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_12(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -1607,7 +1607,7 @@ end
 # - Can not have more than 3 players from the same team
 # - no TE for flex
 # - at least 3 receivers must be in the top 3 Target Leaders for their team (If Flex is WR, does not have to follow this rule)
-function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_13(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -1738,7 +1738,7 @@ end
 # - QB-WR Stack (If you have a QB then also include a WR from the same team)
 # - no TE for flex
 # - Same as Formulation 4 with Position Exposure Constraints
-function one_lineup_Type_14(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function one_lineup_Type_14(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
 
@@ -1873,9 +1873,161 @@ function one_lineup_Type_14(offensive_players, defenses, lineups, num_overlap, n
     end
 end
 
+# This is a function that creates one lineup using the No Stacking formulation from the paper
+# - Feasibility Constraints 
+# - Defense constraint (Defense can't be playing any offensive players)
+# - QB-WR Stack (If you have a QB then also include a WR from the same team)
+# - no TE for flex
+# - Same as Formulation 4 with Position Exposure Constraints
+function one_lineup_Type_15(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
+    #m = Model(solver=GLPKSolverMIP())
+    m = Model(solver=GurobiSolver())
+
+    # Variable for Offensive_Players in lineup.
+    @variable(m, offensive_players_lineup[i=1:num_offensive_players], Bin)
+
+    # Variable for Defense in lineup.
+    @variable(m, defenses_lineup[i=1:num_defenses], Bin)
+
+    #=
+    DraftKings Fantasy Contests require the following lineup:
+        - 1xQB
+        - 2xRB
+        - 3xWR 
+        - 1xTE
+        - 1xFLEX (RB/WR/TE)
+        - 1xDST
+    Whose salaries sum to less than $55,000
+    =#
+
+    # One Defense constraint
+    @constraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
+
+    # Defense Salary Constraint
+    @constraint(m, sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} >= 2700)
+    @constraint(m, sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 3100)
+
+    # Eight Offensive_Players constraint
+    @constraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+
+    # One QB constraint
+    @constraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
+
+    # between 2 and 3 RB (Because of FLEX player)
+    @constraint(m, 2<=sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    @constraint(m, sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 3)
+
+    # between 3 and 4 WR (Because of FLEX player)
+    @constraint(m, 3 <= sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    @constraint(m, sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 4)
+
+    # 1 TE (no TE FLEX player)
+    @constraint(m, 1 == sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    #@constraint(m, 1 <= sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    #@constraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
+
+    # must have 1 ValueWR
+    @constraint(m, 1 == sum{valueWideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+
+    # Financial Constraint
+    @constraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 50000)
+
+    # at least 3 different teams for the 8 skaters constraints
+    @variable(m, used_team[i=1:num_teams], Bin)
+    @constraint(m, constr[i=1:num_teams], used_team[i] <= sum{offensive_players_teams[t, i]*offensive_players_lineup[t], t=1:num_offensive_players})
+    @constraint(m, sum{used_team[i], i=1:num_teams} >= 2)
+
+    # No Defenses going against Offensive_Players constraint
+    @constraint(m, constr[i=1:num_defenses], 6*defenses_lineup[i] + sum{defenses_opponents[k, i]*offensive_players_lineup[k], k=1:num_offensive_players}<=6)
+
+    # Must have a QB/WR Pair
+    # QB is weighted 9 and WR is weighted 1 so in order to have a sum >= 10 there must be 
+    # at least a QB/WR Pair
+    @variable(m, QBWR_stack[i=1:num_pairs], Bin)
+    @constraint(m, constr[i=1:num_pairs], 10*QBWR_stack[i] <= sum{team_pairs[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
+    @constraint(m, sum{QBWR_stack[i], i=1:num_pairs} >= 1)
+
+    # Overlap Constraint
+    @constraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
+
+    # Exposure Constraint
+    #QB 
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*quarterBack[j] <= num_lineups * exposure_qb)
+    # #RB
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*runningBack[j] <= num_lineups * exposure_rb)
+    # #WR 
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*wideReciever[j] <= num_lineups * exposure_wr)
+    # #TE 
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*tightEnd[j] <= num_lineups * exposure_te)
+    for i in 1:num_offensive_players
+        if (quarterBack[i] == 1)
+            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_qb)
+        elseif (runningBack[i] == 1)
+            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_rb)
+        elseif (wideReciever[i] == 1)
+            if (valueWideReciever[i] == 1) 
+                @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_valueWideReciever)
+            else 
+                @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_wr)
+            end 
+        elseif (tightEnd[i] == 1)
+            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_te)
+        end
+    end
+
+    # Defense
+    @constraint(m, constr[j=1:num_defenses], sum{lineups[num_offensive_players + j,i], i=1:size(lineups)[2]} + defenses_lineup[j] <= num_lineups * exposure_defense)
+    # Objective
+    # @objective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    if (projections_source == "Projection")
+        @objective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_dfn")
+        @objective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_fc")
+        @objective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_dfn_perturbed")
+        @objective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg")
+        @objective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @objective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @objective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
+    end
+
+    # Solve the integer programming problem
+    println("Solving Problem...")
+    @printf("\n")
+    status = solve(m);
+
+
+    # Puts the output of one lineup into a format that will be used later
+    if status==:Optimal
+        offensive_players_lineup_copy = Array(Int64, 0)
+        for i=1:num_offensive_players
+            if getvalue(offensive_players_lineup[i]) >= 0.9 && getvalue(offensive_players_lineup[i]) <= 1.1
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(1,1))
+            else
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(0,1))
+            end
+        end
+        for i=1:num_defenses
+            if getvalue(defenses_lineup[i]) >= 0.9 && getvalue(defenses_lineup[i]) <= 1.1
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(1,1))
+            else
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(0,1))
+            end
+        end
+        return(offensive_players_lineup_copy)
+    end
+end
+
 ############################  Setting Formation  ############################
 
-function create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+function create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valueWideReciever)
     #=
     num_lineups is an integer that is the number of lineups (Line 28)
     num_overlap is an integer that gives the overlap between each lineup (Line 31)
@@ -1884,7 +2036,6 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
     formulation is the type of formulation you would like to use (Line 48)
     path_to_output is a string where the final csv file with your lineups will be (Line 40)
     =#
-
 
     # Load information for offensive_players table
     offensive_players = readtable(path_offensive_players)
@@ -1910,6 +2061,7 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
     # wideReciever stores the information on which players are wideReciever
     wideReciever = Array(Int64, 0)
     topWideReciever = Array(Int64, 0)
+    valueWideReciever = Array(Int64, 0)
     # tightEnd stores the information on which players are tightEnd
     tightEnd = Array(Int64, 0)
 
@@ -1969,12 +2121,14 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
                 tightEnd=vcat(tightEnd,fill(0,1))
                 cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
                 topWideReciever=vcat(topWideReciever,fill(0,1))
+                valueWideReciever=vcat(valueWideReciever,fill(0,1))
             elseif offensive_players[i,:Position] == "RB"
                 quarterBack=vcat(quarterBack,fill(0,1))
                 runningBack=vcat(runningBack,fill(1,1))
                 wideReciever=vcat(wideReciever,fill(0,1))
                 tightEnd=vcat(tightEnd,fill(0,1))
                 topWideReciever=vcat(topWideReciever,fill(0,1))
+                valueWideReciever=vcat(valueWideReciever,fill(0,1))
                 if offensive_players[i,:Salary] < 5000
                     cheapRunningBack=vcat(cheapRunningBack,fill(1,1))
                 else 
@@ -1991,6 +2145,11 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
                 else 
                     topWideReciever=vcat(topWideReciever,fill(0,1))
                 end
+                if offensive_players[i,:ValueWR] == 1
+                    valueWideReciever=vcat(valueWideReciever,fill(1,1))
+                else 
+                    valueWideReciever=vcat(valueWideReciever,fill(0,1))
+                end
             else
                 quarterBack=vcat(quarterBack,fill(0,1))
                 runningBack=vcat(runningBack,fill(0,1))
@@ -1998,6 +2157,7 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
                 tightEnd=vcat(tightEnd,fill(1,1))
                 cheapRunningBack=vcat(cheapRunningBack,fill(0,1))
                 topWideReciever=vcat(topWideReciever,fill(0,1))
+                valueWideReciever=vcat(valueWideReciever,fill(0,1))
             end
         end
     end
@@ -2210,14 +2370,14 @@ function create_lineups(num_lineups, num_overlap, exposure, path_offensive_playe
     num_pairs_QBoppTarget = size(team_pairs_QBoppTarget)[2]
 
     # Lineups using formulation as the stacking type
-    the_lineup= formulation(offensive_players, defenses, hcat(zeros(Int, num_offensive_players + num_defenses), zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source,team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+    the_lineup= formulation(offensive_players, defenses, hcat(zeros(Int, num_offensive_players + num_defenses), zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source,team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
 
-    the_lineup2 = formulation(offensive_players, defenses, hcat(the_lineup, zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source,team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+    the_lineup2 = formulation(offensive_players, defenses, hcat(the_lineup, zeros(Int, num_offensive_players + num_defenses)), num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source,team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
     tracer = hcat(the_lineup, the_lineup2)
     for i=1:(num_lineups-2)
         println(string("**************************** LINEUP NUMBER: ", i+2, " ****************************"))
         try
-            thelineup=formulation(offensive_players, defenses, tracer, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+            thelineup=formulation(offensive_players, defenses, tracer, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
             tracer = hcat(tracer,thelineup)
         catch
             break
