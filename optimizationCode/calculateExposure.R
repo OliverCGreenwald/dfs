@@ -13,7 +13,7 @@ occurences <- sort(table(unlist(output.data$QB)), decreasing=T)
 exposure <- occurences / nrow(output.data)
 exposure
 
-# TE
+# TE (unless form < 4, no TE as flex)
 occurences <- sort(table(unlist(output.data$TE)), decreasing=T)
 exposure <- occurences / nrow(output.data)
 exposure
@@ -27,7 +27,7 @@ exposure
 occurences <- sort(table(unlist(output.data[,c("RB","RB.1")])), decreasing=T)
 exposure<- occurences / nrow(output.data)
 exposure
-
+ 
 # WR1, WR2, WR3
 occurences <- sort(table(unlist(output.data[,c("WR","WR.1","WR.2")])), decreasing=T)
 exposure <- occurences / nrow(output.data)

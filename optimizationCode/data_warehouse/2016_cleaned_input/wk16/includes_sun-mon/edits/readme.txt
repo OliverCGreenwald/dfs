@@ -1,4 +1,4 @@
-Set to (ceiling-proj)/2:
+Set to ceiling:
 Malcolm Mitchell (5200)
 Amari Cooper (6500)
 Tyrell Williams (5800)
@@ -15,7 +15,7 @@ Ty Montgomery (5900)
 T.Y. Hilton (7800)
 
 
-Need to Fix:
+Fix:
 Allen Robinson (no Marquise Lee)
 Marvin Jones and Anquan Boldin
 
@@ -26,8 +26,3 @@ Dion Lewis
 
 How to find cheap players that might go off:
 - O/U
-- replace any same salary with other same salary for under 5.1k (e.g. 3 5.1k WR)
-
-
-Under 4500 salary
-gone off once
