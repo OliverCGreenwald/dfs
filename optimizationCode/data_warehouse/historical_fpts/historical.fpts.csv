@@ -1,7 +1,7 @@
 "Unique.ID","Week1","Week2","Week3","Week4","Week5","Week6","Week7","Week8","Week9","Week10","Week11","Week12","Week13","Week14","Week15","FullName","Team","Pos","mean"
 "Antonio Brown@PIT@WR",35.6,7.9,29,22.4,22.8,8.5,21.9,NA,21.5,37.4,15.6,32.1,17.4,12.8,8.8,"Antonio Brown","PIT","WR",20.9785714285714
 "Julio Jones@ATL@WR",16.6,24.6,2.6,51,4.9,29.9,29.4,5.9,28.1,26.5,NA,7.5,21.3,NA,NA,"Julio Jones","ATL","WR",20.6916666666667
-"Odell Beckham@NYG@WR",11.3,16.6,22.1,5.3,16.6,44.2,9.9,NA,20.6,25.7,9.6,27.6,23,19.4,NA,"Odell Beckham","NYG","WR",19.3769230769231
+"Odell Beckham@NYG@WR",11.3,16.6,22.1,5.3,16.6,44.2,9.9,NA,20.6,25.7,9.6,27.6,23,19.4,19.3,"Odell Beckham","NYG","WR",19.3714285714286
 "DeAndre Hopkins@HOU@WR",16.4,27.3,9.6,1.4,16.6,16.1,8.6,8.4,NA,9.8,10.8,12,14.8,5.3,16.7,"DeAndre Hopkins","HOU","WR",12.4142857142857
 "Dez Bryant@DAL@WR",1.8,20.2,13,NA,NA,NA,NA,24.3,2.9,26.6,26,12.2,18.4,1,16.2,"Dez Bryant","DAL","WR",14.7818181818182
 "Aaron Rodgers@GB@QB",23.6,19.4,26.4,NA,17.9,14.5,27.7,33.8,27.2,32.5,32.3,26.1,17,21.2,12,"Aaron Rodgers","GB","QB",23.6857142857143
@@ -933,7 +933,6 @@
 "George Farmer@SEA@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0.1,NA,NA,"George Farmer","SEA","RB",0.1
 "Alex Ellis@JAX@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.1,"Alex Ellis","JAX","TE",1.1
 "Logan Thomas@BUF@TE",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Logan Thomas","BUF","TE",NA
-"Odell Beckham Jr.@NYG@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,19.3,"Odell Beckham Jr.","NYG","WR",19.3
 "Marcel Reece@SEA@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.9,"Marcel Reece","SEA","RB",1.9
 "Brandon Wilds@NYJ@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Brandon Wilds","NYJ","RB",NA
 "Josh Huff@TB@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Josh Huff","TB","WR",NA
