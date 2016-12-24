@@ -80,7 +80,8 @@ formulation is the type of formulation that you would like to use.
         - 11 <- one_lineup_Type_11
         - 12 <- one_lineup_Type_12
         - 13 <- one_lineup_Type_13
-        - 14 <- one_lineup_Type_14
+        - 14 <- one_lineup_Type_14 (form 4 with player exposure constraints)
+        - 14 <- one_lineup_Type_15 (form 14 + must have 1 value wr + 2700 <= DST Salary <= 3100)
 =#
 formulation_type = 15
 

@@ -1,14 +1,17 @@
-Set to (ceiling-proj)/2:
-Malcolm Mitchell (5200)
-Amari Cooper (6500)
-Tyrell Williams (5800)
+Set to proj+(ceiling-proj)/2:
+Malcolm Mitchell (5200) 14.0
+Amari Cooper (6500) 20.8
+Tyrell Williams (5800) 17.2
 
+Davante Adams (5400) 20.3
+Michael Thomas (6000) 19.7
 
-Set to (ceiling-proj)/2:
-Michael Crabtree (6100)
-Davante Adams (5400)
-Michael Thomas (6000)
+Set to proj+(ceiling-proj)/4:
+Michael Crabtree (6100) 17.25
 
+Set to average between roto and dfn:
+C.J. Uzomah (2500) 9.2
+Dwayne Washington (3400) 11.0
 
 Maybe:
 Ty Montgomery (5900)
