@@ -37,12 +37,12 @@ num_overlap = 4
 exposure = 0.4
 
 #Only used for Formulation 14
-exposure_defense = 0.4
-exposure_wr = 0.2
-exposure_rb = 0.4
-exposure_te = 0.4
-exposure_qb = 0.4
-
+exposure_defense = 0.25
+exposure_wr = 0.25
+exposure_rb = 0.75
+exposure_te = 0.75
+exposure_qb = 0.5
+exposure_valuewr = 0.1
 
 ###########################  Setting Formation  ############################
 
@@ -70,7 +70,7 @@ formulation is the type of formulation that you would like to use.
         - 13 <- one_lineup_Type_13
         - 14 <- one_lineup_Type_14 (form 4 with position exposures)
 =#
-formulation_type = 4
+formulation_type = 15
 
 
 ############################  Setting Projections Source  ############################
@@ -96,9 +96,9 @@ projections_source = "Projection_dfn"
         - thu_mon = true or false (if false, then sunday players only; if true, all players Thu - Mon)
 =#
 live = false
-thu_mon = true
+thu_mon = false
 
-for week=1:1
+for week=8:15
 
     ############################  Create Paths to data  ############################
 
@@ -162,6 +162,8 @@ for week=1:1
         formulation = formulations.one_lineup_Type_13
     elseif (formulation_type == 14) 
         formulation = formulations.one_lineup_Type_14
+    elseif (formulation_type == 15) 
+        formulation = formulations.one_lineup_Type_15
     else
         formulation = formulations.one_lineup_no_stacking 
     end
@@ -183,10 +185,10 @@ for week=1:1
     # end
 
     # Output to includes_thu-mon
-    if (formulation_type == 14)
-        formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+    if (formulation_type >= 14)
+        formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
     else
-        formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+        formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
     end
 
     # Varying num_lineups

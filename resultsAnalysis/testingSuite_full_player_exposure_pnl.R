@@ -197,7 +197,7 @@ for (week.num in week.lo:week.hi) {
   }
 }
 
-pnlMatrix$profit <- as.numeric(pnlMatrix$PnL > 100)
+pnlMatrix$profit <- as.numeric(pnlMatrix$PnL > 0)
 pnlMatrix$loss <- as.numeric(pnlMatrix$PnL < 0)
 num.games <- c(13,14,14,13,12,13,13,11,11,12,12,12,13,14,13)
 many_games <- pnlMatrix[pnlMatrix$Week != 5,] 
@@ -207,13 +207,21 @@ many_games <- many_games[many_games$Week != 10,]
 many_games <- many_games[many_games$Week != 11,]  
 many_games <- many_games[many_games$Week != 12,]  
 
+many_games <- many_games[many_games$Week != 1,] 
+many_games <- many_games[many_games$Week != 4,] 
+many_games <- many_games[many_games$Week != 6,] 
+many_games <- many_games[many_games$Week != 7,] 
+many_games <- many_games[many_games$Week != 13,] 
+many_games <- many_games[many_games$Week != 15,] 
+
 results <- unique(within(pnlMatrix, {
+     max_loss <- ave(PnL, Exposure, FUN = min)
      PnL <- ave(PnL, Exposure, FUN = sum)
      count_profit <- ave(profit, Exposure, FUN = sum)
      count_loss <- ave(loss, Exposure, FUN = sum)
      rm(Week, profit, loss)
 }))
 
-temp <- subset(many_games, Exposure == "defexp_0.5 wrexp_0.25 rbexp_0.25 teexp_0.75 qbexp_0.25")
+temp <- subset(many_games, Exposure == "defexp_0.25 wrexp_0.5 rbexp_0.5 teexp_0.25 qbexp_0.25")
 
 #save(pnlMatrix, results, file="player_exposure_pnl.RData")
