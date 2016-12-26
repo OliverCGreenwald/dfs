@@ -15,6 +15,10 @@
 #     - Testing theory. Let P = {P_1,...,P_N}, where P is the set of N players s.t. any 9 players of this set
 #       sums to 200+ fpts (i.e. earns decent payout). Theory: N is decreasing week over week b/c coaches are
 #       finding their most reliable players for the season, and these players get the most touches.
+#
+# TODO:
+# - fix: subset to placing lineups only, place.last <- temp.payout$Place_hi[nrow(temp.payout)], temp.results <- temp.results[1:place.last,]
+#         Currently doesn't correctly subset b/c there are ties around the cashing cutoff, so need to do temp.results[temp.results$Rank <= place.last,]
 
 
 ####### IMPORT LIBRARIES #########
