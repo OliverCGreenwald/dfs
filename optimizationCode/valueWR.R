@@ -213,3 +213,8 @@ if (write.bool==T) {
 #######  PRINT NUMBER OF VALUEWR #######
 paste0("Number of Value WR (has at least game 'num.gm.over.hist.thresh' above 'historical.threshold'): ", sum(temp.wr.cheap$ValueWR))
 sum(temp.wr.cheap$ValueWR)/nrow(temp.wr.cheap)
+
+
+
+
+

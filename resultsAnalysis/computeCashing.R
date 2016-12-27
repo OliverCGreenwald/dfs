@@ -77,6 +77,12 @@ contest.name <- "50K.contest" # "50K.contest" or "millymaker.contest"
 # 
 #     print(i)
 # }
+# 
+# for (i in c(9,11:15)) {
+#   temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
+#   temp.results$FPTS <- NULL
+#   write.csv(temp.results, file = paste0("resultsAnalysis/data_warehouse/contest_results/cleaned/1M_contest_full_results_week",i,".csv"), row.names = F)
+# }
 
 
 ####### CREATE FILE WITH WEEK, MIN (CASHING), MAX FOR MILLY MAKER #######
