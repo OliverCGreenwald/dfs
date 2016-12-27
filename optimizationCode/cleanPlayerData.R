@@ -8,7 +8,7 @@ write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 
 ####### Set Parameters #######
 live.bool <- T # True if live week (i.e. pull current data from RG), False if historical
-slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or ""
+slate.days <- "" # "thu-mon" or "sun-mon" or ""
 week.num <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) # live
 # week.num <- 15 # historical
 
@@ -100,8 +100,7 @@ colnames(defense)[1] <- "Name"
 ####### Replace DK offensive player predictions with RG predictions #######
 # read in data
 dk.offense.data <- offensive_players
-file.name <- paste0("optimizationCode/data_warehouse/rotogrinders/roto_offense_week", week.num, ".csv")
-roto.offense.data <- read.csv(file = file.name, header = T, stringsAsFactors = F)
+roto.offense.data <- off.data
 
 # compare dk and roto data
 nrow(dk.offense.data[dk.offense.data$Projection>0,])
@@ -153,8 +152,7 @@ if (write.bool==T) {
 ####### Replace DK defensive player predictions with RG predictions #######
 # read in data
 dk.defense.data <- defense
-file.name <- paste0("optimizationCode/data_warehouse/rotogrinders/roto_defense_week", week.num, ".csv")
-roto.defense.data <- read.csv(file = file.name, header = T, stringsAsFactors = F)
+roto.defense.data <- def.data
 
 # reconcile team name differences
 team.names.data <- read.csv("optimizationCode/data_warehouse/rotogrinders/team_names.csv", header = T, stringsAsFactors = F)
@@ -164,6 +162,7 @@ dk.defense.data$Projection <- dk.defense.data$RotoProjection
 dk.defense.data$RotoProjection <- NULL
 dk.defense.data$roto_name <- NULL
 colnames(dk.defense.data)[1] <- 'Position'
+
 
 ####### Add Daily Fantasy Nerd Projections #######
 file.name <- paste0("optimizationCode/data_warehouse/dailyfantasynerd/dfn_defense_week", week.num, ".csv")
