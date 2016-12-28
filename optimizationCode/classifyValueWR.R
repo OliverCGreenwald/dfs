@@ -4,6 +4,11 @@
 
 ####### DESCRIPTION #######
 # In this file we construct a dataset to classify cheap WRs as "value" (1) or "not value" (0).
+# Section I: Prepare dataset
+# Section II: Logistic Regression
+# Section III: Regularized Logistic Regression
+# Section IV: SVM
+# Section V: Random Forest
 # TODO:
 # - we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0 (historicalFpts.R)
 # - Add Snaps, Snap Pct, Rush Pct, Tgt Pct, Touch Pct, Util Pct (rolling) from fantasydata/snapcounts
@@ -11,7 +16,7 @@
 
 
 ####### WRITE TO FILE? #######
-write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
@@ -31,9 +36,12 @@ outputweekly.bool <- F # TRUE if want to output weekly csv's (otherwise outputs 
 
 ####### IMPORT LIBRARIES #########
 library('stringr')
+library("SDMTools")
+library("glmnet")
+library("kernlab")
 
 
-####### PREPARE DATAFRAME OF CHEAP WR #######
+####### SECTION I: PREPARE DATAFRAME OF CHEAP WR #######
 #---- Initializing df for storing all weeks (if loop over weeks is used) ----#
 dataset.all <- NULL
 
@@ -221,4 +229,99 @@ print(paste0("All Weeks, Num of Value WR / Num Cheap WR (NAs Removed):   ", sum(
 if (write.bool==T & outputweekly.bool==F) {
   write.csv(dataset.all, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/cheapwr_data_allwks.csv"), row.names = F)
 }
+
+
+
+####### SPLIT INTO TRAINING AND TESTING DATA #######
+testing.ind <- sample(x=1:nrow(dataset.all), size=nrow(dataset.all)/5)
+data.test <- dataset.all[testing.ind, ]
+data.train <- dataset.all[-testing.ind, ]
+
+train.x <- data.train[,1:(ncol(data.train)-1)]
+train.y <- data.train[,ncol(data.train)]
+test.x <- data.test[,1:(ncol(data.test)-1)]
+test.y <- data.test[,ncol(data.test)]
+
+
+####### SECTION II: LOGISTIC REGRESSION #######
+model <- glm(Value ~ ., family='binomial', data=data.train)
+
+pred <- predict(object=model, newdata=test.x, type='response')
+pred[pred > 0.5] <- 1
+pred[pred <= 0.5] <- 0
+
+test.error <- (mean(abs(as.numeric(pred) - test.y)))
+test.error
+
+confusion.matrix(obs = as.numeric(pred), pred = test.y, threshold = 0.5) # 0% true positives success rate
+
+
+####### SECTION III: REGULARIZED LOGISTIC REGRESSION #######
+# LASSO PENALTY
+model.cv <- cv.glmnet(x=data.matrix(train.x), y=train.y, alpha=1, family='binomial', type.measure='class', nfolds=5) # alpha = 1 is lasso, alpha = 0 is ridge
+plot(model.cv, main = "Regularization Path") # Not the usual U-shape. We expect a U-shape if the addition of the tuning parameter (regularization) is necessary. The lack of U-shape suggests that the model does not overfit, so regularization is probably not going to help.
+
+model <- glmnet(x=data.matrix(train.x), y=train.y, family='binomial', lambda=model.cv$lambda.min) # lambda.1se
+coef(model)
+
+pred <- predict(model, data.matrix(test.x), type='class')
+test.error <- (mean(abs(as.numeric(pred) - test.y)))
+test.error
+
+confusion.matrix(obs = as.numeric(pred), pred = test.y, threshold = 0.5) # 0% true positives success rate
+
+# RIDGE PENALTY
+model.cv <- cv.glmnet(x=data.matrix(train.x), y=train.y, alpha=0, family='binomial', type.measure='class', nfolds=5) # alpha = 1 is lasso, alpha = 0 is ridge
+plot(model.cv, main = "Regularization Path") # Not the usual U-shape. We expect a U-shape if the addition of the tuning parameter (regularization) is necessary. The lack of U-shape suggests that the model does not overfit, so regularization is probably not going to help.
+
+model <- glmnet(x=data.matrix(train.x), y=train.y, family='binomial', lambda=model.cv$lambda.min) # lambda.1se
+coef(model) # why are they all 0's ???
+
+pred <- predict(model, data.matrix(test.x), type='class')
+test.error <- (mean(abs(as.numeric(pred) - test.y)))
+test.error
+
+confusion.matrix(obs = as.numeric(pred), pred = test.y, threshold = 0.5) # 0% true positives success rate
+
+# ELASTIC NET PENALTY
+model.cv <- cv.glmnet(x=data.matrix(train.x), y=train.y, alpha=0.4, family='binomial', type.measure='class', nfolds=5) # alpha = 1 is lasso, alpha = 0 is ridge
+plot(model.cv, main = "Regularization Path") # Not the usual U-shape. We expect a U-shape if the addition of the tuning parameter (regularization) is necessary. The lack of U-shape suggests that the model does not overfit, so regularization is probably not going to help.
+
+model <- glmnet(x=data.matrix(train.x), y=train.y, family='binomial', lambda=model.cv$lambda.min) # lambda.1se
+coef(model)
+
+pred <- predict(model, data.matrix(test.x), type='class')
+test.error <- (mean(abs(as.numeric(pred) - test.y)))
+test.error
+
+confusion.matrix(obs = as.numeric(pred), pred = test.y, threshold = 0.5) # 0% true positives success rate
+
+
+####### SECTION IV: SVM #######
+ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
+tuning.param <- exp(ln.tuning.param)
+cv.error <- vector(mode='numeric', length=100)
+for (i in 1:100) {
+  model <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=tuning.param[i], cross=5)
+  cv.error[i] <- model@cross #cross(model) #svm_i@cross
+  print(i)
+}
+
+plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
+c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C
+
+model <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5)
+
+pred <- predict(model, data.matrix(test.x), type='response')
+test.error <- (mean(abs(as.numeric(pred) - test.y)))
+test.error
+
+confusion.matrix(obs = as.numeric(pred), pred = test.y, threshold = 0.5) # 0% true positives success rate
+
+
+####### SECTION V: RANDOM FOREST #######
+
+
+
+
 
