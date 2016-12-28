@@ -80,7 +80,7 @@ projections_source = "Projection_dfn"
 live = false
 slate_days = "thu-mon"
 
-for week=6:6
+for week=[13,12]
 
     ############################  Create Paths to data  ############################
     if (live)
