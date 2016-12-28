@@ -3,7 +3,6 @@
 
 ####### DESCRIPTION #########
 # In this file we clean various csv files in the optimizationCode folder for ease of use in other scripts.
-# TODO: clean up this hard coded shit
 
 
 ####### REMOVE FIRST AND LAST NAME FROM (ORIGINAL) DFN OFFENSE CSV #########
