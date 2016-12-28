@@ -2,14 +2,16 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 ####### DESCRIPTION #######
-# In this file we create a DKSalaries_week[x] file for all players (instead of just sunday)
+# In this file we create a DKSalaries_week[x] file for all players (thu-mon instead of just sun)
 # using DFN files. Needed for testing Thursday-Monday contests such as NFL $150K KICKOFF SPECIAL
 # and NFL $70K GRIDIRON.
+# Don't need this file for weeks 16 and 17. Those files were downloaded directly from DraftKings.
+# Once this file is run, also run cleanPlayerData.R for the week.
 
 
 ####### SET WEEK #########
 # week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-week.latest <- 15
+week.latest <- 15 # (writes to this week)
 i <- week.latest
 
 

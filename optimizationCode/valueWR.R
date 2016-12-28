@@ -3,17 +3,16 @@
 
 ####### DESCRIPTION #######
 # In this file we examine look for signs that a cheap player could go off.
-# We also add a column ValueWR to cleaned_input_files
-# TODO: 
+# We also add a column ValueWR to cleaned_input_files.
 
 
 ####### WRITE TO FILE? #######
-write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
 # week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-week.latest <- 14 # wk we write to will be week.latest+1
+week.latest <- 5 # wk we write to will be week.latest+1
 slate.days <- "thu-mon" # "thu-mon" or "sun-mon" or ""
 
 salary.threshold <- 5000 # defining cheap

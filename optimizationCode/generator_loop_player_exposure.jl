@@ -20,6 +20,10 @@ using Gurobi
 # Once again, to install run Pkg.add("JuMP")
 using JuMP
 
+# Running
+# exec '/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin/julia'
+# include("generator.jl")
+
 include("formulations.jl")
 
 ############################  Setting Variables  ############################
@@ -48,7 +52,7 @@ formulation is the type of formulation that you would like to use.
     Available Options:
         - 14 <- one_lineup_Type_14 (form 4 with position exposures)
 =#
-formulation_type = 14
+formulation_type = 15
 
 
 ############################  Setting Projections Source  ############################
@@ -74,23 +78,53 @@ projections_source = "Projection_dfn"
         - if live false, set week to any week 1-12 (if true then doesn't matter)
 =#
 live = false
+slate_days = "thu-mon"
 
-for week=14:14
+for week=6:6
 
     ############################  Create Paths to data  ############################
-
-    if (live) 
-        path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
-        path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
-        path_to_output = "output.csv"
+    if (live)
+        if (slate_days=="thu-mon")
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_thu-mon/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_thu-mon/defenses.csv")
+            path_to_output = "output.csv"
+        elseif (slate_days=="sun-mon")
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_sun-mon/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_sun-mon/defenses.csv")
+            path_to_output = "output.csv"
+        else
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
+            path_to_output = "output.csv"
+        end
     elseif (use_Freq_Ind)
-        path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
-        path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
-        path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/week", week, projections_source[11:end], "_FreqInd")
+        if (slate_days=="thu-mon")
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_thu-mon/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_thu-mon/defenses.csv")
+            path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_FreqInd")
+        elseif (slate_days=="sun-mon")
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_sun-mon/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_sun-mon/defenses.csv")
+            path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/includes_sun-mon/week", week, projections_source[11:end], "_FreqInd")
+        else
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
+            path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/week", week, projections_source[11:end], "_FreqInd")
+        end
     else
-        path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
-        path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
-        path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/week", week, projections_source[11:end])
+        if (slate_days=="thu-mon")
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_thu-mon/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_thu-mon/defenses.csv")
+            path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end])
+        elseif (slate_days=="sun-mon")
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_sun-mon/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/includes_sun-mon/defenses.csv")
+            path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/includes_sun-mon/week", week, projections_source[11:end])
+        else
+            path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
+            path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
+            path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/week", week, projections_source[11:end])
+        end
     end
 
     if (formulation_type == 1) 
@@ -121,24 +155,47 @@ for week=14:14
         formulation = formulations.one_lineup_Type_13
     elseif (formulation_type == 14) 
         formulation = formulations.one_lineup_Type_14
+    elseif (formulation_type == 15) 
+        formulation = formulations.one_lineup_Type_15
     else
         formulation = formulations.one_lineup_no_stacking 
     end
 
     for exposure_defense = [0.25, 0.50, 0.75]
         for exposure_wr = [0.25, 0.50, 0.75]
-            for exposure_rb = [0.25, 0.50, 0.75]
+            for exposure_rb = [0.50, 0.75]
                 for exposure_te = [0.25, 0.50, 0.75]
                     for exposure_qb = [0.25, 0.50, 0.75]
-                        ########### Running the code ###########
+                        for exposure_valuewr = [0.05, 0.10, 0.15]
+                            ########### Running the code ###########
 
-                        # formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+                            # Output to testing_alan
+                            # if (formulation_type == 14)
+                            #     formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            # elseif (formulation_type == 15)
+                            #     formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, "_valuewrexp_", exposure_valuewr, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            # else
+                            #     formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            # end
 
-                        # formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string(path_to_output, "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, "_numlineups_", num_lineups,".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
+                            # Output to includes_thu-mon
+                            if (formulation_type == 14)
+                                formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            elseif (formulation_type == 15)
+                                formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, "_valuewrexp_", exposure_valuewr, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            else
+                                formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            end
 
-                        # Output to testing_alan
-                        formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb)
-
+                            # Output to includes_sun-mon
+                            # if (formulation_type == 14)
+                            #     formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_sun-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            # elseif (formulation_type == 15)
+                            #     formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_sun-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_defexp_", exposure_defense, "_wrexp_", exposure_wr, "_rbexp_", exposure_rb, "_teexp_", exposure_te,"_qbexp_", exposure_qb, "_valuewrexp_", exposure_valuewr, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            # else
+                            #     formulations.create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, string("../resultsAnalysis/data_warehouse/testing_lineups/includes_sun-mon/week", week, projections_source[11:end], "_formulation", formulation_type, "_overlap_", num_overlap, "_exposure_", exposure, ".csv"), projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valuewr)
+                            # end
+                        end
                     end
                 end
             end

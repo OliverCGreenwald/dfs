@@ -1,0 +1,25 @@
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","RankTargets","RollingTargetPctg","ValueWR","Week1","Week2","Week3","Week4","Week5","Week6","Week7","Week8"
+"WR","Tyrell Williams (0000000)","Tyrell Williams",0,5000,"Ten@SD 00:00PM ET","SD","Tyrell","Williams","Ten",12.81,14,2,0.174657534246575,1,9.1,15.1,12.9,9,25.7,5.8,24,1.4
+"WR","Allen Hurns (0000000)","Allen Hurns",0,4900,"Jax@KC 00:00PM ET","Jax","Allen","Hurns","KC",11.93,11.4,2,0.18936877076412,1,11.5,11.4,8,12.7,NA,12.4,8.5,22.8
+"WR","DeVante Parker (0000000)","DeVante Parker",0,4800,"NYJ@Mia 00:00PM ET","Mia","DeVante","Parker","NYJ",10.6,15.1,2,0.166666666666667,1,NA,21.6,14.1,4,9,7.8,5,NA
+"WR","Golden Tate (0000000)","Golden Tate",0,4700,"Det@Min 00:00PM ET","Det","Golden","Tate","Min",10.93,14.9,2,0.227118644067797,1,11.3,3.3,7.2,3.1,7.5,33.8,15.3,11.2
+"WR","Sterling Shepard (0000000)","Sterling Shepard",0,4600,"Phi@NYG 00:00PM ET","NYG","Sterling","Shepard","Phi",10.8,11.5,2,0.172661870503597,1,13.3,22.7,18.3,7,3.4,6.5,8.2,NA
+"WR","Corey Coleman (0000000)","Corey Coleman",0,4500,"Dal@Cle 00:00PM ET","Cle","Corey","Coleman","Dal",9.96,10.4,7,0.04,1,8.9,30.4,NA,NA,NA,NA,NA,NA
+"WR","Kendall Wright (0000000)","Kendall Wright",0,4400,"Ten@SD 00:00PM ET","Ten","Kendall","Wright","SD",9.37,9.7,6,0.0846153846153846,1,NA,NA,NA,3.4,1.9,30.3,3.2,19.9
+"WR","Kenny Britt (0000000)","Kenny Britt",0,4400,"Car@LA 00:00PM ET","LA","Kenny","Britt","Car",12.73,12.3,2,0.218487394957983,1,10.7,15.4,6.8,12.2,12.5,35.6,7.3,NA
+"WR","Sammie Coates (0000000)","Sammie Coates",0,4300,"Pit@Bal 00:00PM ET","Pit","Sammie","Coates","Bal",10.4,8.9,3,0.123188405797101,1,7.6,12.3,8,13.8,34.9,NA,1.4,NA
+"WR","Tavon Austin (0000000)","Tavon Austin",0,4200,"Car@LA 00:00PM ET","LA","Tavon","Austin","Car",12.37,14.7,1,0.264705882352941,1,5.5,10.6,21.4,2.8,15.5,5.6,22.7,NA
+"WR","Mohamed Sanu (0000000)","Mohamed Sanu",0,4100,"Atl@TB 00:00PM ET","Atl","Mohamed","Sanu","TB",11.68,13.2,2,0.186619718309859,1,21,4.9,6.1,4.2,6.3,15.7,3.6,23.4
+"WR","Jeremy Kerley (0000000)","Jeremy Kerley",0,4000,"NO@SF 00:00PM ET","SF","Jeremy","Kerley","NO",9.58,10.8,1,0.276190476190476,1,NA,5.9,4.4,20.8,27.2,3.2,3.5,NA
+"WR","Kenny Stills (0000000)","Kenny Stills",0,3900,"NYJ@Mia 00:00PM ET","Mia","Kenny","Stills","NYJ",9.6,9.1,3,0.152380952380952,1,2.6,11.9,12.6,14.4,NA,3.2,24,NA
+"WR","Adam Thielen (0000000)","Adam Thielen",0,3800,"Det@Min 00:00PM ET","Min","Adam","Thielen","Det",9.64,7.2,3,0.144628099173554,1,9.4,8.1,5.9,4.1,28.7,NA,7.2,7
+"WR","Anquan Boldin (0000000)","Anquan Boldin",0,3600,"Det@Min 00:00PM ET","Det","Anquan","Boldin","Min",8.88,10.9,3,0.155932203389831,1,6.5,14.8,12.2,9.1,8.8,20,11.8,1.4
+"WR","Marqise Lee (0000000)","Marqise Lee",0,3400,"Jax@KC 00:00PM ET","Jax","Marqise","Lee","KC",9.8,8.6,3,0.142857142857143,1,4.2,12.5,9.4,6.8,NA,12.1,20.7,2.1
+"WR","Tyreek Hill (0000000)","Tyreek Hill",0,3400,"Jax@KC 00:00PM ET","KC","Tyreek","Hill","Jax",7.78,7.2,4,0.08984375,1,7.9,2.7,5.3,13.2,NA,4,13.1,21.5
+"WR","Brian Quick (0000000)","Brian Quick",0,3400,"Car@LA 00:00PM ET","LA","Brian","Quick","Car",9.43,8,4,0.134453781512605,1,5.3,1.8,13.3,20.9,8.1,11.1,13.2,NA
+"WR","Russell Shepard (0000000)","Russell Shepard",0,3400,"Atl@TB 00:00PM ET","TB","Russell","Shepard","Atl",0,0,6,0.0557620817843866,1,0.9,3.6,1.6,NA,NA,NA,18.7,10.4
+"WR","Cordarrelle Patterson (0000000)","Cordarrelle Patterson",0,3300,"Det@Min 00:00PM ET","Min","Cordarrelle","Patterson","Det",10.39,8.2,4,0.103305785123967,1,2.4,-0.2,1.8,9,14.6,NA,19.7,6.6
+"WR","Marquise Goodwin (0000000)","Marquise Goodwin",0,3300,"Buf@Sea 00:00PM ET","Buf","Marquise","Goodwin","Sea",9.68,8.7,3,0.136929460580913,1,NA,22.2,1.6,2.2,9.3,4.2,19.3,NA
+"WR","Andrew Hawkins (0000000)","Andrew Hawkins",0,3200,"Dal@Cle 00:00PM ET","Cle","Andrew","Hawkins","Dal",8.17,5.9,4,0.123333333333333,1,-0.1,5.8,3.5,5.8,15.6,7.8,3.9,20.1
+"WR","Adam Humphries (0000000)","Adam Humphries",0,3100,"Atl@TB 00:00PM ET","TB","Adam","Humphries","Atl",10.32,13.5,2,0.156133828996283,1,7.1,12.7,22,1.4,4.1,NA,4.3,8.8
+"WR","Dontrelle Inman (0000000)","Dontrelle Inman",0,3100,"Ten@SD 00:00PM ET","SD","Dontrelle","Inman","Ten",8.11,7.4,3,0.136986301369863,1,1.6,1.7,6.2,28,1.3,2.1,8.8,11.2
