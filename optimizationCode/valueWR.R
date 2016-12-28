@@ -1,13 +1,14 @@
 #setwd("~/Projects/DFS/resultsAnalysis")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
+
 ####### DESCRIPTION #######
 # In this file we examine look for signs that a cheap player could go off.
 # We also add a column ValueWR to cleaned_input_files.
 
 
 ####### WRITE TO FILE? #######
-write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
@@ -28,7 +29,7 @@ wk <- week.latest + 1 # load this wk's cleaned_input (must be week.latest + 1)
 # Subset using DFN updated files
 wr.value <- NULL # init
 wr.miss <- NULL # init (cheap that WR that don't add value i.e. suck as they should that week)
-for (i in 4:week.latest) {
+for (i in 4:week.latest) { # from week 4 b/c wks 1-3 don't have "Projected.Usage"
   assign(paste0("dfn_offense_week", i), read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, ".csv"), stringsAsFactors = F))
   temp <- eval(parse(text=paste0("dfn_offense_week", i)))
   

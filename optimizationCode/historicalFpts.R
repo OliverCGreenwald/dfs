@@ -86,6 +86,8 @@ is.na(historical.fpts.data[,2:(week.latest+1)]) <- !historical.fpts.data[,2:(wee
 
 # replace NA's with 0's for any game we know player actually got 0 fpts
 historical.fpts.data[historical.fpts.data$Unique.ID=="Brandin Cooks@NO@WR",'Week12'] <- 0
+historical.fpts.data[historical.fpts.data$Unique.ID=="Adam Thielen@MIN@WR",'Week15'] <- 0
+historical.fpts.data[historical.fpts.data$Unique.ID=="Jermaine Kearse@SEA@WR",'Week15'] <- 0
 
 # add mean column for analysis
 historical.fpts.data$mean <- NA

@@ -279,7 +279,7 @@
 "Albert Wilson@KC@WR",3.1,3.1,NA,10.2,NA,3.6,1.4,NA,12.7,6.5,11.9,2.6,20.3,NA,NA,1.3,"Albert Wilson","KC","WR",6.97272727272727
 "Chris Hogan@NE@WR",15,9.9,1.3,NA,18.6,4.9,3.5,19.1,NA,NA,NA,11,12.3,27.6,2.8,3.2,"Chris Hogan","NE","WR",10.7666666666667
 "Ty Montgomery@GB@WR",NA,NA,-0.1,NA,0.1,19.4,22.6,NA,12.1,4,7.4,3.4,7.6,17.6,33.3,NA,"Ty Montgomery","GB","WR",11.5818181818182
-"Jermaine Kearse@SEA@WR",10.7,3.1,3.1,5.3,NA,6.5,8.1,9.7,5.6,4.6,4.9,2.8,11.8,1.7,NA,13.7,"Jermaine Kearse","SEA","WR",6.54285714285714
+"Jermaine Kearse@SEA@WR",10.7,3.1,3.1,5.3,NA,6.5,8.1,9.7,5.6,4.6,4.9,2.8,11.8,1.7,0,13.7,"Jermaine Kearse","SEA","WR",6.10666666666667
 "Brian Quick@LA@WR",5.3,1.8,13.3,20.9,8.1,11.1,13.2,NA,8.8,3.6,5.1,1.3,9.8,2,7.6,NA,"Brian Quick","LA","WR",7.99285714285714
 "Reggie Bush@BUF@RB",-0.4,NA,NA,NA,0.3,0.6,10.4,4.6,4.2,NA,4.1,NA,0.3,0.4,NA,-0.8,"Reggie Bush","BUF","RB",2.37
 "James Jones@SD@WR",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"James Jones","SD","WR",NA
@@ -548,7 +548,7 @@
 "Wendell Smallwood@PHI@RB",0.1,1.6,13.9,NA,NA,9,1.3,-1.5,2.5,7,11.9,5.7,1.9,0.3,NA,NA,"Wendell Smallwood","PHI","RB",4.475
 "Jalin Marshall@NYJ@WR",NA,6.5,2.9,NA,NA,2.1,NA,NA,14.9,NA,NA,2.6,NA,NA,NA,NA,"Jalin Marshall","NYJ","WR",5.8
 "Lucky Whitehead@DAL@WR",NA,NA,0.3,0.8,0.9,7.1,NA,1.7,0.2,1.5,NA,1.5,-0.4,NA,-0.4,NA,"Lucky Whitehead","DAL","WR",1.32
-"Adam Thielen@MIN@WR",9.4,8.1,5.9,4.1,28.7,NA,7.2,7,10.8,12.2,17.5,13.3,14.6,17.1,NA,47.6,"Adam Thielen","MIN","WR",14.5357142857143
+"Adam Thielen@MIN@WR",9.4,8.1,5.9,4.1,28.7,NA,7.2,7,10.8,12.2,17.5,13.3,14.6,17.1,0,47.6,"Adam Thielen","MIN","WR",13.5666666666667
 "Khiry Robinson@NYJ@RB",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1.2,"Khiry Robinson","NYJ","RB",1.2
 "Rashard Higgins@CLE@WR",NA,NA,NA,NA,NA,2.4,3.9,2,NA,NA,NA,5.4,NA,NA,NA,NA,"Rashard Higgins","CLE","WR",3.425
 "Peyton Barber@TB@RB",NA,NA,NA,NA,0.6,NA,14.4,0.1,9.5,3.8,2.2,3,0.6,NA,NA,NA,"Peyton Barber","TB","RB",4.275

@@ -31,10 +31,6 @@ pctls.vec <- c(0.75, 0.85, 0.95, 0.99) # percentile thresholds to plot (enter an
 num.games.sunday <- c(13,14,14,13,12,13,13,11,11,12,12,12,13,14,13,12) # up to wk 16 (for Section II) (note that milly maker is sunday only)
 
 
-####### IMPORT LIBRARIES #########
-library('stringr')
-
-
 ####### READ IN CLEANED RESULTS FILES #########
 if (section.run=="LOAD") {
   for (i in c(wks.20, wks.27)) {
