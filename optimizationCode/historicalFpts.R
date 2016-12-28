@@ -12,6 +12,10 @@
 # We also add historical fpts to the 2016_cleaned_input/all_data folder.
 
 
+####### WRITE TO FILE? #######
+write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+
+
 ####### IMPORT LIBRARIES #########
 library('stringr')
 
@@ -91,7 +95,9 @@ for (j in 1:nrow(historical.fpts.data)) {
 
 
 ####### WRITE DATAFRAME TO FILE #######
-write.csv(historical.fpts.data, file = "optimizationCode/data_warehouse/historical_fpts/historical.fpts.csv", row.names = F)
+if (write.bool==T) {
+  write.csv(historical.fpts.data, file = "optimizationCode/data_warehouse/historical_fpts/historical.fpts.csv", row.names = F) 
+}
 
 
 ####### CREATE DATAFRAME OF INDICATOR FUNCTION AS DEFINED IN DESCRIPTION #######
@@ -256,7 +262,9 @@ for (i in 2:(week.latest+1)) {
 
 
 ####### ADD FREQUENCY INDICATOR TO 2016_CLEANED_INPUT FILES #########
-for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
+# for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data has been scraped
+  i <- week.latest + 1  
+
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), stringsAsFactors = F)
 
   # match
@@ -267,8 +275,10 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
   print(paste0("Week ", i-1, ": ", sum(temp$FreqInd)))
   print(paste0("Week ", i-1, ": ", sum(freq.ind.data[,i]))) # will be less b/c bye weeks
   
-  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F)
-}
+  if (write.bool==T) {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/wk', i,'/offensive_players.csv'), row.names = F) 
+  }
+# }
 
 
 ####### ADD ALL DATA TO 2016_CLEANED_INPUT/ALL_DATA FILES (only run after current week's data is prepared) #########
@@ -285,7 +295,9 @@ for (i in 2:week.latest+1) { # change to week.latest+1 once current week's data 
   temp$FreqInd <- freq.ind.data[match(paste0(temp$Name,'@',temp$Position), paste0(freq.ind.data$FullName,'@',freq.ind.data$Pos)), w] # df is already offset by 1 so don't need i+1
   
   # write to file
-  write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', w, '/offensive_players.csv'), row.names = F)
+  if (write.bool==T) {
+    write.csv(temp, file = paste0('optimizationCode/data_warehouse/2016_cleaned_input/all_data/wk', w, '/offensive_players.csv'), row.names = F) 
+  }
 # }
 
 
