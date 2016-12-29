@@ -15,10 +15,11 @@
 #   Model IV: Random Forest
 #   Model V: PCA
 #     - PCA1-PCA3 seem to capture ~75% of the variance
-#   Model VI: SVM (Linear Kernel)
-#     (1) unaltered functional margin: never predicts 1's on testing set
+#   Model VI:  C-classification SVM (Linear Kernel)
+#     (1) unaltered functional margin: never predicts 1's on testing set (low precision)...see Model IX
 #     (2) looser functional margin: predicts 1's on testing set, but error tradeoff (note that we set an arbitrary "cutoff" probability for classifying 1's)
-#   Model VII: SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
+#     (3) tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) instead of minimizing CV error
+#   Model VII:  C-classification SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
 #     - rbfdot (Radial Basis/Gaussian kernel): (note: need to tune γ. consider using Optunity package.) 
 #     - anovadot (ANOVA RBF kernel): 
 #     - tanhdot (Hyperbolic tangent / sigmoid kernel): 
@@ -26,6 +27,9 @@
 #     - besseldot (Bessel kernel): 
 #     - polydot (Polynomial kernel): 
 #     - splinedot (Spline [piece-wise cubic polynomial] kernel): solid (only one to have 1's even with unaltered functional margin)
+#   Model VIII:  Novelty-Detection SVM (Linear Kernel)
+#     - this is not the right model for our problem. novelty detection models a distribution using the training set and determines which examples in the testing set don't belong in this distribution
+#   Model IX:  Cost-Factor (C+, C-) SVM
 #   Test: testing code
 #
 # TODO:
@@ -39,22 +43,22 @@
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "7" # 1-7, "test"
+model.run <- "8" # 1-8, "test"
 modelVII.kernel <- "splinedot" # set this to some kernel if model.run = 7
-week.min <- 11 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
+week.min <- 6 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
 
 
 ####### WRITE TO FILE? #######
 write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
-save.model.bool <- F # TRUE if save workspace variables to RData file
-save.model.name <- "splinedot_kernel_wks10-15.RData" # only used if save.model.bool is TRUE
+save.model.bool <- T # TRUE if save workspace variables to RData file
+save.model.name <- "one-svc_linear_wks6-15_minfpts_18.5.RData" # only used if save.model.bool is TRUE
 
 
 ####### SET PARAMETERS #######
 # wk <- 15 # must be >= 4 (data availability) # uncomment this if for loop (wk in 4:15) is commented out
 
 salary.threshold <- 5000 # define cheap
-fpts.threshold <- 15.0 # 18.5 # define value
+fpts.threshold <- 18.5 # 18.5 # define value
 
 historicalfpts3wklag.bool <- T # TRUE if want to use 3 week lag historical fpts instead of all historical
 
@@ -432,6 +436,7 @@ if (model.run==5) {
 
 ####### MODEL VI: SVM (LINEAR KERNEL) #######
 if (model.run==6) {
+  #---- Tuning C by minimizing CV error ----#
   ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
   tuning.param <- exp(ln.tuning.param)
   cv.error <- vector(mode='numeric', length=100)
@@ -444,7 +449,7 @@ if (model.run==6) {
   plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
   c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C # 0.32
   
-  # svm model with standard functional margin
+  # (1) svm model with standard functional margin
   model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5)
   pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
   test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
@@ -457,7 +462,7 @@ if (model.run==6) {
   print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
   print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
   
-  # svm model with looser functional margin
+  # (2) svm model with looser functional margin
   model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, prob.model=TRUE)
   pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
   cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
@@ -473,6 +478,8 @@ if (model.run==6) {
   print(confusion.mat) # we're ok with false-negatives
   print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
   print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  
+  #---- Tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
 }
 
 
@@ -524,6 +531,64 @@ if (model.run==7) {
 }
 
 
+####### MODEL VIII: NOVELTY DETECTION LINEAR SVM #######
+if (model.run==8) {
+  ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
+  tuning.param <- exp(ln.tuning.param)
+  cv.error <- vector(mode='numeric', length=100)
+  for (i in 1:100) {
+    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel="vanilladot", C=tuning.param[i], cross=5, scale = T)
+    cv.error[i] <- model.svm@cross #cross(model.svm) #svm_i@cross
+    print(i)
+  }
+  
+  plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
+  c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C
+  
+  # svm model with standard functional margin
+  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='one-svc', kernel="vanilladot", C=c.optimal, cross=5, scale = T)
+  pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
+  test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
+  print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
+  
+  # confusion matrix
+  print("SVM (std functional margin) Confusion Matrix")
+  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
+  print(confusion.mat) # 0% true positives success rate
+  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  cat("\n")
+  cat("\n")
+  
+  # svm model with looser functional margin
+  model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='one-svc', kernel="vanilladot", C=c.optimal, cross=5, prob.model=T, scale = T)
+  pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob') # bug: doesn't work
+  cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
+  pred.svm.temp <- rep(0,length(test.y))
+  pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
+  test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+  cat("\n")
+  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
+  
+  # confusion matrix
+  print("SVM (looser functional margin) Confusion Matrix")
+  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
+  print(confusion.mat) # we're ok with false-negatives
+  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+}
+
+
+####### SAVE MODEL IN RDATA FILE #######
+if (save.model.bool==T) {
+  save.image(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
+}
+
+
+
+
+
+
 ####### TEST CODE #######
 #---- Test C's for C-SVC ----#
 if (model.run=="test") {
@@ -551,10 +616,3 @@ if (model.run=="test") {
   print(mat.c_s.result)
   print(max(mat.c_s.result$Hit.Prob.w.Classification))
 }
-
-
-####### SAVE MODEL IN RDATA FILE #######
-if (save.model.bool==T) {
-  save.image(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
-}
-
