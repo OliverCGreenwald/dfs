@@ -16,20 +16,33 @@
 #   Model V: PCA
 #     - PCA1-PCA3 seem to capture ~75% of the variance
 #   Model VI:  C-classification SVM (Linear Kernel)
-#     (1) unaltered functional margin: never predicts 1's on testing set (low precision)...see Model IX
-#     (2) looser functional margin: predicts 1's on testing set, but error tradeoff (note that we set an arbitrary "cutoff" probability for classifying 1's)
-#     (3) tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) instead of minimizing CV error
+#     Subsection I:
+#       (1) unaltered functional margin: never predicts 1's on testing set (terrible precision)...see Model IX
+#       (2) looser functional margin: predicts 1's on testing set, but error tradeoff (note that we set an arbitrary "cutoff" probability for classifying 1's)
+#     Subsection II:
+#       - tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) instead of minimizing CV error
+#       - still never predicts 1's (across all C). terrible precision.
 #   Model VII:  C-classification SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
-#     - rbfdot (Radial Basis/Gaussian kernel): (note: need to tune γ. consider using Optunity package.) 
-#     - anovadot (ANOVA RBF kernel): 
-#     - tanhdot (Hyperbolic tangent / sigmoid kernel): 
-#     - laplacedot (Laplacian kernel): 
-#     - besseldot (Bessel kernel): 
-#     - polydot (Polynomial kernel): 
-#     - splinedot (Spline [piece-wise cubic polynomial] kernel): solid (only one to have 1's even with unaltered functional margin)
+#     Subsection I (tuning C by minimizing CV error):
+#       - rbfdot (Radial Basis/Gaussian kernel): (note: need to tune γ. consider using Optunity package.) 
+#       - anovadot (ANOVA RBF kernel): 
+#       - tanhdot (Hyperbolic tangent / sigmoid kernel): 
+#       - laplacedot (Laplacian kernel): 
+#       - besseldot (Bessel kernel): 
+#       - polydot (Polynomial kernel degree ?): (need to tune degree)
+#       - splinedot (Spline [piece-wise cubic polynomial] kernel): solid (only one to have 1's even with unaltered functional margin)
+#     Subsection II (tuning C by maximizing prob of hitting Value WR):
+#       - rbfdot (Radial Basis/Gaussian kernel):
+#       - anovadot (ANOVA RBF kernel): 
+#       - tanhdot (Hyperbolic tangent / sigmoid kernel): 
+#       - laplacedot (Laplacian kernel): 
+#       - besseldot (Bessel kernel): 
+#       - polydot (Polynomial kernel): 
+#       - splinedot (Spline [piece-wise cubic polynomial] kernel):
 #   Model VIII:  Novelty-Detection SVM (Linear Kernel)
 #     - this is not the right model for our problem. novelty detection models a distribution using the training set and determines which examples in the testing set don't belong in this distribution
-#   Model IX:  Cost-Factor (C+, C-) SVM
+#   Model IX:  Cost-Factor (C+, C-) SVM (Set to any of the following kernels: )
+#     - Instead of penalty parameter C, we introduce C+ and C-, which penalize false positives and false negatives, respectively. Useful for dataset with very unbalanced number of positive and negative examples.
 #   Test: testing code
 #
 # TODO:
@@ -43,14 +56,15 @@
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "8" # 1-8, "test"
+model.run <- "7" # 1-8, "test"
+model.run.subsection <- "2" # ignored if model doesn't have any subsections
 modelVII.kernel <- "splinedot" # set this to some kernel if model.run = 7
 week.min <- 6 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
 
 
 ####### WRITE TO FILE? #######
 write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
-save.model.bool <- T # TRUE if save workspace variables to RData file
+save.model.bool <- F # TRUE if save workspace variables to RData file (make sure save.model.name is correct)
 save.model.name <- "one-svc_linear_wks6-15_minfpts_18.5.RData" # only used if save.model.bool is TRUE
 
 
@@ -77,6 +91,7 @@ library("kernlab")
 library("rpart")
 library("rpart.plot")
 library("randomForest")
+library("klaR")
 
 
 ####### SECTION I: PREPARE DATAFRAME OF CHEAP WR #######
@@ -436,98 +451,160 @@ if (model.run==5) {
 
 ####### MODEL VI: SVM (LINEAR KERNEL) #######
 if (model.run==6) {
-  #---- Tuning C by minimizing CV error ----#
-  ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
-  tuning.param <- exp(ln.tuning.param)
-  cv.error <- vector(mode='numeric', length=100)
-  for (i in 1:100) {
-    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=tuning.param[i], cross=5)
-    cv.error[i] <- model.svm@cross #cross(model.svm) #svm_i@cross
-    print(i)
+  if (model.run.subsection==1) {
+    #---- Tuning C by minimizing CV error ----#
+    ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
+    tuning.param <- exp(ln.tuning.param)
+    cv.error <- vector(mode='numeric', length=100)
+    for (i in 1:100) {
+      model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=tuning.param[i], cross=5)
+      cv.error[i] <- model.svm@cross #cross(model.svm) #svm_i@cross
+      print(i)
+    }
+    
+    plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
+    c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C
+    
+    # (1) svm model with standard functional margin
+    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5)
+    pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
+    test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
+    print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
+    
+    # confusion matrix
+    print("SVM (std functional margin) Confusion Matrix")
+    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
+    print(confusion.mat) # 0% true positives success rate
+    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    
+    # (2) svm model with looser functional margin
+    model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, prob.model=TRUE)
+    pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
+    cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
+    pred.svm.temp <- rep(0,length(test.y))
+    pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
+    test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+    cat("\n")
+    print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
+    
+    # confusion matrix
+    print("SVM (looser functional margin) Confusion Matrix")
+    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
+    print(confusion.mat) # we're ok with false-negatives
+    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y))) 
   }
   
-  plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
-  c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C # 0.32
-  
-  # (1) svm model with standard functional margin
-  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5)
-  pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
-  test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
-  print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
-  
-  # confusion matrix
-  print("SVM (std functional margin) Confusion Matrix")
-  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
-  print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
-  
-  # (2) svm model with looser functional margin
-  model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, prob.model=TRUE)
-  pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
-  cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-  pred.svm.temp <- rep(0,length(test.y))
-  pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
-  test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
-  cat("\n")
-  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
-  
-  # confusion matrix
-  print("SVM (looser functional margin) Confusion Matrix")
-  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-  print(confusion.mat) # we're ok with false-negatives
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
-  
-  #---- Tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
+  if (model.run.subsection==2) {
+    #---- Tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
+    ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
+    tuning.param <- exp(ln.tuning.param)
+    prob.hit.vec <- vector(mode='numeric', length=100)
+    for (i in 1:100) {
+      model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=tuning.param[i], cross=5, scale = T)
+      pred.svm <- predict(model.svm, data.matrix(train.x), type='response')
+      confusion.mat <- confusion.matrix(obs = train.y, pred = as.numeric(pred.svm), threshold = 0.5)
+      prob.hit.vec[i] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])
+      print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", prob.hit.vec[i]))
+    }
+    
+    plot(log(tuning.param), prob.hit.vec, type='l', main='P(hitting Value WR with reduced set of cheap WR)', xlab = "Probability")
+    c.optimal <- tuning.param[which.max(prob.hit.vec)] # optimal tuning parameter C
+    
+    # svm model with standard functional margin
+    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, scale = T)
+    pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
+    test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
+    print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
+    
+    # confusion matrix
+    print("SVM (std functional margin) Confusion Matrix")
+    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
+    print(confusion.mat) # 0% true positives success rate
+    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  }
 }
 
 
-####### MODEL VII: SVM (SET KERNEL IN BEGINNING OF FILE) #######
+####### MODEL VII: SVM (KERNEL SET AT BEGINNING OF FILE) #######
 if (model.run==7) {
-  ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
-  tuning.param <- exp(ln.tuning.param)
-  cv.error <- vector(mode='numeric', length=100)
-  for (i in 1:100) {
-    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=tuning.param[i], cross=5)
-    cv.error[i] <- model.svm@cross #cross(model.svm) #svm_i@cross
-    print(i)
+  if (model.run.subsection==1) {
+    #---- Tuning C by minimizing CV error ----#
+    ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
+    tuning.param <- exp(ln.tuning.param)
+    cv.error <- vector(mode='numeric', length=100)
+    for (i in 1:100) {
+      model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=tuning.param[i], cross=5)
+      cv.error[i] <- model.svm@cross #cross(model.svm) #svm_i@cross
+      print(i)
+    }
+    
+    plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
+    c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C
+    
+    # svm model with standard functional margin
+    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, scale = T)
+    pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
+    test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
+    print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
+    
+    # confusion matrix
+    print("SVM (std functional margin) Confusion Matrix")
+    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
+    print(confusion.mat) # 0% true positives success rate
+    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    cat("\n")
+    cat("\n")
+    
+    # # svm model with looser functional margin
+    # model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, prob.model=T, scale = T) # default minstep = 1e-10 is hardcoded into source code so we can't adjust it
+    # pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
+    # cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
+    # pred.svm.temp <- rep(0,length(test.y))
+    # pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
+    # test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+    # cat("\n")
+    # print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
+    # 
+    # # confusion matrix
+    # print("SVM (looser functional margin) Confusion Matrix")
+    # confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
+    # print(confusion.mat) # we're ok with false-negatives
+    # print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    # print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
   }
-  
-  plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
-  c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C
-  
-  # svm model with standard functional margin
-  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, scale = T)
-  pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
-  test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
-  print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
-  
-  # confusion matrix
-  print("SVM (std functional margin) Confusion Matrix")
-  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
-  print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
-  cat("\n")
-  cat("\n")
-  
-  # svm model with looser functional margin
-  model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, prob.model=T, scale = T) # default minstep = 1e-10 is hardcoded into source code so we can't adjust it
-  pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
-  cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-  pred.svm.temp <- rep(0,length(test.y))
-  pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
-  test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
-  cat("\n")
-  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
-  
-  # confusion matrix
-  print("SVM (looser functional margin) Confusion Matrix")
-  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-  print(confusion.mat) # we're ok with false-negatives
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  if (model.run.subsection==2) {
+    #---- Tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
+    ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
+    tuning.param <- exp(ln.tuning.param)
+    prob.hit.vec <- vector(mode='numeric', length=100)
+    for (i in 1:100) {
+      model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=tuning.param[i], cross=5, scale = T)
+      pred.svm <- predict(model.svm, data.matrix(train.x), type='response')
+      confusion.mat <- confusion.matrix(obs = train.y, pred = as.numeric(pred.svm), threshold = 0.5)
+      prob.hit.vec[i] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])
+      print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", prob.hit.vec[i]))
+    }
+    
+    plot(log(tuning.param), prob.hit.vec, type='l', main='P(hitting Value WR with reduced set of cheap WR)')
+    c.optimal <- tuning.param[which.max(prob.hit.vec)] # optimal tuning parameter C
+    
+    # svm model with standard functional margin
+    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, scale = T)
+    pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
+    test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
+    print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
+    
+    # confusion matrix
+    print("SVM (std functional margin) Confusion Matrix")
+    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
+    print(confusion.mat)
+    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  }
 }
 
 
@@ -560,22 +637,67 @@ if (model.run==8) {
   cat("\n")
   cat("\n")
   
-  # svm model with looser functional margin
-  model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='one-svc', kernel="vanilladot", C=c.optimal, cross=5, prob.model=T, scale = T)
-  pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob') # bug: doesn't work
-  cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-  pred.svm.temp <- rep(0,length(test.y))
-  pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
-  test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
-  cat("\n")
-  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
+  # # svm model with looser functional margin
+  # model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='one-svc', kernel="vanilladot", C=c.optimal, cross=5, prob.model=T, scale = T)
+  # pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob') # bug: doesn't work
+  # cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
+  # pred.svm.temp <- rep(0,length(test.y))
+  # pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
+  # test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+  # cat("\n")
+  # print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
+  # 
+  # # confusion matrix
+  # print("SVM (looser functional margin) Confusion Matrix")
+  # confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
+  # print(confusion.mat) # we're ok with false-negatives
+  # print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  # print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+}
+
+
+####### MODEL IX: COST-FACTOR (C+, C-) SVM #######
+# http://svmlight.joachims.org/
+# Learning options:
+# -j float  - Cost: cost-factor, by which training errors on positive examples outweight errors on negative examples (default 1) (see [Morik et al., 1999])
+#
+# Kernel options:
+# -t int      - type of kernel function:
+#   0: linear (default)
+#   1: polynomial (s a*b+c)^d
+#   2: radial basis function exp(-gamma ||a-b||^2)
+#   3: sigmoid tanh(s a*b + c)
+#   4: user defined kernel from kernel.h
+# -d int      - parameter d in polynomial kernel
+# -g float    - parameter gamma in rbf kernel
+# -s float    - parameter s in sigmoid/poly kernel
+# -r float    - parameter c in sigmoid/poly kernel
+# -u string   - parameter of user defined kernel
+
+if (model.run==9) {
+  sum(data.train$Value==1)/sum(data.train$Value==0)
   
-  # confusion matrix
-  print("SVM (looser functional margin) Confusion Matrix")
-  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-  print(confusion.mat) # we're ok with false-negatives
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  # train model
+  model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = "-t 0 -j 0.06", scal = T)
+  
+  # confusion matrix (training)
+  pred.train.svmlight <- predict(model.svmlight, newdata = train.x, scal = T)
+  confusion.train.mat <- confusion.matrix(obs = train.y, pred = as.numeric(as.character(pred.train.svmlight$class)), threshold = 0.5)
+  print(confusion.train.mat)
+  print(paste0("Value WR hit rate w/ classification (training set):   ", confusion.train.mat[2,2]/(confusion.train.mat[2,1] + confusion.train.mat[2,2])))
+  print(paste0("Value WR hit rate w/o classification (training set):   ", sum(train.y==1)/length(train.y)))
+  
+  # compute error on testing set (not as important to us)
+  pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
+  test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
+  print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
+  
+  # confusion matrix (testing)
+  print("Cost Factor SVM Confusion Matrix")
+  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
+  print(confusion.mat)
+  print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Value WR hit rate w/o classification(testing set):   ", sum(test.y==1)/length(test.y)))
 }
 
 
@@ -590,29 +712,97 @@ if (save.model.bool==T) {
 
 
 ####### TEST CODE #######
-#---- Test C's for C-SVC ----#
 if (model.run=="test") {
-  c_s <- seq(from = 0.01, to = 10, by = 0.2)
-  c_s
-  mat.c_s.result <- as.data.frame(matrix(NA, nrow = length(c_s), ncol = 4, dimnames = list(NULL, c("c","Test.Error","Hit.Prob.w.Classification","Hit.Prob.w.o.Classification"))))
-  for (k in 1:length(c_s)) {
-    mat.c_s.result[k,1] <- c_s[k]
-    
-    # svm model with looser functional margin
-    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c_s[k], cross=5, prob.model=TRUE)
-    pred.svm <- predict(model.svm, data.matrix(test.x), type='prob')
-    cutoff <- mean(pred.svm[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-    pred.svm.temp <- rep(0,length(test.y))
-    pred.svm.temp[pred.svm[,1] >= cutoff] <- 1
-    test.error.svm <- mean(abs(as.numeric(pred.svm.temp) - test.y))
-    mat.c_s.result[k,2] <- test.error.svm
-    
-    # confusion matrix
-    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-    mat.c_s.result[k,3] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])
-    mat.c_s.result[k,4] <- sum(test.y==1)/length(test.y)
-    print(paste0("C = ", c_s[k]))
+  
+  # #---- Test C's for C-SVC ----#
+  # c_s <- seq(from = 0.01, to = 10, by = 0.2)
+  # c_s
+  # mat.c_s.result <- as.data.frame(matrix(NA, nrow = length(c_s), ncol = 4, dimnames = list(NULL, c("c","Test.Error","Hit.Prob.w.Classification","Hit.Prob.w.o.Classification"))))
+  # for (k in 1:length(c_s)) {
+  #   mat.c_s.result[k,1] <- c_s[k]
+  #   
+  #   # svm model with looser functional margin
+  #   model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c_s[k], cross=5, prob.model=TRUE)
+  #   pred.svm <- predict(model.svm, data.matrix(test.x), type='prob')
+  #   cutoff <- mean(pred.svm[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
+  #   pred.svm.temp <- rep(0,length(test.y))
+  #   pred.svm.temp[pred.svm[,1] >= cutoff] <- 1
+  #   test.error.svm <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+  #   mat.c_s.result[k,2] <- test.error.svm
+  #   
+  #   # confusion matrix
+  #   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
+  #   mat.c_s.result[k,3] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])
+  #   mat.c_s.result[k,4] <- sum(test.y==1)/length(test.y)
+  #   print(paste0("C = ", c_s[k]))
+  # }
+  # print(mat.c_s.result)
+  # print(max(mat.c_s.result$Hit.Prob.w.Classification))
+ 
+  
+  
+  
+  
+  # #---- Tuning C's by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
+  # num.C <- 13
+  # ln.tuning.param <- seq(log(1e-16), log(1e-4), length.out=num.C)
+  # tuning.param <- exp(ln.tuning.param)
+  # prob.hit.vec <- vector(mode='numeric', length=num.C)
+  # for (i in 1:num.C) {
+  #   # training set
+  #   model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel="splinedot", C=tuning.param[i], cross=5, scale = T)
+  #   pred.svm <- predict(model.svm, data.matrix(train.x), type='response')
+  #   confusion.mat <- confusion.matrix(obs = train.y, pred = as.numeric(pred.svm), threshold = 0.5)
+  #   prob.hit.vec[i] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])
+  #   print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", prob.hit.vec[i], " (training set)"))
+  #   print(confusion.mat)
+  #   print(paste0("Value WR hit rate w/ classification (training set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  #   print(paste0("Value WR hit rate w/o classification (training set):   ", sum(train.y==1)/length(train.y)))
+  #   
+  #   # testing set (bad practice to do this)
+  #   pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
+  #   print("SVM (std functional margin) Confusion Matrix")
+  #   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
+  #   print(confusion.mat)
+  #   print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  #   print(paste0("Value WR hit rate w/o classification (testing set):   ", sum(test.y==1)/length(test.y)))
+  #   cat("\n\n")
+  # } 
+
+  
+  
+  
+  
+  #---- Tuning C by maximizing number of 1's predicted (as a % of total examples) ----#
+  num.C <- 50
+  ln.tuning.param <- seq(log(2.50), log(3.25), length.out=num.C)
+  tuning.param <- exp(ln.tuning.param)
+  num.preds1.vec <- vector(mode='numeric', length=num.C)
+  for (i in 1:num.C) {
+    model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel="splinedot", C=tuning.param[i], cross=5, scale = T)
+    pred.svm <- predict(model.svm, data.matrix(train.x), type='response')
+    confusion.mat <- confusion.matrix(obs = train.y, pred = as.numeric(pred.svm), threshold = 0.5)
+    num.preds1.vec[i] <- (confusion.mat[2,1] + confusion.mat[2,2]) / nrow(train.x)
+    print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", num.preds1.vec[i]))
   }
-  print(mat.c_s.result)
-  print(max(mat.c_s.result$Hit.Prob.w.Classification))
+  
+  plot(log(tuning.param), num.preds1.vec, type='l', main="Proportion of examples labeled 1")
+  c.optimal <- tuning.param[which.max(num.preds1.vec)] # optimal tuning parameter C
+  
+  # svm model with standard functional margin
+  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel="splinedot", C=c.optimal, cross=5, scale = T)
+  pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
+  test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
+  print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
+  
+  # confusion matrix
+  print("SVM (std functional margin) Confusion Matrix")
+  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
+  print(confusion.mat)
+  print(paste0("Proportion of examples labeled 1 (testing set): ", (confusion.mat[2,1] + confusion.mat[2,2]) / nrow(train.x))) # we tuned C to maximize this in training set
+  print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Value WR hit rate w/o classification (testing set):   ", sum(test.y==1)/length(test.y)))
+  
+  
 }
+
