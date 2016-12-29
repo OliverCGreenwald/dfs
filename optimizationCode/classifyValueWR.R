@@ -19,7 +19,7 @@
 #     (1) unaltered functional margin: never predicts 1's on testing set
 #     (2) looser functional margin: predicts 1's on testing set, but error tradeoff (note that we set an arbitrary "cutoff" probability for classifying 1's)
 #   Model VII: SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
-#     - rbfdot (Radial Basis/Gaussian kernel): 
+#     - rbfdot (Radial Basis/Gaussian kernel): (note: need to tune γ. consider using Optunity package.) 
 #     - anovadot (ANOVA RBF kernel): 
 #     - tanhdot (Hyperbolic tangent / sigmoid kernel): 
 #     - laplacedot (Laplacian kernel): 
