@@ -18,14 +18,14 @@
 #   Model VI: SVM (Linear Kernel)
 #     (1) unaltered functional margin: never predicts 1's on testing set
 #     (2) looser functional margin: predicts 1's on testing set, but error tradeoff (note that we set an arbitrary "cutoff" probability for classifying 1's)
-#   Model VII: SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot)
-#     - rbfdot (Radial Basis/Gaussian kernel): not great
-#     - anovadot (ANOVA RBF kernel): bad
-#     - tanhdot (Hyperbolic tangent / sigmoid kernel): really bad
-#     - laplacedot (Laplacian kernel): decent
-#     - besseldot (Bessel kernel): decent
-#     - polydot (Polynomial kernel): really bad
-#     - splinedot (Spline [piece-wise cubic polynomial] kernel): really decent (only one to have 1's even with unaltered functional margin). probably overfits? good on testing data though
+#   Model VII: SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
+#     - rbfdot (Radial Basis/Gaussian kernel): 
+#     - anovadot (ANOVA RBF kernel): 
+#     - tanhdot (Hyperbolic tangent / sigmoid kernel): 
+#     - laplacedot (Laplacian kernel): 
+#     - besseldot (Bessel kernel): 
+#     - polydot (Polynomial kernel): 
+#     - splinedot (Spline [piece-wise cubic polynomial] kernel): solid (only one to have 1's even with unaltered functional margin)
 #   Test: testing code
 #
 # TODO:
@@ -34,16 +34,20 @@
 # - Add Rush Yds, TD [rush], Rec, Yds, TD [rec] (rolling) from fantasydata/fantasystats
 # - might not be optimal for our problem to use tuning parameters that minimize error
 # - use PCA1-PCA3 for CART (good visualization) or some other model. use this to classify.
+# - Model VII doesn't work for the altered functional margin (prob.model=T => "line search fails" => predict function returns error: "Error in prob.model(object)[[p]]$A : $ operator is invalid for atomic vectors")
+#   - http://stackoverflow.com/questions/15895897/line-search-fails-in-training-ksvm-prob-model
 
 
 ####### SET MODEL TO RUN #######
 model.run <- "7" # 1-7, "test"
 modelVII.kernel <- "splinedot" # set this to some kernel if model.run = 7
-week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
+week.min <- 11 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
 
 
 ####### WRITE TO FILE? #######
 write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+save.model.bool <- T # TRUE if save workspace variables to RData file
+save.model.name <- "splinedot_kernel_wks10-15.RData" # only used if save.model.bool is TRUE
 
 
 ####### SET PARAMETERS #######
@@ -54,8 +58,8 @@ fpts.threshold <- 15.0 # 18.5 # define value
 
 historicalfpts3wklag.bool <- T # TRUE if want to use 3 week lag historical fpts instead of all historical
 
-fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata/snapcounts (caution: lots of NAs)
-fantasydata.stats.bool <- F # TRUE if want to add features from fantasydata/stats (caution: lots of NAs)
+fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata/snapcounts (caution: lots of NAs, rows with NAs are removed)
+fantasydata.stats.bool <- F # TRUE if want to add features from fantasydata/stats (caution: lots of NAs, rows with NAs are removed)
 lag.num <- 3 # number of weeks lag (used for fantasydata/snapcounts)
 
 outputweekly.bool <- F # TRUE if want to output weekly csv's (otherwise outputs all weeks combined csv). Note this can override all other boolean parameters in this section.
@@ -454,14 +458,14 @@ if (model.run==6) {
   print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
   
   # svm model with looser functional margin
-  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, prob.model=TRUE)
-  pred.svm <- predict(model.svm, data.matrix(test.x), type='prob')
-  cutoff <- mean(pred.svm[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
+  model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, prob.model=TRUE)
+  pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
+  cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
   pred.svm.temp <- rep(0,length(test.y))
-  pred.svm.temp[pred.svm[,1] >= cutoff] <- 1
-  test.error.svm <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+  pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
+  test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
   cat("\n")
-  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm))
+  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
   
   # confusion matrix
   print("SVM (looser functional margin) Confusion Matrix")
@@ -472,7 +476,7 @@ if (model.run==6) {
 }
 
 
-####### MODEL VII: SVM (RADIAL BASIS/GAUSSIAN KERNEL) #######
+####### MODEL VII: SVM (SET KERNEL IN BEGINNING OF FILE) #######
 if (model.run==7) {
   ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
   tuning.param <- exp(ln.tuning.param)
@@ -484,10 +488,10 @@ if (model.run==7) {
   }
   
   plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
-  c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C # 0.32
+  c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C
   
   # svm model with standard functional margin
-  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5)
+  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, scale = T)
   pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
   test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
   print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
@@ -502,14 +506,14 @@ if (model.run==7) {
   cat("\n")
   
   # svm model with looser functional margin
-  model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, prob.model=TRUE)
-  pred.svm <- predict(model.svm, data.matrix(test.x), type='prob')
-  cutoff <- mean(pred.svm[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
+  model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, prob.model=T, scale = T) # default minstep = 1e-10 is hardcoded into source code so we can't adjust it
+  pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
+  cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
   pred.svm.temp <- rep(0,length(test.y))
-  pred.svm.temp[pred.svm[,1] >= cutoff] <- 1
-  test.error.svm <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+  pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
+  test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
   cat("\n")
-  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm))
+  print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
   
   # confusion matrix
   print("SVM (looser functional margin) Confusion Matrix")
@@ -518,8 +522,6 @@ if (model.run==7) {
   print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
   print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
 }
-
-
 
 
 ####### TEST CODE #######
@@ -551,4 +553,8 @@ if (model.run=="test") {
 }
 
 
+####### SAVE MODEL IN RDATA FILE #######
+if (save.model.bool==T) {
+  save.image(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
+}
 
