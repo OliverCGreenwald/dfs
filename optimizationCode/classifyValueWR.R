@@ -46,7 +46,7 @@ week.min <- 11 # must be >= 4 (this is the week we begin appending weekly data f
 
 ####### WRITE TO FILE? #######
 write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
-save.model.bool <- T # TRUE if save workspace variables to RData file
+save.model.bool <- F # TRUE if save workspace variables to RData file
 save.model.name <- "splinedot_kernel_wks10-15.RData" # only used if save.model.bool is TRUE
 
 
