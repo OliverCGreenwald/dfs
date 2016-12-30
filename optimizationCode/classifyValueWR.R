@@ -43,6 +43,7 @@
 #     - this is not the right model for our problem. novelty detection models a distribution using the training set and determines which examples in the testing set don't belong in this distribution
 #   Model IX:  Cost-Factor (C+, C-) SVM (Set to any of the following kernels: )
 #     - Instead of penalty parameter C, we introduce C+ and C-, which penalize false positives and false negatives, respectively. Useful for dataset with very unbalanced number of positive and negative examples.
+#     - sum(dataset.all$Value==1)/sum(dataset.all$Value==0)
 #   Test: testing code
 #
 # TODO:
@@ -56,20 +57,20 @@
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "7" # 1-8, "test"
+model.run <- "" # 1-9, "test"
 model.run.subsection <- "2" # ignored if model doesn't have any subsections
 modelVII.kernel <- "splinedot" # set this to some kernel if model.run = 7
-week.min <- 6 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-
+week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
+week.max <- 15 # for loop only
 
 ####### WRITE TO FILE? #######
 write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 save.model.bool <- F # TRUE if save workspace variables to RData file (make sure save.model.name is correct)
-save.model.name <- "one-svc_linear_wks6-15_minfpts_18.5.RData" # only used if save.model.bool is TRUE
+save.model.name <- "svmlight_linear_costfactor0.06_wks6-9_minfpts18.5.RData" # only used if save.model.bool is TRUE
 
 
 ####### SET PARAMETERS #######
-# wk <- 15 # must be >= 4 (data availability) # uncomment this if for loop (wk in 4:15) is commented out
+# wk <- 16 # must be >= 4 (data availability) # uncomment this if for loop (wk in 4:15) is commented out
 
 salary.threshold <- 5000 # define cheap
 fpts.threshold <- 18.5 # 18.5 # define value
@@ -98,7 +99,7 @@ library("klaR")
 #---- Initializing df for storing all weeks (if loop over weeks is used) ----#
 dataset.all <- NULL
 
-for (wk in 4:15) { # uncomment for loop if don't want to loop over weeks
+for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   #---- Read and clean DFN features ----#
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', wk, ".csv"), stringsAsFactors = F)
   temp <- temp[temp$Inj != "O",]
@@ -154,7 +155,7 @@ for (wk in 4:15) { # uncomment for loop if don't want to loop over weeks
   
   #---- Add "Completions.Rolling","Targets.Rolling","TDs.Rolling","Target.Ptcg.Rolling","Rank.Completions","Rank.Targets","Rank.TDs" from stats (nflsavant) ----#
   # read and clean name column for nfl savant data
-  temp.rolling.wk <- read.csv(file = paste0("optimizationCode/data_warehouse/stats/rolling.stats.wk", wk-1, ".csv"), stringsAsFactors = F)
+  temp.rolling.wk <- read.csv(file = paste0("optimizationCode/data_warehouse/stats/rolling.stats.wk", wk-1, ".csv"), stringsAsFactors = F) # lag by 1 week
   temp.rolling.wk$Player.Name.Last <- str_split_fixed(temp.rolling.wk$Name, ", ", 2)[,1]
   temp.rolling.wk$Player.Name.First <- str_split_fixed(temp.rolling.wk$Name, ", ", 2)[,2]
   temp.rolling.wk$Player.Name.Temp.Savant <- paste0(temp.rolling.wk$Player.Name.First, " ", temp.rolling.wk$Player.Name.Last)
@@ -675,29 +676,46 @@ if (model.run==8) {
 # -u string   - parameter of user defined kernel
 
 if (model.run==9) {
-  sum(data.train$Value==1)/sum(data.train$Value==0)
+  cost.factor.ratio.vec <- seq(from = 0.02, 0.15, length.out = 14) # C_+ / C_- ratio hyperparameter
+  tuning.mat <- as.data.frame(matrix(NA, nrow = length(cost.factor.ratio.vec), ncol = 7, dimnames = list(NULL, c("Cost.Factor.Ratio","Prop.Preds1.Train","Prob.Hit.w.ML.Train","Prob.Hit.w.o.ML.Train","Prop.Preds1.Test","Prob.Hit.w.ML.Test", "Prob.Hit.w.o.ML.Test"))))
+  tuning.mat$Cost.Factor.Ratio <- cost.factor.ratio.vec
   
-  # train model
-  model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = "-t 0 -j 0.06", scal = T)
+  for (i in 1:length(cost.factor.ratio.vec)) {
+    # train model
+    model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = paste0("-t 0 -j ", cost.factor.ratio.vec[i]), scal = T)
+    
+    # confusion matrix (training)
+    pred.train.svmlight <- predict(model.svmlight, newdata = train.x, scal = T)
+    confusion.train.mat <- confusion.matrix(obs = train.y, pred = as.numeric(as.character(pred.train.svmlight$class)), threshold = 0.5)
+    print(confusion.train.mat)
+    print(paste0("Value WR hit rate w/ classification (training set):   ", confusion.train.mat[2,2]/(confusion.train.mat[2,1] + confusion.train.mat[2,2])))
+    print(paste0("Value WR hit rate w/o classification (training set):   ", sum(train.y==1)/length(train.y)))
+    
+    tuning.mat$Prop.Preds1.Train[i] <- (confusion.train.mat[2,1] + confusion.train.mat[2,2]) / nrow(train.x) # Proportion of examples predicted to be 1 (out of total examples)
+    tuning.mat$Prob.Hit.w.ML.Train[i] <- confusion.train.mat[2,2]/(confusion.train.mat[2,1] + confusion.train.mat[2,2]) # P(hitting Value WR with reduced set of cheap WR)
+    tuning.mat$Prob.Hit.w.o.ML.Train[i] <- sum(train.y==1)/length(train.y) # P(hitting Value WR with entire set of cheap WR)
+    
+    # compute error on testing set (not as important to us)
+    pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
+    test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
+    print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
+    
+    # confusion matrix (testing)
+    print("Cost Factor SVM Confusion Matrix")
+    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
+    print(confusion.mat)
+    print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Value WR hit rate w/o classification(testing set):   ", sum(test.y==1)/length(test.y))) 
+    
+    tuning.mat$Prop.Preds1.Test[i] <- (confusion.mat[2,1] + confusion.mat[2,2]) / nrow(test.x) # Proportion of examples predicted to be 1 (out of total examples)
+    tuning.mat$Prob.Hit.w.ML.Test[i] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2]) # P(hitting Value WR with reduced set of cheap WR)
+    tuning.mat$Prob.Hit.w.o.ML.Test[i] <- sum(test.y==1)/length(test.y) # P(hitting Value WR with entire set of cheap WR)
+    
+    print(i)
+  }
   
-  # confusion matrix (training)
-  pred.train.svmlight <- predict(model.svmlight, newdata = train.x, scal = T)
-  confusion.train.mat <- confusion.matrix(obs = train.y, pred = as.numeric(as.character(pred.train.svmlight$class)), threshold = 0.5)
-  print(confusion.train.mat)
-  print(paste0("Value WR hit rate w/ classification (training set):   ", confusion.train.mat[2,2]/(confusion.train.mat[2,1] + confusion.train.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification (training set):   ", sum(train.y==1)/length(train.y)))
+  tuning.mat
   
-  # compute error on testing set (not as important to us)
-  pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
-  test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
-  print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
-  
-  # confusion matrix (testing)
-  print("Cost Factor SVM Confusion Matrix")
-  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
-  print(confusion.mat)
-  print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification(testing set):   ", sum(test.y==1)/length(test.y)))
 }
 
 
