@@ -129,7 +129,7 @@ for (week.num in week.lo:week.hi) {
         } else if (thu_mon.bool==T & exposure.pos.bool == F) {
           file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
         } else {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb,"_valuewr_", exposure.valuewr, num.lineups, ".csv") 
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb,"_valuewrexp_", exposure.valuewr, num.lineups, ".csv") 
         }
         lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
