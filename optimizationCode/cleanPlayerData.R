@@ -7,10 +7,10 @@ write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 
 
 ####### Set Parameters #######
-live.bool <- F # True if live week (i.e. pull current data from RG), False if historical
-slate.days <- "thu-mon" # "thu-mon" or "sun-mon" or ""
-# week.num <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) # live
-week.num <- 16 # historical
+live.bool <- T # True if live week (i.e. pull current data from RG), False if historical
+slate.days <- "" # "thu-mon" or "sun-mon" or ""
+week.num <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) # live
+# week.num <- 16 # historical
 
 
 ####### Get RG projections (csv format) #######

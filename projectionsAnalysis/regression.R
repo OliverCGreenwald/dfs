@@ -5,6 +5,7 @@
 ####### DESCRIPTION #########
 # In this file we run a regression on Rotogrinders and Daily Fantasy Nerd projections to output combined predictions.
 # Filtered out players projected to get 0 fpts. Offense only.
+# TODO: Remove week 14 roto b/c that is dummy data (copy of week 13)
 
 
 ####### WRITE TO FILE? #######
@@ -13,7 +14,7 @@ write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 
 ####### SET PARAMETERS #######
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1 # notice the -1
-slate.days <- "sun-mon" # "thu-mon" or "sun-mon" or ""
+slate.days <- "" # "thu-mon" or "sun-mon" or ""
 
 
 ####### LOAD DFN FILES #########
