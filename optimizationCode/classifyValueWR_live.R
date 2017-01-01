@@ -42,7 +42,7 @@ load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.mod
 
 
 ####### WRITE TO FILE? #######
-write.bool <- T # this needs to be here to ovewrite loaded model variable
+write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
@@ -50,6 +50,7 @@ wk <- 17
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 
+spike.bool <- T
 
 ####### LOAD DATA FOR WEEK TO TEST #######
 test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F)
@@ -139,7 +140,9 @@ if (write.bool==T) {
   ####### UPDATE model1 OFFENSIVE_PLAYERS CSV #######
   temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F)
   temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
-  temp$ValueWR <- 0 # reset
+  if (spike.bool == F) {
+    temp$ValueWR <- 0 # reset 
+  }
   
   
   valuewr.set.model <- test.data[pred.svmlight$class==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
