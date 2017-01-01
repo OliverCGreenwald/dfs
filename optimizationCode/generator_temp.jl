@@ -54,7 +54,7 @@ exposure_valuewr = 0.1
         - thu_mon = true or false (if false, then sunday players only; if true, all players Thu - Mon)
 =#
 live = true
-week = 16
+week = 17
 model=""
 ###########################  Setting Formation  ############################
 
@@ -105,7 +105,7 @@ projections_source = "Projection_dfn"
 
 path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
 path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
-path_to_output = string("../resultsAnalysis/data_warehouse/testing_lineups/week", week, projections_source[11:end])
+path_to_output = string("output.csv")
 
 if (formulation_type == 1) 
     formulation = formulations.one_lineup_Type_1
