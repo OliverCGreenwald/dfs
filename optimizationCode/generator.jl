@@ -68,19 +68,19 @@ use_Freq_Ind = false
 formulation is the type of formulation that you would like to use. 
     Available Options: 
         - 0 <- one_lineup_no_stacking
-        - 1 <- one_lineup_Type_1
-        - 2 <- one_lineup_Type_2
-        - 3 <- one_lineup_Type_3
-        - 4 <- one_lineup_Type_4
-        - 5 <- one_lineup_Type_5
-        - 6 <- one_lineup_Type_6 
-        - 7 <- one_lineup_Type_7 
-        - 8 <- one_lineup_Type_8 In Progress
-        - 9 <- one_lineup_Type_9
-        - 10 <- one_lineup_Type_10
-        - 11 <- one_lineup_Type_11
-        - 12 <- one_lineup_Type_12
-        - 13 <- one_lineup_Type_13
+        - 1 <- one_lineup_Type_1 (form 0 + defense-offense constraint)
+        - 2 <- one_lineup_Type_2 (form 1 + QB-WR stack)
+        - 3 <- one_lineup_Type_3 (form 2 + QB-oppWR stack)
+        - 4 <- one_lineup_Type_4 (form 2 + no TE for flex)
+        - 5 <- one_lineup_Type_5 (form 2 + no TE or RB for flex)
+        - 6 <- one_lineup_Type_6 (form 4 + QB-oppWR stack)
+        - 7 <- one_lineup_Type_7 (form 6 + RB Salary < 5000)
+        - 8 <- one_lineup_Type_8 In Progress (form 7 + RB can not be from the same team as WR or TE)
+        - 9 <- one_lineup_Type_9 (form 4 + QB-Top Receiver (#1/#2 in RankTargets) stack)
+        - 10 <- one_lineup_Type_10 (form 9 + no 3 players from same team)
+        - 11 <- one_lineup_Type_11 (form 10 + RB Salary < 5000)
+        - 12 <- one_lineup_Type_12 (form 9 + no 4 players from same team)
+        - 13 <- one_lineup_Type_13 (form 10 + all 3 WR (excluding flex) in top 3 in RankTargets)
         - 14 <- one_lineup_Type_14 (form 4 with player exposure constraints)
         - 15 <- one_lineup_Type_15 (form 14 + must have 1 value wr + 2700 <= DST Salary <= 3100)
         - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
