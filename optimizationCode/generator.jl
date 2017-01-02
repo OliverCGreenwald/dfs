@@ -82,9 +82,10 @@ formulation is the type of formulation that you would like to use.
         - 12 <- one_lineup_Type_12
         - 13 <- one_lineup_Type_13
         - 14 <- one_lineup_Type_14 (form 4 with player exposure constraints)
-        - 14 <- one_lineup_Type_15 (form 14 + must have 1 value wr + 2700 <= DST Salary <= 3100)
+        - 15 <- one_lineup_Type_15 (form 14 + must have 1 value wr + 2700 <= DST Salary <= 3100)
+        - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
 =#
-formulation_type = 15
+formulation_type = 1
 
 
 ############################  Setting Projections Source  ############################
