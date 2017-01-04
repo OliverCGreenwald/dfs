@@ -1,14 +1,11 @@
-"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","RankTargets","RollingTargetPctg","ValueWR","Week1","Week2","Week3","Week4"
-"WR","DeVante Parker (0000000)","DeVante Parker",0,5000,"Ten@Mia 00:00PM ET","Mia","DeVante","Parker","Ten",12.35,12.9,2,0.165413533834586,1,NA,21.6,14.1,4
-"WR","Mohamed Sanu (0000000)","Mohamed Sanu",0,4800,"Atl@Den 00:00PM ET","Atl","Mohamed","Sanu","Den",9.08,9.9,2,0.151079136690647,1,21,4.9,6.1,4.2
-"WR","Corey Coleman (0000000)","Corey Coleman",0,4600,"NE@Cle 00:00PM ET","Cle","Corey","Coleman","NE",0,0,5,0.0851063829787234,1,8.9,30.4,NA,NA
-"WR","John Brown (0000000)","John Brown",0,4400,"Ari@SF 00:00PM ET","Ari","John","Brown","SF",11.86,13.9,2,0.197604790419162,1,1.8,2.4,13,27.4
-"WR","Eddie Royal (0000000)","Eddie Royal",0,4200,"Chi@Ind 00:00PM ET","Chi","Eddie","Royal","Ind",11.82,12.5,3,0.154929577464789,1,15.7,15.2,5.1,27.1
-"WR","Dontrelle Inman (0000000)","Dontrelle Inman",0,4100,"SD@Oak 00:00PM ET","SD","Dontrelle","Inman","Oak",10.7,9.3,3,0.163265306122449,1,1.6,1.7,6.2,28
-"WR","Danny Amendola (0000000)","Danny Amendola",0,3900,"NE@Cle 00:00PM ET","NE","Danny","Amendola","Cle",8.18,6.5,5,0.104,1,7.8,20,4.3,NA
-"WR","Jeremy Kerley (0000000)","Jeremy Kerley",0,3700,"Ari@SF 00:00PM ET","SF","Jeremy","Kerley","Ari",11.27,9.4,1,0.277310924369748,1,NA,5.9,4.4,20.8
-"WR","Tavon Austin (0000000)","Tavon Austin",0,3700,"Buf@LA 00:00PM ET","LA","Tavon","Austin","Buf",10.24,12.5,1,0.276422764227642,1,5.5,10.6,21.4,2.8
-"WR","Brian Quick (0000000)","Brian Quick",0,3200,"Buf@LA 00:00PM ET","LA","Brian","Quick","Buf",8.13,7.2,4,0.113821138211382,1,5.3,1.8,13.3,20.9
-"WR","Greg Salas (0000000)","Greg Salas",0,3000,"Buf@LA 00:00PM ET","Buf","Greg","Salas","LA",0,0,7,0.0512820512820513,1,NA,18.9,NA,NA
-"WR","Marquise Goodwin (0000000)","Marquise Goodwin",0,3000,"Buf@LA 00:00PM ET","Buf","Marquise","Goodwin","LA",7.86,9.5,4,0.11965811965812,1,NA,22.2,1.6,2.2
-"WR","Adam Humphries (0000000)","Adam Humphries",0,3000,"TB@Car 00:00PM ET","TB","Adam","Humphries","Car",6.75,9.6,2,0.170454545454545,1,7.1,12.7,22,1.4
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","Projection_fc","Projection_dfn_perturbed","RankTargets","RollingTargetPctg","Projection_reg","Projection_reg_split","FreqInd","Actual","ValueWR","Week1","Week2","Week3","Week4"
+"WR","DeVante Parker (7545504)","DeVante Parker",7545504,5000,"Ten@Mia 01:00PM ET","Mia","DeVante","Parker","Ten",12.35,12.9,12.65,12.9,2,0.165413533834586,11.7868743276535,11.5834297791858,1,9,1,NA,21.6,14.1,4
+"WR","Mohamed Sanu (7545549)","Mohamed Sanu",7545549,4800,"Atl@Den 04:05PM ET","Atl","Mohamed","Sanu","Den",9.08,9.9,8.43,9.9,2,0.151079136690647,8.95223307029325,8.78133504409308,0,6.3,1,21,4.9,6.1,4.2
+"WR","Corey Coleman (7545473)","Corey Coleman",7545473,4600,"NE@Cle 01:00PM ET","Cle","Corey","Coleman","NE",0,0,0,0,5,0.0851063829787234,0,0,0,0,1,8.9,30.4,NA,NA
+"WR","Eddie Royal (7545485)","Eddie Royal",7545485,4200,"Chi@Ind 01:00PM ET","Chi","Eddie","Royal","Ind",11.82,12.5,10.72,12.5,3,0.154929577464789,11.3868322655428,11.1842389522346,1,11.3,1,15.7,15.2,5.1,27.1
+"WR","Dontrelle Inman (7545580)","Dontrelle Inman",7545580,4100,"SD@Oak 04:25PM ET","SD","Dontrelle","Inman","Oak",10.7,9.3,10.14,9.3,3,0.163265306122449,8.9196922657155,8.83969074395669,0,1.3,1,1.6,1.7,6.2,28
+"WR","Danny Amendola (7545465)","Danny Amendola",7545465,3900,"NE@Cle 01:00PM ET","NE","Danny","Amendola","Cle",8.18,6.5,5.73,4.10658817774651,5,0.104,6.39904649488274,6.3691640273254,0,3.1,1,7.8,20,4.3,NA
+"WR","Tavon Austin (7545571)","Tavon Austin",7545571,3700,"Buf@LA 04:25PM ET","LA","Tavon","Austin","Buf",10.24,12.5,9.98,10.383571830248,1,0.276422764227642,11.0155340394685,10.754307579291,0,15.5,1,5.5,10.6,21.4,2.8
+"WR","Brian Quick (7545569)","Brian Quick",7545569,3200,"Buf@LA 04:25PM ET","LA","Brian","Quick","Buf",8.13,7.2,5.63,17.506759318026,4,0.113821138211382,6.86940870105262,6.80176195103913,0,8.1,1,5.3,1.8,13.3,20.9
+"WR","Greg Salas (7545567)","Greg Salas",7545567,3000,"Buf@LA 04:25PM ET","Buf","Greg","Salas","LA",0,0,7.53,0,7,0.0512820512820513,0,0,0,0,1,NA,18.9,NA,NA
+"WR","Marquise Goodwin (7545570)","Marquise Goodwin",7545570,3000,"Buf@LA 04:25PM ET","Buf","Marquise","Goodwin","LA",7.86,9.5,5.62,9.5,4,0.11965811965812,8.39004178287163,8.19438937705889,0,9.3,1,NA,22.2,1.6,2.2

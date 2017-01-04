@@ -1,9 +1,9 @@
-"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","RankTargets","RollingTargetPctg","ValueWR","Week1","Week2","Week3"
-"WR","Corey Coleman (0000000)","Corey Coleman",0,4800,"Cle@Was 00:00PM ET","Cle","Corey","Coleman","Was",0,0,4,0.118811881188119,1,8.9,30.4,NA
-"WR","Terrelle Pryor (0000000)","Terrelle Pryor",0,4300,"Cle@Was 00:00PM ET","Cle","Terrelle","Pryor","Was",18.27,13.9,1,0.316831683168317,1,9.8,6.2,34.9
-"WR","Tavon Austin (0000000)","Tavon Austin",0,4000,"LA@Ari 00:00PM ET","LA","Tavon","Austin","Ari",10.17,11,1,0.304347826086957,1,5.5,10.6,21.4
-"WR","Michael Thomas (0000000)","Michael Thomas",0,3800,"NO@SD 00:00PM ET","NO","Michael","Thomas","SD",9.04,10.7,3,0.158273381294964,1,11.8,9.6,20.1
-"WR","Danny Amendola (0000000)","Danny Amendola",0,3600,"Buf@NE 00:00PM ET","NE","Danny","Amendola","Buf",7.95,6.2,5,0.114583333333333,1,7.8,20,4.3
-"WR","Greg Salas (0000000)","Greg Salas",0,3000,"Buf@NE 00:00PM ET","Buf","Greg","Salas","NE",0,0,6,0.0769230769230769,1,NA,18.9,NA
-"WR","Marquise Goodwin (0000000)","Marquise Goodwin",0,3000,"Buf@NE 00:00PM ET","Buf","Marquise","Goodwin","NE",7.84,10.4,5,0.115384615384615,1,NA,22.2,1.6
-"WR","Adam Humphries (0000000)","Adam Humphries",0,3000,"Den@TB 00:00PM ET","TB","Adam","Humphries","Den",10.81,7.8,2,0.192857142857143,1,7.1,12.7,22
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","Projection_fc","Projection_dfn_perturbed","RankTargets","RollingTargetPctg","Projection_reg","Projection_reg_split","FreqInd","Actual","ValueWR","Week1","Week2","Week3"
+"WR","Corey Coleman (7498854)","Corey Coleman",7498854,4800,"Cle@Was 01:00PM ET","Cle","Corey","Coleman","Was",0,0,0,0,4,0.118811881188119,0,0,0,0,1,8.9,30.4,NA
+"WR","Terrelle Pryor Sr. (7498847)","Terrelle Pryor",7498847,4300,"Cle@Was 01:00PM ET","Cle","Terrelle","Pryor","Was",18.27,13.9,13.53,13.9,1,0.316831683168317,14.0956589970901,12.722216404491,0,15,1,9.8,6.2,34.9
+"WR","Tavon Austin (7498929)","Tavon Austin",7498929,4000,"LA@Ari 04:25PM ET","LA","Tavon","Austin","Ari",10.17,11,10.7,20.8922287095196,1,0.304347826086957,10.1932078954981,9.19132848411111,0,2.8,1,5.5,10.6,21.4
+"WR","Michael Thomas (7498943)","Michael Thomas",7498943,3800,"NO@SD 04:25PM ET","NO","Michael","Thomas","SD",9.04,10.7,11.04,10.2000043073174,3,0.158273381294964,9.72401062346053,8.76635922581592,0,14.4,1,11.8,9.6,20.1
+"WR","Danny Amendola (7498868)","Danny Amendola",7498868,3600,"Buf@NE 01:00PM ET","NE","Danny","Amendola","Buf",7.95,6.2,4.96,13.3418421857054,5,0.114583333333333,6.24260052603961,5.63393527566337,0,0,1,7.8,20,4.3
+"WR","Greg Salas (7498870)","Greg Salas",7498870,3000,"Buf@NE 01:00PM ET","Buf","Greg","Salas","NE",0,0,5.34,0,6,0.0769230769230769,0,0,0,0,1,NA,18.9,NA
+"WR","Marquise Goodwin (7498872)","Marquise Goodwin",7498872,3000,"Buf@NE 01:00PM ET","Buf","Marquise","Goodwin","NE",7.84,10.4,5.33,10.4,5,0.115384615384615,9.23911609866002,8.32708050694701,0,2.2,1,NA,22.2,1.6
+"WR","Adam Humphries (7498921)","Adam Humphries",7498921,3000,"Den@TB 04:05PM ET","TB","Adam","Humphries","Den",10.81,7.8,7.77,6.37209526453807,2,0.192857142857143,8.03487216144104,7.25310524633113,1,1.4,1,7.1,12.7,22

@@ -1,7 +1,5 @@
-"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","RankTargets","RollingTargetPctg","ValueWR","Week1","Week2"
-"WR","Mike Wallace (0000000)","Mike Wallace",0,5000,"Bal@Jax 00:00PM ET","Bal","Mike","Wallace","Jax",13.34,10.5,3,0.180555555555556,1,19.2,20.1
-"WR","DeVante Parker (0000000)","DeVante Parker",0,4900,"Cle@Mia 00:00PM ET","Mia","DeVante","Parker","Cle",12.78,14.1,2,0.180555555555556,1,NA,21.6
-"WR","Will Fuller (0000000)","Will Fuller",0,4800,"Hou@NE 00:00PM ET","Hou","Will","Fuller","NE",14.74,12.8,2,0.26865671641791,1,24.7,17.4
-"WR","Danny Amendola (0000000)","Danny Amendola",0,3700,"Hou@NE 00:00PM ET","NE","Danny","Amendola","Hou",8.2,5.4,5,0.121621621621622,1,7.8,20
-"WR","Greg Salas (0000000)","Greg Salas",0,3000,"Ari@Buf 00:00PM ET","Buf","Greg","Salas","Ari",0,0,5,0.115384615384615,1,NA,18.9
-"WR","Marquise Goodwin (0000000)","Marquise Goodwin",0,3000,"Ari@Buf 00:00PM ET","Buf","Marquise","Goodwin","Ari",7.36,12.3,6,0.0961538461538462,1,NA,22.2
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","Projection_fc","Projection_dfn_perturbed","RankTargets","RollingTargetPctg","Projection_reg","Projection_reg_split","FreqInd","Actual","ValueWR","Week1","Week2"
+"WR","Mike Wallace (7451741)","Mike Wallace",7451741,5000,"Bal@Jax 01:00PM ET","Bal","Mike","Wallace","Jax",13.34,10.5,12.38,10.5,3,0.180555555555556,11.2044678886253,12.1710594300395,0,6.9,1,19.2,20.1
+"WR","DeVante Parker (7451731)","DeVante Parker",7451731,4900,"Cle@Mia 01:00PM ET","Mia","DeVante","Parker","Cle",12.78,14.1,11.34,14.1,2,0.180555555555556,12.7542324349362,12.6988051086431,0,14.1,1,NA,21.6
+"WR","Greg Salas (7451694)","Greg Salas",7451694,3000,"Ari@Buf 01:00PM ET","Buf","Greg","Salas","Ari",0,0,0,0,5,0.115384615384615,0,0,0,0,1,NA,18.9
+"WR","Marquise Goodwin (7451698)","Marquise Goodwin",7451698,3000,"Ari@Buf 01:00PM ET","Buf","Marquise","Goodwin","Ari",7.36,12.3,0,12.3,6,0.0961538461538462,9.43478439712727,8.38765264927622,0,1.6,1,NA,22.2
