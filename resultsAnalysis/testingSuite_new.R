@@ -11,14 +11,14 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 8
-week.hi <- 15
+week.lo <- 17
+week.hi <- 17
 
 contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
 thu_mon.bool <- F # True if using thursday-monday games, False if using only Sunday games
 
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
-source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
+source.actual.fpts <- 'FC' # 'FC' or 'DFN'
 
 formulation <- 15
 
@@ -32,7 +32,7 @@ exposure.wr <- 0.25
 exposure.rb <- 0.75
 exposure.te <- 0.75
 exposure.qb <- 0.5
-exposure.valuewr <- 0.1
+exposure.valuewr <- "_valuewrexp_0.1" # "_valuewrexp_0.1" or ""
 freqInd <- "" # _FreqInd or ""
 
 num.lineups <- "" # "" or "_numlineups_1000"
@@ -129,7 +129,7 @@ for (week.num in week.lo:week.hi) {
         } else if (thu_mon.bool==T & exposure.pos.bool == F) {
           file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
         } else {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb,"_valuewrexp_", exposure.valuewr, num.lineups, ".csv") 
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") 
         }
         lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
@@ -141,9 +141,9 @@ for (week.num in week.lo:week.hi) {
         }
         lineups[,ncol(lineups)] <- substr(lineups[,ncol(lineups)], 1, nchar(lineups[,ncol(lineups)])-1)
 
-        total_results <- player.performance[,c('Player.Name', 'Actual.FP')]
+        total_results <- player.performance[,c('Player.Name', 'Actual.FP', 'Salary')]
         if (source.actual.fpts == 'DFN') {
-          total_results <- rbind(total_results, player.performance.def[,c('Player.Name', 'Actual.FP')])
+          total_results <- rbind(total_results, player.performance.def[,c('Player.Name', 'Actual.FP', 'Salary')])
         }
         lineups$total <- 0
 
@@ -237,3 +237,7 @@ for (week.num in week.lo:week.hi) {
 # pnlMatrix <- as.data.frame(pnlMatrix)
 # plot(pnlMatrix$Week, pnlMatrix$PnL, ylim = c(-2000,2000), type = 'b', xlab = "Week", ylab = "PnL", main = paste0("Form4-Ovrlap4-Exp0.4 (Contest: ", contest.name, ")"))
 # abline(0,0)
+
+# number of placing lineups
+paste0("Number of Placing Lineups: ", sum(lineups$payout != 0))
+hist(lineups$payout[lineups$payout>0], breaks=20)

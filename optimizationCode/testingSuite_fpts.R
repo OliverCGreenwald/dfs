@@ -10,8 +10,8 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 10
-week.hi <- 16
+week.lo <- 15
+week.hi <- 15
 
 contest.entry.fee <- "$4"
 thu_mon.bool <- T # True if using thursday-monday games, False if using only Sunday games
@@ -28,7 +28,7 @@ exposure.wr <- 0.25
 exposure.rb <- 0.75
 exposure.te <- 0.75
 exposure.qb <- 0.5
-exposure.valuewr <- 0.1
+exposure.valuewr <- 0.15
 
 freqInd <- "" # _FreqInd or ""
 
@@ -39,7 +39,7 @@ missing.data.50k.contest.wk <- c() # enter weeks that we don't have complete dat
 
 
 # Init
-result.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 9, dimnames = list(NULL, c("Week","Mean","Max","Min",">150","160-170","180-190","190-200",">200")))
+result.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 9, dimnames = list(NULL, c("Week","Mean","Max","Min",">150","170-180","180-190","190-200",">200")))
 
 # if (thu_mon.bool == T) {
 #   num.cashing.full.slate.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Cashing")))
@@ -102,9 +102,9 @@ for (week.num in week.lo:week.hi) {
     }
     lineups[,ncol(lineups)] <- substr(lineups[,ncol(lineups)], 1, nchar(lineups[,ncol(lineups)])-1)
     
-    total_results <- player.performance[,c('Player.Name', 'Actual.FP')]
+    total_results <- player.performance[,c('Player.Name', 'Actual.FP','Salary')]
     if (source.actual.fpts == 'DFN') {
-      total_results <- rbind(total_results, player.performance.def[,c('Player.Name', 'Actual.FP')])
+      total_results <- rbind(total_results, player.performance.def[,c('Player.Name', 'Actual.FP','Salary')])
     }
     lineups$total <- 0
     
@@ -132,9 +132,9 @@ for (week.num in week.lo:week.hi) {
   result.mat[week.num-week.lo+1,3] <- max(lineups$total)
   result.mat[week.num-week.lo+1,4] <- min(lineups$total)
   result.mat[week.num-week.lo+1,5] <- sum(lineups$total > 150)
-  result.mat[week.num-week.lo+1,6] <- sum(lineups$total >= 160 & lineups$total <= 170)
-  result.mat[week.num-week.lo+1,7] <- sum(lineups$total >= 180 & lineups$total <= 190)
-  result.mat[week.num-week.lo+1,8] <- sum(lineups$total >= 190 & lineups$total <= 200)
+  result.mat[week.num-week.lo+1,6] <- sum(lineups$total > 170 & lineups$total <= 180)
+  result.mat[week.num-week.lo+1,7] <- sum(lineups$total > 180 & lineups$total <= 190)
+  result.mat[week.num-week.lo+1,8] <- sum(lineups$total > 190 & lineups$total <= 200)
   result.mat[week.num-week.lo+1,9] <- sum(lineups$total > 200)
 }
 

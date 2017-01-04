@@ -6,25 +6,30 @@
 # In this file we examine the standings (contest results) of the millionaire maker, specifically studying top users
 # such as SaahilSud and ChipotleAddict. This file is segmented into sections.
 #
+# Dependencies: cleanResults.R
+#
 # SECTION LOAD. LOAD FILES
 # SECTION I. COMPUTE AND PLOT PCT OF SUBMITTED LINEUPS THAT CASHED
 # SECTION II. COMPUTE AND PLOT PCT OF SUBMITTED LINEUPS > SOME PERCENTILE
 # SECTION III. EXAMINE NUMBER OF UNIQUE PLAYERS (OVERALL AND BY POSITION)
-# SECTION IV. COMPARE NUMBER OF UNIQUE PLAYERS TO OUR FORMULATIONS
-# SECTION V. EXAMINE POSITION EXPOSURES
+# SECTION IV. EXAMINE POSITION EXPOSURES (%)
+#   - for each position, plots exposure to top 5 players (in terms of exposure among all lineups submitted by user for the week)
+# SECTION V. EXAMINE POSITION EXPOSURES (COUNT)
+# SECTION VI. COMPARE NUMBER OF UNIQUE PLAYERS TO OUR FORMULATIONS
 
 
 ####### SET SECTION TO RUN #######
-section.run <- 5 # 1-5 or LOAD
+section.run <- "5" # 1-6 or "LOAD" # run LOAD first, then any section!
 
 
 ####### SET PARAMETERS #######
 slate.days <- "" # "thu-mon" or "sun-mon" or ""
-wks.20 <- c(2:9) # c(2:9) if using sunday only (if thu-mon or sun-mon, need to enter weeks)
-wks.27 <- c(11:15) # c(11:15) if using sunday only (if thu-mon or sun-mon, need to enter weeks)
-week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1 # don't need to change this ever
+wks.20 <- c(2:9,17) # c(2:9) if using sunday only (if thu-mon or sun-mon, need to enter weeks) # hard coded
+wks.27 <- c(11:15) # c(11:15) if using sunday only (if thu-mon or sun-mon, need to enter weeks) # hard coded
+# week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+week.latest <- 17
 
-user.name <- "youdacao" # SaahilSud, youdacao, scout326, ehafner, ChipotleAddict, Theclone, awesemo, AssaniFisher, aejones, CONDIA
+user.name <- "ChipotleAddict" # SaahilSud, youdacao, scout326, ehafner, ChipotleAddict, Theclone, awesemo, AssaniFisher, aejones, CONDIA
 
 pctls.vec <- c(0.75, 0.85, 0.95, 0.99) # percentile thresholds to plot (enter any 4 between 0.0-1.0) (for Section II)
 
@@ -50,17 +55,38 @@ if (section.run=="LOAD") {
 ####### SECTION I. COMPUTE AND PLOT PCT OF SUBMITTED LINEUPS THAT CASHED #########
 if (section.run==1) {
   temp.cashing <- read.csv(file = "resultsAnalysis/data_warehouse/weekly_payout_structure/contest_1M_cashing.csv", stringsAsFactors = F)
-  cashing.pct.mat <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 2, dimnames = list(NULL, c("Week","Pct.Cashing"))))
+  cashing.pct.mat <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 10, dimnames = list(NULL, c("Week","Pct.Cashing","Max.Fpts","Min.Fpts","Best.Place","Worst.Place","170-180","180-190","190-200","200+"))))
   for (i in 1:week.latest) {
     cashing.pct.mat[i,1] <- i
     if (i %in% c(wks.20, wks.27)) {
       # Compute % of submitted lineups that cashed
       temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
       temp.user.results <- temp.results[temp.results$User.Name==user.name,]
-      cashing.pct.mat[i,2] <- sum(temp.user.results$Points > temp.cashing$Min[temp.cashing$Week==i])/nrow(temp.user.results)
+      cashing.pct.mat$Pct.Cashing[i] <- sum(temp.user.results$Points > temp.cashing$Min[temp.cashing$Week==i])/nrow(temp.user.results)
+      
+      # Max fpts
+      cashing.pct.mat$Max.Fpts[i] <- max(temp.user.results$Points)
+      
+      # Min fpts
+      cashing.pct.mat$Min.Fpts[i] <- min(temp.user.results$Points)
+      
+      # Best Place
+      cashing.pct.mat$Best.Place[i] <- min(temp.user.results$Rank)
+      
+      # Worst Place
+      cashing.pct.mat$Worst.Place[i] <- max(temp.user.results$Rank)
+      
+      # 180-190, 190-200, 200+
+      cashing.pct.mat$`170-180`[i] <- sum(temp.user.results$Points > 170 & temp.user.results$Points <= 180)
+      cashing.pct.mat$`180-190`[i] <- sum(temp.user.results$Points > 180 & temp.user.results$Points <= 190)
+      cashing.pct.mat$`190-200`[i] <- sum(temp.user.results$Points > 190 & temp.user.results$Points <= 200)
+      cashing.pct.mat$`200+`[i] <- sum(temp.user.results$Points > 200)
     }
   }
   plot(1:week.latest, cashing.pct.mat$Pct.Cashing, xlab = "Week", ylab = "% Cashing", main = paste0("Pct Lineups that Cash (MillyMaker): ", user.name), type = "b")
+  plot(1:week.latest, cashing.pct.mat$Max.Fpts, xlab = "Week", ylab = "Fpts", main = paste0("Max Fantasy Points (MillyMaker): ", user.name), type = "b")
+  # plot(1:week.latest, cashing.pct.mat$Min.Fpts, xlab = "Week", ylab = "Fpts", main = paste0("Min Fantasy Points (MillyMaker): ", user.name), type = "b")
+  # plot(1:week.latest, cashing.pct.mat$Best.Place, xlab = "Week", ylab = "Place", main = paste0("Max Place (MillyMaker): ", user.name), type = "b")
 }
 
 
@@ -122,13 +148,9 @@ if (section.run==3) {
   }
 }
 
-####### SECTION IV. COMPARE NUMBER OF UNIQUE PLAYERS TO OUR LINEUPS #########
-if (section.run==4) {
-  
-}
 
-####### SECTION V. EXAMINE POSITION EXPOSURES #########
-if (section.run==5) {
+####### SECTION IV. EXAMINE POSITION EXPOSURES (%) #########
+if (section.run==4) {
   qb.exposure.mat <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 6, dimnames = list(NULL, c("Week","QB.Exposure.1","QB.Exposure.2","QB.Exposure.3","QB.Exposure.4","QB.Exposure.5"))))
   rb.exposure.mat <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 6, dimnames = list(NULL, c("Week","RB.Exposure.1","RB.Exposure.2","RB.Exposure.3","RB.Exposure.4","RB.Exposure.5"))))
   wr.exposure.mat <- as.data.frame(matrix(NA, nrow = week.latest, ncol = 6, dimnames = list(NULL, c("Week","WR.Exposure.1","WR.Exposure.2","WR.Exposure.3","WR.Exposure.4","WR.Exposure.5"))))
@@ -138,7 +160,6 @@ if (section.run==5) {
   for (i in 1:week.latest) {
     qb.exposure.mat[i,1] <- i
     if (i %in% c(wks.20, wks.27)) {
-      # Compute % of submitted lineups that cashed
       temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
       temp.user.results <- temp.results[temp.results$User.Name==user.name,]
       temp.lineups <- temp.user.results[,6:14]
@@ -212,4 +233,119 @@ if (section.run==5) {
   points(dst.exposure.mat[,5], type = "b", col = 'green')
   points(dst.exposure.mat[,6], type = "b", col = 'yellow')
 }
+
+
+####### SECTION V. EXAMINE POSITION EXPOSURES (COUNTS) #########
+if (section.run==5) {
+  total.count <- rep(NA, week.latest)
+  qb.count <- rep(NA, week.latest)
+  rb.count <- rep(NA, week.latest)
+  wr.count <- rep(NA, week.latest)
+  te.count <- rep(NA, week.latest)
+  flex.count <- rep(NA, week.latest)
+  dst.count <- rep(NA, week.latest)
+  for (i in 1:week.latest) {
+    if (i %in% c(wks.20, wks.27)) {
+      temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
+      temp.user.results <- temp.results[temp.results$User.Name==user.name,]
+      temp.lineups <- temp.user.results[,6:14]
+      
+      occurences <- sort(table(unlist(temp.lineups)), decreasing=T)
+      total.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
+      qb.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("RB1","RB2")])), decreasing=T)
+      rb.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("WR1","WR2","WR3")])), decreasing=T)
+      wr.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("TE")])), decreasing=T)
+      te.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("FLEX")])), decreasing=T)
+      flex.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("DST")])), decreasing=T)
+      dst.count[i] <- length(occurences)
+    }
+  }
+  
+  par(mfrow=c(3,2))
+  plot(1:week.latest, qb.count, ylim = c(min(qb.count, na.rm = T),max(qb.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s QB Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, rb.count, ylim = c(min(rb.count, na.rm = T),max(rb.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s RB Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, wr.count, ylim = c(min(wr.count, na.rm = T),max(wr.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s WR Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, te.count, ylim = c(min(te.count, na.rm = T),max(te.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s TE Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, flex.count, ylim = c(min(flex.count, na.rm = T),max(flex.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s FLEX Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, dst.count, ylim = c(min(dst.count, na.rm = T),max(dst.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s DST Count (MillyMaker)"), type = "b")
+  
+  par(mfrow=c(1,1))
+  plot(1:week.latest, total.count, ylim = c(min(total.count, na.rm = T),max(total.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s Total Player Count (MillyMaker)"), type = "b") # plot total count
+}
+
+
+####### SECTION VI. COMPARE NUMBER OF UNIQUE PLAYERS TO OUR FORMULATIONS #########
+if (section.run==6) {
+  
+  # exposure_defense = 0.25
+  # exposure_wr = 0.25
+  # exposure_rb = 0.75
+  # exposure_te = 0.75
+  # exposure_qb = 0.5
+  
+  total.count <- rep(NA, week.latest)
+  qb.count <- rep(NA, week.latest)
+  rb.count <- rep(NA, week.latest)
+  wr.count <- rep(NA, week.latest)
+  te.count <- rep(NA, week.latest)
+  flex.count <- rep(NA, week.latest)
+  dst.count <- rep(NA, week.latest)
+  for (i in 1:week.latest) {
+    if (i %in% c(wks.20, wks.27)) {
+      temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
+      temp.user.results <- temp.results[temp.results$User.Name==user.name,]
+      temp.lineups <- temp.user.results[,6:14]
+      
+      occurences <- sort(table(unlist(temp.lineups)), decreasing=T)
+      total.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
+      qb.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("RB1","RB2")])), decreasing=T)
+      rb.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("WR1","WR2","WR3")])), decreasing=T)
+      wr.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("TE")])), decreasing=T)
+      te.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("FLEX")])), decreasing=T)
+      flex.count[i] <- length(occurences)
+      
+      occurences <- sort(table(unlist(temp.lineups[,c("DST")])), decreasing=T)
+      dst.count[i] <- length(occurences)
+    }
+  }
+  
+  par(mfrow=c(3,2))
+  plot(1:week.latest, qb.count, ylim = c(min(qb.count, na.rm = T),max(qb.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s QB Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, rb.count, ylim = c(min(rb.count, na.rm = T),max(rb.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s RB Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, wr.count, ylim = c(min(wr.count, na.rm = T),max(wr.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s WR Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, te.count, ylim = c(min(te.count, na.rm = T),max(te.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s TE Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, flex.count, ylim = c(min(flex.count, na.rm = T),max(flex.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s FLEX Count (MillyMaker)"), type = "b")
+  plot(1:week.latest, dst.count, ylim = c(min(dst.count, na.rm = T),max(dst.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s DST Count (MillyMaker)"), type = "b")
+  
+  par(mfrow=c(1,1))
+  plot(1:week.latest, total.count, ylim = c(min(total.count, na.rm = T),max(total.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s Total Player Count (MillyMaker)"), type = "b") # plot total count
+}
+
+
+
+
+
+
 

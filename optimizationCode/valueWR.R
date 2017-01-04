@@ -8,12 +8,12 @@
 
 
 ####### WRITE TO FILE? #######
-write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
-week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-# week.latest <- 15 # wk we write to will be week.latest+1
+# week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
+week.latest <- 5 # wk we write to will be week.latest+1
 slate.days <- "" # "thu-mon" or "sun-mon" or ""
 
 salary.threshold <- 5000 # defining cheap
@@ -29,15 +29,15 @@ wk <- week.latest + 1 # load this wk's cleaned_input (must be week.latest + 1)
 # Subset using DFN updated files
 wr.value <- NULL # init
 wr.miss <- NULL # init (cheap that WR that don't add value i.e. suck as they should that week)
-for (i in 4:week.latest) { # from week 4 b/c wks 1-3 don't have "Projected.Usage"
+for (i in 2:week.latest) { # from week 4 b/c wks 1-3 don't have "Projected.Usage"
   assign(paste0("dfn_offense_week", i), read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', i, ".csv"), stringsAsFactors = F))
   temp <- eval(parse(text=paste0("dfn_offense_week", i)))
   
-  temp.hit <- temp[temp$Salary <= salary.threshold & temp$Actual.FP >= fpts.threshold & temp$Pos=='WR', c('Player.Name','Salary','Team','Opp','Vegas.Pts','Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  temp.hit <- temp[temp$Salary <= salary.threshold & temp$Actual.FP >= fpts.threshold & temp$Pos=='WR', c('Player.Name','Likes','Salary','Team','Opp','Vegas.Pts','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
   temp.hit$Week.Num <- i
   wr.value <- rbind(wr.value, temp.hit) # append
   
-  temp.miss <- temp[temp$Salary <= salary.threshold & temp$Actual.FP < fpts.threshold & temp$Pos=='WR', c('Player.Name','Salary','Team','Opp','Vegas.Pts','Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  temp.miss <- temp[temp$Salary <= salary.threshold & temp$Actual.FP < fpts.threshold & temp$Pos=='WR', c('Player.Name','Likes','Salary','Team','Opp','Vegas.Pts','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
   temp.miss$Week.Num <- i
   wr.miss <- rbind(wr.miss, temp.miss) # append
   
@@ -46,7 +46,7 @@ for (i in 4:week.latest) { # from week 4 b/c wks 1-3 don't have "Projected.Usage
 
 # Load fantasydata salaries files for opp def rankings
 fantasydata.salaries.all.weeks <- NULL
-for (i in 4:week.latest) {
+for (i in 2:week.latest) {
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/fantasydata/salaries/fantasydata_salaries_2016_week', i, ".csv"), stringsAsFactors = F)
   fantasydata.salaries.all.weeks <- rbind(fantasydata.salaries.all.weeks, temp)
   print(i)
@@ -98,7 +98,7 @@ for (i in 1:nrow(wr.miss)) {
 
 # For each week, print % of value WRs that had at least num.gm.over.hist.thresh games > fpts.threshold
 one.game.above.fpts.threshold.wr.value <- as.data.frame(matrix(NA, nrow = length(4:week.latest), ncol = 2, dimnames = list(NULL, c("Week","Pctg.ValueWR.one.game.above.fpts.threshold.wr.value"))))
-for (i in 4:week.latest) {
+for (i in 2:week.latest) {
   one.game.above.fpts.threshold.wr.value[i-3,1] <- i # week num
   temp <- wr.value$Above.x.Fpts[wr.value$Week.Num==i]
   one.game.above.fpts.threshold.wr.value[i-3,2] <- sum(temp >= num.gm.over.hist.thresh)/length(temp)
@@ -107,7 +107,7 @@ plot(one.game.above.fpts.threshold.wr.value, type = 'b')
 
 # For each week, print % of miss WRs that had at least num.gm.over.hist.thresh games > fpts.threshold
 one.game.above.fpts.threshold.wr.miss <- as.data.frame(matrix(NA, nrow = length(4:week.latest), ncol = 2, dimnames = list(NULL, c("Week","Pctg.ValueWR.one.game.above.fpts.threshold.wr.miss"))))
-for (i in 4:week.latest) {
+for (i in 2:week.latest) {
   one.game.above.fpts.threshold.wr.miss[i-3,1] <- i # week num
   temp <- wr.miss$Above.x.Fpts[wr.miss$Week.Num==i]
   one.game.above.fpts.threshold.wr.miss[i-3,2] <- sum(temp >= num.gm.over.hist.thresh)/length(temp)
@@ -133,11 +133,7 @@ for (i in temp.ind:(temp.ind+week.latest-1)) {
   temp.wr.cheap[,i] <- historical.fpts[,i-temp.ind+2][match(temp.wr.cheap$Name, historical.fpts$FullName)] # match
 }
 
-# for (i in 1:nrow(temp.wr.cheap)) {
-#   temp.wr.cheap[i,(temp.ind+week.latest-1):ncol(temp.wr.cheap)] <- "." # get rid of weeks not played yet
-# }
-
-# this is hard coded, only will work if adding to current week (need to get above commented code working). NVM should work
+# this should work
 for (i in 1:nrow(temp.wr.cheap)) {
   if (sum(temp.wr.cheap[i,temp.ind:(temp.ind+week.latest-1)] > historical.threshold, na.rm = T) >= num.gm.over.hist.thresh) {
     temp.wr.cheap$ValueWR[i] <- 1

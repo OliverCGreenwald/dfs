@@ -79,7 +79,7 @@
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "10" # 1-10, "test"
+model.run <- "" # 1-10, "test"
 model.run.subsection <- "2" # ignored if model doesn't have any subsections
 modelVII.kernel <- "splinedot" # set this to some kernel if model.run = 7
 modelIX.cost.factor.ratio.vec <- seq(from = 0.005, 0.10, by = 0.005)

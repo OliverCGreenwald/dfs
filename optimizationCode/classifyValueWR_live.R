@@ -9,10 +9,13 @@
 
 ####### IMPORT LIBRARIES #########
 library("klaR")
+library("kernlab")
+library("SDMTools")
 
 
 ####### LOAD MODEL #######
 #
+# "svmlight_linear_costfactor0.07_wks6-16_minfpts18.5.RData" # "svmlight_linear_costfactor0.06_wks6-16_minfpts18.5.RData"
 # "svmlight_linear_costfactor0.075_wks6-15_minfpts18.5.RData"
 # "svmlight_linear_costfactor0.04_wks6-14_minfpts18.5.RData"
 # "svmlight_linear_costfactor0.07_wks6-13_minfpts18.5.RData"
@@ -36,8 +39,16 @@ library("klaR")
 # "svmlight_rbf_costfactor0.01_param2.15e-06_wks4-11_minfpts18.5.RData" (tuning weight 2.0, result: slightly less than baseline but has less 0.0 fpts players)
 # "svmlight_rbf_costfactor0.035_param6.8e-07_wks4-10_minfpts18.5.RData" (tuning weight: 1.25, result: good)
 # "svmlight_rbf_costfactor0.015_param3.16e-06_wks4-9_minfpts18.5.RData" (turning wieght: 1.25, result: good)
-  
-save.model.name <- "svmlight_linear_costfactor0.07_wks6-16_minfpts18.5.RData"
+#
+# Best Models Weekly:
+# Week 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
+# Week 15: "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData"
+# Week 14: "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData"
+# Week 13: "svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData"
+# Week 12: "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
+
+
+save.model.name <- "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
 load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
 
 
@@ -46,7 +57,7 @@ write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
-wk <- 17
+wk <- 12
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 
@@ -68,7 +79,7 @@ test.y <- test.data$Value
 test.data[test.data$Value==1, c('Player.Name','Actual.FP','Salary')] # players that actually are 1
 
 
-####### PREDICT USING MODEL #######
+####### PREDICT USING MODEL (SVMLIGHT) #######
 # compute error 
 pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
 pred.svmlight$class
@@ -103,6 +114,27 @@ sum(test.data$Value) # total number of value wr
 sum(pred.posterior.spike$Actual.FP >= fpts.threshold) # number of value wr in the spike
 
 
+####### PREDICT USING MODEL (SVM) #######
+# # compute error 
+# pred.svm <- predict(model.svm, newdata = test.x)
+# test.error.svm <- mean(abs(as.numeric(as.character(pred.svm)) - test.y))
+# print(paste0("SVM Testing Error:   ", test.error.svm))
+# 
+# # confusion matrix
+# print("Confusion Matrix")
+# confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svm)), threshold = 0.5)
+# print(confusion.mat)
+# print(paste0("Value WR hit rate w/ model:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+# print(paste0("Value WR hit rate w/o model:   ", sum(test.y==1)/length(test.y))) 
+# 
+# # print players predicted 1, actual 1, and missed
+# pred.value <- test.data[pred.svm==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
+# pred.value
+# test.data[pred.svm==1 & test.data$Value==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 and actually are 1 (value wr hits)
+# players.missed <- test.data$Player.Name[test.data$Value==1][!(test.data$Player.Name[test.data$Value==1] %in% test.data$Player.Name[pred.svm==1])]
+# test.data[test.data$Player.Name %in% players.missed, c('Player.Name','Actual.FP','Salary')] # players that the model predicts 0 but are actually 1 (value wr not in set)
+
+
 ####### BASELINE (ValueWR currently used in 2016_cleaned_input) #######
 # load data
 baseline.data <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/offensive_players.csv"), stringsAsFactors = F)
@@ -133,23 +165,28 @@ baseline.data[baseline.data$ValueWR==0 & baseline.data$ValueWR.Actual==1, c('Nam
 ####### WRITE TO FILE #######
 if (write.bool==T) {
   ####### UPDATE includes_thu-mon/model1 OFFENSIVE_PLAYERS CSV #######
-  # temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/offensive_players.csv"), stringsAsFactors = F)
-  # temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
-  # temp$ValueWR <- 0 # reset
-  
-  ####### UPDATE model1 OFFENSIVE_PLAYERS CSV #######
-  temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F)
+  temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/offensive_players.csv"), stringsAsFactors = F)
   temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
   if (spike.bool == F) {
-    temp$ValueWR <- 0 # reset 
+    temp$ValueWR <- 0 # reset
   }
   
+  ####### UPDATE model1 OFFENSIVE_PLAYERS CSV #######
+  # temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F)
+  # temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
+  # if (spike.bool == F) {
+  #   temp$ValueWR <- 0 # reset
+  # }
   
-  valuewr.set.model <- test.data[pred.svmlight$class==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
-  temp$ValueWR[temp$Name %in% valuewr.set.model$Player.Name & temp$Salary %in% valuewr.set.model$Salary] <- 1
-  print(sum(temp$ValueWR))
-  print(nrow(valuewr.set.model))
-  print(valuewr.set.model$Player.Name[!(valuewr.set.model$Player.Name %in% temp$Name)]) # missing players
+  
+  ####### Uncomment one of the three options #######
+  #----- Set ValueWR to model's predictions -----#
+  # valuewr.set.model <- test.data[pred.svmlight$class==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
+  # temp$ValueWR[temp$Name %in% valuewr.set.model$Player.Name & temp$Salary %in% valuewr.set.model$Salary] <- 1
+  # print(sum(temp$ValueWR))
+  # print(nrow(valuewr.set.model))
+  # print(valuewr.set.model$Player.Name[!(valuewr.set.model$Player.Name %in% temp$Name)]) # missing players
+  #----------#
   
   
   #-----Spike upper 75th percentile posteriors -----#
@@ -160,13 +197,13 @@ if (write.bool==T) {
   
   
   #-----Spike the predicted 1's -----#
-  temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.25*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
+  temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.5*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
   print(sum(temp$Name %in% pred.value$Player.Name))
   print(length(pred.value$Player.Name))
   #----------#
   
   
-  # write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/model1/offensive_players.csv"), row.names = F)
-  write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/model1/offensive_players.csv"), row.names = F)
+  write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/model1/offensive_players.csv"), row.names = F)
+  # write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/model1/offensive_players.csv"), row.names = F)
 }
   
