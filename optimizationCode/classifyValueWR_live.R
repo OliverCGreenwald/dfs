@@ -40,7 +40,7 @@ library("SDMTools")
 # "svmlight_rbf_costfactor0.035_param6.8e-07_wks4-10_minfpts18.5.RData" (tuning weight: 1.25, result: good)
 # "svmlight_rbf_costfactor0.015_param3.16e-06_wks4-9_minfpts18.5.RData" (turning wieght: 1.25, result: good)
 #
-# Best Models Weekly (gets better week over week):
+# Best Linear Kernel Models Weekly (gets better week over week):
 # Week 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
 # Week 15: "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData"
 # Week 14: "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData"
@@ -48,6 +48,15 @@ library("SDMTools")
 # Week 12: "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
 # Week 11: "svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData"
 # Week 10: "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"
+#
+# Best RBF Kernel Models Weekly (gets better week over week):
+# Week 16: "svmlight_rbf_costfactor0.07_gamma1.47e-06_wks4-15_minfpts18.5.RData"
+# Week 15: 
+# Week 14: 
+# Week 13: 
+# Week 12: 
+# Week 11: 
+# Week 10: 
 
 
 save.model.name <- "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"

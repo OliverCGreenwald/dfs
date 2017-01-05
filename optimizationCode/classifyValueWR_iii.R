@@ -330,58 +330,58 @@ if (model.run==9) {
   kernel.param.vec.optimal
   
   # (2) Minimize CV error - % true positives out of total (reward true positives)
-  adj.error.all <- error.all - 4*confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
-  min(adj.error.all)
-  min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
-  cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
-  kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
-  cost.factor.ratio.optimal
-  kernel.param.vec.optimal
+  # adj.error.all <- error.all - 4*confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
+  # min(adj.error.all)
+  # min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
+  # cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
+  # kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
+  # cost.factor.ratio.optimal
+  # kernel.param.vec.optimal
   
   # (3) Minimize CV error - % true positives out of pred 1's (reward true positives)
-  adj.error.all <- error.all - 1*confusion.mat.11.all / (confusion.mat.10.all+confusion.mat.11.all)
-  min(adj.error.all)
-  min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
-  cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
-  kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
-  cost.factor.ratio.optimal
-  kernel.param.vec.optimal
+  # adj.error.all <- error.all - 1*confusion.mat.11.all / (confusion.mat.10.all+confusion.mat.11.all)
+  # min(adj.error.all)
+  # min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
+  # cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
+  # kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
+  # cost.factor.ratio.optimal
+  # kernel.param.vec.optimal
   
   # (4) Minimize CV error + % false positives out of total (penalize false positives)
-  adj.error.all <- error.all + 1*confusion.mat.10.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
-  min(adj.error.all)
-  min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
-  cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
-  kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
-  cost.factor.ratio.optimal
-  kernel.param.vec.optimal
+  # adj.error.all <- error.all + 1*confusion.mat.10.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
+  # min(adj.error.all)
+  # min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
+  # cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
+  # kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
+  # cost.factor.ratio.optimal
+  # kernel.param.vec.optimal
   
   # (5) Minimize CV error + % false positives out of pred 1's (penalize false positives)
-  adj.error.all <- error.all + 1*confusion.mat.10.all / (confusion.mat.10.all+confusion.mat.11.all)
-  min(adj.error.all)
-  min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
-  cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
-  kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
-  cost.factor.ratio.optimal
-  kernel.param.vec.optimal
+  # adj.error.all <- error.all + 1*confusion.mat.10.all / (confusion.mat.10.all+confusion.mat.11.all)
+  # min(adj.error.all)
+  # min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
+  # cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
+  # kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
+  # cost.factor.ratio.optimal
+  # kernel.param.vec.optimal
   
   # (6) Maximize % true positives out of total
-  adj.error.all <- confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
-  max(adj.error.all)
-  max.inds <- which(adj.error.all == max(adj.error.all), arr.ind = TRUE)
-  cost.factor.ratio.optimal <- rownames(adj.error.all)[max.inds[,1]][1] # go with first one
-  kernel.param.vec.optimal <- colnames(adj.error.all)[max.inds[,2]][1] # go with first one
-  cost.factor.ratio.optimal
-  kernel.param.vec.optimal
+  # adj.error.all <- confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
+  # max(adj.error.all)
+  # max.inds <- which(adj.error.all == max(adj.error.all), arr.ind = TRUE)
+  # cost.factor.ratio.optimal <- rownames(adj.error.all)[max.inds[,1]][1] # go with first one
+  # kernel.param.vec.optimal <- colnames(adj.error.all)[max.inds[,2]][1] # go with first one
+  # cost.factor.ratio.optimal
+  # kernel.param.vec.optimal
   
   # (7) Maximize % true positives out of pred 1's
-  adj.error.all <- confusion.mat.11.all / (confusion.mat.10.all+confusion.mat.11.all)
-  max(adj.error.all)
-  max.inds <- which(adj.error.all == max(adj.error.all), arr.ind = TRUE)
-  cost.factor.ratio.optimal <- rownames(adj.error.all)[max.inds[,1]][1] # go with first one
-  kernel.param.vec.optimal <- colnames(adj.error.all)[max.inds[,2]][1] # go with first one
-  cost.factor.ratio.optimal
-  kernel.param.vec.optimal
+  # adj.error.all <- confusion.mat.11.all / (confusion.mat.10.all+confusion.mat.11.all)
+  # max(adj.error.all)
+  # max.inds <- which(adj.error.all == max(adj.error.all), arr.ind = TRUE)
+  # cost.factor.ratio.optimal <- rownames(adj.error.all)[max.inds[,1]][1] # go with first one
+  # kernel.param.vec.optimal <- colnames(adj.error.all)[max.inds[,2]][1] # go with first one
+  # cost.factor.ratio.optimal
+  # kernel.param.vec.optimal
   
   
   #------ Testing ------#
