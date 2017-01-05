@@ -19,7 +19,8 @@
 
 
 ####### SET SECTION TO RUN #######
-section.run <- "5" # 1-6 or "LOAD" # run LOAD first, then any section!
+section.run <- "4" # 1-6 or "LOAD" # run LOAD first, then any section! # if 6, run 5 first
+subsection.run <- "2" # only used if section.run has a subsection
 
 
 ####### SET PARAMETERS #######
@@ -29,7 +30,7 @@ wks.27 <- c(11:15) # c(11:15) if using sunday only (if thu-mon or sun-mon, need 
 # week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
 week.latest <- 17
 
-user.name <- "ChipotleAddict" # SaahilSud, youdacao, scout326, ehafner, ChipotleAddict, Theclone, awesemo, AssaniFisher, aejones, CONDIA
+user.name <- "SaahilSud" # SaahilSud, youdacao, scout326, ehafner, ChipotleAddict, Theclone, awesemo, AssaniFisher, aejones, CONDIA
 
 pctls.vec <- c(0.75, 0.85, 0.95, 0.99) # percentile thresholds to plot (enter any 4 between 0.0-1.0) (for Section II)
 
@@ -289,62 +290,191 @@ if (section.run==5) {
 ####### SECTION VI. COMPARE NUMBER OF UNIQUE PLAYERS TO OUR FORMULATIONS #########
 if (section.run==6) {
   
-  # exposure_defense = 0.25
-  # exposure_wr = 0.25
-  # exposure_rb = 0.75
-  # exposure_te = 0.75
-  # exposure_qb = 0.5
-  
-  total.count <- rep(NA, week.latest)
-  qb.count <- rep(NA, week.latest)
-  rb.count <- rep(NA, week.latest)
-  wr.count <- rep(NA, week.latest)
-  te.count <- rep(NA, week.latest)
-  flex.count <- rep(NA, week.latest)
-  dst.count <- rep(NA, week.latest)
-  for (i in 1:week.latest) {
-    if (i %in% c(wks.20, wks.27)) {
-      temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
-      temp.user.results <- temp.results[temp.results$User.Name==user.name,]
-      temp.lineups <- temp.user.results[,6:14]
-      
-      occurences <- sort(table(unlist(temp.lineups)), decreasing=T)
-      total.count[i] <- length(occurences)
-      
-      occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
-      qb.count[i] <- length(occurences)
-      
-      occurences <- sort(table(unlist(temp.lineups[,c("RB1","RB2")])), decreasing=T)
-      rb.count[i] <- length(occurences)
-      
-      occurences <- sort(table(unlist(temp.lineups[,c("WR1","WR2","WR3")])), decreasing=T)
-      wr.count[i] <- length(occurences)
-      
-      occurences <- sort(table(unlist(temp.lineups[,c("TE")])), decreasing=T)
-      te.count[i] <- length(occurences)
-      
-      occurences <- sort(table(unlist(temp.lineups[,c("FLEX")])), decreasing=T)
-      flex.count[i] <- length(occurences)
-      
-      occurences <- sort(table(unlist(temp.lineups[,c("DST")])), decreasing=T)
-      dst.count[i] <- length(occurences)
+  if (subsection.run==1) {
+    #------ Formulation 4 ------#
+    # overlap = 4
+    # exposure = 0.4
+    
+    total.us.count <- rep(NA, week.latest)
+    qb.us.count <- rep(NA, week.latest)
+    rb.us.count <- rep(NA, week.latest)
+    wr.us.count <- rep(NA, week.latest)
+    te.us.count <- rep(NA, week.latest)
+    flex.us.count <- rep(NA, week.latest)
+    dst.us.count <- rep(NA, week.latest)
+    for (i in 1:week.latest) {
+      if (i %in% c(wks.20, wks.27)) {
+        temp.lineups <- read.csv(file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", i, "_dfn_formulation4_overlap_4_exposure_0.4.csv"))
+        
+        occurences <- sort(table(unlist(temp.lineups)), decreasing=T)
+        total.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
+        qb.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("RB","RB.1")])), decreasing=T)
+        rb.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("WR","WR.1","WR.2")])), decreasing=T)
+        wr.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("TE")])), decreasing=T)
+        te.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("FLEX")])), decreasing=T)
+        flex.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("DST")])), decreasing=T)
+        dst.us.count[i] <- length(occurences)
+      }
     }
+    
+    par(mfrow=c(3,2))
+    plot(1:week.latest, qb.us.count, ylim = c(min(c(qb.us.count,qb.count), na.rm = T),max(c(qb.us.count,qb.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 4 (b) vs ", user.name, " (r) QB Count (MillyMaker)"), type = "b")
+    points(qb.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, rb.us.count, ylim = c(min(c(rb.us.count,rb.count), na.rm = T),max(c(rb.us.count,rb.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 4 (b) vs ", user.name, " (r) RB Count (MillyMaker)"), type = "b")
+    points(rb.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, wr.us.count, ylim = c(min(c(wr.us.count,wr.count), na.rm = T),max(c(wr.us.count,wr.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 4 (b) vs ", user.name, " (r) WR Count (MillyMaker)"), type = "b")
+    points(wr.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, te.us.count, ylim = c(min(c(te.us.count,te.count), na.rm = T),max(c(te.us.count,te.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 4 (b) vs ", user.name, " (r) TE Count (MillyMaker)"), type = "b")
+    points(te.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, flex.us.count, ylim = c(min(c(flex.us.count,flex.count), na.rm = T),max(c(flex.us.count,flex.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 4 (b) vs ", user.name, " (r) FLEX Count (MillyMaker)"), type = "b")
+    points(flex.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, dst.us.count, ylim = c(min(c(dst.us.count,dst.count), na.rm = T),max(c(dst.us.count,dst.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 4 (b) vs ", user.name, " (r) DST Count (MillyMaker)"), type = "b")
+    points(dst.count, type = "b", col = 'red') # other user's
+    
+    par(mfrow=c(1,1))
+    plot(1:week.latest, total.us.count, ylim = c(min(c(total.us.count,total.count), na.rm = T),max(c(total.us.count,total.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 4 (b) vs ", user.name, " (r) Total Player Count (MillyMaker)"), type = "b") # plot total count
+    points(total.count, type = "b", col = 'red') # other user's
   }
   
-  par(mfrow=c(3,2))
-  plot(1:week.latest, qb.count, ylim = c(min(qb.count, na.rm = T),max(qb.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s QB Count (MillyMaker)"), type = "b")
-  plot(1:week.latest, rb.count, ylim = c(min(rb.count, na.rm = T),max(rb.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s RB Count (MillyMaker)"), type = "b")
-  plot(1:week.latest, wr.count, ylim = c(min(wr.count, na.rm = T),max(wr.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s WR Count (MillyMaker)"), type = "b")
-  plot(1:week.latest, te.count, ylim = c(min(te.count, na.rm = T),max(te.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s TE Count (MillyMaker)"), type = "b")
-  plot(1:week.latest, flex.count, ylim = c(min(flex.count, na.rm = T),max(flex.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s FLEX Count (MillyMaker)"), type = "b")
-  plot(1:week.latest, dst.count, ylim = c(min(dst.count, na.rm = T),max(dst.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s DST Count (MillyMaker)"), type = "b")
   
-  par(mfrow=c(1,1))
-  plot(1:week.latest, total.count, ylim = c(min(total.count, na.rm = T),max(total.count, na.rm = T)), xlab = "Week", ylab = "Count", main = paste0(user.name, "'s Total Player Count (MillyMaker)"), type = "b") # plot total count
+  if (subsection.run==2) {
+    #------ Formulation 14 ------#
+    # overlap = 4
+    # exposure_defense = 0.25
+    # exposure_wr = 0.25
+    # exposure_rb = 0.75
+    # exposure_te = 0.75
+    # exposure_qb = 0.5
+    
+    total.us.count <- rep(NA, week.latest)
+    qb.us.count <- rep(NA, week.latest)
+    rb.us.count <- rep(NA, week.latest)
+    wr.us.count <- rep(NA, week.latest)
+    te.us.count <- rep(NA, week.latest)
+    flex.us.count <- rep(NA, week.latest)
+    dst.us.count <- rep(NA, week.latest)
+    for (i in 1:week.latest) {
+      if (i %in% c(wks.20, wks.27)) {
+        temp.lineups <- read.csv(file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", i, "_dfn_formulation14_overlap_4_defexp_0.25_wrexp_0.25_rbexp_0.75_teexp_0.75_qbexp_0.5.csv"))
+        
+        occurences <- sort(table(unlist(temp.lineups)), decreasing=T)
+        total.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
+        qb.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("RB","RB.1")])), decreasing=T)
+        rb.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("WR","WR.1","WR.2")])), decreasing=T)
+        wr.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("TE")])), decreasing=T)
+        te.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("FLEX")])), decreasing=T)
+        flex.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("DST")])), decreasing=T)
+        dst.us.count[i] <- length(occurences)
+      }
+    }
+    
+    par(mfrow=c(3,2))
+    plot(1:week.latest, qb.us.count, ylim = c(min(c(qb.us.count,qb.count), na.rm = T),max(c(qb.us.count,qb.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 14 (b) vs ", user.name, " (r) QB Count (MillyMaker)"), type = "b")
+    points(qb.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, rb.us.count, ylim = c(min(c(rb.us.count,rb.count), na.rm = T),max(c(rb.us.count,rb.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 14 (b) vs ", user.name, " (r) RB Count (MillyMaker)"), type = "b")
+    points(rb.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, wr.us.count, ylim = c(min(c(wr.us.count,wr.count), na.rm = T),max(c(wr.us.count,wr.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 14 (b) vs ", user.name, " (r) WR Count (MillyMaker)"), type = "b")
+    points(wr.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, te.us.count, ylim = c(min(c(te.us.count,te.count), na.rm = T),max(c(te.us.count,te.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 14 (b) vs ", user.name, " (r) TE Count (MillyMaker)"), type = "b")
+    points(te.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, flex.us.count, ylim = c(min(c(flex.us.count,flex.count), na.rm = T),max(c(flex.us.count,flex.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 14 (b) vs ", user.name, " (r) FLEX Count (MillyMaker)"), type = "b")
+    points(flex.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, dst.us.count, ylim = c(min(c(dst.us.count,dst.count), na.rm = T),max(c(dst.us.count,dst.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 14 (b) vs ", user.name, " (r) DST Count (MillyMaker)"), type = "b")
+    points(dst.count, type = "b", col = 'red') # other user's
+    
+    par(mfrow=c(1,1))
+    plot(1:week.latest, total.us.count, ylim = c(min(c(total.us.count,total.count), na.rm = T),max(c(total.us.count,total.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 14 (b) vs ", user.name, " (r) Total Player Count (MillyMaker)"), type = "b") # plot total count
+    points(total.count, type = "b", col = 'red') # other user's
+  }
+  
+  
+  if (subsection.run==3) {
+    #------ Formulation 15 ------#
+    # overlap = 4
+    # exposure_defense = 0.25
+    # exposure_wr = 0.25
+    # exposure_rb = 0.75
+    # exposure_te = 0.75
+    # exposure_qb = 0.5
+    
+    total.us.count <- rep(NA, week.latest)
+    qb.us.count <- rep(NA, week.latest)
+    rb.us.count <- rep(NA, week.latest)
+    wr.us.count <- rep(NA, week.latest)
+    te.us.count <- rep(NA, week.latest)
+    flex.us.count <- rep(NA, week.latest)
+    dst.us.count <- rep(NA, week.latest)
+    for (i in 1:week.latest) {
+      if (i %in% c(wks.20, wks.27) & i > 3) { # form 15 only feasible for week >= 4
+        temp.lineups <- read.csv(file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", i, "_dfn_formulation15_overlap_4_defexp_0.25_wrexp_0.25_rbexp_0.75_teexp_0.75_qbexp_0.5_valuewrexp_0.15.csv"))
+        
+        occurences <- sort(table(unlist(temp.lineups)), decreasing=T)
+        total.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
+        qb.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("RB","RB.1")])), decreasing=T)
+        rb.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("WR","WR.1","WR.2")])), decreasing=T)
+        wr.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("TE")])), decreasing=T)
+        te.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("FLEX")])), decreasing=T)
+        flex.us.count[i] <- length(occurences)
+        
+        occurences <- sort(table(unlist(temp.lineups[,c("DST")])), decreasing=T)
+        dst.us.count[i] <- length(occurences)
+      }
+    }
+    
+    par(mfrow=c(3,2))
+    plot(1:week.latest, qb.us.count, ylim = c(min(c(qb.us.count,qb.count), na.rm = T),max(c(qb.us.count,qb.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 15 (b) vs ", user.name, " (r) QB Count (MillyMaker)"), type = "b")
+    points(qb.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, rb.us.count, ylim = c(min(c(rb.us.count,rb.count), na.rm = T),max(c(rb.us.count,rb.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 15 (b) vs ", user.name, " (r) RB Count (MillyMaker)"), type = "b")
+    points(rb.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, wr.us.count, ylim = c(min(c(wr.us.count,wr.count), na.rm = T),max(c(wr.us.count,wr.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 15 (b) vs ", user.name, " (r) WR Count (MillyMaker)"), type = "b")
+    points(wr.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, te.us.count, ylim = c(min(c(te.us.count,te.count), na.rm = T),max(c(te.us.count,te.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 15 (b) vs ", user.name, " (r) TE Count (MillyMaker)"), type = "b")
+    points(te.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, flex.us.count, ylim = c(min(c(flex.us.count,flex.count), na.rm = T),max(c(flex.us.count,flex.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 15 (b) vs ", user.name, " (r) FLEX Count (MillyMaker)"), type = "b")
+    points(flex.count, type = "b", col = 'red') # other user's
+    plot(1:week.latest, dst.us.count, ylim = c(min(c(dst.us.count,dst.count), na.rm = T),max(c(dst.us.count,dst.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 15 (b) vs ", user.name, " (r) DST Count (MillyMaker)"), type = "b")
+    points(dst.count, type = "b", col = 'red') # other user's
+    
+    par(mfrow=c(1,1))
+    plot(1:week.latest, total.us.count, ylim = c(min(c(total.us.count,total.count), na.rm = T),max(c(total.us.count,total.count), na.rm = T)), xlab = "Week", ylab = "Count", main = paste0("Form 15 (b) vs ", user.name, " (r) Total Player Count (MillyMaker)"), type = "b") # plot total count
+    points(total.count, type = "b", col = 'red') # other user's
+  }
+  
 }
-
-
-
 
 
 

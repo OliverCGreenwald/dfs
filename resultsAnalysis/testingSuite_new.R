@@ -11,10 +11,11 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 17
+week.lo <- 4
 week.hi <- 17
 
 contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
+wk.4 <- c(10,16) # weeks where $3 contest was $4
 thu_mon.bool <- F # True if using thursday-monday games, False if using only Sunday games
 
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
@@ -32,7 +33,7 @@ exposure.wr <- 0.25
 exposure.rb <- 0.75
 exposure.te <- 0.75
 exposure.qb <- 0.5
-exposure.valuewr <- "_valuewrexp_0.1" # "_valuewrexp_0.1" or ""
+exposure.valuewr <- "_valuewrexp_0.15" # "_valuewrexp_0.15" or ""
 freqInd <- "" # _FreqInd or ""
 
 num.lineups <- "" # "" or "_numlineups_1000"
@@ -69,7 +70,7 @@ for (week.num in week.lo:week.hi) {
     # do nothing
   } else {
     ####### LOAD FULL CONTEST RESULTS #########
-    if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num == 10) {
+    if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num %in% wk.4) {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", '$4', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
     } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num > 9) {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", '$27', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
@@ -107,7 +108,7 @@ for (week.num in week.lo:week.hi) {
     }
 
     ######## IMPORT PAYOUT STRUCTURE ########
-    if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num == 10) {
+    if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num %in% wk.4) {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", '$4', "_payout_structure_week", week.num, ".csv") 
     } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num > 9) {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", '$27', "_payout_structure_week", week.num, ".csv") 
@@ -175,7 +176,7 @@ for (week.num in week.lo:week.hi) {
         }
 
         ######## ADD TO PNL MATRIX ########
-        if (contest.entry.fee=='$3' & week.num == 10) {
+        if (contest.entry.fee=='$3' & week.num %in% wk.4) {
           temp.contest.entry.fee <- '$4'
         } else if (contest.entry.fee=='$20' & week.num > 9) {
           temp.contest.entry.fee <- '$27'

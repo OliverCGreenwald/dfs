@@ -40,15 +40,17 @@ library("SDMTools")
 # "svmlight_rbf_costfactor0.035_param6.8e-07_wks4-10_minfpts18.5.RData" (tuning weight: 1.25, result: good)
 # "svmlight_rbf_costfactor0.015_param3.16e-06_wks4-9_minfpts18.5.RData" (turning wieght: 1.25, result: good)
 #
-# Best Models Weekly:
+# Best Models Weekly (gets better week over week):
 # Week 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
 # Week 15: "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData"
 # Week 14: "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData"
 # Week 13: "svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData"
 # Week 12: "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
+# Week 11: "svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData"
+# Week 10: "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"
 
 
-save.model.name <- "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
+save.model.name <- "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"
 load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
 
 
@@ -57,7 +59,7 @@ write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
-wk <- 12
+wk <- 10
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 

@@ -14,7 +14,7 @@
 ####### SET MODEL TO RUN #######
 model.run <- "10" # 10
 week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 10 # for loop only
+week.max <- 9 # for loop only
 
 
 ####### WRITE TO FILE? #######
@@ -308,7 +308,7 @@ if (model.run==10) {
       list.confusion.mat.10[[i]][1,j] <- confusion.mat[2,1]
       list.confusion.mat.11[[i]][1,j] <- confusion.mat[2,2]
       
-      Sys.sleep(10)
+      Sys.sleep(20)
     }
     
     error.all[j] <- mean(error) # mean error over k folds of cv
@@ -387,6 +387,8 @@ if (model.run==10) {
   print(ptm)
   
   
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData") # factor: 5
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData") # factor: 5
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData") # factor: 10
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData") # factor: 5
