@@ -3,25 +3,17 @@
 
 
 ####### DESCRIPTION #######
-# In this file we construct a dataset to classify cheap WRs as "value" (1) or "not value" (0).
+# In this file we construct a dataset to classify top TEs as "hit" (1) or "not hit" (0).
 # Section I: Prepare dataset
-# Section II: Machine Learning Algorithms for Classifying Value WRs
+# Section II: Machine Learning Algorithms for Classifying Top TEs
 #   Model I: Logistic Regression
-#     - never predicts 1's on testing set
-#   Model II: Regularized Logistic Regression
-#     - never predicts 1's on testing set
+#   Model II: Regularized Logistic Regression (lasso, ridge, elastic net)
 #   Model III: CART
-#     - never predicts 1's on testing set
 #   Model IV: Random Forest
 #   Model V: PCA
-#     - PCA1-PCA3 seem to capture ~75% of the variance
 #   Model VI:  C-classification SVM (Linear Kernel)
-#     Subsection I:
-#       (1) unaltered functional margin: never predicts 1's on testing set (terrible precision)...see Model IX
-#       (2) looser functional margin: predicts 1's on testing set, but error tradeoff (note that we set an arbitrary "cutoff" probability for classifying 1's)
-#     Subsection II:
-#       - tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) instead of minimizing CV error
-#       - still never predicts 1's (across all C). terrible precision.
+#     Subsection I: Tuning C by minimizing CV error
+#     Subsection II: Tuning C by maximizing P(hitting Top TE with reduced set of top TE)
 #   Model VII:  C-classification SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
 #     Subsection I (tuning C by minimizing CV error):
 #       - rbfdot (Radial Basis/Gaussian kernel): (note: need to tune γ. consider using Optunity package.) 
@@ -31,7 +23,7 @@
 #       - besseldot (Bessel kernel): 
 #       - polydot (Polynomial kernel degree ?): (need to tune degree)
 #       - splinedot (Spline [piece-wise cubic polynomial] kernel): solid (only one to have 1's even with unaltered functional margin)
-#     Subsection II (tuning C by maximizing prob of hitting Value WR):
+#     Subsection II (tuning C by maximizing prob of hitting Top TE):
 #       - rbfdot (Radial Basis/Gaussian kernel):
 #       - anovadot (ANOVA RBF kernel): 
 #       - tanhdot (Hyperbolic tangent / sigmoid kernel): 
@@ -41,56 +33,21 @@
 #       - splinedot (Spline [piece-wise cubic polynomial] kernel):
 #   Model VIII:  Novelty-Detection SVM (Linear Kernel)
 #     - this is not the right model for our problem. novelty detection models a distribution using the training set and determines which examples in the testing set don't belong in this distribution
-#   Model IX:  Asymmetric Cost SVM (RBF Kernel)
-#     - shouldn't need to change modelX.cost.factor.ratio.vec and modelX.kernel.param.vec for tuning
-#   Model X:  Asymmetric Cost SVM (Linear Kernel)
-#     - Instead of penalty parameter C, we introduce C+ and C-, which penalize false positives and false negatives, respectively. Useful for dataset with very unbalanced number of positive and negative examples. (http://svmlight.joachims.org/)
-#     - Set modelIX.cost.factor.ratio.vec +-0.10 seq around sum(dataset.all$Value==1)/sum(dataset.all$Value==0)
-#   Test: testing code
 #
-#
-#     SVMLIGHT:
-#     http://svmlight.joachims.org/
-#     Learning options:
-#           -j float  - Cost: cost-factor, by which training errors on positive examples outweight errors on negative examples (default 1) (see [Morik et al., 1999])
-#     - Kernel options:
-#           -t int      - type of kernel function:
-#               0: linear (default)
-#               1: polynomial (s a*b+c)^d
-#               2: radial basis function exp(-gamma ||a-b||^2)
-#               3: sigmoid tanh(s a*b + c)
-#               4: user defined kernel from kernel.h
-#           -d int      - parameter d in polynomial kernel
-#           -g float    - parameter gamma in rbf kernel
-#           -s float    - parameter s in sigmoid/poly kernel
-#           -r float    - parameter c in sigmoid/poly kernel
-#           -u string   - parameter of user defined kernel
-#
+# Notes:
+#   - logistic is not very good
+#   - testing.ind <- sample(x=1:nrow(dataset.all), size=12)
+#   - temp$Proj.FP > 0
 #
 # TODO:
-# - we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0 (historicalFpts.R)
-# - Add Snaps, Snap Pct, Rush Pct, Tgt Pct, Touch Pct, Util Pct (rolling) from fantasydata/snapcounts
-# - Add Rush Yds, TD [rush], Rec, Yds, TD [rec] (rolling) from fantasydata/fantasystats
-# - might not be optimal for our problem to use tuning parameters that minimize error
-# - use PCA1-PCA3 for CART (good visualization) or some other model. use this to classify.
-# - Model VII doesn't work for the altered functional margin (prob.model=T => "line search fails" => predict function returns error: "Error in prob.model(object)[[p]]$A : $ operator is invalid for atomic vectors")
-#   - http://stackoverflow.com/questions/15895897/line-search-fails-in-training-ksvm-prob-model
-# - Model IX is tuned incorrectly. Shouldn't be touching testing set during training. Need to do cross validation.
-# - Confusion matrix bug for CART and RF
-# - RF probably isn't being tuned correctly. All 0's for almost any threshold/params.
-# - consider adding temp$Proj.FP > 0
-# - testing.ind <- sample(x=1:nrow(dataset.all), size=nrow(dataset.all)/5) adjusted to average number of viable players in some files (instead of 1/5)
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "" # 1-10, "test"
+model.run <- "1" # 1-8, "test"
 model.run.subsection <- "2" # ignored if model doesn't have any subsections
-modelVII.kernel <- "splinedot" # set this to some kernel if model.run = 7
-modelIX.cost.factor.ratio.vec <- seq(from = 0.005, 0.10, by = 0.005)
-modelIX.kernel.param.vec <- round(exp(seq(log(1e-7), log(1e-3), length.out=25)), 8)
-modelX.cost.factor.ratio.vec <- seq(from = 0.02, 0.13, by = 0.01) # seq(from = 0.02, 0.14, by = 0.005) # C_+ / C_- ratio hyperparameter # set this to some seq if model.run = 9 # (make sure this is 1D if  kernel param is > 1D)
-week.min <- 6 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 16 # for loop only
+modelVII.kernel <- "rbfdot" # set this to some kernel if model.run = 7
+week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
+week.max <- 13 # for loop only
 
 
 ####### WRITE TO FILE? #######
@@ -102,8 +59,8 @@ save.model.name <- "svmlight_linear_costfactor0.41_wks4-15_minfpts10.0.RData" # 
 ####### SET PARAMETERS #######
 # wk <- 16 # must be >= 4 (data availability) # uncomment this if for loop (wk in 4:15) is commented out
 
-salary.threshold <- 5000 # define cheap
-fpts.threshold <- 18.5 # 18.5 # define value
+salary.threshold <- 3500 # define cheap
+fpts.threshold <- 18.5 # define value
 
 historicalfpts3wklag.bool <- T # TRUE if want to use 3 week lag historical fpts instead of all historical
 include.names.fpts.bool <- F # TRUE if want to include Player.Name and Actual.FP columns and output to includes_historicalfpts3wklag/includes_names-fpts folder (if TRUE, don't run any models in this file)
@@ -126,9 +83,10 @@ library("randomForest")
 library("klaR")
 
 
-####### SECTION I: PREPARE DATAFRAME OF CHEAP WR #######
+####### SECTION I: PREPARE DATAFRAME OF top TE #######
 #---- Initializing df for storing all weeks (if loop over weeks is used) ----#
 dataset.all <- NULL
+dataset.all.copy <- NULL # copy that keeps name and actual fpts (used for analyzing false positives)
 
 for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   #---- Read and clean DFN features ----#
@@ -142,7 +100,7 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   temp$DvP <- as.numeric(sub("%", "", temp$DvP))*0.01
   
   #---- Subset cheap WRs ----#
-  temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Inj','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  temp.cheap <- temp[temp$Proj.FP > 0 & temp$Salary > salary.threshold & temp$Pos=='TE', c('Player.Name','Likes','Inj','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
   
   #---- Clean temp.cheap player names for matching fantasydata names ----#
   temp.cheap$Player.Name.Temp <- sub("'", "", temp.cheap$Player.Name)
@@ -272,34 +230,45 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   temp.cheap$Value[temp.cheap$Actual.FP < fpts.threshold] <- 0
   
   #---- Remove from feature set ----#
-  if (include.names.fpts.bool==F) {
-    temp.cheap$Player.Name <- NULL
-    temp.cheap$Actual.FP <- NULL 
-  }
-  temp.cheap$Pos <- NULL
-  temp.cheap$Team <- NULL
-  temp.cheap$Opp <- NULL
-  temp.cheap$Player.Name.Temp <- NULL
+  # temp.cheap$Pos <- NULL
+  # temp.cheap$Team <- NULL
+  # temp.cheap$Opp <- NULL
+  # temp.cheap$Player.Name.Temp <- NULL
+  # if (include.names.fpts.bool==F) {
+  #   temp.cheap$Player.Name <- NULL
+  #   temp.cheap$Actual.FP <- NULL 
+  # }
   
-  #---- Print number of Value WR ----#
-  print(paste0("Wk ", wk, " Num of Value WR / Num Cheap WR:   ", sum(temp.cheap$Value>0), " / ", nrow(temp.cheap)))
+  #---- Print number of Top TE ----#
+  print(paste0("Wk ", wk, " Num of Top TE / Num top TE:   ", sum(temp.cheap$Value>0), " / ", nrow(temp.cheap)))
   
   #---- Remove rows with NAs ----#
   temp.dataset <- na.omit(temp.cheap)
   
-  #---- Print number of Value WR after removing NAs ----#
-  print(paste0("Wk ", wk, " Num of Value WR / Num Cheap WR (NAs Removed):   ", sum(temp.dataset$Value>0), " / ", nrow(temp.dataset)))
+  #---- Print number of Top TE after removing NAs ----#
+  print(paste0("Wk ", wk, " Num of Top TE / Num top TE (NAs Removed):   ", sum(temp.dataset$Value>0), " / ", nrow(temp.dataset)))
+  
+  #---- Remove from feature set ----#
+  temp.dataset$Pos <- NULL
+  temp.dataset$Team <- NULL
+  temp.dataset$Opp <- NULL
+  temp.dataset$Player.Name.Temp <- NULL
+  temp.dataset.copy <- temp.dataset # make copy that includes name and actual fpts
+  if (include.names.fpts.bool==F) {
+    temp.dataset$Player.Name <- NULL
+    temp.dataset$Actual.FP <- NULL 
+  }
   
   #---- Write dataset to file (if set parameters for weekly output) ----#
   if (write.bool==T) {
     if (outputweekly.bool==T & (fantasydata.snapcounts.bool==T | fantasydata.stats.bool==T)) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_fantasydata/cheapwr_data_week", wk, ".csv"), row.names = F) 
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/topWR/weekly_data/includes_fantasydata/topwr_data_week", wk, ".csv"), row.names = F) 
     } else if (outputweekly.bool==T & historicalfpts3wklag.bool == F) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_allhistoricalfpts/cheapwr_data_week", wk, ".csv"), row.names = F)
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/topWR/weekly_data/includes_allhistoricalfpts/topwr_data_week", wk, ".csv"), row.names = F)
     } else if (outputweekly.bool==T & historicalfpts3wklag.bool == T & include.names.fpts.bool==F) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/cheapwr_data_week", wk, ".csv"), row.names = F)
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/topWR/weekly_data/includes_historicalfpts3wklag/topwr_data_week", wk, ".csv"), row.names = F)
     } else if (outputweekly.bool==T & historicalfpts3wklag.bool == T & include.names.fpts.bool==T) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), row.names = F)
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/topWR/weekly_data/includes_historicalfpts3wklag/includes_names-fpts/topwr_data_week", wk, ".csv"), row.names = F)
     } else {
       # nothing
     }
@@ -307,22 +276,23 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   
   #---- Append each week's dataset (if meets min week parameter) ----#
   if (wk >= week.min) {
-    dataset.all <- rbind(dataset.all, temp.dataset) 
+    dataset.all <- rbind(dataset.all, temp.dataset)
+    dataset.all.copy <- rbind(dataset.all.copy, temp.dataset.copy)
   }
 }
 
 
-#---- Print number of Value WR over all weeks (no NAs) ----#
-print(paste0("All Weeks, Num of Value WR / Num Cheap WR (NAs Removed):   ", sum(dataset.all$Value>0), " / ", nrow(dataset.all)))
+#---- Print number of Top TE over all weeks (no NAs) ----#
+print(paste0("All Weeks, Num of Top TE / Num top TE (NAs Removed):   ", sum(dataset.all$Value>0), " / ", nrow(dataset.all)))
 
-#---- Print number of Value WR after removing NAs ----#
+#---- Write to file ----#
 if (write.bool==T & outputweekly.bool==F) {
-  write.csv(dataset.all, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/cheapwr_data_allwks.csv"), row.names = F)
+  write.csv(dataset.all, file = paste0("optimizationCode/data_warehouse/datasets/topWR/topwr_data_allwks.csv"), row.names = F)
 }
 
 
 ####### SPLIT INTO TRAINING AND TESTING DATA #######
-testing.ind <- sample(x=1:nrow(dataset.all), size=nrow(dataset.all)/5)
+testing.ind <- sample(x=1:nrow(dataset.all), size=12) # size=nrow(dataset.all)/5
 data.test <- dataset.all[testing.ind, ]
 data.train <- dataset.all[-testing.ind, ]
 
@@ -346,8 +316,17 @@ if (model.run==1) {
   print("Logistic Confusion Matrix")
   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.logistic), threshold = 0.5)
   print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  
+  
+  # view players predicted to hit and not hit
+  cat("\n")
+  print("Players Predicted 1")
+  print(dataset.all.copy[rownames(test.x[pred.logistic==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+  cat("\n")
+  print("Players Predicted 0")
+  print(dataset.all.copy[rownames(test.x[pred.logistic==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
 }
 
 
@@ -367,8 +346,8 @@ if (model.run==2) {
   print("LASSO Confusion Matrix")
   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.lasso), threshold = 0.5)
   print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
   
   # RIDGE PENALTY
   model.ridge.cv <- cv.glmnet(x=data.matrix(train.x), y=train.y, alpha=0, family='binomial', type.measure='class', nfolds=5) # alpha = 1 is lasso, alpha = 0 is ridge
@@ -384,8 +363,8 @@ if (model.run==2) {
   print("Ridge Confusion Matrix")
   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.ridge), threshold = 0.5)
   print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
   
   # ELASTIC NET PENALTY
   model.elasticnet.cv <- cv.glmnet(x=data.matrix(train.x), y=train.y, alpha=0.4, family='binomial', type.measure='class', nfolds=5) # alpha = 1 is lasso, alpha = 0 is ridge
@@ -401,8 +380,17 @@ if (model.run==2) {
   print("Elastic-Net Confusion Matrix")
   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.elasticnet), threshold = 0.5)
   print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  
+  
+  # view players predicted to hit and not hit
+  cat("\n")
+  print("Players Predicted 1")
+  print(dataset.all.copy[rownames(test.x[pred.elasticnet==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+  cat("\n")
+  print("Players Predicted 0")
+  print(dataset.all.copy[rownames(test.x[pred.elasticnet==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
 }
 
 
@@ -420,8 +408,17 @@ if (model.run==3) {
   print("CART Confusion Matrix")
   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.cart), threshold = 0.5)
   print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  
+  
+  # view players predicted to hit and not hit
+  cat("\n")
+  print("Players Predicted 1")
+  print(dataset.all.copy[rownames(test.x[pred.cart==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+  cat("\n")
+  print("Players Predicted 0")
+  print(dataset.all.copy[rownames(test.x[pred.cart==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
 }
 
 
@@ -465,8 +462,17 @@ if (model.run==4) {
   print("Random Forest Confusion Matrix")
   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.rf), threshold = 0.5)
   print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  
+  
+  # view players predicted to hit and not hit
+  cat("\n")
+  print("Players Predicted 1")
+  print(dataset.all.copy[rownames(test.x[pred.rf==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+  cat("\n")
+  print("Players Predicted 0")
+  print(dataset.all.copy[rownames(test.x[pred.rf==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
 }
 
 
@@ -489,8 +495,7 @@ if (model.run==5) {
 if (model.run==6) {
   if (model.run.subsection==1) {
     #---- Tuning C by minimizing CV error ----#
-    ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
-    tuning.param <- exp(ln.tuning.param)
+    tuning.param <- exp(seq(log(1e-4), log(1e0), length.out=100)) # exp(seq(log(1e-4), log(1e2), length.out=100))
     cv.error <- vector(mode='numeric', length=100)
     for (i in 1:100) {
       model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=tuning.param[i], cross=5)
@@ -498,10 +503,10 @@ if (model.run==6) {
       print(i)
     }
     
-    plot(log(tuning.param), cv.error, type='l', main='Misclassification Error')
+    plot(tuning.param, cv.error, type='l', main='Misclassification Error')
     c.optimal <- tuning.param[which.min(cv.error)] # optimal tuning parameter C
     
-    # (1) svm model with standard functional margin
+    # svm model with standard functional margin
     model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5)
     pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
     test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
@@ -511,29 +516,21 @@ if (model.run==6) {
     print("SVM (std functional margin) Confusion Matrix")
     confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
     print(confusion.mat) # 0% true positives success rate
-    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
     
-    # (2) svm model with looser functional margin
-    model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c.optimal, cross=5, prob.model=TRUE)
-    pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
-    cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-    pred.svm.temp <- rep(0,length(test.y))
-    pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
-    test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
+    
+    # view players predicted to hit and not hit
     cat("\n")
-    print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
-    
-    # confusion matrix
-    print("SVM (looser functional margin) Confusion Matrix")
-    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-    print(confusion.mat) # we're ok with false-negatives
-    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y))) 
+    print("Players Predicted 1")
+    print(dataset.all.copy[rownames(test.x[pred.svm==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+    cat("\n")
+    print("Players Predicted 0")
+    print(dataset.all.copy[rownames(test.x[pred.svm==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
   }
   
   if (model.run.subsection==2) {
-    #---- Tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
+    #---- Tuning C by maximizing P(hitting Top TE with reduced set of top TE) ----#
     ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
     tuning.param <- exp(ln.tuning.param)
     prob.hit.vec <- vector(mode='numeric', length=100)
@@ -545,7 +542,7 @@ if (model.run==6) {
       print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", prob.hit.vec[i]))
     }
     
-    plot(log(tuning.param), prob.hit.vec, type='l', main='P(hitting Value WR with reduced set of cheap WR)', xlab = "Probability")
+    plot(log(tuning.param), prob.hit.vec, type='l', main='P(hitting Top TE with reduced set of top TE)', xlab = "Probability")
     c.optimal <- tuning.param[which.max(prob.hit.vec)] # optimal tuning parameter C
     
     # svm model with standard functional margin
@@ -558,14 +555,24 @@ if (model.run==6) {
     print("SVM (std functional margin) Confusion Matrix")
     confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
     print(confusion.mat) # 0% true positives success rate
-    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    
+    
+    # view players predicted to hit and not hit
+    cat("\n")
+    print("Players Predicted 1")
+    print(dataset.all.copy[rownames(test.x[pred.svm==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+    cat("\n")
+    print("Players Predicted 0")
+    print(dataset.all.copy[rownames(test.x[pred.svm==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
   }
 }
 
 
 ####### MODEL VII: SVM (KERNEL SET AT BEGINNING OF FILE) #######
 if (model.run==7) {
+  
   if (model.run.subsection==1) {
     #---- Tuning C by minimizing CV error ----#
     ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
@@ -590,30 +597,22 @@ if (model.run==7) {
     print("SVM (std functional margin) Confusion Matrix")
     confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
     print(confusion.mat) # 0% true positives success rate
-    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
-    cat("\n")
-    cat("\n")
+    print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
     
-    # # svm model with looser functional margin
-    # model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel=modelVII.kernel, C=c.optimal, cross=5, prob.model=T, scale = T) # default minstep = 1e-10 is hardcoded into source code so we can't adjust it
-    # pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob')
-    # cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-    # pred.svm.temp <- rep(0,length(test.y))
-    # pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
-    # test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
-    # cat("\n")
-    # print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
-    # 
-    # # confusion matrix
-    # print("SVM (looser functional margin) Confusion Matrix")
-    # confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-    # print(confusion.mat) # we're ok with false-negatives
-    # print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    # print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    
+    # view players predicted to hit and not hit
+    cat("\n")
+    print("Players Predicted 1")
+    print(dataset.all.copy[rownames(test.x[pred.svm==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+    cat("\n")
+    print("Players Predicted 0")
+    print(dataset.all.copy[rownames(test.x[pred.svm==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
   }
+  
+  
   if (model.run.subsection==2) {
-    #---- Tuning C by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
+    #---- Tuning C by maximizing P(hitting Top TE with reduced set of top TE) ----#
     ln.tuning.param <- seq(log(1e-4), log(1e2), length.out=100)
     tuning.param <- exp(ln.tuning.param)
     prob.hit.vec <- vector(mode='numeric', length=100)
@@ -625,7 +624,7 @@ if (model.run==7) {
       print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", prob.hit.vec[i]))
     }
     
-    plot(log(tuning.param), prob.hit.vec, type='l', main='P(hitting Value WR with reduced set of cheap WR)')
+    plot(log(tuning.param), prob.hit.vec, type='l', main='P(hitting Top TE with reduced set of top TE)')
     c.optimal <- tuning.param[which.max(prob.hit.vec)] # optimal tuning parameter C
     
     # svm model with standard functional margin
@@ -638,8 +637,17 @@ if (model.run==7) {
     print("SVM (std functional margin) Confusion Matrix")
     confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
     print(confusion.mat)
-    print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+    
+    
+    # view players predicted to hit and not hit
+    cat("\n")
+    print("Players Predicted 1")
+    print(dataset.all.copy[rownames(test.x[pred.svm==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
+    cat("\n")
+    print("Players Predicted 0")
+    print(dataset.all.copy[rownames(test.x[pred.svm==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
   }
 }
 
@@ -668,287 +676,15 @@ if (model.run==8) {
   print("SVM (std functional margin) Confusion Matrix")
   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
   print(confusion.mat) # 0% true positives success rate
-  print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print(paste0("Top TE hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+  print(paste0("Top TE hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  
+  
+  # view players predicted to hit and not hit
   cat("\n")
+  print("Players Predicted 1")
+  print(dataset.all.copy[rownames(test.x[pred.svm==1,]), c('Player.Name','Actual.FP')]) # players predicted to hit
   cat("\n")
-  
-  # # svm model with looser functional margin
-  # model.svm.alt <- ksvm(x=data.matrix(train.x), y=train.y, type='one-svc', kernel="vanilladot", C=c.optimal, cross=5, prob.model=T, scale = T)
-  # pred.svm.alt <- predict(model.svm.alt, data.matrix(test.x), type='prob') # bug: doesn't work
-  # cutoff <- mean(pred.svm.alt[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-  # pred.svm.temp <- rep(0,length(test.y))
-  # pred.svm.temp[pred.svm.alt[,1] >= cutoff] <- 1
-  # test.error.svm.alt <- mean(abs(as.numeric(pred.svm.temp) - test.y))
-  # cat("\n")
-  # print(paste0("SVM (looser functional margin) Testing Error:   ", test.error.svm.alt))
-  # 
-  # # confusion matrix
-  # print("SVM (looser functional margin) Confusion Matrix")
-  # confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-  # print(confusion.mat) # we're ok with false-negatives
-  # print(paste0("Value WR hit rate w/ classification:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  # print(paste0("Value WR hit rate w/o classification:   ", sum(test.y==1)/length(test.y)))
+  print("Players Predicted 0")
+  print(dataset.all.copy[rownames(test.x[pred.svm==0,]), c('Player.Name','Actual.FP')]) # players predicted to not hit
 }
-
-
-####### MODEL IX: ASYMMETRIC COST SVM (RBF KERNEL) #######
-# http://svmlight.joachims.org/
-# Learning options:
-# -j float  - Cost: cost-factor, by which training errors on positive examples outweight errors on negative examples (default 1) (see [Morik et al., 1999])
-#
-# Kernel options:
-# -t int      - type of kernel function:
-#   0: linear (default)
-#   1: polynomial (s a*b+c)^d
-#   2: radial basis function exp(-gamma ||a-b||^2)
-#   3: sigmoid tanh(s a*b + c)
-#   4: user defined kernel from kernel.h
-# -d int      - parameter d in polynomial kernel
-# -g float    - parameter gamma in rbf kernel
-# -s float    - parameter s in sigmoid/poly kernel
-# -r float    - parameter c in sigmoid/poly kernel
-# -u string   - parameter of user defined kernel
-
-if (model.run==9) {
-  # load(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.025_param1e-06_wks4-15_minfpts18.5.RData")
-  
-  # init
-  modelIX.tuning.mat.00 <- as.data.frame(matrix(NA, nrow = length(modelIX.cost.factor.ratio.vec), ncol = length(modelIX.kernel.param.vec), dimnames = list(modelIX.cost.factor.ratio.vec, modelIX.kernel.param.vec)))
-  modelIX.tuning.mat.01 <- as.data.frame(matrix(NA, nrow = length(modelIX.cost.factor.ratio.vec), ncol = length(modelIX.kernel.param.vec), dimnames = list(modelIX.cost.factor.ratio.vec, modelIX.kernel.param.vec)))
-  modelIX.tuning.mat.10 <- as.data.frame(matrix(NA, nrow = length(modelIX.cost.factor.ratio.vec), ncol = length(modelIX.kernel.param.vec), dimnames = list(modelIX.cost.factor.ratio.vec, modelIX.kernel.param.vec)))
-  modelIX.tuning.mat.11 <- as.data.frame(matrix(NA, nrow = length(modelIX.cost.factor.ratio.vec), ncol = length(modelIX.kernel.param.vec), dimnames = list(modelIX.cost.factor.ratio.vec, modelIX.kernel.param.vec)))
-  
-  for (i in 1:length(modelIX.cost.factor.ratio.vec)) {
-    for (j in 1:length(modelIX.kernel.param.vec)) {
-      # train model
-      model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = paste0("-t 2 -g ", modelIX.kernel.param.vec[j], " -j ", modelIX.cost.factor.ratio.vec[i]), scal = T)
-      
-      # confusion matrix (training)
-      pred.train.svmlight <- predict(model.svmlight, newdata = train.x, scal = T)
-      confusion.train.mat <- confusion.matrix(obs = train.y, pred = as.numeric(as.character(pred.train.svmlight$class)), threshold = 0.5)
-      print(confusion.train.mat)
-      print(paste0("Value WR hit rate w/ classification (training set):   ", confusion.train.mat[2,2]/(confusion.train.mat[2,1] + confusion.train.mat[2,2])))
-      print(paste0("Value WR hit rate w/o classification (training set):   ", sum(train.y==1)/length(train.y)))
-      
-      # compute error on testing set (not as important to us)
-      pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
-      test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
-      print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
-      
-      # confusion matrix (testing)
-      print("Cost Factor SVM Confusion Matrix")
-      confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
-      print(confusion.mat)
-      print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-      print(paste0("Value WR hit rate w/o classification(testing set):   ", sum(test.y==1)/length(test.y))) 
-      
-      # add to modelIX.tuning.mat
-      # a <- confusion.mat[2,2] / (confusion.mat[1,2] + confusion.mat[2,2]) # Prop.Preds1.Obs1.Test, i.e. proportion of observed 1's that were predicted 1's
-      # b <- confusion.mat[2,2] / (confusion.mat[2,1] + confusion.mat[2,2]) # Prob.Hit.w.ML.Test, i.e. P(hitting Value WR with reduced set of cheap WR)
-      # c <- confusion.mat[2,2] # Num.True.Pos.Test, i.e. number of true positives
-      # modelIX.tuning.mat[i,j] <- c
-      
-      # store all four elements of confusion matrix (testing)
-      modelIX.tuning.mat.00[i,j] <- confusion.mat[1,1]
-      modelIX.tuning.mat.01[i,j] <- confusion.mat[1,2]
-      modelIX.tuning.mat.10[i,j] <- confusion.mat[2,1]
-      modelIX.tuning.mat.11[i,j] <- confusion.mat[2,2]
-      
-      print(j)
-    }
-    print(i)
-  }
-  
-  # set NA's to 0
-  modelIX.tuning.mat.00[is.na(modelIX.tuning.mat.00)] <- 0
-  modelIX.tuning.mat.01[is.na(modelIX.tuning.mat.01)] <- 0
-  modelIX.tuning.mat.10[is.na(modelIX.tuning.mat.10)] <- 0
-  modelIX.tuning.mat.11[is.na(modelIX.tuning.mat.11)] <- 0
-  
-  # matrix used to maximize the % of obs 1's predicted to be 1 + % of obs 0's predicted to be 0 with a weight on the former
-  truepos.weight <- 1
-  modelIX.tuning.mat <- truepos.weight*modelIX.tuning.mat.11/(modelIX.tuning.mat.01+modelIX.tuning.mat.11) + 1*modelIX.tuning.mat.00/(modelIX.tuning.mat.00+modelIX.tuning.mat.10)
-  modelIX.tuning.mat <- modelIX.tuning.mat.11/(modelIX.tuning.mat.10+modelIX.tuning.mat.11) + modelIX.tuning.mat.11/(modelIX.tuning.mat.11+modelIX.tuning.mat.01)
-  modelIX.tuning.mat[is.na(modelIX.tuning.mat)] <- 0
-  
-  cat("########################################################################################\n")
-  cat("########################################################################################")
-  
-  # find max of matrix
-  max.inds <- which(modelIX.tuning.mat == max(modelIX.tuning.mat), arr.ind = TRUE)
-  modelIX.cost.factor.ratio.vec <- rownames(modelIX.tuning.mat)[max.inds[,1]]
-  modelIX.kernel.param.vec <- colnames(modelIX.tuning.mat)[max.inds[,2]]
-  print(modelIX.cost.factor.ratio.vec)
-  print(modelIX.kernel.param.vec)
-  
-  for (k in 1:nrow(max.inds)) {
-    # train model
-    model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = paste0("-t 2 -g ", modelIX.kernel.param.vec[k], " -j ", modelIX.cost.factor.ratio.vec[k]), scal = T)
-    
-    # compute error on testing set
-    pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
-    test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
-    print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
-    
-    # confusion matrix (testing)
-    print("Cost Factor SVM Confusion Matrix")
-    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
-    print(confusion.mat)
-    print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification(testing set):   ", sum(test.y==1)/length(test.y))) 
-  }
-  
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.015_param3.16e-06_wks4-9_minfpts18.5.RData")
-}
-
-
-####### MODEL X: ASYMMETRIC COST SVM (LINEAR KERNEL) #######
-if (model.run==10) {
-  # cost-factor (C_+ / C_- ratio hyperparameter) matrix for tuning
-  tuning.cost.mat <- as.data.frame(matrix(NA, nrow = length(modelX.cost.factor.ratio.vec), ncol = 9, dimnames = list(NULL, c("Cost.Factor.Ratio","Prop.Preds1.Total.Train","Prop.Preds1.Obs1.Train","Prob.Hit.w.ML.Train","Prob.Hit.w.o.ML.Train","Prop.Preds1.Total.Test","Prop.Preds1.Obs1.Test","Prob.Hit.w.ML.Test", "Prob.Hit.w.o.ML.Test"))))
-  tuning.cost.mat$Cost.Factor.Ratio <- modelX.cost.factor.ratio.vec
-  
-  for (i in 1:length(modelX.cost.factor.ratio.vec)) {
-    # train model
-    model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = paste0("-t 0 -j ", modelX.cost.factor.ratio.vec[i]), scal = T)
-    
-    # confusion matrix (training)
-    pred.train.svmlight <- predict(model.svmlight, newdata = train.x, scal = T)
-    confusion.train.mat <- confusion.matrix(obs = train.y, pred = as.numeric(as.character(pred.train.svmlight$class)), threshold = 0.5)
-    print(confusion.train.mat)
-    print(paste0("Value WR hit rate w/ classification (training set):   ", confusion.train.mat[2,2]/(confusion.train.mat[2,1] + confusion.train.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification (training set):   ", sum(train.y==1)/length(train.y)))
-    
-    # add to tuning.cost.mat
-    tuning.cost.mat$Prop.Preds1.Total.Train[i] <- (confusion.train.mat[2,1] + confusion.train.mat[2,2]) / nrow(train.x) # Proportion of examples predicted to be 1 (out of total examples)
-    tuning.cost.mat$Prop.Preds1.Obs1.Train[i] <- confusion.train.mat[2,2] / (confusion.train.mat[1,2] + confusion.train.mat[2,2])
-    tuning.cost.mat$Prob.Hit.w.ML.Train[i] <- confusion.train.mat[2,2]/(confusion.train.mat[2,1] + confusion.train.mat[2,2]) # P(hitting Value WR with reduced set of cheap WR)
-    tuning.cost.mat$Prob.Hit.w.o.ML.Train[i] <- sum(train.y==1)/length(train.y) # P(hitting Value WR with entire set of cheap WR)
-    
-    # compute error on testing set (not as important to us)
-    pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
-    test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
-    print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
-    
-    # confusion matrix (testing)
-    print("Cost Factor SVM Confusion Matrix")
-    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
-    print(confusion.mat)
-    print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-    print(paste0("Value WR hit rate w/o classification(testing set):   ", sum(test.y==1)/length(test.y))) 
-    
-    # add to tuning.cost.mat
-    tuning.cost.mat$Prop.Preds1.Total.Test[i] <- (confusion.mat[2,1] + confusion.mat[2,2]) / nrow(test.x) # Proportion of examples predicted to be 1 (out of total examples)
-    tuning.cost.mat$Prop.Preds1.Obs1.Test[i] <- confusion.mat[2,2] / (confusion.mat[1,2] + confusion.mat[2,2])
-    tuning.cost.mat$Prob.Hit.w.ML.Test[i] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2]) # P(hitting Value WR with reduced set of cheap WR)
-    tuning.cost.mat$Prob.Hit.w.o.ML.Test[i] <- sum(test.y==1)/length(test.y) # P(hitting Value WR with entire set of cheap WR)
-      
-    print(i) 
-  }
-  
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.06_wks4-16_minfpts18.5.RData")
-}
-
-
-####### SAVE MODEL IN RDATA FILE #######
-if (save.model.bool==T) {
-  save.image(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
-}
-
-
-####### TEST CODE #######
-if (model.run=="test") {
-  
-  # #---- Test C's for C-SVC ----#
-  # c_s <- seq(from = 0.01, to = 10, by = 0.2)
-  # c_s
-  # mat.c_s.result <- as.data.frame(matrix(NA, nrow = length(c_s), ncol = 4, dimnames = list(NULL, c("c","Test.Error","Hit.Prob.w.Classification","Hit.Prob.w.o.Classification"))))
-  # for (k in 1:length(c_s)) {
-  #   mat.c_s.result[k,1] <- c_s[k]
-  #   
-  #   # svm model with looser functional margin
-  #   model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel='vanilladot', C=c_s[k], cross=5, prob.model=TRUE)
-  #   pred.svm <- predict(model.svm, data.matrix(test.x), type='prob')
-  #   cutoff <- mean(pred.svm[,1]) # mean(pred.svm[,1]) # mean(pred.svm[,1]) - 1*sd(pred.svm[,1]) # mean(pred.svm[,1]) + 1*sd(pred.svm[,1])
-  #   pred.svm.temp <- rep(0,length(test.y))
-  #   pred.svm.temp[pred.svm[,1] >= cutoff] <- 1
-  #   test.error.svm <- mean(abs(as.numeric(pred.svm.temp) - test.y))
-  #   mat.c_s.result[k,2] <- test.error.svm
-  #   
-  #   # confusion matrix
-  #   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm.temp), threshold = 0.5)
-  #   mat.c_s.result[k,3] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])
-  #   mat.c_s.result[k,4] <- sum(test.y==1)/length(test.y)
-  #   print(paste0("C = ", c_s[k]))
-  # }
-  # print(mat.c_s.result)
-  # print(max(mat.c_s.result$Hit.Prob.w.Classification))
- 
-  
-  
-  
-  
-  # #---- Tuning C's by maximizing P(hitting Value WR with reduced set of cheap WR) ----#
-  # num.C <- 13
-  # ln.tuning.param <- seq(log(1e-16), log(1e-4), length.out=num.C)
-  # tuning.param <- exp(ln.tuning.param)
-  # prob.hit.vec <- vector(mode='numeric', length=num.C)
-  # for (i in 1:num.C) {
-  #   # training set
-  #   model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel="splinedot", C=tuning.param[i], cross=5, scale = T)
-  #   pred.svm <- predict(model.svm, data.matrix(train.x), type='response')
-  #   confusion.mat <- confusion.matrix(obs = train.y, pred = as.numeric(pred.svm), threshold = 0.5)
-  #   prob.hit.vec[i] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])
-  #   print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", prob.hit.vec[i], " (training set)"))
-  #   print(confusion.mat)
-  #   print(paste0("Value WR hit rate w/ classification (training set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  #   print(paste0("Value WR hit rate w/o classification (training set):   ", sum(train.y==1)/length(train.y)))
-  #   
-  #   # testing set (bad practice to do this)
-  #   pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
-  #   print("SVM (std functional margin) Confusion Matrix")
-  #   confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
-  #   print(confusion.mat)
-  #   print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  #   print(paste0("Value WR hit rate w/o classification (testing set):   ", sum(test.y==1)/length(test.y)))
-  #   cat("\n\n")
-  # } 
-
-  
-  
-  
-  
-  # #---- Tuning C by maximizing number of 1's predicted (as a % of total examples) ----#
-  # num.C <- 50
-  # ln.tuning.param <- seq(log(2.50), log(3.25), length.out=num.C)
-  # tuning.param <- exp(ln.tuning.param)
-  # num.preds1.vec <- vector(mode='numeric', length=num.C)
-  # for (i in 1:num.C) {
-  #   model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel="splinedot", C=tuning.param[i], cross=5, scale = T)
-  #   pred.svm <- predict(model.svm, data.matrix(train.x), type='response')
-  #   confusion.mat <- confusion.matrix(obs = train.y, pred = as.numeric(pred.svm), threshold = 0.5)
-  #   num.preds1.vec[i] <- (confusion.mat[2,1] + confusion.mat[2,2]) / nrow(train.x)
-  #   print(paste0("Iteration ", i, " (C = ", tuning.param[i], "):   ", num.preds1.vec[i]))
-  # }
-  # 
-  # plot(log(tuning.param), num.preds1.vec, type='l', main="Proportion of examples labeled 1")
-  # c.optimal <- tuning.param[which.max(num.preds1.vec)] # optimal tuning parameter C
-  # 
-  # # svm model with standard functional margin
-  # model.svm <- ksvm(x=data.matrix(train.x), y=train.y, type='C-svc', kernel="splinedot", C=c.optimal, cross=5, scale = T)
-  # pred.svm <- predict(model.svm, data.matrix(test.x), type='response')
-  # test.error.svm <- mean(abs(as.numeric(pred.svm) - test.y))
-  # print(paste0("SVM (std functional margin) Testing Error:   ", test.error.svm))
-  # 
-  # # confusion matrix
-  # print("SVM (std functional margin) Confusion Matrix")
-  # confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(pred.svm), threshold = 0.5)
-  # print(confusion.mat)
-  # print(paste0("Proportion of examples labeled 1 (testing set): ", (confusion.mat[2,1] + confusion.mat[2,2]) / nrow(train.x))) # we tuned C to maximize this in training set
-  # print(paste0("Value WR hit rate w/ classification (testing set):   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  # print(paste0("Value WR hit rate w/o classification (testing set):   ", sum(test.y==1)/length(test.y)))
-  
-}
-
-

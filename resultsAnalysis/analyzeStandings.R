@@ -16,6 +16,7 @@
 #   - for each position, plots exposure to top 5 players (in terms of exposure among all lineups submitted by user for the week)
 # SECTION V. EXAMINE POSITION EXPOSURES (COUNT)
 # SECTION VI. COMPARE NUMBER OF UNIQUE PLAYERS TO OUR FORMULATIONS
+# SECTION VII. EXAMINE SALARY DISTRIBUTION BY POSITION
 
 
 ####### SET SECTION TO RUN #######
@@ -475,6 +476,21 @@ if (section.run==6) {
   }
   
 }
+
+
+####### SECTION VII. EXAMINE SALARY DISTRIBUTION BY POSITION #########
+for (i in 1:week.latest) {
+  if (i %in% c(wks.20, wks.27)) {
+    temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
+    temp.user.results <- temp.results[temp.results$User.Name==user.name,]
+    temp.lineups <- temp.user.results[,6:14]
+    
+    occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
+    qb.count[i] <- length(occurences)
+    
+  }
+}
+
 
 
 
