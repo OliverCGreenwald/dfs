@@ -84,6 +84,7 @@ formulation is the type of formulation that you would like to use.
         - 14 <- one_lineup_Type_14 (form 4 with player exposure constraints)
         - 15 <- one_lineup_Type_15 (form 14 + must have 1 value wr + 2700 <= DST Salary <= 3100)
         - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
+        - 17 <- one_lineup_Type_16 (form 14 + 2700 <= DST Salary <= 3100)
 =#
 formulation_type = 14
 
@@ -224,6 +225,10 @@ elseif (formulation_type == 14)
     formulation = formulations.one_lineup_Type_14
 elseif (formulation_type == 15) 
     formulation = formulations.one_lineup_Type_15
+elseif (formulation_type == 16) 
+    formulation = formulations.one_lineup_Type_16
+elseif (formulation_type == 17) 
+    formulation = formulations.one_lineup_Type_17
 else
     formulation = formulations.one_lineup_no_stacking 
 end

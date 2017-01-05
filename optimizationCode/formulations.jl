@@ -2172,7 +2172,151 @@ function one_lineup_Type_16(offensive_players, defenses, lineups, num_overlap, n
     end
 end
 
+# This is a function that creates one lineup using the No Stacking formulation from the paper
+# - Feasibility Constraints 
+# - Defense constraint (Defense can't be playing any offensive players)
+# - QB-WR Stack (If you have a QB then also include a WR from the same team)
+# - no TE for flex
+# - Same as Formulation 4 with Position Exposure Constraints
+# - DST Salary >= 2700 and <= 3100
+function one_lineup_Type_17(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever)
+    #m = Model(solver=GLPKSolverMIP())
+    m = Model(solver=GurobiSolver())
 
+    # Variable for Offensive_Players in lineup.
+    @variable(m, offensive_players_lineup[i=1:num_offensive_players], Bin)
+
+    # Variable for Defense in lineup.
+    @variable(m, defenses_lineup[i=1:num_defenses], Bin)
+
+    #=
+    DraftKings Fantasy Contests require the following lineup:
+        - 1xQB
+        - 2xRB
+        - 3xWR 
+        - 1xTE
+        - 1xFLEX (RB/WR/TE)
+        - 1xDST
+    Whose salaries sum to less than $55,000
+    =#
+
+    # One Defense constraint
+    @constraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
+
+    # Defense Salary Constraint
+    @constraint(m, sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} >= 2700)
+    @constraint(m, sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 3100)
+    
+    # Eight Offensive_Players constraint
+    @constraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
+                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
+                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+
+    # One QB constraint
+    @constraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
+
+    # between 2 and 3 RB (Because of FLEX player)
+    @constraint(m, 2<=sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    @constraint(m, sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 3)
+
+    # between 3 and 4 WR (Because of FLEX player)
+    @constraint(m, 3 <= sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    @constraint(m, sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 4)
+
+    # 1 TE (no TE FLEX player)
+    @constraint(m, 1 == sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    #@constraint(m, 1 <= sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    #@constraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
+
+    # Financial Constraint
+    @constraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 50000)
+
+    # at least 3 different teams for the 8 skaters constraints
+    @variable(m, used_team[i=1:num_teams], Bin)
+    @constraint(m, constr[i=1:num_teams], used_team[i] <= sum{offensive_players_teams[t, i]*offensive_players_lineup[t], t=1:num_offensive_players})
+    @constraint(m, sum{used_team[i], i=1:num_teams} >= 2)
+
+    # No Defenses going against Offensive_Players constraint
+    @constraint(m, constr[i=1:num_defenses], 6*defenses_lineup[i] + sum{defenses_opponents[k, i]*offensive_players_lineup[k], k=1:num_offensive_players}<=6)
+
+    # Must have a QB/WR Pair
+    # QB is weighted 9 and WR is weighted 1 so in order to have a sum >= 10 there must be 
+    # at least a QB/WR Pair
+    @variable(m, QBWR_stack[i=1:num_pairs], Bin)
+    @constraint(m, constr[i=1:num_pairs], 10*QBWR_stack[i] <= sum{team_pairs[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
+    @constraint(m, sum{QBWR_stack[i], i=1:num_pairs} >= 1)
+
+    # Overlap Constraint
+    @constraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
+
+    # Exposure Constraint
+    #QB 
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*quarterBack[j] <= num_lineups * exposure_qb)
+    # #RB
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*runningBack[j] <= num_lineups * exposure_rb)
+    # #WR 
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*wideReciever[j] <= num_lineups * exposure_wr)
+    # #TE 
+    # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*tightEnd[j] <= num_lineups * exposure_te)
+    for i in 1:num_offensive_players
+        if (quarterBack[i] == 1)
+            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_qb)
+        elseif (runningBack[i] == 1)
+            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_rb)
+        elseif (wideReciever[i] == 1)
+            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_wr)
+        elseif (tightEnd[i] == 1)
+            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_te)
+        end
+    end
+
+    # Defense
+    @constraint(m, constr[j=1:num_defenses], sum{lineups[num_offensive_players + j,i], i=1:size(lineups)[2]} + defenses_lineup[j] <= num_lineups * exposure_defense)
+    # Objective
+    # @objective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    if (projections_source == "Projection")
+        @objective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_dfn")
+        @objective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_fc")
+        @objective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_dfn_perturbed")
+        @objective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg")
+        @objective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Projection_reg_split")
+        @objective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+    elseif (projections_source == "Actual")
+        @objective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
+    end
+
+    # Solve the integer programming problem
+    println("Solving Problem...")
+    @printf("\n")
+    status = solve(m);
+
+
+    # Puts the output of one lineup into a format that will be used later
+    if status==:Optimal
+        offensive_players_lineup_copy = Array(Int64, 0)
+        for i=1:num_offensive_players
+            if getvalue(offensive_players_lineup[i]) >= 0.9 && getvalue(offensive_players_lineup[i]) <= 1.1
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(1,1))
+            else
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(0,1))
+            end
+        end
+        for i=1:num_defenses
+            if getvalue(defenses_lineup[i]) >= 0.9 && getvalue(defenses_lineup[i]) <= 1.1
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(1,1))
+            else
+                offensive_players_lineup_copy = vcat(offensive_players_lineup_copy, fill(0,1))
+            end
+        end
+        return(offensive_players_lineup_copy)
+    end
+end
 ############################  Setting Formation  ############################
 
 function create_lineups(num_lineups, num_overlap, exposure, path_offensive_players, path_defenses, formulation, path_to_output, projections_source, use_Freq_Ind, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, exposure_valueWideReciever)
