@@ -20,7 +20,7 @@
 
 
 ####### SET SECTION TO RUN #######
-section.run <- "4" # 1-6 or "LOAD" # run LOAD first, then any section! # if 6, run 5 first
+section.run <- "7" # 1-6 or "LOAD" # run LOAD first, then any section! # if 6, run 5 first
 subsection.run <- "2" # only used if section.run has a subsection
 
 
@@ -31,7 +31,7 @@ wks.27 <- c(11:15) # c(11:15) if using sunday only (if thu-mon or sun-mon, need 
 # week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
 week.latest <- 17
 
-user.name <- "SaahilSud" # SaahilSud, youdacao, scout326, ehafner, ChipotleAddict, Theclone, awesemo, AssaniFisher, aejones, CONDIA
+user.name <- "ChipotleAddict" # SaahilSud, youdacao, scout326, ehafner, ChipotleAddict, Theclone, awesemo, AssaniFisher, aejones, CONDIA
 
 pctls.vec <- c(0.75, 0.85, 0.95, 0.99) # percentile thresholds to plot (enter any 4 between 0.0-1.0) (for Section II)
 
@@ -479,18 +479,190 @@ if (section.run==6) {
 
 
 ####### SECTION VII. EXAMINE SALARY DISTRIBUTION BY POSITION #########
-for (i in 1:week.latest) {
-  if (i %in% c(wks.20, wks.27)) {
-    temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
-    temp.user.results <- temp.results[temp.results$User.Name==user.name,]
-    temp.lineups <- temp.user.results[,6:14]
+if (section.run==7) {
+  # par(mfrow=c(3,2))
+  par(mfrow=c(2,2))
+  for (i in 1:week.latest) {
+    if (i %in% c(wks.20, wks.27) & i != 14) {
+      # subset user's lineups
+      temp.results <- eval(parse(text=paste0("contest_1M_results_wk", i)))
+      temp.user.results <- temp.results[temp.results$User.Name==user.name,]
+      temp.lineups <- temp.user.results[,6:14]
+      
+      # load salaries for user
+      temp.salaries <- read.csv(file = paste0("optimizationCode/data_warehouse/draftkings/DKSalaries_week", i, ".csv"), stringsAsFactors = F)
+      temp.salaries$Name <- sub(' Sr.', '', temp.salaries$Name)
+      temp.salaries$Name <- sub(' Jr.', '', temp.salaries$Name)
+      
+      # create df of salaries for user
+      temp.user.salaries <- temp.lineups
+      for (m in 1:nrow(temp.lineups)) {
+        for (n in 1:ncol(temp.lineups)) {
+          temp.user.salaries[m,n] <- sub(' Sr.', '', temp.user.salaries[m,n])
+          temp.user.salaries[m,n] <- sub(' Jr.', '', temp.user.salaries[m,n])
+          temp.user.salaries[m,n] <- as.numeric(temp.salaries$Salary[match(temp.user.salaries[m,n], temp.salaries$Name)])
+        }
+      }
+      
+      # load our formulation
+      temp.us.lineups <- read.csv(file = paste0("resultsAnalysis/data_warehouse/testing_lineups/week", i, "_dfn_formulation14_overlap_4_defexp_0.25_wrexp_0.25_rbexp_0.75_teexp_0.75_qbexp_0.5.csv"), stringsAsFactors = F)
+      
+      # load salaries for our formulation
+      temp.salaries$Name...ID <- as.character(temp.salaries$Name...ID) # need to use Name...ID
+      
+      # create df of salaries for our formulation
+      temp.us.salaries <- temp.us.lineups
+      for (m in 1:nrow(temp.us.lineups)) {
+        for (n in 1:ncol(temp.us.lineups)) {
+          temp.us.salaries[m,n] <- as.numeric(temp.salaries$Salary[match(temp.us.salaries[m,n], temp.salaries$Name...ID)])
+        }
+      }
+      
+      
+      if (subsection.run==1) {
+        #------ RBs ------#
+        # sort user's RBs in decreasing order within lineup
+        for (m in 1:nrow(temp.user.salaries)) {
+          temp.user.salaries[m, c("RB1","RB2")] <- sort(c(as.numeric(temp.user.salaries$RB1[m]), as.numeric(temp.user.salaries$RB2[m])), decreasing = T)
+          temp.us.salaries[m, c("RB","RB.1")] <- sort(c(as.numeric(temp.us.salaries$RB[m]), as.numeric(temp.us.salaries$RB.1[m])), decreasing = T)
+        }
+        
+        temp.user.salaries <- temp.user.salaries[order(as.numeric(temp.user.salaries$RB1), decreasing = T),] # sort by RB1
+        temp.us.salaries <- temp.us.salaries[order(as.numeric(temp.us.salaries$RB), decreasing = T),] # sort by RB1
+        
+        # Plot higher salary RB1 against lower salary RB2
+        # plot(temp.user.salaries$RB1, temp.user.salaries$RB2, xlab = "RB1 (higher salary)", ylab = "RB2 (lower salary)", main = paste0("Week ", i, ", ", user.name)) # user
+        # plot(temp.us.salaries$RB, temp.us.salaries$RB.1, xlab = "RB1 (higher salary)", ylab = "RB2 (lower salary)", main = paste0("Week ", i, ", Form 14")) # our formulation
+        
+        # RB count
+        # length(unique(c(temp.lineups$RB1, temp.lineups$RB2))) # user
+        # length(unique(c(temp.us.lineups$RB, temp.us.lineups$RB.1))) # our formulation 
+
+        # stacked bar plot for user
+        bar.data <- rbind(temp.user.salaries$RB1, temp.user.salaries$RB2)
+        rownames(bar.data) <- c("RB1", "RB2")
+        colnames(bar.data) <- 1:nrow(temp.user.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", ",user.name,", Salary Distribution RB1-RB2"), xlab="Lineup", ylab = "Salary", col=c("darkblue","red"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue","red"))
+        
+        # stacked bar plot for our formulation
+        bar.data <- rbind(temp.us.salaries$RB, temp.us.salaries$RB.1)
+        rownames(bar.data) <- c("RB1", "RB2")
+        colnames(bar.data) <- 1:nrow(temp.us.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", Form 14, Salary Distribution WR1-WR3"), xlab="Lineup", ylab = "Salary", col=c("darkblue","red"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue","red"))
+      }
+      
+      if (subsection.run==2) {
+        #------ WRs ------#
+        # sort user's WRs in decreasing order within lineup
+        for (m in 1:nrow(temp.user.salaries)) {
+          temp.user.salaries[m, c("WR1","WR2","WR3")] <- sort(c(as.numeric(temp.user.salaries$WR1[m]), as.numeric(temp.user.salaries$WR2[m]), as.numeric(temp.user.salaries$WR3[m])), decreasing = T)
+          temp.us.salaries[m, c("WR","WR.1","WR.2")] <- sort(c(as.numeric(temp.us.salaries$WR[m]), as.numeric(temp.us.salaries$WR.1[m]), as.numeric(temp.us.salaries$WR.2[m])), decreasing = T)
+        }
+        
+        temp.user.salaries <- temp.user.salaries[order(as.numeric(temp.user.salaries$WR1), decreasing = T),] # sort by WR1
+        temp.us.salaries <- temp.us.salaries[order(as.numeric(temp.us.salaries$WR), decreasing = T),] # sort by WR1
+        
+        # stacked bar plot for user
+        bar.data <- rbind(temp.user.salaries$WR1, temp.user.salaries$WR2, temp.user.salaries$WR3)
+        rownames(bar.data) <- c("WR1", "WR2", "WR2")
+        colnames(bar.data) <- 1:nrow(temp.user.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", ",user.name,", Salary Distribution WR1-WR3"), xlab="Lineup", ylab = "Salary", col=c("darkblue","red", "green"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue","red", "green"))
+        
+        # stacked bar plot for our formulation
+        bar.data <- rbind(temp.us.salaries$WR, temp.us.salaries$WR.1, temp.us.salaries$WR.2)
+        rownames(bar.data) <- c("WR1", "WR2", "WR2")
+        colnames(bar.data) <- 1:nrow(temp.us.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", Form 14, Salary Distribution WR1-WR3"), xlab="Lineup", ylab = "Salary", col=c("darkblue","red", "green"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue","red", "green"))
+      }
+      
+      # Form 14 spending more than 25k on WR1-WR3: wks 11, 8, 7, 4, 2
+      # ChipotleAddict spending more than 25k on WR1-WR3: wks 6, 3
+      
+      # Form 14 spending more than 25k on WR1-WR3: wks 11, 8, 7, 4, 2
+      # SaahilSud spending more than 25k on WR1-WR3: wks 7, 5
     
-    occurences <- sort(table(unlist(temp.lineups[,c("QB")])), decreasing=T)
-    qb.count[i] <- length(occurences)
-    
+      
+      if (subsection.run==3) {
+        #------ QBs ------#
+        temp.user.salaries <- temp.user.salaries[order(as.numeric(temp.user.salaries$QB), decreasing = T),] # sort by QB
+        temp.us.salaries <- temp.us.salaries[order(as.numeric(temp.us.salaries$QB), decreasing = T),] # sort by QB
+  
+        # stacked bar plot for user
+        bar.data <- rbind(temp.user.salaries$QB)
+        rownames(bar.data) <- c("QB")
+        colnames(bar.data) <- 1:nrow(temp.user.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", ",user.name,", Salary Distribution QB"), xlab="Lineup", ylab = "Salary", col=c("darkblue"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue"))
+        
+        # stacked bar plot for our formulation
+        bar.data <- rbind(temp.us.salaries$QB)
+        rownames(bar.data) <- c("QB")
+        colnames(bar.data) <- 1:nrow(temp.us.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", Form 14, Salary Distribution QB"), xlab="Lineup", ylab = "Salary", col=c("darkblue"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue"))
+      }
+      
+      
+      if (subsection.run==4) {
+        #------ TEs ------#
+        temp.user.salaries <- temp.user.salaries[order(as.numeric(temp.user.salaries$TE), decreasing = T),] # sort by TE
+        temp.us.salaries <- temp.us.salaries[order(as.numeric(temp.us.salaries$TE), decreasing = T),] # sort by TE
+        
+        # stacked bar plot for user
+        bar.data <- rbind(temp.user.salaries$TE)
+        rownames(bar.data) <- c("TE")
+        colnames(bar.data) <- 1:nrow(temp.user.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", ",user.name,", Salary Distribution TE"), xlab="Lineup", ylab = "Salary", col=c("darkblue"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue"))
+        
+        # stacked bar plot for our formulation
+        bar.data <- rbind(temp.us.salaries$TE)
+        rownames(bar.data) <- c("TE")
+        colnames(bar.data) <- 1:nrow(temp.us.salaries)
+        bar.data <- as.table(bar.data, header = T)
+        barplot(bar.data, main=paste0("Wk ",i,", Form 14, Salary Distribution TE"), xlab="Lineup", ylab = "Salary", col=c("darkblue"))
+        legend("bottomleft", legend = rownames(bar.data), cex = 0.6, fill = c("darkblue"))
+      }
+      
+      
+      # # histogram of QB salaries
+      # hist(as.numeric(temp.user.salaries$QB))
+      # 
+      # # histogram of total RB salaries
+      # hist(as.numeric(temp.user.salaries$RB1) + as.numeric(temp.user.salaries$RB2))
+      # 
+      # # histogram of total WR salaries
+      # hist(as.numeric(temp.user.salaries$WR1) + as.numeric(temp.user.salaries$WR2) + as.numeric(temp.user.salaries$WR3))
+      # 
+      # # histogram of TE salaries
+      # hist(as.numeric(temp.user.salaries$TE))
+      
+      
+      # # histogram of QB salaries
+      # hist(as.numeric(temp.us.salaries$QB))
+      # 
+      # # histogram of total RB salaries
+      # hist(as.numeric(temp.us.salaries$RB) + as.numeric(temp.us.salaries$RB.1))
+      # 
+      # # histogram of total WR salaries
+      # hist(as.numeric(temp.us.salaries$WR) + as.numeric(temp.us.salaries$WR.1) + as.numeric(temp.us.salaries$WR.2))
+      # 
+      # # histogram of TE salaries
+      # hist(as.numeric(temp.us.salaries$TE))      
+    }
   }
 }
-
 
 
 
