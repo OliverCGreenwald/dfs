@@ -53,7 +53,6 @@ library("SDMTools")
 # Wk 9: "svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData"
 # Wk 8: "svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData"
 # Wk 7: "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData"
-# Wk 6: "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData"
 #
 # Best RBF Kernel Models Weekly (gets better week over week):
 # Wk 16: "svmlight_rbf_costfactor0.07_gamma1.47e-06_wks4-15_minfpts18.5.RData"
@@ -65,7 +64,7 @@ library("SDMTools")
 # Wk 10: 
 
 
-save.model.name <- "svmlight_linear_costfactor0.06_wks2-5_minfpts18.5.RData"
+save.model.name <- "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData"
 load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
 
 
@@ -74,7 +73,7 @@ write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
-wk <- 6
+wk <- 2
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 
@@ -215,9 +214,17 @@ if (write.bool==T) {
   
   
   #-----Spike the predicted 1's (from baseline) -----#
-  temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.5*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
-  print(sum(temp$Name %in% pred.value$Player.Name))
-  print(length(pred.value$Player.Name))
+  # temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.5*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
+  # print(sum(temp$Name %in% pred.value$Player.Name))
+  # print(length(pred.value$Player.Name))
+  #----------#
+  
+  
+  #-----Spike the baseline 1's (use this for earlier weeks) -----#
+  baseline.valuewr.names <- baseline.data$Name[baseline.data$ValueWR==1]
+  temp$Projection_dfn[temp$Name %in% baseline.valuewr.names] <- 1.5*temp$Projection_dfn[temp$Name %in% baseline.valuewr.names]
+  print(sum(temp$Name %in% baseline.valuewr.names))
+  print(length(baseline.valuewr.names))
   #----------#
   
   

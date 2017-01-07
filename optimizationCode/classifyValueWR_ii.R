@@ -333,7 +333,7 @@ if (model.run==10) {
   # cost.factor.ratio.optimal
   
   # (2) Minimize CV error - % true positives out of total (reward true positives)
-  adj.error.all <- error.all - 10*confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
+  adj.error.all <- error.all - 5*confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
   min(adj.error.all)
   cost.factor.ratio.optimal <- modelX.cost.factor.ratio.vec[which(adj.error.all==min(adj.error.all))] # take first match if multiple
   cost.factor.ratio.optimal
@@ -391,6 +391,7 @@ if (model.run==10) {
   print(ptm)
   
   
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData") # factor: 10
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData") # factor: 10
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData") # min cv
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData") # factor: 1.5

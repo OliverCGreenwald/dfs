@@ -84,7 +84,7 @@ formulation is the type of formulation that you would like to use.
         - 14 <- one_lineup_Type_14 (form 4 with player exposure constraints)
         - 14 <- one_lineup_Type_15 (form 14 + must have 1 value wr + 2700 <= DST Salary <= 3100)
 =#
-formulation_type = 14
+formulation_type = 4
 
 
 ############################  Setting Projections Source  ############################
@@ -103,7 +103,7 @@ projections_source tells which Projections we're using for this generation
 projections_source = "Projection_dfn"
 
 
-for week=7:16
+for week=7:10
 
     ############################  Create Paths to data  ############################
 

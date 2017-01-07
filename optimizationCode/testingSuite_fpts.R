@@ -11,7 +11,7 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 7
+week.lo <- 2
 week.hi <- 16
 
 contest.entry.fee <- "$4"
@@ -20,7 +20,7 @@ thu_mon.bool <- T # True if using thursday-monday games, False if using only Sun
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
 source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
 
-formulation <- 14
+formulation <- 4
 
 overlap <- 4
 
@@ -64,8 +64,8 @@ for (week.num in week.lo:week.hi) {
     # do nothing
   } else {
     ####### SET FILE #########
-    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
-    file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+    file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
     # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
     
     # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4

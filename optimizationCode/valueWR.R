@@ -14,8 +14,8 @@ write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 
 ####### SET PARAMETERS #######
 # week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1
-week.latest <- 17 # wk we write to will be week.latest+1
-slate.days <- "" # "thu-mon" or "sun-mon" or ""
+week.latest <- 1 # wk we write to will be week.latest+1
+slate.days <- "thu-mon" # "thu-mon" or "sun-mon" or ""
 
 salary.threshold <- 5000 # defining cheap
 fpts.threshold <- 18.5 # defining cheap + value
