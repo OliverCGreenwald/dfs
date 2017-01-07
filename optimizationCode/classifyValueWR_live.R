@@ -5,6 +5,8 @@
 ####### DESCRIPTION #######
 # In this file we test models for classifying ValueWR.
 # Option to write to file (data_warehouse/2016_cleaned_input/wk[x]/includes_thu-mon/model)
+# Notes:
+#   - don't use test.data$Inj <- NULL for wks 9-16 linear kernel
 
 
 ####### IMPORT LIBRARIES #########
@@ -41,25 +43,29 @@ library("SDMTools")
 # "svmlight_rbf_costfactor0.015_param3.16e-06_wks4-9_minfpts18.5.RData" (turning wieght: 1.25, result: good)
 #
 # Best Linear Kernel Models Weekly (gets better week over week):
-# Week 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
-# Week 15: "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData"
-# Week 14: "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData"
-# Week 13: "svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData"
-# Week 12: "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
-# Week 11: "svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData"
-# Week 10: "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"
+# Wk 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
+# Wk 15: "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData"
+# Wk 14: "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData"
+# Wk 13: "svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData"
+# Wk 12: "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
+# Wk 11: "svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData"
+# Wk 10: "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"
+# Wk 9: "svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData"
+# Wk 8: "svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData"
+# Wk 7: "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData"
+# Wk 6: "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData"
 #
 # Best RBF Kernel Models Weekly (gets better week over week):
-# Week 16: "svmlight_rbf_costfactor0.07_gamma1.47e-06_wks4-15_minfpts18.5.RData"
-# Week 15: 
-# Week 14: 
-# Week 13: 
-# Week 12: 
-# Week 11: 
-# Week 10: 
+# Wk 16: "svmlight_rbf_costfactor0.07_gamma1.47e-06_wks4-15_minfpts18.5.RData"
+# Wk 15: 
+# Wk 14: 
+# Wk 13: 
+# Wk 12: 
+# Wk 11: 
+# Wk 10: 
 
 
-save.model.name <- "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"
+save.model.name <- "svmlight_linear_costfactor0.06_wks2-5_minfpts18.5.RData"
 load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
 
 
@@ -68,14 +74,15 @@ write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
-wk <- 10
+wk <- 6
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 
 spike.bool <- T
 
 ####### LOAD DATA FOR WEEK TO TEST #######
-test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F)
+test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
+test.data$Inj <- NULL # set to null if trained without this feature
 temp.names <- test.data$Player.Name
 temp.fpts <- test.data$Actual.FP
 test.data$Player.Name <- NULL
@@ -207,7 +214,7 @@ if (write.bool==T) {
   #----------#
   
   
-  #-----Spike the predicted 1's -----#
+  #-----Spike the predicted 1's (from baseline) -----#
   temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.5*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
   print(sum(temp$Name %in% pred.value$Player.Name))
   print(length(pred.value$Player.Name))

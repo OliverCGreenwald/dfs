@@ -3,6 +3,7 @@
 
 ####### DESCRIPTION #########
 # In this file we compute the fantasy points (no PnL) of lineups for testing purposes.
+# Note: change "SET FILE" to whatever path generated lineups are stored at
 
 
 ####### IMPORT LIBRARIES #########
@@ -10,8 +11,8 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 15
-week.hi <- 15
+week.lo <- 7
+week.hi <- 16
 
 contest.entry.fee <- "$4"
 thu_mon.bool <- T # True if using thursday-monday games, False if using only Sunday games
@@ -19,16 +20,18 @@ thu_mon.bool <- T # True if using thursday-monday games, False if using only Sun
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
 source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
 
-formulation <- 15
+formulation <- 14
 
 overlap <- 4
+
+exposure <- 0.4
 
 exposure.def <- 0.25
 exposure.wr <- 0.25
 exposure.rb <- 0.75
 exposure.te <- 0.75
 exposure.qb <- 0.5
-exposure.valuewr <- 0.15
+exposure.valuewr <- "_valuewrexp_0.15"
 
 freqInd <- "" # _FreqInd or ""
 
@@ -39,7 +42,7 @@ missing.data.50k.contest.wk <- c() # enter weeks that we don't have complete dat
 
 
 # Init
-result.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 9, dimnames = list(NULL, c("Week","Mean","Max","Min",">150","170-180","180-190","190-200",">200")))
+result.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 10, dimnames = list(NULL, c("Week","Mean","Max","Min","Cashing","160-170","170-180","180-190","190-200",">200")))
 
 # if (thu_mon.bool == T) {
 #   num.cashing.full.slate.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Cashing")))
@@ -61,8 +64,13 @@ for (week.num in week.lo:week.hi) {
     # do nothing
   } else {
     ####### SET FILE #########
-    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, "_valuewrexp_", exposure.valuewr, num.lineups, ".csv")
-    file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, "_valuewrexp_", exposure.valuewr, num.lineups, ".csv")
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
+    file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
+    
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
     
     ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA #########
     # Use Fantasy Cruncher for actual fpts data
@@ -127,15 +135,25 @@ for (week.num in week.lo:week.hi) {
     # num.above.190[week.num-week.lo+1,'Num.Above.190'] <- sum(lineups$total > 190)
   }
   
+  # compute cashing threshold
+  cashing.dat <- read.csv(file = "resultsAnalysis/data_warehouse/weekly_payout_structure/includes_thu-mon/full_slate_cashing.csv", stringsAsFactors = F)
+  cashing.threshold <- cashing.dat$Min[cashing.dat$Week==(week.num-week.lo+1)]
+  
+  # fill in results matrix
   result.mat[week.num-week.lo+1,1] <- week.num
   result.mat[week.num-week.lo+1,2] <- mean(lineups$total)
   result.mat[week.num-week.lo+1,3] <- max(lineups$total)
   result.mat[week.num-week.lo+1,4] <- min(lineups$total)
-  result.mat[week.num-week.lo+1,5] <- sum(lineups$total > 150)
-  result.mat[week.num-week.lo+1,6] <- sum(lineups$total > 170 & lineups$total <= 180)
-  result.mat[week.num-week.lo+1,7] <- sum(lineups$total > 180 & lineups$total <= 190)
-  result.mat[week.num-week.lo+1,8] <- sum(lineups$total > 190 & lineups$total <= 200)
-  result.mat[week.num-week.lo+1,9] <- sum(lineups$total > 200)
+  if (is.na(cashing.threshold)) {
+    result.mat[week.num-week.lo+1,5] <- sum(lineups$total > 150) 
+  } else {
+    result.mat[week.num-week.lo+1,5] <- sum(lineups$total > cashing.threshold) 
+  }
+  result.mat[week.num-week.lo+1,6] <- sum(lineups$total > 160 & lineups$total <= 170)
+  result.mat[week.num-week.lo+1,7] <- sum(lineups$total > 170 & lineups$total <= 180)
+  result.mat[week.num-week.lo+1,8] <- sum(lineups$total > 180 & lineups$total <= 190)
+  result.mat[week.num-week.lo+1,9] <- sum(lineups$total > 190 & lineups$total <= 200)
+  result.mat[week.num-week.lo+1,10] <- sum(lineups$total > 200)
 }
 
 View(result.mat)

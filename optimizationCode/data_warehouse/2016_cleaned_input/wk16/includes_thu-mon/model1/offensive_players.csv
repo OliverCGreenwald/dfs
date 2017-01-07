@@ -98,7 +98,7 @@
 "QB","Ryan Tannehill (7976755)","Ryan Tannehill",7976755,5000,"Mia@Buf 01:00PM ET","Mia","Ryan","Tannehill","Buf",0,0,0,0,0
 "QB","EJ Manuel (7976757)","EJ Manuel",7976757,5000,"Mia@Buf 01:00PM ET","Buf","EJ","Manuel","Mia",0,0,0,0,0
 "QB","Cardale Jones (7976758)","Cardale Jones",7976758,5000,"Mia@Buf 01:00PM ET","Buf","Cardale","Jones","Mia",0,0,0,0,0
-"WR","Sammy Watkins (7976975)","Sammy Watkins",7976975,5000,"Mia@Buf 01:00PM ET","Buf","Sammy","Watkins","Mia",11.78,18,0,5,0.078239608801956
+"WR","Sammy Watkins (7976975)","Sammy Watkins",7976975,5000,"Mia@Buf 01:00PM ET","Buf","Sammy","Watkins","Mia",11.78,21.6,0,5,0.078239608801956
 "QB","Luke McCown (7976760)","Luke McCown",7976760,5000,"TB@NO 04:25PM ET","NO","Luke","McCown","TB",0,0,0,0,0
 "QB","Mike Glennon (7976761)","Mike Glennon",7976761,5000,"TB@NO 04:25PM ET","TB","Mike","Glennon","NO",0,0,0,0,0
 "QB","Ryan Griffin (7976762)","Ryan Griffin",7976762,5000,"TB@NO 04:25PM ET","TB","Ryan","Griffin","NO",0,0,0,0,0
@@ -158,34 +158,34 @@
 "QB","Jake Rudock (7976834)","Jake Rudock",7976834,5000,"Det@Dal 08:30PM ET","Det","Jake","Rudock","Dal",0,0,0,0,0
 "RB","Ameer Abdullah (7976964)","Ameer Abdullah",7976964,5000,"Det@Dal 08:30PM ET","Det","Ameer","Abdullah","Dal",0,0,0,9,0.00965250965250965
 "RB","Derrick Henry (7976871)","Derrick Henry",7976871,4900,"Ten@Jax 01:00PM ET","Ten","Derrick","Henry","Jax",7.08,5.6,0,9,0.0269662921348315
-"WR","Rishard Matthews (7977009)","Rishard Matthews",7977009,4900,"Ten@Jax 01:00PM ET","Ten","Rishard","Matthews","Jax",12.52,13.75,1,1,0.197752808988764
+"WR","Rishard Matthews (7977009)","Rishard Matthews",7977009,4900,"Ten@Jax 01:00PM ET","Ten","Rishard","Matthews","Jax",12.52,16.5,1,1,0.197752808988764
 "TE","Kyle Rudolph (7977174)","Kyle Rudolph",7977174,4900,"Min@GB 01:00PM ET","Min","Kyle","Rudolph","GB",12.67,10.7,0,1,0.22265625
-"WR","Terrelle Pryor Sr. (7977029)","Terrelle Pryor",7977029,4900,"SD@Cle 01:00PM ET","Cle","Terrelle","Pryor","SD",11.15,16.875,0,1,0.254032258064516
-"WR","Pierre Garcon (7977042)","Pierre Garcon",7977042,4900,"Was@Chi 01:00PM ET","Was","Pierre","Garcon","Chi",13.34,18.625,1,1,0.18664047151277
+"WR","Terrelle Pryor Sr. (7977029)","Terrelle Pryor",7977029,4900,"SD@Cle 01:00PM ET","Cle","Terrelle","Pryor","SD",11.15,20.25,0,1,0.254032258064516
+"WR","Pierre Garcon (7977042)","Pierre Garcon",7977042,4900,"Was@Chi 01:00PM ET","Was","Pierre","Garcon","Chi",13.34,22.35,1,1,0.18664047151277
 "RB","Alfred Morris (7976957)","Alfred Morris",7976957,4900,"Det@Dal 08:30PM ET","Dal","Alfred","Morris","Det",0,0,0,9,0.00900900900900901
-"WR","Cole Beasley (7977138)","Cole Beasley",7977138,4900,"Det@Dal 08:30PM ET","Dal","Cole","Beasley","Det",11.99,12.625,1,1,0.211711711711712
-"WR","Robby Anderson (7977001)","Robby Anderson",7977001,4800,"NYJ@NE 01:00PM ET","NYJ","Robby","Anderson","NE",10.5,14.625,0,4,0.132796780684105
-"WR","Travis Benjamin (7977030)","Travis Benjamin",7977030,4800,"SD@Cle 01:00PM ET","SD","Travis","Benjamin","Cle",8.04,10,1,3,0.150515463917526
+"WR","Cole Beasley (7977138)","Cole Beasley",7977138,4900,"Det@Dal 08:30PM ET","Dal","Cole","Beasley","Det",11.99,15.15,1,1,0.211711711711712
+"WR","Robby Anderson (7977001)","Robby Anderson",7977001,4800,"NYJ@NE 01:00PM ET","NYJ","Robby","Anderson","NE",10.5,17.55,0,4,0.132796780684105
+"WR","Travis Benjamin (7977030)","Travis Benjamin",7977030,4800,"SD@Cle 01:00PM ET","SD","Travis","Benjamin","Cle",8.04,12,1,3,0.150515463917526
 "RB","Frank Gore (7976905)","Frank Gore",7976905,4800,"Ind@Oak 04:05PM ET","Ind","Frank","Gore","Oak",12.99,14.9,0,5,0.0905660377358491
 "WR","Tyler Lockett (7977082)","Tyler Lockett",7977082,4800,"Ari@Sea 04:25PM ET","Sea","Tyler","Lockett","Ari",11.56,10.7,1,4,0.155902004454343
-"WR","Brandon LaFell (7977097)","Brandon LaFell",7977097,4800,"Cin@Hou 08:25PM ET","Cin","Brandon","LaFell","Hou",12.13,15.5,1,2,0.182730923694779
+"WR","Brandon LaFell (7977097)","Brandon LaFell",7977097,4800,"Cin@Hou 08:25PM ET","Cin","Brandon","LaFell","Hou",12.13,18.6,1,2,0.182730923694779
 "TE","Tyler Eifert (7977221)","Tyler Eifert",7977221,4800,"Cin@Hou 08:25PM ET","Cin","Tyler","Eifert","Hou",0,0,0,5,0.0943775100401606
-"WR","Mike Wallace (7977109)","Mike Wallace",7977109,4800,"Bal@Pit 04:30PM ET","Bal","Mike","Wallace","Pit",12.2,15.75,1,1,0.186851211072664
-"WR","Cameron Meredith (7977046)","Cameron Meredith",7977046,4700,"Was@Chi 01:00PM ET","Chi","Cameron","Meredith","Was",11.46,15.375,1,1,0.169921875
+"WR","Mike Wallace (7977109)","Mike Wallace",7977109,4800,"Bal@Pit 04:30PM ET","Bal","Mike","Wallace","Pit",12.2,18.9,1,1,0.186851211072664
+"WR","Cameron Meredith (7977046)","Cameron Meredith",7977046,4700,"Was@Chi 01:00PM ET","Chi","Cameron","Meredith","Was",11.46,18.45,1,1,0.169921875
 "RB","C.J. Prosise (7976920)","C.J. Prosise",7976920,4700,"Ari@Sea 04:25PM ET","Sea","C.J.","Prosise","Ari",0,0,0,6,0.044543429844098
-"WR","Sterling Shepard (7975689)","Sterling Shepard",7975689,4600,"NYG@Phi 08:25PM ET","NYG","Sterling","Shepard","Phi",11.34,14.875,1,2,0.173333333333333
-"WR","Allen Robinson (7977013)","Allen Robinson",7977013,4600,"Ten@Jax 01:00PM ET","Jax","Allen","Robinson","Ten",12.44,16.625,1,1,0.23758865248227
+"WR","Sterling Shepard (7975689)","Sterling Shepard",7975689,4600,"NYG@Phi 08:25PM ET","NYG","Sterling","Shepard","Phi",11.34,17.85,1,2,0.173333333333333
+"WR","Allen Robinson (7977013)","Allen Robinson",7977013,4600,"Ten@Jax 01:00PM ET","Jax","Allen","Robinson","Ten",12.44,19.95,1,1,0.23758865248227
 "RB","Adrian Peterson (7976872)","Adrian Peterson",7976872,4600,"Min@GB 01:00PM ET","Min","Adrian","Peterson","GB",0,0,0,10,0.01171875
-"WR","Adam Thielen (7977023)","Adam Thielen",7977023,4600,"Min@GB 01:00PM ET","Min","Adam","Thielen","GB",11.21,15.875,1,3,0.15234375
+"WR","Adam Thielen (7977023)","Adam Thielen",7977023,4600,"Min@GB 01:00PM ET","Min","Adam","Thielen","GB",11.21,19.05,1,3,0.15234375
 "RB","Mike Gillislee (7976838)","Mike Gillislee",7976838,4500,"Mia@Buf 01:00PM ET","Buf","Mike","Gillislee","Mia",6.66,3.6,0,10,0.0268948655256724
-"WR","Ted Ginn Jr. (7977052)","Ted Ginn",7977052,4500,"Atl@Car 01:00PM ET","Car","Ted","Ginn","Atl",10.59,12.375,0,3,0.156862745098039
+"WR","Ted Ginn Jr. (7977052)","Ted Ginn",7977052,4500,"Atl@Car 01:00PM ET","Car","Ted","Ginn","Atl",10.59,14.85,0,3,0.156862745098039
 "TE","Jimmy Graham (7977205)","Jimmy Graham",7977205,4500,"Ari@Sea 04:25PM ET","Sea","Jimmy","Graham","Ari",12.48,10,0,2,0.191536748329621
 "RB","Rashad Jennings (7975673)","Rashad Jennings",7975673,4400,"NYG@Phi 08:25PM ET","NYG","Rashad","Jennings","Phi",11.2,13.3,0,5,0.0685714285714286
 "RB","Mark Ingram (7976847)","Mark Ingram",7976847,4400,"TB@NO 04:25PM ET","NO","Mark","Ingram","TB",12.5,13.2,0,6,0.0795262267343486
 "TE","Antonio Gates (7977177)","Antonio Gates",7977177,4400,"SD@Cle 01:00PM ET","SD","Antonio","Gates","Cle",12.8,11.5,0,4,0.14639175257732
-"WR","J.J. Nelson (7977079)","J.J. Nelson",7977079,4400,"Ari@Sea 04:25PM ET","Ari","J.J.","Nelson","Sea",11.18,14.75,1,4,0.109826589595376
+"WR","J.J. Nelson (7977079)","J.J. Nelson",7977079,4400,"Ari@Sea 04:25PM ET","Ari","J.J.","Nelson","Sea",11.18,17.7,1,4,0.109826589595376
 "RB","Terrance West (7976944)","Terrance West",7976944,4400,"Bal@Pit 04:30PM ET","Bal","Terrance","West","Pit",9.51,6.8,0,7,0.0674740484429066
-"WR","Jeremy Maclin (7977121)","Jeremy Maclin",7977121,4400,"Den@KC 08:30PM ET","KC","Jeremy","Maclin","Den",9.31,13.375,0,4,0.134575569358178
+"WR","Jeremy Maclin (7977121)","Jeremy Maclin",7977121,4400,"Den@KC 08:30PM ET","KC","Jeremy","Maclin","Den",9.31,16.05,0,4,0.134575569358178
 "WR","Marqise Lee (7977011)","Marqise Lee",7977011,4300,"Ten@Jax 01:00PM ET","Jax","Marqise","Lee","Ten",12.06,12,1,2,0.164893617021277
 "TE","Delanie Walker (7977164)","Delanie Walker",7977164,4300,"Ten@Jax 01:00PM ET","Ten","Delanie","Walker","Jax",13.66,10.5,0,2,0.195505617977528
 "RB","Alfred Blue (7976934)","Alfred Blue",7976934,4300,"Cin@Hou 08:25PM ET","Hou","Alfred","Blue","Cin",9.7,10.6,0,10,0.0155642023346304

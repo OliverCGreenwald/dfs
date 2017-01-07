@@ -307,7 +307,7 @@ if (model.run==9) {
         list.confusion.mat.10[[i]][x,y] <- confusion.mat[2,1]
         list.confusion.mat.11[[i]][x,y] <- confusion.mat[2,2]
         
-        Sys.sleep(0.5)
+        # Sys.sleep(0.5)
       }
       
       error.all[x,y] <- mean(error) # mean error over k folds of cv
