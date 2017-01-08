@@ -109,7 +109,7 @@
 "QB","Sean Mannion (0000000)","Sean Mannion",0,5000,"LA@NE 00:00PM ET","LA","Sean","Mannion","NE",0,0,0,0,0
 "QB","Jared Goff (0000000)","Jared Goff",0,5000,"LA@NE 00:00PM ET","LA","Jared","Goff","NE",14.76,13.3,0,0,0
 "RB","Todd Gurley (0000000)","Todd Gurley",0,5000,"LA@NE 00:00PM ET","LA","Todd","Gurley","NE",13.13,12.6,5,0.109042553191489,0
-"WR","Kenny Britt (0000000)","Kenny Britt",0,5000,"LA@NE 00:00PM ET","LA","Kenny","Britt","NE",14.71,17.25,1,0.228723404255319,1
+"WR","Kenny Britt (0000000)","Kenny Britt",0,5000,"LA@NE 00:00PM ET","LA","Kenny","Britt","NE",14.71,11.5,1,0.228723404255319,1
 "QB","Chad Henne (0000000)","Chad Henne",0,5000,"Den@Jax 00:00PM ET","Jax","Chad","Henne","Den",0,0,0,0,0
 "QB","Austin Davis (0000000)","Austin Davis",0,5000,"Den@Jax 00:00PM ET","Den","Austin","Davis","Jax",0,0,0,0,0
 "QB","Blake Bortles (0000000)","Blake Bortles",0,5000,"Den@Jax 00:00PM ET","Jax","Blake","Bortles","Den",17.79,15.7,0,0,0
@@ -123,7 +123,7 @@
 "QB","Jeff Driskel (0000000)","Jeff Driskel",0,5000,"Phi@Cin 00:00PM ET","Cin","Jeff","Driskel","Phi",0,0,0,0,0
 "QB","Matt Moore (0000000)","Matt Moore",0,5000,"Mia@Bal 00:00PM ET","Mia","Matt","Moore","Bal",0,0,0,0,0
 "QB","Ryan Mallett (0000000)","Ryan Mallett",0,5000,"Mia@Bal 00:00PM ET","Bal","Ryan","Mallett","Mia",0,0,0,0,0
-"WR","Mike Wallace (0000000)","Mike Wallace",0,5000,"Mia@Bal 00:00PM ET","Bal","Mike","Wallace","Mia",13.95,16.95,1,0.2,1
+"WR","Mike Wallace (0000000)","Mike Wallace",0,5000,"Mia@Bal 00:00PM ET","Bal","Mike","Wallace","Mia",13.95,11.3,1,0.2,1
 "QB","Jay Cutler (0000000)","Jay Cutler",0,5000,"SF@Chi 00:00PM ET","Chi","Jay","Cutler","SF",0,0,0,0,0
 "QB","Christian Ponder (0000000)","Christian Ponder",0,5000,"SF@Chi 00:00PM ET","SF","Christian","Ponder","Chi",0,0,0,0,0
 "QB","Blaine Gabbert (0000000)","Blaine Gabbert",0,5000,"SF@Chi 00:00PM ET","SF","Blaine","Gabbert","Chi",0,0,14,0.00279329608938547,0
@@ -140,7 +140,7 @@
 "QB","Drew Stanton (0000000)","Drew Stanton",0,5000,"Was@Ari 00:00PM ET","Ari","Drew","Stanton","Was",0,0,0,0,0
 "QB","Colt McCoy (0000000)","Colt McCoy",0,5000,"Was@Ari 00:00PM ET","Was","Colt","McCoy","Ari",0,0,0,0,0
 "QB","Nate Sudfeld (0000000)","Nate Sudfeld",0,5000,"Was@Ari 00:00PM ET","Was","Nate","Sudfeld","Ari",0,0,0,0,0
-"WR","DeSean Jackson (0000000)","DeSean Jackson",0,5000,"Was@Ari 00:00PM ET","Was","DeSean","Jackson","Ari",11.92,20.1,3,0.168141592920354,1
+"WR","DeSean Jackson (0000000)","DeSean Jackson",0,5000,"Was@Ari 00:00PM ET","Was","DeSean","Jackson","Ari",11.92,13.4,3,0.168141592920354,1
 "QB","Kellen Clemens (0000000)","Kellen Clemens",0,5000,"TB@SD 00:00PM ET","SD","Kellen","Clemens","TB",0,0,0,0,0
 "QB","Mike Glennon (0000000)","Mike Glennon",0,5000,"TB@SD 00:00PM ET","TB","Mike","Glennon","SD",0,0,0,0,0
 "QB","Ryan Griffin (0000000)","Ryan Griffin",0,5000,"TB@SD 00:00PM ET","TB","Ryan","Griffin","SD",0,0,0,0,0
@@ -151,8 +151,8 @@
 "QB","Stephen Morris (0000000)","Stephen Morris",0,5000,"Ind@NYJ 00:00PM ET","Ind","Stephen","Morris","NYJ",0,0,0,0,0
 "QB","Christian Hackenberg (0000000)","Christian Hackenberg",0,5000,"Ind@NYJ 00:00PM ET","NYJ","Christian","Hackenberg","Ind",0,0,0,0,0
 "QB","Matt Barkley (0000000)","Matt Barkley",0,5000,"SF@Chi 00:00PM ET","Chi","Matt","Barkley","SF",16.26,16.7,0,0,0
-"WR","Adam Thielen (0000000)","Adam Thielen",0,4900,"Dal@Min 00:00PM ET","Min","Adam","Thielen","Dal",11.92,14.4,3,0.158031088082902,1
-"WR","Sterling Shepard (0000000)","Sterling Shepard",0,4900,"NYG@Pit 00:00PM ET","NYG","Sterling","Shepard","Pit",10.36,20.4,2,0.172169811320755,1
+"WR","Adam Thielen (0000000)","Adam Thielen",0,4900,"Dal@Min 00:00PM ET","Min","Adam","Thielen","Dal",11.92,9.6,3,0.158031088082902,1
+"WR","Sterling Shepard (0000000)","Sterling Shepard",0,4900,"NYG@Pit 00:00PM ET","NYG","Sterling","Shepard","Pit",10.36,13.6,2,0.172169811320755,1
 "RB","Frank Gore (0000000)","Frank Gore",0,4900,"Ind@NYJ 00:00PM ET","Ind","Frank","Gore","NYJ",11.96,11,5,0.0956937799043062,0
 "RB","Charcandrick West (0000000)","Charcandrick West",0,4900,"KC@Atl 00:00PM ET","KC","Charcandrick","West","Atl",6.22,4.6,7,0.0738916256157636,0
 "TE","Martellus Bennett (0000000)","Martellus Bennett",0,4800,"LA@NE 00:00PM ET","NE","Martellus","Bennett","LA",11.54,9.8,3,0.151898734177215,0
@@ -169,7 +169,7 @@
 "WR","Quincy Enunwa (0000000)","Quincy Enunwa",0,4500,"Ind@NYJ 00:00PM ET","NYJ","Quincy","Enunwa","Ind",9.92,14.7,2,0.196850393700787,1
 "RB","Jacquizz Rodgers (0000000)","Jacquizz Rodgers",0,4500,"TB@SD 00:00PM ET","TB","Jacquizz","Rodgers","SD",0,4.1,8,0.0306603773584906,0
 "WR","Mohamed Sanu (0000000)","Mohamed Sanu",0,4400,"KC@Atl 00:00PM ET","Atl","Mohamed","Sanu","KC",10.89,19.05,2,0.184415584415584,1
-"WR","Chris Hogan (0000000)","Chris Hogan",0,4400,"LA@NE 00:00PM ET","NE","Chris","Hogan","LA",9.03,9.6,5,0.10126582278481,1
+"WR","Chris Hogan (0000000)","Chris Hogan",0,4400,"LA@NE 00:00PM ET","NE","Chris","Hogan","LA",9.03,14.4,5,0.10126582278481,1
 "RB","James Starks (0000000)","James Starks",0,4400,"Hou@GB 00:00PM ET","GB","James","Starks","Hou",12.13,11.2,7,0.0531914893617021,0
 "RB","Darren Sproles (0000000)","Darren Sproles",0,4400,"Phi@Cin 00:00PM ET","Phi","Darren","Sproles","Cin",9.93,14.1,3,0.144702842377261,0
 "WR","Marvin Jones (0000000)","Marvin Jones",0,4400,"Det@NO 00:00PM ET","Det","Marvin","Jones","NO",0,0,2,0.216417910447761,1

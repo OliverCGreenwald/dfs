@@ -8,6 +8,7 @@
 # Notes:
 #   - don't use test.data$Inj <- NULL for wks 9-16 linear kernel
 #   - test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) won't work for linear kernel
+#   - need to adjust "Uncomment one of the three (3-4 come together) options" subsection (3) and (4) weeks: use >=5 and <=4 for RBF, >=7 and <=6 for Linear
 
 
 ####### IMPORT LIBRARIES #########
@@ -72,9 +73,10 @@ library("klaR")
 
 ####### Uncomment one of the three options #######
 #----- Linear Asymmetric Cost SVM -----#
-# model.mat <- as.data.frame(matrix(NA, nrow = length(5:16), ncol = 2, dimnames = list(NULL, c("Week.Test","Model.Name"))))
-# model.mat$Week.Test <- 5:16
-# model.mat$Model.Name <- c("svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData", "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData",
+# model.mat <- as.data.frame(matrix(NA, nrow = length(2:16), ncol = 2, dimnames = list(NULL, c("Week.Test","Model.Name"))))
+# model.mat$Week.Test <- 2:16
+# model.mat$Model.Name <- c("", "", "",
+#                           "", "",
 #                           "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData", "svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData",
 #                           "svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData", "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData",
 #                           "svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData", "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData",
@@ -82,9 +84,10 @@ library("klaR")
 #                           "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData", "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData")
 
 #----- RBF Asymmetric Cost SVM -----#
-model.mat <- as.data.frame(matrix(NA, nrow = length(5:16), ncol = 2, dimnames = list(NULL, c("Week.Test","Model.Name"))))
-model.mat$Week.Test <- 5:16
-model.mat$Model.Name <- c("svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData", "svmlight_rbf_costfactor0.045_gamma6.8e-07_wks2-5_minfpts18.5.RData",
+model.mat <- as.data.frame(matrix(NA, nrow = length(2:16), ncol = 2, dimnames = list(NULL, c("Week.Test","Model.Name"))))
+model.mat$Week.Test <- 2:16
+model.mat$Model.Name <- c("", "", "",
+                          "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData", "svmlight_rbf_costfactor0.045_gamma6.8e-07_wks2-5_minfpts18.5.RData",
                           "svmlight_rbf_costfactor0.04_gamma1e-07_wks4-6_minfpts18.5.RData", "svmlight_rbf_costfactor0.065_gamma1e-07_wks4-7_minfpts18.5.RData",
                           "svmlight_rbf_costfactor0.04_gamma2.2e-07_wks4-8_minfpts18.5.RData", "svmlight_rbf_costfactor0.085_gamma1e-07_wks4-9_minfpts18.5.RData",
                           "svmlight_rbf_costfactor0.075_gamma1.5e-07_wks4-10_minfpts18.5.RData", "svmlight_rbf_costfactor0.075_gamma1e-07_wks4-11_minfpts18.5.RData",
@@ -96,75 +99,91 @@ model.mat$Model.Name <- c("svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minf
 for (z in 1:nrow(model.mat)) {
   
   cat("\n")
-  print(paste0("############### z = ", z, " ###############"))
+  print(paste0("############### Week To Predict = ", z+1, " ###############"))
   
-  rm(list=setdiff(ls(), c("model.mat", "z"))) # clear environment except for model.mat and index z
-  load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", model.mat$Model.Name[z])) # load tuned model
+  if (model.mat$Model.Name[z]=="") {
+    ####### WRITE TO FILE? #######
+    write.bool <- T # needs to be here to overwrite any loaded variables
+    
+    
+    ####### PARAMETERS #######
+    wk <- model.mat$Week.Test[z] # should be +1 of model
+    salary.threshold <- 5000
+    fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
+    slate.days <- "thu-mon" # "thu-mon" or "sun-mon" or "" (sun only)
+    spike.bool <- T
+    
+    # do nothing else
+    
+  } else {
+    rm(list=setdiff(ls(), c("model.mat", "z"))) # clear environment except for model.mat and index z
+    load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", model.mat$Model.Name[z])) # load tuned model
+    
+    
+    ####### WRITE TO FILE? #######
+    write.bool <- T # needs to be here to overwrite any loaded variables
+    
+    
+    ####### PARAMETERS #######
+    wk <- model.mat$Week.Test[z] # should be +1 of model
+    salary.threshold <- 5000
+    fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
+    slate.days <- "thu-mon" # "thu-mon" or "sun-mon" or "" (sun only)
+    spike.bool <- T
+    
+    
+    ####### LOAD DATA FOR WEEK TO TEST #######
+    test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
+    test.data$Inj <- NULL # comment this out for wks 9-16 linear kernel
+    temp.names <- test.data$Player.Name
+    temp.fpts <- test.data$Actual.FP
+    test.data$Player.Name <- NULL
+    test.data$Actual.FP <- NULL
+    test.data$Player.Name <- temp.names
+    test.data$Actual.FP <- temp.fpts
+    test.x <- test.data[,1:(ncol(test.data)-3)]
+    test.y <- test.data$Value
+    
+    
+    ####### Print Value WR for this week #######
+    test.data[test.data$Value==1, c('Player.Name','Actual.FP','Salary')] # players that actually are 1
+    
+    
+    ####### PREDICT USING MODEL (SVMLIGHT) #######
+    # compute error 
+    pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
+    pred.svmlight$class
+    test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
+    print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
+    
+    # confusion matrix
+    print("Confusion Matrix")
+    confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
+    print(confusion.mat)
+    print(paste0("Value WR hit rate w/ model:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+    print(paste0("Value WR hit rate w/o model:   ", sum(test.y==1)/length(test.y))) 
+    
+    # print players predicted 1, actual 1, and missed
+    pred.value <- test.data[pred.svmlight$class==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
+    pred.value
+    test.data[pred.svmlight$class==1 & test.data$Value==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 and actually are 1 (value wr hits)
+    players.missed <- test.data$Player.Name[test.data$Value==1][!(test.data$Player.Name[test.data$Value==1] %in% test.data$Player.Name[pred.svmlight$class==1])]
+    test.data[test.data$Player.Name %in% players.missed, c('Player.Name','Actual.FP','Salary')] # players that the model predicts 0 but are actually 1 (value wr not in set)
+    
+    # sort by posteriors
+    pred.posterior <- as.data.frame(cbind(pred.svmlight$posterior, test.data[,c('Player.Name','Actual.FP','Salary')]))
+    pred.posterior <- pred.posterior[order(pred.posterior$`1`, decreasing = T),]
+    pred.posterior <- pred.posterior[pred.posterior$`1` > 0.5,]
+    pred.posterior.spike <- pred.posterior[1:(floor(nrow(pred.posterior)*0.50)),] # keep upper half of sorted posteriors
+    pred.posterior.spike <- pred.posterior.spike[order(pred.posterior.spike$Actual.FP, decreasing = T),]
+    pred.posterior.stay <- pred.posterior[-(1:(floor(nrow(pred.posterior)*0.50))),]
+    pred.posterior.stay <- pred.posterior.stay[order(pred.posterior.stay$Actual.FP, decreasing = T),]
+    # View(pred.posterior.spike)
+    # View(pred.posterior.stay)
+    sum(test.data$Value) # total number of value wr
+    sum(pred.posterior.spike$Actual.FP >= fpts.threshold) # number of value wr in the spike
+  }
   
-
-  ####### WRITE TO FILE? #######
-  write.bool <- F # needs to be here to overwrite any loaded variables
-  
-  
-  ####### PARAMETERS #######
-  wk <- model.mat$Week.Test[z] # should be +1 of model
-  salary.threshold <- 5000
-  fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
-  slate.days <- "thu-mon" # "thu-mon" or "sun-mon" or "" (sun only)
-  spike.bool <- T
-  
-  
-  ####### LOAD DATA FOR WEEK TO TEST #######
-  test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
-  test.data$Inj <- NULL # comment this out for wks 9-16 linear kernel
-  temp.names <- test.data$Player.Name
-  temp.fpts <- test.data$Actual.FP
-  test.data$Player.Name <- NULL
-  test.data$Actual.FP <- NULL
-  test.data$Player.Name <- temp.names
-  test.data$Actual.FP <- temp.fpts
-  test.x <- test.data[,1:(ncol(test.data)-3)]
-  test.y <- test.data$Value
-  
-  
-  ####### Print Value WR for this week #######
-  test.data[test.data$Value==1, c('Player.Name','Actual.FP','Salary')] # players that actually are 1
-  
-  
-  ####### PREDICT USING MODEL (SVMLIGHT) #######
-  # compute error 
-  pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
-  pred.svmlight$class
-  test.error.svmlight <- mean(abs(as.numeric(as.character(pred.svmlight$class)) - test.y))
-  print(paste0("Cost Factor SVM Testing Error:   ", test.error.svmlight))
-  
-  # confusion matrix
-  print("Confusion Matrix")
-  confusion.mat <- confusion.matrix(obs = test.y, pred = as.numeric(as.character(pred.svmlight$class)), threshold = 0.5)
-  print(confusion.mat)
-  print(paste0("Value WR hit rate w/ model:   ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
-  print(paste0("Value WR hit rate w/o model:   ", sum(test.y==1)/length(test.y))) 
-  
-  # print players predicted 1, actual 1, and missed
-  pred.value <- test.data[pred.svmlight$class==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
-  pred.value
-  test.data[pred.svmlight$class==1 & test.data$Value==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 and actually are 1 (value wr hits)
-  players.missed <- test.data$Player.Name[test.data$Value==1][!(test.data$Player.Name[test.data$Value==1] %in% test.data$Player.Name[pred.svmlight$class==1])]
-  test.data[test.data$Player.Name %in% players.missed, c('Player.Name','Actual.FP','Salary')] # players that the model predicts 0 but are actually 1 (value wr not in set)
-  
-  # sort by posteriors
-  pred.posterior <- as.data.frame(cbind(pred.svmlight$posterior, test.data[,c('Player.Name','Actual.FP','Salary')]))
-  pred.posterior <- pred.posterior[order(pred.posterior$`1`, decreasing = T),]
-  pred.posterior <- pred.posterior[pred.posterior$`1` > 0.5,]
-  pred.posterior.spike <- pred.posterior[1:(floor(nrow(pred.posterior)*0.50)),] # keep upper half of sorted posteriors
-  pred.posterior.spike <- pred.posterior.spike[order(pred.posterior.spike$Actual.FP, decreasing = T),]
-  pred.posterior.stay <- pred.posterior[-(1:(floor(nrow(pred.posterior)*0.50))),]
-  pred.posterior.stay <- pred.posterior.stay[order(pred.posterior.stay$Actual.FP, decreasing = T),]
-  # View(pred.posterior.spike)
-  # View(pred.posterior.stay)
-  sum(test.data$Value) # total number of value wr
-  sum(pred.posterior.spike$Actual.FP >= fpts.threshold) # number of value wr in the spike
-
   
   ####### BASELINE (ValueWR currently used in 2016_cleaned_input) #######
   # load data
@@ -237,7 +256,7 @@ for (z in 1:nrow(model.mat)) {
     
     
     #----- (3) Spike the model's predicted 1's (keep ValueWR (from baseline) the same) -----#
-    if (model.mat$Week.Test[z] >= 7) {
+    if (model.mat$Week.Test[z] >= 5) {
       temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.5*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
       print(sum(temp$Name %in% pred.value$Player.Name))
       print(length(pred.value$Player.Name))
@@ -246,7 +265,7 @@ for (z in 1:nrow(model.mat)) {
     
     
     #----- (4) Spike the baseline 1's (use this for earlier weeks) -----#
-    if (model.mat$Week.Test[z] <= 6) {
+    if (model.mat$Week.Test[z] <= 4) {
       baseline.valuewr.names <- baseline.data$Name[baseline.data$ValueWR==1]
       temp$Projection_dfn[temp$Name %in% baseline.valuewr.names] <- 1.5*temp$Projection_dfn[temp$Name %in% baseline.valuewr.names]
       print(sum(temp$Name %in% baseline.valuewr.names))

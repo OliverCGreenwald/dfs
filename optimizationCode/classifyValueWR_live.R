@@ -29,8 +29,8 @@ library("SDMTools")
 # Wk 9: "svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData"
 # Wk 8: "svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData"
 # Wk 7: "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData"
-# Wk 6: "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData"
-# Wk 5: "svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData"
+# Wk 6: "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData" (don't use b/c bad)
+# Wk 5: "svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData" (don't use b/c bad)
 #
 # Best RBF Kernel Models Weekly (gets better week over week):
 # Wk 16: "svmlight_rbf_costfactor0.085_gamma1.47e-06_wks4-15_minfpts18.5.RData"
