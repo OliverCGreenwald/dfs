@@ -126,12 +126,16 @@ for (week.num in week.lo:week.hi) {
         
         ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
         if (thu_mon.bool==F & exposure.pos.bool == F) {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv")
         } else if (thu_mon.bool==T & exposure.pos.bool == F) {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv") 
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv")
         } else {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") 
+          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv")
         }
+        
+        # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
+        # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+        
         lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
         ######## CALCULATE FPTS FOR EACH LINEUP ########
