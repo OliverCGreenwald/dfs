@@ -1,0 +1,27 @@
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","FirstName","LastName","Opponent","Projection","Projection_dfn","Projection_fc","Actual"
+"DST","Bills  (7572563)","Bills ",7572563,3700,"SF@Buf 01:00PM ET","BUF","Bills",NA,"SF",10.92,7.9,8.19,6
+"DST","Seahawks  (7572584)","Seahawks ",7572584,3600,"Atl@Sea 04:25PM ET","SEA","Seahawks",NA,"Atl",9.46,8.5,7.41,8
+"DST","Steelers  (7572578)","Steelers ",7572578,3400,"Pit@Mia 01:00PM ET","PIT","Steelers",NA,"Mia",8.34,7.8,8.1,1
+"DST","Titans  (7572568)","Titans ",7572568,3300,"Cle@Ten 01:00PM ET","TEN","Titans",NA,"Cle",10.14,7.9,8.38,6
+"DST","Patriots  (7572580)","Patriots ",7572580,3200,"Cin@NE 01:00PM ET","NE","Patriots",NA,"Cin",10.03,9.1,7.59,5
+"DST","Eagles  (7572565)","Eagles ",7572565,3100,"Phi@Was 01:00PM ET","PHI","Eagles",NA,"Was",9.06,8,8.27,14
+"DST","Giants  (7572569)","Giants ",7572569,3000,"Bal@NYG 01:00PM ET","NYG","Giants",NA,"Bal",7.75,8.5,6,2
+"DST","Lions  (7572575)","Lions ",7572575,3000,"LA@Det 01:00PM ET","DET","Lions",NA,"LA",9.23,6.6,6.57,2
+"DST","Rams  (7572576)","Rams ",7572576,2900,"LA@Det 01:00PM ET","LA","Rams",NA,"Det",7.82,8.3,7.09,0
+"DST","Texans  (7572587)","Texans ",7572587,2900,"Ind@Hou 08:30PM ET","HOU","Texans",NA,"Ind",8.39,7.5,8.18,5
+"DST","Chiefs  (7572581)","Chiefs ",7572581,2800,"KC@Oak 04:05PM ET","KC","Chiefs",NA,"Oak",7.12,7,5.6,10
+"DST","Packers  (7572586)","Packers ",7572586,2800,"Dal@GB 04:25PM ET","GB","Packers",NA,"Dal",8.38,6.6,5.69,4
+"DST","Redskins  (7572566)","Redskins ",7572566,2700,"Phi@Was 01:00PM ET","WAS","Redskins",NA,"Phi",6.2,6.8,6.77,6
+"DST","Jaguars  (7572574)","Jaguars ",7572574,2700,"Jax@Chi 01:00PM ET","JAX","Jaguars",NA,"Chi",7.81,6.3,7.47,2
+"DST","Browns  (7572567)","Browns ",7572567,2600,"Cle@Ten 01:00PM ET","CLE","Browns",NA,"Ten",8.27,6.2,6.7,3
+"DST","Ravens  (7572570)","Ravens ",7572570,2600,"Bal@NYG 01:00PM ET","BAL","Ravens",NA,"NYG",8.53,6.2,6.49,7
+"DST","Raiders  (7572582)","Raiders ",7572582,2600,"KC@Oak 04:05PM ET","OAK","Raiders",NA,"KC",6.71,6.8,7.71,1
+"DST","Dolphins  (7572577)","Dolphins ",7572577,2500,"Pit@Mia 01:00PM ET","MIA","Dolphins",NA,"Pit",6.3,4.2,5.49,7
+"DST","Bengals  (7572579)","Bengals ",7572579,2500,"Cin@NE 01:00PM ET","CIN","Bengals",NA,"NE",5.76,5.3,5.59,-1
+"DST","Falcons  (7572583)","Falcons ",7572583,2500,"Atl@Sea 04:25PM ET","ATL","Falcons",NA,"Sea",6.12,5.8,5.89,3
+"DST","Panthers  (7572572)","Panthers ",7572572,2400,"Car@NO 01:00PM ET","CAR","Panthers",NA,"NO",7.43,8.1,7.58,-1
+"DST","Cowboys  (7572585)","Cowboys ",7572585,2400,"Dal@GB 04:25PM ET","DAL","Cowboys",NA,"GB",4.94,4.3,5.57,10
+"DST","49ers  (7572564)","49ers ",7572564,2300,"SF@Buf 01:00PM ET","SF","49ers",NA,"Buf",6.01,3.6,5.63,3
+"DST","Bears  (7572573)","Bears ",7572573,2300,"Jax@Chi 01:00PM ET","CHI","Bears",NA,"Jax",6.27,5.9,8.45,7
+"DST","Colts  (7572588)","Colts ",7572588,2200,"Ind@Hou 08:30PM ET","IND","Colts",NA,"Hou",5.52,6.9,6.99,3
+"DST","Saints  (7572571)","Saints ",7572571,2000,"Car@NO 01:00PM ET","NO","Saints",NA,"Car",3.72,5.7,6.87,2
