@@ -11,17 +11,17 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 4
-week.hi <- 17
+week.lo <- 2
+week.hi <- 16
 
-contest.entry.fee <- "$3" # note: if "$20", we use "$27" after week 9; if "$3", we use "$4" for week 10
+contest.entry.fee <- "$3"
 wk.4 <- c(10,16) # weeks where $3 contest was $4
 thu_mon.bool <- F # True if using thursday-monday games, False if using only Sunday games
 
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
-source.actual.fpts <- 'FC' # 'FC' or 'DFN'
+source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
 
-formulation <- 15
+formulation <- 14
 
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 4
