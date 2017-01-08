@@ -7,7 +7,6 @@
 # Option to write to file (data_warehouse/2016_cleaned_input/wk[x]/includes_thu-mon/model)
 # Notes:
 #   - don't use test.data$Inj <- NULL for wks 9-16 linear kernel
-#   - test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) won't work for linear kernel
 #   - need to adjust "Uncomment one of the three (3-4 come together) options" subsection (3) and (4) weeks: use >=5 and <=4 for RBF, >=7 and <=6 for Linear
 #   - need to edit both slate.days <- ""
 
@@ -134,7 +133,9 @@ for (z in 1:nrow(model.mat)) {
     
     ####### LOAD DATA FOR WEEK TO TEST #######
     test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
-    test.data$Inj <- NULL # comment this out for wks 9-16 linear kernel
+    # if (!(wk %in% 9:16)) {
+      test.data$Inj <- NULL # uncomment the if statement if linear kernel
+    # }
     temp.names <- test.data$Player.Name
     temp.fpts <- test.data$Actual.FP
     test.data$Player.Name <- NULL

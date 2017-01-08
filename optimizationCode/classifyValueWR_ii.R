@@ -404,5 +404,3 @@ if (model.run==10) {
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData") # factor: 10
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData") # factor: 5
 }
-
-

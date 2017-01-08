@@ -56,7 +56,7 @@ exposure_valuewr = 0.15 # not used in formulation 14
 =#
 live = false
 slate_days = "" # "thu-mon" or "sun-mon" or ""
-model = "" # model1 or ""
+model = "model1" # model1 or ""
 ###########################  Setting Formation  ############################
 
 use_Freq_Ind = false
@@ -103,7 +103,7 @@ projections_source tells which Projections we're using for this generation
 projections_source = "Projection_dfn"
 
 
-for week=12:16
+for week=2:16
 
     ############################  Create Paths to data  ############################
 

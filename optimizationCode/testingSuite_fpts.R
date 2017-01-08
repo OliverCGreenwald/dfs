@@ -15,7 +15,7 @@ week.lo <- 2
 week.hi <- 16
 
 contest.entry.fee <- "$4"
-thu_mon.bool <- T # True if using thursday-monday games, False if using only Sunday games
+thu_mon.bool <- F # True if using thursday-monday games, False if using only Sunday games
 
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
 source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
@@ -69,10 +69,15 @@ for (week.num in week.lo:week.hi) {
     # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
     # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
     
-    # for model1
+    # for model1 (thu-mon)
     # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
-    file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
     # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
+    
+    # for model1 (sun only)
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
+    file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
     
     ####### IMPORT AND CLEAN DK HISTORICAL FPTS DATA #########
     # Use Fantasy Cruncher for actual fpts data
@@ -138,7 +143,11 @@ for (week.num in week.lo:week.hi) {
   }
   
   # compute cashing threshold
-  cashing.dat <- read.csv(file = "resultsAnalysis/data_warehouse/weekly_payout_structure/includes_thu-mon/full_slate_cashing.csv", stringsAsFactors = F)
+  if (thu_mon.bool==T) {
+    cashing.dat <- read.csv(file = "resultsAnalysis/data_warehouse/weekly_payout_structure/includes_thu-mon/full_slate_cashing.csv", stringsAsFactors = F) 
+  } else {
+    cashing.dat <- read.csv(file = "resultsAnalysis/data_warehouse/weekly_payout_structure/contest_1M_cashing.csv", stringsAsFactors = F) 
+  }
   cashing.threshold <- cashing.dat$Min[cashing.dat$Week==(week.num-week.lo+1)]
   
   # fill in results matrix
