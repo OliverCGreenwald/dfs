@@ -8,12 +8,15 @@
 # Section II: Machine Learning Algorithms for Classifying Value WRs
 #   Model IX:  Asymmetric Cost SVM (RBF Kernel)
 #     - shouldn't need to change modelX.cost.factor.ratio.vec and modelX.kernel.param.vec for tuning
+#
+# Notes:
+#   - testing.ind <- sample(x=1:nrow(dataset.all), size=75)
 
 
 ####### SET MODEL TO RUN #######
 model.run <- "9" # 9
 week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 14 # for loop only
+week.max <- 15 # for loop only
 
 ####### WRITE TO FILE? #######
 write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
@@ -22,12 +25,10 @@ save.model.name <- "svmlight_linear_costfactor0.41_wks4-15_minfpts10.0.RData" # 
 
 
 ####### SET PARAMETERS #######
-# wk <- 16 # must be >= 4 (data availability) # uncomment this if for loop (wk in 4:15) is commented out
-
 salary.threshold <- 5000 # define cheap
 fpts.threshold <- 18.5 # 18.5 # define value
 
-historicalfpts3wklag.bool <- T # TRUE if want to use 3 week lag historical fpts instead of all historical
+historicalfpts.lag <- 3 # num wks of lagged historical fpts (use 3 for week.min=4 and week.max=6 to 16, 1 for week.min=2 and week.max=4 to 5, NA if not using this)
 include.names.fpts.bool <- F # TRUE if want to include Player.Name and Actual.FP columns and output to includes_historicalfpts3wklag/includes_names-fpts folder (if TRUE, don't run any models in this file)
 
 fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata/snapcounts (caution: lots of NAs, rows with NAs are removed)
@@ -53,19 +54,21 @@ library("klaR")
 dataset.all <- NULL
 dataset.all.copy <- NULL # copy that keeps name and actual fpts (used for analyzing false positives)
 
-for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
+for (wk in week.min:week.max) { # uncomment for loop if don't want to loop over weeks
   #---- Read and clean DFN features ----#
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', wk, ".csv"), stringsAsFactors = F)
-  temp <- temp[temp$Inj != "O",]
-  temp$Inj[temp$Inj=='Q'] <- 1
-  temp$Inj[temp$Inj!=1] <- 0
+  temp$Inj <- NULL
   temp$Likes[is.na(temp$Likes)] <- 0
   temp$Defense.Pass.Yds.G <- as.numeric(sub("%", "", temp$Defense.Pass.Yds.G))*0.01
   temp$Defense.Rush.Yds.G <- as.numeric(sub("%", "", temp$Defense.Rush.Yds.G))*0.01
   temp$DvP <- as.numeric(sub("%", "", temp$DvP))*0.01
   
   #---- Subset cheap WRs ----#
-  temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Inj','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  if (historicalfpts.lag==3 | is.na(historicalfpts.lag)==T) {
+    temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  } else {
+    temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','S.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP",'Floor.FP','Ceil.FP','Proj.FP','Actual.FP')] 
+  }
   
   #---- Clean temp.cheap player names for matching fantasydata names ----#
   temp.cheap$Player.Name.Temp <- sub("'", "", temp.cheap$Player.Name)
@@ -88,10 +91,26 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   
   #---- Add historical fpts ----#
   historical.fpts <- read.csv(file = "optimizationCode/data_warehouse/historical_fpts/historical.fpts.csv", stringsAsFactors = F)
-  if (historicalfpts3wklag.bool==T) {
+  if (historicalfpts.lag==3) {
     temp.ind <- ncol(temp.cheap) + 1
     temp.cheap[,temp.ind:(temp.ind+2)] <- NA # add extra cols
     for (i in 1:3) {
+      colnames(temp.cheap)[temp.ind-1+i] <- paste0("Wk.Lag", i, ".Fpts")
+      historical.fpts[is.na(historical.fpts[,wk-i+1]),wk-i+1] <- 0 # set NA's to 0 (note that we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0)
+      temp.cheap[,temp.ind-1+i] <- historical.fpts[,wk-i+1][match(temp.cheap$Player.Name, historical.fpts$FullName)] # match
+    }
+  } else if (historicalfpts.lag==2) {
+    temp.ind <- ncol(temp.cheap) + 1
+    temp.cheap[,temp.ind:(temp.ind+1)] <- NA # add extra cols
+    for (i in 1:2) {
+      colnames(temp.cheap)[temp.ind-1+i] <- paste0("Wk.Lag", i, ".Fpts")
+      historical.fpts[is.na(historical.fpts[,wk-i+1]),wk-i+1] <- 0 # set NA's to 0 (note that we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0)
+      temp.cheap[,temp.ind-1+i] <- historical.fpts[,wk-i+1][match(temp.cheap$Player.Name, historical.fpts$FullName)] # match
+    }
+  } else if (historicalfpts.lag==1) {
+    temp.ind <- ncol(temp.cheap) + 1
+    temp.cheap[,temp.ind:(temp.ind+0)] <- NA # add extra cols
+    for (i in 1:1) {
       colnames(temp.cheap)[temp.ind-1+i] <- paste0("Wk.Lag", i, ".Fpts")
       historical.fpts[is.na(historical.fpts[,wk-i+1]),wk-i+1] <- 0 # set NA's to 0 (note that we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0)
       temp.cheap[,temp.ind-1+i] <- historical.fpts[,wk-i+1][match(temp.cheap$Player.Name, historical.fpts$FullName)] # match
@@ -194,16 +213,6 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   temp.cheap$Value[temp.cheap$Actual.FP >= fpts.threshold] <- 1
   temp.cheap$Value[temp.cheap$Actual.FP < fpts.threshold] <- 0
   
-  #---- Remove from feature set ----#
-  # temp.cheap$Pos <- NULL
-  # temp.cheap$Team <- NULL
-  # temp.cheap$Opp <- NULL
-  # temp.cheap$Player.Name.Temp <- NULL
-  # if (include.names.fpts.bool==F) {
-  #   temp.cheap$Player.Name <- NULL
-  #   temp.cheap$Actual.FP <- NULL 
-  # }
-  
   #---- Print number of Value WR ----#
   print(paste0("Wk ", wk, " Num of Value WR / Num Cheap WR:   ", sum(temp.cheap$Value>0), " / ", nrow(temp.cheap)))
   
@@ -228,22 +237,20 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   if (write.bool==T) {
     if (outputweekly.bool==T & (fantasydata.snapcounts.bool==T | fantasydata.stats.bool==T)) {
       write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_fantasydata/cheapwr_data_week", wk, ".csv"), row.names = F) 
-    } else if (outputweekly.bool==T & historicalfpts3wklag.bool == F) {
+    } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == T) {
       write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_allhistoricalfpts/cheapwr_data_week", wk, ".csv"), row.names = F)
-    } else if (outputweekly.bool==T & historicalfpts3wklag.bool == T & include.names.fpts.bool==F) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/cheapwr_data_week", wk, ".csv"), row.names = F)
-    } else if (outputweekly.bool==T & historicalfpts3wklag.bool == T & include.names.fpts.bool==T) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), row.names = F)
+    } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == F & include.names.fpts.bool==F) {
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/cheapwr_data_week", wk, ".csv"), row.names = F)
+    } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == F & include.names.fpts.bool==T) {
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), row.names = F)
     } else {
       # nothing
     }
   }
   
-  #---- Append each week's dataset (if meets min week parameter) ----#
-  if (wk >= week.min) {
-    dataset.all <- rbind(dataset.all, temp.dataset)
-    dataset.all.copy <- rbind(dataset.all.copy, temp.dataset.copy)
-  }
+  #---- Append each week's dataset ----#
+  dataset.all <- rbind(dataset.all, temp.dataset)
+  dataset.all.copy <- rbind(dataset.all.copy, temp.dataset.copy)
 }
 
 
@@ -255,9 +262,8 @@ if (write.bool==T & outputweekly.bool==F) {
   write.csv(dataset.all, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/cheapwr_data_allwks.csv"), row.names = F)
 }
 
-
 ####### SPLIT INTO TRAINING AND TESTING DATA #######
-testing.ind <- sample(x=1:nrow(dataset.all), size=nrow(dataset.all)/5)
+testing.ind <- sample(x=1:nrow(dataset.all), size=nrow(dataset.all)/5) # size=nrow(dataset.all)/5
 data.test <- dataset.all[testing.ind, ]
 data.train <- dataset.all[-testing.ind, ]
 
@@ -272,7 +278,7 @@ if (model.run==9) {
   ptm <- proc.time() # running time
   
   #------ Training ------#
-  modelIX.cost.factor.ratio.vec <- seq(from = 0.01, 0.10, by = 0.005)
+  modelIX.cost.factor.ratio.vec <- seq(from = 0.03, 0.09, by = 0.005)
   modelIX.kernel.param.vec <- round(exp(seq(log(1e-7), log(1e-3), length.out=25)), 8)
   
   k <- 5 # num of folds in cv
@@ -324,21 +330,21 @@ if (model.run==9) {
   # Most promising quantities: (2)
   
   # (1) Minimize CV error
-  min(error.all)
-  min.inds <- which(error.all == min(error.all), arr.ind = TRUE) # indices of minimum cv error (grid search)
-  cost.factor.ratio.optimal <- rownames(error.all)[min.inds[,1]][1] # go with first one
-  kernel.param.vec.optimal <- colnames(error.all)[min.inds[,2]][1] # go with first one
-  cost.factor.ratio.optimal
-  kernel.param.vec.optimal
-  
-  # (2) Minimize CV error - % true positives out of total (reward true positives)
-  # adj.error.all <- error.all - 4*confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
-  # min(adj.error.all)
-  # min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
-  # cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
-  # kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
+  # min(error.all)
+  # min.inds <- which(error.all == min(error.all), arr.ind = TRUE) # indices of minimum cv error (grid search)
+  # cost.factor.ratio.optimal <- rownames(error.all)[min.inds[,1]][1] # go with first one
+  # kernel.param.vec.optimal <- colnames(error.all)[min.inds[,2]][1] # go with first one
   # cost.factor.ratio.optimal
   # kernel.param.vec.optimal
+  
+  # (2) Minimize CV error - % true positives out of total (reward true positives)
+  adj.error.all <- error.all - 5*confusion.mat.11.all / (confusion.mat.00.all+confusion.mat.01.all+confusion.mat.10.all+confusion.mat.11.all)
+  min(adj.error.all)
+  min.inds <- which(adj.error.all == min(adj.error.all), arr.ind = TRUE)
+  cost.factor.ratio.optimal <- rownames(adj.error.all)[min.inds[,1]][1] # go with first one
+  kernel.param.vec.optimal <- colnames(adj.error.all)[min.inds[,2]][1] # go with first one
+  cost.factor.ratio.optimal
+  kernel.param.vec.optimal
   
   # (3) Minimize CV error - % true positives out of pred 1's (reward true positives)
   # adj.error.all <- error.all - 1*confusion.mat.11.all / (confusion.mat.10.all+confusion.mat.11.all)
@@ -407,15 +413,17 @@ if (model.run==9) {
   ptm <- proc.time() - ptm
   print(ptm)
   
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.07_gamma1.47e-06_wks4-15_minfpts18.5.RData")
-  # load(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.085_gamma0.00068129_wks4-15_minfpts18.5.RData")
+  
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData") # factor: 10
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.045_gamma6.8e-07_wks2-5_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.04_gamma1e-07_wks4-6_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.065_gamma1e-07_wks4-7_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.04_gamma2.2e-07_wks4-8_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.085_gamma1e-07_wks4-9_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.075_gamma1.5e-07_wks4-10_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.075_gamma1e-07_wks4-11_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-12_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-13_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.05_gamma3.2e-07_wks4-14_minfpts18.5.RData") # factor: 5
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_rbf_costfactor0.085_gamma1.47e-06_wks4-15_minfpts18.5.RData") # factor: 5
 }
-
-
-# test.x[pred.svmlight$class==1,]
-# dataset.all[rownames(test.x[pred.svmlight$class==1,])[1],]
-# dataset.all[rownames(test.x[pred.svmlight$class==1,])[2],]
-
-
-
-

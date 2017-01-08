@@ -7,6 +7,7 @@
 # Option to write to file (data_warehouse/2016_cleaned_input/wk[x]/includes_thu-mon/model)
 # Notes:
 #   - don't use test.data$Inj <- NULL for wks 9-16 linear kernel
+#   - test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) won't work for linear kernel
 
 
 ####### IMPORT LIBRARIES #########
@@ -16,31 +17,6 @@ library("SDMTools")
 
 
 ####### LOAD MODEL #######
-#
-# "svmlight_linear_costfactor0.07_wks6-16_minfpts18.5.RData" # "svmlight_linear_costfactor0.06_wks6-16_minfpts18.5.RData"
-# "svmlight_linear_costfactor0.075_wks6-15_minfpts18.5.RData"
-# "svmlight_linear_costfactor0.04_wks6-14_minfpts18.5.RData"
-# "svmlight_linear_costfactor0.07_wks6-13_minfpts18.5.RData"
-# "svmlight_linear_costfactor0.03_wks6-12_minfpts18.5.RData"
-# "svmlight_linear_costfactor0.04_wks6-11_minfpts18.5.RData"
-# "svmlight_linear_costfactor0.06_wks6-10_minfpts18.5.RData"
-# "svmlight_linear_costfactor0.06_wks6-9_minfpts18.5.RData"
-# 
-# "svmlight_linear_costfactor0.03_wks4-15_minfpts18.5.RData" (tuning: , result: decent)
-# "svmlight_linear_costfactor0.04_wks4-14_minfpts18.5.RData" (tuning: less obvious, result: decent, gets the top 3 dudes)
-# "svmlight_linear_costfactor0.04_wks4-13_minfpts18.5.RData" (tuning: obvious, result: decent, barely beats baseline, cuts out a lot of 0.0 fpts)
-# "svmlight_linear_costfactor0.05_wks4-12_minfpts18.5.RData" (tuning: quite obvious, result: pretty good)
-# "svmlight_linear_costfactor0.05_wks4-11_minfpts18.5.RData" (tuning: quite obvious, result: ehh, doesn't beat baseline)
-# "svmlight_linear_costfactor0.03_wks4-10_minfpts18.5.RData" (tuning: less obvious, result: decent, model chooses value wr hits 2/3 vs baseline value wr hits 1/3) (consider 0.025 and 0.035)
-# "svmlight_linear_costfactor0.035_wks4-9_minfpts18.5.RData" (tuning: obvious, result: decent (3/3) but doesn't beat baseline)
-#
-# "svmlight_rbf_costfactor0.025_param1e-06_wks4-15_minfpts18.5.RData" (tuning weight: 1.25, result: good)
-# "svmlight_rbf_costfactor0.045_param1.5e-07_wks4-14_minfpts18.5.RData" (tuning weight: 1.25, result: good)
-# "svmlight_rbf_costfactor0.035_param2.2e-07_wks4-13_minfpts18.5.RData" (tuning weight: 1.25, result: good) # "svmlight_rbf_costfactor0.02_param2.15e-06_wks4-13_minfpts18.5.RData" (tuning weight: 3, result: meh)
-# "svmlight_rbf_costfactor0.03_param1e-06_wks4-12_minfpts18.5.RData" (tuning weight: 1.25, result: good)
-# "svmlight_rbf_costfactor0.01_param2.15e-06_wks4-11_minfpts18.5.RData" (tuning weight 2.0, result: slightly less than baseline but has less 0.0 fpts players)
-# "svmlight_rbf_costfactor0.035_param6.8e-07_wks4-10_minfpts18.5.RData" (tuning weight: 1.25, result: good)
-# "svmlight_rbf_costfactor0.015_param3.16e-06_wks4-9_minfpts18.5.RData" (turning wieght: 1.25, result: good)
 #
 # Best Linear Kernel Models Weekly (gets better week over week):
 # Wk 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
@@ -53,18 +29,25 @@ library("SDMTools")
 # Wk 9: "svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData"
 # Wk 8: "svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData"
 # Wk 7: "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData"
+# Wk 6: "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData"
+# Wk 5: "svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData"
 #
 # Best RBF Kernel Models Weekly (gets better week over week):
-# Wk 16: "svmlight_rbf_costfactor0.07_gamma1.47e-06_wks4-15_minfpts18.5.RData"
-# Wk 15: 
-# Wk 14: 
-# Wk 13: 
-# Wk 12: 
-# Wk 11: 
-# Wk 10: 
+# Wk 16: "svmlight_rbf_costfactor0.085_gamma1.47e-06_wks4-15_minfpts18.5.RData"
+# Wk 15: "svmlight_rbf_costfactor0.05_gamma3.2e-07_wks4-14_minfpts18.5.RData"
+# Wk 14: "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-13_minfpts18.5.RData"
+# Wk 13: "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-12_minfpts18.5.RData"
+# Wk 12: "svmlight_rbf_costfactor0.075_gamma1e-07_wks4-11_minfpts18.5.RData"
+# Wk 11: "svmlight_rbf_costfactor0.075_gamma1.5e-07_wks4-10_minfpts18.5.RData"
+# Wk 10: "svmlight_rbf_costfactor0.085_gamma1e-07_wks4-9_minfpts18.5.RData"
+# Wk 9: "svmlight_rbf_costfactor0.04_gamma2.2e-07_wks4-8_minfpts18.5.RData"
+# Wk 8: "svmlight_rbf_costfactor0.065_gamma1e-07_wks4-7_minfpts18.5.RData"
+# Wk 7: "svmlight_rbf_costfactor0.04_gamma1e-07_wks4-6_minfpts18.5.RData"
+# Wk 6: "svmlight_rbf_costfactor0.045_gamma6.8e-07_wks2-5_minfpts18.5.RData"
+# Wk 5: "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData"
 
 
-save.model.name <- "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData"
+save.model.name <- "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData"
 load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
 
 
@@ -73,7 +56,7 @@ write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
-wk <- 2
+wk <- 5
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 
@@ -181,14 +164,15 @@ baseline.data[baseline.data$ValueWR==0 & baseline.data$ValueWR.Actual==1, c('Nam
 
 ####### WRITE TO FILE #######
 if (write.bool==T) {
-  ####### UPDATE includes_thu-mon/model1 OFFENSIVE_PLAYERS CSV #######
+  ####### Uncomment one of the two (thu-mon or sun only) options #######
+  #----- UPDATE includes_thu-mon/model1 OFFENSIVE_PLAYERS CSV -----#
   temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/offensive_players.csv"), stringsAsFactors = F)
   temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
   if (spike.bool == F) {
     temp$ValueWR <- 0 # reset
   }
   
-  ####### UPDATE model1 OFFENSIVE_PLAYERS CSV #######
+  #----- UPDATE model1 OFFENSIVE_PLAYERS CSV -----#
   # temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F)
   # temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
   # if (spike.bool == F) {

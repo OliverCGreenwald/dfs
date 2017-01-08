@@ -5,6 +5,9 @@
 ####### DESCRIPTION #######
 # In this file we test models for classifying ValueWR.
 # Option to write to file (data_warehouse/2016_cleaned_input/wk[x]/includes_thu-mon/model)
+# Notes:
+#   - don't use test.data$Inj <- NULL for wks 9-16 linear kernel
+#   - test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) won't work for linear kernel
 
 
 ####### IMPORT LIBRARIES #########
@@ -12,7 +15,7 @@ library("klaR")
 
 
 ####### LOAD MODEL #######
-#
+# INCORRECTLY TUNED (no CV):
 # "svmlight_linear_costfactor0.075_wks6-15_minfpts18.5.RData"
 # "svmlight_linear_costfactor0.04_wks6-14_minfpts18.5.RData"
 # "svmlight_linear_costfactor0.07_wks6-13_minfpts18.5.RData"
@@ -36,46 +39,84 @@ library("klaR")
 # "svmlight_rbf_costfactor0.01_param2.15e-06_wks4-11_minfpts18.5.RData" (tuning weight 2.0, result: slightly less than baseline but has less 0.0 fpts players)
 # "svmlight_rbf_costfactor0.035_param6.8e-07_wks4-10_minfpts18.5.RData" (tuning weight: 1.25, result: good)
 # "svmlight_rbf_costfactor0.015_param3.16e-06_wks4-9_minfpts18.5.RData" (turning wieght: 1.25, result: good)
+#
+# CORRECTLY TUNED:
+# Best Linear Kernel Models Weekly (gets better week over week):
+# Wk 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
+# Wk 15: "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData"
+# Wk 14: "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData"
+# Wk 13: "svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData"
+# Wk 12: "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData"
+# Wk 11: "svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData"
+# Wk 10: "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData"
+# Wk 9: "svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData"
+# Wk 8: "svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData"
+# Wk 7: "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData"
+# Wk 6: "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData"
+# Wk 5: "svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData"
+#
+# Best RBF Kernel Models Weekly (gets better week over week):
+# Wk 16: "svmlight_rbf_costfactor0.085_gamma1.47e-06_wks4-15_minfpts18.5.RData"
+# Wk 15: "svmlight_rbf_costfactor0.05_gamma3.2e-07_wks4-14_minfpts18.5.RData"
+# Wk 14: "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-13_minfpts18.5.RData"
+# Wk 13: "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-12_minfpts18.5.RData"
+# Wk 12: "svmlight_rbf_costfactor0.075_gamma1e-07_wks4-11_minfpts18.5.RData"
+# Wk 11: "svmlight_rbf_costfactor0.075_gamma1.5e-07_wks4-10_minfpts18.5.RData"
+# Wk 10: "svmlight_rbf_costfactor0.085_gamma1e-07_wks4-9_minfpts18.5.RData"
+# Wk 9: "svmlight_rbf_costfactor0.04_gamma2.2e-07_wks4-8_minfpts18.5.RData"
+# Wk 8: "svmlight_rbf_costfactor0.065_gamma1e-07_wks4-7_minfpts18.5.RData"
+# Wk 7: "svmlight_rbf_costfactor0.04_gamma1e-07_wks4-6_minfpts18.5.RData"
+# Wk 6: "svmlight_rbf_costfactor0.045_gamma6.8e-07_wks2-5_minfpts18.5.RData"
+# Wk 5: "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData"
 
-model.mat <- as.data.frame(matrix(NA, nrow = 7, ncol = 2, dimnames = list(NULL, c("Week.Test","Model.Name"))))
-model.mat$Week.Test <- 10:16
-model.mat$Model.Name <- c("svmlight_linear_costfactor0.035_wks4-9_minfpts18.5.RData",
-                          "svmlight_linear_costfactor0.03_wks4-10_minfpts18.5.RData",
-                          "svmlight_linear_costfactor0.05_wks4-11_minfpts18.5.RData",
-                          "svmlight_linear_costfactor0.05_wks4-12_minfpts18.5.RData",
-                          "svmlight_linear_costfactor0.04_wks4-13_minfpts18.5.RData",
-                          "svmlight_linear_costfactor0.04_wks4-14_minfpts18.5.RData",
-                          "svmlight_linear_costfactor0.06_wks4-15_minfpts18.5.RData")
 
-# model.mat$Model.Name <- c("svmlight_linear_costfactor0.06_wks6-9_minfpts18.5.RData",
-#                           "svmlight_linear_costfactor0.06_wks6-10_minfpts18.5.RData",
-#                           "svmlight_linear_costfactor0.04_wks6-11_minfpts18.5.RData",
-#                           "svmlight_linear_costfactor0.03_wks6-12_minfpts18.5.RData",
-#                           "svmlight_linear_costfactor0.07_wks6-13_minfpts18.5.RData",
-#                           "svmlight_linear_costfactor0.04_wks6-14_minfpts18.5.RData",
-#                           "svmlight_linear_costfactor0.075_wks6-15_minfpts18.5.RData")
+####### Uncomment one of the three options #######
+#----- Linear Asymmetric Cost SVM -----#
+# model.mat <- as.data.frame(matrix(NA, nrow = length(5:16), ncol = 2, dimnames = list(NULL, c("Week.Test","Model.Name"))))
+# model.mat$Week.Test <- 5:16
+# model.mat$Model.Name <- c("svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData", "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData",
+#                           "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData", "svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData",
+#                           "svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData", "svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData",
+#                           "svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData", "svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData",
+#                           "svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData", "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData",
+#                           "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData", "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData")
 
-# z=3
+#----- RBF Asymmetric Cost SVM -----#
+model.mat <- as.data.frame(matrix(NA, nrow = length(5:16), ncol = 2, dimnames = list(NULL, c("Week.Test","Model.Name"))))
+model.mat$Week.Test <- 5:16
+model.mat$Model.Name <- c("svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData", "svmlight_rbf_costfactor0.045_gamma6.8e-07_wks2-5_minfpts18.5.RData",
+                          "svmlight_rbf_costfactor0.04_gamma1e-07_wks4-6_minfpts18.5.RData", "svmlight_rbf_costfactor0.065_gamma1e-07_wks4-7_minfpts18.5.RData",
+                          "svmlight_rbf_costfactor0.04_gamma2.2e-07_wks4-8_minfpts18.5.RData", "svmlight_rbf_costfactor0.085_gamma1e-07_wks4-9_minfpts18.5.RData",
+                          "svmlight_rbf_costfactor0.075_gamma1.5e-07_wks4-10_minfpts18.5.RData", "svmlight_rbf_costfactor0.075_gamma1e-07_wks4-11_minfpts18.5.RData",
+                          "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-12_minfpts18.5.RData", "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-13_minfpts18.5.RData",
+                          "svmlight_rbf_costfactor0.05_gamma3.2e-07_wks4-14_minfpts18.5.RData", "svmlight_rbf_costfactor0.085_gamma1.47e-06_wks4-15_minfpts18.5.RData")
+
+
+# Loop through weeks
 for (z in 1:nrow(model.mat)) {
   
-  # save.model.name <- "svmlight_linear_costfactor0.075_wks6-15_minfpts18.5.RData"
-  # load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
-  load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", model.mat$Model.Name[z]))
+  cat("\n")
+  print(paste0("############### z = ", z, " ###############"))
   
+  rm(list=setdiff(ls(), c("model.mat", "z"))) # clear environment except for model.mat and index z
+  load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", model.mat$Model.Name[z])) # load tuned model
   
+
   ####### WRITE TO FILE? #######
-  write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+  write.bool <- F # needs to be here to overwrite any loaded variables
   
   
   ####### PARAMETERS #######
-  # wk <- 16
-  wk <- model.mat$Week.Test[z] # 16 # should be +1 of model
+  wk <- model.mat$Week.Test[z] # should be +1 of model
   salary.threshold <- 5000
   fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
+  slate.days <- "thu-mon" # "thu-mon" or "sun-mon" or "" (sun only)
+  spike.bool <- T
   
   
   ####### LOAD DATA FOR WEEK TO TEST #######
-  test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F)
+  test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
+  test.data$Inj <- NULL # comment this out for wks 9-16 linear kernel
   temp.names <- test.data$Player.Name
   temp.fpts <- test.data$Actual.FP
   test.data$Player.Name <- NULL
@@ -84,13 +125,13 @@ for (z in 1:nrow(model.mat)) {
   test.data$Actual.FP <- temp.fpts
   test.x <- test.data[,1:(ncol(test.data)-3)]
   test.y <- test.data$Value
-
+  
   
   ####### Print Value WR for this week #######
   test.data[test.data$Value==1, c('Player.Name','Actual.FP','Salary')] # players that actually are 1
   
   
-  ####### PREDICT USING MODEL #######
+  ####### PREDICT USING MODEL (SVMLIGHT) #######
   # compute error 
   pred.svmlight <- predict(model.svmlight, newdata = test.x, scal = T)
   pred.svmlight$class
@@ -123,7 +164,7 @@ for (z in 1:nrow(model.mat)) {
   # View(pred.posterior.stay)
   sum(test.data$Value) # total number of value wr
   sum(pred.posterior.spike$Actual.FP >= fpts.threshold) # number of value wr in the spike
-  
+
   
   ####### BASELINE (ValueWR currently used in 2016_cleaned_input) #######
   # load data
@@ -154,33 +195,74 @@ for (z in 1:nrow(model.mat)) {
   
   ####### WRITE TO FILE #######
   if (write.bool==T) {
-    ####### UPDATE includes_thu-mon/model1 OFFENSIVE_PLAYERS CSV #######
-    temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/offensive_players.csv"), stringsAsFactors = F)
-    temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
-    temp$ValueWR <- 0 # reset
-
-    valuewr.set.model <- test.data[pred.svmlight$class==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
-    temp$ValueWR[temp$Name %in% valuewr.set.model$Player.Name & temp$Salary %in% valuewr.set.model$Salary] <- 1
-    print(sum(temp$ValueWR))
-    print(nrow(valuewr.set.model))
-    print(valuewr.set.model$Player.Name[!(valuewr.set.model$Player.Name %in% temp$Name)]) # missing players
+    if (slate.days == "thu-mon") {
+      #----- LOAD includes_thu-mon/model1 OFFENSIVE_PLAYERS CSV -----#
+      temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/offensive_players.csv"), stringsAsFactors = F)
+      temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
+      if (spike.bool == F) {
+        temp$ValueWR <- 0 # reset
+      }
+    } else if (slate.days == "sun-mon") {
+      #----- LOAD includes_sun-mon/model1 OFFENSIVE_PLAYERS CSV -----#
+      temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_sun-mon/offensive_players.csv"), stringsAsFactors = F)
+      temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
+      if (spike.bool == F) {
+        temp$ValueWR <- 0 # reset
+      }
+    } else {
+      #----- LOAD model1 OFFENSIVE_PLAYERS CSV -----#
+      temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F)
+      temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
+      if (spike.bool == F) {
+        temp$ValueWR <- 0 # reset
+      }
+    }
     
     
-    #-----Spike upper 75th percentile posteriors -----#
+    ####### Uncomment one of the three (3-4 come together) options #######
+    #----- (1) Set ValueWR to model's predictions -----#
+    # valuewr.set.model <- test.data[pred.svmlight$class==1, c('Player.Name','Actual.FP','Salary')] # players that model predicts 1 (all cheap wr in set)
+    # temp$ValueWR[temp$Name %in% valuewr.set.model$Player.Name & temp$Salary %in% valuewr.set.model$Salary] <- 1
+    # print(sum(temp$ValueWR))
+    # print(nrow(valuewr.set.model))
+    # print(valuewr.set.model$Player.Name[!(valuewr.set.model$Player.Name %in% temp$Name)]) # missing players
+    #----------#
+    
+    
+    #----- (2) Spike upper 75th percentile posteriors -----#
     # temp$Projection_dfn[temp$Name %in% pred.posterior.spike$Player.Name] <- 1.25*temp$Projection_dfn[temp$Name %in% pred.posterior.spike$Player.Name]
     # print(sum(temp$Name %in% pred.posterior.spike$Player.Name))
     # print(length(pred.posterior.spike$Player.Name))
     #----------#
     
     
-    #-----Spike the predicted 1's -----#
-    # temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.25*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
-    # print(sum(temp$Name %in% pred.value$Player.Name))
-    # print(length(pred.value$Player.Name))
+    #----- (3) Spike the model's predicted 1's (keep ValueWR (from baseline) the same) -----#
+    if (model.mat$Week.Test[z] >= 7) {
+      temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.5*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
+      print(sum(temp$Name %in% pred.value$Player.Name))
+      print(length(pred.value$Player.Name))
+    }
     #----------#
     
     
-    write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/model1/offensive_players.csv"), row.names = F)
+    #----- (4) Spike the baseline 1's (use this for earlier weeks) -----#
+    if (model.mat$Week.Test[z] <= 6) {
+      baseline.valuewr.names <- baseline.data$Name[baseline.data$ValueWR==1]
+      temp$Projection_dfn[temp$Name %in% baseline.valuewr.names] <- 1.5*temp$Projection_dfn[temp$Name %in% baseline.valuewr.names]
+      print(sum(temp$Name %in% baseline.valuewr.names))
+      print(length(baseline.valuewr.names)) 
+    }
+    #----------#
+    
+    
+    ###### WRITE TO FILE ######
+    if (slate.days == "thu-mon") {
+      write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_thu-mon/model1/offensive_players.csv"), row.names = F) 
+    } else if (slate.days == "sun-mon") {
+      write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_sun-mon/model1/offensive_players.csv"), row.names = F) 
+    } else {
+      write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/model1/offensive_players.csv"), row.names = F) 
+    }
   }
-
+  
 }
