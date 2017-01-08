@@ -99,7 +99,7 @@
 "QB","Chad Henne (7451520)","Chad Henne",7451520,5000,"Bal@Jax 01:00PM ET","Jax","Chad","Henne","Bal",0,0,0,0,0,0,0,0,1,0,0
 "QB","Ryan Mallett (7451521)","Ryan Mallett",7451521,5000,"Bal@Jax 01:00PM ET","Bal","Ryan","Mallett","Jax",0,0,0,0,0,0,0,0,1,0,0
 "QB","Brandon Allen (7451523)","Brandon Allen",7451523,5000,"Bal@Jax 01:00PM ET","Jax","Brandon","Allen","Bal",0,0,0,0,0,0,0,0,1,0,0
-"WR","Mike Wallace (7451741)","Mike Wallace",7451741,5000,"Bal@Jax 01:00PM ET","Bal","Mike","Wallace","Jax",13.34,10.5,12.38,10.5,3,0.180555555555556,11.2044678886253,12.1710594300395,0,6.9,1
+"WR","Mike Wallace (7451741)","Mike Wallace",7451741,5000,"Bal@Jax 01:00PM ET","Bal","Mike","Wallace","Jax",13.34,15.75,12.38,10.5,3,0.180555555555556,11.2044678886253,12.1710594300395,0,6.9,1
 "QB","Dan Orlovsky (7451524)","Dan Orlovsky",7451524,5000,"Det@GB 01:00PM ET","Det","Dan","Orlovsky","GB",0,0,0,0,0,0,0,0,1,0,0
 "QB","Brett Hundley (7451527)","Brett Hundley",7451527,5000,"Det@GB 01:00PM ET","GB","Brett","Hundley","Det",0,0,0,0,0,0,0,0,1,0,0
 "QB","Joe Callahan (7451528)","Joe Callahan",7451528,5000,"Det@GB 01:00PM ET","GB","Joe","Callahan","Det",0,0,0,0,0,0,0,0,1,0,0
@@ -133,7 +133,7 @@
 "QB","Zach Mettenberger (7451565)","Zach Mettenberger",7451565,5000,"Pit@Phi 04:25PM ET","Pit","Zach","Mettenberger","Phi",0,0,0,0,0,0,0,0,0,0,0
 "QB","Brian Hoyer (7451569)","Brian Hoyer",7451569,5000,"Chi@Dal 08:30PM ET","Chi","Brian","Hoyer","Dal",14.01,16.8,15.9,16.8,0,0,14.6531406712797,14.2661953102462,1,22.4,0
 "QB","Mark Sanchez (7451570)","Mark Sanchez",7451570,5000,"Chi@Dal 08:30PM ET","Dal","Mark","Sanchez","Chi",0,1.6,0,1.6,0,0,0.799891987694209,0.411276955577134,1,0,0
-"WR","DeVante Parker (7451731)","DeVante Parker",7451731,4900,"Cle@Mia 01:00PM ET","Mia","DeVante","Parker","Cle",12.78,14.1,11.34,14.1,2,0.180555555555556,12.7542324349362,12.6988051086431,0,14.1,1
+"WR","DeVante Parker (7451731)","DeVante Parker",7451731,4900,"Cle@Mia 01:00PM ET","Mia","DeVante","Parker","Cle",12.78,21.15,11.34,14.1,2,0.180555555555556,12.7542324349362,12.6988051086431,0,14.1,1
 "RB","Theo Riddick (7451618)","Theo Riddick",7451618,4900,"Det@GB 01:00PM ET","Det","Theo","Riddick","GB",14.37,13.9,15.53,13.9,5,0.120481927710843,13.3640458602989,13.7763734884772,0,11.8,0
 "RB","Charles Sims (7451643)","Charles Sims",7451643,4900,"LA@TB 04:05PM ET","TB","Charles","Sims","LA",13.14,16,13.49,16,5,0.0886075949367089,13.8648135870381,13.4428141536055,0,24.4,0
 "WR","John Brown (7451697)","John Brown",7451697,4800,"Ari@Buf 01:00PM ET","Ari","John","Brown","Buf",9.96,9.2,10.8,9.2,4,0.108108108108108,9.04567279168888,9.43693109384011,0,13,0
@@ -234,7 +234,7 @@
 "RB","Jonathan Williams (7451580)","Jonathan Williams",7451580,3000,"Ari@Buf 01:00PM ET","Buf","Jonathan","Williams","Ari",0,0,0,0,10,0,0,0,0,0.2,0
 "WR","Brandon Tate (7451693)","Brandon Tate",7451693,3000,"Ari@Buf 01:00PM ET","Buf","Brandon","Tate","Ari",0,0,0,0,10,0,0,0,0,0,0
 "WR","Greg Salas (7451694)","Greg Salas",7451694,3000,"Ari@Buf 01:00PM ET","Buf","Greg","Salas","Ari",0,0,0,0,5,0.115384615384615,0,0,0,0,1
-"WR","Marquise Goodwin (7451698)","Marquise Goodwin",7451698,3000,"Ari@Buf 01:00PM ET","Buf","Marquise","Goodwin","Ari",7.36,12.3,0,12.3,6,0.0961538461538462,9.43478439712727,8.38765264927622,0,1.6,1
+"WR","Marquise Goodwin (7451698)","Marquise Goodwin",7451698,3000,"Ari@Buf 01:00PM ET","Buf","Marquise","Goodwin","Ari",7.36,18.45,0,12.3,6,0.0961538461538462,9.43478439712727,8.38765264927622,0,1.6,1
 "WR","Walt Powell (7451699)","Walt Powell",7451699,3000,"Ari@Buf 01:00PM ET","Buf","Walt","Powell","Ari",0,5.2,0,5.2,10,0,2.59964896000618,1.33665010562568,0,5.8,0
 "WR","J.J. Nelson (7451701)","J.J. Nelson",7451701,3000,"Ari@Buf 01:00PM ET","Ari","J.J.","Nelson","Buf",0,4.4,0,4.4,9,0.027027027027027,2.19970296615907,1.13101162783712,0,0,0
 "RB","Taiwan Jones (7451582)","Taiwan Jones",7451582,3000,"Oak@Ten 01:00PM ET","Oak","Taiwan","Jones","Ten",0,0,0,0,9,0.0229885057471264,0,0,0,0,0
