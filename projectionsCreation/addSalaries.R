@@ -1,4 +1,4 @@
-#setwd("~/Projects/DFS/resultsAnalysis")
+#setwd("~/Projects/DFS/")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 ####### DESCRIPTION #######
