@@ -13,8 +13,8 @@
 
 ####### SET MODEL TO RUN #######
 model.run <- "10" # 10
-week.min <- 2 # must be >= 4 if using lag 3 in params
-week.max <- 4 # for loop only
+week.min <- 7 # must be >= 4 if using lag 3 in params
+week.max <- 15 # for loop only
 
 
 ####### WRITE TO FILE? #######
@@ -27,7 +27,7 @@ save.model.name <- "svmlight_linear_costfactor0.41_wks4-15_minfpts10.0.RData" # 
 salary.threshold <- 5000 # define cheap
 fpts.threshold <- 18.5 # 18.5 # define value
 
-historicalfpts.lag <- 1 # num wks of lagged historical fpts (use 3 for weeks 7-16, 1 for weeks 2-6, NA if not using this)
+historicalfpts.lag <- 6 # num wks of lagged historical fpts (use 3 for weeks 7-16, 1 for weeks 2-6, NA if not using this)
 include.names.fpts.bool <- F # TRUE if want to include Player.Name and Actual.FP columns and output to includes_historicalfpts3wklag/includes_names-fpts folder (if TRUE, don't run any models in this file)
 
 fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata/snapcounts (caution: lots of NAs, rows with NAs are removed)
@@ -90,18 +90,10 @@ for (wk in week.min:week.max) { # uncomment for loop if don't want to loop over 
   
   #---- Add historical fpts ----#
   historical.fpts <- read.csv(file = "optimizationCode/data_warehouse/historical_fpts/historical.fpts.csv", stringsAsFactors = F)
-  if (historicalfpts.lag==3) {
+  if (historicalfpts.lag > 1) {
     temp.ind <- ncol(temp.cheap) + 1
-    temp.cheap[,temp.ind:(temp.ind+2)] <- NA # add extra cols
-    for (i in 1:3) {
-      colnames(temp.cheap)[temp.ind-1+i] <- paste0("Wk.Lag", i, ".Fpts")
-      historical.fpts[is.na(historical.fpts[,wk-i+1]),wk-i+1] <- 0 # set NA's to 0 (note that we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0)
-      temp.cheap[,temp.ind-1+i] <- historical.fpts[,wk-i+1][match(temp.cheap$Player.Name, historical.fpts$FullName)] # match
-    }
-  } else if (historicalfpts.lag==2) {
-    temp.ind <- ncol(temp.cheap) + 1
-    temp.cheap[,temp.ind:(temp.ind+1)] <- NA # add extra cols
-    for (i in 1:2) {
+    temp.cheap[,temp.ind:(temp.ind+(historicalfpts.lag-1))] <- NA # add extra cols
+    for (i in 1:historicalfpts.lag) {
       colnames(temp.cheap)[temp.ind-1+i] <- paste0("Wk.Lag", i, ".Fpts")
       historical.fpts[is.na(historical.fpts[,wk-i+1]),wk-i+1] <- 0 # set NA's to 0 (note that we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0)
       temp.cheap[,temp.ind-1+i] <- historical.fpts[,wk-i+1][match(temp.cheap$Player.Name, historical.fpts$FullName)] # match
@@ -390,6 +382,8 @@ if (model.run==10) {
   ptm <- proc.time() - ptm
   print(ptm)
   
+  
+  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.085_wks7-15_minfpts18.5_lag6.RData") # factor:
   
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData") # factor: 10
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData") # factor: 10

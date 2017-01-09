@@ -47,7 +47,7 @@ library("SDMTools")
 # Wk 5: "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData"
 
 
-save.model.name <- "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData"
+save.model.name <- "svmlight_linear_costfactor0.085_wks7-15_minfpts18.5_lag6.RData"
 load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", save.model.name))
 
 
@@ -56,7 +56,7 @@ write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
-wk <- 5
+wk <- 16
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 

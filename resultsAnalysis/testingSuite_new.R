@@ -14,8 +14,10 @@ library('stringr')
 week.lo <- 2
 week.hi <- 16
 
-contest.entry.fee <- "$3"
+contest.entry.fee <- "$20"
 wk.4 <- c(10,16) # weeks where $3 contest was $4
+wk.27 <- c(11:15) # weeks where $20 contest was $27
+wk.50 <- c(16) # weeks where $20 contest was $50
 thu_mon.bool <- F # True if using thursday-monday games, False if using only Sunday games
 
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
@@ -72,8 +74,10 @@ for (week.num in week.lo:week.hi) {
     ####### LOAD FULL CONTEST RESULTS #########
     if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num %in% wk.4) {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", '$4', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
-    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num > 9) {
+    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num %in% wk.27) {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", '$27', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
+    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num %in% wk.50) {
+      full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/", '$50', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
     } else if (thu_mon.bool==T & contest.entry.fee=='$4') {
       full.results.data <- read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/includes_thu-mon/", '$4', "_contest_full_results_week", week.num, ".csv"), stringsAsFactors = F)
     } else {
@@ -110,8 +114,10 @@ for (week.num in week.lo:week.hi) {
     ######## IMPORT PAYOUT STRUCTURE ########
     if (thu_mon.bool==F & contest.entry.fee=='$3' & week.num %in% wk.4) {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", '$4', "_payout_structure_week", week.num, ".csv") 
-    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num > 9) {
+    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num %in% wk.27) {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", '$27', "_payout_structure_week", week.num, ".csv") 
+    } else if (thu_mon.bool==F & contest.entry.fee=='$20' & week.num %in% wk.50) {
+      file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/", '$50', "_payout_structure_week", week.num, ".csv") 
     } else if (thu_mon.bool==T & contest.entry.fee=='$4') {
       file.name <- paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/includes_thu-mon/", '$4', "_payout_structure_week", week.num, ".csv") 
     } else {
@@ -125,16 +131,16 @@ for (week.num in week.lo:week.hi) {
       for (exposure in exposure.range) {
         
         ####### LOAD LINEUPS FOR THIS SET OF PARAMETERS #########
-        if (thu_mon.bool==F & exposure.pos.bool == F) {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv")
-        } else if (thu_mon.bool==T & exposure.pos.bool == F) {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv")
-        } else {
-          file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv")
-        }
+        # if (thu_mon.bool==F & exposure.pos.bool == F) {
+        #   file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv")
+        # } else if (thu_mon.bool==T & exposure.pos.bool == F) {
+        #   file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_exposure_", exposure, num.lineups, ".csv")
+        # } else {
+        #   file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv")
+        # }
         
         # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
-        # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
         
         lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
@@ -182,8 +188,10 @@ for (week.num in week.lo:week.hi) {
         ######## ADD TO PNL MATRIX ########
         if (contest.entry.fee=='$3' & week.num %in% wk.4) {
           temp.contest.entry.fee <- '$4'
-        } else if (contest.entry.fee=='$20' & week.num > 9) {
+        } else if (contest.entry.fee=='$20' & week.num %in% wk.27) {
           temp.contest.entry.fee <- '$27'
+        } else if (contest.entry.fee=='$20' & week.num %in% wk.50) {
+          temp.contest.entry.fee <- '$50'
         } else {
           temp.contest.entry.fee <- contest.entry.fee
         }
