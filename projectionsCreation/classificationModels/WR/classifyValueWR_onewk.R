@@ -61,6 +61,7 @@ fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline fi
 slate.days <- "" # "thu-mon" or "sun-mon" or "" (sun only)
 spike.bool <- T
 
+
 ####### LOAD DATA FOR WEEK TO TEST #######
 test.data <- read.csv(file = paste0("projectionsCreation/classificationModels/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
 test.data$Inj <- NULL # comment if linear kernel weeks 9:16
