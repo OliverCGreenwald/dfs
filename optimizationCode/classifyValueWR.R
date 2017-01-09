@@ -100,12 +100,10 @@ save.model.name <- "svmlight_linear_costfactor0.41_wks4-15_minfpts10.0.RData" # 
 
 
 ####### SET PARAMETERS #######
-# wk <- 16 # must be >= 4 (data availability) # uncomment this if for loop (wk in 4:15) is commented out
-
 salary.threshold <- 5000 # define cheap
 fpts.threshold <- 18.5 # 18.5 # define value
 
-historicalfpts3wklag.bool <- T # TRUE if want to use 3 week lag historical fpts instead of all historical
+historicalfpts.lag <- 6 # num wks of lagged historical fpts (use 3 for weeks 7-16, 1 for weeks 2-6, NA if not using this)
 include.names.fpts.bool <- F # TRUE if want to include Player.Name and Actual.FP columns and output to includes_historicalfpts3wklag/includes_names-fpts folder (if TRUE, don't run any models in this file)
 
 fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata/snapcounts (caution: lots of NAs, rows with NAs are removed)
@@ -129,20 +127,23 @@ library("klaR")
 ####### SECTION I: PREPARE DATAFRAME OF CHEAP WR #######
 #---- Initializing df for storing all weeks (if loop over weeks is used) ----#
 dataset.all <- NULL
+dataset.all.copy <- NULL # copy that keeps name and actual fpts (used for analyzing false positives)
 
-for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
+for (wk in week.min:week.max) { # uncomment for loop if don't want to loop over weeks
   #---- Read and clean DFN features ----#
   temp <- read.csv(file = paste0('optimizationCode/data_warehouse/dailyfantasynerd/updates/dfn_offense_week', wk, ".csv"), stringsAsFactors = F)
-  temp <- temp[temp$Inj != "O",]
-  temp$Inj[temp$Inj=='Q'] <- 1
-  temp$Inj[temp$Inj!=1] <- 0
+  temp$Inj <- NULL
   temp$Likes[is.na(temp$Likes)] <- 0
   temp$Defense.Pass.Yds.G <- as.numeric(sub("%", "", temp$Defense.Pass.Yds.G))*0.01
   temp$Defense.Rush.Yds.G <- as.numeric(sub("%", "", temp$Defense.Rush.Yds.G))*0.01
   temp$DvP <- as.numeric(sub("%", "", temp$DvP))*0.01
   
   #---- Subset cheap WRs ----#
-  temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Inj','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  if (historicalfpts.lag==3 | is.na(historicalfpts.lag)==T) {
+    temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Inj','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+  } else {
+    temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','S.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP",'Floor.FP','Ceil.FP','Proj.FP','Actual.FP')] 
+  }
   
   #---- Clean temp.cheap player names for matching fantasydata names ----#
   temp.cheap$Player.Name.Temp <- sub("'", "", temp.cheap$Player.Name)
@@ -165,10 +166,18 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   
   #---- Add historical fpts ----#
   historical.fpts <- read.csv(file = "optimizationCode/data_warehouse/historical_fpts/historical.fpts.csv", stringsAsFactors = F)
-  if (historicalfpts3wklag.bool==T) {
+  if (historicalfpts.lag > 1) {
     temp.ind <- ncol(temp.cheap) + 1
-    temp.cheap[,temp.ind:(temp.ind+2)] <- NA # add extra cols
-    for (i in 1:3) {
+    temp.cheap[,temp.ind:(temp.ind+(historicalfpts.lag-1))] <- NA # add extra cols
+    for (i in 1:historicalfpts.lag) {
+      colnames(temp.cheap)[temp.ind-1+i] <- paste0("Wk.Lag", i, ".Fpts")
+      historical.fpts[is.na(historical.fpts[,wk-i+1]),wk-i+1] <- 0 # set NA's to 0 (note that we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0)
+      temp.cheap[,temp.ind-1+i] <- historical.fpts[,wk-i+1][match(temp.cheap$Player.Name, historical.fpts$FullName)] # match
+    }
+  } else if (historicalfpts.lag==1) {
+    temp.ind <- ncol(temp.cheap) + 1
+    temp.cheap[,temp.ind:(temp.ind+0)] <- NA # add extra cols
+    for (i in 1:1) {
       colnames(temp.cheap)[temp.ind-1+i] <- paste0("Wk.Lag", i, ".Fpts")
       historical.fpts[is.na(historical.fpts[,wk-i+1]),wk-i+1] <- 0 # set NA's to 0 (note that we don't differentiate games where a player didn't play from games where a player didn't score any fpts...always 0)
       temp.cheap[,temp.ind-1+i] <- historical.fpts[,wk-i+1][match(temp.cheap$Player.Name, historical.fpts$FullName)] # match
@@ -271,16 +280,6 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   temp.cheap$Value[temp.cheap$Actual.FP >= fpts.threshold] <- 1
   temp.cheap$Value[temp.cheap$Actual.FP < fpts.threshold] <- 0
   
-  #---- Remove from feature set ----#
-  if (include.names.fpts.bool==F) {
-    temp.cheap$Player.Name <- NULL
-    temp.cheap$Actual.FP <- NULL 
-  }
-  temp.cheap$Pos <- NULL
-  temp.cheap$Team <- NULL
-  temp.cheap$Opp <- NULL
-  temp.cheap$Player.Name.Temp <- NULL
-  
   #---- Print number of Value WR ----#
   print(paste0("Wk ", wk, " Num of Value WR / Num Cheap WR:   ", sum(temp.cheap$Value>0), " / ", nrow(temp.cheap)))
   
@@ -290,25 +289,35 @@ for (wk in 4:week.max) { # uncomment for loop if don't want to loop over weeks
   #---- Print number of Value WR after removing NAs ----#
   print(paste0("Wk ", wk, " Num of Value WR / Num Cheap WR (NAs Removed):   ", sum(temp.dataset$Value>0), " / ", nrow(temp.dataset)))
   
+  #---- Remove from feature set ----#
+  temp.dataset$Pos <- NULL
+  temp.dataset$Team <- NULL
+  temp.dataset$Opp <- NULL
+  temp.dataset$Player.Name.Temp <- NULL
+  temp.dataset.copy <- temp.dataset # make copy that includes name and actual fpts
+  if (include.names.fpts.bool==F) {
+    temp.dataset$Player.Name <- NULL
+    temp.dataset$Actual.FP <- NULL 
+  }
+  
   #---- Write dataset to file (if set parameters for weekly output) ----#
   if (write.bool==T) {
     if (outputweekly.bool==T & (fantasydata.snapcounts.bool==T | fantasydata.stats.bool==T)) {
       write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_fantasydata/cheapwr_data_week", wk, ".csv"), row.names = F) 
-    } else if (outputweekly.bool==T & historicalfpts3wklag.bool == F) {
+    } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == T) {
       write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_allhistoricalfpts/cheapwr_data_week", wk, ".csv"), row.names = F)
-    } else if (outputweekly.bool==T & historicalfpts3wklag.bool == T & include.names.fpts.bool==F) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/cheapwr_data_week", wk, ".csv"), row.names = F)
-    } else if (outputweekly.bool==T & historicalfpts3wklag.bool == T & include.names.fpts.bool==T) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts3wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), row.names = F)
+    } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == F & include.names.fpts.bool==F) {
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/cheapwr_data_week", wk, ".csv"), row.names = F)
+    } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == F & include.names.fpts.bool==T) {
+      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), row.names = F)
     } else {
       # nothing
     }
   }
   
-  #---- Append each week's dataset (if meets min week parameter) ----#
-  if (wk >= week.min) {
-    dataset.all <- rbind(dataset.all, temp.dataset) 
-  }
+  #---- Append each week's dataset ----#
+  dataset.all <- rbind(dataset.all, temp.dataset)
+  dataset.all.copy <- rbind(dataset.all.copy, temp.dataset.copy)
 }
 
 
