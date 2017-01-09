@@ -852,7 +852,7 @@ if (model.run==10) {
     tuning.cost.mat$Prop.Preds1.Obs1.Test[i] <- confusion.mat[2,2] / (confusion.mat[1,2] + confusion.mat[2,2])
     tuning.cost.mat$Prob.Hit.w.ML.Test[i] <- confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2]) # P(hitting Value WR with reduced set of cheap WR)
     tuning.cost.mat$Prob.Hit.w.o.ML.Test[i] <- sum(test.y==1)/length(test.y) # P(hitting Value WR with entire set of cheap WR)
-      
+    
     print(i) 
   }
   
@@ -893,7 +893,7 @@ if (model.run=="test") {
   # }
   # print(mat.c_s.result)
   # print(max(mat.c_s.result$Hit.Prob.w.Classification))
- 
+  
   
   
   
@@ -923,7 +923,7 @@ if (model.run=="test") {
   #   print(paste0("Value WR hit rate w/o classification (testing set):   ", sum(test.y==1)/length(test.y)))
   #   cat("\n\n")
   # } 
-
+  
   
   
   
