@@ -4,7 +4,6 @@
 
 ####### DESCRIPTION #######
 # In this file we test models for classifying ValueWR.
-# Option to write to file (data_warehouse/2016_cleaned_input/wk[x]/includes_thu-mon/model)
 # Notes:
 #   - don't use test.data$Inj <- NULL for wks 9-16 linear kernel
 #   - need to adjust "Uncomment one of the three (3-4 come together) options" subsection (3) and (4) weeks: use >=5 and <=4 for RBF, >=7 and <=6 for Linear
@@ -116,7 +115,7 @@ for (z in 1:nrow(model.mat)) {
     
   } else {
     rm(list=setdiff(ls(), c("model.mat", "z"))) # clear environment except for model.mat and index z
-    load(paste0("optimizationCode/data_warehouse/datasets/cheapWR/models/", model.mat$Model.Name[z])) # load tuned model
+    load(paste0("projectionsCreation/classificationModels/WR/models/valueWR/models/", model.mat$Model.Name[z])) # load tuned model
     
     
     ####### WRITE TO FILE? #######
@@ -132,7 +131,7 @@ for (z in 1:nrow(model.mat)) {
     
     
     ####### LOAD DATA FOR WEEK TO TEST #######
-    test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
+    test.data <- read.csv(file = paste0("projectionsCreation/classificationModels/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) # note: historicalfpts.lag is in saved model RData file
     # if (!(wk %in% 9:16)) {
       test.data$Inj <- NULL # uncomment the if statement if linear kernel
     # }

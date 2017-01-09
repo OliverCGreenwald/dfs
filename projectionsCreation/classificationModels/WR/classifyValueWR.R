@@ -82,6 +82,17 @@
 # - testing.ind <- sample(x=1:nrow(dataset.all), size=nrow(dataset.all)/5) adjusted to average number of viable players in some files (instead of 1/5)
 
 
+####### IMPORT LIBRARIES #########
+library('stringr')
+library("SDMTools")
+library("glmnet")
+library("kernlab")
+library("rpart")
+library("rpart.plot")
+library("randomForest")
+library("klaR")
+
+
 ####### SET MODEL TO RUN #######
 model.run <- "" # 1-10, "test"
 model.run.subsection <- "2" # ignored if model doesn't have any subsections
@@ -101,24 +112,13 @@ write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE AL
 salary.threshold <- 5000 # define cheap
 fpts.threshold <- 18.5 # 18.5 # define value
 
-historicalfpts.lag <- 6 # num wks of lagged historical fpts (use 3 for weeks 7-16, 1 for weeks 2-6, NA if not using this)
+historicalfpts.lag <- 3 # num wks of lagged historical fpts (use 3 for weeks 7-16, 1 for weeks 2-6, NA if not using this)
 
 fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata/snapcounts (caution: lots of NAs, rows with NAs are removed)
 fantasydata.stats.bool <- F # TRUE if want to add features from fantasydata/stats (caution: lots of NAs, rows with NAs are removed)
 lag.num <- 3 # number of weeks lag (used for fantasydata/snapcounts)
 
 outputweekly.bool <- F # TRUE if want to output weekly csv's (otherwise outputs all weeks combined csv). Note this can override all other boolean parameters in this section.
-
-
-####### IMPORT LIBRARIES #########
-library('stringr')
-library("SDMTools")
-library("glmnet")
-library("kernlab")
-library("rpart")
-library("rpart.plot")
-library("randomForest")
-library("klaR")
 
 
 ####### SECTION I: PREPARE DATAFRAME OF CHEAP WR #######
@@ -137,7 +137,7 @@ for (wk in week.min:week.max) { # uncomment for loop if don't want to loop over 
   
   #---- Subset cheap WRs ----#
   if (historicalfpts.lag==3 | is.na(historicalfpts.lag)==T) {
-    temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Inj','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
+    temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','L3.Rush.Att','S.Rush.Att','Proj.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Proj.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP", 'Projected.Usage','Floor.FP','Ceil.FP','Proj.FP','Actual.FP')]
   } else {
     temp.cheap <- temp[temp$Salary <= salary.threshold & temp$Pos=='WR', c('Player.Name','Likes','Pos','Salary','Team','Opp','Vegas.Pts','Defense.Pass.Yds.G','Defense.Rush.Yds.G','DvP','S.Rush.Att','Red.Zone.Rush.Att','Yards.Per.Rush.Att', "L3.Targets", "S.Targets", "Red.Zone.Targets", "Yards.Per.Target", "L3.FP", "S.FP",'Floor.FP','Ceil.FP','Proj.FP','Actual.FP')] 
   }
@@ -296,11 +296,11 @@ for (wk in week.min:week.max) { # uncomment for loop if don't want to loop over 
   #---- Write dataset to file (if set parameters for weekly output) ----#
   if (write.bool==T) {
     if (outputweekly.bool==T & (fantasydata.snapcounts.bool==T | fantasydata.stats.bool==T)) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_fantasydata/cheapwr_data_week", wk, ".csv"), row.names = F) 
+      write.csv(temp.dataset, file = paste0("projectionsCreation/classificationModels/datasets/cheapWR/weekly_data/includes_fantasydata/cheapwr_data_week", wk, ".csv"), row.names = F)
     } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == T) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_allhistoricalfpts/cheapwr_data_week", wk, ".csv"), row.names = F)
+      write.csv(temp.dataset, file = paste0("projectionsCreation/classificationModels/datasets/cheapWR/weekly_data/includes_allhistoricalfpts/cheapwr_data_week", wk, ".csv"), row.names = F)
     } else if (outputweekly.bool==T & is.na(historicalfpts.lag) == F) {
-      write.csv(temp.dataset, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/cheapwr_data_week", wk, ".csv"), row.names = F)
+      write.csv(temp.dataset, file = paste0("projectionsCreation/classificationModels/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/cheapwr_data_week", wk, ".csv"), row.names = F)
     } else {
       # temporarily nothing
     }
@@ -321,7 +321,7 @@ print(paste0("All Weeks, Num of Value WR / Num Cheap WR (NAs Removed):   ", sum(
 
 #---- Print number of Value WR after removing NAs ----#
 if (write.bool==T & outputweekly.bool==F) {
-  write.csv(dataset.all, file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/cheapwr_data_allwks.csv"), row.names = F)
+  write.csv(dataset.all, file = paste0("projectionsCreation/classificationModels/datasets/cheapWR/cheapwr_data_allwks.csv"), row.names = F)
 }
 
 
