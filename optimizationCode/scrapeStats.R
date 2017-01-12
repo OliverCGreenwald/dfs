@@ -17,11 +17,11 @@ library('stringr')
 
 
 ####### WRITE TO FILE? #######
-write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
-live.bool <- T # True if live week (i.e. write stats to file), False if historical (make sure this is set correctly to avoid unnecessarily overwriting old files)
+live.bool <- F # True if live week (i.e. write stats to file), False if historical (make sure this is set correctly to avoid unnecessarily overwriting old files)
 slate.days <- "" # "thu-mon" or "sun-mon" or ""
 yr <- '2016'
 week.latest <- ceiling((as.numeric(Sys.Date()) - as.numeric(as.Date("2016-09-11")))/7 + 1) - 1 # live
@@ -232,6 +232,7 @@ if (live.bool == T) {
   
   # temp name cleaning
   temp$Temp.Name <- paste0(temp$LastName, ', ', temp$FirstName)
+  temp$Temp.Name <- sub("'", "", temp$Temp.Name)
   
   # eval
   temp.rolling.wk <- eval(parse(text=paste0("rolling.stats.wk",i-1))) # i-1 b/c we use previous weeks rolling stats
