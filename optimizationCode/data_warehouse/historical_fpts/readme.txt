@@ -1,0 +1,1 @@
+Week 18 is all NA’s b/c DFN didn’t add Actual Fpts column in time
