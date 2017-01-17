@@ -100,12 +100,12 @@ modelVII.kernel <- "splinedot" # set this to some kernel if model.run = 7
 modelIX.cost.factor.ratio.vec <- seq(from = 0.005, 0.10, by = 0.005)
 modelIX.kernel.param.vec <- round(exp(seq(log(1e-7), log(1e-3), length.out=25)), 8)
 modelX.cost.factor.ratio.vec <- seq(from = 0.02, 0.13, by = 0.01) # seq(from = 0.02, 0.14, by = 0.005) # C_+ / C_- ratio hyperparameter # set this to some seq if model.run = 9 # (make sure this is 1D if  kernel param is > 1D)
-week.min <- 7 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 15 # for loop only
+week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
+week.max <- 16 # for loop only
 
 
 ####### WRITE TO FILE? #######
-write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
@@ -118,7 +118,7 @@ fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata
 fantasydata.stats.bool <- F # TRUE if want to add features from fantasydata/stats (caution: lots of NAs, rows with NAs are removed)
 lag.num <- 3 # number of weeks lag (used for fantasydata/snapcounts)
 
-outputweekly.bool <- T # TRUE if want to output weekly csv's (otherwise outputs all weeks combined csv). Note this can override all other boolean parameters in this section.
+outputweekly.bool <- F # TRUE if want to output weekly csv's (otherwise outputs all weeks combined csv). Note this can override all other boolean parameters in this section.
 
 
 ####### SECTION I: PREPARE DATAFRAME OF CHEAP WR #######

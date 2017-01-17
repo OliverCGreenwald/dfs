@@ -11,12 +11,12 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 2
-week.hi <- 16
+week.lo <- 19
+week.hi <- 19
 
-contest.entry.fee <- "$20"
+contest.entry.fee <- "$3"
 wk.4 <- c(10,16) # weeks where $3 contest was $4
-wk.27 <- c(11:15) # weeks where $20 contest was $27
+wk.27 <- c(11:15, 18:19) # weeks where $20 contest was $27
 wk.50 <- c(16) # weeks where $20 contest was $50
 thu_mon.bool <- F # True if using thursday-monday games, False if using only Sunday games
 
@@ -139,8 +139,8 @@ for (week.num in week.lo:week.hi) {
         #   file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv")
         # }
         
-        # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
-        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
+        # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
         
         lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
@@ -252,5 +252,11 @@ for (week.num in week.lo:week.hi) {
 # abline(0,0)
 
 # number of placing lineups
-paste0("Number of Placing Lineups: ", sum(lineups$payout != 0))
-hist(lineups$payout[lineups$payout>0], breaks=20)
+# paste0("Number of Placing Lineups: ", sum(lineups$payout != 0))
+# hist(lineups$payout[lineups$payout>0], breaks=20)
+
+# number of placing lineups
+pnlMatrix
+sum(pnlMatrix[,2], na.rm = T)
+sum(pnlMatrix[c(1,3:15),2], na.rm = T)
+

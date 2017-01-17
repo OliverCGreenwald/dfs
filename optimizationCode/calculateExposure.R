@@ -2,7 +2,9 @@
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 # output.data <- read.csv("optimizationCode/output.csv", stringsAsFactors = F, header = T)
-output.data <- read.csv(file = "resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week16_dfn_formulation15_overlap_4_defexp_0.25_wrexp_0.25_rbexp_0.75_teexp_0.75_qbexp_0.5_valuewrexp_0.15.csv", stringsAsFactors = F, header = T)
+# output.data <- read.csv(file = "resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week16_dfn_formulation15_overlap_4_defexp_0.25_wrexp_0.25_rbexp_0.75_teexp_0.75_qbexp_0.5_valuewrexp_0.15.csv", stringsAsFactors = F, header = T)
+# output.data <- read.csv(file = "resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week19_dfn_formulation14_overlap_4_defexp_0.25_wrexp_0.25_rbexp_0.75_teexp_0.75_qbexp_0.5.csv", stringsAsFactors = F, header = T)
+output.data <- read.csv(file = "resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week19_dfn_formulation14_overlap_4_defexp_0.25_wrexp_0.75_rbexp_0.75_teexp_0.75_qbexp_0.5.csv", stringsAsFactors = F, header = T)
 
 # all players
 occurences <- sort(table(unlist(output.data)), decreasing=T)
