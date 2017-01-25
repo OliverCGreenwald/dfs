@@ -16,21 +16,8 @@
 #     Subsection II: Tuning C by maximizing P(hitting Value QB with reduced set of cheap QB)
 #   Model VII:  C-classification SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
 #     Subsection I (tuning C by minimizing CV error):
-#       - rbfdot (Radial Basis/Gaussian kernel): (note: need to tune γ. consider using Optunity package.) 
-#       - anovadot (ANOVA RBF kernel): 
-#       - tanhdot (Hyperbolic tangent / sigmoid kernel): 
-#       - laplacedot (Laplacian kernel): 
-#       - besseldot (Bessel kernel): 
-#       - polydot (Polynomial kernel degree ?): (need to tune degree)
 #       - splinedot (Spline [piece-wise cubic polynomial] kernel): solid (only one to have 1's even with unaltered functional margin)
 #     Subsection II (tuning C by maximizing prob of hitting Value QB):
-#       - rbfdot (Radial Basis/Gaussian kernel):
-#       - anovadot (ANOVA RBF kernel): 
-#       - tanhdot (Hyperbolic tangent / sigmoid kernel): 
-#       - laplacedot (Laplacian kernel): 
-#       - besseldot (Bessel kernel): 
-#       - polydot (Polynomial kernel): 
-#       - splinedot (Spline [piece-wise cubic polynomial] kernel):
 #   Model VIII:  Novelty-Detection SVM (Linear Kernel)
 #     - this is not the right model for our problem. novelty detection models a distribution using the training set and determines which examples in the testing set don't belong in this distribution
 #
@@ -42,11 +29,11 @@
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "1" # 1-8, "test"
+model.run <- "" # 1-8, "test"
 model.run.subsection <- "1" # ignored if model doesn't have any subsections
 modelVII.kernel <- "rbfdot" # set this to some kernel if model.run = 7
 week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 15 # for loop only
+week.max <- 17 # for loop only
 
 
 ####### WRITE TO FILE? #######
@@ -59,7 +46,7 @@ save.model.name <- "svmlight_linear_costfactor0.41_wks4-15_minfpts10.0.RData" # 
 # wk <- 16 # must be >= 4 (data availability) # uncomment this if for loop (wk in 4:15) is commented out
 
 salary.threshold <- 6000 # define cheap
-fpts.threshold <- 18.5 # 18.5 # define value
+fpts.threshold <- 25 # 18.5 # define value
 
 historicalfpts3wklag.bool <- T # TRUE if want to use 3 week lag historical fpts instead of all historical
 include.names.fpts.bool <- F # TRUE if want to include Player.Name and Actual.FP columns and output to includes_historicalfpts3wklag/includes_names-fpts folder (if TRUE, don't run any models in this file)

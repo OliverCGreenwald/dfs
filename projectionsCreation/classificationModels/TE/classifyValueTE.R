@@ -16,21 +16,7 @@
 #     Subsection II: Tuning C by maximizing P(hitting Value TE with reduced set of cheap TE)
 #   Model VII:  C-classification SVM (Set to any of the following kernels: rbfdot, anovadot, tanhdot, laplacedot, besseldot, polydot, splinedot, stringdot) (NOTE: CODE FOR ALTERING FUNCTION MARGIN CURRENTLY DOESN'T WORK)
 #     Subsection I (tuning C by minimizing CV error):
-#       - rbfdot (Radial Basis/Gaussian kernel): (note: need to tune γ. consider using Optunity package.) 
-#       - anovadot (ANOVA RBF kernel): 
-#       - tanhdot (Hyperbolic tangent / sigmoid kernel): 
-#       - laplacedot (Laplacian kernel): 
-#       - besseldot (Bessel kernel): 
-#       - polydot (Polynomial kernel degree ?): (need to tune degree)
-#       - splinedot (Spline [piece-wise cubic polynomial] kernel): solid (only one to have 1's even with unaltered functional margin)
 #     Subsection II (tuning C by maximizing prob of hitting Value TE):
-#       - rbfdot (Radial Basis/Gaussian kernel):
-#       - anovadot (ANOVA RBF kernel): 
-#       - tanhdot (Hyperbolic tangent / sigmoid kernel): 
-#       - laplacedot (Laplacian kernel): 
-#       - besseldot (Bessel kernel): 
-#       - polydot (Polynomial kernel): 
-#       - splinedot (Spline [piece-wise cubic polynomial] kernel):
 #   Model VIII:  Novelty-Detection SVM (Linear Kernel)
 #     - this is not the right model for our problem. novelty detection models a distribution using the training set and determines which examples in the testing set don't belong in this distribution
 #
@@ -43,11 +29,11 @@
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "1" # 1-8, "test"
+model.run <- "" # 1-8, "test"
 model.run.subsection <- "2" # ignored if model doesn't have any subsections
 modelVII.kernel <- "rbfdot" # set this to some kernel if model.run = 7
 week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 13 # for loop only
+week.max <- 17 # for loop only
 
 
 ####### WRITE TO FILE? #######

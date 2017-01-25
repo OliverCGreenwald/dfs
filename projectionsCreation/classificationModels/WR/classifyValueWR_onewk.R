@@ -18,6 +18,7 @@ library("SDMTools")
 ####### LOAD MODEL #######
 #
 # Best Linear Kernel Models Weekly (gets better week over week):
+# Wk 17: "svmlight_linear_costfactor0.075_wks4-16_minfpts18.5.RData"
 # Wk 16: "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
 # Wk 15: "svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData"
 # Wk 14: "svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData"
@@ -46,8 +47,8 @@ library("SDMTools")
 # Wk 5: "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData"
 
 
-save.model.name <- "svmlight_linear_costfactor0.085_wks7-15_minfpts18.5_lag6.RData"
-load(paste0("projectionsCreation/classificationModels/WR/models/valueWR/models/", save.model.name))
+save.model.name <- "svmlight_linear_costfactor0.075_wks4-16_minfpts18.5.RData"
+load(paste0("projectionsCreation/classificationModels/WR/models/valueWR/", save.model.name))
 
 
 ####### WRITE TO FILE? #######
@@ -55,7 +56,7 @@ write.bool <- F # this needs to be here to ovewrite loaded model variable
 
 
 ####### PARAMETERS #######
-wk <- 16
+wk <- 17
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 slate.days <- "" # "thu-mon" or "sun-mon" or "" (sun only)
@@ -213,3 +214,9 @@ if (write.bool==T) {
   }
 }
   
+
+# random printing stuff for paper
+print(paste0("Cost Ratio: ", cost.factor.ratio.optimal))
+print(paste0("Test Error: ", test.error.svmlight))
+print(paste0("Precision: ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+print(paste0("Recall: ", confusion.mat[2,2]/(confusion.mat[1,2] + confusion.mat[2,2])))

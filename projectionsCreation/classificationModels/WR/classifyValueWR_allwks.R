@@ -115,7 +115,7 @@ for (z in 1:nrow(model.mat)) {
     
   } else {
     rm(list=setdiff(ls(), c("model.mat", "z"))) # clear environment except for model.mat and index z
-    load(paste0("projectionsCreation/classificationModels/WR/models/valueWR/models/", model.mat$Model.Name[z])) # load tuned model
+    load(paste0("projectionsCreation/classificationModels/WR/models/valueWR/", model.mat$Model.Name[z])) # load tuned model
     
     
     ####### WRITE TO FILE? #######

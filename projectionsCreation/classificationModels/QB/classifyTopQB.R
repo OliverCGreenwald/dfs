@@ -42,11 +42,11 @@
 
 
 ####### SET MODEL TO RUN #######
-model.run <- "1" # 1-8, "test"
+model.run <- "" # 1-8, "test"
 model.run.subsection <- "1" # ignored if model doesn't have any subsections
 modelVII.kernel <- "rbfdot" # set this to some kernel if model.run = 7
 week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 13 # for loop only
+week.max <- 17 # for loop only
 
 
 ####### WRITE TO FILE? #######

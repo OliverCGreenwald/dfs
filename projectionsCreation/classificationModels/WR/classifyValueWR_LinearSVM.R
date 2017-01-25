@@ -24,12 +24,12 @@ library("klaR")
 
 ####### SET MODEL TO RUN #######
 model.run <- "10" # 10
-week.min <- 7 # must be >= 4 if using lag 3 in params
-week.max <- 15 # for loop only
+week.min <- 17 # must be >= 4 if using lag 3 in params
+week.max <- 17 # for loop only
 
 
 ####### WRITE TO FILE? #######
-write.bool <- F # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
+write.bool <- T # TRUE if write to file, FALSE if don't write (MAKE SURE CODE ALL PARAMS ARE SET CORRECTLY BEFORE WRITING)
 
 
 ####### SET PARAMETERS #######
@@ -42,7 +42,7 @@ fantasydata.snapcounts.bool <- F # TRUE if want to add features from fantasydata
 fantasydata.stats.bool <- F # TRUE if want to add features from fantasydata/stats (caution: lots of NAs, rows with NAs are removed)
 lag.num <- 3 # number of weeks lag (used for fantasydata/snapcounts)
 
-outputweekly.bool <- F # TRUE if want to output weekly csv's (otherwise outputs all weeks combined csv). Note this can override all other boolean parameters in this section.
+outputweekly.bool <- T # TRUE if want to output weekly csv's (otherwise outputs all weeks combined csv). Note this can override all other boolean parameters in this section.
 
 
 ####### SECTION I: PREPARE DATAFRAME OF CHEAP WR #######
@@ -265,8 +265,8 @@ if (model.run==10) {
   ptm <- proc.time() # running time
   
   #------ Training: Cross Validation ------#
-  modelX.cost.factor.ratio.vec <- seq(from = 0.03, 0.10, by = 0.005)
-  modelX.cost.factor.ratio.vec
+  modelX.cost.factor.ratio.vec <- seq(from = 0.07, 0.09, by = 0.005)
+  # modelX.cost.factor.ratio.vec <- 0.08
   
   k <- 5 # num of folds in cv
   N <- nrow(data.train) # total sample size (training set)
@@ -384,12 +384,23 @@ if (model.run==10) {
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData") # factor: 10
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData") # min cv
   # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.1_wks4-7_minfpts18.5.RData") # factor: 1.5
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData") # factor: 5
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData") # factor: 5
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData") # factor: 5
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData") # factor: 5
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData") # factor: 10
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData") # factor: 5
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData") # factor: 10
-  # save.image(file = "optimizationCode/data_warehouse/datasets/cheapWR/models/svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData") # factor: 5
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.075_wks4-8_minfpts18.5.RData") # factor: 5
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.065_wks4-9_minfpts18.5.RData") # factor: 5
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.06_wks4-10_minfpts18.5.RData") # factor: 5
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.01_wks4-11_minfpts18.5.RData") # factor: 5
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.075_wks4-12_minfpts18.5.RData") # factor: 10
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.08_wks4-13_minfpts18.5.RData") # factor: 5
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.075_wks4-14_minfpts18.5.RData") # factor: 10
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData") # factor: 5
+  # save.image(file = "projectionsCreation/classificationModels/WR/models/valueWR/svmlight_linear_costfactor0.075_wks4-16_minfpts18.5.RData") # factor: 5
 }
+
+
+# random shit
+# print(paste0("Cost Ratio: ", cost.factor.ratio.optimal))
+# print(paste0("CV Error: ", min(adj.error.all)))
+# print(paste0("Test Error: ", test.error.svmlight))
+# print(paste0("Precision: ", confusion.mat[2,2]/(confusion.mat[2,1] + confusion.mat[2,2])))
+# print(paste0("Recall: ", confusion.mat[2,2]/(confusion.mat[1,2] + confusion.mat[2,2])))
+
+
