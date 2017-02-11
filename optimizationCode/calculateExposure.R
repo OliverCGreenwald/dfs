@@ -8,7 +8,7 @@ output.data <- read.csv(file = "resultsAnalysis/data_warehouse/testing_lineups/t
 
 # all players
 occurences <- sort(table(unlist(output.data)), decreasing=T)
-exposure<- occurences / nrow(output.data)
+exposure <- occurences / nrow(output.data)
 exposure
 paste0("Number of players: ", length(exposure))
 

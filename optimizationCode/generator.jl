@@ -54,9 +54,9 @@ exposure_valuewr = 0.1
         - thu_mon = true or false (if false, then sunday players only; if true, all players Thu - Mon)
 =#
 live = false
-week = 18
+week = 16
 slate_days = "" # "thu-mon" or "sun-mon" or ""
-model = "" # model1 or ""
+model = "model1" # model1 or ""
 ###########################  Setting Formation  ############################
 
 use_Freq_Ind = false
@@ -84,7 +84,7 @@ formulation is the type of formulation that you would like to use.
         - 14 <- one_lineup_Type_14 (form 4 with player exposure constraints)
         - 15 <- one_lineup_Type_15 (form 14 + must have 1 value wr + 2700 <= DST Salary <= 3100)
         - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
-        - 17 <- one_lineup_Type_16 (form 14 + 2700 <= DST Salary <= 3100)
+        - 17 <- one_lineup_Type_17 (form 14 + 2700 <= DST Salary <= 3100)
 =#
 formulation_type = 14
 
