@@ -6,7 +6,7 @@
 # In this file we examine the standings (contest results) of the millionaire maker, specifically studying top users
 # such as SaahilSud and ChipotleAddict. This file is segmented into sections.
 #
-# Dependencies: cleanResults.R
+# Dependencies: cleanContestResults.R
 #
 # SECTION LOAD. LOAD FILES
 # SECTION I. COMPUTE AND PLOT PCT OF SUBMITTED LINEUPS THAT CASHED

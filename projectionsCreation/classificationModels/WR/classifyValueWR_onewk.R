@@ -3,7 +3,8 @@
 
 
 ####### DESCRIPTION #######
-# In this file we test models for classifying ValueWR.
+# In this file we test models for classifying ValueWR. Note that we are only testing on players with full
+# feature set (we removed those with NAs in classifyValueWR.R).
 # Notes:
 #   - don't use test.data$Inj <- NULL for wks 9-16 linear kernel
 #   - test.data <- read.csv(file = paste0("optimizationCode/data_warehouse/datasets/cheapWR/weekly_data/includes_historicalfpts",historicalfpts.lag,"wklag/includes_names-fpts/cheapwr_data_week", wk, ".csv"), stringsAsFactors = F) won't work for linear kernel
@@ -186,7 +187,7 @@ if (write.bool==T) {
   
   
   #----- (3) Spike the model's predicted 1's (keep ValueWR (from baseline) the same) -----#
-  if (model.mat$Week.Test[z] >= 7) {
+  if (wk >= 7) {
     temp$Projection_dfn[temp$Name %in% pred.value$Player.Name] <- 1.5*temp$Projection_dfn[temp$Name %in% pred.value$Player.Name]
     print(sum(temp$Name %in% pred.value$Player.Name))
     print(length(pred.value$Player.Name))
@@ -195,7 +196,7 @@ if (write.bool==T) {
   
   
   #----- (4) Spike the baseline 1's (use this for earlier weeks) -----#
-  if (model.mat$Week.Test[z] <= 6) {
+  if (wk <= 6) {
     baseline.valuewr.names <- baseline.data$Name[baseline.data$ValueWR==1]
     temp$Projection_dfn[temp$Name %in% baseline.valuewr.names] <- 1.5*temp$Projection_dfn[temp$Name %in% baseline.valuewr.names]
     print(sum(temp$Name %in% baseline.valuewr.names))
