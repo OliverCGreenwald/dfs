@@ -197,8 +197,8 @@ for week=7:16
     #         end
     #     end
     # end
-    path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/ownership_model/offensive_players.csv")
-    path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/ownership_model/defenses.csv")
+    path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/model1/ownership_model/offensive_players.csv")
+    path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/model1/ownership_model/defenses.csv")
 
 
     if (formulation_type == 1) 

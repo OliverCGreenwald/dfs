@@ -12,21 +12,39 @@
 # - R^2 = 1- SSR/SST only definitively true for training set, so interpret with caution for testing set
 # - if use index 99 of lambdas (i.e. very low penalty) for lasso, the two nonzero coefficients are "Likes" and "Fpts.Week.1lag"
 #
+# - SVMLIGHT:
+#     http://svmlight.joachims.org/
+#     Learning options:
+#           -z {c,r,p}  - select between classification (c), regression (r), and 
+#           preference ranking (p) (see [Joachims, 2002c]) (default classification)
+#     Kernel options:
+#           -t int      - type of kernel function:
+#               0: linear (default)
+#               1: polynomial (s a*b+c)^d
+#               2: radial basis function exp(-gamma ||a-b||^2)
+#               3: sigmoid tanh(s a*b + c)
+#               4: user defined kernel from kernel.h
+#           -d int      - parameter d in polynomial kernel
+#           -g float    - parameter gamma in rbf kernel
+#           -s float    - parameter s in sigmoid/poly kernel
+#           -r float    - parameter c in sigmoid/poly kernel
+#           -u string   - parameter of user defined kernel
+#
 # TODO:
-# - get rid of negative predictions
 # - GPD
 
 ####### IMPORT LIBRARIES #########
 library('stringr')
 library("glmnet")
 library("glmnetUtils")
-library("kernlab")
 
+
+# for (week.max in 6:15) {
 
 ####### SET MODEL TO RUN #######
-model.run <- "4"
+model.run <- "6"
 week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
-week.max <- 6 # for loop only
+week.max <- 15
 
 
 ####### WRITE TO FILE? #######
@@ -36,6 +54,9 @@ write.bool <- F
 ####### SET PARAMETERS #######
 positions <- c("QB", "RB", "WR", "TE", "DST") # we subset data to only include these positions
 contest.name <- "playaction_contest" # "playaction_contest" or "millymaker_contest"
+
+nonzero.ownership.bool <- F
+transform.data.bool <- T
 
 historicalfpts.lag <- 3 # num wks of lagged historical fpts (use 3 for weeks 7-16, 1 for weeks 2-6, NA if not using this)
 
@@ -217,7 +238,9 @@ for (wk in week.min:week.max) { # uncomment for loop if don't want to loop over 
   
   #---- Remove 0% ownership players ----#
   # uncomment if want to focus on predicting nonzero ownership players
-  # temp.dataset <- temp.dataset[-c(which(temp.dataset$Ownership.Pctg==0)),]
+  if (nonzero.ownership.bool==T) {
+    temp.dataset <- temp.dataset[-c(which(temp.dataset$Ownership.Pctg==0)),] 
+  }
   
   #---- Remove from feature set ----#
   temp.dataset$Pos <- NULL
@@ -251,6 +274,13 @@ for (wk in week.min:week.max) { # uncomment for loop if don't want to loop over 
 #---- Print number of non-zero ownership pctg (no NAs) ----#
 print(paste0("All Weeks, Num >0% Ownership (NAs Removed):   ", sum(dataset.all$Ownership.Pctg>0), " / ", nrow(dataset.all)))
 
+
+####### APPLY DATA TRANSFORMATIONS #######
+if (transform.data.bool==T) {
+  dataset.all$Ownership.Pctg <- dataset.all$Ownership.Pctg/100
+  dataset.all$Ownership.Pctg <- dataset.all$Ownership.Pctg+0.001
+  dataset.all$Ownership.Pctg <- log(dataset.all$Ownership.Pctg/(1-dataset.all$Ownership.Pctg))
+}
 
 ####### SPLIT INTO TRAINING AND TESTING DATA #######
 testing.ind <- sample(x=1:nrow(dataset.all), size=nrow(dataset.all)/5)
@@ -407,12 +437,14 @@ if (model.run==4) {
   rsq.test <- 1 - sum((pred.elasticnet-test.y)^2) / ((length(test.y)-1)*var(test.y))
   
   # Plot residuals
-  plot(train.y - pred.elasticnet.training, type = 'p') # does not appear to be uncorrelated or have constant variance (conditions for OLS to be unbiased estimator that minimizes MSE)
-  qqnorm(train.y - pred.elasticnet.training)
+  plot(train.y - pred.elasticnet.training, type = 'p', main = "Training Residual Plot") # does not appear to be uncorrelated or have constant variance (conditions for OLS to be unbiased estimator that minimizes MSE)
+  qqnorm(train.y - pred.elasticnet.training, main = "Normal Q-Q Plot of Training Residuals")
   qqline(train.y - pred.elasticnet.training) # clearly heavy tails
-  qqnorm(test.y - pred.elasticnet)
+  plot(test.y - pred.elasticnet, type = 'p', main = "Testing Residual Plot")
+  qqnorm(test.y - pred.elasticnet, main = "Normal Q-Q Plot of Testing Residuals")
   qqline(test.y - pred.elasticnet) # clearly heavy tails
   
+  save(model.elasticnet,historicalfpts.lag,mse.train,mse.test,rsq.train,rsq.test, file = paste0("projectionsCreation/predictOwnership/data_warehouse/models/elasticnet_alpha",optimal.alpha,"_wks",week.min,"-",week.max,".RData"))
   # save(model.elasticnet,historicalfpts.lag,mse.train,mse.test,rsq.train,rsq.test, file = "projectionsCreation/predictOwnership/data_warehouse/models/elasticnet_alpha1.0_wks4-16.RData")
   # save(model.elasticnet,historicalfpts.lag,mse.train,mse.test,rsq.train,rsq.test, file = "projectionsCreation/predictOwnership/data_warehouse/models/elasticnet_alpha0.35_wks4-15.RData")
   # save(model.elasticnet,historicalfpts.lag,mse.train,mse.test,rsq.train,rsq.test, file = "projectionsCreation/predictOwnership/data_warehouse/models/elasticnet_alpha0.65_wks4-14.RData")
@@ -427,6 +459,9 @@ if (model.run==4) {
 }
 
 
+
+
+
 # Clearly, we have heavy tails on both sides of the distribution (see Q-Q plots for all regressions above).
 # So, we use a semiparametric fitting method. We tune two thresholds for the beginnings of the tails.
 # Then, we fit pareto distributions to the two tails, and fit a normal regression to the middle data.
@@ -437,7 +472,7 @@ if (model.run==5) {
 }
 
 
-####### MODEL VI: SVM RANKING #######
+####### MODEL VI: RANKING SVM #######
 if (model.run==6) {
   temp.train <- data.train[order(data.train$Ownership.Pctg),]
   temp.train <- temp.train[temp.train$Ownership.Pctg>0,]
@@ -448,9 +483,13 @@ if (model.run==6) {
   temp.model <- ranking(x = as.matrix(temp.train.x), y = as.matrix(temp.train.y), kernel = "rbfdot", kpar = list(sigma = 1), scale = FALSE, alpha = 0.99, iterations = 500, edgegraph = FALSE, convergence = FALSE)
   str(temp.model)
   temp.model@.Data
+  
+  model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = paste0("-t 0 -j ", cost.factor.ratio.optimal), scal = T)
 }
 
 
 
 
 
+
+# }

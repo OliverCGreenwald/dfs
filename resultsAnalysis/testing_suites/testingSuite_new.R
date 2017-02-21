@@ -11,8 +11,8 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 19
-week.hi <- 19
+week.lo <- 7
+week.hi <- 16
 
 contest.entry.fee <- "$3"
 wk.4 <- c(10,16) # weeks where $3 contest was $4
@@ -258,5 +258,5 @@ for (week.num in week.lo:week.hi) {
 # number of placing lineups
 pnlMatrix
 sum(pnlMatrix[,2], na.rm = T)
-sum(pnlMatrix[c(1,3:15),2], na.rm = T)
+# sum(pnlMatrix[c(1,3:15),2], na.rm = T)
 

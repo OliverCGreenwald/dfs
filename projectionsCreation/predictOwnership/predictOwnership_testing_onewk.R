@@ -9,36 +9,37 @@
 
 
 ####### IMPORT LIBRARIES #########
-library("klaR")
 library("kernlab")
-library("SDMTools")
+library("glmnet")
 
 
 ####### LOAD MODEL #######
 # Best Models:
-# Wk 17: "elasticnet_alpha1.0_wks4-16.RData"
-# Wk 16: "elasticnet_alpha0.35_wks4-15.RData"
-# Wk 15: "elasticnet_alpha0.65_wks4-14.RData"
-# Wk 14: "elasticnet_alpha0.25_wks4-13.RData"
-# Wk 13: "elasticnet_alpha0.2_wks4-12.RData"
-# Wk 12: "elasticnet_alpha0.05_wks4-11.RData"
-# Wk 11: "elasticnet_alpha0.1_wks4-10.RData"
-# Wk 10: "elasticnet_alpha0.6_wks4-9.RData"
-# Wk 9: "elasticnet_alpha0.75_wks4-8.RData"
-# Wk 8: "elasticnet_alpha0.6_wks4-7.RData"
-# Wk 7: "elasticnet_alpha0.7_wks4-6.RData"
+# elasticnet_alpha0.1_wks4-15.RData
+# elasticnet_alpha0.05_wks4-14.RData
+# elasticnet_alpha0.05_wks4-13.RData
+# elasticnet_alpha0.25_wks4-12.RData
+# elasticnet_alpha1_wks4-11.RData
+# elasticnet_alpha1_wks4-10.RData
+# elasticnet_alpha0.5_wks4-9.RData
+# elasticnet_alpha0.15_wks4-8.RData
+# elasticnet_alpha0.15_wks4-7.RData
+# elasticnet_alpha0.5_wks4-6.RData
 
 
-save.model.name <- "elasticnet_alpha0.7_wks4-6.RData"
+save.model.name <- "elasticnet_alpha0.1_wks4-15.RData"
 load(paste0("projectionsCreation/predictOwnership/data_warehouse/models/", save.model.name))
 
 
 ####### WRITE TO FILE? #######
 write.bool <- T # this needs to be here to ovewrite loaded model variable
+model1.bool <- F # set to TRUE if want to apply ownership procedure on Value WR spiked projections
 
 
 ####### PARAMETERS #######
-wk <- 7
+wk <- 16
+transform.data.bool <- T
+round.param <- "quarter" # "whole", "half", "quarter"
 
 
 ####### LOAD DATA FOR WEEK TO TEST #######
@@ -53,6 +54,11 @@ test.data$Actual.FP <- NULL
 test.data$Player.Name <- temp.names
 test.data$Actual.FP <- temp.fpts
 test.x <- test.data[,1:(ncol(test.data)-3)]
+if (transform.data.bool==T) {
+  test.data$Ownership.Pctg <- test.data$Ownership.Pctg/100
+  test.data$Ownership.Pctg <- test.data$Ownership.Pctg+0.001
+  test.data$Ownership.Pctg <- log(test.data$Ownership.Pctg/(1-test.data$Ownership.Pctg))
+}
 test.y <- test.data$Ownership.Pctg
 
 
@@ -80,7 +86,21 @@ test.results[sort(test.results$Ownership.Pctg.Pred, decreasing = T, ind = T)$ix[
 
 ####### ADJUST DFN PROJECTIONS IN CLEANED INPUT FILES USING Ownership.Pctg.Pred #######
 # load cleaned input file for wk
-temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F)
+if (model1.bool==T) {
+  temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/model1/offensive_players.csv"), stringsAsFactors = F)
+} else {
+  temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F) 
+}
+
+# rounding
+if (round.param=="whole") {
+  temp$Projection_dfn <- round(temp$Projection_dfn) # round projections to nearest whole number
+} else if (round.param=="half") {
+  temp$Projection_dfn <- ceiling(temp$Projection_dfn*2) / 2 # round projections to nearest 0.5
+} else if (round.param=="quarter") {
+  temp$Projection_dfn_rd <- round(temp$Projection_dfn/0.25)*0.25
+}
+
 
 # clean names for matching
 temp$Name <- sub(' Sr.', '', temp$Name)
@@ -117,7 +137,7 @@ for (i in 1:length(temp.unique)) {
     count.equal <- count.equal + 1
   }
 }
-print(paste0("Num Equal Projections Epsilon Perturbed:   ", count.equal))
+print(paste0("Num Equal Projections Epsilon Perturbed / Num Unique Projection Values:   ", count.equal, " / ", length(temp.unique)))
 
 # replace original cleaned input file with the epsilon perturbed projections (note that we omitted the players with NAs)
 temp[!is.na(temp$Ownership.Pctg.Pred) & temp$Projection_dfn>0,] <- temp.cleaned
@@ -125,6 +145,10 @@ temp[!is.na(temp$Ownership.Pctg.Pred) & temp$Projection_dfn>0,] <- temp.cleaned
 
 ####### WRITE TO FILE #######
 if (write.bool==T) {
-  write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/ownership_model/offensive_players.csv"), row.names = F)
+  if (model1.bool==T) {
+    write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/model1/ownership_model/offensive_players.csv"), row.names = F)
+  } else {
+    write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/ownership_model/offensive_players.csv"), row.names = F) 
+  }
 }
 

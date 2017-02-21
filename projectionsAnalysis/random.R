@@ -201,8 +201,8 @@ matplot(num.unique.players.table, type = 'b', pch = c('o'), xlab = "Week", ylab 
 # legend("bottomleft", colnames(num.unique.players.table),col=seq_len(ncol(num.unique.players.table)), cex=1, fill=seq_len(ncol(num.unique.players.table)))
 
 # Number of games each week (sunday):
-num.games <- c(13,14,14,13,12,13,13,11,11,12,12,12,13,14,13) # up to wk 15
-num.games <- cbind(1:15, num.games)
+num.games <- c(13,14,14,13,12,13,13,11,11,12,12,12,13,14,13,14,16) 
+num.games <- cbind(1:17, num.games)
 colnames(num.games) <- c('Week','Num.Games')
 num.games
 par(mfrow=c(1,1))

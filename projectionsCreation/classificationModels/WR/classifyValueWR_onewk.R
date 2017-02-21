@@ -32,32 +32,19 @@ library("SDMTools")
 # Wk 7: "svmlight_linear_costfactor0.07_wks4-6_minfpts18.5.RData"
 # Wk 6: "svmlight_linear_costfactor0.04_wks2-5_minfpts18.5.RData" (don't use b/c bad)
 # Wk 5: "svmlight_linear_costfactor0.035_wks2-4_minfpts18.5.RData" (don't use b/c bad)
-#
-# Best RBF Kernel Models Weekly (gets better week over week):
-# Wk 16: "svmlight_rbf_costfactor0.085_gamma1.47e-06_wks4-15_minfpts18.5.RData"
-# Wk 15: "svmlight_rbf_costfactor0.05_gamma3.2e-07_wks4-14_minfpts18.5.RData"
-# Wk 14: "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-13_minfpts18.5.RData"
-# Wk 13: "svmlight_rbf_costfactor0.08_gamma2.2e-07_wks4-12_minfpts18.5.RData"
-# Wk 12: "svmlight_rbf_costfactor0.075_gamma1e-07_wks4-11_minfpts18.5.RData"
-# Wk 11: "svmlight_rbf_costfactor0.075_gamma1.5e-07_wks4-10_minfpts18.5.RData"
-# Wk 10: "svmlight_rbf_costfactor0.085_gamma1e-07_wks4-9_minfpts18.5.RData"
-# Wk 9: "svmlight_rbf_costfactor0.04_gamma2.2e-07_wks4-8_minfpts18.5.RData"
-# Wk 8: "svmlight_rbf_costfactor0.065_gamma1e-07_wks4-7_minfpts18.5.RData"
-# Wk 7: "svmlight_rbf_costfactor0.04_gamma1e-07_wks4-6_minfpts18.5.RData"
-# Wk 6: "svmlight_rbf_costfactor0.045_gamma6.8e-07_wks2-5_minfpts18.5.RData"
-# Wk 5: "svmlight_rbf_costfactor0.035_gamma6.8e-07_wks2-4_minfpts18.5.RData"
 
 
-save.model.name <- "svmlight_linear_costfactor0.075_wks4-16_minfpts18.5.RData"
+save.model.name <- "svmlight_linear_costfactor0.08_wks4-15_minfpts18.5.RData"
 load(paste0("projectionsCreation/classificationModels/WR/models/valueWR/", save.model.name))
 
 
 ####### WRITE TO FILE? #######
-write.bool <- F # this needs to be here to ovewrite loaded model variable
+write.bool <- T # this needs to be here to ovewrite loaded model variable
+ownership.bool <- T # set to TRUE if want to apply Value WR spiking procedure on ownership adjusted projections
 
 
 ####### PARAMETERS #######
-wk <- 17
+wk <- 16
 salary.threshold <- 5000
 fpts.threshold <- 18.5 # if this is not 18.5 then need to change the baseline files (rerun valueWR.R and change threshold)
 slate.days <- "" # "thu-mon" or "sun-mon" or "" (sun only)
@@ -161,7 +148,11 @@ if (write.bool==T) {
     }
   } else {
     #----- LOAD original (with baseline ValueWR) sunday only OFFENSIVE_PLAYERS CSV -----#
-    temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F)
+    if (ownership.bool==T) {
+      temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/ownership_model/offensive_players.csv"), stringsAsFactors = F)
+    } else {
+      temp <- read.csv(file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/offensive_players.csv"), stringsAsFactors = F) 
+    }
     temp$Name[temp$Name=="Will Fuller V"] <- "Will Fuller"
     if (spike.bool == F) {
       temp$ValueWR <- 0 # reset
@@ -211,7 +202,11 @@ if (write.bool==T) {
   } else if (slate.days == "sun-mon") {
     write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/includes_sun-mon/model1/offensive_players.csv"), row.names = F) 
   } else {
-    write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/model1/offensive_players.csv"), row.names = F) 
+    if (ownership.bool==T) {
+      write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/ownership_model/model1/offensive_players.csv"), row.names = F)
+    } else {
+      write.csv(temp, file = paste0("optimizationCode/data_warehouse/2016_cleaned_input/wk", wk, "/model1/offensive_players.csv"), row.names = F)  
+    }
   }
 }
   

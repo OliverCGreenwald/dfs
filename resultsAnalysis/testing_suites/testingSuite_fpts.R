@@ -43,19 +43,8 @@ missing.data.50k.contest.wk <- c() # enter weeks that we don't have complete dat
 
 # Init
 result.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 10, dimnames = list(NULL, c("Week","Mean","Max","Min","Cashing","160-170","170-180","180-190","190-200",">200")))
+lineup.fpts.all.wks <- NULL
 
-# if (thu_mon.bool == T) {
-#   num.cashing.full.slate.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Cashing")))
-#   num.cashing.full.slate.mat[,'Week'] <- week.lo:week.hi
-#   cashing.full.slate.dat <- read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/includes_thu-mon/full_slate_cashing.csv"), stringsAsFactors = F) 
-# } else {
-#   num.cashing.50K.contest.mat <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Cashing")))
-#   num.cashing.50K.contest.mat[,'Week'] <- week.lo:week.hi
-#   cashing.50K.contest.dat <- read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/contest_50K_cashing.csv"), stringsAsFactors = F)
-# }
-
-# num.above.190 <- matrix(data = NA, nrow = week.hi-week.lo+1, ncol = 2, dimnames = list(NULL, c("Week","Num.Above.190")))
-# num.above.190[,'Week'] <- week.lo:week.hi
 
 # Loop through weeks
 par(mfrow=c(1,2))
@@ -64,10 +53,10 @@ for (week.num in week.lo:week.hi) {
     # do nothing
   } else {
     ####### SET FILE #########
-    # for baseline
-    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
-    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
-    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
+    # for baseline (sun)
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/baseline/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/baseline/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+    # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/baseline/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv") # form 15
     
     # for model1 (thu-mon)
     # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/includes_thu-mon/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", overlap, "_exposure_", exposure, num.lineups, ".csv") # form 4
@@ -134,12 +123,9 @@ for (week.num in week.lo:week.hi) {
     
     hist(lineups$total)
     
-    # if (thu_mon.bool == T) {
-    #   num.cashing.full.slate.mat[week.num-week.lo+1,'Num.Cashing'] <- sum(lineups$total > cashing.full.slate.dat[week.num,'Min'])
-    # } else {
-    #   num.cashing.50K.contest.mat[week.num-week.lo+1,'Num.Cashing'] <- sum(lineups$total > cashing.50K.contest.dat[week.num,'Min'])
-    # }
-    # num.above.190[week.num-week.lo+1,'Num.Above.190'] <- sum(lineups$total > 190)
+    if (week.num != 14) {
+      lineup.fpts.all.wks <- c(lineup.fpts.all.wks, lineups$total) 
+    }
   }
   
   # compute cashing threshold
@@ -167,70 +153,59 @@ for (week.num in week.lo:week.hi) {
   result.mat[week.num-week.lo+1,10] <- sum(lineups$total > 200)
 }
 
-View(result.mat)
-
-# mean(lineups$total)
-# max(lineups$total)
-# min(lineups$total)
-# sum(lineups$total > 150)
-# sum(lineups$total >= 160 & lineups$total <= 170)
-# sum(lineups$total >= 180 & lineups$total <= 190)
-# sum(lineups$total >= 190 & lineups$total <= 200)
-# sum(lineups$total > 200)
-
-
-
-# par(mfrow=c(1,1))
-# # number of lineups that cash
-# if (thu_mon.bool == T) {
-#   num.cashing.full.slate.mat
-#   plot(week.lo:week.hi, num.cashing.full.slate.mat[,'Num.Cashing'], type = 'b', xlab = 'Week', ylab = 'Num Cashing Lineups', main = 'Number of Cashing Lineups (150K Contest)')
-# } else {
-#   num.cashing.50K.contest.mat
-#   plot(week.lo:week.hi, num.cashing.50K.contest.mat[,'Num.Cashing'], type = 'b', xlab = 'Week', ylab = 'Num Cashing Lineups', main = 'Number of Cashing Lineups (50K Contest)')
-# }
-# 
-# # number of lineups above 190 fpts
-# plot(week.lo:week.hi, num.above.190[,'Num.Above.190'], type = 'b', xlab = 'Week', ylab = 'Num Cashing Lineups', main = 'Number Lineups > 190 Fpts (150K Contest)')
-
-
-
-
-
-
-
-
-
-
-
-# #############################
-# for (i in 2:15) {
-#   if (i == 10) {
-#     assign(paste0("contest_50K_results_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/$4_contest_full_results_week", i, ".csv"), stringsAsFactors = F))
-#     assign(paste0("payout_50K_structure_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/$4_payout_structure_week", i, ".csv"), stringsAsFactors = F))
-#   } else {
-#     assign(paste0("contest_50K_results_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/contest_results/$3_contest_full_results_week", i, ".csv"), stringsAsFactors = F))
-#     assign(paste0("payout_50K_structure_wk", i), read.csv(file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/$3_payout_structure_week", i, ".csv"), stringsAsFactors = F))
-#   }
-#   print(i)
-# }
-# 
-# contest_50K_cashing <- matrix(data = NA, nrow = 0, ncol = 3, dimnames = list(NULL, c("Week","Min","Max")))
-# contest_50K_cashing  <- rbind(contest_50K_cashing, c(1, '', ''))
-# for (i in 2:15) {
-#   temp.results <- eval(parse(text=paste0("contest_50K_results_wk", i)))
-#   temp.payout <- eval(parse(text=paste0("payout_50K_structure_wk", i)))
-#   place.last <- temp.payout$Place_hi[nrow(temp.payout)]
-#   temp.max <- temp.results$Points[1]
-#   temp.min <- temp.results$Points[place.last]
-#   contest_50K_cashing  <- rbind(contest_50K_cashing, c(i, temp.min, temp.max))
-# }
-# write.csv(contest_50K_cashing, file = paste0("resultsAnalysis/data_warehouse/weekly_payout_structure/contest_50K_cashing.csv"), row.names = F)
-# 
-
+# View(result.mat)
 
 
 # load("/Users/Alan/Downloads/player_exposure_pnl_full_slate.RData")
 
 
 
+# first plot for paper
+result.mat <- as.data.frame(result.mat)
+par(mfrow=c(1,1))
+min.plot <- min(result.mat$`160-170`,result.mat$`170-180`,result.mat$`180-190`,result.mat$`190-200`,result.mat$`>200`) #result.mat$Cashing,
+max.plot <- max(result.mat$`160-170`,result.mat$`170-180`,result.mat$`180-190`,result.mat$`190-200`,result.mat$`>200`) #result.mat$Cashing,
+# plot(result.mat$Week, result.mat$Cashing, type = 'b', col = 'black', ylim = c(min.plot,max.plot), main = "asdf")
+plot(c(result.mat$Week,17:19), c(result.mat$`160-170`,rep(NA,3)), type = 'b', col = 'red', ylim = c(min.plot,30), main = "Number of Lineups in Specified Fantasy Point Ranges", xlab = "Week", ylab = "Number of Lineups in Range", xaxt = 'n')
+axis(side = 1, at = c(2:16), labels = c(2:16), tck=-.05)
+# points(result.mat$Week, result.mat$`160-170`, type = 'b', col = 'red')
+points(result.mat$Week, result.mat$`170-180`, type = 'b', col = 'blue')
+points(result.mat$Week, result.mat$`180-190`, type = 'b', col = 'green')
+points(result.mat$Week, result.mat$`190-200`, type = 'b', col = 'orange')
+points(result.mat$Week, result.mat$`>200`, type = 'b', col = 'purple')
+legend("right", legend = c("160-169.9","170-179.9","180-189.9","190-199.9","200+"), cex = 0.9, fill = c("red","blue","green","orange","purple"))
+
+
+
+# second plot for paper
+temp <- as.data.frame(matrix(data = NA, nrow = length(lineup.fpts.all.wks), ncol = 2, dimnames = list(NULL, c("Baseline","Model1"))))
+temp$Baseline <- lineup.fpts.all.wks
+temp$Model1 <- lineup.fpts.all.wks
+
+library(sm)
+# quantile(temp$Baseline, 0.75)
+temp.baseline <- sort(temp$Baseline[temp$Baseline >= 160])
+temp.model1 <- sort(temp$Model1[temp$Model1 >= 160])
+
+length(temp.baseline)
+length(temp.model1)
+
+temp.length <- abs(length(temp.baseline)-length(temp.model1))
+# temp.baseline <- sort(temp$Baseline[temp$Baseline >= 160])[-c(1:(temp.length))] # need to make equal length
+temp.model1 <- sort(temp$Model1[temp$Model1 >= 160])[-c(1:(temp.length))] # need to make equal length
+
+length(temp.baseline)
+length(temp.model1)
+
+temp.plot <- as.data.frame(matrix(data = NA, nrow = length(temp.model1), ncol = 2, dimnames = list(NULL, c("Baseline","Model1"))))
+temp.plot$Baseline <- temp.baseline
+temp.plot$Model1 <- temp.model1
+
+group.index <- rep(1:2, c(length(temp.baseline), length(temp.model1)))
+sm.density.compare(c(temp.plot$Baseline,temp.plot$Model1), group = group.index, model = "equal", col = c("black","red"), xlab = "Fantasy Points", xlim = c(140,240))
+sm.options(col.band = "green")
+title("Kernel Density Plot (Weeks 2-16)") #  of Fantasy Points for Lineups Generated in Weeks 2-16 (At Least 160)
+legend("topright", legend = c("Baseline", "Spiked"), cex = 0.9, fill = c("black","red"))
+
+hist(temp.plot$Baseline)
+hist(temp.plot$Model1)
