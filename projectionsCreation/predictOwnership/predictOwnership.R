@@ -5,14 +5,13 @@
 ####### DESCRIPTION #######
 # In this file we predict the ownership rate of each player. For sunday contests only (b/c we don't
 # have a full season of thu-mon or sun-mon contest results, so Ownership.Pctg can't be computed);
-# currently only supports $3 sunday play action contest. Offense only. Note that we remove players with
-# 0% ownership from the dataset.
+# currently only supports $3 sunday play action contest. Offense only.
 #
 # Notes:
 # - R^2 = 1- SSR/SST only definitively true for training set, so interpret with caution for testing set
 # - if use index 99 of lambdas (i.e. very low penalty) for lasso, the two nonzero coefficients are "Likes" and "Fpts.Week.1lag"
 #
-# - SVMLIGHT:
+# - SVMLIGHT RANKSVM:
 #     http://svmlight.joachims.org/
 #     Learning options:
 #           -z {c,r,p}  - select between classification (c), regression (r), and 
@@ -31,18 +30,24 @@
 #           -u string   - parameter of user defined kernel
 #
 # TODO:
+# - Need to try ordinal regression
+# - RankSVM takes forever to train
+# - RankSVM with subranking by position
+# - split by position for all methods
 # - GPD
 
 ####### IMPORT LIBRARIES #########
 library('stringr')
 library("glmnet")
 library("glmnetUtils")
+library("klaR")
+library("ordinal")
 
 
 # for (week.max in 6:15) {
 
 ####### SET MODEL TO RUN #######
-model.run <- "6"
+model.run <- "5"
 week.min <- 4 # must be >= 4 (this is the week we begin appending weekly data for the overall dataset, "dataset.all")
 week.max <- 15
 
@@ -276,6 +281,7 @@ print(paste0("All Weeks, Num >0% Ownership (NAs Removed):   ", sum(dataset.all$O
 
 
 ####### APPLY DATA TRANSFORMATIONS #######
+# this reduces the heavy tail issue observed w/o transformation
 if (transform.data.bool==T) {
   dataset.all$Ownership.Pctg <- dataset.all$Ownership.Pctg/100
   dataset.all$Ownership.Pctg <- dataset.all$Ownership.Pctg+0.001
@@ -459,37 +465,70 @@ if (model.run==4) {
 }
 
 
+####### MODEL V: RANKING SVM #######
+if (model.run==5) {
+  # info: https://www.quora.com/What-is-the-intuition-for-SVM-Rank-and-when-should-I-use-it
+  # how to train: http://fa.bianp.net/blog/2012/learning-to-rank-with-scikit-learn-the-pairwise-transform/
+  
+  ptm <- proc.time() # running time
+  
+  data.train$Ownership.Pctg <- round(data.train$Ownership.Pctg, digits = 2)
+  data.train$Ownership.Pctg.Rank <- rank((-1)*data.train$Ownership.Pctg, ties.method = "min", na.last = "keep")
+  
+  # train
+  C.optimal <- 0
+  model.svmlight.rank <- svmlight(Ownership.Pctg.Rank ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", svm.options = paste0("-z p -t 0 -c ", C.optimal), scal = T)
+  
+  # test
+  pred.svmlight <- predict(model.svmlight.rank, newdata = data.test, scal = T)
+  pred.svmlight$class
+  
+  # running time
+  ptm <- proc.time() - ptm
+  print(paste0("Run time (ms): ", ptm))
+}
+
+
+####### MODEL VI: ORDINAL REGRESSION (CUMULATIVE LINK MODEL) #######
+if (model.run==6) {
+  # info: https://cran.r-project.org/web/packages/ordinal/vignettes/clm_intro.pdf
+  
+  # rescale to reduce eigenvalues
+  rescale_negative <- function(x, min, max){
+    return ((((x - min) / (max - min)) - 0.5) * 2) # Normalizes a vector to [-1, 1]
+  }
+  for (i in 1:(ncol(dataset.all)-1)) {
+    dataset.all[,i] <- rescale_negative(dataset.all[,i], min(dataset.all[,i]), max(dataset.all[,i]))
+  }
+  
+  # change Ownership.Pctg from pctgs to ranks and factorize
+  dataset.all$Ownership.Pctg <- round(dataset.all$Ownership.Pctg, digits = 2)
+  dataset.all$Ownership.Pctg <- rank((-1)*dataset.all$Ownership.Pctg, ties.method = "min", na.last = "keep")
+  dataset.all$Ownership.Pctg <- as.factor(dataset.all$Ownership.Pctg)
+  
+  # resplit into training and testing set with adjusted df
+  data.test <- dataset.all[testing.ind, ]
+  data.train <- dataset.all[-testing.ind, ]
+  
+  train.x <- data.train[,1:(ncol(data.train)-1)]
+  train.y <- data.train[,ncol(data.train)]
+  test.x <- data.test[,1:(ncol(data.test)-1)]
+  test.y <- data.test[,ncol(data.test)]
+  
+  # train
+  model.ordinal <- clm(Ownership.Pctg ~ ., data = data.train, link = "logit")
+  
+  # predict
+  model.ordinal.pred <- predict(model.ordinal, newdata = test.x, type = "class")
+  model.ordinal.pred # need to remove the 2318's (low %'s)
+}
 
 
 
-# Clearly, we have heavy tails on both sides of the distribution (see Q-Q plots for all regressions above).
+
+# Clearly, we have heavy tails (w/o logit transformation) on both sides of the distribution (see Q-Q plots for all regressions above).
 # So, we use a semiparametric fitting method. We tune two thresholds for the beginnings of the tails.
 # Then, we fit pareto distributions to the two tails, and fit a normal regression to the middle data.
-
-####### MODEL V: GENERALIZED PARETO DISTRIBUTION #######
-if (model.run==5) {
-  
-}
-
-
-####### MODEL VI: RANKING SVM #######
-if (model.run==6) {
-  temp.train <- data.train[order(data.train$Ownership.Pctg),]
-  temp.train <- temp.train[temp.train$Ownership.Pctg>0,]
-  temp.train$Rank <- 1:nrow(temp.train)
-  temp.train.x <- temp.train[,1:(ncol(temp.train)-2)]
-  temp.train.y <- temp.train[,ncol(temp.train)]
-  
-  temp.model <- ranking(x = as.matrix(temp.train.x), y = as.matrix(temp.train.y), kernel = "rbfdot", kpar = list(sigma = 1), scale = FALSE, alpha = 0.99, iterations = 500, edgegraph = FALSE, convergence = FALSE)
-  str(temp.model)
-  temp.model@.Data
-  
-  model.svmlight <- svmlight(Value ~ ., data = data.train, pathsvm = "binaries/svm_light_osx.8.4_i7", type = "C", svm.options = paste0("-t 0 -j ", cost.factor.ratio.optimal), scal = T)
-}
-
-
-
-
 
 
 # }

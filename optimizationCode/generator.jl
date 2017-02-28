@@ -22,6 +22,7 @@ using JuMP
 
 # Running
 # exec '/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin/julia'
+# exec '/Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia'
 # include("generator.jl")
 
 include("formulations.jl")
