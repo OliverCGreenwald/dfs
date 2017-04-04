@@ -7,8 +7,6 @@ library(lme4)
 library(dplyr)
 library(rvest)
 
-date <- "2017-04-02"
-sports_league_acronym <- "MLB"
 download_player_results <- function(sports_league_acronym, date) {
   original_wd <- getwd()
   url_base <- "https://www.fantasycruncher.com/lineup-rewind/draftkings/"

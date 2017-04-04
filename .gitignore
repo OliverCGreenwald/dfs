@@ -57,3 +57,5 @@ resultsAnalysis/data_warehouse/contest_results/cleaned/1M_contest_full_results_w
 resultsAnalysis/data_warehouse/contest_results/cleaned/1M_contest_full_results_week15.csv
 resultsAnalysis/data_warehouse/contest_results/cleaned/1M_contest_full_results_week17.csv
 
+
+cleaned_2016_results.RData
