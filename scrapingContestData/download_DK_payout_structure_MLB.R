@@ -169,7 +169,6 @@ download_DK_payout_structure_MLB <- function(contest_number, date, contest_name)
   # Parse HTML Table
   Sys.sleep(1.5)
   doc <- htmlParse(mybrowser$getPageSource()[[1]])
-  print(readHTMLTable(doc))
   payout_structure <- readHTMLTable(doc)[[6]]
   payout_structure$Payout <- 0
   names(payout_structure) <- c('Place_lo', 'Place_hi', 'Payout')
