@@ -43,7 +43,9 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
                                    as.Date(contest_info$Contest_Date[index]))
     
     # Download DK Payout Structure
-        # NEED TO FINISH
+    download_DK_payout_structure_MLB(contest_info$Contest_ID[index], 
+                                     as.Date(contest_info$Contest_Date[index]),
+                                     contest_name)
     
     # Download DFN Projections
         # NEED TO FINISH
