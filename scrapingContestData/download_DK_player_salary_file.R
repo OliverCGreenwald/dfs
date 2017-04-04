@@ -43,11 +43,14 @@ download_DK_player_salary_file <- function(contest_number, date) {
   
   setwd('~/Downloads')
   
+  while(!file.exists("DKSalaries.csv")){
+    Sys.sleep(1)
+  }
+  
   player_salaries <- read.csv("DKSalaries.csv", stringsAsFactors = F)
   file.remove("DKSalaries.csv")
   #setwd(paste0(original_wd, 'MLB/data_warehouse/', date)
   data_warehouse_path <- file.path(original_wd,'MLB/data_warehouse')
-  print(data_warehouse_path)
   
   setwd(data_warehouse_path)
   dir.create(file.path(date))
