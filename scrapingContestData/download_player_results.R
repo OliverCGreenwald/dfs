@@ -1,0 +1,39 @@
+#setwd("~/Projects/DFS/")
+#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
+
+library(XML)
+library(stringr)
+library(lme4)
+library(dplyr)
+library(rvest)
+
+date <- "2017-04-02"
+sports_league_acronym <- "MLB"
+download_player_results <- function(sports_league_acronym, date) {
+  original_wd <- getwd()
+  url_base <- "https://www.fantasycruncher.com/lineup-rewind/draftkings/"
+  
+  url <- paste0(url_base, '/', sports_league_acronym, '/', date)
+  
+  webpage_date <- url %>%
+    read_html() %>%
+    html_node(".period-title") %>%
+    html_text()
+  
+  try( if(webpage_date != date) stop('The Date on the FantasyCruncher Webpage does NOT match desired date'))
+  stopifnot(webpage_date == date)
+  
+  # Scrapes the Table 
+  data <- url %>%
+    read_html() %>%
+    html_nodes(xpath='//*[@id="ff"]') %>%
+    html_table()
+  data <- data[[1]]
+  
+  setwd(paste0(original_wd,'/', sports_league_acronym, '/data_warehouse/', date))
+  
+  write.csv(data, file = 'player_results.csv', row.names = F)
+  
+  setwd(original_wd)
+  return(0)
+}
