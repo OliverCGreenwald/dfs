@@ -1,5 +1,11 @@
-setwd("~/Projects/DFS/")
-#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
+
+
+if(file.exists("~/Projects/DFS/")) {
+  setwd("~/Projects/DFS/")
+} else {
+  setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
+}
+
 
 ### Save DFS Directory Path
 
