@@ -1,4 +1,4 @@
-#setwd("~/Projects/DFS/")
+setwd("~/Projects/DFS/")
 #setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
 
 ### Save DFS Directory Path
@@ -54,3 +54,5 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
   
   
 }
+
+quit(save='no')
