@@ -195,6 +195,7 @@ download_DK_payout_structure_MLB <- function(contest_number, date, contest_name)
     }
   }
   
+  # Save file in correct Directory 
   setwd(paste0('MLB/data_warehouse/', date))
   file.sources = list.files()
   cleaned_files <- toupper(file.sources)
