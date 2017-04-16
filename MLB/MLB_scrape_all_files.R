@@ -3,7 +3,7 @@
 if(file.exists("~/Projects/DFS/")) {
   setwd("~/Projects/DFS/")
 } else {
-  setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
+  setwd("~/Documents/DFS/")
 }
 
 
