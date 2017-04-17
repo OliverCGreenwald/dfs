@@ -13,7 +13,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Import Functions #######
-source("MLB/projectionsAnalysis/functions/create_julia_inputs.R")
+source("MLB/projectionsAnalysis/functions_global/create_julia_inputs.R")
 
 
 ####### Create Julia Inputs #######
