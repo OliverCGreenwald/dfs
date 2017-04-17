@@ -16,7 +16,7 @@ if(file.exists("~/Projects/DFS/")) {
 # - FantasyPros: need to compute DK fpts for both hitters and pitchers
 
 
-create_julia_inputs <- function(contest.date, contest.name) {
+aggregate_projections <- function(contest.date, contest.name) {
   ####### Import Functions #######
   source("MLB/functions_global/clean_player_names.R")
   
