@@ -1,3 +1,14 @@
+if(file.exists("~/Projects/DFS/")) {
+  setwd("~/Projects/DFS/")
+} else {
+  setwd("~/Documents/DFS/")
+}
+
+
+####### Description #######
+# Function for cleaning player names.
+
+
 clean_player_names <- function(df_name_column) {
   # remove Sr. and Jr.
   df_name_column <- sub(' Sr.', '', df_name_column)

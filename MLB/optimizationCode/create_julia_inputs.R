@@ -6,18 +6,17 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Description #######
-# Analyze projections.
-
+# Create julia inputs (hitters and pitchers) for each date and contest.
+#
 # TODO:
-# - iterate over all contests
+# - iterate through the date folders and contests
 
 
 ####### Import Functions #######
 source("MLB/projectionsAnalysis/functions/create_julia_inputs.R")
 
 
-####### Create Aggregated Projected and Actual Fpts Dataframe For Each Week #######
+####### Create Julia Inputs #######
 julia.dat <- create_julia_inputs("2017-04-10", "$5.00entry_MLB$5KKnuckleball")
 hitters.dat <- julia.dat[[1]]
 pitchers.dat <- julia.dat[[2]]
-
