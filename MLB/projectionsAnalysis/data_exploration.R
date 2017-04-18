@@ -7,9 +7,12 @@ if(file.exists("~/Projects/DFS/")) {
 
 ####### Description #######
 # Analyze projections. Using players from the $5 entry Knuckleball contest each day.
-
+# - Correlations between each projection source and actual fpts
+# - Regression (actual fpts vs projection sources)
+# - Search for stacks
+#
 # TODO:
-# - iterate over all contests
+# - rank analysis (as opposed to absolute fpts)
 
 
 ####### Import Functions #######
@@ -133,7 +136,53 @@ print(paste0("Corr(Rotowire, Actual) [pitchers Actual_fpts > ",X,"]: ", cor(roto
 # - rotowire seems to be better at predicting hitters based on projection > X (but not observed for Actual_fpts > X)
 
 
-#######  #######
+####### Regression #######
+# aggregate hitters and pitchers from all days
+all_days_hitters <- NULL
+all_days_pitchers <- NULL
+for (i in 1:length(aggregated_data_hitters)) {
+  all_days_hitters <- rbind(all_days_hitters, aggregated_data_hitters[[i]])
+  all_days_pitchers <- rbind(all_days_pitchers, aggregated_data_pitchers[[i]])
+}
+
+# omit rows with NAs
+all_days_hitters <- na.omit(all_days_hitters)
+all_days_pitchers <- na.omit(all_days_pitchers)
+
+# OLS for rows w/o NAs
+model_hitters_ols <- lm(Actual_fpts ~ Projection + Projection_dfn + Projection_baseballmonster + Projection_rotowire, data = all_days_hitters)
+summary(model_hitters_ols)
+plot(model_hitters_ols$residuals)
+
+model_pitchers_ols <- lm(Actual_fpts ~ Projection + Projection_dfn + Projection_baseballmonster + Projection_rotowire, data = all_days_pitchers)
+summary(model_pitchers_ols)
+plot(model_pitchers_ols$residuals)
+
+# filter by Actual_fpts > X
+X <- quantile(all_days_hitters$Actual_fpts)['75%']
+all_days_hitters <- all_days_hitters[all_days_hitters$Actual_fpts > X,]
+X <- quantile(all_days_pitchers$Actual_fpts)['75%']
+all_days_pitchers <- all_days_pitchers[all_days_pitchers$Actual_fpts > X,]
+
+# OLS for rows w/o NAs and Actual_fpts > X
+model_hitters_ols <- lm(Actual_fpts ~ Projection + Projection_dfn + Projection_baseballmonster + Projection_rotowire, data = all_days_hitters)
+summary(model_hitters_ols)
+plot(model_hitters_ols$residuals)
+
+model_pitchers_ols <- lm(Actual_fpts ~ Projection + Projection_dfn + Projection_baseballmonster + Projection_rotowire, data = all_days_pitchers)
+summary(model_pitchers_ols)
+plot(model_pitchers_ols$residuals)
+
+# Takeaways:
+# - Coefficient for DFN is significant for predicting hitters (all hitters as well as Actual_fpts > 75th perecentile)
+# - BaseballMonster is particularly bad for predicting hitters: coefficient is ~0.0 for all hitters, and is negative for hitters s.t. Actual_fpts > 75th perecentile
+# - Not enough data points for pitchers yet (2017-04-18)
+# - R^2's tend to be very low (< 0.10 for hitters and < 0.05 for pitchers)
+
+
+####### Search for Stacks #######
+
+
 
 
 
