@@ -186,7 +186,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   
   ####### Add Actual Fpts Column #######
   # Hitters
-  path.dfn.hitters.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/actual/hitters_", contest.date, ".csv")
+  path.dfn.hitters.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
   if (file.exists(path.dfn.hitters.actual)) {
     temp.dfn.hitters.actual <- read.csv(path.dfn.hitters.actual, stringsAsFactors = F, header = T)
     temp.dfn.hitters.actual$Player.Name <- clean_player_names(temp.dfn.hitters.actual$Player.Name)
@@ -196,7 +196,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   }
   
   # Pitchers
-  path.dfn.pitchers.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/actual/pitchers_", contest.date, ".csv")
+  path.dfn.pitchers.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/pitchers_", contest.date, ".csv")
   if (file.exists(path.dfn.pitchers.actual)) {
     temp.dfn.pitchers.actual <- read.csv(path.dfn.pitchers.actual, stringsAsFactors = F, header = T)
     temp.dfn.pitchers.actual$Player.Name <- clean_player_names(temp.dfn.pitchers.actual$Player.Name)

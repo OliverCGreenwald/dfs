@@ -52,19 +52,7 @@ for (i in 1:nrow(contest_info_filtered)) {
 remove(projections.dat)
 
 
-####### View Quantiles #######
-quantile(rotogrinders_hitters_alldays$Actual_fpts)
-quantile(dfn_hitters_alldays$Actual_fpts)
-quantile(baseballmonster_hitters_alldays$Actual_fpts)
-quantile(rotowire_hitters_alldays$Actual_fpts)
-
-quantile(rotogrinders_pitchers_alldays$Actual_fpts)
-quantile(dfn_pitchers_alldays$Actual_fpts)
-quantile(baseballmonster_pitchers_alldays$Actual_fpts)
-quantile(rotowire_pitchers_alldays$Actual_fpts)
-
-
-####### Check Correlations of Projections and Actual (filter by projection > 0 and !is.na()) #######
+####### Filter by Projection > 0 and NAs (for both projection source and actual) ####### 
 # hitters
 rotogrinders_hitters_alldays <- NULL
 dfn_hitters_alldays <- NULL
@@ -89,7 +77,21 @@ for (i in 1:nrow(contest_info_filtered)) {
   rotowire_pitchers_alldays <- rbind(rotowire_pitchers_alldays, aggregated_data_pitchers[[i]][aggregated_data_pitchers[[i]]$Projection_rotowire > 0 & !is.na(aggregated_data_pitchers[[i]]$Projection_rotowire) & !is.na(aggregated_data_pitchers[[i]]$Actual_fpts), c("Projection_rotowire", "Actual_fpts")])
 }
 
-# correlations for all players (after filtering out projection > 0 and !is.na())
+####### View Quantiles #######
+# note that these are different bc there are a different number of NAs for each projection source (filtered out in last step)
+quantile(rotogrinders_hitters_alldays$Actual_fpts)
+quantile(dfn_hitters_alldays$Actual_fpts)
+quantile(baseballmonster_hitters_alldays$Actual_fpts)
+quantile(rotowire_hitters_alldays$Actual_fpts)
+
+quantile(rotogrinders_pitchers_alldays$Actual_fpts)
+quantile(dfn_pitchers_alldays$Actual_fpts)
+quantile(baseballmonster_pitchers_alldays$Actual_fpts)
+quantile(rotowire_pitchers_alldays$Actual_fpts)
+
+
+####### Check Correlations of Projections and Actual #######
+# correlations for all players
 print(paste0("Corr(Rotogrinders, Actual) [hitters all]: ", cor(rotogrinders_hitters_alldays$Projection, rotogrinders_hitters_alldays$Actual_fpts)))
 print(paste0("Corr(DFN, Actual) [hitters all]: ", cor(dfn_hitters_alldays$Projection_dfn, dfn_hitters_alldays$Actual_fpts)))
 print(paste0("Corr(BaseballMonster, Actual) [hitters all]: ", cor(baseballmonster_hitters_alldays$Projection_baseballmonster, baseballmonster_hitters_alldays$Actual_fpts)))
@@ -105,7 +107,7 @@ X <- 7.5
 print(paste0("Corr(Rotogrinders, Actual) [hitters projection > ",X,"]: ", cor(rotogrinders_hitters_alldays$Projection[rotogrinders_hitters_alldays$Projection > X], rotogrinders_hitters_alldays$Actual_fpts[rotogrinders_hitters_alldays$Projection > X])))
 print(paste0("Corr(DFN, Actual) [hitters projection > ",X,"]: ", cor(dfn_hitters_alldays$Projection_dfn[dfn_hitters_alldays$Projection_dfn > X], dfn_hitters_alldays$Actual_fpts[dfn_hitters_alldays$Projection_dfn > X])))
 print(paste0("Corr(BaseballMonster, Actual) [hitters projection > ",X,"]: ", cor(baseballmonster_hitters_alldays$Projection_baseballmonster[baseballmonster_hitters_alldays$Projection_baseballmonster > X], baseballmonster_hitters_alldays$Actual_fpts[baseballmonster_hitters_alldays$Projection_baseballmonster > X])))
-print(paste0("Corr(Rotowire, Actual) [hitters projection > ",X,"]: ", cor(rotowire_hitters_alldays$Projection_rotowire[rotowire_hitters_alldays$Projection_rotowire > X], rotowire_hitters_alldays$Actual_fpts[rotowire_hitters_alldays$Projection_rotowire > X])))))
+print(paste0("Corr(Rotowire, Actual) [hitters projection > ",X,"]: ", cor(rotowire_hitters_alldays$Projection_rotowire[rotowire_hitters_alldays$Projection_rotowire > X], rotowire_hitters_alldays$Actual_fpts[rotowire_hitters_alldays$Projection_rotowire > X])))
 
 X <- 15
 print(paste0("Corr(Rotogrinders, Actual) [pitchers projection > ",X,"]: ", cor(rotogrinders_pitchers_alldays$Projection[rotogrinders_pitchers_alldays$Projection > X], rotogrinders_pitchers_alldays$Actual_fpts[rotogrinders_pitchers_alldays$Projection > X])))
@@ -129,6 +131,10 @@ print(paste0("Corr(Rotowire, Actual) [pitchers Actual_fpts > ",X,"]: ", cor(roto
 # Takeaways:
 # - rotogrinders seems to be better at predicting pitchers that do relatively well (X = 7.5, 15)
 # - rotowire seems to be better at predicting hitters based on projection > X (but not observed for Actual_fpts > X)
+
+
+#######  #######
+
 
 
 
