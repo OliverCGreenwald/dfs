@@ -21,8 +21,8 @@ setwd("~/Projects/DFS/")
 
 ### Read in Contest File
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-contest_info$Contest_Date <- as.Date(contest_info$Contest_Date, "%m/%d/%y")
-first_contest_update <- min(which(as.Date(contest_info$Contest_Date, "%m/%d/%y") == Sys.Date() - 1))
+contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
+first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date() - 1))
 
 ### Update Files
 
