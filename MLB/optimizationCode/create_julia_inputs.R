@@ -20,12 +20,16 @@ source("MLB/functions_global/aggregate_projections.R")
 # load contest info file
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 
-# find all Knuckleball contests
-contest_info_knuckleball <- contest_info[contest_info$Contest_Date >= "2017-04-02" & contest_info$Contest_Date <= Sys.Date() & grepl("KNUCKLEBALL", contest_info$Contest_Name),]
-
-# julia.dat <- aggregate_projections("2017-04-10", "$5.00entry_MLB$5KKnuckleball")
-# hitters.dat <- julia.dat[[1]]
-# pitchers.dat <- julia.dat[[2]]
-
+aggregated_data_hitters <- list()
+aggregated_data_pitchers <- list()
+for (i in 1:nrow(contest_info)) {
+  projections.dat <- aggregate_projections(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
+  aggregated_data_hitters[[i]] <- projections.dat[[1]]
+  aggregated_data_pitchers[[i]] <- projections.dat[[2]]
+  
+  ####### Write to CSV file #######
+  write.csv(aggregated_data_hitters[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), row.names = F)
+  write.csv(aggregated_data_pitchers[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/pitchers.csv"), row.names = F)
+}
 
 

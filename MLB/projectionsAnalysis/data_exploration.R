@@ -22,7 +22,7 @@ contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFact
 
 # find one 150 entry contest per day
 contest_info_filtered <- NULL
-dates <- seq(from = as.Date("2017-04-03"), to = Sys.Date() - 1, by = "day")
+dates <- seq(from = as.Date("2017-04-02"), to = Sys.Date() - 1, by = "day")
 for (i in 1:length(dates)) {
   # subset by the date and max_entry=150
   contest_info_temp <- contest_info[contest_info$Contest_Date==dates[i] & contest_info$Max_Entry==150, ]
@@ -52,6 +52,18 @@ for (i in 1:nrow(contest_info_filtered)) {
 remove(projections.dat)
 
 
+####### View Quantiles #######
+quantile(rotogrinders_hitters_alldays$Actual_fpts)
+quantile(dfn_hitters_alldays$Actual_fpts)
+quantile(baseballmonster_hitters_alldays$Actual_fpts)
+quantile(rotowire_hitters_alldays$Actual_fpts)
+
+quantile(rotogrinders_pitchers_alldays$Actual_fpts)
+quantile(dfn_pitchers_alldays$Actual_fpts)
+quantile(baseballmonster_pitchers_alldays$Actual_fpts)
+quantile(rotowire_pitchers_alldays$Actual_fpts)
+
+
 ####### Check Correlations of Projections and Actual (filter by projection > 0 and !is.na()) #######
 # hitters
 rotogrinders_hitters_alldays <- NULL
@@ -78,45 +90,44 @@ for (i in 1:nrow(contest_info_filtered)) {
 }
 
 # correlations for all players (after filtering out projection > 0 and !is.na())
-cor(rotogrinders_hitters_alldays$Projection, rotogrinders_hitters_alldays$Actual_fpts)
-cor(dfn_hitters_alldays$Projection_dfn, dfn_hitters_alldays$Actual_fpts)
-cor(baseballmonster_hitters_alldays$Projection_baseballmonster, baseballmonster_hitters_alldays$Actual_fpts)
-cor(rotowire_hitters_alldays$Projection_rotowire, rotowire_hitters_alldays$Actual_fpts)
+print(paste0("Corr(Rotogrinders, Actual) [hitters all]: ", cor(rotogrinders_hitters_alldays$Projection, rotogrinders_hitters_alldays$Actual_fpts)))
+print(paste0("Corr(DFN, Actual) [hitters all]: ", cor(dfn_hitters_alldays$Projection_dfn, dfn_hitters_alldays$Actual_fpts)))
+print(paste0("Corr(BaseballMonster, Actual) [hitters all]: ", cor(baseballmonster_hitters_alldays$Projection_baseballmonster, baseballmonster_hitters_alldays$Actual_fpts)))
+print(paste0("Corr(Rotowire, Actual) [hitters all]: ", cor(rotowire_hitters_alldays$Projection_rotowire, rotowire_hitters_alldays$Actual_fpts)))
 
-cor(rotogrinders_pitchers_alldays$Projection, rotogrinders_pitchers_alldays$Actual_fpts)
-cor(dfn_pitchers_alldays$Projection_dfn, dfn_pitchers_alldays$Actual_fpts)
-cor(baseballmonster_pitchers_alldays$Projection_baseballmonster, baseballmonster_pitchers_alldays$Actual_fpts)
-cor(rotowire_pitchers_alldays$Projection_rotowire, rotowire_pitchers_alldays$Actual_fpts)
+print(paste0("Corr(Rotogrinders, Actual) [pitchers all]: ", cor(rotogrinders_pitchers_alldays$Projection, rotogrinders_pitchers_alldays$Actual_fpts)))
+print(paste0("Corr(DFN, Actual) [pitchers all]: ", cor(dfn_pitchers_alldays$Projection_dfn, dfn_pitchers_alldays$Actual_fpts)))
+print(paste0("Corr(BaseballMonster, Actual) [pitchers all]: ", cor(baseballmonster_pitchers_alldays$Projection_baseballmonster, baseballmonster_pitchers_alldays$Actual_fpts)))
+print(paste0("Corr(Rotowire, Actual) [pitchers all]: ", cor(rotowire_pitchers_alldays$Projection_rotowire, rotowire_pitchers_alldays$Actual_fpts)))
 
 # correlations for all players with projection > X (after filtering out projection > 0 and !is.na())
 X <- 7.5
-cor(rotogrinders_hitters_alldays$Projection[rotogrinders_hitters_alldays$Projection > X], rotogrinders_hitters_alldays$Actual_fpts[rotogrinders_hitters_alldays$Projection > X])
-cor(dfn_hitters_alldays$Projection_dfn[dfn_hitters_alldays$Projection_dfn > X], dfn_hitters_alldays$Actual_fpts[dfn_hitters_alldays$Projection_dfn > X])
-cor(baseballmonster_hitters_alldays$Projection_baseballmonster[baseballmonster_hitters_alldays$Projection_baseballmonster > X], baseballmonster_hitters_alldays$Actual_fpts[baseballmonster_hitters_alldays$Projection_baseballmonster > X])
-cor(rotowire_hitters_alldays$Projection_rotowire[rotowire_hitters_alldays$Projection_rotowire > X], rotowire_hitters_alldays$Actual_fpts[rotowire_hitters_alldays$Projection_rotowire > X])
+print(paste0("Corr(Rotogrinders, Actual) [hitters projection > ",X,"]: ", cor(rotogrinders_hitters_alldays$Projection[rotogrinders_hitters_alldays$Projection > X], rotogrinders_hitters_alldays$Actual_fpts[rotogrinders_hitters_alldays$Projection > X])))
+print(paste0("Corr(DFN, Actual) [hitters projection > ",X,"]: ", cor(dfn_hitters_alldays$Projection_dfn[dfn_hitters_alldays$Projection_dfn > X], dfn_hitters_alldays$Actual_fpts[dfn_hitters_alldays$Projection_dfn > X])))
+print(paste0("Corr(BaseballMonster, Actual) [hitters projection > ",X,"]: ", cor(baseballmonster_hitters_alldays$Projection_baseballmonster[baseballmonster_hitters_alldays$Projection_baseballmonster > X], baseballmonster_hitters_alldays$Actual_fpts[baseballmonster_hitters_alldays$Projection_baseballmonster > X])))
+print(paste0("Corr(Rotowire, Actual) [hitters projection > ",X,"]: ", cor(rotowire_hitters_alldays$Projection_rotowire[rotowire_hitters_alldays$Projection_rotowire > X], rotowire_hitters_alldays$Actual_fpts[rotowire_hitters_alldays$Projection_rotowire > X])))))
 
 X <- 15
-cor(rotogrinders_pitchers_alldays$Projection[rotogrinders_pitchers_alldays$Projection > X], rotogrinders_pitchers_alldays$Actual_fpts[rotogrinders_pitchers_alldays$Projection > X])
-cor(dfn_pitchers_alldays$Projection_dfn[dfn_pitchers_alldays$Projection_dfn > X], dfn_pitchers_alldays$Actual_fpts[dfn_pitchers_alldays$Projection_dfn > X])
-cor(baseballmonster_pitchers_alldays$Projection_baseballmonster[baseballmonster_pitchers_alldays$Projection_baseballmonster > X], baseballmonster_pitchers_alldays$Actual_fpts[baseballmonster_pitchers_alldays$Projection_baseballmonster > X])
-cor(rotowire_pitchers_alldays$Projection_rotowire[rotowire_pitchers_alldays$Projection_rotowire > X], rotowire_pitchers_alldays$Actual_fpts[rotowire_pitchers_alldays$Projection_rotowire > X])
+print(paste0("Corr(Rotogrinders, Actual) [pitchers projection > ",X,"]: ", cor(rotogrinders_pitchers_alldays$Projection[rotogrinders_pitchers_alldays$Projection > X], rotogrinders_pitchers_alldays$Actual_fpts[rotogrinders_pitchers_alldays$Projection > X])))
+print(paste0("Corr(DFN, Actual) [pitchers projection > ",X,"]: ", cor(dfn_pitchers_alldays$Projection_dfn[dfn_pitchers_alldays$Projection_dfn > X], dfn_pitchers_alldays$Actual_fpts[dfn_pitchers_alldays$Projection_dfn > X])))
+print(paste0("Corr(BaseballMonster, Actual) [pitchers projection > ",X,"]: ", cor(baseballmonster_pitchers_alldays$Projection_baseballmonster[baseballmonster_pitchers_alldays$Projection_baseballmonster > X], baseballmonster_pitchers_alldays$Actual_fpts[baseballmonster_pitchers_alldays$Projection_baseballmonster > X])))
+print(paste0("Corr(Rotowire, Actual) [pitchers projection > ",X,"]: ", cor(rotowire_pitchers_alldays$Projection_rotowire[rotowire_pitchers_alldays$Projection_rotowire > X], rotowire_pitchers_alldays$Actual_fpts[rotowire_pitchers_alldays$Projection_rotowire > X])))
 
 # correlations for all players with Actual_fpts > X (after filtering out projection > 0 and !is.na())
 X <- 7.5
-cor(rotogrinders_hitters_alldays$Projection[rotogrinders_hitters_alldays$Actual_fpts > X], rotogrinders_hitters_alldays$Actual_fpts[rotogrinders_hitters_alldays$Actual_fpts > X])
-cor(dfn_hitters_alldays$Projection_dfn[dfn_hitters_alldays$Actual_fpts > X], dfn_hitters_alldays$Actual_fpts[dfn_hitters_alldays$Actual_fpts > X])
-cor(baseballmonster_hitters_alldays$Projection_baseballmonster[baseballmonster_hitters_alldays$Actual_fpts > X], baseballmonster_hitters_alldays$Actual_fpts[baseballmonster_hitters_alldays$Actual_fpts > X])
-cor(rotowire_hitters_alldays$Projection_rotowire[rotowire_hitters_alldays$Actual_fpts > X], rotowire_hitters_alldays$Actual_fpts[rotowire_hitters_alldays$Actual_fpts > X])
+print(paste0("Corr(Rotogrinders, Actual) [hitters Actual_fpts > ",X,"]: ", cor(rotogrinders_hitters_alldays$Projection[rotogrinders_hitters_alldays$Actual_fpts > X], rotogrinders_hitters_alldays$Actual_fpts[rotogrinders_hitters_alldays$Actual_fpts > X])))
+print(paste0("Corr(DFN, Actual) [hitters Actual_fpts > ",X,"]: ", cor(dfn_hitters_alldays$Projection_dfn[dfn_hitters_alldays$Actual_fpts > X], dfn_hitters_alldays$Actual_fpts[dfn_hitters_alldays$Actual_fpts > X])))
+print(paste0("Corr(BaseballMonster, Actual) [hitters Actual_fpts > ",X,"]: ", cor(baseballmonster_hitters_alldays$Projection_baseballmonster[baseballmonster_hitters_alldays$Actual_fpts > X], baseballmonster_hitters_alldays$Actual_fpts[baseballmonster_hitters_alldays$Actual_fpts > X])))
+print(paste0("Corr(Rotowire, Actual) [hitters Actual_fpts > ",X,"]: ", cor(rotowire_hitters_alldays$Projection_rotowire[rotowire_hitters_alldays$Actual_fpts > X], rotowire_hitters_alldays$Actual_fpts[rotowire_hitters_alldays$Actual_fpts > X])))
 
 X <- 15
-cor(rotogrinders_pitchers_alldays$Projection[rotogrinders_pitchers_alldays$Actual_fpts > X], rotogrinders_pitchers_alldays$Actual_fpts[rotogrinders_pitchers_alldays$Actual_fpts > X])
-cor(dfn_pitchers_alldays$Projection_dfn[dfn_pitchers_alldays$Actual_fpts > X], dfn_pitchers_alldays$Actual_fpts[dfn_pitchers_alldays$Actual_fpts > X])
-cor(baseballmonster_pitchers_alldays$Projection_baseballmonster[baseballmonster_pitchers_alldays$Actual_fpts > X], baseballmonster_pitchers_alldays$Actual_fpts[baseballmonster_pitchers_alldays$Actual_fpts > X])
-cor(rotowire_pitchers_alldays$Projection_rotowire[rotowire_pitchers_alldays$Actual_fpts > X], rotowire_pitchers_alldays$Actual_fpts[rotowire_pitchers_alldays$Actual_fpts > X])
+print(paste0("Corr(Rotogrinders, Actual) [pitchers Actual_fpts > ",X,"]: ", cor(rotogrinders_pitchers_alldays$Projection[rotogrinders_pitchers_alldays$Actual_fpts > X], rotogrinders_pitchers_alldays$Actual_fpts[rotogrinders_pitchers_alldays$Actual_fpts > X])))
+print(paste0("Corr(DFN, Actual) [pitchers Actual_fpts > ",X,"]: ", cor(dfn_pitchers_alldays$Projection_dfn[dfn_pitchers_alldays$Actual_fpts > X], dfn_pitchers_alldays$Actual_fpts[dfn_pitchers_alldays$Actual_fpts > X])))
+print(paste0("Corr(BaseballMonster, Actual) [pitchers Actual_fpts > ",X,"]: ", cor(baseballmonster_pitchers_alldays$Projection_baseballmonster[baseballmonster_pitchers_alldays$Actual_fpts > X], baseballmonster_pitchers_alldays$Actual_fpts[baseballmonster_pitchers_alldays$Actual_fpts > X])))
+print(paste0("Corr(Rotowire, Actual) [pitchers Actual_fpts > ",X,"]: ", cor(rotowire_pitchers_alldays$Projection_rotowire[rotowire_pitchers_alldays$Actual_fpts > X], rotowire_pitchers_alldays$Actual_fpts[rotowire_pitchers_alldays$Actual_fpts > X])))
 
 # Takeaways:
-# - rotogrinders seems to be better at predicting pitchers that do relatively well
-quantile(rotogrinders_pitchers_alldays$Actual_fpts)
+# - rotogrinders seems to be better at predicting pitchers that do relatively well (X = 7.5, 15)
 # - rotowire seems to be better at predicting hitters based on projection > X (but not observed for Actual_fpts > X)
 
 

@@ -186,17 +186,24 @@ aggregate_projections <- function(contest.date, contest.name) {
   
   ####### Add Actual Fpts Column #######
   # Hitters
-  temp.dfn.hitters.actual <- read.csv(paste0("MLB/data_warehouse/projections/dailyfantasynerd/actual/hitters_", contest.date, ".csv"), stringsAsFactors = F, header = T)
-  temp.dfn.hitters.actual$Player.Name <- clean_player_names(temp.dfn.hitters.actual$Player.Name)
-  temp.dksalaries.hitters$Actual_fpts <- temp.dfn.hitters.actual$Actual.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.actual$Player.Name)]
+  path.dfn.hitters.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/actual/hitters_", contest.date, ".csv")
+  if (file.exists(path.dfn.hitters.actual)) {
+    temp.dfn.hitters.actual <- read.csv(path.dfn.hitters.actual, stringsAsFactors = F, header = T)
+    temp.dfn.hitters.actual$Player.Name <- clean_player_names(temp.dfn.hitters.actual$Player.Name)
+    temp.dksalaries.hitters$Actual_fpts <- temp.dfn.hitters.actual$Actual.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.actual$Player.Name)]
+  } else {
+    temp.dksalaries.hitters$Actual_fpts <- NA
+  }
   
   # Pitchers
-  temp.dfn.pitchers.actual <- read.csv(paste0("MLB/data_warehouse/projections/dailyfantasynerd/actual/pitchers_", contest.date, ".csv"), stringsAsFactors = F, header = T)
-  temp.dfn.pitchers.actual$Player.Name <- clean_player_names(temp.dfn.pitchers.actual$Player.Name)
-  temp.dksalaries.pitchers$Actual_fpts <- temp.dfn.pitchers.actual$Actual.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers.actual$Player.Name)]
-  
-  
-  ####### Write to File #######
+  path.dfn.pitchers.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/actual/pitchers_", contest.date, ".csv")
+  if (file.exists(path.dfn.pitchers.actual)) {
+    temp.dfn.pitchers.actual <- read.csv(path.dfn.pitchers.actual, stringsAsFactors = F, header = T)
+    temp.dfn.pitchers.actual$Player.Name <- clean_player_names(temp.dfn.pitchers.actual$Player.Name)
+    temp.dksalaries.pitchers$Actual_fpts <- temp.dfn.pitchers.actual$Actual.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers.actual$Player.Name)]
+  } else {
+    temp.dksalaries.pitchers$Actual_fpts <- NA
+  }
   
   
   # return
