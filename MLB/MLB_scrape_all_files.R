@@ -22,6 +22,12 @@ setwd("~/Projects/DFS/")
 ### Read in Contest File
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
+
+
+# Scrape DK Site for todays contests 
+contest_info <- download_DK_daily_contests_MLB(contest_info)
+
+# Find Earliest index of "yesterday's" contests
 first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date() - 1))
 
 ### Update Files
