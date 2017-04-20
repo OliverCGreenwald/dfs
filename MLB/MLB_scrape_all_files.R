@@ -59,24 +59,27 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
                                      as.Date(contest_info$Contest_Date[index]),
                                      contest_name)
     
-    # Download Rotogrinders Projections
-    download_rotogrinders_projections_MLB(as.Date(contest_info$Contest_Date[index]))
     
-    # Download DFN Projections
-      # NEED TO FINISH
-    
-    # Download BaseballMonster Projections
-    download_BBmonster_projections()
-    
-    # Download FantasyPros Projections
-      # NEED TO FINISH
-    
-    # Download Rotowire Projections
-      # NEED TO FINISH
     
   }
   
   
 }
+# Download Rotogrinders Projections
+download_rotogrinders_projections_MLB(as.Date(contest_info$Contest_Date[index]))
+
+# Download DFN Projections
+# NEED TO FINISH
+
+# Download BaseballMonster Projections
+download_BBmonster_projections()
+
+# Download FantasyPros Projections
+# NEED TO FINISH
+
+# Download Rotowire Projections
+# NEED TO FINISH
+
+
 
 quit(save='no')
