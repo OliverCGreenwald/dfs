@@ -52,17 +52,54 @@ hist_fpts_mat <- as.data.frame(matrix(data = NA, nrow = length(names_unique_play
 colnames(hist_fpts_mat) <- dates
 rownames(hist_fpts_mat) <- names_unique_players
 
-# fill historical fpts matrix
-for (i in 1:nrow(hist_fpts_mat)) {
-  for (j in 1:ncol(hist_fpts_mat)) {
-    temp <- list_all_players$Actual_fpts[paste0(list_all_players$Name, "_", list_all_players$teamAbbrev)==rownames(hist_fpts_mat)[i] & list_all_players$Date==colnames(hist_fpts_mat)[j]]
-    if (length(temp)==0) {
-      hist_fpts_mat[i,j] <- NA
-    } else {
-      hist_fpts_mat[i,j] <- temp
+# fill historical fpts matrix (slow way)
+# for (i in 1:nrow(hist_fpts_mat)) {
+#   for (j in 1:ncol(hist_fpts_mat)) {
+#     temp <- list_all_players$Actual_fpts[paste0(list_all_players$Name, "_", list_all_players$teamAbbrev)==rownames(hist_fpts_mat)[i] & list_all_players$Date==colnames(hist_fpts_mat)[j]]
+#     if (length(temp)==0) {
+#       hist_fpts_mat[i,j] <- NA
+#     } else {
+#       hist_fpts_mat[i,j] <- temp
+#     }
+#   }
+# }
+
+# function that vectorizes the historical fpts matrix filling code
+fill_hist_mat <- function(x, y) {
+  # vectorize indicies for outer function
+  # each (x_i, y_i) pair is the indicies of an element in the matrix we desire to construct
+  z <- as.data.frame(cbind(x, y))
+  
+  # we want to get the Actual_fpts at each (x_i, y_i)
+  # at each (x_i, y_i) we know the name_teamAbbrev and date
+  # we need to match that with the name_teamAbbrev and date in list_all_players, then take the Actual_fpts
+  z$name_teamAbbrev <- rownames(hist_fpts_mat)[x]
+  z$date <- colnames(hist_fpts_mat)[y]
+  
+  # temp vars and initializations
+  temp_teamabbrev_all <- paste0(list_all_players$Name, "_", list_all_players$teamAbbrev)
+  z$ind_match <- NA
+  
+  # find row index in list_all_players corresponding to the (x_i, y_i) element of the desired matrix
+  for (i in 1:nrow(z)) {
+    temp_inds_match_name <- which(temp_teamabbrev_all==z$name_teamAbbrev[i])
+    temp_inds_match_date <- which(list_all_players$Date==z$date[i])
+    temp_ind_match <- temp_inds_match_name[temp_inds_match_name %in% temp_inds_match_date] # matched row index in list_all_players
+    if (length(temp_ind_match)!=0) {
+      z$ind_match[i] <- temp_ind_match # matched row index in list_all_players
     }
   }
+  
+  # append Actual_fpts using ind_match
+  z$Actual_fpts <- list_all_players$Actual_fpts[z$ind_match]
+  
+  return(z$Actual_fpts)
 }
+
+# fill historical fpts matrix (fast way)
+hist_fpts_mat <- as.data.frame(outer(1:nrow(hist_fpts_mat), 1:ncol(hist_fpts_mat), FUN=fill_hist_mat))
+colnames(hist_fpts_mat) <- dates
+rownames(hist_fpts_mat) <- names_unique_players
 
 # remove rows with NA count > round(length(dates)/2)
 inds.remove <- NULL
@@ -138,12 +175,6 @@ for (i in 1:nrow(cov_mat)) { # nrow(cov_mat)
 
 
 
-
-
-splitPlayers <- function(x) {
-  return(str_split_fixed(x, "QB | RB | WR | TE | FLEX | DST ", 10)[2:10])
-}
-temp.players <- data.frame(matrix(unlist(lapply(X = temp.results$Lineup[1:nrow(temp.results)], FUN = splitPlayers)), nrow=nrow(temp.results), byrow=T))
 
 
 
