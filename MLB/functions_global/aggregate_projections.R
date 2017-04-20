@@ -213,14 +213,14 @@ aggregate_projections <- function(contest.date, contest.name) {
 
 
 # debugging
-contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-i <- 46
-
-contest.date <- contest_info$Contest_Date[i]
-contest.name <- paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))
-
-projections.dat <- aggregate_projections(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
-aggregated_data_hitters[[i]] <- projections.dat[[1]]
-aggregated_data_pitchers[[i]] <- projections.dat[[2]]
+# contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
+# i <- 46
+# 
+# contest.date <- contest_info$Contest_Date[i]
+# contest.name <- paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))
+# 
+# projections.dat <- aggregate_projections(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
+# aggregated_data_hitters[[i]] <- projections.dat[[1]]
+# aggregated_data_pitchers[[i]] <- projections.dat[[2]]
 
 
