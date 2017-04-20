@@ -212,11 +212,15 @@ aggregate_projections <- function(contest.date, contest.name) {
 }
 
 
-# trash
-# contest.date <- "2017-04-10"
-# contest.name <- "$5.00entry_MLB$5KKnuckleball"
-# 
-# temp.fantasypros.hitters <- read.csv(file = paste0("MLB/data_warehouse/projections/fantasypros/FantasyPros_2017_Projections_H-", contest.date, ".csv"), stringsAsFactors = F, header = T)
-# temp.fantasypros.hitters$Proj.FP <- 3*temp.fantasypros.hitters$
-# 
-# 
+# debugging
+contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
+i <- 46
+
+contest.date <- contest_info$Contest_Date[i]
+contest.name <- paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))
+
+projections.dat <- aggregate_projections(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
+aggregated_data_hitters[[i]] <- projections.dat[[1]]
+aggregated_data_pitchers[[i]] <- projections.dat[[2]]
+
+
