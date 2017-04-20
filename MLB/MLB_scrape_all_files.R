@@ -66,7 +66,7 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
       # NEED TO FINISH
     
     # Download BaseballMonster Projections
-      # NEED TO FINISH
+    download_BBmonster_projections()
     
     # Download FantasyPros Projections
       # NEED TO FINISH
