@@ -20,7 +20,7 @@ library(stringr)
 ####### Aggregate All Player Data for Each Day #######
 # load contest info file
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-dates <- seq(from = as.Date("2017-04-02"), to = Sys.Date() - 2, by = "day")
+dates <- seq(from = as.Date("2017-04-02"), to = Sys.Date() - 1, by = "day")
 list_all_players <- NULL
 for (d in 1:length(dates)) {
   # subset contest_info by date
@@ -137,12 +137,9 @@ hist_fpts_mat_temp <- as.data.frame(t(hist_fpts_mat))
 # }
 
 # inds of upper half of covariance matrix
-# inds_covar <- NULL
-# for (i in 1:nrow(cov_mat)) {
-#   for (j in i:ncol(cov_mat)) {
-#     inds_covar <- c(inds_covar, paste0(i, ", ", j))
-#   }
-# }
+temp_mat <- upper.tri(cov_mat, diag = TRUE)
+which(temp_mat[temp_mat==T])
+
 
 # function to construct covariance matrix (faster way)
 fill_cov_mat <- function(x, y) {

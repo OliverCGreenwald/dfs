@@ -20,6 +20,9 @@ source("MLB/functions_global/aggregate_projections.R")
 # load contest info file
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 
+# subset by yesterday's date
+contest_info <- contest_info[contest_info$Contest_Date==(Sys.Date()-1),]
+
 aggregated_data_hitters <- list()
 aggregated_data_pitchers <- list()
 for (i in 1:nrow(contest_info)) {
