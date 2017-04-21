@@ -231,3 +231,65 @@ for (i in 1:n) {
   print(paste0(player_a, ", ", player_b, ", Covariance: ", cov_mat_unique[player_a_ind, player_b_ind], ", Num_Games: ", cov_mat_counts[player_a_ind, player_b_ind]))
 }
 
+
+
+
+
+
+
+
+# debugging
+# # function to construct covariance matrix (fast way)
+# fill_cov_mat <- function(x, y) {
+#   # vectorize indicies for outer function
+#   # each (x_i, y_i) pair is the indicies of an element in the matrix we desire to construct
+#   z <- as.data.frame(cbind(x, y))
+#   
+#   # append player_x and player_y historical fpts columns to z for fast vectorized computation
+#   temp_num_dates <- nrow(hist_fpts_mat_temp)
+#   z[,3:(3+temp_num_dates-1)] <- hist_fpts_mat[z$x,]
+#   z[,(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)] <- hist_fpts_mat[z$y,]
+#   
+#   # inds of upper half of covariance matrix
+#   temp_mat <- upper.tri(cov_mat, diag = TRUE)
+#   inds_upper_cov <- which(temp_mat, arr.ind = T)
+#   
+#   # function for computing covariance, excluding when players not on same team
+#   only_keep_teammates <- function(x) {
+#     team_player_a <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(x[1])] # team of player a
+#     team_player_b <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(x[2])] # team of player b
+#     if (team_player_a != team_player_b) {
+#       cov_and_count <- list(NA, 0) # exclude from covariance calculation, count of non-NAs is 0
+#       return(cov_and_count)
+#     } else {
+#       # subset for readibility
+#       player_a_hist_fpts <- x[3:(3+temp_num_dates-1)]
+#       player_b_hist_fpts <- x[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)]
+#       
+#       # compute covariance
+#       cov_row <- cov(as.numeric(player_a_hist_fpts), as.numeric(player_b_hist_fpts), use = "pairwise.complete.obs")
+#       
+#       # count of non-NAs used in covariance calculation
+#       count_row <- sum(which(!is.na(player_a_hist_fpts)) %in% which(!is.na(player_b_hist_fpts)))
+#       
+#       # combine
+#       cov_and_count <- list(cov_row, count_row)
+#       return(cov_and_count)
+#     }
+#   }
+#   
+#   # subset by indicies of upper half of covariance matrix (save half the computation)
+#   cov_upper <- z[paste0(z$x, ", ", z$y) %in% paste0(inds_upper_cov[,1], ", ", inds_upper_cov[,2]),]
+#   
+#   # compute covariance for the subsetted indicies
+#   asdf <- apply(X = cov_upper, MARGIN = 1, FUN = only_keep_teammates)
+#   asdf1 <- sapply(asdf, `[[`, 1)
+#   asdf2 <- sapply(asdf, `[[`, 2)
+#   cov_upper$covariance <- asdf1
+#   cov_upper$count_games <- asdf2
+#   z[paste0(z$x, ", ", z$y) %in% paste0(inds_upper_cov[,1], ", ", inds_upper_cov[,2]), 'covariance'] <- paste0(cov_upper$covariance, cov_upper$count_games)
+#   z[paste0(z$x, ", ", z$y) %in% paste0(inds_upper_cov[,1], ", ", inds_upper_cov[,2]), 'count_games'] <- cov_upper$count_games
+#   
+#   return(z$covariance)
+#   # return(list(z$covariance, z$count_games))
+# }
