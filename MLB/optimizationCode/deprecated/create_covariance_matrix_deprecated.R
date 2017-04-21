@@ -142,47 +142,72 @@ cov_mat_counts[,] <- NA
 # transpose for covariance function
 hist_fpts_mat_temp <- as.data.frame(t(hist_fpts_mat))
 
-# add opponent column to list_all_players (for opposing pitchers)
-# list_all_players$Team1 <- str_split_fixed(str_split_fixed(list_all_players$GameInfo, " ", 2)[,1], "@", 2)[,1]
-# list_all_players$Team2 <- str_split_fixed(str_split_fixed(list_all_players$GameInfo, " ", 2)[,1], "@", 2)[,2]
-# for (i in 1:nrow(list_all_players)) {
-#   if (list_all_players$teamAbbrev[i]==list_all_players$Team1[i]) {
-#     list_all_players$Opponent[i] <- list_all_players$Team2[i]
-#   } else {
-#     list_all_players$Opponent[i] <- list_all_players$Team1[i]
+# fill elements above diagonal in covariance matrix (slow way)
+# for (i in 1:nrow(cov_mat)) {
+#   for (j in i:ncol(cov_mat)) {
+#     temp <- hist_fpts_mat_temp[,i] # one player row of historical fpts
+#     for (k in 1:nrow(hist_fpts_mat_temp)) {
+#       # must be on same team
+#       if (str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][i] != str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][j]) {
+#         temp[k] <- NA # only one of the vectors needs to be set to NA to ensure exclusion from covariance calculation
+#       }
+#       
+#       # TODO: or opposing pitcher
+#     }
+#     cov_mat[i,j] <- cov(temp, hist_fpts_mat_temp[,j], use = "pairwise.complete.obs") # covariance
+#     cov_mat_counts[i,j] <- sum(which(!is.na(temp)) %in% which(!is.na(hist_fpts_mat_temp[,j]))) # number of games used in covariance calculatino
+#     
+#     print(paste0("Entries [", i, ", ", j, ") Completed"))
 #   }
 # }
-# list_all_players$Team1 <- NULL
-# list_all_players$Team2 <- NULL
 
-# fill elements above diagonal in covariance matrix
-for (i in 1:nrow(cov_mat)) {
-  for (j in i:ncol(cov_mat)) {
-    temp <- hist_fpts_mat_temp[,i]
-    for (k in 1:nrow(hist_fpts_mat_temp)) {
-      # must be on same team
-      if (str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][i] != str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][j]) {
-        # hist_fpts_mat_temp[k,i] <- NA
-        # hist_fpts_mat_temp[k,j] <- NA
-        temp[k] <- NA # only one of the vectors needs to be set to NA to ensure exclusion from covariance calculation
-      }
-      
-      # TODO: or opposing pitcher
-      # rownames(temp)
-      # colnames(cov_mat)
-      # str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2]
-      # hist_fpts_mat_temp[,i]
-      # hist_fpts_mat_temp[,j]
-      # colnames(cov_mat)[i]
-      # str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][i]
-      # list_all_players$teamAbbrev[list_all_players$Date==dates[17]]
+
+# function to construct covariance matrix (faster way)
+fill_cov_mat <- function(x, y) {
+  # vectorize indicies for outer function
+  # each (x_i, y_i) pair is the indicies of an element in the matrix we desire to construct
+  z <- as.data.frame(cbind(x, y))
+  
+  # append player_x and player_y historical fpts columns to z for fast vectorized computation
+  temp_num_dates <- nrow(hist_fpts_mat_temp)
+  z[,3:(3+temp_num_dates-1)] <- hist_fpts_mat[z$x,]
+  z[,(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)] <- hist_fpts_mat[z$y,]
+  
+  # inds of upper half of covariance matrix
+  temp_mat <- upper.tri(cov_mat, diag = TRUE)
+  inds_upper_cov <- which(temp_mat, arr.ind = T)
+  
+  # function for computing covariance, excluding when players not on same team
+  only_keep_teammates <- function(x) {
+    team_player_a <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][x[1]] # team of player a
+    team_player_b <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][x[2]] # team of player b
+    if (team_player_a != team_player_b) {
+      return(NA) # exclude from covariance calculation
+    } else {
+      return(cov(x[3:(3+temp_num_dates-1)], x[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)], use = "pairwise.complete.obs")) # compute covariance
     }
-    cov_mat[i,j] <- cov(temp, hist_fpts_mat_temp[,j], use = "pairwise.complete.obs") # covariance
-    cov_mat_counts[i,j] <- sum(which(!is.na(temp)) %in% which(!is.na(hist_fpts_mat_temp[,j]))) # number of games used in covariance calculatino
-    
-    print(paste0("Entries [", i, ", ", j, ") Completed"))
   }
+  
+  # subset by upper half of covariance matrix (save half the computation)
+  cov_upper <- z[paste0(z$x, ", ", z$y) %in% paste0(inds_upper_cov[,1], ", ", inds_upper_cov[,2]),]
+  cov_upper$covariance <- apply(X = cov_upper, MARGIN = 1, FUN = only_keep_teammates)
+  
+  # compute covariance for the subsetted part of matrix
+  z$covariance <- NA
+  z[paste0(z$x, ", ", z$y) %in% paste0(inds_upper_cov[,1], ", ", inds_upper_cov[,2]), 'covariance'] <- cov_upper$covariance
+  
+  # z$covariance <- apply(X = z, MARGIN = 1, FUN = only_keep_teammates) # (computes entire covariance matrix)
+  
+  return(z$covariance)
 }
+
+# contruct covariance matrix (fast way)
+cov_mat <- as.data.frame(outer(1:nrow(cov_mat), 1:ncol(cov_mat), FUN=fill_cov_mat))
+# x <- sort(rep(1:nrow(cov_mat), ncol(cov_mat))) # debug
+# y <- rep(1:ncol(cov_mat), nrow(cov_mat)) # debug
+colnames(cov_mat) <- rownames(hist_fpts_mat)
+rownames(cov_mat) <- rownames(hist_fpts_mat)
+
 
 # remove the diagonal (variances)
 cov_mat_unique <- cov_mat
@@ -192,6 +217,7 @@ for (i in 1:length(temp_inds)) {
 }
 
 # find the top n largest covariances (decreasing order)
+cov_mat_unique <- as.matrix(cov_mat_unique)
 n <- 25
 x <- which(cov_mat_unique >= sort(cov_mat_unique, decreasing = T)[n], arr.ind = T)
 x.order <- order(cov_mat_unique[x], decreasing = T) # decreasing order
@@ -204,5 +230,4 @@ for (i in 1:n) {
   player_b <- rownames(cov_mat_unique)[player_b_ind]
   print(paste0(player_a, ", ", player_b, ", Covariance: ", cov_mat_unique[player_a_ind, player_b_ind], ", Num_Games: ", cov_mat_counts[player_a_ind, player_b_ind]))
 }
-
 

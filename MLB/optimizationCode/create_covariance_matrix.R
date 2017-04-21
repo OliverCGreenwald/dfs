@@ -117,31 +117,7 @@ cov_mat_counts[,] <- NA
 # transpose for covariance function
 hist_fpts_mat_temp <- as.data.frame(t(hist_fpts_mat))
 
-# fill elements above diagonal in covariance matrix (slow way)
-# for (i in 1:nrow(cov_mat)) {
-#   for (j in i:ncol(cov_mat)) {
-#     temp <- hist_fpts_mat_temp[,i] # one player row of historical fpts
-#     for (k in 1:nrow(hist_fpts_mat_temp)) {
-#       # must be on same team
-#       if (str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][i] != str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][j]) {
-#         temp[k] <- NA # only one of the vectors needs to be set to NA to ensure exclusion from covariance calculation
-#       }
-#       
-#       # TODO: or opposing pitcher
-#     }
-#     cov_mat[i,j] <- cov(temp, hist_fpts_mat_temp[,j], use = "pairwise.complete.obs") # covariance
-#     cov_mat_counts[i,j] <- sum(which(!is.na(temp)) %in% which(!is.na(hist_fpts_mat_temp[,j]))) # number of games used in covariance calculatino
-#     
-#     print(paste0("Entries [", i, ", ", j, ") Completed"))
-#   }
-# }
-
-# inds of upper half of covariance matrix
-temp_mat <- upper.tri(cov_mat, diag = TRUE)
-which(temp_mat[temp_mat==T])
-
-
-# function to construct covariance matrix (faster way)
+# function to construct covariance matrix (fast way)
 fill_cov_mat <- function(x, y) {
   # vectorize indicies for outer function
   # each (x_i, y_i) pair is the indicies of an element in the matrix we desire to construct
@@ -152,6 +128,9 @@ fill_cov_mat <- function(x, y) {
   z[,3:(3+temp_num_dates-1)] <- hist_fpts_mat[z$x,]
   z[,(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)] <- hist_fpts_mat[z$y,]
   
+  # inds of upper half of covariance matrix
+  temp_mat <- upper.tri(cov_mat, diag = TRUE)
+  inds_upper_cov <- which(temp_mat, arr.ind = T)
   
   # function for computing covariance, excluding when players not on same team
   only_keep_teammates <- function(x) {
@@ -163,16 +142,23 @@ fill_cov_mat <- function(x, y) {
       return(cov(x[3:(3+temp_num_dates-1)], x[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)], use = "pairwise.complete.obs")) # compute covariance
     }
   }
-  z$covariance <- apply(X = z, MARGIN = 1, FUN = only_keep_teammates)
+  
+  # subset by upper half of covariance matrix (save half the computation)
+  cov_upper <- z[paste0(z$x, ", ", z$y) %in% paste0(inds_upper_cov[,1], ", ", inds_upper_cov[,2]),]
+  cov_upper$covariance <- apply(X = cov_upper, MARGIN = 1, FUN = only_keep_teammates)
+  
+  # compute covariance for the subsetted part of matrix
+  z$covariance <- NA
+  z[paste0(z$x, ", ", z$y) %in% paste0(inds_upper_cov[,1], ", ", inds_upper_cov[,2]), 'covariance'] <- cov_upper$covariance
+  
   return(z$covariance)
 }
 
 # contruct covariance matrix (fast way)
 cov_mat <- as.data.frame(outer(1:nrow(cov_mat), 1:ncol(cov_mat), FUN=fill_cov_mat))
-# x <- sort(rep(1:nrow(cov_mat), ncol(cov_mat))) # debug
-# y <- rep(1:ncol(cov_mat), nrow(cov_mat)) # debug
 colnames(cov_mat) <- rownames(hist_fpts_mat)
 rownames(cov_mat) <- rownames(hist_fpts_mat)
+
 
 # remove the diagonal (variances)
 cov_mat_unique <- cov_mat
