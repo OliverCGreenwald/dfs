@@ -12,7 +12,10 @@ if(file.exists("~/Projects/DFS/")) {
 # - determine if pairwise.complete.obs is appropriate for our problem. considered dangerous
 # - add opposing pitcher into covariance matrix calculation
 # - add opposing batters? (ballpark effect?)
-# - Note: consider using Vectorize library to vectorize for outer function rather than code up yourself
+#
+# Notes:
+# - we remove players that have played less than half the games
+# - consider using Vectorize library in the future to vectorize for outer function rather than code up yourself
 
 
 ####### Import Libraries #######
@@ -72,9 +75,9 @@ fill_hist_mat <- function(x, y) {
   z$ind_match <- NA
   
   # find row index in list_all_players corresponding to the (x_i, y_i) element of the desired matrix (faster way)
-  find_row_index <- function(x) {
-    temp_inds_match_name <- which(temp_teamabbrev_all==x[3])
-    temp_inds_match_date <- which(list_all_players$Date==x[4])
+  find_row_index <- function(row) {
+    temp_inds_match_name <- which(temp_teamabbrev_all==row[3])
+    temp_inds_match_date <- which(list_all_players$Date==row[4])
     temp_ind_match <- temp_inds_match_name[temp_inds_match_name %in% temp_inds_match_date] # matched row index in list_all_players
     if (length(temp_ind_match)!=0) {
       return(temp_ind_match) # matched row index in list_all_players
@@ -132,15 +135,15 @@ fill_cov_mat <- function(x, y) {
   inds_upper_cov <- which(temp_mat, arr.ind = T)
   
   # function for computing covariance, excluding when players not on same team
-  only_keep_teammates <- function(x) {
-    team_player_a <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(x[1])] # team of player a
-    team_player_b <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(x[2])] # team of player b
+  only_keep_teammates <- function(row) {
+    team_player_a <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(row[1])] # team of player a
+    team_player_b <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(row[2])] # team of player b
     if (team_player_a != team_player_b) {
       return(NA) # exclude from covariance calculation
     } else {
       # subset for readibility
-      player_a_hist_fpts <- x[3:(3+temp_num_dates-1)]
-      player_b_hist_fpts <- x[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)]
+      player_a_hist_fpts <- row[3:(3+temp_num_dates-1)]
+      player_b_hist_fpts <- row[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)]
       
       # compute covariance
       cov_row <- cov(as.numeric(player_a_hist_fpts), as.numeric(player_b_hist_fpts), use = "pairwise.complete.obs")
@@ -182,16 +185,16 @@ fill_cov_counts_mat <- function(x, y) {
   temp_mat_inds <- which(temp_mat!="FALSE", arr.ind = T)
   
   # function for computing covariance, excluding when players not on same team
-  only_keep_teammates_count_games <- function(x) {
-    team_player_a <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(x[1])] # team of player a
-    team_player_b <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(x[2])] # team of player b
+  only_keep_teammates_count_games <- function(row) {
+    team_player_a <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(row[1])] # team of player a
+    team_player_b <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(row[2])] # team of player b
     if (team_player_a != team_player_b) {
       cov_and_count <- list(NA, 0) # exclude from covariance calculation, count of non-NAs is 0
       return(0)
     } else {
       # subset for readibility
-      player_a_hist_fpts <- x[3:(3+temp_num_dates-1)]
-      player_b_hist_fpts <- x[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)]
+      player_a_hist_fpts <- row[3:(3+temp_num_dates-1)]
+      player_b_hist_fpts <- row[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)]
       
       # count of non-NAs used in covariance calculation
       count_row <- sum(which(!is.na(player_a_hist_fpts)) %in% which(!is.na(player_b_hist_fpts)))
@@ -216,7 +219,7 @@ colnames(cov_mat_counts) <- rownames(hist_fpts_mat)
 rownames(cov_mat_counts) <- rownames(hist_fpts_mat)
 
 
-####### Print Player Pairs with Highest Covariance #######
+####### Output Player Pairs with Highest Covariance #######
 # remove the diagonal (variances)
 cov_mat_unique <- cov_mat
 temp_inds <- 1:nrow(cov_mat_unique)
@@ -224,18 +227,22 @@ for (i in 1:length(temp_inds)) {
   cov_mat_unique[temp_inds[i], temp_inds[i]] <- NA 
 }
     
-# find the top n largest covariances (decreasing order)
+# view the top n largest covariances (decreasing order)
 cov_mat_unique <- as.matrix(cov_mat_unique)
-n <- 25
+n <- 100
 x <- which(cov_mat_unique >= sort(cov_mat_unique, decreasing = T)[n], arr.ind = T)
 x.order <- order(cov_mat_unique[x], decreasing = T) # decreasing order
-x[x.order,]
 
+top_cov_pairs <- as.data.frame(matrix(data = NA, nrow = n, ncol = 4, dimnames = list(NULL, c("Player_A","Player_B","Covariance","Num_Games"))))
 for (i in 1:n) {
   player_a_ind <- x[x.order,][i,][1]
   player_b_ind <- x[x.order,][i,][2]
-  player_a <- rownames(cov_mat_unique)[player_a_ind]
-  player_b <- rownames(cov_mat_unique)[player_b_ind]
-  print(paste0(player_a, ", ", player_b, ", Covariance: ", cov_mat_unique[player_a_ind, player_b_ind], ", Num_Games: ", cov_mat_counts[player_a_ind, player_b_ind]))
+  
+  top_cov_pairs$Player_A[i] <- rownames(cov_mat_unique)[player_a_ind]
+  top_cov_pairs$Player_B[i] <- rownames(cov_mat_unique)[player_b_ind]
+  top_cov_pairs$Covariance[i] <- cov_mat_unique[player_a_ind, player_b_ind]
+  top_cov_pairs$Num_Games[i] <- cov_mat_counts[player_a_ind, player_b_ind]
 }
+
+View(top_cov_pairs)
 
