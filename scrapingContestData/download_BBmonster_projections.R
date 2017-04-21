@@ -163,8 +163,8 @@ download_BBmonster_projections <- function() {
   download_hitters_button$sendKeysToElement(list( key = "enter"))
   
   #Switch to Pitchers
-  switch_pitchers_button = mybrowser$findElement(using = "css selector", "#ContentPlaceHolder1_PitchersRadioButton+ label")
-  switch_pitchers_button$sendKeysToElement(list( key = "enter"))
+  switch_pitchers_button = mybrowser$findElement(using = "css selector", '#ContentPlaceHolder1_PitchersRadioButton+ label')
+  switch_pitchers_button$clickElement()
   Sys.sleep(2)
   
   #Download Pitchers
@@ -177,13 +177,17 @@ download_BBmonster_projections <- function() {
   pitchers_file_name <- gsub("-","_",pitchers_file_name) 
   hitters_file_name <- paste0('Export_Hitters_', Sys.Date(), ".csv")
   hitters_file_name <- gsub("-","_",hitters_file_name) 
+  
   while(!file.exists(pitchers_file_name)){
     Sys.sleep(1)
   }
   
   baseball_monster_hitters <- read.csv(hitters_file_name, stringsAsFactors = F)
   baseball_monster_pitchers <- read.csv(pitchers_file_name, stringsAsFactors = F)
-
+  
+  # Close out of Browser
+  mybrowser$quit()
+  
   file.remove(hitters_file_name)
   file.remove(pitchers_file_name)
   #setwd(paste0(original_wd, 'MLB/data_warehouse/', date)
