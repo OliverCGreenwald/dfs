@@ -185,26 +185,36 @@ aggregate_projections <- function(contest.date, contest.name) {
   
   
   ####### Add Actual Fpts Column #######
-  # Hitters
-  path.dfn.hitters.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
-  if (file.exists(path.dfn.hitters.actual)) {
-    temp.dfn.hitters.actual <- read.csv(path.dfn.hitters.actual, stringsAsFactors = F, header = T)
-    temp.dfn.hitters.actual$Player.Name <- clean_player_names(temp.dfn.hitters.actual$Player.Name)
-    temp.dksalaries.hitters$Actual_fpts <- temp.dfn.hitters.actual$Actual.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.actual$Player.Name)]
+  # Hitters (dfn)
+  # path.dfn.hitters.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
+  # if (file.exists(path.dfn.hitters.actual)) {
+  #   temp.dfn.hitters.actual <- read.csv(path.dfn.hitters.actual, stringsAsFactors = F, header = T)
+  #   temp.dfn.hitters.actual$Player.Name <- clean_player_names(temp.dfn.hitters.actual$Player.Name)
+  #   temp.dksalaries.hitters$Actual_fpts <- temp.dfn.hitters.actual$Actual.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.actual$Player.Name)]
+  # } else {
+  #   temp.dksalaries.hitters$Actual_fpts <- NA
+  # }
+  
+  # Pitchers (dfn)
+  # path.dfn.pitchers.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/pitchers_", contest.date, ".csv")
+  # if (file.exists(path.dfn.pitchers.actual)) {
+  #   temp.dfn.pitchers.actual <- read.csv(path.dfn.pitchers.actual, stringsAsFactors = F, header = T)
+  #   temp.dfn.pitchers.actual$Player.Name <- clean_player_names(temp.dfn.pitchers.actual$Player.Name)
+  #   temp.dksalaries.pitchers$Actual_fpts <- temp.dfn.pitchers.actual$Actual.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers.actual$Player.Name)]
+  # } else {
+  #   temp.dksalaries.pitchers$Actual_fpts <- NA
+  # }
+  
+  # Hitters and Pitchers (fantasy cruncher)
+  path.actual.fpts <- paste0("MLB/data_warehouse/", contest.date,"/player_results.csv")
+  if (file.exists(path.actual.fpts)) {
+    temp.actual.fpts <- read.csv(path.actual.fpts, stringsAsFactors = F, header = T)
+    temp.actual.fpts$Player <- clean_player_names(temp.actual.fpts$Player)
+    temp.dksalaries.hitters$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.hitters$Name, temp.actual.fpts$Player)]
+    temp.dksalaries.pitchers$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.pitchers$Name, temp.actual.fpts$Player)]
   } else {
     temp.dksalaries.hitters$Actual_fpts <- NA
   }
-  
-  # Pitchers
-  path.dfn.pitchers.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/pitchers_", contest.date, ".csv")
-  if (file.exists(path.dfn.pitchers.actual)) {
-    temp.dfn.pitchers.actual <- read.csv(path.dfn.pitchers.actual, stringsAsFactors = F, header = T)
-    temp.dfn.pitchers.actual$Player.Name <- clean_player_names(temp.dfn.pitchers.actual$Player.Name)
-    temp.dksalaries.pitchers$Actual_fpts <- temp.dfn.pitchers.actual$Actual.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers.actual$Player.Name)]
-  } else {
-    temp.dksalaries.pitchers$Actual_fpts <- NA
-  }
-  
   
   # return
   julia.inputs <- list(temp.dksalaries.hitters, temp.dksalaries.pitchers)
