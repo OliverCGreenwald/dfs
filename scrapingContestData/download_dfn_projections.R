@@ -192,8 +192,8 @@ download_dfn_projections <- function() {
   setwd(dfn_projections_path)
   pitchers_file_name <- paste0('pitchers_', Sys.Date(), ".csv")
   hitters_file_name <- paste0('hitters_', Sys.Date(), ".csv")
-  write.csv(dfn_hitters, file = pitchers_file_name, row.names = F)
-  write.csv(dfn_pitchers, file = hitters_file_name, row.names = F)
+  write.csv(dfn_pitchers, file = pitchers_file_name, row.names = F)
+  write.csv(dfn_hitters, file = hitters_file_name, row.names = F)
   
   setwd(original_wd)
   return(0)
