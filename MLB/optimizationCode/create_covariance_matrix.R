@@ -30,7 +30,7 @@ cov_mat_counts[is.na(cov_mat_counts)] <- 0
 write.csv(cov_mat, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_mat.csv"), row.names = F)
 write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_counts_mat.csv"), row.names = F)
 
-# loop through dates
+# # loop through dates
 # dates <- seq(from = as.Date("2017-04-04"), to = as.Date("2017-04-20"), by = "day")
 # for (i in 1:length(dates)) {
 #   # end date in covariance matrix function
@@ -79,8 +79,43 @@ for (i in 1:n) {
 View(top_cov_pairs)
 
 
-####### Plot Covariance of the Top 10 Pairs over Time #######
-# top_cov_pairs[1:10,c("Player_A", "Player_B")]
+####### Plot Covariance of the Top num_top_pairs Pairs (on Latest Date) over Time #######
+num_top_pairs <- 10
+
+# set date range
+end_day <- Sys.Date() - 1
+dates <- seq(from = as.Date("2017-04-05"), to = end_day, by = "day")
+
+# cleaning bc weird column name changes when csv's were created above
+top_cov_pairs$Player_A <- sub(" ", ".", top_cov_pairs$Player_A)
+top_cov_pairs$Player_A <- sub("'", ".", top_cov_pairs$Player_A)
+top_cov_pairs$Player_B <- sub(" ", ".", top_cov_pairs$Player_B)
+top_cov_pairs$Player_B <- sub("'", ".", top_cov_pairs$Player_B)
+
+# initializations
+list_cov_mats <- list()
+cov_time <- as.data.frame(matrix(data = NA, nrow = num_top_pairs, ncol = length(dates), dimnames = list(paste0(top_cov_pairs$Player_A[1:num_top_pairs], ", ", top_cov_pairs$Player_B[1:num_top_pairs]), as.character(dates))))
+
+# loop through dates
+for (i in 1:length(dates)) {
+  temp_cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", dates[i], "/covariance_mat.csv"), header = T, stringsAsFactors = F)
+  list_cov_mats[[i]] <- temp_cov_mat
+  
+  for (j in 1:num_top_pairs) {
+    ind_a <- which(colnames(temp_cov_mat) == top_cov_pairs$Player_A[j])
+    ind_b <- which(colnames(temp_cov_mat) == top_cov_pairs$Player_B[j])
+    if (length(ind_a)!=0 & length(ind_b)!=0) {
+      cov_time[j,i] <- temp_cov_mat[ind_a, ind_b] 
+    }
+  }
+}
+
+plot(as.numeric(cov_time[1,]), type = 'l', col = 1, ylim = c(min(cov_time, na.rm = T), max(cov_time, na.rm = T)), ylab = "Covariance", xlab = "Days Since 2017-04-05", main = paste0("Top Player Pairs by Covariance (as of ", end_day-1, ")"))
+for (i in 2:num_top_pairs) {
+  points(as.numeric(cov_time[i,]), type = 'l', col = i)
+}
+legend(x = "topleft",legend = c(rownames(cov_time)), lwd = 1, col = 1:num_top_pairs, cex = 0.5)
+
 
 
 
