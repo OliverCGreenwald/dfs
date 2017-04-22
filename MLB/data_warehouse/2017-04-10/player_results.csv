@@ -1,4 +1,4 @@
-"","Pos","Team","Opp","Runs","vs. Pitcher","Hand","ERA/AVG","wOBA","ISO","Avg innings","K/9","WHIP","Order","Salary","Ceiling","Avg","FC Proj","My Proj","Exposure","Con.","Value","Actual Score","Actual Val"
+"Player","Pos","Team","Opp","Runs","vs. Pitcher","Hand","ERA/AVG","wOBA","ISO","Avg innings","K/9","WHIP","Order","Salary","Ceiling","Avg","FC Proj","My Proj","Exposure","Con.","Value","Actual Score","Actual Val"
 "Chris Sale","P","BOS","@ DET",3.8,"Verlander, R 2.84","L",0,0,0,7,9,0.57,NA,12400,20.9,27.4,20.92,20.92,"%",0,1.7,29.65,2.4
 "Jon Lester","P","CHC","vs LAD",3.27,"Wood, L 0.00","L",1.8,0,0,5,12.6,1.8,NA,11300,21.4,17.9,21.37,21.37,"%",0,1.9,22.5,2
 "Justin Verlander","P","DET","vs BOS",3.7,"Sale, L 0.00","R",2.84,0,0,6.3,14.3,1.26,NA,10500,22.9,29.5,22.86,22.86,"%",0,2.2,20.75,2
