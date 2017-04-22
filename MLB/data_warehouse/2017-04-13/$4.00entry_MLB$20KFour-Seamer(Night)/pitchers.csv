@@ -1,7 +1,7 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
 "SP","Madison Bumgarner",12500,"Col@SF 10:15PM ET",24.625,"SF",25.73,24,24.8925,20.3,19.3
 "SP","Johnny Cueto",11500,"Col@SF 10:15PM ET",18.4,"SF",NA,NA,NA,NA,NA
-"SP","Jon Gray",10000,"Col@SF 10:15PM ET",8,"Col",14.72,17.1,NA,12.7,7
+"SP","Jon Gray",10000,"Col@SF 10:15PM ET",8,"Col",14.72,17.1,NA,12.7,6.95
 "SP","Jeff Samardzija",9000,"Col@SF 10:15PM ET",14.5,"SF",NA,NA,NA,NA,NA
 "SP","Danny Duffy",8900,"Oak@KC 08:15PM ET",19.525,"KC",NA,NA,NA,NA,NA
 "SP","Ian Kennedy",8000,"Oak@KC 08:15PM ET",11.575,"KC",NA,NA,NA,NA,NA
@@ -14,7 +14,7 @@
 "SP","Sonny Gray",7300,"Oak@KC 08:15PM ET",0,"Oak",NA,NA,NA,NA,NA
 "SP","Tyler Chatwood",7300,"Col@SF 10:15PM ET",11.35,"Col",NA,NA,NA,NA,NA
 "SP","Nate Karns",6900,"Oak@KC 08:15PM ET",3.225,"KC",NA,NA,NA,NA,NA
-"SP","Jason Vargas",6300,"Oak@KC 08:15PM ET",23.3,"KC",16.26,11.8,13.721,10,34.3
+"SP","Jason Vargas",6300,"Oak@KC 08:15PM ET",23.3,"KC",16.26,11.8,13.721,10,34.25
 "SP","Daniel Mengden",6200,"Oak@KC 08:15PM ET",0,"Oak",NA,NA,NA,NA,NA
 "RP","Neil Ramirez",6100,"Col@SF 10:15PM ET",4.833,"SF",NA,NA,NA,NA,NA
 "SP","Kyle Zimmer",5800,"Oak@KC 08:15PM ET",0,"KC",NA,NA,NA,NA,NA
