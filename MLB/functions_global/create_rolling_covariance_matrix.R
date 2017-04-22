@@ -27,7 +27,6 @@ create_rolling_covariance_matrix <- function(date.start, date.end) {
   ####### Aggregate All Player Data for Each Day #######
   # load contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-  # dates <- seq(from = as.Date("2017-04-02"), to = Sys.Date() - 1, by = "day")
   dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
   list_all_players <- NULL
   for (d in 1:length(dates)) {
