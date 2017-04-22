@@ -6,10 +6,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Description #######
-# Create julia inputs (hitters and pitchers) for each date and contest.
-#
-# TODO:
-# - iterate through the date folders and contests
+# Create julia inputs (aggregated projections for hitters and pitchers) for each date and contest.
 
 
 ####### Import Functions #######
