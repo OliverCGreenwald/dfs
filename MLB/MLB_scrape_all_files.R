@@ -65,21 +65,21 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
   
   
 }
-# Download Rotogrinders Projections
+### Download Rotogrinders Projections
 print('Downloading Rotogrinders Projections')
 download_rotogrinders_projections_MLB(as.Date(contest_info$Contest_Date[index]))
 
-# Download DFN Projections
+### Download DFN Projections
 print('Downloading DFN Projections')
 download_dfn_projections()
 
-# Download BaseballMonster Projections
+### Download BaseballMonster Projections
 print('Downloading BaseballMonster Projections')
 download_BBmonster_projections()
 
-# Download FantasyPros Projections
-print('Downloading FantasyPros Projections')
-download_fantasypros_projections_MLB()
+### Download FantasyPros Projections
+#print('Downloading FantasyPros Projections')
+#download_fantasypros_projections_MLB()
 
 # Download Rotowire Projections
 # NEED TO FINISH
