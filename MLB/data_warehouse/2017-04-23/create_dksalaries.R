@@ -12,6 +12,7 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Import Functions #######
 source("MLB/functions_global/parse_contest_standings.R")
 source("MLB/functions_global/clean_player_names.R")
+source("MLB/functions_global/convert_teams_dk.R")
 
 
 ####### Parse Standings for each Contest #######
@@ -57,7 +58,7 @@ for (i in 1:nrow(contest_info)) {
   }
   
   # append DFN pitchers and hitters files
-  temp.dfn <- rbind(temp.dfn.pitchers[,1:6], temp.dfn.hitters[,1:6])
+  temp.dfn <- rbind(temp.dfn.pitchers[,c(1,3:6)], temp.dfn.hitters[,c(1,3:6)])
   
   # match team
   temp.ind.range <- (ncol(temp_contest_standings)+1):(ncol(temp_contest_standings)+1+length(position_col_inds)-1)
@@ -74,13 +75,31 @@ for (i in 1:nrow(contest_info)) {
   contest_info$Num_Teams[i] <- length(temp_unique_teams)
   contest_info$Teams[i] <- list(temp_unique_teams)
   print(paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])," Num Teams: ",length(temp_unique_teams)))
+  
+  
+  ####### Construct DKSalaries.csv File #######
+  # only keep teams in the contest in DFN file
+  temp.dfn <- temp.dfn[temp.dfn$Team %in% temp_unique_teams,]
+  
+  # rename columns to match DKSalaries
+  colnames(temp.dfn)[1] <- "Name"
+  colnames(temp.dfn)[2] <- "Position"
+  colnames(temp.dfn)[4] <- "teamAbbrev"
+  
+  # add game info and avg points columns
+  temp.dfn$GameInfo <- paste0(temp.dfn$teamAbbrev, "@", temp.dfn$Opp)
+  temp.dfn$AvgPointsPerGame <- 0
+  
+  # remove Opp column
+  temp.dfn$Opp <- NULL
+  
+  # replace teamAbbrev with DK convention
+  temp.dfn$teamAbbrev <- convert_teams_dk(team_vec = temp.dfn$teamAbbrev, name_source = "DFN")
+  
+  # reorder columns
+  temp.dfn <- temp.dfn[,c(2,1,3,5,6,4)]
+  
+  # Write to CSV
+  write.csv(temp.dfn, file = paste0("MLB/data_warehouse/", contest.date, "/", contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]), "/DKSalaries.csv"), row.names = F)
 }
-
-# dk_team_name <- c("Ari","Atl","Bal","Bos","Cle","Col","CWS","KC","LAA","LAD","Mia","Mil","Phi","SD","SF","StL","Tex","Tor")
-# dfn_team_name <- c("ARI","ATL","BAL","BOS","CLE","COL","CWS","KC","LAA","LAD","MIA","MIL","PHI","SD","SF","")
-
-
-####### Construct DKSalaries.csv File #######
-
-
 

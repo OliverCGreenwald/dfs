@@ -16,7 +16,11 @@ original_wd <- getwd()
 setwd('scrapingContestData')
 file.sources = list.files(pattern="*.R")
 sapply(file.sources,source,.GlobalEnv)
-setwd("~/Projects/DFS/")
+if(file.exists("~/Projects/DFS/")) {
+  setwd("~/Projects/DFS/")
+} else {
+  setwd("~/Documents/DFS/")
+}
 
 
 ### Read in Contest File
