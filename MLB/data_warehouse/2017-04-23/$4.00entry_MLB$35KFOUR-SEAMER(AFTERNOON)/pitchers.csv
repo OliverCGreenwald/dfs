@@ -1,0 +1,15 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Max Scherzer",13900,"WAS@@NYM",0,"Was",24.03,25.3,25.0565,22.5,30.4
+"SP","Yu Darvish",10800,"TEX@KC",0,"Tex",21.61,19.7,30.4,18.2,30.4
+"SP","Marcus Stroman",9600,"TOR@@LAA",0,"Tor",20.91,15.6,29.95,12.8,29.35
+"SP","Zack Wheeler",8000,"NYM@WAS",0,"NYM",19.61,14.1,15.832,9.9,15.55
+"SP","Brandon McCarthy",7400,"LAD@@ARI",0,"LAD",15.27,16.9,24.15,10.4,24.15
+"SP","Tom Koehler",7300,"MIA@@SD",0,"Mia",14.41,13.4,20.7,10.8,20.7
+"SP","Andrew Triggs",6800,"OAK@SEA",0,"Oak",14.2,12.8,2.3075,12.2,1.7
+"SP","Yovani Gallardo",6600,"SEA@@OAK",0,"Sea",12.18,11.2,27.2425,9.8,27.25
+"SP","Jeff Samardzija",6400,"SF@@COL",0,"SF",8.76,13.6,3.9925,12.7,4
+"SP","Jason Hammel",6200,"KC@@TEX",0,"KC",12.47,12.8,6.55,0,5.35
+"SP","Shelby Miller",6000,"ARI@LAD",0,"Ari",12.5,14,3.6,9.9,3.6
+"SP","Luis Perdomo",5400,"SD@MIA",0,"SD",12.65,12.5,11.05,0,11.05
+"SP","Daniel Wright",5200,"LAA@TOR",0,"LAA",NA,11.6,14.25,7.3,14.25
+"SP","Kyle Freeland",4700,"COL@SF",0,"Col",8.82,9.4,21.55,6.6,21.55
