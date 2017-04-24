@@ -18,7 +18,19 @@ clean_player_names <- function(df_name_column) {
   df_name_column <- gsub(" [A-Z]\\. ", " ", df_name_column)
   
   # remove all periods
-  df_name_column <- sub("\\.", "", df_name_column)
+  df_name_column <- gsub("\\.", "", df_name_column)
+  
+  # replace common accented letters with english counterpart
+  df_name_column <- gsub("á", "a", df_name_column)
+  df_name_column <- gsub("é", "e", df_name_column)
+  df_name_column <- gsub("í", "i", df_name_column)
+  df_name_column <- gsub("ó", "o", df_name_column)
+  df_name_column <- gsub("ú", "u", df_name_column)
+  df_name_column <- gsub("ñ", "n", df_name_column)
+  
+  # edit specific player names
+  df_name_column <- sub("Shin-soo", "Shin-Soo", df_name_column)
   
   return(df_name_column)
 }
+
