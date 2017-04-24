@@ -67,7 +67,7 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
 }
 ### Download Rotogrinders Projections
 print('Downloading Rotogrinders Projections')
-download_rotogrinders_projections_MLB(as.Date(contest_info$Contest_Date[index]))
+download_rotogrinders_projections_MLB(Sys.Date())
 
 ### Download DFN Projections
 print('Downloading DFN Projections')
