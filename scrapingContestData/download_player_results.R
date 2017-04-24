@@ -27,6 +27,7 @@ download_player_results <- function(sports_league_acronym, date) {
     html_nodes(xpath='//*[@id="ff"]') %>%
     html_table()
   data <- data[[1]]
+  names(data)[1] <- "Player"
   
   setwd(paste0(original_wd,'/', sports_league_acronym, '/data_warehouse/', date))
   
