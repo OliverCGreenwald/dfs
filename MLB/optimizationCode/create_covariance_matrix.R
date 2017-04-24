@@ -86,19 +86,13 @@ num_top_pairs <- 10
 end_day <- Sys.Date() - 1
 dates <- seq(from = as.Date("2017-04-05"), to = end_day, by = "day")
 
-# cleaning bc weird column name changes when csv's were created above
-top_cov_pairs$Player_A <- sub(" ", ".", top_cov_pairs$Player_A)
-top_cov_pairs$Player_A <- sub("'", ".", top_cov_pairs$Player_A)
-top_cov_pairs$Player_B <- sub(" ", ".", top_cov_pairs$Player_B)
-top_cov_pairs$Player_B <- sub("'", ".", top_cov_pairs$Player_B)
-
 # initializations
 list_cov_mats <- list()
 cov_time <- as.data.frame(matrix(data = NA, nrow = num_top_pairs, ncol = length(dates), dimnames = list(paste0(top_cov_pairs$Player_A[1:num_top_pairs], ", ", top_cov_pairs$Player_B[1:num_top_pairs]), as.character(dates))))
 
 # loop through dates
 for (i in 1:length(dates)) {
-  temp_cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", dates[i], "/covariance_mat.csv"), header = T, stringsAsFactors = F)
+  temp_cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", dates[i], "/covariance_mat.csv"), header = T, stringsAsFactors = F, check.names=FALSE)
   list_cov_mats[[i]] <- temp_cov_mat
   
   for (j in 1:num_top_pairs) {
@@ -115,7 +109,4 @@ for (i in 2:num_top_pairs) {
   points(as.numeric(cov_time[i,]), type = 'l', col = i)
 }
 legend(x = "topleft",legend = c(rownames(cov_time)), lwd = 1, col = 1:num_top_pairs, cex = 0.5)
-
-
-
 
