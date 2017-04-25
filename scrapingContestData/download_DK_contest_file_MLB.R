@@ -21,7 +21,12 @@ download_DK_contest_file_MLB <- function(contest_number, date, contest_name) {
   original_wd <- getwd()
   browseURL(paste0('https://www.draftkings.com/contest/exportfullstandingscsv/', contest_number))
   setwd('~/Downloads')
-  #unzip(paste0("contest-standings-", contest_number, ".zip"))
+  
+  #For Alans computer run this line:
+  if(original_wd != "/Users/Michael/Projects/DFS") {
+    unzip(paste0("contest-standings-", contest_number, ".zip"))
+  }
+  
   while(!file.exists(paste0("contest-standings-", contest_number, ".csv"))){
     Sys.sleep(1)
   }

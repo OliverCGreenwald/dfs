@@ -16,12 +16,8 @@ original_wd <- getwd()
 setwd('scrapingContestData')
 file.sources = list.files(pattern="*.R")
 sapply(file.sources,source,.GlobalEnv)
-if(file.exists("~/Projects/DFS/")) {
-  setwd("~/Projects/DFS/")
-} else {
-  setwd("~/Documents/DFS/")
-}
 
+setwd(original_wd)
 
 ### Read in Contest File
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
