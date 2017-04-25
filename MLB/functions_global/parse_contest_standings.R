@@ -39,7 +39,7 @@ parse_contest_standings <- function(contest.date, contest.name) {
   temp.results[,(temp.ind+1):(temp.ind+10)] <- temp.players
   
   # split EntryName column into username and entry number
-  temp.entry <- str_split_fixed(temp.results$EntryName, " ", 2) # split at @ symbol
+  temp.entry <- str_split_fixed(temp.results$EntryName, " ", 2)
   temp.results$User_Name <- temp.entry[,1]
   temp.results$Entry_Num <- temp.entry[,2]
   

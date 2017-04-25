@@ -1,17 +1,17 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Danny Salazar",11300,"CLE@@CWS",0,"Cle",22.45,20.8,15.25,17.1,14.65
-"SP","Michael Fulmer",9900,"DET@@MIN",0,"Det",18.82,17.3,26.75,15.1,26.75
-"SP","John Lackey",9800,"CHC@@CIN",0,"Chc",18.32,17.3,12.7,0,12.7
-"SP","Ivan Nova",8000,"PIT@NYY",0,"Pit",20.32,15.1,28.75,12.1,28.75
-"SP","Mike Foltynewicz",7800,"ATL@@PHI",0,"Atl",NA,17.1,28.15,13.1,NA
-"SP","Joe Musgrove",7600,"HOU@@TB",0,"Hou",NA,16.4,9.9,15.4,9.9
-"SP","Kevin Gausman",7400,"BAL@BOS",0,"Bal",15.18,13.5,3.3925,13.1,3.4
-"SP","Jordan Montgomery",7300,"NYY@@PIT",0,"NYY",17.19,12.8,14.1,10.5,14.1
-"SP","Jimmy Nelson",7200,"MIL@STL",0,"Mil",12.76,14.5,9.3925,9.3,9.4
-"SP","Mike Leake",7000,"STL@@MIL",0,"StL",16.87,17.4,21.9,11.6,21.9
-"SP","Matt Andriese",6800,"TB@HOU",0,"TB",12.82,12.4,NA,0,8.45
-"SP","Kyle Gibson",6200,"MIN@DET",0,"Min",11.3,11.4,-5.9925,10.6,-6
-"SP","Derek Holland",6100,"CWS@CLE",0,"CWS",8.6,10.1,23.9,8.2,23.3
-"SP","Eduardo Rodriguez",6000,"BOS@@BAL",0,"Bos",16.62,16,23.9,12.3,27.9
-"SP","Zach Eflin",5600,"PHI@ATL",0,"Phi",13.73,11.1,17.95,7.8,17.35
-"SP","Bronson Arroyo",4600,"CIN@CHC",0,"Cin",7.07,9.9,25.7,0,25.7
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Danny Salazar",11300,"CLE@@CWS",0,"Cle","CLE",22.45,20.8,15.25,17.1,14.65
+"SP","Michael Fulmer",9900,"DET@@MIN",0,"Det","DET",18.82,17.3,26.75,15.1,26.75
+"SP","John Lackey",9800,"CHC@@CIN",0,"Chc","CHC",18.32,17.3,12.7,0,12.7
+"SP","Ivan Nova",8000,"PIT@NYY",0,"Pit","PIT",20.32,15.1,28.75,12.1,28.75
+"SP","Mike Foltynewicz",7800,"ATL@@PHI",0,"Atl","ATL",NA,17.1,28.15,13.1,NA
+"SP","Joe Musgrove",7600,"HOU@@TB",0,"Hou","HOU",NA,16.4,9.9,15.4,9.9
+"SP","Kevin Gausman",7400,"BAL@BOS",0,"Bal","BAL",15.18,13.5,3.3925,13.1,3.4
+"SP","Jordan Montgomery",7300,"NYY@@PIT",0,"NYY","@PIT",17.19,12.8,14.1,10.5,14.1
+"SP","Jimmy Nelson",7200,"MIL@STL",0,"Mil","MIL",12.76,14.5,9.3925,9.3,9.4
+"SP","Mike Leake",7000,"STL@@MIL",0,"StL","STL",16.87,17.4,21.9,11.6,21.9
+"SP","Matt Andriese",6800,"TB@HOU",0,"TB","HOU",12.82,12.4,NA,0,8.45
+"SP","Kyle Gibson",6200,"MIN@DET",0,"Min","MIN",11.3,11.4,-5.9925,10.6,-6
+"SP","Derek Holland",6100,"CWS@CLE",0,"CWS","CLE",8.6,10.1,23.9,8.2,23.3
+"SP","Eduardo Rodriguez",6000,"BOS@@BAL",0,"Bos","BOS",16.62,16,23.9,12.3,27.9
+"SP","Zach Eflin",5600,"PHI@ATL",0,"Phi","PHI",13.73,11.1,17.95,7.8,17.35
+"SP","Bronson Arroyo",4600,"CIN@CHC",0,"Cin","CIN",7.07,9.9,25.7,0,25.7

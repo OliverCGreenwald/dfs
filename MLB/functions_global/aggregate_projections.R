@@ -17,6 +17,9 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 aggregate_projections <- function(contest.date, contest.name) {
+  ####### Import Libraries #######
+  require(stringr)
+  
   ####### Import Functions #######
   source("MLB/functions_global/clean_player_names.R")
   
@@ -26,6 +29,19 @@ aggregate_projections <- function(contest.date, contest.name) {
   
   # clean
   temp.dksalaries$Name <- clean_player_names(temp.dksalaries$Name)
+  
+  # add opponent column
+  temp.dksalaries$Temp_Team1 <- str_split_fixed(str_split_fixed(temp.dksalaries$GameInfo, " ", 2)[,1], "@", 2)[,1]
+  temp.dksalaries$Temp_Team2 <- str_split_fixed(str_split_fixed(temp.dksalaries$GameInfo, " ", 2)[,1], "@", 2)[,2]
+  for (i in 1:nrow(temp.dksalaries)) {
+    if (temp.dksalaries$teamAbbrev[i]==temp.dksalaries$Temp_Team1[i]) {
+      temp.dksalaries$Opponent[i] <- temp.dksalaries$Temp_Team2[i]
+    } else {
+      temp.dksalaries$Opponent[i] <- temp.dksalaries$Temp_Team1[i]
+    }
+  }
+  temp.dksalaries$Temp_Team1 <- NULL
+  temp.dksalaries$Temp_Team2 <- NULL
   
   # split into hitters and pitchers
   temp.dksalaries.hitters <- temp.dksalaries[!(temp.dksalaries$Position %in% c("SP", "RP")), ]
@@ -97,25 +113,26 @@ aggregate_projections <- function(contest.date, contest.name) {
     # nothing for now
   }
   
-  # temp.rotogrinders.hitters <- read.csv(file = path.rotogrinders, stringsAsFactors = F, header = T)
-  # temp.dfn.hitters <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
-  # temp.baseballmonster.hitters <- read.csv(file = path.baseballmonster, stringsAsFactors = F, header = T)
-  # temp.fantasypros.hitters <- read.csv(file = path.fantasypros.hitters, stringsAsFactors = F, header = T)
-  # temp.rotowire.hitters <- read.csv(file = path.rotowire.hitters, sep = "\t", stringsAsFactors = F, header = T)
-  # temp.rotowire2.hitters <- read.csv(file = path.rotowire2.hitters, sep = "\t", stringsAsFactors = F, header = T)
-  # 
-  # # clean
-  # temp.rotogrinders.hitters$Name <- clean_player_names(temp.rotogrinders.hitters$Name)
-  # temp.dfn.hitters$Player.Name <- clean_player_names(temp.dfn.hitters$Player.Name)
-  # temp.baseballmonster.hitters$Name <- clean_player_names(paste0(temp.baseballmonster.hitters$first_name, " ", temp.baseballmonster.hitters$last_name))
-  # temp.fantasypros.hitters$Player <- clean_player_names(temp.fantasypros.hitters$Player)
-  # temp.rotowire.hitters$Full.Name <- clean_player_names(temp.rotowire.hitters$Full.Name)
-  # temp.rotowire2.hitters$Full.Name <- clean_player_names(temp.rotowire2.hitters$Full.Name)
-  # 
-  # # add projections to DKSalaries df
-  # temp.dksalaries.hitters$Projection <- temp.rotogrinders.hitters$Projections[match(temp.dksalaries.hitters$Name, temp.rotogrinders.hitters$Name)]
-  # temp.dksalaries.hitters$Projection_dfn <- temp.dfn.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
-  # temp.dksalaries.hitters$Projection_rotowire <- temp.rotowire.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.rotowire.hitters$Full.Name)]
+  
+  ####### Add Batting Order using DFN Data (Hitters) #######
+  # add DFN batting order data (projected)
+  if (file.exists(path.dfn)) {
+    temp.dfn.hitters <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
+    temp.dfn.hitters$Player.Name <- clean_player_names(temp.dfn.hitters$Player.Name)
+    temp.dksalaries.hitters$Batting_Order_Projected <- temp.dfn.hitters$Batting.Order..Projected.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
+  } else {
+    temp.dksalaries.hitters$Batting_Order_Projected <- NA
+  }
+  
+  # add DFN batting order data (confirmed)
+  path.dfn.confirmed <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
+  if (file.exists(path.dfn)) {
+    temp.dfn.hitters <- read.csv(file = path.dfn.confirmed, stringsAsFactors = F, header = T)
+    temp.dfn.hitters$Player.Name <- clean_player_names(temp.dfn.hitters$Player.Name)
+    temp.dksalaries.hitters$Batting_Order_Confirmed <- temp.dfn.hitters$Batting.Order..Confirmed.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
+  } else {
+    temp.dksalaries.hitters$Batting_Order_Confirmed <- NA
+  }
   
   
   ####### Load projection Sources, Clean, and Add to DKSalaries DF (Pitchers) #######

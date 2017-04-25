@@ -16,7 +16,7 @@ source("MLB/functions_global/convert_team_names.R")
 
 ####### Construct Covariance and Counts Matrix and Write to CSV file #######
 # end date in covariance matrix function
-date_last <- Sys.Date()-1
+date_last <- Sys.Date()-2
 
 # construct covariance and counts matrices
 cov.dat <- create_rolling_covariance_matrix(date.start = "2017-04-02", date.end = date_last)
@@ -81,7 +81,7 @@ View(top_cov_pairs)
 
 
 ####### Plot Covariance of the Top num_top_pairs Pairs (on Latest Date) over Time #######
-num_top_pairs <- 10
+num_top_pairs <- 50
 
 # set date range
 end_day <- Sys.Date() - 1
@@ -106,10 +106,15 @@ for (i in 1:length(dates)) {
 }
 
 plot(as.numeric(cov_time[1,]), type = 'l', col = 1, ylim = c(min(cov_time, na.rm = T), max(cov_time, na.rm = T)), ylab = "Covariance", xlab = "Days Since 2017-04-05", main = paste0("Top Player Pairs by Covariance (as of ", end_day-1, ")"))
+# plot(as.numeric(cov_time[1,]), type = 'l', col = 1, ylim = c(0, 100), ylab = "Covariance", xlab = "Days Since 2017-04-05", main = paste0("Top Player Pairs by Covariance (as of ", end_day-1, ")"))
 for (i in 2:num_top_pairs) {
   points(as.numeric(cov_time[i,]), type = 'l', col = i)
 }
 legend(x = "topleft",legend = c(rownames(cov_time)), lwd = 1, col = 1:num_top_pairs, cex = 0.5)
+
+# x axis: number of times covariance has increased by threshold
+# y axis: current covariances
+# filter out pairs that are big covariance for low x
 
 
 ####### Create Covariance Matrix for a Given Contest #######
