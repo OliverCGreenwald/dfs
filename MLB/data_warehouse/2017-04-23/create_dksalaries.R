@@ -12,7 +12,7 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Import Functions #######
 source("MLB/functions_global/parse_contest_standings.R")
 source("MLB/functions_global/clean_player_names.R")
-source("MLB/functions_global/convert_teams_dk.R")
+source("MLB/functions_global/convert_team_names.R")
 
 
 ####### Parse Standings for each Contest #######
@@ -94,7 +94,7 @@ for (i in 1:nrow(contest_info)) {
   temp.dfn$Opp <- NULL
   
   # replace teamAbbrev with DK convention
-  temp.dfn$teamAbbrev <- convert_teams_dk(team_vec = temp.dfn$teamAbbrev, name_source = "DFN")
+  temp.dfn$teamAbbrev <- convert_team_names(team_vec = temp.dfn$teamAbbrev, from_source = "DFN", to_source = "DK")
   
   # reorder columns
   temp.dfn <- temp.dfn[,c(2,1,3,5,6,4)]
