@@ -9,7 +9,7 @@ if(file.exists("~/Projects/DFS/")) {
 # Function for cleaning player names.
 
 
-clean_player_names <- function(df_name_column) {
+cleanPlayerNames <- function(df_name_column) {
   # remove Sr. and Jr.
   df_name_column <- sub(' Sr.', '', df_name_column)
   df_name_column <- sub(' Jr.', '', df_name_column)

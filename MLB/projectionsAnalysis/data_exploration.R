@@ -16,7 +16,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Import Functions #######
-source("MLB/functions_global/aggregate_projections.R")
+source("MLB/functions_global/aggregateJuliaDF.R")
 
 
 ####### Create Aggregated Projected and Actual Fpts Dataframe For Each Day #######
@@ -48,7 +48,7 @@ remove(contest_info_temp, temp.found)
 aggregated_data_hitters <- list()
 aggregated_data_pitchers <- list()
 for (i in 1:nrow(contest_info_filtered)) {
-  projections.dat <- aggregate_projections(contest_info_filtered$Contest_Date[i], paste0(contest_info_filtered$Entry_Fee[i],"entry_",gsub(" ", "", contest_info_filtered$Contest_Name[i])))
+  projections.dat <- aggregateJuliaDF(contest_info_filtered$Contest_Date[i], paste0(contest_info_filtered$Entry_Fee[i],"entry_",gsub(" ", "", contest_info_filtered$Contest_Name[i])))
   aggregated_data_hitters[[i]] <- projections.dat[[1]]
   aggregated_data_pitchers[[i]] <- projections.dat[[2]]
 }

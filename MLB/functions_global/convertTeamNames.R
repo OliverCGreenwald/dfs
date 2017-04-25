@@ -10,7 +10,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
-convert_team_names <- function(team_vec, from_source, to_source) {
+convertTeamNames <- function(team_vec, from_source, to_source) {
   
   if (from_source=="DK" & to_source=="DFN") {
     from_team_names <- c("Ari","Atl","Bal","Bos","Chc","Cin","Cle","Col","CWS","Det","Hou","KC","LAA","LAD","Mia","Mil","Min","NYM","NYY","Oak","Phi","Pit","SD","Sea","SF","StL","TB","Tex","Tor","Was") # DK team names

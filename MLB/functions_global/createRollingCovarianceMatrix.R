@@ -19,7 +19,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
-create_rolling_covariance_matrix <- function(date.start, date.end) {
+createRollingCovarianceMatrix <- function(date.start, date.end) {
   ####### Import Libraries #######
   library(stringr)
   

@@ -10,7 +10,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Begin Function #######
-parse_contest_standings <- function(contest.date, contest.name) {
+parseContestStandings <- function(contest.date, contest.name) {
   # load libraries
   require(stringr)
   

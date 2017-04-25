@@ -6,29 +6,30 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Description #######
-# Aggregates projections (hitters and pitchers) as well as actual fpts into a dataframe.
-# for a given date and contest. Includes Rotogrinders, DFN, BaseballMonster, FantasyPros,
-# and RotoWire projections.
+# Aggregates the following data into a dataframe:
+# - projections (sources: Rotogrinders, DFN, BaseballMonster, FantasyPros (deprecated), and RotoWire)
+# - projected and confirmed batting order (source: DFN)
+# - actual fpts (source: Fantasy Cruncher)
 #
 # TODO:
-# - match by player and position and team
+# - match by player and position and team (not just player name)
 # - BaseballMonster: MISSING Complete Game Shut Out & No Hitter DK fpts PITCHER computation
-# - FantasyPros: need to compute DK fpts for both hitters and pitchers
+# - remove FantasyPros (deprecated)
 
 
-aggregate_projections <- function(contest.date, contest.name) {
+aggregateJuliaDF <- function(contest.date, contest.name) {
   ####### Import Libraries #######
   require(stringr)
   
   ####### Import Functions #######
-  source("MLB/functions_global/clean_player_names.R")
+  source("MLB/functions_global/cleanPlayerNames.R")
   
   ####### Load and Clean DK Salaries #######
   # load
   temp.dksalaries <- read.csv(file = paste0("MLB/data_warehouse/", contest.date,"/", contest.name, "/DKSalaries.csv"), stringsAsFactors = F, header = T)
   
   # clean
-  temp.dksalaries$Name <- clean_player_names(temp.dksalaries$Name)
+  temp.dksalaries$Name <- cleanPlayerNames(temp.dksalaries$Name)
   
   # add opponent column
   temp.dksalaries$Temp_Team1 <- str_split_fixed(str_split_fixed(temp.dksalaries$GameInfo, " ", 2)[,1], "@", 2)[,1]
@@ -61,7 +62,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # rotogrinders
   if (file.exists(path.rotogrinders)) {
     temp.rotogrinders.hitters <- read.csv(file = path.rotogrinders, stringsAsFactors = F, header = T)
-    temp.rotogrinders.hitters$Name <- clean_player_names(temp.rotogrinders.hitters$Name)
+    temp.rotogrinders.hitters$Name <- cleanPlayerNames(temp.rotogrinders.hitters$Name)
     temp.dksalaries.hitters$Projection <- temp.rotogrinders.hitters$Projections[match(temp.dksalaries.hitters$Name, temp.rotogrinders.hitters$Name)]
   } else {
     temp.dksalaries.hitters$Projection <- NA
@@ -70,7 +71,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # dfn
   if (file.exists(path.dfn)) {
     temp.dfn.hitters <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
-    temp.dfn.hitters$Player.Name <- clean_player_names(temp.dfn.hitters$Player.Name)
+    temp.dfn.hitters$Player.Name <- cleanPlayerNames(temp.dfn.hitters$Player.Name)
     temp.dksalaries.hitters$Projection_dfn <- temp.dfn.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Projection_dfn <- NA
@@ -80,7 +81,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   if (file.exists(path.baseballmonster)) {
     temp.baseballmonster.hitters <- read.csv(file = path.baseballmonster, stringsAsFactors = F, header = T)
     temp.baseballmonster.hitters$Proj.FP <- 3*temp.baseballmonster.hitters$singles + 5*temp.baseballmonster.hitters$doubles + 8*temp.baseballmonster.hitters$triples + 10*temp.baseballmonster.hitters$home_runs + 2*temp.baseballmonster.hitters$rbi + 2*temp.baseballmonster.hitters$runs + 2*temp.baseballmonster.hitters$walks + 2*temp.baseballmonster.hitters$hbp + 5*temp.baseballmonster.hitters$sb # compute Fpts
-    temp.baseballmonster.hitters$Name <- clean_player_names(paste0(temp.baseballmonster.hitters$first_name, " ", temp.baseballmonster.hitters$last_name))
+    temp.baseballmonster.hitters$Name <- cleanPlayerNames(paste0(temp.baseballmonster.hitters$first_name, " ", temp.baseballmonster.hitters$last_name))
     temp.dksalaries.hitters$Projection_baseballmonster  <- temp.baseballmonster.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.baseballmonster.hitters$Name)]
   } else {
     temp.dksalaries.hitters$Projection_baseballmonster <- NA
@@ -89,7 +90,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # fantasypros
   if (file.exists(path.fantasypros.hitters)) {
     temp.fantasypros.hitters <- read.csv(file = path.fantasypros.hitters, stringsAsFactors = F, header = T)
-    temp.fantasypros.hitters$Player <- clean_player_names(temp.fantasypros.hitters$Player)
+    temp.fantasypros.hitters$Player <- cleanPlayerNames(temp.fantasypros.hitters$Player)
     # temp.dksalaries.hitters$Projection_fantasypros
   } else {
     # nothing for now
@@ -98,7 +99,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # rotowire
   if (file.exists(path.rotowire.hitters)) {
     temp.rotowire.hitters <- read.csv(file = path.rotowire.hitters, sep = "\t", stringsAsFactors = F, header = T)
-    temp.rotowire.hitters$Full.Name <- clean_player_names(temp.rotowire.hitters$Full.Name)
+    temp.rotowire.hitters$Full.Name <- cleanPlayerNames(temp.rotowire.hitters$Full.Name)
     temp.dksalaries.hitters$Projection_rotowire <- temp.rotowire.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.rotowire.hitters$Full.Name)]
   } else {
     temp.dksalaries.hitters$Projection_rotowire <- NA
@@ -107,7 +108,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # rotowire2
   if (file.exists(path.rotowire2.hitters)) {
     temp.rotowire2.hitters <- read.csv(file = path.rotowire2.hitters, sep = "\t", stringsAsFactors = F, header = T)
-    temp.rotowire2.hitters$Full.Name <- clean_player_names(temp.rotowire2.hitters$Full.Name)
+    temp.rotowire2.hitters$Full.Name <- cleanPlayerNames(temp.rotowire2.hitters$Full.Name)
     # temp.dksalaries.hitters$Projection_rotowire2
   } else {
     # nothing for now
@@ -118,7 +119,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # add DFN batting order data (projected)
   if (file.exists(path.dfn)) {
     temp.dfn.hitters <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
-    temp.dfn.hitters$Player.Name <- clean_player_names(temp.dfn.hitters$Player.Name)
+    temp.dfn.hitters$Player.Name <- cleanPlayerNames(temp.dfn.hitters$Player.Name)
     temp.dksalaries.hitters$Batting_Order_Projected <- temp.dfn.hitters$Batting.Order..Projected.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Batting_Order_Projected <- NA
@@ -128,7 +129,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   path.dfn.confirmed <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
   if (file.exists(path.dfn)) {
     temp.dfn.hitters <- read.csv(file = path.dfn.confirmed, stringsAsFactors = F, header = T)
-    temp.dfn.hitters$Player.Name <- clean_player_names(temp.dfn.hitters$Player.Name)
+    temp.dfn.hitters$Player.Name <- cleanPlayerNames(temp.dfn.hitters$Player.Name)
     temp.dksalaries.hitters$Batting_Order_Confirmed <- temp.dfn.hitters$Batting.Order..Confirmed.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Batting_Order_Confirmed <- NA
@@ -147,7 +148,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # rotogrinders
   if (file.exists(path.rotogrinders)) {
     temp.rotogrinders.pitchers <- read.csv(file = path.rotogrinders, stringsAsFactors = F, header = T)
-    temp.rotogrinders.pitchers$Name <- clean_player_names(temp.rotogrinders.pitchers$Name)
+    temp.rotogrinders.pitchers$Name <- cleanPlayerNames(temp.rotogrinders.pitchers$Name)
     temp.dksalaries.pitchers$Projection <- temp.rotogrinders.pitchers$Projections[match(temp.dksalaries.pitchers$Name, temp.rotogrinders.pitchers$Name)]
   } else {
     temp.dksalaries.pitchers$Projection <- NA
@@ -156,7 +157,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # dfn
   if (file.exists(path.dfn)) {
     temp.dfn.pitchers <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
-    temp.dfn.pitchers$Player.Name <- clean_player_names(temp.dfn.pitchers$Player.Name)
+    temp.dfn.pitchers$Player.Name <- cleanPlayerNames(temp.dfn.pitchers$Player.Name)
     temp.dksalaries.pitchers$Projection_dfn <- temp.dfn.pitchers$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers$Player.Name)]
   } else {
     temp.dksalaries.pitchers$Projection_dfn <- NA
@@ -167,7 +168,7 @@ aggregate_projections <- function(contest.date, contest.name) {
     temp.baseballmonster.pitchers <- read.csv(file = path.baseballmonster, stringsAsFactors = F, header = T)
     hits_against <- temp.baseballmonster.pitchers$singles + temp.baseballmonster.pitchers$doubles + temp.baseballmonster.pitchers$triples + temp.baseballmonster.pitchers$home_runs # for projections
     temp.baseballmonster.pitchers$Proj.FP <- 2.25*temp.baseballmonster.pitchers$innings + 2*temp.baseballmonster.pitchers$strikeouts + 4*temp.baseballmonster.pitchers$wins + (-2)*temp.baseballmonster.pitchers$earned_runs + (-0.6)*hits_against + (-0.6)*temp.baseballmonster.pitchers$walks + (-0.6)*temp.baseballmonster.pitchers$hbp + 2.5*temp.baseballmonster.pitchers$cg # MISSING: Complete Game Shut Out, No Hitter (Notes: "hbp" is "Hit Batsman")
-    temp.baseballmonster.pitchers$Name <- clean_player_names(paste0(temp.baseballmonster.pitchers$first_name, " ", temp.baseballmonster.pitchers$last_name))
+    temp.baseballmonster.pitchers$Name <- cleanPlayerNames(paste0(temp.baseballmonster.pitchers$first_name, " ", temp.baseballmonster.pitchers$last_name))
     temp.dksalaries.pitchers$Projection_baseballmonster  <- temp.baseballmonster.pitchers$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.baseballmonster.pitchers$Name)]
   } else {
     temp.dksalaries.pitchers$Projection_baseballmonster <- NA
@@ -176,7 +177,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # fantasypros
   if (file.exists(path.fantasypros.pitchers)) {
     temp.fantasypros.pitchers <- read.csv(file = path.fantasypros.pitchers, stringsAsFactors = F, header = T)
-    temp.fantasypros.pitchers$Player <- clean_player_names(temp.fantasypros.pitchers$Player)
+    temp.fantasypros.pitchers$Player <- cleanPlayerNames(temp.fantasypros.pitchers$Player)
     # temp.dksalaries.pitchers$Projection_fantasypros
   } else {
     # nothing for now
@@ -185,7 +186,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # rotowire
   if (file.exists(path.rotowire.pitchers)) {
     temp.rotowire.pitchers <- read.csv(file = path.rotowire.pitchers, sep = "\t", stringsAsFactors = F, header = T)
-    temp.rotowire.pitchers$Full.Name <- clean_player_names(temp.rotowire.pitchers$Full.Name)
+    temp.rotowire.pitchers$Full.Name <- cleanPlayerNames(temp.rotowire.pitchers$Full.Name)
     temp.dksalaries.pitchers$Projection_rotowire <- temp.rotowire.pitchers$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.rotowire.pitchers$Full.Name)]
   } else {
     temp.dksalaries.pitchers$Projection_rotowire <- NA
@@ -194,7 +195,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # rotowire2
   if (file.exists(path.rotowire2.pitchers)) {
     temp.rotowire2.pitchers <- read.csv(file = path.rotowire2.pitchers, sep = "\t", stringsAsFactors = F, header = T)
-    temp.rotowire2.pitchers$Full.Name <- clean_player_names(temp.rotowire2.pitchers$Full.Name)
+    temp.rotowire2.pitchers$Full.Name <- cleanPlayerNames(temp.rotowire2.pitchers$Full.Name)
     # temp.dksalaries.pitchers$Projection_rotowire2
   } else {
     # nothing for now
@@ -206,7 +207,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # path.dfn.hitters.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
   # if (file.exists(path.dfn.hitters.actual)) {
   #   temp.dfn.hitters.actual <- read.csv(path.dfn.hitters.actual, stringsAsFactors = F, header = T)
-  #   temp.dfn.hitters.actual$Player.Name <- clean_player_names(temp.dfn.hitters.actual$Player.Name)
+  #   temp.dfn.hitters.actual$Player.Name <- cleanPlayerNames(temp.dfn.hitters.actual$Player.Name)
   #   temp.dksalaries.hitters$Actual_fpts <- temp.dfn.hitters.actual$Actual.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.actual$Player.Name)]
   # } else {
   #   temp.dksalaries.hitters$Actual_fpts <- NA
@@ -216,7 +217,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   # path.dfn.pitchers.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/pitchers_", contest.date, ".csv")
   # if (file.exists(path.dfn.pitchers.actual)) {
   #   temp.dfn.pitchers.actual <- read.csv(path.dfn.pitchers.actual, stringsAsFactors = F, header = T)
-  #   temp.dfn.pitchers.actual$Player.Name <- clean_player_names(temp.dfn.pitchers.actual$Player.Name)
+  #   temp.dfn.pitchers.actual$Player.Name <- cleanPlayerNames(temp.dfn.pitchers.actual$Player.Name)
   #   temp.dksalaries.pitchers$Actual_fpts <- temp.dfn.pitchers.actual$Actual.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers.actual$Player.Name)]
   # } else {
   #   temp.dksalaries.pitchers$Actual_fpts <- NA
@@ -226,7 +227,7 @@ aggregate_projections <- function(contest.date, contest.name) {
   path.actual.fpts <- paste0("MLB/data_warehouse/", contest.date,"/player_results.csv")
   if (file.exists(path.actual.fpts)) {
     temp.actual.fpts <- read.csv(path.actual.fpts, stringsAsFactors = F, header = T)
-    temp.actual.fpts$Player <- clean_player_names(temp.actual.fpts$Player)
+    temp.actual.fpts$Player <- cleanPlayerNames(temp.actual.fpts$Player)
     temp.dksalaries.hitters$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.hitters$Name, temp.actual.fpts$Player)]
     temp.dksalaries.pitchers$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.pitchers$Name, temp.actual.fpts$Player)]
   } else {

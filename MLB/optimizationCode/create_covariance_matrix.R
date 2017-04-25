@@ -10,16 +10,16 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Import Functions #######
-source("MLB/functions_global/create_rolling_covariance_matrix.R")
-source("MLB/functions_global/convert_team_names.R")
+source("MLB/functions_global/createRollingCovarianceMatrix.R")
+source("MLB/functions_global/convertTeamNames.R")
 
 
 ####### Construct Covariance and Counts Matrix and Write to CSV file #######
 # end date in covariance matrix function
-date_last <- Sys.Date()-2
+date_last <- Sys.Date()-2 # Sys.Date()-2 because need 2 day lag
 
 # construct covariance and counts matrices
-cov.dat <- create_rolling_covariance_matrix(date.start = "2017-04-02", date.end = date_last)
+cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last)
 cov_mat <- cov.dat[[1]]
 cov_mat_counts <- cov.dat[[2]]
 
@@ -38,7 +38,7 @@ write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/co
 #   date_last <- dates[i]
 #   
 #   # construct covariance and counts matrices
-#   cov.dat <- create_rolling_covariance_matrix(date.start = "2017-04-02", date.end = date_last)
+#   cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last)
 #   cov_mat <- cov.dat[[1]]
 #   cov_mat_counts <- cov.dat[[2]]
 #   
@@ -130,7 +130,7 @@ for (i in 1:nrow(contest_info)) {
   temp_julia_input_hitter <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
   
   # change team name from DK to DFN naming convention for matching purposes
-  temp_julia_input_hitter$teamAbbrev <- convert_team_names(team_vec = temp_julia_input_hitter$teamAbbrev, from_source = "DK", to_source = "DFN")
+  temp_julia_input_hitter$teamAbbrev <- convertTeamNames(team_vec = temp_julia_input_hitter$teamAbbrev, from_source = "DK", to_source = "DFN")
   
   # create temporary name column for matching purposes
   temp_julia_input_hitter$Temp_Name <- paste0(temp_julia_input_hitter$Name, "_", temp_julia_input_hitter$teamAbbrev)
