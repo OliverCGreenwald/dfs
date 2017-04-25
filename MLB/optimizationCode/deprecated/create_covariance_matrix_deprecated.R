@@ -20,8 +20,8 @@ library(stringr)
 ####### Aggregate All Player Data for Each Day #######
 # load contest info file
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-# dates <- seq(from = as.Date("2017-04-04"), to = as.Date("2017-04-05"), by = "day")
-dates <- seq(from = as.Date("2017-04-02"), to = Sys.Date() - 1, by = "day")
+dates <- seq(from = as.Date("2017-04-02"), to = as.Date("2017-04-04"), by = "day")
+# dates <- seq(from = as.Date("2017-04-02"), to = Sys.Date() - 1, by = "day")
 list_all_players <- NULL
 for (d in 1:length(dates)) {
   # subset contest_info by date
@@ -32,8 +32,11 @@ for (d in 1:length(dates)) {
   for (i in 1:nrow(temp_contest_info)) {
     temp_hitters <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
     temp_pitchers <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/pitchers.csv"), stringsAsFactors = F, header = T)
+    
+    temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
+    temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
+    
     temp_players_day <- rbind(temp_hitters, temp_pitchers)
-    temp_players_day <- temp_players_day[, !(colnames(temp_players_day) %in% c("Projection","Projection_dfn","Projection_rotogrinders","Projection_baseballmonster","Projection_rotowire"))]
     temp_players_day$Date <- dates[d]
     list_players_day <- rbind(list_players_day, temp_players_day)
   }
@@ -54,16 +57,16 @@ colnames(hist_fpts_mat) <- dates
 rownames(hist_fpts_mat) <- names_unique_players
 
 # fill historical fpts matrix (slow way)
-# for (i in 1:nrow(hist_fpts_mat)) {
-#   for (j in 1:ncol(hist_fpts_mat)) {
-#     temp <- list_all_players$Actual_fpts[paste0(list_all_players$Name, "_", list_all_players$teamAbbrev)==rownames(hist_fpts_mat)[i] & list_all_players$Date==colnames(hist_fpts_mat)[j]]
-#     if (length(temp)==0) {
-#       hist_fpts_mat[i,j] <- NA
-#     } else {
-#       hist_fpts_mat[i,j] <- temp
-#     }
-#   }
-# }
+for (i in 1:nrow(hist_fpts_mat)) {
+  for (j in 1:ncol(hist_fpts_mat)) {
+    temp <- list_all_players$Actual_fpts[paste0(list_all_players$Name, "_", list_all_players$teamAbbrev)==rownames(hist_fpts_mat)[i] & list_all_players$Date==colnames(hist_fpts_mat)[j]]
+    if (length(temp)==0) {
+      hist_fpts_mat[i,j] <- NA
+    } else {
+      hist_fpts_mat[i,j] <- temp
+    }
+  }
+}
 
 # function that vectorizes the historical fpts matrix filling code (fast way)
 fill_hist_mat <- function(x, y) {

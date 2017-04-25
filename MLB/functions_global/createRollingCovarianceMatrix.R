@@ -38,8 +38,11 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
     for (i in 1:nrow(temp_contest_info)) {
       temp_hitters <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
       temp_pitchers <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/pitchers.csv"), stringsAsFactors = F, header = T)
+      
+      temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
+      temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
+      
       temp_players_day <- rbind(temp_hitters, temp_pitchers)
-      temp_players_day <- temp_players_day[, !(colnames(temp_players_day) %in% c("Projection","Projection_dfn","Projection_rotogrinders","Projection_baseballmonster","Projection_rotowire"))]
       temp_players_day$Date <- dates[d]
       list_players_day <- rbind(list_players_day, temp_players_day)
     }
@@ -78,8 +81,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
     
     # find row index in list_all_players corresponding to the (x_i, y_i) element of the desired matrix (faster way)
     find_row_index <- function(row) {
-      temp_inds_match_name <- which(temp_teamabbrev_all==row[3])
-      temp_inds_match_date <- which(list_all_players$Date==row[4])
+      temp_inds_match_name <- which(temp_teamabbrev_all==row[3]) # note: not hard coded
+      temp_inds_match_date <- which(list_all_players$Date==row[4]) # note: not hard coded
       temp_ind_match <- temp_inds_match_name[temp_inds_match_name %in% temp_inds_match_date] # matched row index in list_all_players
       if (length(temp_ind_match)!=0) {
         return(temp_ind_match) # matched row index in list_all_players
@@ -99,10 +102,10 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
   colnames(hist_fpts_mat) <- dates
   rownames(hist_fpts_mat) <- names_unique_players
   
-  # remove rows with NA count > round(length(dates)/2)
+  # remove rows with NA count > round(length(dates)*0.7)
   inds.remove <- NULL
   for (i in 1:nrow(hist_fpts_mat)) {
-    if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)/2)) {
+    if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.7)) {
       inds.remove <- c(inds.remove, i)
     }
   }
@@ -224,3 +227,9 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
   # return covariance matrix and counts matrix
   return(list(cov_mat, cov_mat_counts))
 }
+
+
+# debug
+# date.start = "2017-04-02"
+# date.end = "2017-04-04"
+
