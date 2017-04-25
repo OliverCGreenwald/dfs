@@ -13,11 +13,11 @@ if(file.exists("~/Projects/DFS/")) {
 convertTeamNames <- function(team_vec, from_source, to_source) {
   
   if (from_source=="DK" & to_source=="DFN") {
-    from_team_names <- c("Ari","Atl","Bal","Bos","Chc","Cin","Cle","Col","CWS","Det","Hou","KC","LAA","LAD","Mia","Mil","Min","NYM","NYY","Oak","Phi","Pit","SD","Sea","SF","StL","TB","Tex","Tor","Was") # DK team names
+    from_team_names <- c("Ari","Atl","Bal","Bos","ChC","Cin","Cle","Col","CWS","Det","Hou","KC","LAA","LAD","Mia","Mil","Min","NYM","NYY","Oak","Phi","Pit","SD","Sea","SF","StL","TB","Tex","Tor","Was") # DK team names
     to_team_names <- c("ARI","ATL","BAL","BOS","CHC","CIN","CLE","COL","CWS","DET","HOU","KC","LAA","LAD","MIA","MIL","MIN","NYM","NYY","OAK","PHI","PIT","SD","SEA","SF","STL","TB","TEX","TOR","WAS") # corresponding DFN team names
   } else if (from_source=="DFN" & to_source=="DK") {
     from_team_names <- c("ARI","ATL","BAL","BOS","CHC","CIN","CLE","COL","CWS","DET","HOU","KC","LAA","LAD","MIA","MIL","MIN","NYM","NYY","OAK","PHI","PIT","SD","SEA","SF","STL","TB","TEX","TOR","WAS") # DFN team names
-    to_team_names <- c("Ari","Atl","Bal","Bos","Chc","Cin","Cle","Col","CWS","Det","Hou","KC","LAA","LAD","Mia","Mil","Min","NYM","NYY","Oak","Phi","Pit","SD","Sea","SF","StL","TB","Tex","Tor","Was") # corresponding DK team names
+    to_team_names <- c("Ari","Atl","Bal","Bos","ChC","Cin","Cle","Col","CWS","Det","Hou","KC","LAA","LAD","Mia","Mil","Min","NYM","NYY","Oak","Phi","Pit","SD","Sea","SF","StL","TB","Tex","Tor","Was") # corresponding DK team names
   } else {
     stop("From and To Team Name Sources Not Found.")
   }

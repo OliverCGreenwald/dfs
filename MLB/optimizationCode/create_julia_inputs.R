@@ -18,7 +18,7 @@ source("MLB/functions_global/aggregateJuliaDF.R")
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 
 # subset by yesterday's date
-date <- Sys.Date()-1
+date <- "2017-04-23" # Sys.Date()-1
 contest_info <- contest_info[contest_info$Contest_Date==as.Date(date),]
 
 aggregated_data_hitters <- list()

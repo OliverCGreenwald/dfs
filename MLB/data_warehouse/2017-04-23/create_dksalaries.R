@@ -10,9 +10,9 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Import Functions #######
-source("MLB/functions_global/parse_contest_standings.R")
-source("MLB/functions_global/clean_player_names.R")
-source("MLB/functions_global/convert_team_names.R")
+source("MLB/functions_global/parseContestStandings.R")
+source("MLB/functions_global/cleanPlayerNames.R")
+source("MLB/functions_global/convertTeamNames.R")
 
 
 ####### Parse Standings for each Contest #######
@@ -27,12 +27,12 @@ contest_info <- contest_info[contest_info$Contest_Date==as.Date(contest.date),]
 list_contest_standings <- list()
 for (i in 1:nrow(contest_info)) {
   # parse
-  list_contest_standings[[i]] <- parse_contest_standings(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
+  list_contest_standings[[i]] <- parseContestStandings(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
   
   # apply clean names function
   position_col_inds <- which(colnames(list_contest_standings[[i]]) %in% c('P1','P2','C','1B','2B','3B','SS','OF1','OF2','OF3'))
   for (j in 1:length(position_col_inds)) {
-    list_contest_standings[[i]][,position_col_inds[j]] <- clean_player_names(df_name_column = list_contest_standings[[i]][,position_col_inds[j]])
+    list_contest_standings[[i]][,position_col_inds[j]] <- cleanPlayerNames(df_name_column = list_contest_standings[[i]][,position_col_inds[j]])
   }
 }
 
@@ -48,11 +48,11 @@ for (i in 1:nrow(contest_info)) {
   if (file.exists(path.hitters.dfn) & file.exists(path.pitchers.dfn)) {
     # hitters
     temp.dfn.hitters <- read.csv(file = path.hitters.dfn, stringsAsFactors = F, header = T)
-    temp.dfn.hitters$Player.Name <- clean_player_names(temp.dfn.hitters$Player.Name)
+    temp.dfn.hitters$Player.Name <- cleanPlayerNames(temp.dfn.hitters$Player.Name)
     
     # pitchers
     temp.dfn.pitchers <- read.csv(file = path.pitchers.dfn, stringsAsFactors = F, header = T)
-    temp.dfn.pitchers$Player.Name <- clean_player_names(temp.dfn.pitchers$Player.Name)
+    temp.dfn.pitchers$Player.Name <- cleanPlayerNames(temp.dfn.pitchers$Player.Name)
   } else {
     stop("DFN file not found.")
   }
@@ -86,15 +86,33 @@ for (i in 1:nrow(contest_info)) {
   colnames(temp.dfn)[2] <- "Position"
   colnames(temp.dfn)[4] <- "teamAbbrev"
   
-  # add game info and avg points columns
-  temp.dfn$GameInfo <- paste0(temp.dfn$teamAbbrev, "@", temp.dfn$Opp)
-  temp.dfn$AvgPointsPerGame <- 0
+  # replace teamAbbrev with DK convention
+  temp.dfn$teamAbbrev <- convertTeamNames(team_vec = temp.dfn$teamAbbrev, from_source = "DFN", to_source = "DK")
+  temp.dfn$Temp_Opp <- convertTeamNames(team_vec = sub("@", "", temp.dfn$Opp), from_source = "DFN", to_source = "DK")
+  for (j in 1:nrow(temp.dfn)) {
+    if (grepl("@", temp.dfn$Opp[j])==TRUE) {
+      temp.dfn$Temp_Opp[j] <- paste0("@", temp.dfn$Temp_Opp[j])
+    }
+  }
+  temp.dfn$Opp <- temp.dfn$Temp_Opp
+  temp.dfn$Temp_Opp <- NULL
+  
+  # add game info
+  temp.dfn$Temp_GameInfo <- grepl("@", temp.dfn$Opp)
+  for (j in 1:nrow(temp.dfn)) {
+    if (temp.dfn$Temp_GameInfo[j] == TRUE) {
+      temp.dfn$GameInfo[j] <- paste0(temp.dfn$teamAbbrev[j], temp.dfn$Opp[j], " 00:00PM ET")
+    } else {
+      temp.dfn$GameInfo[j] <- paste0(temp.dfn$Opp[j], "@", temp.dfn$teamAbbrev[j], " 00:00PM ET")
+    }
+  }
+  temp.dfn$Temp_GameInfo <- NULL # remove temp column
+  
+  # put filler (NA) avg pts per game stat
+  temp.dfn$AvgPointsPerGame <- NA
   
   # remove Opp column
   temp.dfn$Opp <- NULL
-  
-  # replace teamAbbrev with DK convention
-  temp.dfn$teamAbbrev <- convert_team_names(team_vec = temp.dfn$teamAbbrev, from_source = "DFN", to_source = "DK")
   
   # reorder columns
   temp.dfn <- temp.dfn[,c(2,1,3,5,6,4)]
