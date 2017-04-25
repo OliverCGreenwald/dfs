@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7600,"TB@NYY 07:05PM ET",0,"TB","NYY",NA,NA,NA,NA,NA,NA,NA
 "OF","Ryan Braun",5100,"Mil@Cin 07:10PM ET",8.125,"Mil","Cin",9.39,9.8,9.82,8.5,"3","3",18
 "OF","Giancarlo Stanton",5000,"NYM@Mia 07:10PM ET",5.286,"Mia","NYM",7.44,8,8.77,7.9,"4","4",9
 "1B","Joey Votto",4900,"Mil@Cin 07:10PM ET",6.625,"Cin","Mil",7.06,9.4,9.59,9.2,"3","3",2

@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",6600,"TB@Bos 07:10PM ET",0,"TB","Bos",NA,NA,NA,NA,NA,NA,NA
 "OF","Mike Trout",5200,"LAA@KC 08:15PM ET",10.2,"LAA","KC",8.84,11.1,11.03,10,"3","3",5
 "3B","Josh Donaldson",5100,"Bal@Tor 07:07PM ET",8.5,"Tor","Bal",NA,0,9.56,0,"x","x",NA
 "OF","Mookie Betts",5000,"TB@Bos 07:10PM ET",3.4,"Bos","TB",6.8,8.8,9.84,8.7,"3","3",18

@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7800,"TB@NYY 01:05PM ET",0,"TB","NYY",NA,NA,NA,NA,NA,NA,NA
 "OF","Mookie Betts",5100,"Bos@Det 01:10PM ET",5,"Bos","Det",7.81,9.4,8.84,8.9,"3","3",0
 "1B","Miguel Cabrera",5000,"Bos@Det 01:10PM ET",2,"Det","Bos",7.93,8.6,8.51,8.2,"3","3",0
 "C","Gary Sanchez",4900,"TB@NYY 01:05PM ET",4.8,"NYY","TB",NA,0,NA,0,"x","x",NA

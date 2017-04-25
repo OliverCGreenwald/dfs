@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7900,"NYY@TB 07:10PM ET",8.713,"TB","NYY",NA,NA,NA,NA,NA,NA,NA
 "OF","Mike Trout",4800,"LAA@Oak 10:05PM ET",10.447,"LAA","Oak",8.96,10.3,10.25,NA,"3","3",10
 "3B","Nolan Arenado",4800,"Col@Mil 07:40PM ET",9.881,"Col","Mil",8.76,7.1,7.96,NA,"3","4",11
 "3B/OF","Kris Bryant",4700,"ChC@StL 08:15PM ET",9.953,"ChC","StL",8.64,7.7,8.44,NA,"2","2",0

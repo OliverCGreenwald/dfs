@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7900,"Det@TB 07:10PM ET",0,"TB","Det",NA,NA,NA,NA,NA,NA,NA
 "OF","Mike Trout",5200,"LAA@Hou 08:10PM ET",9.429,"LAA","Hou",0,11.1,10.4,9.6,"3","3",11
 "OF","Bryce Harper",5100,"Was@Atl 07:35PM ET",12.25,"Was","Atl",0,11,9.49,9.2,"3","3",14
 "1B","Anthony Rizzo",5000,"Mil@ChC 08:05PM ET",7.417,"ChC","Mil",0,11.7,10.3,8.8,"3","3",10

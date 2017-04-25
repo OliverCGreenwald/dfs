@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7600,"TB@NYY 01:05PM ET",0,"TB","NYY",NA,NA,NA,NA,NA,NA,NA
 "1B/OF","Wil Myers",5300,"SD@Col 03:10PM ET",12.625,"SD","Col",10.29,12.3,10.43,10.4,"x","2",18
 "3B","Nolan Arenado",5300,"SD@Col 03:10PM ET",9.25,"Col","SD",10.32,10.7,11.61,11.1,"x","4",4
 "OF","Carlos Gonzalez",5200,"SD@Col 03:10PM ET",3.286,"Col","SD",10.02,11.1,11.08,11.1,"x","3",7

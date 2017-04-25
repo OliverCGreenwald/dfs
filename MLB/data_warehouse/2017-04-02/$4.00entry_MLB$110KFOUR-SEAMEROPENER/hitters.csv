@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7200,"NYY@TB 01:10PM ET",8.713,"TB","NYY",NA,NA,NA,NA,NA,NA,NA
 "1B","Anthony Rizzo",4900,"ChC@StL 08:35PM ET",9.237,"ChC","StL",NA,9.3,NA,NA,"3","3",3
 "3B/OF","Kris Bryant",4800,"ChC@StL 08:35PM ET",9.953,"ChC","StL",NA,7.7,NA,NA,"2","2",0
 "1B","Paul Goldschmidt",4600,"SF@Ari 04:10PM ET",9.88,"Ari","SF",NA,9.6,NA,NA,"3","3",8

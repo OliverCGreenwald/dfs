@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7900,"NYY@TB 07:10PM ET",8.713,"TB","NYY",NA,NA,NA,NA,NA,NA,NA
 "OF","Mookie Betts",5200,"Pit@Bos 07:10PM ET",10.46,"Bos","Pit",NA,0,9.93,NA,"3","x",NA
 "OF","Mike Trout",5200,"LAA@Oak 10:05PM ET",10.447,"LAA","Oak",8.37,10.1,10.62,NA,"3","3",10
 "3B","Josh Donaldson",5100,"Tor@Bal 07:05PM ET",10.03,"Tor","Bal",7.82,8.9,9.26,NA,"2","2",3
@@ -76,7 +75,6 @@
 "1B","Brandon Belt",4000,"SF@Ari 09:40PM ET",7.714,"SF","Ari",7.52,9.3,9.23,NA,"2","2",24
 "3B","Jake Lamb",4000,"SF@Ari 09:40PM ET",8,"Ari","SF",5.23,6.7,8.13,NA,"4","4",7
 "3B/SS","Eduardo Nunez",4000,"SF@Ari 09:40PM ET",8.368,"SF","Ari",5.96,8.8,8.38,NA,"6","6",13
-"P","Tayron Guerrero",4000,"Mia@Was 07:05PM ET",0.1,"Mia","Was",NA,NA,NA,NA,NA,NA,NA
 "OF","Kevin Pillar",3900,"Tor@Bal 07:05PM ET",6.115,"Tor","Bal",5.05,6.4,6.21,NA,"8","9",3
 "1B","Albert Pujols",3900,"LAA@Oak 10:05PM ET",8.118,"LAA","Oak",6.23,8,7.74,NA,"4","4",5
 "1B/OF","Eric Thames",3900,"Col@Mil 08:10PM ET",0,"Mil","Col",6.25,10.2,8.73,NA,"2","2",17

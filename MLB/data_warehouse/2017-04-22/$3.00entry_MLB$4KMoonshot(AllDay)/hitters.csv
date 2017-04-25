@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7900,"Hou@TB 06:10PM ET",0,"TB","Hou",NA,NA,NA,NA,NA,NA,NA
 "OF","Mookie Betts",5300,"Bos@Bal 07:05PM ET",9,"Bos","Bal",9.53,8.8,9.76,8.8,"3","3",0
 "OF","Mike Trout",5200,"Tor@LAA 09:07PM ET",10.368,"LAA","Tor",10.61,9.7,11.95,9.8,"3","3",14
 "OF","Bryce Harper",5200,"Was@NYM 04:05PM ET",14.938,"Was","NYM",9.14,9.4,8.19,8.5,"3","3",8

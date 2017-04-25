@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",8100,"Tor@TB 07:10PM ET",8.713,"TB","Tor",NA,NA,NA,NA,NA,NA,NA
 "1B","Paul Goldschmidt",5200,"SF@Ari 09:40PM ET",9.88,"Ari","SF",8.64,8.7,10.33,NA,"3","3",19
 "2B","Jose Altuve",4900,"Sea@Hou 08:10PM ET",10.043,"Hou","Sea",9.78,9.3,9.91,NA,"3","3",3
 "SS","Carlos Correa",4800,"Sea@Hou 08:10PM ET",8.301,"Hou","Sea",8.52,8.3,9.12,NA,"4","4",2

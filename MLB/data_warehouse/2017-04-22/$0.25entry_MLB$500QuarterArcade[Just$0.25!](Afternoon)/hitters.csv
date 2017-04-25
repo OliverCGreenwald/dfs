@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7900,"Hou@TB 06:10PM ET",0,"TB","Hou",NA,NA,NA,NA,NA,NA,NA
 "OF","Bryce Harper",5200,"Was@NYM 04:05PM ET",14.938,"Was","NYM",9.14,9.4,8.19,8.5,"3","3",8
 "2B","Brian Dozier",5000,"Det@Min 02:10PM ET",7.8,"Min","Det",8.89,9.7,9.96,10.4,"1","1",10
 "1B","Miguel Cabrera",4900,"Det@Min 02:10PM ET",7.5,"Det","Min",9.25,9.7,2.13,0,"3","x",NA

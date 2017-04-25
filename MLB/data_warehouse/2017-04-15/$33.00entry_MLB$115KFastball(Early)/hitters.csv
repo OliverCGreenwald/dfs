@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",6600,"TB@Bos 04:05PM ET",0,"TB","Bos",NA,NA,NA,NA,NA,NA,NA
 "1B","Anthony Rizzo",5100,"Pit@ChC 02:20PM ET",7.2,"ChC","Pit",10.35,12.1,10.7,9.5,"3","3",12
 "3B","Josh Donaldson",5100,"Bal@Tor 01:07PM ET",8.333,"Tor","Bal",NA,0,NA,0,"x","x",NA
 "OF","Mookie Betts",5100,"TB@Bos 04:05PM ET",5.714,"Bos","TB",7.79,10.6,10.52,9.2,"3","3",0

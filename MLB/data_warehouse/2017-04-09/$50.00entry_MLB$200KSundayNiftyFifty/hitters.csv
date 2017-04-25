@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7800,"Tor@TB 01:10PM ET",0,"TB","Tor",NA,NA,NA,NA,NA,NA,NA
 "C","Gary Sanchez",5100,"NYY@Bal 01:35PM ET",6,"NYY","Bal",NA,0,NA,0,"x","x",NA
 "1B","Anthony Rizzo",5100,"ChC@Mil 02:10PM ET",4.75,"ChC","Mil",10.57,11.1,9.21,8.8,"3","3",NA
 "3B/SS","Manny Machado",5000,"NYY@Bal 01:35PM ET",8.667,"Bal","NYY",9.42,9,8.88,9.2,"3","3",NA

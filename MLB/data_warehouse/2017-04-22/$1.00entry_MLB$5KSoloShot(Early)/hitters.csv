@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",7900,"Hou@TB 06:10PM ET",0,"TB","Hou",NA,NA,NA,NA,NA,NA,NA
 "OF","Bryce Harper",5200,"Was@NYM 04:05PM ET",14.938,"Was","NYM",9.14,9.4,8.19,8.5,"3","3",8
 "1B","Anthony Rizzo",5100,"ChC@Cin 01:10PM ET",8.813,"ChC","Cin",6.82,9.4,9.36,9.5,"3","3",29
 "3B","Kris Bryant",5100,"ChC@Cin 01:10PM ET",8.75,"ChC","Cin",10.62,10.7,9.34,11.3,"2","2",11

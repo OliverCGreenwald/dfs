@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Batting_Order_Projected","Batting_Order_Confirmed","Actual_fpts"
-"P","Jose De Leon",6500,"TB@Bal 07:05PM ET",0,"TB","Bal",NA,NA,NA,NA,NA,NA,NA
 "OF","Bryce Harper",6100,"Was@Col 08:40PM ET",14.278,"Was","Col",9.56,11.4,11.38,8.7,"3","x",NA
 "2B","Daniel Murphy",5600,"Was@Col 08:40PM ET",8.944,"Was","Col",9.49,9.4,10.08,7.7,"4","4",0
 "3B","Nolan Arenado",5600,"Was@Col 08:40PM ET",10.316,"Col","Was",10.59,11.5,11.57,9,"3","3",10
