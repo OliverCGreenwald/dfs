@@ -39,7 +39,7 @@
 "SP","Jon Gray",8000,"Col@Mil 08:10PM ET",16.779,"Col","Mil",NA,NA,NA,NA,NA
 "SP","Mike Foltynewicz",8000,"Atl@NYM 07:10PM ET",14.45,"Atl","NYM",NA,NA,NA,NA,NA
 "SP","Hisashi Iwakuma",8000,"Sea@Hou 08:10PM ET",14.011,"Sea","Hou",NA,NA,NA,NA,NA
-"P","Jose De Leon",7900,"NYY@TB 07:10PM ET",8.713,"TB","NYY",NA,NA,NA,NA,NA
+"SP","Jose De Leon",7900,"NYY@TB 07:10PM ET",8.713,"TB","NYY",NA,NA,NA,NA,NA
 "SP","Matt Harvey",7900,"Atl@NYM 07:10PM ET",11.429,"NYM","Atl",NA,NA,NA,NA,NA
 "SP","Anthony DeSclafani",7900,"Phi@Cin 07:10PM ET",17.305,"Cin","Phi",NA,NA,NA,NA,NA
 "SP","Jharel Cotton",7800,"LAA@Oak 10:05PM ET",18.32,"Oak","LAA",16.28,14.8,15.487,NA,1.75
@@ -393,7 +393,7 @@
 "RP","Steve Hathaway",4000,"SF@Ari 09:40PM ET",1.358,"Ari","SF",NA,NA,NA,NA,NA
 "RP","Silvino Bracho",4000,"SF@Ari 09:40PM ET",0.888,"Ari","SF",NA,NA,NA,NA,NA
 "RP","Jimmie Sherfy",4000,"SF@Ari 09:40PM ET",0,"Ari","SF",NA,NA,NA,NA,NA
-"P","Tayron Guerrero",4000,"Mia@Was 07:05PM ET",0.1,"Mia","Was",NA,NA,NA,NA,NA
+"SP","Tayron Guerrero",4000,"Mia@Was 07:05PM ET",0.1,"Mia","Was",NA,NA,NA,NA,NA
 "RP","Oliver Perez",4000,"Mia@Was 07:05PM ET",1.746,"Was","Mia",NA,NA,0.7185,NA,NA
 "RP","Dustin McGowan",4000,"Mia@Was 07:05PM ET",3.425,"Mia","Was",NA,NA,0.443,NA,NA
 "RP","Joe Blanton",4000,"Mia@Was 07:05PM ET",3.556,"Was","Mia",NA,NA,0.927,NA,NA

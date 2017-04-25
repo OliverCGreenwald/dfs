@@ -44,9 +44,12 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   temp.dksalaries$Temp_Team1 <- NULL
   temp.dksalaries$Temp_Team2 <- NULL
   
+  # change P to SP
+  temp.dksalaries$Position[temp.dksalaries$Position=="P"] <- "SP"
+  
   # split into hitters and pitchers
-  temp.dksalaries.hitters <- temp.dksalaries[!(temp.dksalaries$Position %in% c("SP", "RP", "P")), ]
-  temp.dksalaries.pitchers <- temp.dksalaries[temp.dksalaries$Position %in% c("SP", "RP", "P"), ]
+  temp.dksalaries.hitters <- temp.dksalaries[!(temp.dksalaries$Position %in% c("SP", "RP")), ]
+  temp.dksalaries.pitchers <- temp.dksalaries[temp.dksalaries$Position %in% c("SP", "RP"), ]
   remove(temp.dksalaries) # don't need original df anymore
   
   
