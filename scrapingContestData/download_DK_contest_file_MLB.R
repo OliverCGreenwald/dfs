@@ -22,14 +22,23 @@ download_DK_contest_file_MLB <- function(contest_number, date, contest_name) {
   browseURL(paste0('https://www.draftkings.com/contest/exportfullstandingscsv/', contest_number))
   setwd('~/Downloads')
   
-  #For Alans computer run this line:
+  # Difference is due to Default Brower being Chrome vs. Safari for Alan and Michael Respectively.
+  #For Alans computer run this line: 
   if(original_wd != "/Users/Michael/Projects/DFS") {
+    while(!file.exists(paste0("contest-standings-", contest_number, ".zip"))){
+      Sys.sleep(1)
+    }
     unzip(paste0("contest-standings-", contest_number, ".zip"))
+    file.remove(paste0("contest-standings-", contest_number, ".zip"))
+    
+    # Michael's Computer runs this line
+  } else {
+    while(!file.exists(paste0("contest-standings-", contest_number, ".csv"))){
+      Sys.sleep(1)
+    }
   }
   
-  while(!file.exists(paste0("contest-standings-", contest_number, ".csv"))){
-    Sys.sleep(1)
-  }
+  
   contest <- read.csv(paste0("contest-standings-", contest_number, ".csv"), stringsAsFactors = F)
   file.remove(paste0("contest-standings-", contest_number, ".csv"))
   setwd(original_wd)
