@@ -19,15 +19,17 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
-createRollingCovarianceMatrix <- function(date.start, date.end) {
+createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df) {
   ####### Import Libraries #######
   library(stringr)
   
+  # date sequence
+  dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
   
+  # aggregate all past players if NULL, otherwise only players in contest
   ####### Aggregate All Player Data for Each Day #######
   # load contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-  dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
   list_all_players <- NULL
   for (d in 1:length(dates)) {
     # subset contest_info by date
@@ -41,8 +43,12 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
       
       temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
       temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
-      
-      temp_players_day <- rbind(temp_hitters, temp_pitchers)
+      if (is.null(julia_hitter_df)) {
+        temp_players_day <- rbind(temp_hitters, temp_pitchers) 
+      } else {
+        temp_players_day <- temp_hitters
+        temp_players_day <- temp_players_day[paste0(temp_players_day$Name, temp_players_day$teamAbbrev) %in% paste0(julia_hitter_df$Name, julia_hitter_df$teamAbbrev), ]
+      }
       temp_players_day$Date <- dates[d]
       list_players_day <- rbind(list_players_day, temp_players_day)
     }
@@ -56,7 +62,12 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
   ####### Construct Matrix of Historical Fpts #######
   # list of unique player names and their position
   temp_names <- paste0(list_all_players$Name, "_", list_all_players$teamAbbrev)
-  names_unique_players <- unique(temp_names)
+  if (is.null(julia_hitter_df)) {
+    names_unique_players <- unique(temp_names)
+  } else {
+    # unique(temp_names)
+    names_unique_players <- paste0(julia_hitter_df$Name, "_", julia_hitter_df$teamAbbrev) # must match order of julia_hitter_df (this line should be equivlaent to running unique(temp_names) but different order)
+  }
   
   # initialize historical fpts matrix
   hist_fpts_mat <- as.data.frame(matrix(data = NA, nrow = length(names_unique_players), ncol = length(dates)))
@@ -103,13 +114,15 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
   rownames(hist_fpts_mat) <- names_unique_players
   
   # remove rows with NA count > round(length(dates)*0.7)
-  inds.remove <- NULL
-  for (i in 1:nrow(hist_fpts_mat)) {
-    if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.7)) {
-      inds.remove <- c(inds.remove, i)
+  if (is.null(julia_hitter_df)) {
+    inds.remove <- NULL
+    for (i in 1:nrow(hist_fpts_mat)) {
+      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.7)) {
+        inds.remove <- c(inds.remove, i)
+      }
     }
+    hist_fpts_mat <- hist_fpts_mat[-inds.remove,] 
   }
-  hist_fpts_mat <- hist_fpts_mat[-inds.remove,]
   
   
   ####### Construct Covariance Matrix #######
@@ -232,4 +245,11 @@ createRollingCovarianceMatrix <- function(date.start, date.end) {
 # debug
 # date.start = "2017-04-02"
 # date.end = "2017-04-04"
+#
+# julia_input_df = NULL
+# contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
+# i = 10
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
+# date.end = contest_info$Contest_Date[i]
+
 
