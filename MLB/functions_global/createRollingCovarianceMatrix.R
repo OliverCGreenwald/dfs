@@ -47,7 +47,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
         temp_players_day <- rbind(temp_hitters, temp_pitchers) 
       } else {
         temp_players_day <- temp_hitters
-        temp_players_day <- temp_players_day[paste0(temp_players_day$Name, temp_players_day$teamAbbrev) %in% paste0(julia_hitter_df$Name, julia_hitter_df$teamAbbrev), ]
+        # match hitters from the julia input file
+        # temp_players_day <- temp_players_day[paste0(temp_players_day$Name, temp_players_day$teamAbbrev) %in% paste0(julia_hitter_df$Name, julia_hitter_df$teamAbbrev), ] # this generally should be an unnecessary check
       }
       temp_players_day$Date <- dates[d]
       list_players_day <- rbind(list_players_day, temp_players_day)
@@ -251,5 +252,10 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
 # i = 10
 # julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
 # date.end = contest_info$Contest_Date[i]
+
+date.start = "2017-04-02"
+date.end <- "2017-04-08"
+julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", date.end,"/" , "$5.00entry_MLB$10KKnuckleball", "/hitters.csv"), stringsAsFactors = F, header = T)
+
 
 
