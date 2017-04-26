@@ -55,35 +55,39 @@ write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/co
 
 
 ####### Create Covariance Matrices for a Given Day's Contests #######
-# end date in covariance matrix function
-dates_last <- Sys.Date() - 2
-
-# load contest info file
-contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-
-# subset by date
-date_last <- dates_last[d]
-contest_info <- contest_info[contest_info$Contest_Date==as.Date(date_last),]
-
-for (i in 1:nrow(contest_info)) {
-  # read in julia input file for this date
-  temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
-  
-  # construct covariance and counts matrices
-  cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df)
-  cov_mat <- cov.dat[[1]]
-  cov_mat_counts <- cov.dat[[2]]
-  
-  # set NAs to 0 in covariance matrix for julia code
-  cov_mat[is.na(cov_mat)] <- 0
-  cov_mat_counts[is.na(cov_mat_counts)] <- 0
-  
-  # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
-  write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
-  write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
-  
-  print(paste0(date_last, " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))
-}
+# # end date in covariance matrix function
+# dates_last <- Sys.Date() - 2
+# 
+# # load contest info file
+# contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
+# 
+# # subset by date
+# date_last <- dates_last[d]
+# contest_info <- contest_info[contest_info$Contest_Date==as.Date(date_last),]
+# 
+# for (i in 1:nrow(contest_info)) {
+#   # read in julia input file for this date
+#   temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
+#   
+#   # construct covariance and counts matrices
+#   cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df)
+#   cov_mat <- cov.dat[[1]]
+#   cov_mat_counts <- cov.dat[[2]]
+#   
+#   # set NAs to 0 in covariance matrix for julia code
+#   cov_mat[is.na(cov_mat)] <- 0
+#   cov_mat_counts[is.na(cov_mat_counts)] <- 0
+#   
+#   # copy upper triangle of cov matrix into lower triangle
+#   cov_mat[lower.tri(cov_mat)] <- t(cov_mat)[lower.tri(cov_mat)]
+#   cov_mat_counts[lower.tri(cov_mat_counts)] <- t(cov_mat_counts)[lower.tri(cov_mat_counts)]
+#   
+#   # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
+#   write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
+#   write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
+#   
+#   print(paste0(date_last, " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))
+# }
 
 # loop through days if desired
 dates_last <- seq(from = as.Date("2017-04-04"), to = Sys.Date() - 2, by = "day") # Sys.Date() - 2
@@ -107,6 +111,10 @@ for (d in 1:length(dates_last)) {
     # set NAs to 0 in covariance matrix for julia code
     cov_mat[is.na(cov_mat)] <- 0
     cov_mat_counts[is.na(cov_mat_counts)] <- 0
+    
+    # copy upper triangle of cov matrix into lower triangle
+    cov_mat[lower.tri(cov_mat)] <- t(cov_mat)[lower.tri(cov_mat)]
+    cov_mat_counts[lower.tri(cov_mat_counts)] <- t(cov_mat_counts)[lower.tri(cov_mat_counts)]
     
     # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
     write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
