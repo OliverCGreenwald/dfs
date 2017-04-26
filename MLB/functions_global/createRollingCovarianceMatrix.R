@@ -155,7 +155,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
     
     # function for computing covariance, excluding when players not on same team
     only_keep_teammates <- function(row) {
-      if (row[1] %% row[2] == 0) {
+      if (row[1] %% row[2] == 0 & row[2] %% 10 == 0) {
         # print(paste0("Index ", row[1], ", ", row[2], " / (", nrow(cov_mat), ", ", ncol(cov_mat), ")", " Completed"))
         print(paste0("Column ", row[2], " / ", nrow(cov_mat), " Completed"))
       }
