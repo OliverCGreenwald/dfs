@@ -65,10 +65,9 @@ contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFact
 contest_info <- contest_info[contest_info$Contest_Date==as.Date(date_last+1),]
 
 for (i in 1:nrow(contest_info)) {
-  print(paste0(date_last, " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))
-  
   # read in julia input file for this date
   temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
+  print(paste0("Begin (Contest ", i, " / ", nrow(contest_info),"): ", date_last, " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
 
   # construct covariance and counts matrices
   cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df)
@@ -86,6 +85,8 @@ for (i in 1:nrow(contest_info)) {
   # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
   write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
   write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
+  
+  print(paste0("Completed: ", date_last, " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))
 }
 
 # loop through days if desired
