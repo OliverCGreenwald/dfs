@@ -122,7 +122,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
         inds.remove <- c(inds.remove, i)
       }
     }
-    hist_fpts_mat <- hist_fpts_mat[-inds.remove,] 
+    hist_fpts_mat <- hist_fpts_mat[-inds.remove,]
   }
   
   
@@ -155,6 +155,10 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
     
     # function for computing covariance, excluding when players not on same team
     only_keep_teammates <- function(row) {
+      if (row[1] %% row[2] == 0) {
+        # print(paste0("Index ", row[1], ", ", row[2], " / (", nrow(cov_mat), ", ", ncol(cov_mat), ")", " Completed"))
+        print(paste0("Column ", row[2], " / ", nrow(cov_mat), " Completed"))
+      }
       team_player_a <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(row[1])] # team of player a
       team_player_b <- str_split_fixed(rownames(hist_fpts_mat), "_", 2)[,2][as.numeric(row[2])] # team of player b
       if (team_player_a != team_player_b) {
@@ -185,6 +189,9 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   cov_mat <- as.data.frame(outer(1:nrow(cov_mat), 1:ncol(cov_mat), FUN=fill_cov_mat))
   colnames(cov_mat) <- rownames(hist_fpts_mat)
   rownames(cov_mat) <- rownames(hist_fpts_mat)
+  
+  # copy upper triangle of cov matrix into lower triangle
+  cov_mat[lower.tri(cov_mat)] <- t(cov_mat)[lower.tri(cov_mat)]
   
   
   # function to construct counts matrix (fast way)
@@ -237,6 +244,9 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   colnames(cov_mat_counts) <- rownames(hist_fpts_mat)
   rownames(cov_mat_counts) <- rownames(hist_fpts_mat)
   
+  # copy upper triangle of cov matrix into lower triangle
+  cov_mat_counts[lower.tri(cov_mat_counts)] <- t(cov_mat_counts)[lower.tri(cov_mat_counts)]
+  
   
   # return covariance matrix and counts matrix
   return(list(cov_mat, cov_mat_counts))
@@ -253,9 +263,9 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
 # julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
 # date.end = contest_info$Contest_Date[i]
 
-date.start = "2017-04-02"
-date.end <- "2017-04-08"
-julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", date.end,"/" , "$5.00entry_MLB$10KKnuckleball", "/hitters.csv"), stringsAsFactors = F, header = T)
+# date.start = "2017-04-02"
+# date.end <- "2017-04-08"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", date.end,"/" , "$5.00entry_MLB$10KKnuckleball", "/hitters.csv"), stringsAsFactors = F, header = T)
 
 
 
