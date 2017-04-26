@@ -90,7 +90,8 @@ write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/co
 # }
 
 # loop through days if desired
-dates_last <- seq(from = as.Date("2017-04-04"), to = as.Date("2017-04-08"), by = "day") # Sys.Date() - 2
+# dates_last <- seq(from = as.Date("2017-04-09"), to = Sys.Date() - 2, by = "day") # Sys.Date() - 2
+dates_last <- seq(from = as.Date("2017-04-24"), to = as.Date("2017-04-24"), by = "day") # Sys.Date() - 2
 for (d in 1:length(dates_last)) {
   # load contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
