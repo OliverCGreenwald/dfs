@@ -32,6 +32,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
   list_all_players <- NULL
   for (d in 1:length(dates)) {
+    # print(dates[d])
+    
     # subset contest_info by date
     temp_contest_info <- contest_info[contest_info$Contest_Date==dates[d],]
     
@@ -61,6 +63,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   
   
   ####### Construct Matrix of Historical Fpts #######
+  # print("Constructing Historical Fpts Matrix...")
+  
   # list of unique player names and their position
   temp_names <- paste0(list_all_players$Name, "_", list_all_players$teamAbbrev)
   if (is.null(julia_hitter_df)) {
@@ -93,6 +97,10 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
     
     # find row index in list_all_players corresponding to the (x_i, y_i) element of the desired matrix (faster way)
     find_row_index <- function(row) {
+      if (as.numeric(row[1]) %% as.numeric(row[2]) == 0) {
+        print(paste0(row[1], ", ", row[2]))
+      }
+      
       temp_inds_match_name <- which(temp_teamabbrev_all==row[3]) # note: not hard coded
       temp_inds_match_date <- which(list_all_players$Date==row[4]) # note: not hard coded
       temp_ind_match <- temp_inds_match_name[temp_inds_match_name %in% temp_inds_match_date] # matched row index in list_all_players
@@ -127,6 +135,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   
   
   ####### Construct Covariance Matrix #######
+  # print("Constructing covariance matrix...")
+  
   # construct full covariance matrix (misleading bc includes independent events)
   cov_mat_temp <- cov(t(hist_fpts_mat), use = "pairwise.complete.obs") # complete.obs
   
@@ -264,8 +274,10 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
 # date.end = contest_info$Contest_Date[i]
 
 # date.start = "2017-04-02"
-# date.end <- "2017-04-08"
-# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", date.end,"/" , "$5.00entry_MLB$10KKnuckleball", "/hitters.csv"), stringsAsFactors = F, header = T)
+# date.end <- "2017-04-21"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", date.end,"/" , "$2.00entry_MLB$2DoubleUp", "/hitters.csv"), stringsAsFactors = F, header = T)
 
 
-
+# date.start = "2017-04-02"
+# date.end <- Sys.Date()-2
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)

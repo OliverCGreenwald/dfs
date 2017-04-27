@@ -136,7 +136,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.hitters$Batting_Order_Confirmed <- temp.dfn.hitters$Batting.Order..Confirmed.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Batting_Order_Confirmed <- NA
-    stop("Updated DFN file not found.")
+    # stop("Updated DFN file not found.")
   }
   
   

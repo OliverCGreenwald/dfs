@@ -63,7 +63,7 @@ for (d in 1:length(dates_last)) {
   
   # subset by date
   date_last <- dates_last[d] # end date in covariance matrix function
-  print(date_last)
+  print(paste0("End Date in createRollingCovarianceMatrix function: ", date_last))
   contest_info <- contest_info[contest_info$Contest_Date==(as.Date(date_last)+1),] # +1 to avoid look ahead bias
   
   # identify contests that have the same julia input file so that we don't need to run the covariance code multiple times for the same set of players
@@ -97,7 +97,7 @@ for (d in 1:length(dates_last)) {
       }
     }
   }
-  print(paste0("Number of contests with unique hitter.csv files: ", unique(contest_info$Match_ID)))
+  print(paste0("Number of contests with unique hitter.csv files: ", length(unique(contest_info$Match_ID))))
   
   
   # iterate through the contests (only call createRollingCovarianceMatrix when contest's corresponding Match_ID hasn't been run yet)
@@ -105,10 +105,12 @@ for (d in 1:length(dates_last)) {
     # read in julia input file for this date
     temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
     
-    print(paste0("Begin (Contest ", i, " / ", nrow(contest_info),"): ", date_last, " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
+    print(paste0("Begin (Contest ", i, " / ", nrow(contest_info),"): ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
     
     # if contest's hitters corresponding covar mat hasn't been computed already, then do so. else, use an existing covar mat
     if (contest_info$Match_ID[i] %in% contest_info$Match_ID[1:(i-1)] == FALSE | i==1) {
+      print("Constructing covariance matrix for this contest...")
+      
       # construct covariance and counts matrices
       cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df)
       cov_mat <- cov.dat[[1]]
@@ -132,7 +134,7 @@ for (d in 1:length(dates_last)) {
       write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
     }
     
-    print(paste0("Completed: ", date_last, " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))
+    print(paste0("Completed: ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))
   }
 }
 
