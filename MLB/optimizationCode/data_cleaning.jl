@@ -29,7 +29,6 @@ function read_player_data(path_hitters,path_pitchers)
     pitchers = readtable(path_pitchers);
     hitters = readtable(path_hitters);
 
-
     function clean_str(str)
         if str[1]=='@'
             return str[2:end];
@@ -186,7 +185,7 @@ end
 #####################################################################################################################
 #####################################################################################################################
 #this function will create the lineups and save them to a file
-function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters,  path_to_output)
+function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers, path_hitters, path_covar_matrix, covar_lambda, path_to_output)
     #=
     num_lineups is an integer that is the number of lineups
     num_overlap is an integer that gives the overlap between each lineup
@@ -199,10 +198,12 @@ function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_p
     println("loading projection data")
     players =read_player_data(path_hitters,path_pitchers);
 
-    
+    covar_matrix =readtable(path_covar_matrix);
+    num_pitchers = size(readtable(path_pitchers))[1]
     # Number of players
     num_players = size(players)[1]
     println(num_players," players playing tonight")
+
 
 
     # Create team indicators from the information in the players file
@@ -441,19 +442,19 @@ function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_p
            #baseball_formulation(players, old_lineups, num_overlap, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, stack_size)
     old_lineups =  hcat(zeros(Int, num_players), zeros(Int, num_players))
     the_lineup  = formulation(players, old_lineups, num_overlap,stack_size, 
-                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks)
+                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda)
 
     println("Calculating lineup 2 of ", num_lineups)
     old_lineups =hcat(the_lineup, zeros(Int, num_players))
     the_lineup2 = formulation(players, old_lineups, num_overlap,stack_size, 
-                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks)
+                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda)
 
     old_lineups = hcat(the_lineup, the_lineup2)
     for i=1:(num_lineups-2)
         println("Calculating lineup ", i+2, " of ", num_lineups)
         try
             thelineup = formulation(players, old_lineups, num_overlap,stack_size, 
-                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks)
+                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda)
             old_lineups = hcat(old_lineups,thelineup)
         catch
             print("some optimization error")
