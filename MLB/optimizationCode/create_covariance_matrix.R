@@ -64,6 +64,30 @@ contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFact
 # subset by date
 contest_info <- contest_info[contest_info$Contest_Date==as.Date(date_last+1),]
 
+# identify contests that have the same julia input file so that we don't need to run the covariance code multiple times for the same set of players
+contest_info$Match_ID <- NA
+list_contest <- NULL
+for (i in 1:nrow(contest_info)) {
+  # load julia input file
+  temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
+  
+  # if no other hitter dfs in list then add first df to list
+  if (is.null(list_contest)==TRUE) {
+    list_contest[[1]] <- temp_julia_hitter_df
+  } else {
+    for (j in 1:length(list_contest)) {
+      if (sum(!(list_contest[[j]]$Name %in%temp_julia_hitter_df$Name)) == 0) {
+        contest_info$Match_ID[i] <- j
+        break
+      }
+      if (is.na(contest_info$Match_ID[i])==TRUE) {
+        contest_info$Match_ID[i] <- i
+        list_contest[[length(list_contest)+1]] <- temp_julia_hitter_df
+      }
+    }
+  }
+}
+
 for (i in 1:nrow(contest_info)) {
   # read in julia input file for this date
   temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
