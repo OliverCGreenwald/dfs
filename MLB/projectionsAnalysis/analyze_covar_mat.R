@@ -1,3 +1,42 @@
+if(file.exists("~/Projects/DFS/")) {
+  setwd("~/Projects/DFS/")
+} else {
+  setwd("~/Documents/DFS/")
+}
+
+
+####### Description #######
+# Create covariance matrices for any given start and end date.
+
+
+####### Import Functions #######
+source("MLB/functions_global/createRollingCovarianceMatrix.R")
+
+
+####### Construct Covariance and Counts Matrix and Write to CSV file #######
+# dates <- seq(from = Sys.Date()-2, to = Sys.Date()-2, by = "day") # one date
+dates <- seq(from = as.Date("2017-04-04"), to = Sys.Date()-2, by = "day") # range of dates
+
+for (i in 1:length(dates)) {
+  # end date in covariance matrix function
+  date_last <- dates[i]
+  
+  # construct covariance and counts matrices
+  cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL)
+  cov_mat <- cov.dat[[1]]
+  cov_mat_counts <- cov.dat[[2]]
+  
+  # set NAs to 0 in covariance matrix for julia code
+  cov_mat[is.na(cov_mat)] <- 0
+  cov_mat_counts[is.na(cov_mat_counts)] <- 0
+  
+  # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
+  write.csv(cov_mat, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_mat.csv"), row.names = F)
+  write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_counts_mat.csv"), row.names = F)
+  
+  print(date_last+1)
+}
+
 ####### Output Player Pairs with Highest Covariance #######
 # remove the diagonal (variances)
 cov_mat_unique <- cov_mat

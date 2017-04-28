@@ -97,9 +97,9 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
     
     # find row index in list_all_players corresponding to the (x_i, y_i) element of the desired matrix (faster way)
     find_row_index <- function(row) {
-      if (as.numeric(row[1]) %% as.numeric(row[2]) == 0) {
-        print(paste0(row[1], ", ", row[2]))
-      }
+      # if (as.numeric(row[1]) %% as.numeric(row[2]) == 0) {
+      #   print(paste0(row[1], ", ", row[2]))
+      # }
       
       temp_inds_match_name <- which(temp_teamabbrev_all==row[3]) # note: not hard coded
       temp_inds_match_date <- which(list_all_players$Date==row[4]) # note: not hard coded
