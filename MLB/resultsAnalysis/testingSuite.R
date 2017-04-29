@@ -32,5 +32,7 @@ lineups = lapply(temp, read.csv, stringsAsFactors = F)
 
 setwd(original_wd)
 
-lineup <- lineups[[2]]
+lineup <- lineups[[5]]
+
 output <- compute_lineup_fpts(player_performance, payout_structure, lineup, contest_info$Entry_Fee[i])
+View(output[[1]])

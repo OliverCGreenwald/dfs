@@ -24,13 +24,13 @@ num_overlap = 6
 stack_size = 5; 
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
-formulation = formulations.formulation0_covar
+formulation = formulations.formulation1_covar
 # formulation_feasibility
 # formulation0_covar
-
+# formulation1_covar - no stacking
 
 # Covariance term 
-lambda_var = 0.1
+lambda_var = 0.005
 
 ################################################################################################################
 contest_directory_path = string("../data_warehouse/", contest_date, "/", contest_name, "/");
@@ -41,7 +41,7 @@ path_hitters = string(contest_directory_path, "hitters.csv");
 path_covar_matrix = string(contest_directory_path, "covariance_mat.csv"); 
 # path_to_output is a string  that gives the path to the csv file that will give the outputted results
 path_to_output= string(contest_directory_path, "/lineups/",
-                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,".csv"); 
+                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_HOPEFULLY.csv"); 
 
 # path_to_output_proj is a string  that gives the path to the csv file that will give the outputted results with projected lineup points
 #path_to_output_proj = string("proj_baseball_", string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,".csv"); 
@@ -56,7 +56,7 @@ println("Calculating DraftKings baseball linueps.\n ", num_lineups, " lineups\n"
 "\nOverlap = ", num_overlap,"\nStack size = ", stack_size)
 
 
-tic()
+start_time = time_ns()
 
 data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var,  path_to_output);
 
@@ -67,8 +67,8 @@ println("##############################")
 
 println("\nCalculated DraftKings baseball lineups.\n\tNumber of lineups = ", num_lineups, " \n\tStack size = ",stack_size,
 "\n\tOverlap = ", num_overlap,"\n" )
-telapsed = toq();
-println("Took ", telapsed/60.0, " minutes to calculate ", num_lineups, " lineups")
+end_time = time_ns()
+println("Took ", (end_time - start_time)/60e10, " minutes to calculate ", num_lineups, " lineups")
 
 println("Saving data to file ",path_to_output)
 

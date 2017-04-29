@@ -68,11 +68,13 @@ function read_player_data(path_hitters,path_pitchers)
                         Salary=[pitchers[:Salary] ;hitters[:Salary]],
                         Proj_dfn = proj_dfn,
                         Proj_bbm = proj_bbm,
-                        Proj_dfn = proj_rotogrinders,
-                        Proj_bbm = proj_rotowire,
+                        Proj_rotogrinders = proj_rotogrinders,
+                        Proj_rotowire = proj_rotowire,
                         Batting_Order_Confirmed = [round(Int,zeros(size(pitchers)[1])); clean_order(hitters[:Batting_Order_Confirmed])]
                         );
 
+    players = players[players[:Proj_dfn] .> 0,:]
+    writetable("output.csv", players)
     return players;
 end
 
@@ -96,7 +98,7 @@ function createOutputcsvFromTracer(tracer, players, P, C, oneB, twoB, threeB,SS,
         for i =1:num_players
             if tracer[i,j] == 1
                 #println("\tlineup ", j," player ", i, ":", string(players[i,:Player_Name])," ",string(players[i,:Pos]))
-            
+                
                 if P[i]==1  
                     # if player i's position is P
                     if lineup[P_index]==""
