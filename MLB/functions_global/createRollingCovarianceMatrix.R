@@ -23,6 +23,11 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   ####### Import Libraries #######
   library(stringr)
   
+  
+  ###### Import Functions #######
+  source("MLB/functions_global/filterCovarianceMatrix.R")
+  
+  
   # date sequence
   dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
   
@@ -211,7 +216,12 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   # copy upper triangle of cov matrix into lower triangle
   cov_mat[lower.tri(cov_mat)] <- t(cov_mat)[lower.tri(cov_mat)]
   
+  # apply filtering
+  if (!is.null(julia_hitter_df)) {
+    cov_mat <- filterCovarianceMatrix(contest_date = as.Date(date.end)+1, cov_mat_unfiltered = cov_mat)
+  }
   
+  ####### Construct Covariance Counts Matrix #######
   # function to construct counts matrix (fast way)
   fill_cov_counts_mat <- function(x, y) {
     # vectorize indicies for outer function

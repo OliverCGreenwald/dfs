@@ -17,8 +17,8 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <- "2017-04-07" #Sys.Date()
-date.end <- Sys.Date()-1 #Sys.Date()
+date.start <- "2017-04-08" #Sys.Date()
+date.end <- "2017-04-27" #Sys.Date()
 
 
 ####### Section I (player data df) #######
@@ -121,17 +121,23 @@ for (d in 1:length(dates_last)) {
       cov_mat_counts[is.na(cov_mat_counts)] <- 0
       
       # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
-      write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
-      write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
+      # write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
+      # write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
+      write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_test.csv"), row.names = F)
+      write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat_test.csv"), row.names = F)
     } else {
       ind_match <- min(which(contest_info$Match_ID[1:i] %in% contest_info$Match_ID[i]))
       
-      cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_mat.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
-      cov_mat_counts <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_counts_mat.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
+      # cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_mat.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
+      # cov_mat_counts <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_counts_mat.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
+      cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_mat_test.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
+      cov_mat_counts <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_counts_mat_test.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
       
       # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
-      write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
-      write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
+      # write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
+      # write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
+      write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_test.csv"), row.names = F)
+      write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat_test.csv"), row.names = F)
     }
     
     print(paste0("Completed: ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))

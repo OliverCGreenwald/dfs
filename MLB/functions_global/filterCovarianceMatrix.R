@@ -125,30 +125,24 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   legend(x = "topleft", legend = c(rownames(cov_time_temp)), lwd = 1, col = 1:num_top_pairs, cex = 0.5)
   
   ####### Set Players to NA in input covariance matrix #######
+  # get names
   list_player_a <- str_split_fixed(rownames(cov_time_filtered), ", ", 2)[,1]
   list_player_b <- str_split_fixed(rownames(cov_time_filtered), ", ", 2)[,2]
   
-  rownames(cov_time_filtered)
+  # copy
+  cov_mat_filtered <- cov_mat_unfiltered
   
-  for(i in 1:ncol(cov_mat_unfiltered)) {
-    for (j in 1:ncol(cov_mat_unfiltered)) {
-      if (colnames(cov_mat_unfiltered)[i]) {
-        
-      } 
-    }
-  }
-  
-  
-  match_a_inds <- which(colnames(cov_mat_unfiltered) %in% list_player_a)
-  
-  for (i in 1:length(match_a_inds)) {
-    match_b_inds <- which(colnames(cov_mat_unfiltered) %in% list_player_b)
-    colnames(cov_mat_unfiltered)[match_b_inds]
+  for(i in 1:nrow(cov_time_filtered)) {
+    # find inds of players
+    ind_a <- which(colnames(cov_mat_unfiltered)==list_player_a[i])
+    ind_b <- which(colnames(cov_mat_unfiltered)==list_player_b[i])
     
-    colnames(cov_mat_unfiltered)[match_a_inds]
+    # scale up by 25%
+    cov_mat_filtered[ind_a, ind_b] <- cov_mat_filtered[ind_a, ind_b]*1.25
+    cov_mat_filtered[ind_b, ind_a] <- cov_mat_filtered[ind_b, ind_a]*1.25
   }
   
-  which(colnames(cov_mat_unfiltered) %in% list_player_b)
+  return(cov_mat_filtered)
 }
 
 
