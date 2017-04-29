@@ -53,7 +53,7 @@ for (i in 1:n) {
 top_cov_pairs <- top_cov_pairs[top_cov_pairs$Num_Games > (as.Date(contest.date) - as.Date("2017-04-02"))*0.4, ]
 
 # view
-View(top_cov_pairs)
+# View(top_cov_pairs)
 
 
 ####### Compute Covariance of the Top num_top_pairs Pairs (on Latest Date) over Time #######
@@ -86,7 +86,7 @@ for (i in 1:length(dates)) {
 
 ####### Plot Covariance of the Top num_top_pairs Pairs (on Latest Date) over Time #######
 # plotting top pairs
-num_top_pairs <- 10
+num_top_pairs <- 25
 
 # subset cov_time by num_top_pairs
 cov_time_temp <- cov_time[1:num_top_pairs, ]
@@ -104,9 +104,6 @@ legend(x = "topleft", legend = c(rownames(cov_time_temp)), lwd = 1, col = 1:num_
 
 
 ####### Plot covariance (on end_day) vs sum(delta(cov) > threshold) ####### 
-# define threshold
-# threshold <- quantile(top_cov_pairs$Covariance, 0.5)
-
 # initialize and fill change covariance matrix
 cov_time_chg <- cov_time
 cov_time_chg[,] <- NA
@@ -114,25 +111,24 @@ for (i in 1:nrow(cov_time_chg)) {
   cov_time_chg[i,2:ncol(cov_time_chg)] <- cov_time[i,2:ncol(cov_time)] - cov_time[i,1:(ncol(cov_time)-1)]
 }
 
-# 50th percentile of change matrix (> 0)
+# 75th percentile of change matrix (> 0)
 threshold <- quantile(unlist(cov_time_chg[cov_time_chg>0]), na.rm = T, 0.75)
 threshold
 for (i in 1:nrow(cov_time_chg)) {
   if (sum(cov_time_chg[i,] > threshold, na.rm = T) > 1) {
-    cov_time_chg$temp[i] <- T
+    cov_time$temp[i] <- TRUE
   } else {
-    cov_time_chg$temp[i] <- F
+    cov_time$temp[i] <- FALSE
   }
 }
 
 # remove pairs not exceeding change threshold sufficiently much
-cov_time_chg <- cov_time_chg[cov_time_chg$temp==T,]
-
-# plotting top pairs
-num_top_pairs <- 10
+cov_time_filtered <- cov_time[cov_time$temp==TRUE,]
+cov_time$temp <- NULL
+cov_time_filtered$temp <- NULL
 
 # subset cov_time by num_top_pairs
-cov_time_temp <- cov_time[1:num_top_pairs, ]
+cov_time_temp <- cov_time_filtered[1:num_top_pairs, ]
 
 plot(as.numeric(cov_time_temp[1,]), type = 'b', col = 1, ylim = c(min(cov_time_temp, na.rm = T), max(cov_time_temp, na.rm = T)), ylab = "Covariance", xlab = "Days Since 2017-04-05", main = paste0("Top Player Pairs by Covariance (as of ", end_day-1, ")"))
 # plot(as.numeric(cov_time_temp[1,]), type = 'b', col = 1, ylim = c(0, 100), ylab = "Covariance", xlab = "Days Since 2017-04-05", main = paste0("Top Player Pairs by Covariance (as of ", end_day-1, ")"))

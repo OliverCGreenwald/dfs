@@ -135,7 +135,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   } else {
     # set rows with NA count > round(length(dates)*0.5) all to NA
     for (i in 1:nrow(hist_fpts_mat)) {
-      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.8)) {
+      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.6)) {
         hist_fpts_mat[i,] <- NA
       }
     }
