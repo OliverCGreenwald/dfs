@@ -17,14 +17,14 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <- Sys.Date()
-date.end <- Sys.Date()
+date.start <-Sys.Date() #Sys.Date()
+date.end <- Sys.Date() #Sys.Date()
 
 
 ####### Section I (player data df) #######
 print("Creating Player Input Data Dataframe...")
 
-dates <- seq(from = date.start-1, to = date.end-1, by = "day") # one date
+dates <- seq(from = as.Date(date.start)-1, to = as.Date(date.end)-1, by = "day") # one date
 for (d in 1:length(dates)) {
   # load full contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
@@ -56,7 +56,7 @@ for (d in 1:length(dates)) {
 ####### Section II (covariance matrices) #######
 print("Creating covariance matrices...")
 
-dates_last <- seq(from = date.start - 2, to  = date.end - 2, by = "day") # date range
+dates_last <- seq(from = as.Date(date.start) - 2, to  = as.Date(date.end) - 2, by = "day") # date range
 for (d in 1:length(dates_last)) {
   # load contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)

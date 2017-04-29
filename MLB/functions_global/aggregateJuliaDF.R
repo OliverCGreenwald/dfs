@@ -145,14 +145,18 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   }
   
   # set all projections to NA if confirmed batting order is "x" (i.e. will not play)
-  temp.dksalaries.hitters$Projection[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
-  temp.dksalaries.hitters$Projection_dfn[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
-  temp.dksalaries.hitters$Projection_baseballmonster[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
-  temp.dksalaries.hitters$Projection_rotowire[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
+  for (i in 1:nrow(temp.dksalaries.hitters)) {
+    if (temp.dksalaries.hitters$Batting_Order_Projected[i] != "x" & temp.dksalaries.hitters$Batting_Order_Confirmed[i] == "x" & !is.na(temp.dksalaries.hitters$Batting_Order_Projected[i]) & !is.na(temp.dksalaries.hitters$Batting_Order_Confirmed[i])) {
+      temp.dksalaries.hitters$Projection[i] <- NA
+      temp.dksalaries.hitters$Projection_dfn[i] <- NA
+      temp.dksalaries.hitters$Projection_baseballmonster[i] <- NA
+      temp.dksalaries.hitters$Projection_rotowire[i] <- NA
+    }
+  }
   
   # set original DFN projection to updates folder DFN projection if projected was x and later added to batting order (confirmed column not x)
   for (i in 1:nrow(temp.dksalaries.hitters)) {
-    if (!is.na(temp.dksalaries.hitters$Batting_Order_Projected[i]) & temp.dksalaries.hitters$Batting_Order_Projected[i] == "x" & temp.dksalaries.hitters$Batting_Order_Confirmed[i] != "x") {
+    if (temp.dksalaries.hitters$Batting_Order_Projected[i] == "x" & temp.dksalaries.hitters$Batting_Order_Confirmed[i] != "x" & !is.na(temp.dksalaries.hitters$Batting_Order_Projected[i]) & !is.na(temp.dksalaries.hitters$Batting_Order_Confirmed[i])) {
       temp.dksalaries.hitters$Projection_dfn[i] <- temp.dfn.hitters.confirmed$Proj.FP[which(temp.dksalaries.hitters$Name[i]==temp.dfn.hitters.confirmed$Player.Name)]
     }
   }
