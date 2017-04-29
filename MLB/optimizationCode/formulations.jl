@@ -30,7 +30,7 @@ using Gurobi
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation_feasibility(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda)
+function formulation_feasibility(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure)
     
 
     #################################################################################################
@@ -151,7 +151,7 @@ end
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation0_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda)
+function formulation0_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure)
     
 
     #################################################################################################
@@ -271,7 +271,7 @@ end
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation1_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda)
+function formulation1_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
     
 
     #################################################################################################
@@ -348,7 +348,8 @@ function formulation1_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
                    8*sum(P[k] * players_lineup[k] * players_teams[k,g] for k = 1:num_players) + 
                     sum((1 - P[k]) * players_lineup[k] * players_opp[k,g] for k = 1:num_players) <= 8)
 
-    
+    # Exposure Constraint
+    @constraint(m, constr[j=1:num_players], sum(old_lineups[j,i] for i = 1:(size(old_lineups))[2]) + players_lineup[j] <= num_lineups * exposure)
    
 
 

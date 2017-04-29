@@ -30,7 +30,10 @@ formulation = formulations.formulation1_covar
 # formulation1_covar - no stacking
 
 # Covariance term 
-lambda_var = 0.005
+lambda_var = 0.001
+
+# Exposure Constraints
+exposure = 0.7
 
 ################################################################################################################
 contest_directory_path = string("../data_warehouse/", contest_date, "/", contest_name, "/");
@@ -41,7 +44,7 @@ path_hitters = string(contest_directory_path, "hitters.csv");
 path_covar_matrix = string(contest_directory_path, "covariance_mat.csv"); 
 # path_to_output is a string  that gives the path to the csv file that will give the outputted results
 path_to_output= string(contest_directory_path, "/lineups/",
-                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_HOPEFULLY.csv"); 
+                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,".csv"); 
 
 # path_to_output_proj is a string  that gives the path to the csv file that will give the outputted results with projected lineup points
 #path_to_output_proj = string("proj_baseball_", string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,".csv"); 
@@ -58,7 +61,7 @@ println("Calculating DraftKings baseball linueps.\n ", num_lineups, " lineups\n"
 
 start_time = time_ns()
 
-data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var,  path_to_output);
+data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure,  path_to_output);
 
 
 println("##############################")
