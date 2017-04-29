@@ -69,6 +69,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.hitters$Projection <- temp.rotogrinders.hitters$Projections[match(temp.dksalaries.hitters$Name, temp.rotogrinders.hitters$Name)]
   } else {
     temp.dksalaries.hitters$Projection <- NA
+    warning("Rotogrinders projections not found.")
   }
   
   # dfn
@@ -78,6 +79,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.hitters$Projection_dfn <- temp.dfn.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Projection_dfn <- NA
+    warning("DFN projections not found.")
   }
   
   # baseballmonster (fpts manually computed)
@@ -88,6 +90,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.hitters$Projection_baseballmonster  <- temp.baseballmonster.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.baseballmonster.hitters$Name)]
   } else {
     temp.dksalaries.hitters$Projection_baseballmonster <- NA
+    warning("Baseballmonster projections not found.")
   }
   
   # fantasypros
@@ -106,6 +109,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.hitters$Projection_rotowire <- temp.rotowire.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.rotowire.hitters$Full.Name)]
   } else {
     temp.dksalaries.hitters$Projection_rotowire <- NA
+    warning("Rotowire projections not found.")
   }
   
   # rotowire2
@@ -126,19 +130,32 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.hitters$Batting_Order_Projected <- temp.dfn.hitters$Batting.Order..Projected.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Batting_Order_Projected <- NA
+    warning("DFN projections not found.")
   }
   
   # add DFN batting order data (confirmed)
   path.dfn.confirmed <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
   if (file.exists(path.dfn)) {
-    temp.dfn.hitters <- read.csv(file = path.dfn.confirmed, stringsAsFactors = F, header = T)
-    temp.dfn.hitters$Player.Name <- cleanPlayerNames(temp.dfn.hitters$Player.Name)
-    temp.dksalaries.hitters$Batting_Order_Confirmed <- temp.dfn.hitters$Batting.Order..Confirmed.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
+    temp.dfn.hitters.confirmed <- read.csv(file = path.dfn.confirmed, stringsAsFactors = F, header = T)
+    temp.dfn.hitters.confirmed$Player.Name <- cleanPlayerNames(temp.dfn.hitters.confirmed$Player.Name)
+    temp.dksalaries.hitters$Batting_Order_Confirmed <- temp.dfn.hitters.confirmed$Batting.Order..Confirmed.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.confirmed$Player.Name)]
   } else {
     temp.dksalaries.hitters$Batting_Order_Confirmed <- NA
-    # stop("Updated DFN file not found.")
+    warning("Updated DFN file not found.")
   }
   
+  # set all projections to NA if confirmed batting order is "x" (i.e. will not play)
+  temp.dksalaries.hitters$Projection[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
+  temp.dksalaries.hitters$Projection_dfn[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
+  temp.dksalaries.hitters$Projection_baseballmonster[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
+  temp.dksalaries.hitters$Projection_rotowire[temp.dksalaries.hitters$Batting_Order_Confirmed=="x"] <- NA
+  
+  # set original DFN projection to updates folder DFN projection if projected was x and later added to batting order (confirmed column not x)
+  for (i in 1:nrow(temp.dksalaries.hitters)) {
+    if (!is.na(temp.dksalaries.hitters$Batting_Order_Projected[i]) & temp.dksalaries.hitters$Batting_Order_Projected[i] == "x" & temp.dksalaries.hitters$Batting_Order_Confirmed[i] != "x") {
+      temp.dksalaries.hitters$Projection_dfn[i] <- temp.dfn.hitters.confirmed$Proj.FP[which(temp.dksalaries.hitters$Name[i]==temp.dfn.hitters.confirmed$Player.Name)]
+    }
+  }
   
   ####### Load projection Sources, Clean, and Add to DKSalaries DF (Pitchers) #######
   # projection file paths
@@ -156,6 +173,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.pitchers$Projection <- temp.rotogrinders.pitchers$Projections[match(temp.dksalaries.pitchers$Name, temp.rotogrinders.pitchers$Name)]
   } else {
     temp.dksalaries.pitchers$Projection <- NA
+    warning("Rotogrinders projections not found.")
   }
   
   # dfn
@@ -165,6 +183,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.pitchers$Projection_dfn <- temp.dfn.pitchers$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers$Player.Name)]
   } else {
     temp.dksalaries.pitchers$Projection_dfn <- NA
+    warning("DFN projections not found.")
   }
   
   # baseballmonster
@@ -194,6 +213,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.pitchers$Projection_rotowire <- temp.rotowire.pitchers$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.rotowire.pitchers$Full.Name)]
   } else {
     temp.dksalaries.pitchers$Projection_rotowire <- NA
+    warning("Rotowire projections not found.")
   }
   
   # rotowire2
@@ -234,8 +254,12 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.actual.fpts$Player <- cleanPlayerNames(temp.actual.fpts$Player)
     temp.dksalaries.hitters$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.hitters$Name, temp.actual.fpts$Player)]
     temp.dksalaries.pitchers$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.pitchers$Name, temp.actual.fpts$Player)]
+    if (sum(is.na(temp.dksalaries.pitchers$Actual_fpts))==length(temp.dksalaries.pitchers$Actual_fpts)) {
+      warning("All Actual_fpts elements are NA.")
+    }
   } else {
     temp.dksalaries.hitters$Actual_fpts <- NA
+    warning("Fantasy Cruncher player_results.csv not found.")
   }
   
   # return

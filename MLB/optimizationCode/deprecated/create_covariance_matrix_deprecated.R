@@ -15,7 +15,7 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 ####### Construct Covariance and Counts Matrix and Write to CSV file #######
 # dates <- seq(from = Sys.Date()-2, to = Sys.Date()-2, by = "day") # one date
-# dates <- seq(from = as.Date("2017-04-08"), to = as.Date("2017-04-08"), by = "day") # one date
+# dates <- seq(from = as.Date("2017-04-25"), to = as.Date("2017-04-25"), by = "day") # one date
 dates <- seq(from = as.Date("2017-04-04"), to = Sys.Date()-3, by = "day") # range of dates
 
 for (i in 1:length(dates)) {
@@ -35,7 +35,7 @@ for (i in 1:length(dates)) {
   write.csv(cov_mat, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_mat.csv"), row.names = F)
   write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_counts_mat.csv"), row.names = F)
 
-  print(date_last)
+  print(date_last+1)
 }
 
 

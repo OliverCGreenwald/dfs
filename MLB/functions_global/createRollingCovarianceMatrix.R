@@ -122,15 +122,23 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   colnames(hist_fpts_mat) <- dates
   rownames(hist_fpts_mat) <- names_unique_players
   
-  # remove rows with NA count > round(length(dates)*0.7)
+  # adjust for NAs
   if (is.null(julia_hitter_df)) {
+    # remove rows with NA count > round(length(dates)*0.5)
     inds.remove <- NULL
     for (i in 1:nrow(hist_fpts_mat)) {
-      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.7)) {
+      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.8)) {
         inds.remove <- c(inds.remove, i)
       }
     }
     hist_fpts_mat <- hist_fpts_mat[-inds.remove,]
+  } else {
+    # set rows with NA count > round(length(dates)*0.5) all to NA
+    for (i in 1:nrow(hist_fpts_mat)) {
+      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.8)) {
+        hist_fpts_mat[i,] <- NA
+      }
+    }
   }
   
   
@@ -281,3 +289,10 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
 # date.start = "2017-04-02"
 # date.end <- Sys.Date()-2
 # julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
+
+# date.start = "2017-04-02"
+# date.end = "2017-04-25"
+# julia_hitter_df = NULL
+
+
+

@@ -56,7 +56,7 @@ for (d in 1:length(dates)) {
 ####### Section II (covariance matrices) #######
 print("Creating covariance matrices...")
 
-dates_last <- seq(from = date.start - 2, to = date.end - 2, by = "day") # date range
+dates_last <- seq(from = date.start - 2, to  = date.end - 2, by = "day") # date range
 for (d in 1:length(dates_last)) {
   # load contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
