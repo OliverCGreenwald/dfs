@@ -11,7 +11,7 @@ if(file.exists("~/Projects/DFS/")) {
 contest_date <- "2017-04-21"
 entry_fee <- "$33.00"
 contest_name <- "MLB$300KFastball"
-lineup_file <- "formulations.formulation_feasibility_stacksize_5_overlap_6_lineups_150"
+lineup_file <- "formulations.formulation1_covar_stacksize_5_overlap_6_lineups_150_lambda_0.001_exposure_0.4"
 lineup.data <- read.csv(file = paste0("MLB/data_warehouse/", contest_date,"/" , paste0(entry_fee,"entry_",gsub(" ", "", contest_name)), "/lineups/", lineup_file, ".csv"), stringsAsFactors = F, header = T)
 
 # All players

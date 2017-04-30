@@ -21,19 +21,20 @@ num_lineups = 150;
 num_overlap = 6
 
 #number of hitters in the stack (number of consecutive hitters in the hitting order)
-stack_size = 5; 
+stack_size = 4; 
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
-formulation = formulations.formulation1_covar
+formulation = formulations.formulation2_covar
 # formulation_feasibility
 # formulation0_covar
 # formulation1_covar - no stacking
+# formulation2_covar - stacking
 
 # Covariance term 
-lambda_var = 0.001
+lambda_var = 0.005
 
 # Exposure Constraints
-exposure = 0.7
+exposure = 0.6
 
 ################################################################################################################
 contest_directory_path = string("../data_warehouse/", contest_date, "/", contest_name, "/");
@@ -55,25 +56,62 @@ path_to_output= string(contest_directory_path, "/lineups/",
 
 #########################################################################
 # Running the code
-println("Calculating DraftKings baseball linueps.\n ", num_lineups, " lineups\n","Formulation  ",formulation,
-"\nOverlap = ", num_overlap,"\nStack size = ", stack_size)
+
+# println("Calculating DraftKings baseball linueps.\n ", num_lineups, " lineups\n","Formulation  ",formulation,
+# "\nOverlap = ", num_overlap,"\nStack size = ", stack_size)
+
+# start_time = time_ns()
+
+# data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure,  path_to_output);
 
 
-start_time = time_ns()
+# println("##############################")
+# println("###### Finished Lineups ######")
+# println("##############################")
 
-data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure,  path_to_output);
+# println("\nCalculated DraftKings baseball lineups.\n\tNumber of lineups = ", num_lineups, " \n\tStack size = ",stack_size,
+# "\n\tOverlap = ", num_overlap,"\n" )
+# end_time = time_ns()
+# println("Took ", (end_time - start_time)/60e10, " minutes to calculate ", num_lineups, " lineups")
+
+# println("Saving data to file ",path_to_output)
+
+for z in 3:9 
+    for k in 1:5 #stack
+        for i in 1:9 #temp line
+            for j in 3:9 # time line
+                num_overlap = z
+
+                stack_size = k
+
+                # Covariance term 
+                lambda_var = 0.001 * i
+
+                # Exposure Constraints
+                exposure = 0.1 * j
+
+                path_to_output= string(contest_directory_path, "/lineups/",
+                               string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,".csv"); 
+
+                start_time = time_ns()
+
+                data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure,  path_to_output);
 
 
-println("##############################")
-println("###### Finished Lineups ######")
-println("##############################")
+                println("##############################")
+                println("###### Finished Lineups ######")
+                println("##############################")
 
-println("\nCalculated DraftKings baseball lineups.\n\tNumber of lineups = ", num_lineups, " \n\tStack size = ",stack_size,
-"\n\tOverlap = ", num_overlap,"\n" )
-end_time = time_ns()
-println("Took ", (end_time - start_time)/60e10, " minutes to calculate ", num_lineups, " lineups")
+                println("\nCalculated DraftKings baseball lineups.\n\tNumber of lineups = ", num_lineups, " \n\tStack size = ",stack_size,
+                "\n\tOverlap = ", num_overlap,"\n" )
+                end_time = time_ns()
+                println("Took ", (end_time - start_time)/60e10, " minutes to calculate ", num_lineups, " lineups")
 
-println("Saving data to file ",path_to_output)
+                println("Saving data to file ",path_to_output)
+            end
+        end
+    end
+end
 
 #save the projected and actual points for the lineups
 #lineup_points_proj(path_to_output,path_hitters,path_pitchers,path_to_output_proj);

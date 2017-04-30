@@ -32,7 +32,16 @@ lineups = lapply(temp, read.csv, stringsAsFactors = F)
 
 setwd(original_wd)
 
-lineup <- lineups[[5]]
+lineup <- lineups[[22]]
 
 output <- compute_lineup_fpts(player_performance, payout_structure, lineup, contest_info$Entry_Fee[i])
 View(output[[1]])
+
+
+for (counter in 1:81) {
+  lineup <- lineups[[counter]]
+  
+  output <- compute_lineup_fpts(player_performance, payout_structure, lineup, contest_info$Entry_Fee[i])
+  PnL <- output[[2]]
+  print(paste0("PnL: ", PnL, "| Counter = ", counter, " | Lineup: ", temp[counter]))
+}
