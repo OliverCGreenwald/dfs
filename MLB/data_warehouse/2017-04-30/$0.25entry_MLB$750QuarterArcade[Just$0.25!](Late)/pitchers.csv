@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Kyle Hendricks",9700,"CHC@BOS 08:08PM ET",12.675,"CHC","BOS",13.85,15.1,16.338,12.7,17.9
+"SP","Hyun-Jin Ryu",9200,"PHI@LAD 04:10PM ET",11.85,"LAD","PHI",19.12,14.4,18.105,11.6,28.4
+"SP","Patrick Corbin",8200,"COL@ARI 04:10PM ET",15.61,"ARI","COL",13.9,13.2,13.494,10,23.85
+"SP","Eduardo Rodriguez",7800,"CHC@BOS 08:08PM ET",15.45,"BOS","CHC",14.53,13.5,15.766,10.8,25.3
+"SP","Clayton Richard",7200,"SD@SF 04:05PM ET",11.73,"SD","SF",12.7,12.9,10.2,6.9,9.2
+"SP","Ty Blach",6600,"SD@SF 04:05PM ET",1.85,"SF","SD",NA,12.7,12.066,7.7,14.75
+"SP","Nick Pivetta",6200,"PHI@LAD 04:10PM ET",0,"PHI","LAD",NA,15.6,12.388,9.8,11.25
+"SP","German Marquez",5500,"COL@ARI 04:10PM ET",-10.2,"COL","ARI",9.97,12.1,13.28,9.5,25.9

@@ -1,0 +1,21 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Noah Syndergaard",11400,"NYM@WAS 01:35PM ET",24.525,"NYM","WAS",26.27,20.1,20.5455,19.3,-6.6
+"SP","Chris Archer",10500,"TB@TOR 01:07PM ET",17.8,"TB","TOR",21.93,20.5,20.235,17.8,20.9
+"SP","Dallas Keuchel",9400,"OAK@HOU 02:10PM ET",25.31,"HOU","OAK",21.61,20.6,22.5655,16.3,34.25
+"SP","Wade Miley",8200,"BAL@NYY 01:05PM ET",24.575,"BAL","NYY",12.65,14.3,13.953,10.2,11.45
+"SP","Aaron Sanchez",8000,"TB@TOR 01:07PM ET",12.375,"TOR","TB",19.09,14.6,19.645,15.4,3.65
+"SP","Mike Leake",7900,"CIN@STL 02:15PM ET",22.775,"STL","CIN",20.44,14.2,14.265,10.5,16.1
+"SP","Jason Hammel",7600,"MIN@KC 02:15PM ET",6.75,"KC","MIN",14.64,12.2,15.898,13.4,1.35
+"SP","Joe Ross",7400,"NYM@WAS 01:35PM ET",7.55,"WAS","NYM",NA,14.3,14.284,13.7,4.2
+"SP","Miguel Gonzalez",7100,"CWS@DET 01:10PM ET",20.838,"CWS","DET",14.97,12.1,12.734,11.4,-5.5
+"SP","Jordan Montgomery",6900,"BAL@NYY 01:05PM ET",14.633,"NYY","BAL",15.01,14.1,14.761,12.3,15.05
+"SP","Mike Foltynewicz",6700,"ATL@MIL 02:10PM ET",11.863,"ATL","MIL",NA,13.6,16.163,14.1,NA
+"SP","Jesse Hahn",6500,"OAK@HOU 02:10PM ET",18.875,"OAK","HOU",10.65,11.7,8.624,7.7,16.1
+"SP","Tom Koehler",6200,"PIT@MIA 01:10PM ET",10.513,"MIA","PIT",13.42,13.4,12.301,9.8,4.8
+"SP","Josh Tomlin",5900,"SEA@CLE 01:10PM ET",3.863,"CLE","SEA",13.14,10.5,14.205,11.7,7.85
+"SP","Jordan Zimmermann",5800,"CWS@DET 01:10PM ET",6.55,"DET","CWS",11.09,12.3,15.64,12.7,13.85
+"SP","Phil Hughes",5700,"MIN@KC 02:15PM ET",11.463,"MIN","KC",11.27,10.7,12.412,9.5,10.75
+"SP","Chad Kuhl",5700,"PIT@MIA 01:10PM ET",5.67,"PIT","MIA",13.31,11.9,10.915,9.5,8.2
+"SP","Matt Garza",5000,"ATL@MIL 02:10PM ET",10.8,"MIL","ATL",12.64,11.5,11.625,8.8,23.4
+"SP","Chase De Jong",4800,"SEA@CLE 01:10PM ET",2.45,"SEA","CLE",8.66,9.9,NA,11.4,-10.6
+"SP","Bronson Arroyo",4700,"CIN@STL 02:15PM ET",9.913,"CIN","STL",12.65,11.2,10.599,5.8,-0.4

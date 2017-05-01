@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Dallas Keuchel",9400,"OAK@HOU 02:10PM ET",25.31,"HOU","OAK",21.61,20.6,22.5655,16.3,34.25
+"SP","Mike Leake",7900,"CIN@STL 02:15PM ET",22.775,"STL","CIN",20.44,14.2,14.265,10.5,16.1
+"SP","Jason Hammel",7600,"MIN@KC 02:15PM ET",6.75,"KC","MIN",14.64,12.2,15.898,13.4,1.35
+"SP","Mike Foltynewicz",6700,"ATL@MIL 02:10PM ET",11.863,"ATL","MIL",NA,13.6,16.163,14.1,NA
+"SP","Jesse Hahn",6500,"OAK@HOU 02:10PM ET",18.875,"OAK","HOU",10.65,11.7,8.624,7.7,16.1
+"SP","Phil Hughes",5700,"MIN@KC 02:15PM ET",11.463,"MIN","KC",11.27,10.7,12.412,9.5,10.75
+"SP","Matt Garza",5000,"ATL@MIL 02:10PM ET",10.8,"MIL","ATL",12.64,11.5,11.625,8.8,23.4
+"SP","Bronson Arroyo",4700,"CIN@STL 02:15PM ET",9.913,"CIN","STL",12.65,11.2,10.599,5.8,-0.4
