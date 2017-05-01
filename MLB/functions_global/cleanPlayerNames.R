@@ -31,6 +31,9 @@ cleanPlayerNames <- function(df_name_column) {
   # edit specific player names
   df_name_column <- sub("Shin-soo", "Shin-Soo", df_name_column)
   
+  # edit specific player names
+  df_name_column <- sub("Nori Aoki", "Norichika Aoki", df_name_column)
+  
   return(df_name_column)
 }
 

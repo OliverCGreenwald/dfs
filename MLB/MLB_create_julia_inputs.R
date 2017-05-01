@@ -8,7 +8,8 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Description #######
 # Create julia inputs for each date and contest:
 # - Section I: aggregated projections, actual fpts, projected BO, confirmed BO for hitters and pitchers for each contest
-# - Section II: hitters covariance matrices for each contest
+# - Section II: hitters covariance matrices (full)
+# - Section III: hitters covariance matrices for each contest
 
 
 ####### Import Functions #######
@@ -17,8 +18,8 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <- "2017-04-15" #Sys.Date()
-date.end <- "2017-04-27" #Sys.Date()
+date.start <- "2017-04-28" #Sys.Date()
+date.end <- "2017-04-28" #Sys.Date()
 
 
 ####### Section I (player data df) #######
@@ -28,11 +29,11 @@ dates <- seq(from = as.Date(date.start)-1, to = as.Date(date.end)-1, by = "day")
 for (d in 1:length(dates)) {
   # load full contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-  
+
   # subset by yesterday's date
   date <- dates[d]
   contest_info <- contest_info[contest_info$Contest_Date==as.Date(date),]
-  
+
   # aggregate
   aggregated_data_hitters <- list()
   aggregated_data_pitchers <- list()
@@ -40,21 +41,46 @@ for (d in 1:length(dates)) {
     projections.dat <- aggregateJuliaDF(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
     aggregated_data_hitters[[i]] <- projections.dat[[1]]
     aggregated_data_pitchers[[i]] <- projections.dat[[2]]
-    
+
     # remove NAs in pitchers df
     aggregated_data_pitchers[[i]] <- aggregated_data_pitchers[[i]][!is.na(aggregated_data_pitchers[[i]]$Projection_dfn),]
-    
+
     ####### Write to CSV file #######
     write.csv(aggregated_data_hitters[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), row.names = F)
     write.csv(aggregated_data_pitchers[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/pitchers.csv"), row.names = F)
   }
-  
+
   print(dates[d])
 }
 
 
-####### Section II (covariance matrices) #######
-print("Creating covariance matrices...")
+####### Section II (covariance matrices - full) #######
+print("Creating full covariance matrices...")
+
+dates_last <- seq(from = as.Date(date.start) - 2, to  = as.Date(date.end) - 2, by = "day") # date range
+for (i in 1:length(dates_last)) {
+  # end date in covariance matrix function
+  date_last <- dates_last[i]
+  
+  # construct covariance and counts matrices
+  cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, filter_on = F)
+  cov_mat <- cov.dat[[1]]
+  cov_mat_counts <- cov.dat[[2]]
+  
+  # set NAs to 0 in covariance matrix for julia code
+  cov_mat[is.na(cov_mat)] <- 0
+  cov_mat_counts[is.na(cov_mat_counts)] <- 0
+  
+  # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
+  write.csv(cov_mat, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_mat.csv"), row.names = F)
+  write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_counts_mat.csv"), row.names = F)
+  
+  print(paste0(date_last+1, " full covariance matrix completed"))
+}
+
+
+####### Section III (covariance matrices - contest) #######
+print("Creating contest covariance matrices...")
 
 dates_last <- seq(from = as.Date(date.start) - 2, to  = as.Date(date.end) - 2, by = "day") # date range
 for (d in 1:length(dates_last)) {
@@ -63,8 +89,8 @@ for (d in 1:length(dates_last)) {
   
   # subset by date
   date_last <- dates_last[d] # end date in covariance matrix function
-  print(paste0("End Date in createRollingCovarianceMatrix function: ", date_last))
   contest_info <- contest_info[contest_info$Contest_Date==(as.Date(date_last)+1),] # +1 to avoid look ahead bias
+  print(paste0("End Date in createRollingCovarianceMatrix function: ", contest_info$Contest_Date[1]))
   
   # identify contests that have the same julia input file so that we don't need to run the covariance code multiple times for the same set of players
   contest_info$Match_ID <- NA
@@ -112,7 +138,7 @@ for (d in 1:length(dates_last)) {
       print("Constructing covariance matrix for this contest...")
       
       # construct covariance and counts matrices
-      cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df)
+      cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df, filter_on = T)
       cov_mat <- cov.dat[[1]]
       cov_mat_counts <- cov.dat[[2]]
       

@@ -135,7 +135,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   
   # add DFN batting order data (confirmed)
   path.dfn.confirmed <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
-  if (file.exists(path.dfn)) {
+  if (file.exists(path.dfn.confirmed)) {
     temp.dfn.hitters.confirmed <- read.csv(file = path.dfn.confirmed, stringsAsFactors = F, header = T)
     temp.dfn.hitters.confirmed$Player.Name <- cleanPlayerNames(temp.dfn.hitters.confirmed$Player.Name)
     temp.dksalaries.hitters$Batting_Order_Confirmed <- temp.dfn.hitters.confirmed$Batting.Order..Confirmed.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.confirmed$Player.Name)]

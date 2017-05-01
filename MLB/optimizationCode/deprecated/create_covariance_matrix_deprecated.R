@@ -15,15 +15,15 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 ####### Construct Covariance and Counts Matrix and Write to CSV file #######
 # dates <- seq(from = Sys.Date()-2, to = Sys.Date()-2, by = "day") # one date
-# dates <- seq(from = as.Date("2017-04-25"), to = as.Date("2017-04-25"), by = "day") # one date
-dates <- seq(from = as.Date("2017-04-04"), to = Sys.Date()-3, by = "day") # range of dates
+dates <- seq(from = as.Date("2017-04-22"), to = as.Date("2017-04-22"), by = "day") # one date
+# dates <- seq(from = as.Date("2017-04-04"), to = Sys.Date()-3, by = "day") # range of dates
 
 for (i in 1:length(dates)) {
   # end date in covariance matrix function
   date_last <- dates[i]
 
   # construct covariance and counts matrices
-  cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL)
+  cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, filter_on = F)
   cov_mat <- cov.dat[[1]]
   cov_mat_counts <- cov.dat[[2]]
 
@@ -96,7 +96,7 @@ for (d in 1:length(dates_last)) {
     # if contest's hitters corresponding covar mat hasn't been computed already, then do so. else, use an existing covar mat
     if (contest_info$Match_ID[i] %in% contest_info$Match_ID[1:(i-1)] == FALSE | i==1) {
       # construct covariance and counts matrices
-      cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df)
+      cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df, filter_on = F)
       cov_mat <- cov.dat[[1]]
       cov_mat_counts <- cov.dat[[2]]
 

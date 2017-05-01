@@ -107,6 +107,10 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   }
   
   # remove pairs not exceeding change threshold sufficiently much
+  if (sum(cov_time$temp==TRUE)==0) {
+    warning(paste0("(", contest_date, ") ", "No player pairs satisfied filtering criteria. Not difference between unfiltered matrix and filtered matrix."))
+    return(cov_mat_unfiltered)
+  }
   cov_time_filtered <- cov_time[cov_time$temp==TRUE,]
   cov_time$temp <- NULL
   cov_time_filtered$temp <- NULL
@@ -150,3 +154,5 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
 # cov_mat_unfiltered <- read.csv(file = "MLB/data_warehouse/2017-04-26/$1.00entry_MLB$33FantasyGolfMillionaireSUPERSatellite[30x]/covariance_mat.csv", stringsAsFactors = F, header = T, check.names = F)
 # contest_date <- "2017-04-26"
 
+# contest_date <- "2017-04-10"
+# cov_mat_unfiltered <- cov_mat

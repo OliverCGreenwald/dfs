@@ -19,7 +19,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
-createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df) {
+createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df, filter_on) {
   ####### Import Libraries #######
   library(stringr)
   
@@ -217,7 +217,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
   cov_mat[lower.tri(cov_mat)] <- t(cov_mat)[lower.tri(cov_mat)]
   
   # apply filtering
-  if (!is.null(julia_hitter_df)) {
+  if (filter_on == T) {
     cov_mat <- filterCovarianceMatrix(contest_date = as.Date(date.end)+1, cov_mat_unfiltered = cov_mat)
   }
   
@@ -304,5 +304,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df)
 # date.end = "2017-04-25"
 # julia_hitter_df = NULL
 
+# date.start = "2017-04-02"
+# date.end <- "2017-04-09"
+# julia_hitter_df <- temp_julia_hitter_df
 
 

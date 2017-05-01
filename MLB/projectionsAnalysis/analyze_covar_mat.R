@@ -6,7 +6,8 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Description #######
-# Create covariance matrices for any given start and end date.
+# Analyze covaraiance matrices over time. Most of this code is also used in the 
+# filterCovarianceMatrix.R function.
 
 
 ####### Import Functions #######

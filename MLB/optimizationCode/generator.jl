@@ -42,10 +42,10 @@ contest_directory_path = string("../data_warehouse/", contest_date, "/", contest
 #path to the csv file with the players information (pitchers and hitters);
 path_pitchers = string(contest_directory_path, "pitchers.csv"); 
 path_hitters = string(contest_directory_path, "hitters.csv"); 
-path_covar_matrix = string(contest_directory_path, "covariance_mat.csv"); 
+path_covar_matrix = string(contest_directory_path, "covariance_mat_test.csv"); 
 # path_to_output is a string  that gives the path to the csv file that will give the outputted results
 path_to_output= string(contest_directory_path, "/lineups/",
-                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,".csv"); 
+                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,"_alan_test.csv"); 
 
 # path_to_output_proj is a string  that gives the path to the csv file that will give the outputted results with projected lineup points
 #path_to_output_proj = string("proj_baseball_", string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,".csv"); 
