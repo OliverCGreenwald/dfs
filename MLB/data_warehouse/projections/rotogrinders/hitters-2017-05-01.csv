@@ -53,7 +53,11 @@
 "Domingo Santana",3500,"MIL","OF","STL",7.27
 "Chase Utley",3100,"LAD","2B","SFG",5.58
 "Brandon Moss",3600,"KCR","OF","CHW",6.12
+<<<<<<< Updated upstream
 "Corey Seager",4100,"LAD","SS","SFG",8.28
+=======
+"Corey Seager",4100,"LAD","SS","SFG",9.27
+>>>>>>> Stashed changes
 "Justin Turner",3900,"LAD","3B","SFG",6.69
 "Yasiel Puig",3500,"LAD","OF","SFG",6.52
 "Jorge Bonifacio",3100,"KCR","OF","CHW",4.76
@@ -102,6 +106,7 @@
 "Todd Frazier",4400,"CHW","3B","KCR",8.26
 "Asdrubal Cabrera",3300,"NYM","SS","ATL",6.73
 "Michael Conforto",3200,"NYM","OF","ATL",6.01
+<<<<<<< Updated upstream
 "Jordy Mercer",3300,"PIT","SS","CIN",6.31
 "Josh Harrison",3900,"PIT","2B/3B","CIN",6.47
 "Gift Ngoepe",2600,"PIT","SS","CIN",4.97
@@ -113,6 +118,19 @@
 "Jose Osuna",3100,"PIT","OF","CIN",5.22
 "Gregory Polanco",4600,"PIT","OF","CIN",5.6
 "Andrew McCutchen",4700,"PIT","OF","CIN",8.12
+=======
+"Josh Harrison",3900,"PIT","2B/3B","CIN",6.47
+"Francisco Cervelli",3300,"PIT","C","CIN",5.79
+"Jordy Mercer",3300,"PIT","SS","CIN",6.31
+"Gift Ngoepe",2600,"PIT","SS","CIN",4.97
+"Carlos Santana",4000,"CLE","1B/OF","DET",8.39
+"Josh Bell",3400,"PIT","1B","CIN",6.31
+"Andrew McCutchen",4700,"PIT","OF","CIN",8.12
+"Scott Schebler",3600,"CIN","OF","PIT",6.72
+"Tucker Barnhart",2700,"CIN","C","PIT",5.06
+"Jose Osuna",3100,"PIT","OF","CIN",5.22
+"Gregory Polanco",4600,"PIT","OF","CIN",5.6
+>>>>>>> Stashed changes
 "Francisco Lindor",4300,"CLE","SS","DET",9.3
 "Michael Brantley",4100,"CLE","OF","DET",5.99
 "James McCann",2700,"DET","C","CLE",5.1
@@ -126,8 +144,13 @@
 "Jose Ramirez",4300,"CLE","2B/3B","DET",8.51
 "Austin Jackson",2700,"CLE","OF","DET",5.84
 "Yan Gomes",2700,"CLE","C","DET",5.67
+<<<<<<< Updated upstream
 "Scott Schebler",3600,"CIN","OF","PIT",6.72
 "Zack Cozart",3400,"CIN","SS","PIT",6.18
+=======
+"Zack Cozart",3400,"CIN","SS","PIT",5.54
+"Adam Duvall",4100,"CIN","OF","PIT",7.13
+>>>>>>> Stashed changes
 "Ronald Torreyes",2500,"NYY","SS","TOR",4.74
 "Austin Romine",2600,"NYY","C","TOR",5.07
 "Didi Gregorius",3400,"NYY","SS","TOR",5.58
@@ -143,9 +166,15 @@
 "Jose Bautista",4400,"TOR","OF","NYY",6.79
 "Billy Hamilton",4000,"CIN","OF","PIT",7.03
 "Ryan Goins",2400,"TOR","2B/SS","NYY",4.94
+<<<<<<< Updated upstream
 "Jose Peraza",3400,"CIN","2B","PIT",5.56
 "Joey Votto",4900,"CIN","1B","PIT",9.17
 "Adam Duvall",4100,"CIN","OF","PIT",7.13
+=======
+"Jose Peraza",3400,"CIN","2B","PIT",6.07
+"Joey Votto",4900,"CIN","1B","PIT",9.17
+"Eugenio Suarez",3500,"CIN","3B","PIT",6.7
+>>>>>>> Stashed changes
 "Ezequiel Carrera",2900,"TOR","OF","NYY",5.35
 "Chris Coghlan",2600,"TOR","3B/OF","NYY",4.92
 "Kendrys Morales",3800,"TOR","1B","NYY",6.69
