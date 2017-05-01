@@ -45,7 +45,7 @@ path_hitters = string(contest_directory_path, "hitters.csv");
 path_covar_matrix = string(contest_directory_path, "covariance_mat_test.csv"); 
 # path_to_output is a string  that gives the path to the csv file that will give the outputted results
 path_to_output= string(contest_directory_path, "/lineups/",
-                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,"_alan_test.csv"); 
+                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,"_test.csv"); 
 
 # path_to_output_proj is a string  that gives the path to the csv file that will give the outputted results with projected lineup points
 #path_to_output_proj = string("proj_baseball_", string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,".csv"); 
@@ -77,7 +77,7 @@ path_to_output= string(contest_directory_path, "/lineups/",
 # println("Saving data to file ",path_to_output)
 
 for z in 3:9 
-    for k in 1:5 #stack
+    for k in 2:5 #stack
         for i in 1:9 #temp line
             for j in 3:9 # time line
                 num_overlap = z
@@ -91,7 +91,7 @@ for z in 3:9
                 exposure = 0.1 * j
 
                 path_to_output= string(contest_directory_path, "/lineups/",
-                               string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,".csv"); 
+                               string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,"_test_stacks.csv"); 
 
                 start_time = time_ns()
 
