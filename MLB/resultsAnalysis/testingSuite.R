@@ -1,51 +1,50 @@
+######### Instructions #########
+
+# After running, view Results using the following commands: 
+# View(pnl[1:2],)
+# View(pnl$Lineups[[NUMBER]])
+
+
+
+#########   Variables   #########
+
+# the Row number that corresponds to the desired contest in 'contest_info' 
+contest_row <- 141 
+
+# Check Line 35 - 40 For the Regex Variable
+
+######### Code Begins #########
+
+# After running, view Results using the following commands: 
+# View(pnl[1:2],)
+# View(pnl$Lineups[[NUMBER]])
+
 if(file.exists("~/Projects/DFS/")) {
   setwd("~/Projects/DFS/")
 } else {
   setwd("~/Documents/DFS/")
 }
 
-
-
 ### Save DFS Directory Path
 
 original_wd <- getwd()
 
+# Load in Helper Files
+setwd('MLB/resultsAnalysis/helperFunctions')
+file.sources = list.files(pattern="*.R")
+sapply(file.sources,source,.GlobalEnv)
 
-source('MLB/resultsAnalysis/helperFunctions/compute_lineup_fpts.R')
-
-### Read in Contest File
-contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
-i <- 141
-
-
-base_contest_path = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
-setwd(base_contest_path)
-
-contest_standings <- read.csv('contest-standings.csv', stringsAsFactors = F)
-payout_structure <- read.csv('payout_structure.csv', stringsAsFactors = F)
-player_performance <- read.csv('../player_results.csv', stringsAsFactors = F)
-setwd('lineups')
-
-temp = list.files(pattern="*.csv")
-lineups = lapply(temp, read.csv, stringsAsFactors = F)
-
+# Return to base directory
 setwd(original_wd)
 
-lineup <- lineups[[71]]
+### Read in Contest File (Not necessary but useful to look at to find correct row)
+contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
+contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
-output <- compute_lineup_fpts(player_performance, payout_structure, lineup, contest_info$Entry_Fee[i])
-View(output[[1]])
+# Second Variable is a Regex that defaults to '*.csv' this does the calculation for all lineups 
+    # - Some Suggested regex:
+      # 'SPECIFIC LINEUP NAME' <- returns a dataframe with 1 row, only has that lineup 
+      # '*_test.csv' Returns Lineup for the testing matrices
+pnl <- singleContest_manyLineups_PnL_comparison(contest_row)
 
-results <- as.data.frame(matrix(0,length(temp),2))
-names(results) <- c('Name', 'PnL')
-results$Name <- temp
 
-for (counter in 1:length(temp)) {
-  lineup <- lineups[[counter]]
-  
-  output <- compute_lineup_fpts(player_performance, payout_structure, lineup, contest_info$Entry_Fee[i])
-  PnL <- output[[2]]
-  results$PnL[counter] <- PnL
-  print(paste0("PnL: ", PnL, "| Counter = ", counter, " | Lineup: ", temp[counter]))
-}

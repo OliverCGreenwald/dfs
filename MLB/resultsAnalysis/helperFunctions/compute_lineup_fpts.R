@@ -5,7 +5,7 @@
 # If the file does not exist, returns 0
 
 
-compute_lineup_fpts <- function(player_performance_df, payout_structure, lineups, entry_fee) {
+compute_lineup_fpts <- function(player_performance_df, payout_structure, lineups, entry_fee, contest_standings) {
   
   ######## FUNCTION FOR CALCULATING TOTAL PNL OF LINEUPS ########
   # won't be exact b/c not accounting for ties
