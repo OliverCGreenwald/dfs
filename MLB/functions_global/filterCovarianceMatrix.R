@@ -151,7 +151,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
 
 
 # debugging
-# cov_mat_unfiltered <- read.csv(file = "MLB/data_warehouse/2017-04-26/$1.00entry_MLB$33FantasyGolfMillionaireSUPERSatellite[30x]/covariance_mat.csv", stringsAsFactors = F, header = T, check.names = F)
+# cov_mat_unfiltered <- read.csv(file = "MLB/data_warehouse/2017-04-26/$1.00entry_MLB$1KSoloShot(AllDay)/covariance_mat.csv", stringsAsFactors = F, header = T, check.names = F)
 # contest_date <- "2017-04-26"
 
 # contest_date <- "2017-04-10"
