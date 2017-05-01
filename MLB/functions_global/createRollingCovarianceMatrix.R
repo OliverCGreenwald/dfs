@@ -45,11 +45,13 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
     # get list of players for the day
     list_players_day <- NULL
     for (i in 1:nrow(temp_contest_info)) {
+      # load
       temp_hitters <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
       temp_pitchers <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/pitchers.csv"), stringsAsFactors = F, header = T)
       
-      temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
-      temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "AvgPointsPerGame", "teamAbbrev", "Actual_fpts")]
+      #
+      temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
+      temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
       if (is.null(julia_hitter_df)) {
         temp_players_day <- rbind(temp_hitters, temp_pitchers) 
       } else {
@@ -57,7 +59,16 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
         # match hitters from the julia input file
         # temp_players_day <- temp_players_day[paste0(temp_players_day$Name, temp_players_day$teamAbbrev) %in% paste0(julia_hitter_df$Name, julia_hitter_df$teamAbbrev), ] # this generally should be an unnecessary check
       }
+      
+      # add date
       temp_players_day$Date <- dates[d]
+      
+      # remove Position, Salary, GameInfo (currently just uses first game in a double header. TODO: fix this)
+      temp_players_day$Position <- NULL
+      temp_players_day$Salary <- NULL
+      temp_players_day$GameInfo <- NULL
+      
+      # append
       list_players_day <- rbind(list_players_day, temp_players_day)
     }
     
@@ -105,9 +116,9 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
       # if (as.numeric(row[1]) %% as.numeric(row[2]) == 0) {
       #   print(paste0(row[1], ", ", row[2]))
       # }
-      
-      temp_inds_match_name <- which(temp_teamabbrev_all==row[3]) # note: not hard coded
-      temp_inds_match_date <- which(list_all_players$Date==row[4]) # note: not hard coded
+
+      temp_inds_match_name <- which(temp_teamabbrev_all==as.character(row[3])) # which(temp_teamabbrev_all==row[3]) # note: not hard coded
+      temp_inds_match_date <- which(list_all_players$Date==as.Date(as.character(row[4]))) # which(list_all_players$Date==row[4]) # note: not hard coded
       temp_ind_match <- temp_inds_match_name[temp_inds_match_name %in% temp_inds_match_date] # matched row index in list_all_players
       if (length(temp_ind_match)!=0) {
         return(temp_ind_match) # matched row index in list_all_players
@@ -116,12 +127,22 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
     }
     z$ind_match <- apply(X = z, MARGIN = 1, FUN = find_row_index)
     
+    # for (i in 1:nrow(z)) {
+    #   temp_inds_match_name <- which(temp_teamabbrev_all==z$name_teamAbbrev[i])
+    #   temp_inds_match_date <- which(list_all_players$Date==z$date[i])
+    #   temp_ind_match <- temp_inds_match_name[temp_inds_match_name %in% temp_inds_match_date] # matched row index in list_all_players
+    #   if (length(temp_ind_match)!=0) {
+    #     z$ind_match[i] <- temp_ind_match # matched row index in list_all_players
+    #   }
+    # }
+    
     # append Actual_fpts using ind_match
     z$Actual_fpts <- list_all_players$Actual_fpts[z$ind_match]
     
     return(z$Actual_fpts)
   }
-  
+  # x <- sort(rep(1:nrow(hist_fpts_mat), ncol(hist_fpts_mat))) # debug
+  # y <- rep(1:ncol(hist_fpts_mat), nrow(hist_fpts_mat)) # debug
   # fill historical fpts matrix (fast way)
   hist_fpts_mat <- as.data.frame(outer(1:nrow(hist_fpts_mat), 1:ncol(hist_fpts_mat), FUN=fill_hist_mat))
   colnames(hist_fpts_mat) <- dates
@@ -307,5 +328,10 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
 # date.start = "2017-04-02"
 # date.end <- "2017-04-09"
 # julia_hitter_df <- temp_julia_hitter_df
+
+# date.start <- "2017-04-02"
+# date.end <- "2017-04-29"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-04-29/$3.00entry_MLB$5KMoonshot(Afternoon)/hitters.csv"), stringsAsFactors = F, header = T)
+# filter_on <- F
 
 
