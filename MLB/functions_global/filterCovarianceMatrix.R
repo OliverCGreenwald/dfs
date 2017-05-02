@@ -99,6 +99,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   threshold <- quantile(unlist(cov_time_chg[cov_time_chg>0]), na.rm = T, 0.75)
   threshold
   for (i in 1:nrow(cov_time_chg)) {
+    # at least 2 increases in covariance by an amount > 75th percentile of all changes
     if (sum(cov_time_chg[i,] > threshold, na.rm = T) > 1) {
       cov_time$temp[i] <- TRUE
     } else {
@@ -114,6 +115,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   cov_time_filtered <- cov_time[cov_time$temp==TRUE,]
   cov_time$temp <- NULL
   cov_time_filtered$temp <- NULL
+  print(paste0("Number of 'good' player pairs: ", nrow(cov_time_filtered)))
   
   # define how many player pairs to plot
   num_top_pairs <- 25
@@ -128,7 +130,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   }
   legend(x = "topleft", legend = c(rownames(cov_time_temp)), lwd = 1, col = 1:num_top_pairs, cex = 0.5)
   
-  ####### Set Players to NA in input covariance matrix #######
+  ####### Adjust values in input (unfiltered) covariance matrix #######
   # get names
   list_player_a <- str_split_fixed(rownames(cov_time_filtered), ", ", 2)[,1]
   list_player_b <- str_split_fixed(rownames(cov_time_filtered), ", ", 2)[,2]
@@ -136,14 +138,20 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   # copy
   cov_mat_filtered <- cov_mat_unfiltered
   
+  # define function that scales the elements of a vector between 0 and 1. append scaled column to cov_time_filtered
+  range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+  cov_time_filtered$scaled_covar <- range01(cov_time_filtered[,ncol(cov_time_filtered)])
+  cov_time_filtered$scaled_covar <- 1 + exp((-1)*cov_time_filtered$scaled_covar)*0.25
+  
+  # adjust values of the "good" (matched) players in the input/unfiltered matrix
   for(i in 1:nrow(cov_time_filtered)) {
     # find inds of players
     ind_a <- which(colnames(cov_mat_unfiltered)==list_player_a[i])
     ind_b <- which(colnames(cov_mat_unfiltered)==list_player_b[i])
     
-    # scale up by 25%
-    cov_mat_filtered[ind_a, ind_b] <- cov_mat_filtered[ind_a, ind_b]*1.25
-    cov_mat_filtered[ind_b, ind_a] <- cov_mat_filtered[ind_b, ind_a]*1.25
+    # scale up by 1+exp(cov_time_filtered$scaled_covar[i])
+    cov_mat_filtered[ind_a, ind_b] <- cov_mat_filtered[ind_a, ind_b]*cov_time_filtered$scaled_covar[i]
+    cov_mat_filtered[ind_b, ind_a] <- cov_mat_filtered[ind_b, ind_a]*cov_time_filtered$scaled_covar[i]
   }
   
   return(cov_mat_filtered)

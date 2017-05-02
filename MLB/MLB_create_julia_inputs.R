@@ -18,8 +18,8 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <- "2017-04-28" # Sys.Date() # "2017-04-29"
-date.end <- "2017-04-28" # Sys.Date() # "2017-04-29"
+date.start <- "2017-04-27" # Sys.Date() # "2017-04-29"
+date.end <- "2017-04-27" # Sys.Date() # "2017-04-29"
 
 
 ####### Section I (player data df) #######
