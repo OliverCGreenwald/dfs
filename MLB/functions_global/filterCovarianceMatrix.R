@@ -100,8 +100,14 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   threshold
   for (i in 1:nrow(cov_time_chg)) {
     # at least 2 increases in covariance by an amount > 75th percentile of all changes
-    # change this to some function of the number of games played
-    if (sum(cov_time_chg[i,] > threshold, na.rm = T) > 1) {
+    # if (sum(cov_time_chg[i,] > threshold, na.rm = T) > 1) {
+    #   cov_time$temp[i] <- TRUE
+    # } else {
+    #   cov_time$temp[i] <- FALSE
+    # }
+    
+    # in at least 20% of games where pair played, increase in covariance by an amount > 75th percentile of all changes
+    if (sum(cov_time_chg[i,] > threshold, na.rm = T) >= max(2, round(sum(cov_time_chg[i,] != 0, na.rm = T)*0.20))) {
       cov_time$temp[i] <- TRUE
     } else {
       cov_time$temp[i] <- FALSE
@@ -119,7 +125,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   print(paste0("Number of 'good' player pairs: ", nrow(cov_time_filtered)))
   
   # define how many player pairs to plot
-  num_top_pairs <- 25
+  num_top_pairs <- min(25, nrow(cov_time_filtered))
   
   # subset cov_time by num_top_pairs
   cov_time_temp <- cov_time_filtered[1:num_top_pairs, ]
@@ -129,7 +135,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   for (i in 2:num_top_pairs) {
     points(as.numeric(cov_time_temp[i,]), type = 'b', col = i)
   }
-  legend(x = "topleft", legend = c(rownames(cov_time_temp)), lwd = 1, col = 1:num_top_pairs, cex = 0.5)
+  legend(x = "topleft", legend = c(rownames(cov_time_temp)), lwd = 1, col = 1:num_top_pairs, cex = 0.3)
   
   ####### Adjust values in input (unfiltered) covariance matrix #######
   # get names
@@ -150,6 +156,10 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
     ind_a <- which(colnames(cov_mat_unfiltered)==list_player_a[i])
     ind_b <- which(colnames(cov_mat_unfiltered)==list_player_b[i])
     
+    # scale up by 1.25
+    # cov_mat_filtered[ind_a, ind_b] <- cov_mat_filtered[ind_a, ind_b]*1.25
+    # cov_mat_filtered[ind_b, ind_a] <- cov_mat_filtered[ind_b, ind_a]*1.25
+    
     # scale up by 1+exp(cov_time_filtered$scaled_covar[i])
     cov_mat_filtered[ind_a, ind_b] <- cov_mat_filtered[ind_a, ind_b]*cov_time_filtered$scaled_covar[i]
     cov_mat_filtered[ind_b, ind_a] <- cov_mat_filtered[ind_b, ind_a]*cov_time_filtered$scaled_covar[i]
@@ -160,8 +170,8 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
 
 
 # debugging
-# cov_mat_unfiltered <- read.csv(file = "MLB/data_warehouse/2017-04-26/$1.00entry_MLB$1KSoloShot(AllDay)/covariance_mat.csv", stringsAsFactors = F, header = T, check.names = F)
-# contest_date <- "2017-04-26"
+# cov_mat_unfiltered <- read.csv(file = "MLB/data_warehouse/2017-04-18/$40.00entry_MLB$250KMediumHomeRun/covariance_mat.csv", stringsAsFactors = F, header = T, check.names = F)
+# contest_date <- "2017-04-18"
 
 # contest_date <- "2017-04-10"
 # cov_mat_unfiltered <- cov_mat
