@@ -100,6 +100,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered) {
   threshold
   for (i in 1:nrow(cov_time_chg)) {
     # at least 2 increases in covariance by an amount > 75th percentile of all changes
+    # change this to some function of the number of games played
     if (sum(cov_time_chg[i,] > threshold, na.rm = T) > 1) {
       cov_time$temp[i] <- TRUE
     } else {
