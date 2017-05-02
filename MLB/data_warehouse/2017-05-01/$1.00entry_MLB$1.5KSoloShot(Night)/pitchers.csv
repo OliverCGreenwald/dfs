@@ -1,0 +1,10 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"SP","Clayton Kershaw",13900,"SF@LAD 10:10PM ET",27.74,"LAD","SF",32.01,28.2,29.5345,25.3
+"SP","Johnny Cueto",11500,"SF@LAD 10:10PM ET",13.54,"SF","LAD",21.01,16.3,17.5165,16.8
+"SP","Lance McCullers",10700,"TEX@HOU 08:10PM ET",18.65,"HOU","TEX",21.7,18.7,22.89,17.4
+"SP","Jason Vargas",7400,"CWS@KC 08:15PM ET",25.988,"KC","CWS",20.74,16,15.527,10.8
+"SP","Michael Wacha",7200,"MIL@STL 08:15PM ET",19.675,"STL","MIL",18.11,15.7,17.851,12.4
+"SP","Zach Davies",6900,"MIL@STL 08:15PM ET",8.78,"MIL","STL",13.21,13.2,12.233,11.6
+"SP","Brett Anderson",6400,"PHI@CHC 08:05PM ET",11.638,"CHC","PHI",16.27,10.7,13.184,8.9
+"SP","Andrew Cashner",6200,"TEX@HOU 08:10PM ET",8.3,"TEX","HOU",10.08,9.1,8.603,7.6
+"SP","Dylan Covey",4600,"CWS@KC 08:15PM ET",2.017,"CWS","KC",10.25,10.8,7.18,9.6
