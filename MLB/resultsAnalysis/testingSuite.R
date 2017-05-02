@@ -9,7 +9,7 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-contest_row <- 141 
+contest_row <- 141
 
 # Check Line 35 - 40 For the Regex Variable
 
@@ -45,6 +45,6 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
     # - Some Suggested regex:
       # 'SPECIFIC LINEUP NAME' <- returns a dataframe with 1 row, only has that lineup 
       # '*_test.csv' Returns Lineup for the testing matrices
-pnl <- singleContest_manyLineups_PnL_comparison(contest_row, "*_test_stacks.csv")
+pnl <- singleContest_manyLineups_PnL_comparison(contest_row, "*_test.csv")
 
 

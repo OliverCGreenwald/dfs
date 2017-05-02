@@ -35,7 +35,7 @@ download_DK_player_salary_file <- function(contest_number, date) {
   eventName <- gsub(" ", "", eventName, fixed = TRUE)
   eventName <- strsplit(eventName, ">")[[1]][2]
   eventName <- strsplit(eventName, "<")[[1]][1]
-
+  eventName <- sub("&#39;", "'", eventName, fixed = TRUE)
   
   
   browseURL(paste0('https://www.draftkings.com/lineup/getavailableplayerscsv?contestTypeId=', contestTypeId, "&draftGroupId=", draftGroupId))
