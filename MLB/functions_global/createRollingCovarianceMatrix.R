@@ -335,3 +335,6 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
 # filter_on <- F
 
 
+# asdf <- read.csv(file = "MLB/data_warehouse/2017-04-29/$33.00entry_MLB$110KFastball(Early)/covariance_mat_chg75p_exp(spike).csv", stringsAsFactors = F, header = T, check.names = F)
+
+

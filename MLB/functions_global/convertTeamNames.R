@@ -7,6 +7,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 ####### Description #######
 # Function for replace a vector of team names with the DK convention.
+# Note: DK switched to DFN convention (all caps) starting on 4/29/17.
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######

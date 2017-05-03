@@ -44,6 +44,12 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   temp.dksalaries$Temp_Team1 <- NULL
   temp.dksalaries$Temp_Team2 <- NULL
   
+  # change team names to uppercase to normalize with other naming conventions
+  temp.dksalaries$GameInfo <- toupper(temp.dksalaries$GameInfo)
+  temp.dksalaries$teamAbbrev <- toupper(temp.dksalaries$teamAbbrev)
+  temp.dksalaries$Opponent <- toupper(temp.dksalaries$Opponent)
+  
+  
   # change P to SP
   temp.dksalaries$Position[temp.dksalaries$Position=="P"] <- "SP"
   
