@@ -1,7 +1,7 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
 "SP","Hyun-Jin Ryu",10200,"LAD@SF 10:15PM ET",11.167,"LAD","SF",14.72,14.6,13.239,10.3,13.9
-"SP","Francisco Liriano",9700,"Tor@LAA 10:07PM ET",13.45,"Tor","LAA",18.03,16,14.199,11.4,6.6
-"SP","Zack Greinke",9400,"SD@Ari 09:40PM ET",16.5,"Ari","SD",24.32,16.1,18.031,15.4,33.9
-"SP","Jesse Chavez",6700,"Tor@LAA 10:07PM ET",8.96,"LAA","Tor",16.58,15.7,16.553,11.5,24.7
+"SP","Francisco Liriano",9700,"TOR@LAA 10:07PM ET",13.45,"TOR","LAA",18.03,16,14.199,11.4,6.6
+"SP","Zack Greinke",9400,"SD@ARI 09:40PM ET",16.5,"ARI","SD",24.32,16.1,18.031,15.4,33.9
+"SP","Jesse Chavez",6700,"TOR@LAA 10:07PM ET",8.96,"LAA","TOR",16.58,15.7,16.553,11.5,24.7
 "SP","Matt Cain",6100,"LAD@SF 10:15PM ET",12.983,"SF","LAD",14.07,11.1,11.638,7.4,21.7
-"SP","Jhoulys Chacin",5700,"SD@Ari 09:40PM ET",11.788,"SD","Ari",10.89,12.4,12.358,9.5,5.5
+"SP","Jhoulys Chacin",5700,"SD@ARI 09:40PM ET",11.788,"SD","ARI",10.89,12.4,12.358,9.5,5.5

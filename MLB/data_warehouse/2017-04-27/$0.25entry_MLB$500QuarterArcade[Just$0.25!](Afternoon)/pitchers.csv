@@ -1,9 +1,9 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Corey Kluber",10000,"Hou@Cle 06:10PM ET",20.975,"Cle","Hou",23.57,20.2,19.7845,18,26.55
+"SP","Corey Kluber",10000,"HOU@CLE 06:10PM ET",20.975,"CLE","HOU",23.57,20.2,19.7845,18,26.55
 "SP","Julio Urias",8800,"LAD@SF 03:45PM ET",0,"LAD","SF",16.59,17.7,13.922,13,14.55
 "SP","Matt Moore",7500,"LAD@SF 03:45PM ET",9.388,"SF","LAD",16.29,15.7,14.803,13.1,26.75
-"SP","Adam Wainwright",7300,"Tor@StL 01:45PM ET",8.48,"StL","Tor",16.31,15.6,NA,11.3,12.25
-"SP","Gio Gonzalez",6500,"Was@Col 03:10PM ET",21.15,"Was","Col",11.84,13.5,12.76,11.3,19
-"SP","Mike Fiers",5200,"Hou@Cle 06:10PM ET",6.988,"Hou","Cle",NA,11.3,11.778,11.5,6.95
-"SP","Antonio Senzatela",4900,"Was@Col 03:10PM ET",19.525,"Col","Was",7.49,10.1,8.343,8,0.9
-"SP","Casey Lawrence",4600,"Tor@StL 01:45PM ET",1.783,"Tor","StL",9.76,11.6,NA,5.1,-6.55
+"SP","Adam Wainwright",7300,"TOR@STL 01:45PM ET",8.48,"STL","TOR",16.31,15.6,NA,11.3,12.25
+"SP","Gio Gonzalez",6500,"WAS@COL 03:10PM ET",21.15,"WAS","COL",11.84,13.5,12.76,11.3,19
+"SP","Mike Fiers",5200,"HOU@CLE 06:10PM ET",6.988,"HOU","CLE",NA,11.3,11.778,11.5,6.95
+"SP","Antonio Senzatela",4900,"WAS@COL 03:10PM ET",19.525,"COL","WAS",7.49,10.1,8.343,8,0.9
+"SP","Casey Lawrence",4600,"TOR@STL 01:45PM ET",1.783,"TOR","STL",9.76,11.6,NA,5.1,-6.55

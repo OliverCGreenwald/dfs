@@ -1,5 +1,5 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Cole Hamels",9300,"Min@Tex 08:05PM ET",13.975,"Tex","Min",20.12,19.5,20.2755,18.2,9
-"SP","Tanner Roark",6000,"Was@Col 08:40PM ET",15.175,"Was","Col",10.44,12,11.3615,12.7,13.85
-"SP","Hector Santiago",5500,"Min@Tex 08:05PM ET",17.325,"Min","Tex",13.43,14.7,12.85,9,13.25
-"SP","Tyler Chatwood",5400,"Was@Col 08:40PM ET",16.413,"Col","Was",11,12.2,9.634,9.8,2.65
+"SP","Cole Hamels",9300,"MIN@TEX 08:05PM ET",13.975,"TEX","MIN",20.12,19.5,20.2755,18.2,9
+"SP","Tanner Roark",6000,"WAS@COL 08:40PM ET",15.175,"WAS","COL",10.44,12,11.3615,12.7,13.85
+"SP","Hector Santiago",5500,"MIN@TEX 08:05PM ET",17.325,"MIN","TEX",13.43,14.7,12.85,9,13.25
+"SP","Tyler Chatwood",5400,"WAS@COL 08:40PM ET",16.413,"COL","WAS",11,12.2,9.634,9.8,2.65

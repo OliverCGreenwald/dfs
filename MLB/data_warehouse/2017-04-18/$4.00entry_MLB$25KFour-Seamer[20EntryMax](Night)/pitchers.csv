@@ -1,9 +1,9 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Yu Darvish",10700,"Tex@Oak 10:05PM ET",20.567,"Tex","Oak",0,21.2,22.8475,18.3,9
-"SP","Hyun-Jin Ryu",8000,"Col@LAD 10:10PM ET",9.7,"LAD","Col",0,15.1,17.393,10.3,14.1
-"SP","Wei-Yin Chen",7700,"Mia@Sea 10:10PM ET",8.625,"Mia","Sea",0,14.9,15.005,12,21.95
-"SP","Shelby Miller",7500,"Ari@SD 10:10PM ET",14.9,"Ari","SD",0,15.7,13.966,10.7,24.9
-"SP","Yovani Gallardo",6200,"Mia@Sea 10:10PM ET",3.95,"Sea","Mia",0,12.3,11.65,9.4,6.1
-"SP","Kyle Freeland",5400,"Col@LAD 10:10PM ET",9.9,"Col","LAD",0,12.8,9.621,6.6,7
-"SP","Andrew Triggs",5000,"Tex@Oak 10:05PM ET",17.525,"Oak","Tex",0,11.9,14.68,12.3,25.7
-"SP","Jarred Cosart",4500,"Ari@SD 10:10PM ET",2.25,"SD","Ari",0,10,12.444,7.1,7.85
+"SP","Yu Darvish",10700,"TEX@OAK 10:05PM ET",20.567,"TEX","OAK",0,21.2,22.8475,18.3,9
+"SP","Hyun-Jin Ryu",8000,"COL@LAD 10:10PM ET",9.7,"LAD","COL",0,15.1,17.393,10.3,14.1
+"SP","Wei-Yin Chen",7700,"MIA@SEA 10:10PM ET",8.625,"MIA","SEA",0,14.9,15.005,12,21.95
+"SP","Shelby Miller",7500,"ARI@SD 10:10PM ET",14.9,"ARI","SD",0,15.7,13.966,10.7,24.9
+"SP","Yovani Gallardo",6200,"MIA@SEA 10:10PM ET",3.95,"SEA","MIA",0,12.3,11.65,9.4,6.1
+"SP","Kyle Freeland",5400,"COL@LAD 10:10PM ET",9.9,"COL","LAD",0,12.8,9.621,6.6,7
+"SP","Andrew Triggs",5000,"TEX@OAK 10:05PM ET",17.525,"OAK","TEX",0,11.9,14.68,12.3,25.7
+"SP","Jarred Cosart",4500,"ARI@SD 10:10PM ET",2.25,"SD","ARI",0,10,12.444,7.1,7.85

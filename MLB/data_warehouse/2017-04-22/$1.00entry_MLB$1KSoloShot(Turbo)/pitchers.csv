@@ -1,9 +1,9 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Kenta Maeda",9000,"LAD@Ari 08:10PM ET",10.033,"LAD","Ari",16.37,14.3,16.352,13.8,3.25
-"SP","Robbie Ray",8600,"LAD@Ari 08:10PM ET",24.017,"Ari","LAD",18.64,17.9,16.915,12.9,11.4
-"SP","Dan Straily",7800,"Mia@SD 08:40PM ET",9.783,"Mia","SD",15.08,13.7,15.47,12.4,37.35
-"SP","Ian Kennedy",7500,"KC@Tex 08:05PM ET",19.583,"KC","Tex",19.24,16.2,15.817,13.2,15.55
-"SP","Jered Weaver",6400,"Mia@SD 08:40PM ET",10.283,"SD","Mia",12.05,11.2,12.182,8.1,12.5
-"SP","Matt Moore",5800,"SF@Col 08:10PM ET",12.85,"SF","Col",10.32,13.9,11.209,12.7,-1
-"SP","Antonio Senzatela",4100,"SF@Col 08:10PM ET",19.117,"Col","SF",10.24,11.8,6.537,8.6,20.75
-"SP","Nick Martinez",4000,"KC@Tex 08:05PM ET",0,"Tex","KC",10.49,12.8,10.528,8.4,16.75
+"SP","Kenta Maeda",9000,"LAD@ARI 08:10PM ET",10.033,"LAD","ARI",16.37,14.3,16.352,13.8,3.25
+"SP","Robbie Ray",8600,"LAD@ARI 08:10PM ET",24.017,"ARI","LAD",18.64,17.9,16.915,12.9,11.4
+"SP","Dan Straily",7800,"MIA@SD 08:40PM ET",9.783,"MIA","SD",15.08,13.7,15.47,12.4,37.35
+"SP","Ian Kennedy",7500,"KC@TEX 08:05PM ET",19.583,"KC","TEX",19.24,16.2,15.817,13.2,15.55
+"SP","Jered Weaver",6400,"MIA@SD 08:40PM ET",10.283,"SD","MIA",12.05,11.2,12.182,8.1,12.5
+"SP","Matt Moore",5800,"SF@COL 08:10PM ET",12.85,"SF","COL",10.32,13.9,11.209,12.7,-1
+"SP","Antonio Senzatela",4100,"SF@COL 08:10PM ET",19.117,"COL","SF",10.24,11.8,6.537,8.6,20.75
+"SP","Nick Martinez",4000,"KC@TEX 08:05PM ET",0,"TEX","KC",10.49,12.8,10.528,8.4,16.75

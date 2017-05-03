@@ -1,7 +1,7 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
 "SP","Madison Bumgarner",11700,"SF@KC 08:15PM ET",22.85,"SF","KC",0,21.4,20.8925,20.7,14.7
-"SP","Dallas Keuchel",9900,"LAA@Hou 08:10PM ET",24.283,"Hou","LAA",0,17.4,18.5015,14.2,26.35
-"SP","Trevor Bauer",7200,"Cle@Min 08:10PM ET",9.9,"Cle","Min",0,16.1,16.442,14,NA
-"SP","Adalberto Mejia",5700,"Cle@Min 08:10PM ET",4.9,"Min","Cle",0,12.3,11.121,10.4,NA
+"SP","Dallas Keuchel",9900,"LAA@HOU 08:10PM ET",24.283,"HOU","LAA",0,17.4,18.5015,14.2,26.35
+"SP","Trevor Bauer",7200,"CLE@MIN 08:10PM ET",9.9,"CLE","MIN",0,16.1,16.442,14,NA
+"SP","Adalberto Mejia",5700,"CLE@MIN 08:10PM ET",4.9,"MIN","CLE",0,12.3,11.121,10.4,NA
 "SP","Jason Vargas",5300,"SF@KC 08:15PM ET",28.775,"KC","SF",0,13,10.955,8.7,35.35
-"SP","JC Ramirez",4300,"LAA@Hou 08:10PM ET",3.8,"LAA","Hou",0,11.9,6.278,8.2,19.8
+"SP","JC Ramirez",4300,"LAA@HOU 08:10PM ET",3.8,"LAA","HOU",0,11.9,6.278,8.2,19.8

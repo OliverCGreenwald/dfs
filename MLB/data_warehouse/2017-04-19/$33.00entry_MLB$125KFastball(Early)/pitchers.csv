@@ -1,9 +1,9 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Felix Hernandez",10400,"Mia@Sea 03:40PM ET",16.683,"Sea","Mia",0,16.9,17.707,14.7,11.85
-"SP","Kyle Hendricks",10200,"Mil@ChC 02:20PM ET",12.175,"ChC","Mil",0,16.4,22.824,15.5,6.45
-"SP","Gerrit Cole",8900,"Pit@StL 01:45PM ET",9.75,"Pit","StL",0,16.6,15.724,13.4,20.7
-"SP","Edinson Volquez",8300,"Mia@Sea 03:40PM ET",15.35,"Mia","Sea",0,13.8,13.169,11,-0.65
-"SP","Michael Wacha",7200,"Pit@StL 01:45PM ET",21,"StL","Pit",0,14.8,13.605,10.1,19.4
-"SP","Martin Perez",7000,"Tex@Oak 03:35PM ET",14.45,"Tex","Oak",0,12.2,12.134,11.1,0.05
-"SP","Tommy Milone",5700,"Mil@ChC 02:20PM ET",4.45,"Mil","ChC",0,12.8,10.191,9.2,17.45
-"SP","Jesse Hahn",5500,"Tex@Oak 03:35PM ET",13.7,"Oak","Tex",0,11.2,14.366,8.5,19.9
+"SP","Felix Hernandez",10400,"MIA@SEA 03:40PM ET",16.683,"SEA","MIA",0,16.9,17.707,14.7,11.85
+"SP","Kyle Hendricks",10200,"MIL@CHC 02:20PM ET",12.175,"CHC","MIL",0,16.4,22.824,15.5,6.45
+"SP","Gerrit Cole",8900,"PIT@STL 01:45PM ET",9.75,"PIT","STL",0,16.6,15.724,13.4,20.7
+"SP","Edinson Volquez",8300,"MIA@SEA 03:40PM ET",15.35,"MIA","SEA",0,13.8,13.169,11,-0.65
+"SP","Michael Wacha",7200,"PIT@STL 01:45PM ET",21,"STL","PIT",0,14.8,13.605,10.1,19.4
+"SP","Martin Perez",7000,"TEX@OAK 03:35PM ET",14.45,"TEX","OAK",0,12.2,12.134,11.1,0.05
+"SP","Tommy Milone",5700,"MIL@CHC 02:20PM ET",4.45,"MIL","CHC",0,12.8,10.191,9.2,17.45
+"SP","Jesse Hahn",5500,"TEX@OAK 03:35PM ET",13.7,"OAK","TEX",0,11.2,14.366,8.5,19.9

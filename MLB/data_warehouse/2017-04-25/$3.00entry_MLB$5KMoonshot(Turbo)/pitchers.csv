@@ -1,7 +1,7 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
 "SP","Danny Duffy",10400,"KC@CWS 08:10PM ET",22.025,"KC","CWS",24.37,19.5,18.359,16.8,-4.7
-"SP","Marco Estrada",8800,"Tor@StL 08:15PM ET",17.65,"Tor","StL",18.65,17.2,14.241,12.6,23.3
-"SP","Michael Wacha",6800,"Tor@StL 08:15PM ET",20.467,"StL","Tor",21.69,16.4,15.593,10.3,17.3
-"SP","Joe Ross",5300,"Was@Col 08:40PM ET",23.55,"Was","Col",NA,13.7,12.398,13.4,-0.9
+"SP","Marco Estrada",8800,"TOR@STL 08:15PM ET",17.65,"TOR","STL",18.65,17.2,14.241,12.6,23.3
+"SP","Michael Wacha",6800,"TOR@STL 08:15PM ET",20.467,"STL","TOR",21.69,16.4,15.593,10.3,17.3
+"SP","Joe Ross",5300,"WAS@COL 08:40PM ET",23.55,"WAS","COL",NA,13.7,12.398,13.4,-0.9
 "SP","Dylan Covey",4300,"KC@CWS 08:10PM ET",-1.375,"CWS","KC",6.69,10.4,8.736,9.6,8.8
-"SP","German Marquez",4200,"Was@Col 08:40PM ET",0,"Col","Was",8.71,11.7,9.822,8.3,-10.2
+"SP","German Marquez",4200,"WAS@COL 08:40PM ET",0,"COL","WAS",8.71,11.7,9.822,8.3,-10.2

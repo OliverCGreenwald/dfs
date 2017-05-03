@@ -1,8 +1,8 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Kyle Hendricks",10200,"ChC@Pit 07:05PM ET",10.267,"ChC","Pit",18.46,15.5,14.814,13,19.9
-"SP","Dallas Keuchel",9200,"Hou@Cle 06:10PM ET",24.8,"Hou","Cle",21.37,13.9,16.1015,13.8,27.35
-"SP","Gerrit Cole",8500,"ChC@Pit 07:05PM ET",12.488,"Pit","ChC",17.76,17,16.068,12.9,30.55
-"SP","Wei-Yin Chen",7600,"Mia@Phi 07:05PM ET",13.067,"Mia","Phi",17.38,16.7,16.431,12.8,NA
-"SP","Wade Miley",6900,"TB@Bal 07:05PM ET",25.517,"Bal","TB",18.54,16.9,18.551,11.4,21.75
-"SP","Josh Tomlin",6300,"Hou@Cle 06:10PM ET",0.25,"Cle","Hou",12.38,9.2,12.229,10.6,14.7
-"SP","Erasmo Ramirez",4400,"TB@Bal 07:05PM ET",7.5,"TB","Bal",12.44,14.1,10.97,10.3,NA
+"SP","Kyle Hendricks",10200,"CHC@PIT 07:05PM ET",10.267,"CHC","PIT",18.46,15.5,14.814,13,19.9
+"SP","Dallas Keuchel",9200,"HOU@CLE 06:10PM ET",24.8,"HOU","CLE",21.37,13.9,16.1015,13.8,27.35
+"SP","Gerrit Cole",8500,"CHC@PIT 07:05PM ET",12.488,"PIT","CHC",17.76,17,16.068,12.9,30.55
+"SP","Wei-Yin Chen",7600,"MIA@PHI 07:05PM ET",13.067,"MIA","PHI",17.38,16.7,16.431,12.8,NA
+"SP","Wade Miley",6900,"TB@BAL 07:05PM ET",25.517,"BAL","TB",18.54,16.9,18.551,11.4,21.75
+"SP","Josh Tomlin",6300,"HOU@CLE 06:10PM ET",0.25,"CLE","HOU",12.38,9.2,12.229,10.6,14.7
+"SP","Erasmo Ramirez",4400,"TB@BAL 07:05PM ET",7.5,"TB","BAL",12.44,14.1,10.97,10.3,NA

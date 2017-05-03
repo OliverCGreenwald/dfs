@@ -1,6 +1,6 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
 "SP","Jason Vargas",8000,"KC@CWS 08:10PM ET",30.967,"KC","CWS",20.26,15.4,15.645,10.5,11.05
 "SP","Miguel Gonzalez",7500,"KC@CWS 08:10PM ET",17.717,"CWS","KC",15.65,12.9,14.75,10.9,30.2
-"SP","Martin Perez",6300,"Min@Tex 08:05PM ET",10.7,"Tex","Min",10.23,11,12.717,11.7,8.1
-"SP","Phil Hughes",5500,"Min@Tex 08:05PM ET",11.05,"Min","Tex",11.26,10.6,12.196,9,12.7
-"SP","Tyler Anderson",5400,"Was@Col 08:40PM ET",7.913,"Col","Was",8.05,13.1,12.446,10.8,10.55
+"SP","Martin Perez",6300,"MIN@TEX 08:05PM ET",10.7,"TEX","MIN",10.23,11,12.717,11.7,8.1
+"SP","Phil Hughes",5500,"MIN@TEX 08:05PM ET",11.05,"MIN","TEX",11.26,10.6,12.196,9,12.7
+"SP","Tyler Anderson",5400,"WAS@COL 08:40PM ET",7.913,"COL","WAS",8.05,13.1,12.446,10.8,10.55
