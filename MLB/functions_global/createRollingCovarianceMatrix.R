@@ -23,7 +23,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
-createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df, filter_name) {
+createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df) {
   ####### Import Libraries #######
   library(stringr)
   
@@ -120,7 +120,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
       # if (as.numeric(row[1]) %% as.numeric(row[2]) == 0) {
       #   print(paste0(row[1], ", ", row[2]))
       # }
-
+      
       temp_inds_match_name <- which(temp_teamabbrev_all==as.character(row[3])) # which(temp_teamabbrev_all==row[3]) # note: not hard coded
       temp_inds_match_date <- which(list_all_players$Date==as.Date(as.character(row[4]))) # which(list_all_players$Date==row[4]) # note: not hard coded
       temp_ind_match <- temp_inds_match_name[temp_inds_match_name %in% temp_inds_match_date] # matched row index in list_all_players
@@ -152,7 +152,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
   colnames(hist_fpts_mat) <- dates
   rownames(hist_fpts_mat) <- names_unique_players
   
-  # adjust for NAs
+  # adjust for NAs if constructing full covaraince matrix to save time (contest matrices done separately)
   if (is.null(julia_hitter_df)) {
     # remove rows with NA count > round(length(dates)*0.5)
     inds.remove <- NULL
@@ -162,13 +162,6 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
       }
     }
     hist_fpts_mat <- hist_fpts_mat[-inds.remove,]
-  } else {
-    # set rows with NA count > round(length(dates)*0.5) all to NA
-    for (i in 1:nrow(hist_fpts_mat)) {
-      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.6)) {
-        hist_fpts_mat[i,] <- NA
-      }
-    }
   }
   
   
@@ -241,10 +234,6 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
   # copy upper triangle of cov matrix into lower triangle
   cov_mat[lower.tri(cov_mat)] <- t(cov_mat)[lower.tri(cov_mat)]
   
-  # apply filtering
-  if (!is.null(filter)) {
-    cov_mat <- filterCovarianceMatrix(contest_date = as.Date(date.end)+1, cov_mat_unfiltered = cov_mat, filter_name = filter_name)
-  }
   
   ####### Construct Covariance Counts Matrix #######
   # function to construct counts matrix (fast way)
@@ -302,7 +291,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
   
   
   # return covariance matrix and counts matrix
-  return(list(cov_mat, cov_mat_counts))
+  return(list(cov_mat, cov_mat_counts, hist_fpts_mat))
 }
 
 
