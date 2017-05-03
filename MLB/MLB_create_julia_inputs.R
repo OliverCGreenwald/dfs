@@ -66,7 +66,7 @@ for (i in 1:length(dates_last)) {
   date_last <- dates_last[i]
 
   # construct covariance and counts matrices
-  cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, filter_on = F)
+  cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, filter = NULL)
   cov_mat <- cov.dat[[1]]
   cov_mat_counts <- cov.dat[[2]]
 
@@ -141,7 +141,8 @@ for (d in 1:length(dates_last)) {
       print("Constructing covariance matrix for this contest...")
       
       # construct covariance and counts matrices
-      cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df, filter_on = T)
+      use_filter_name <- "test"
+      cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df, filter_name = use_filter_name)
       cov_mat <- cov.dat[[1]]
       cov_mat_counts <- cov.dat[[2]]
       
@@ -153,8 +154,7 @@ for (d in 1:length(dates_last)) {
       # write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat.csv"), row.names = F)
       # write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat.csv"), row.names = F)
       
-      test_file_name <- "covariance_mat_chg75p_exp(spike)"
-      write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/", test_file_name, ".csv"), row.names = F)
+      write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", test_file_name, ".csv"), row.names = F)
       
     } else {
       ind_match <- min(which(contest_info$Match_ID[1:i] %in% contest_info$Match_ID[i]))

@@ -8,6 +8,10 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Description #######
 # Function for constructing the covariance matrix for MVO. Only computed for players on same team.
 #
+# Arguments:
+# - julia_hitter_df: set to NULL if computing full covariance matrix, otherwise pass in hitter df for a contest
+# - filter: set to NULL if no filter, otherwise "test", "chg75p_spike", "chg75p_exp(spike)" (as defined in covariance_matrix_dictionary.txt)
+#
 # TODO:
 # - determine if pairwise.complete.obs is appropriate for our problem. considered dangerous
 # - add opposing pitcher into covariance matrix calculation
@@ -19,7 +23,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
-createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df, filter_on) {
+createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df, filter_name) {
   ####### Import Libraries #######
   library(stringr)
   
@@ -238,8 +242,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
   cov_mat[lower.tri(cov_mat)] <- t(cov_mat)[lower.tri(cov_mat)]
   
   # apply filtering
-  if (filter_on == T) {
-    cov_mat <- filterCovarianceMatrix(contest_date = as.Date(date.end)+1, cov_mat_unfiltered = cov_mat)
+  if (!is.null(filter)) {
+    cov_mat <- filterCovarianceMatrix(contest_date = as.Date(date.end)+1, cov_mat_unfiltered = cov_mat, filter_name = filter_name)
   }
   
   ####### Construct Covariance Counts Matrix #######

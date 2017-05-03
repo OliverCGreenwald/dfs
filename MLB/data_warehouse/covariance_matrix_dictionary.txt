@@ -13,3 +13,6 @@ Same as covariance_mat_test but defined “good” as player pairs that had at l
 
 4. covariance_mat_chg75p_exp(spike)
 Same as covariance_mat_75p_spike but spiked covariances of “good” player pairs by a factor of 1+exp(-scaled_covariance)*0.25, where scaled_covariance is the covariance of “good” player pairs scaled to between 0 and 1 using function(x){(x-min(x))/(max(x)-min(x))} (x is the covariances of the “good” player pairs).
+
+5. covariance_mat_chg75p_zeros
+Same as covariance_mat_75p_spike but set non-“good” player pair covariances to 0 instead of increasing the “good” player pairs by factor of 1.25.
