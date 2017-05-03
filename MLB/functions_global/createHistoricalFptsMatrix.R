@@ -9,14 +9,14 @@ if(file.exists("~/Projects/DFS/")) {
 # Function for constructing a historical fantasy points matrix.
 #
 # Arguments:
-# - vector of player names
-# - vector of dates
+# - vector of player names and their team, in the format "Name_Team"
+# - vector of dates_vec
 
-createHistoricalFptsMatrix <- function() {
+createHistoricalFptsMatrix <- function(name_team_vec, dates_vec, min_games_pctg) {
   # initialize historical fpts matrix
-  hist_fpts_mat <- as.data.frame(matrix(data = NA, nrow = length(names_unique_players), ncol = length(dates)))
-  colnames(hist_fpts_mat) <- dates
-  rownames(hist_fpts_mat) <- names_unique_players
+  hist_fpts_mat <- as.data.frame(matrix(data = NA, nrow = length(name_team_vec), ncol = length(dates_vec)))
+  colnames(hist_fpts_mat) <- dates_vec
+  rownames(hist_fpts_mat) <- name_team_vec
   
   # function that vectorizes the historical fpts matrix filling code (fast way)
   fill_hist_mat <- function(x, y) {
@@ -68,18 +68,20 @@ createHistoricalFptsMatrix <- function() {
   # y <- rep(1:ncol(hist_fpts_mat), nrow(hist_fpts_mat)) # debug
   # fill historical fpts matrix (fast way)
   hist_fpts_mat <- as.data.frame(outer(1:nrow(hist_fpts_mat), 1:ncol(hist_fpts_mat), FUN=fill_hist_mat))
-  colnames(hist_fpts_mat) <- dates
-  rownames(hist_fpts_mat) <- names_unique_players
+  colnames(hist_fpts_mat) <- dates_vec
+  rownames(hist_fpts_mat) <- name_team_vec
   
   # adjust for NAs if constructing full covaraince matrix to save time (contest matrices done separately)
-  if (is.null(julia_hitter_df)) {
-    # remove rows with NA count > round(length(dates)*0.5)
+  if (!is.null(min_games_pctg)) {
+    # remove rows with NA count > round(length(dates_vec)*0.5)
     inds.remove <- NULL
     for (i in 1:nrow(hist_fpts_mat)) {
-      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates)*0.8)) {
+      if (sum(is.na(hist_fpts_mat[i,])) > round(length(dates_vec)*(1-min_games_pctg))) {
         inds.remove <- c(inds.remove, i)
       }
     }
     hist_fpts_mat <- hist_fpts_mat[-inds.remove,]
   }
+  
+  return(hist_fpts_mat)
 }
