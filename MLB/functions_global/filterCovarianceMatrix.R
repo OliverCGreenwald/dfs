@@ -270,11 +270,9 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
     cov_mat_filtered <- cov_mat_unfiltered
     
     # define function that scales the elements of a vector between 0 and 1. append scaled column to cov_time_filtered
-    if (filter_name=="chg75p_exp(spike)") {
-      range01 <- function(x){(x-min(x))/(max(x)-min(x))}
-      cov_time_filtered$scaled_covar <- range01(cov_time_filtered[,ncol(cov_time_filtered)])
-      cov_time_filtered$scaled_covar <- 1 + exp((-1)*cov_time_filtered$scaled_covar)*0.25
-    }
+    range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+    cov_time_filtered$scaled_covar <- range01(cov_time_filtered[,ncol(cov_time_filtered)])
+    cov_time_filtered$scaled_covar <- 1 + exp((-1)*cov_time_filtered$scaled_covar)*0.25
     
     # adjust values of the "good" (matched) players in the input/unfiltered matrix
     for(i in 1:nrow(cov_time_filtered)) {
@@ -288,6 +286,74 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
     }
     
     return(cov_mat_filtered) 
+  }
+  
+  # this will only really work when there is a reasonable number of "good" pairs
+  if (filter_name == "chg75p_zeros") {
+    # initialize and fill change covariance matrix
+    cov_time_chg <- cov_time
+    cov_time_chg[,] <- NA
+    for (i in 1:nrow(cov_time_chg)) {
+      cov_time_chg[i,2:ncol(cov_time_chg)] <- cov_time[i,2:ncol(cov_time)] - cov_time[i,1:(ncol(cov_time)-1)]
+    }
+    
+    # 75th percentile of change matrix (> 0)
+    threshold <- quantile(unlist(cov_time_chg[cov_time_chg>0]), na.rm = T, 0.75)
+    threshold
+    for (i in 1:nrow(cov_time_chg)) {
+      # in at least 20% of games where pair played, increase in covariance by an amount > 75th percentile of all changes
+      if (sum(cov_time_chg[i,] > threshold, na.rm = T) >= max(2, round(sum(cov_time_chg[i,] != 0, na.rm = T)*0.20))) {
+        cov_time$temp[i] <- TRUE
+      } else {
+        cov_time$temp[i] <- FALSE
+      }
+    }
+    
+    # remove pairs not exceeding change threshold sufficiently much
+    if (sum(cov_time$temp==TRUE)==0) {
+      warning(paste0("(", contest_date, ") ", "No player pairs satisfied filtering criteria. Not difference between unfiltered matrix and filtered matrix."))
+      return(cov_mat_unfiltered)
+    }
+    cov_time_filtered <- cov_time[cov_time$temp==TRUE,]
+    cov_time$temp <- NULL
+    cov_time_filtered$temp <- NULL
+    print(paste0("Number of 'good' player pairs: ", nrow(cov_time_filtered)))
+    
+    # define how many player pairs to plot
+    num_top_pairs <- min(25, nrow(cov_time_filtered))
+    
+    # subset cov_time by num_top_pairs
+    cov_time_temp <- cov_time_filtered[1:num_top_pairs, ]
+    
+    plot(as.numeric(cov_time_temp[1,]), type = 'b', col = 1, ylim = c(min(cov_time_temp, na.rm = T), max(cov_time_temp, na.rm = T)), ylab = "Covariance", xlab = "Days Since 2017-04-05", main = paste0("Top Player Pairs by Covariance (as of ", end_day-1, ")"))
+    # plot(as.numeric(cov_time_temp[1,]), type = 'b', col = 1, ylim = c(0, 100), ylab = "Covariance", xlab = "Days Since 2017-04-05", main = paste0("Top Player Pairs by Covariance (as of ", end_day-1, ")"))
+    for (i in 2:num_top_pairs) {
+      points(as.numeric(cov_time_temp[i,]), type = 'b', col = i)
+    }
+    legend(x = "topleft", legend = c(rownames(cov_time_temp)), lwd = 1, col = 1:num_top_pairs, cex = 0.3)
+    
+    ####### Adjust values in input (unfiltered) covariance matrix #######
+    # get names
+    list_player_a <- str_split_fixed(rownames(cov_time_filtered), ", ", 2)[,1]
+    list_player_b <- str_split_fixed(rownames(cov_time_filtered), ", ", 2)[,2]
+    
+    # init 0 matrix
+    cov_mat_filtered <- cov_mat_unfiltered # copy for dimensions and rc names
+    cov_mat_filtered[upper.tri(cov_mat_filtered, diag = F)] <- 0 # keep diag, otherwise init to 0
+    cov_mat_filtered[lower.tri(cov_mat_filtered, diag = F)] <- 0
+    
+    # fill 0 matrix with values of the "good" (matched) players in the input/unfiltered matrix
+    for(i in 1:nrow(cov_time_filtered)) {
+      # find inds of players
+      ind_a <- which(colnames(cov_mat_unfiltered)==list_player_a[i])
+      ind_b <- which(colnames(cov_mat_unfiltered)==list_player_b[i])
+      
+      # insert values of unfiltered covariance matrix (only good pairs' covariances)
+      cov_mat_filtered[ind_a, ind_b] <- cov_mat_unfiltered[ind_a, ind_b]
+      cov_mat_filtered[ind_b, ind_a] <- cov_mat_unfiltered[ind_b, ind_a]
+    }
+    
+    return(cov_mat_filtered)
   }
   
   stop("Filter name not found.")

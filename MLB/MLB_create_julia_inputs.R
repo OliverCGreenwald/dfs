@@ -18,7 +18,7 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <- "2017-04-07" # Sys.Date() # "2017-04-29"
+date.start <- "2017-04-19" # Sys.Date() # "2017-04-29"
 date.end <- Sys.Date() # Sys.Date() # "2017-04-29"
 
 
@@ -141,7 +141,7 @@ for (d in 1:length(dates_last)) {
       print("Constructing covariance matrix for this contest...")
       
       # construct covariance and counts matrices
-      use_filter_name <- "test"
+      use_filter_name <- "chg75p_zeros" # test, chg75p_spike, chg75p_exp(spike), chg75p_zeros
       cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = temp_julia_hitter_df, filter_name = use_filter_name)
       cov_mat <- cov.dat[[1]]
       cov_mat_counts <- cov.dat[[2]]
