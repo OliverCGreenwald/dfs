@@ -59,7 +59,7 @@ download_DK_player_salary_file <- function(contest_number, date) {
   eventDir <- paste0(entryFee, "entry_", eventName)  
   dir.create(eventDir)
   setwd(eventDir)  
-  
+  dir.create(file.path('lineups')) # Create Directory for future testing lineups
         
   write.csv(player_salaries, file = 'DKSalaries.csv', row.names = F)
   

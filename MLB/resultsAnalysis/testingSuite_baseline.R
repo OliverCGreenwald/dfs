@@ -10,7 +10,7 @@
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
 contest_row_index <- c(235,269,340,396,141,49,44)
-lineup_name <- ""
+lineup_name <- "*chg75p_exp(spike).csv"
 ######### Code Begins #########
 
 # After running, view Results using the following commands: 
