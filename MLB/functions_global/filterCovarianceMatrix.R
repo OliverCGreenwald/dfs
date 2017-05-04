@@ -52,7 +52,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
     top_cov_pairs$Num_Games[i] <- cov_mat_counts[player_a_ind, player_b_ind]
   }
   
-  # remove players where Num_Games < (contest.date-2017-04-02)*0.4 (safe guard; should be already be done in create_covariance_matrix file)
+  # we will entirely ignore player pairs that have played in less than 40% of games (safeguard)
   top_cov_pairs <- top_cov_pairs[top_cov_pairs$Num_Games > (as.Date(contest.date) - as.Date("2017-04-02"))*0.4, ]
   
   # view

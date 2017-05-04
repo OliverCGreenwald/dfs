@@ -23,7 +23,7 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
-createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df, filter_name) {
+createRollingCovarianceMatrix_deprecated <- function(date.start, date.end, julia_hitter_df, filter_name) {
   ####### Import Libraries #######
   library(stringr)
   
