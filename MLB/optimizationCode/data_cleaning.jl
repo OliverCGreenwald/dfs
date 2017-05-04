@@ -407,7 +407,7 @@ function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_p
     # Populate player_info with the corresponding information, start with the first player to initiate the array
     for j=1:num_stacks
         if players[1,:Batting_Order_Confirmed] == j
-            stack_ind = circshift(collect(1:9),stack_order-j)[1:stack_order[1]];  #index of the stacks this batting order belongs to.  
+            stack_ind = circshift(collect(1:9),stack_size-j)[1:stack_size];  #index of the stacks this batting order belongs to.  
             #For ex., batting order 1, stacking order 3, will belong to (8,9,1),(9,1,2) and (1,2,3)
             for k in stack_ind
                 player_info[k]=1;
@@ -421,7 +421,8 @@ function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_p
         player_info = zeros(Int,num_stacks);
         for j=1:num_stacks
             if players[i,:Batting_Order_Confirmed] == j
-                stack_ind = circshift(collect(1:9),num_stacks-j)[1:num_stacks];  #index of the stacks this batting order belongs to.  
+
+                stack_ind = circshift(collect(1:9),stack_size-j)[1:stack_size];  #index of the stacks this batting order belongs to.  
                 #For ex., batting order 1, stacking order 3, will belong to (8,9,1),(9,1,2) and (1,2,3)
                 for k in stack_ind
                     player_info[k]=1;

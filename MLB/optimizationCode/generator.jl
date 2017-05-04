@@ -18,20 +18,16 @@ contest_name = "\$40.00entry_MLB\$250KSaturdaySlugfest";
 num_lineups = 10; 
 
 # num_overlap is the maximum overlap of players between the lineups 
-num_overlap = 2;
+num_overlap = 5;
 
 #number of hitters in the stack (number of consecutive hitters in the hitting order)
-stack_size = 2; 
+stack_size = 4; 
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
 formulation = formulations.formulation3_covar
-# formulation_feasibility
-# formulation0_covar
-# formulation1_covar - no stacking
-# formulation2_covar - stacking
 
 # Covariance term 
-lambda_var = 0.000
+lambda_var = 0.006
 
 # Exposure Constraints
 exposure = 0.6
