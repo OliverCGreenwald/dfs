@@ -18,7 +18,8 @@ Same as covariance_mat_75p_spike but spiked covariances of “good” player pai
 Same as covariance_mat_75p_spike but set non-“good” player pair covariances to 0 instead of increasing the “good” player pairs by factor of 1.25. Note that variances are still the same.
 
 6. moving average, Kalman filter? Goal is to find upward trending pairs
+https://stats.stackexchange.com/questions/87946/r-detect-increasing-decreasing-trend-of-time-series
 
-6. Remove diagonal
+7. Remove diagonal
 
 

@@ -27,6 +27,7 @@ num_lineups = 150;
 #                       "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
 #                       "\$55.00entry_DKFiveYearAnniversary\$55",
 #                       "\$50.00entry_MLB\$275KSundayNiftyFifty"]
+#                       # 44, 46, 141, 235, 269, 340, 396
 
 contest_date_array = ["2017-04-14", "2017-04-16", "2017-04-17", "2017-04-22", "2017-04-24", "2017-05-01", "2017-05-02"]
 contest_name_array = ["\$33.00entry_MLB\$800KSweetSpot[\$100Kto1st]",
