@@ -120,6 +120,8 @@ function formulation_feasibility(players, old_lineups, num_overlap,stack_size, P
     @constraint(m, sum(used_stack_batters[i,j] for i = 1:num_teams for j = 1:num_stacks) >= 1)  
    
    
+    # Exposure Constraint
+    @constraint(m, constr[j=1:num_players], sum(old_lineups[j,i] for i = 1:(size(old_lineups))[2]) + players_lineup[j] <= num_lineups * exposure)
 
 
    ########################################################################################################

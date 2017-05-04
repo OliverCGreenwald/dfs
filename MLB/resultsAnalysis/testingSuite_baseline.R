@@ -9,10 +9,10 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-contest_row_index <- c(44,46,141,235,269,340,396)
-lineup_name <- "*formulation3_covar*"
+contest_row_index <- c(44,46,141,235,269,340,396, 32, 37, 42, 169, 206, 426, 452) # 32, 37, 42, 169, 206, 426, 452
+lineup_name <- "*covar_chg75p_exp*"
 ######### Code Begins #########
-install.packages("data.table")
+#install.packages("data.table")
 library(data.table)
 library(dplyr)
 library(ggplot2)

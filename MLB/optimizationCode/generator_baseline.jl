@@ -19,23 +19,23 @@ formulation = formulations.formulation3_covar
 
 num_lineups = 150; 
 
-contest_date_array = ["2017-04-18","2017-04-19","2017-04-21","2017-04-25","2017-04-26","2017-04-28","2017-04-30"]
-contest_name_array = ["\$40.00entry_MLB\$250KMediumHomeRun",
-                      "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
-                      "\$33.00entry_MLB\$300KFastball",
-                      "\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
-                      "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
-                      "\$55.00entry_DKFiveYearAnniversary\$55",
-                      "\$50.00entry_MLB\$275KSundayNiftyFifty"]
-
-# contest_date_array = ["2017-04-14", "2017-04-16", "2017-04-17", "2017-04-22", "2017-04-24", "2017-05-01", "2017-05-02"]
-# contest_name_array = ["\$33.00entry_MLB\$800KSweetSpot[\$100Kto1st]",
-#                       "\$50.00entry_MLB\$250KSundayNiftyFifty",
-#                       "\$33.00entry_MLB\$250KFastball[\$25Kto1st]",
-#                       "\$40.00entry_MLB\$250KSaturdaySlugfest",
+# contest_date_array = ["2017-04-18","2017-04-19","2017-04-21","2017-04-25","2017-04-26","2017-04-28","2017-04-30"]
+# contest_name_array = ["\$40.00entry_MLB\$250KMediumHomeRun",
+#                       "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
 #                       "\$33.00entry_MLB\$300KFastball",
-#                       "\$33.00entry_MLB\$325KFastball[\$50Kto1st]",
-#                       "\$33.00entry_MLB\$175KFastball"]
+#                       "\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
+#                       "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
+#                       "\$55.00entry_DKFiveYearAnniversary\$55",
+#                       "\$50.00entry_MLB\$275KSundayNiftyFifty"]
+
+contest_date_array = ["2017-04-14", "2017-04-16", "2017-04-17", "2017-04-22", "2017-04-24", "2017-05-01", "2017-05-02"]
+contest_name_array = ["\$33.00entry_MLB\$800KSweetSpot[\$100Kto1st]",
+                      "\$50.00entry_MLB\$250KSundayNiftyFifty",
+                      "\$33.00entry_MLB\$250KFastball[\$25Kto1st]",
+                      "\$40.00entry_MLB\$250KSaturdaySlugfest",
+                      "\$33.00entry_MLB\$300KFastball",
+                      "\$33.00entry_MLB\$325KFastball[\$50Kto1st]",
+                      "\$33.00entry_MLB\$175KFastball"]
                       # 32, 37, 42, 169, 206, 426, 452
 
 
