@@ -18,7 +18,7 @@ source("MLB/functions_global/createRollingCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <- "2017-04-07" # Sys.Date() # "2017-04-29"
+date.start <-  Sys.Date() # Sys.Date() # "2017-04-07"
 date.end <- Sys.Date() # Sys.Date() # "2017-04-29"
 
 
@@ -180,7 +180,7 @@ for (i in 1:length(dates_last)) {
 print("Creating contest covariance matrices (no filtered)...")
 
 dates_last <- seq(from = as.Date(date.start) - 2, to  = as.Date(date.end) - 2, by = "day") # date range
-for (d in 21:length(dates_last)) {
+for (d in 1:length(dates_last)) {
   # load contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
   
@@ -247,19 +247,19 @@ for (d in 21:length(dates_last)) {
       # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
       write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_unfiltered.csv"), row.names = F)
       write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat_unfiltered.csv"), row.names = F)
-      write.csv(hist_fpts_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hist_fpts_mat.csv"), row.names = T)
+      write.csv(hist_fpts_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hist_fpts_mat.csv"), row.names = F)
       
     } else {
       ind_match <- min(which(contest_info$Match_ID[1:i] %in% contest_info$Match_ID[i]))
 
       cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_mat_unfiltered.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
       cov_mat_counts <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/covariance_counts_mat_unfiltered.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
-      hist_fpts_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/hist_fpts_mat.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
+      hist_fpts_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[ind_match],"/" , paste0(contest_info$Entry_Fee[ind_match],"entry_",gsub(" ", "", contest_info$Contest_Name[ind_match])), "/hist_fpts_mat.csv"), stringsAsFactors = F, header = T, check.names=F)
 
       # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
       write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_unfiltered.csv"), row.names = F)
       write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_counts_mat_unfiltered.csv"), row.names = F)
-      write.csv(hist_fpts_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hist_fpts_mat.csv"), row.names = T)
+      write.csv(hist_fpts_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hist_fpts_mat.csv"), row.names = F)
     }
 
     print(paste0("Completed: ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ": ", nrow(temp_julia_hitter_df), "=", nrow(cov_mat)))
