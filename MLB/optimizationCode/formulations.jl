@@ -30,7 +30,7 @@ using Gurobi
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation_feasibility(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure)
+function formulation_feasibility(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
     
 
     #################################################################################################
@@ -153,7 +153,7 @@ end
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation0_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure)
+function formulation0_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
     
 
     #################################################################################################
