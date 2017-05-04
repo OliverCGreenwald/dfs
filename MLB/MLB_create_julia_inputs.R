@@ -19,8 +19,8 @@ source("MLB/functions_global/filterCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <-  "2017-04-21" # Sys.Date() # "2017-04-07"
-date.end <- "2017-04-21" # Sys.Date() # "2017-04-29"
+date.start <-  "2017-04-28" # Sys.Date() # "2017-04-07"
+date.end <- "2017-05-03" # Sys.Date() # "2017-04-29"
 
 
 ####### Section I (player data df) #######
@@ -212,24 +212,14 @@ for (d in 1:length(dates_last)) {
     # "chg75p_spike"
     # "chg75p_exp(spike)"
     # "chg75p_zeros"
-    
     filter_names <- c("test", "chg75p_spike", "chg75p_exp(spike)", "chg75p_zeros")
     
+    # apply each filter separately and write to file
     for (filter_name in filter_names) {
       cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name)
       write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", filter_name, ".csv"), row.names = F)
     }
-    
-    # apply "test" filter and write to file
-    filter_name = "test"
-    cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name)
-    write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", filter_name, ".csv"), row.names = F)
-    
-    # apply "test" filter and write to file
-    filter_name = "chg75p_spike"
-    cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name)
-    write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", filter_name, ".csv"), row.names = F)
-    
+
     print(paste0("Completed: ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
   }
 }

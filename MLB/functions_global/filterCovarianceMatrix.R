@@ -281,7 +281,6 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
       ind_b <- which(colnames(cov_mat_unfiltered)==list_player_b[i])
       
       # scale up by 1+exp(cov_time_filtered$scaled_covar[i])
-      print(cov_time_filtered$scaled_covar[i])
       cov_mat_filtered[ind_a, ind_b] <- cov_mat_filtered[ind_a, ind_b]*cov_time_filtered$scaled_covar[i]
       cov_mat_filtered[ind_b, ind_a] <- cov_mat_filtered[ind_b, ind_a]*cov_time_filtered$scaled_covar[i]
     }
