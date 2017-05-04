@@ -11,8 +11,9 @@ if(file.exists("~/Projects/DFS/")) {
 # Arguments:
 # - vector of player names and their team, in the format "Name_Team"
 # - vector of dates_vec
+# - minimum fraction of games played
 
-createHistoricalFptsMatrix <- function(name_team_vec, dates_vec, min_games_pctg) {
+createHistoricalFptsMatrix <- function(name_team_vec, list_all_players, dates_vec, min_games_pctg) {
   # initialize historical fpts matrix
   hist_fpts_mat <- as.data.frame(matrix(data = NA, nrow = length(name_team_vec), ncol = length(dates_vec)))
   colnames(hist_fpts_mat) <- dates_vec
