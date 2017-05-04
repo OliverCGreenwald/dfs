@@ -10,7 +10,7 @@ if(file.exists("~/Projects/DFS/")) {
 #
 # Arguments:
 # - julia_hitter_df: set to NULL if computing full covariance matrix, otherwise pass in hitter df for a contest
-# - filter: set to NULL if no filter, otherwise "test", "chg75p_spike", "chg75p_exp(spike)" (as defined in covariance_matrix_dictionary.txt)
+# - min_games_pctg: set between 0-1
 #
 # TODO:
 # - determine if pairwise.complete.obs is appropriate for our problem. considered dangerous
@@ -53,15 +53,13 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
       temp_hitters <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
       temp_pitchers <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/pitchers.csv"), stringsAsFactors = F, header = T)
       
-      #
+      # subset columns and append
       temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
       temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
       if (is.null(julia_hitter_df)) {
         temp_players_day <- rbind(temp_hitters, temp_pitchers) 
       } else {
         temp_players_day <- temp_hitters
-        # match hitters from the julia input file
-        # temp_players_day <- temp_players_day[paste0(temp_players_day$Name, temp_players_day$teamAbbrev) %in% paste0(julia_hitter_df$Name, julia_hitter_df$teamAbbrev), ] # this generally should be an unnecessary check
       }
       
       # add date
@@ -229,37 +227,11 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
 
 
 # debug
-# date.start = "2017-04-02"
-# date.end = "2017-04-04"
-#
-# julia_input_df = NULL
-# contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-# i = 10
-# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
-# date.end = contest_info$Contest_Date[i]
-
-# date.start = "2017-04-02"
-# date.end <- "2017-04-21"
-# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", date.end,"/" , "$2.00entry_MLB$2DoubleUp", "/hitters.csv"), stringsAsFactors = F, header = T)
-
-
-# date.start = "2017-04-02"
-# date.end <- Sys.Date()-2
-# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
-
-# date.start = "2017-04-02"
-# date.end = "2017-04-25"
-# julia_hitter_df = NULL
-
-# date.start = "2017-04-02"
-# date.end <- "2017-04-09"
-# julia_hitter_df <- temp_julia_hitter_df
 
 # date.start <- "2017-04-02"
 # date.end <- "2017-04-29"
 # julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-04-29/$3.00entry_MLB$5KMoonshot(Afternoon)/hitters.csv"), stringsAsFactors = F, header = T)
 # min_games_pctg <- NULL
-
 
 # asdf <- read.csv(file = "MLB/data_warehouse/2017-04-29/$33.00entry_MLB$110KFastball(Early)/covariance_mat_chg75p_exp(spike).csv", stringsAsFactors = F, header = T, check.names = F)
 
