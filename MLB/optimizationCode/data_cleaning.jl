@@ -74,7 +74,7 @@ function read_player_data(path_hitters,path_pitchers)
                         );
 
     players = players[players[:Proj_dfn] .> 0,:]
-    writetable("output.csv", players)
+
     return players;
 end
 

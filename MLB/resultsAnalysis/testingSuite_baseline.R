@@ -9,8 +9,8 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-contest_row_index <- c(235,269,340,396,141,46,44)
-lineup_name <- "*chg75p_exp*"
+contest_row_index <- c(44,46,141,235,269,340,396)
+lineup_name <- "*formulation3_covar*"
 ######### Code Begins #########
 install.packages("data.table")
 library(data.table)
@@ -74,6 +74,6 @@ plotdata = plotdata[order(plotdata$PlotDate), ]
 plotdata <- mutate(group_by(plotdata,Name), cumsum=cumsum(PnL))
 
 ggplot(data=plotdata,
-       aes(x=PlotDate, y=cumsum, colour=Name)) +
+       aes(x=as.Date(as.character(PlotDate),'%Y%m%d'), y=cumsum, colour=Name)) +
   geom_line() + theme(legend.position="none")
 
