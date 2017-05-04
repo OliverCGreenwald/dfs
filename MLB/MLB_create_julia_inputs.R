@@ -19,8 +19,8 @@ source("MLB/functions_global/filterCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <-  "2017-04-28" # Sys.Date() # "2017-04-07"
-date.end <- "2017-05-03" # Sys.Date() # "2017-04-29"
+date.start <-  "2017-04-07" # Sys.Date() # "2017-04-07"
+date.end <- "2017-04-27" # Sys.Date() # "2017-04-29"
 
 
 ####### Section I (player data df) #######
@@ -247,7 +247,17 @@ for (d in 1:length(dates_last)) {
       
       # write to file
       for (filter_name in filter_names) {
+        # apply filter
         cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name)
+        
+        # convert any NA to 0 (occasionally occurs in earlier dates. TODO: why?)
+        if (sum(is.na(cov_mat)) != 0) {
+          temp_sum <- sum(is.na(cov_mat))
+          cov_mat[is.na(cov_mat)] <- 0
+          warning(paste0("NAs found (replaced with 0's): ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), " There were ", temp_sum, " NAs."))
+        }
+        
+        # write
         write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", filter_name, ".csv"), row.names = F)
       }
     } else {

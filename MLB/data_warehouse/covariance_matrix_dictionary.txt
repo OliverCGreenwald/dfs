@@ -17,7 +17,7 @@ Same as covariance_mat_75p_spike but spiked covariances of “good” player pai
 5. covariance_mat_chg75p_zeros
 Same as covariance_mat_75p_spike but set non-“good” player pair covariances to 0 instead of increasing the “good” player pairs by factor of 1.25. Note that variances are still the same.
 
-6. moving average
+6. moving average, Kalman filter? Goal is to find upward trending pairs
 
 6. Remove diagonal
 
