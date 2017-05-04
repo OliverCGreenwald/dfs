@@ -30,7 +30,7 @@ contest_name_array = ["\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
 
 
 for contest_info_index in 1:size(contest_name_array)[1]
-    for stack in 2:4 #stack
+    for stack in 2:5 #stack
         for overlap in 5:6 
             for lambda in 1:3 # time line
                 num_overlap = overlap

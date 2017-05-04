@@ -19,20 +19,19 @@ formulation = formulations.formulation2_covar
 
 num_lineups = 150; 
 
-contest_date_array = ["2017-04-25","2017-04-26","2017-04-28","2017-04-21","2017-04-19","2017-04-18"]
-contest_name_array = ["\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
-                 "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
-                 "\$55.00entry_DKFiveYearAnniversary\$55",
-                 "\$33.00entry_MLB\$300KFastball",
-                 "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
-                 "\$40.00entry_MLB\$250KMEDIUMHOMERUN" ]
+contest_date_array = ["2017-04-18","2017-04-19","2017-04-21","2017-04-25","2017-04-26","2017-04-28","2017-04-30"]
+contest_name_array = ["\$40.00entry_MLB\$250KMediumHomeRun",
+                      "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
+                      "\$33.00entry_MLB\$300KFastball",
+                      "\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
+                      "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
+                      "\$55.00entry_DKFiveYearAnniversary\$55",
+                      "\$50.00entry_MLB\$275KSundayNiftyFifty"]
 
-                 # "2017-04-30", "\$50.00entry_MLB\$275KSundayNiftyFifty",
 
-
-for contest_info_index in 3:size(contest_name_array)[1]
+for contest_info_index in 1:size(contest_name_array)[1]
     for stack in 2:5 #stack
-        for overlap in 5:6 
+        for overlap in 5:6
             for lambda in 1:3 # time line
                 num_overlap = overlap
 
