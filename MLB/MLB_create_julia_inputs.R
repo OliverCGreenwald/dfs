@@ -260,37 +260,6 @@ for (d in 1:length(dates_last)) {
         write.csv(cov_mat_filtered, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", filter_name, ".csv"), row.names = F)
       }
     }
-    
-    
-    
-    
-    
-    # # read in hist_fpts_mat and unfiltered covar matrix
-    # hist_fpts_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hist_fpts_mat.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
-    # cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_unfiltered.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
-    # 
-    # # basic filter applied to all covariance matrices
-    # for (j in 1:nrow(hist_fpts_mat)) {
-    #   # set covariance to 0 if either player in pair played less than 40% of games
-    #   if (sum(is.na(hist_fpts_mat[j,2:ncol(hist_fpts_mat)])) > round((ncol(hist_fpts_mat)-1)*(1-0.4))) { # ncol(hist_fpts_mat)-1 b/c first column
-    #     # set entire row and column for player in covar matrix to 0 (besides variance entry on diagonal)
-    #     cov_mat[j,] <- 0
-    #     cov_mat[,j] <- 0
-    #   }
-    # }
-    # 
-    # # Filters as defined in covariance_matrix_dictionary.txt:
-    # # "test"
-    # # "chg75p_spike"
-    # # "chg75p_exp(spike)"
-    # # "chg75p_zeros"
-    # filter_names <- c("test", "chg75p_spike", "chg75p_exp(spike)", "chg75p_zeros")
-    # 
-    # # apply each filter separately and write to file
-    # for (filter_name in filter_names) {
-    #   cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name)
-    #   write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", filter_name, ".csv"), row.names = F)
-    # }
 
     print(paste0("Completed: ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
   }
