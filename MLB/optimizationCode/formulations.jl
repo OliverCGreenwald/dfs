@@ -704,16 +704,18 @@ function formulation4_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
     @constraint(m, constr[j=1:num_players], sum(old_lineups[j,i] for i = 1:(size(old_lineups))[2]) + players_lineup[j] <= num_lineups * exposure)
    
    
+
     #STACK: at least stack_size hitters from at least 1 team, consecutive hitting order
    #define a variable for each stack on each team.  This variable =1 if the stack on the team is used
-    @variable(m, used_stack_team[i=1:num_teams], Bin)
+    @variable(m, used_stack_batters[i=1:num_teams,j=1:num_stacks], Bin)
     
     #constraint for each stack, used or not
-    @constraint(m, constraint_stack[i=1:num_teams], stack_size*used_stack_team[i] <= 
-                   sum(players_teams[t,i] * (1 - P[t]) * players_lineup[t] for t = 1:num_players))  
+    @constraint(m, constraint_stack[i=1:num_teams,j=1:num_stacks], stack_size*used_stack_batters[i,j] + 1 <= 
+                   sum(players_teams[t,i] * players_stacks[t,j] * players_lineup[t] for t = 1:num_players))  
     
     #make sure at least one stack is used
-    @constraint(m, sum(used_stack_team[i] for i = 1:num_teams) >= 1)  
+    @constraint(m, sum(used_stack_batters[i,j] for i = 1:num_teams for j = 1:num_stacks) >= 1)  
+
 
 
    ########################################################################################################
