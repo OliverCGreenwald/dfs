@@ -19,7 +19,7 @@ source("MLB/functions_global/filterCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <-  "2017-05-04" # Sys.Date() # "2017-04-07"
+date.start <-  "2017-04-07" # Sys.Date() # "2017-04-07"
 date.end <- "2017-05-04" # Sys.Date() # "2017-04-29"
 
 
@@ -228,7 +228,8 @@ for (d in 1:length(dates_last)) {
     print(paste0("Begin (Contest ", i, " / ", nrow(contest_info),"): ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
     
     # filter options
-    filter_names <- c("test", "chg75p_spike", "chg75p_exp(spike)", "chg75p_zeros")
+    # filter_names <- c("test", "chg75p_spike", "chg75p_exp(spike)", "chg75p_zeros", "arima_p3d1q2")
+    filter_names <- c("arima_p3d1q2")
     
     if (contest_info$Match_ID[i] %in% contest_info$Match_ID[1:(i-1)] == FALSE | i==1) {
       # read in hist_fpts_mat and unfiltered covar matrix
