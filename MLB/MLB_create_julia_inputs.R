@@ -19,8 +19,8 @@ source("MLB/functions_global/filterCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <-  "2017-04-07" # Sys.Date() # "2017-04-07"
-date.end <- "2017-05-04" # Sys.Date() # "2017-04-29"
+date.start <-  "2017-04-22" # Sys.Date() # "2017-04-07"
+date.end <- "2017-04-23" # Sys.Date() # "2017-04-29"
 
 
 ####### Section I (player data df) #######
@@ -249,7 +249,7 @@ for (d in 1:length(dates_last)) {
       # write to file
       for (filter_name in filter_names) {
         # apply filter
-        cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name)
+        cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name, contest_entry_fee = contest_info$Entry_Fee[i], contest_name = gsub(" ", "", contest_info$Contest_Name[i]))
         
         # convert any NA to 0 (occasionally occurs in earlier dates. TODO: why?)
         if (sum(is.na(cov_mat)) != 0) {
