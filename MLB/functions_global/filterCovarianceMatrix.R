@@ -514,6 +514,7 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
       cov_time_unfiltered[i, 1:(ncol(cov_time_unfiltered)-1)] <- temp_row
       
       # predict next covariance (subset out NAs in ARIMA input)
+      # predicting on last game played (could be an issue if last game was 5/2 and prior to that 4/15, that is, pair didn't play for extended period of time. TODO.)
       temp_row <- temp_row[!is.na(temp_row)]
       t <- try(forecast(arima(as.numeric(temp_row), order=c(3,1,2), method="ML"), h=1))
       if ("try-error" %in% class(t)) {

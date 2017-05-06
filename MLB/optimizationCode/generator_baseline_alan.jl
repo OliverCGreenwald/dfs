@@ -8,7 +8,7 @@ include("formulations.jl")  #this code has all the different formualations
 # Choose Formulation
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
-formulation = formulations.formulation2_covar
+formulation = formulations.formulation3_covar
 # formulation_feasibility
 # formulation0_covar
 # formulation1_covar - no stacking
@@ -19,24 +19,24 @@ formulation = formulations.formulation2_covar
 
 num_lineups = 150; 
 
-# contest_date_array = ["2017-04-18","2017-04-19","2017-04-21","2017-04-25","2017-04-26","2017-04-28","2017-04-30"]
-# contest_name_array = ["\$40.00entry_MLB\$250KMediumHomeRun",
-#                       "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
-#                       "\$33.00entry_MLB\$300KFastball",
-#                       "\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
-#                       "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
-#                       "\$55.00entry_DKFiveYearAnniversary\$55",
-#                       "\$50.00entry_MLB\$275KSundayNiftyFifty"]
-#                       # 44, 46, 141, 235, 269, 340, 396
-
-contest_date_array = ["2017-04-14", "2017-04-16", "2017-04-17", "2017-04-22", "2017-04-24", "2017-05-01", "2017-05-02"]
-contest_name_array = ["\$33.00entry_MLB\$800KSweetSpot[\$100Kto1st]",
-                      "\$50.00entry_MLB\$250KSundayNiftyFifty",
-                      "\$33.00entry_MLB\$250KFastball[\$25Kto1st]",
-                      "\$40.00entry_MLB\$250KSaturdaySlugfest",
+contest_date_array = ["2017-04-18","2017-04-19","2017-04-21","2017-04-25","2017-04-26","2017-04-28","2017-04-30"]
+contest_name_array = ["\$40.00entry_MLB\$250KMediumHomeRun",
+                      "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
                       "\$33.00entry_MLB\$300KFastball",
-                      "\$33.00entry_MLB\$325KFastball[\$50Kto1st]",
-                      "\$33.00entry_MLB\$175KFastball"]
+                      "\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
+                      "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
+                      "\$55.00entry_DKFiveYearAnniversary\$55",
+                      "\$50.00entry_MLB\$275KSundayNiftyFifty"]
+                      # 44, 46, 141, 235, 269, 340, 396
+
+# contest_date_array = ["2017-04-14", "2017-04-16", "2017-04-17", "2017-04-22", "2017-04-24", "2017-05-01", "2017-05-02"]
+# contest_name_array = ["\$33.00entry_MLB\$800KSweetSpot[\$100Kto1st]",
+#                       "\$50.00entry_MLB\$250KSundayNiftyFifty",
+#                       "\$33.00entry_MLB\$250KFastball[\$25Kto1st]",
+#                       "\$40.00entry_MLB\$250KSaturdaySlugfest",
+#                       "\$33.00entry_MLB\$300KFastball",
+#                       "\$33.00entry_MLB\$325KFastball[\$50Kto1st]",
+#                       "\$33.00entry_MLB\$175KFastball"]
                       # 32, 37, 42, 169, 206, 426, 452
 
 
@@ -62,10 +62,10 @@ for contest_info_index in 1:size(contest_name_array)[1]
                #path to the csv file with the players information (pitchers and hitters);
                path_pitchers = string(contest_directory_path, "pitchers.csv"); 
                path_hitters = string(contest_directory_path, "hitters.csv"); 
-               path_covar_matrix = string(contest_directory_path, "covariance_mat_chg75p_exp(spike).csv"); 
+               path_covar_matrix = string(contest_directory_path, "covariance_mat_chg75p_zeros.csv"); 
                # path_to_output is a string  that gives the path to the csv file that will give the outputted results
                path_to_output= string(contest_directory_path, "lineups/",
-                                      string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,"_covar_chg75p_exp(spike).csv"); 
+                                      string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,"_covar_chg75p_zeros.csv"); 
 
 
                 start_time = time_ns()

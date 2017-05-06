@@ -17,9 +17,13 @@ Same as covariance_mat_75p_spike but spiked covariances of “good” player pai
 5. covariance_mat_chg75p_zeros
 Same as covariance_mat_75p_spike but set non-“good” player pair covariances to 0 instead of increasing the “good” player pairs by factor of 1.25. Note that variances are still the same.
 
-6. moving average, Kalman filter? Goal is to find upward trending pairs
-https://stats.stackexchange.com/questions/87946/r-detect-increasing-decreasing-trend-of-time-series
+6. covariance_mat_arima_p3d1q2
+ARIMA model with p = 3, d = 1, q = 2. Covariances of pairs that played < 33% of games set to 0. When ARIMA does not coverage, set prediction to average of previous 3 games.
 
-7. Remove diagonal
+TODO:
+- ARIMA but only for the “good” pairs?
+- moving average, Kalman filter? Goal is to find upward trending pairs
+https://stats.stackexchange.com/questions/87946/r-detect-increasing-decreasing-trend-of-time-series
+- Remove diagonal
 
 
