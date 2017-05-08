@@ -527,7 +527,8 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
       
       # plot every 10
       if (i %% 10 == 0) {
-        plot(as.numeric(cov_time_unfiltered[i,]), type = "b") 
+        plot(as.numeric(cov_time_unfiltered[i,]), type = "b") # all points
+        points(ncol(cov_time_unfiltered), as.numeric(cov_time_unfiltered$pred[i]), col = "red") # prediction in red
       }
     }
     
