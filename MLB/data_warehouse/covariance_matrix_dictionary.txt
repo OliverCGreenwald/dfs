@@ -14,11 +14,21 @@ Same as covariance_mat_test but defined “good” as player pairs that had at l
 4. covariance_mat_chg75p_exp(spike)
 Same as covariance_mat_75p_spike but spiked covariances of “good” player pairs by a factor of 1+exp(-scaled_covariance)*0.25, where scaled_covariance is the covariance of “good” player pairs scaled to between 0 and 1 using function(x){(x-min(x))/(max(x)-min(x))} (x is the covariances of the “good” player pairs).
 
+Feasibility
+Formulation 2
+Formulation 3
+
 5. covariance_mat_chg75p_zeros
 Same as covariance_mat_75p_spike but set non-“good” player pair covariances to 0 instead of increasing the “good” player pairs by factor of 1.25. Note that variances are still the same.
 
 6. covariance_mat_arima_p3d1q2
 ARIMA model with p = 3, d = 1, q = 2. Covariances of pairs that played < 33% of games set to 0. When ARIMA does not coverage, set prediction to average of previous 3 games.
+
+Feasibility
+Formulation 2 (running)
+Formulation 3
+
+______________________________
 
 TODO:
 - ARIMA but only for the “good” pairs?

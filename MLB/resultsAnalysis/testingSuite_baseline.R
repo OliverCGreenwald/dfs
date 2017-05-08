@@ -9,8 +9,9 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-contest_row_index <- c(44,46,141,235,269,340,396, 32, 37, 42, 169, 206, 426, 452) # 32, 37, 42, 169, 206, 426, 452
-lineup_name <- "*covar_chg75p_exp*"
+# contest_row_index <- c(44,46,141,235,269,340,396, 32, 37, 42, 169, 206, 426, 452) # 32, 37, 42, 169, 206, 426, 452
+contest_row_index <- c(141, 235, 269, 340, 396, 169, 206, 426, 452)
+lineup_name <- "*covar_chg75p_exp*" # "*covar_arima_p3d1q2*"
 ######### Code Begins #########
 #install.packages("data.table")
 library(data.table)
