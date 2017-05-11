@@ -27,13 +27,17 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 # Scrape DK Site for todays contests 
 contest_info <- download_DK_daily_contests_MLB(contest_info)
 
+### re-read in Contest File (not sure if needed but a safety precaution)
+contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
+contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
+
 # Find Earliest index of "yesterday's" contests
 first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date() - 1))
 
 ### Update Files
 
 for(index in first_contest_update:length(contest_info$Contest_Date)) {
-  print(contest_info$Contest_Name[index])
+  print(paste0(index, ' of ', length(contest_info$Contest_Date), ' | Currently: ', contest_info$Contest_Name[index]))
   # Case: Contest Occured Yesterday 
   if (as.Date(contest_info$Contest_Date[index]) == (Sys.Date() - 1)) {
     contest_name <- gsub(" ", "", contest_info$Contest_Name[index], fixed = TRUE)
