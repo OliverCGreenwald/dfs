@@ -19,8 +19,8 @@ source("MLB/functions_global/filterCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <-  "2017-04-16" # Sys.Date() # "2017-04-07"
-date.end <- "2017-04-16" # Sys.Date() # "2017-04-29"
+date.start <-  "2017-05-06" # Sys.Date() # "2017-04-07"
+date.end <- "2017-05-06" # Sys.Date() # "2017-04-29"
 
 
 ####### Section I (player data df) #######

@@ -1,0 +1,7 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Charlie Morton",7600,"ATL@HOU 08:10PM ET",17.85,"HOU","ATL",18.22,16.1,15.28,NA,19.35
+"SP","John Lackey",7000,"CHC@COL 08:40PM ET",12.679,"CHC","COL",12.45,12.2,NA,NA,36.15
+"SP","Hector Santiago",6800,"MIN@CWS 08:10PM ET",15.642,"MIN","CWS",16.61,14.7,14.052,NA,22.2
+"SP","Bartolo Colon",6500,"ATL@HOU 08:10PM ET",8.242,"ATL","HOU",11.39,11.1,10.382,NA,-2.05
+"SP","Kyle Freeland",5400,"CHC@COL 08:40PM ET",13.383,"COL","CHC",8.14,8.5,NA,NA,14.7
+"SP","Mike Pelfrey",4400,"MIN@CWS 08:10PM ET",3.683,"CWS","MIN",5.6,9.1,10.059,NA,4.3
