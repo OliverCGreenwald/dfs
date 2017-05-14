@@ -155,7 +155,7 @@ download_dfn_update <- function(update_date) {
   password = mybrowser$findElement(using = "css selector", "#input-password")
   password$sendKeysToElement(list('pizza1995', key = "enter"))
   Sys.sleep(2)
-  mybrowser$navigate(paste0('https://dailyfantasynerd.com/optimizer/draftkings/mlb?d',format(update_date, "%a %b %d %Y")))
+  mybrowser$navigate(paste0('https://dailyfantasynerd.com/optimizer/draftkings/mlb?d=',format(update_date, "%a %b %d %Y")))
   Sys.sleep(2)
   
   # Download Hitters
@@ -173,8 +173,8 @@ download_dfn_update <- function(update_date) {
   
   ### Pick up csv's in download folder
   setwd('~/Downloads')
-  pitchers_file_name <- paste0('DFN MLB Pitchers DK ', update_date, ".csv")
-  hitters_file_name <- paste0('DFN MLB Hitters DK ', update_date, ".csv")
+  pitchers_file_name <- paste0('DFN MLB Pitchers DK ', date, ".csv")
+  hitters_file_name <- paste0('DFN MLB Hitters DK ', date, ".csv")
   
   while(!file.exists(pitchers_file_name)){
     Sys.sleep(1)
@@ -197,5 +197,3 @@ download_dfn_update <- function(update_date) {
   setwd(original_wd)
   return(0)
   }
-
-
