@@ -13,6 +13,7 @@ if(file.exists("~/Projects/DFS/")) {
 # - min_games_pctg: set between 0-1
 #
 # TODO:
+# - consider other correlation/covariance measures (spearman, kendall)
 # - determine if pairwise.complete.obs is appropriate for our problem. considered dangerous
 # - add opposing pitcher into covariance matrix calculation
 # - add opposing batters? (ballpark effect?)
@@ -25,7 +26,7 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Function for Computing Covariance Matrix Given Start and End Date #######
 createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df, min_games_pctg) {
   ####### Import Libraries #######
-  library(stringr)
+  require(stringr)
   
   
   ###### Import Functions #######
@@ -141,7 +142,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
         player_b_hist_fpts <- row[(3+temp_num_dates):((3+temp_num_dates)+temp_num_dates-1)]
 
         # compute covariance
-        cov_row <- cov(as.numeric(player_a_hist_fpts), as.numeric(player_b_hist_fpts), use = "pairwise.complete.obs")
+        cov_row <- cov(as.numeric(player_a_hist_fpts), as.numeric(player_b_hist_fpts), use = "pairwise.complete.obs", method = "pearson")
 
         return(cov_row)
       }
