@@ -1,5 +1,5 @@
 # This code solves for multiple baseball lineups
-
+using DataFrames
 include("data_cleaning.jl")
 include("formulations.jl")  #this code has all the different formualations
 
@@ -19,46 +19,11 @@ formulation = formulations.formulation3_covar
 
 num_lineups = 150; 
 
-# contest_date_array = ["2017-04-18","2017-04-19","2017-04-21","2017-04-25","2017-04-26","2017-04-28","2017-04-30"]
-# contest_name_array = ["\$40.00entry_MLB\$250KMediumHomeRun",
-#                       "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
-#                       "\$33.00entry_MLB\$300KFastball",
-#                       "\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
-#                       "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
-#                       "\$55.00entry_DKFiveYearAnniversary\$55",
-#                       "\$50.00entry_MLB\$275KSundayNiftyFifty"]
-
-#contest_date_array = ["2017-04-14", "2017-04-16", "2017-04-17", "2017-04-22", "2017-04-24", "2017-05-01", "2017-05-02"]
-#contest_name_array = ["\$33.00entry_MLB\$800KSweetSpot[\$100Kto1st]",
-#                       "\$50.00entry_MLB\$250KSundayNiftyFifty",
-#                       "\$33.00entry_MLB\$250KFastball[\$25Kto1st]",
-#                       "\$40.00entry_MLB\$250KSaturdaySlugfest",
-#                       "\$33.00entry_MLB\$300KFastball",
-#                       "\$33.00entry_MLB\$325KFastball[\$50Kto1st]",
-#                       "\$33.00entry_MLB\$175KFastball"]
-                      # 32, 37, 42, 169, 206, 426, 452
-
-contest_date_array = ["2017-04-14", "2017-04-16", "2017-04-17", "2017-04-18",
-                      "2017-04-19","2017-04-21", "2017-04-22", "2017-04-24", 
-                      "2017-04-25","2017-04-26","2017-04-28","2017-04-30", 
-                      "2017-05-01", "2017-05-02"]
-contest_name_array = ["\$33.00entry_MLB\$800KSweetSpot[\$100Kto1st]",
-                      "\$50.00entry_MLB\$250KSundayNiftyFifty",
-                      "\$33.00entry_MLB\$250KFastball[\$25Kto1st]",
-                      "\$40.00entry_MLB\$250KMediumHomeRun",
-                      "\$33.00entry_MLB\$300KFastball[\$50Kto1st]",
-                      "\$33.00entry_MLB\$300KFastball",
-                      "\$40.00entry_MLB\$250KSaturdaySlugfest",
-                      "\$33.00entry_MLB\$300KFastball",
-                      "\$33.00entry_MLB\$400KTUESDAYSUPERFastball[\$50Kto1st]",
-                      "\$55.00entry_DK5YearAnniversary\$55Special[\$50KTop]",
-                      "\$55.00entry_DKFiveYearAnniversary\$55",
-                      "\$50.00entry_MLB\$275KSundayNiftyFifty",
-                      "\$33.00entry_MLB\$325KFastball[\$50Kto1st]",
-                      "\$33.00entry_MLB\$175KFastball"]
 
 
-for contest_info_index in 1:size(contest_name_array)[1]
+baseline_contest_data = readtable("baseline_contests.csv");
+
+for contest_info_index in 1:size(baseline_contest_data)[1]
     for stack in 2:5 #stack
         for overlap in 5:6
             for lambda in 1:3 # time line
@@ -72,8 +37,8 @@ for contest_info_index in 1:size(contest_name_array)[1]
                 # Exposure Constraints
                 exposure = 0.6
 
-                contest_date = contest_date_array[contest_info_index]
-                contest_name = contest_name_array[contest_info_index]
+                contest_date = baseline_contest_data[contest_info_index,:Date] #Hard Coded 'Date'
+                contest_name = baseline_contest_data[contest_info_index,:Contest_names] # Hard Coded 'Contest_name'
 
                contest_directory_path = string("../data_warehouse/", contest_date, "/", contest_name, "/");
 
