@@ -92,6 +92,10 @@ download_BBmonster_projections()
 # Download Rotowire Projections
 # NEED TO FINISH
 
+### Create Julia Inputs (hitters.csv, pitchers.csv, covariance matrices)
+source("MLB/MLB_create_julia_inputs.R")
+MLB_create_julia_inputs(date_start = Sys.Date()-1, date_end = Sys.Date()-1)
+
 
 
 #quit(save='no')
