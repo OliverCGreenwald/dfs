@@ -1,0 +1,23 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Dallas Keuchel",11000,"HOU@NYY 07:05PM ET",24.771,"HOU","NYY",22.72,19,18.2555,NA,31.9
+"SP","Zack Greinke",10800,"PIT@ARI 09:40PM ET",20.879,"ARI","PIT",24.7,17.9,17.319,NA,40.8
+"SP","Michael Fulmer",10500,"DET@LAA 10:07PM ET",19.892,"DET","LAA",22.65,18.8,15.57,NA,28.15
+"SP","Jake Odorizzi",9700,"KC@TB 01:10PM ET",15.25,"TB","KC",20.71,16.6,16.516,NA,15.9
+"SP","Michael Pineda",9300,"HOU@NYY 07:05PM ET",21.833,"NYY","HOU",21.34,18.9,15.554,NA,18.8
+"SP","Jason Vargas",9000,"KC@TB 01:10PM ET",22.992,"KC","TB",21.77,18.3,17.017,NA,25.35
+"SP","Gerrit Cole",9000,"PIT@ARI 09:40PM ET",18.25,"PIT","ARI",18.11,16.8,17.204,NA,16.95
+"SP","Marco Estrada",8500,"SEA@TOR 07:07PM ET",18.593,"TOR","SEA",19.98,16.1,15.111,NA,25.3
+"SP","Eduardo Rodriguez",8400,"BOS@MIL 01:10PM ET",16.867,"BOS","MIL",16.99,19,17.1,NA,19.7
+"SP","Dylan Bundy",7500,"BAL@WAS 07:05PM ET",18.193,"BAL","WAS",17.46,13.2,13.356,NA,NA
+"SP","Jimmy Nelson",7000,"BOS@MIL 01:10PM ET",10.708,"MIL","BOS",10.27,12,12.402,NA,26.2
+"SP","AJ Cole",6900,"BAL@WAS 07:05PM ET",13.5,"WAS","BAL",14.45,13.7,13.815,NA,NA
+"SP","JC Ramirez",6800,"DET@LAA 10:07PM ET",11.272,"LAA","DET",18.76,13.6,12.636,NA,8.35
+"SP","Chase De Jong",6500,"SEA@TOR 07:07PM ET",2.35,"SEA","TOR",15.27,11.5,NA,NA,-4.75
+"SP","Hyun-Jin Ryu",6500,"LAD@COL 08:40PM ET",15.16,"LAD","COL",8.79,12,10.897,NA,-1.4
+"SP","Martin Perez",6000,"SD@TEX 08:05PM ET",9.307,"TEX","SD",12.53,11.3,12.265,NA,11.45
+"SP","Tyler Anderson",5900,"LAD@COL 08:40PM ET",10.021,"COL","LAD",8.91,12.1,13.122,NA,NA
+"SP","Phil Hughes",5800,"MIN@CWS 08:10PM ET",12.133,"MIN","CWS",12.07,12.1,13.014,NA,1.7
+"SP","Bronson Arroyo",5500,"CIN@SF 10:15PM ET",9.275,"CIN","SF",7.65,12,11.759,NA,11.3
+"SP","Ty Blach",5300,"CIN@SF 10:15PM ET",1.31,"SF","CIN",NA,10,10.668,NA,12.15
+"SP","Derek Holland",5200,"MIN@CWS 08:10PM ET",18.708,"CWS","MIN",17,13.3,16.014,NA,5.25
+"SP","Clayton Richard",4500,"SD@TEX 08:05PM ET",10.186,"SD","TEX",10.13,9.8,9.664,NA,18.15
