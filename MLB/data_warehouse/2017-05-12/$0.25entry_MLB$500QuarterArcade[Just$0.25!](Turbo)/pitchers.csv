@@ -1,0 +1,5 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Clayton Kershaw",11300,"LAD@COL 08:40PM ET",26.071,"LAD","COL",28.1,23.1,23.9885,NA,18.95
+"SP","Patrick Corbin",8100,"PIT@ARI 09:40PM ET",13.557,"ARI","PIT",16.97,14.7,12.838,NA,10.7
+"SP","Tyler Glasnow",6400,"PIT@ARI 09:40PM ET",8.392,"PIT","ARI",13.35,13.2,14.341,NA,-8.15
+"SP","Tyler Chatwood",5700,"LAD@COL 08:40PM ET",14.036,"COL","LAD",8.65,11.4,10.24,NA,5.75

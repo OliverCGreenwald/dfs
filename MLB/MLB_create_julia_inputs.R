@@ -10,7 +10,7 @@ if(file.exists("~/Projects/DFS/")) {
 # - Section I: aggregated projections, actual fpts, projected BO, confirmed BO for hitters and pitchers for each contest
 # - Section II: hitters covariance matrices (full)
 # - Section III: hitters covariance matrices for each contest
-
+ 
 
 ####### Import Functions #######
 source("MLB/functions_global/aggregateJuliaDF.R")
