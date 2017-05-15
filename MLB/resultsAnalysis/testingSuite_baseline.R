@@ -9,8 +9,6 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-# contest_row_index <- c(44,46,141,235,269,340,396, 32, 37, 42, 169, 206, 426, 452) # 32, 37, 42, 169, 206, 426, 452
-contest_row_index <- c(141, 235, 269, 340, 396, 169, 206, 426, 452)
 lineup_name <- "*covar_chg75p_exp*" # "*covar_arima_p3d1q2*"
 ######### Code Begins #########
 #install.packages("data.table")
@@ -39,6 +37,8 @@ setwd(original_wd)
 ### Read in Contest File (Not necessary but useful to look at to find correct row)
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
+contest_baseline <- read.csv('MLB/optimizationCode/baseline_contests.csv', stringsAsFactors = F)
+contest_row_index <- contest_baseline$contest_row_index
 
 PnL <- data.frame(Name=character(),
                  PnL=numeric(), 
