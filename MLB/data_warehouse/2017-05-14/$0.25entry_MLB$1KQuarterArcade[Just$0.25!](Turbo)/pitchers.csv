@@ -1,0 +1,11 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jacob deGrom",11000,"NYM@MIL 02:10PM ET",19.225,"NYM","MIL",22.86,22.6,21.463,NA,14.1
+"SP","Jake Arrieta",10700,"CHC@STL 02:15PM ET",12.244,"CHC","STL",22.13,14.9,18.7615,NA,10.1
+"SP","Jose Quintana",10200,"SD@CWS 02:10PM ET",15.15,"CWS","SD",23.05,16.9,19.3855,NA,14.35
+"SP","Luis Severino",9100,"HOU@NYY 02:05PM ET",22.608,"NYY","HOU",22.36,14.8,13.427,NA,-2.75
+"SP","Kevin Gausman",8600,"BAL@KC 02:15PM ET",6.588,"BAL","KC",17.68,12.5,14.998,NA,-3.1
+"SP","Adam Wainwright",6900,"CHC@STL 02:15PM ET",7.913,"STL","CHC",18.67,12.4,14.904,NA,20.95
+"SP","Mike Fiers",6600,"HOU@NYY 02:05PM ET",8.293,"HOU","NYY",NA,10.9,12.932,NA,15.15
+"SP","Wily Peralta",6000,"NYM@MIL 02:10PM ET",11.893,"MIL","NYM",13.67,10.3,11.177,NA,-5.05
+"SP","Jered Weaver",5400,"SD@CWS 02:10PM ET",5.007,"SD","CWS",10.32,9.8,10.63,NA,12.7
+"SP","Chris Young",5000,"BAL@KC 02:15PM ET",1.594,"KC","BAL",12.34,11,9.279,NA,0.05
