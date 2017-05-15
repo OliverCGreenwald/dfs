@@ -19,8 +19,8 @@ source("MLB/functions_global/filterCovarianceMatrix.R")
 
 
 ####### Import Functions #######
-date.start <-  "2017-05-13" # Sys.Date() # "2017-04-07"
-date.end <- "2017-05-13" # Sys.Date() # "2017-04-29"
+date.start <-  "2017-05-06" # Sys.Date() # "2017-04-07"
+date.end <- "2017-05-10" # Sys.Date() # "2017-04-29"
 
 
 ####### Section I (player data df) #######
@@ -229,7 +229,7 @@ for (d in 1:length(dates_last)) {
     
     # filter options
     # filter_names <- c("test", "chg75p_spike", "chg75p_exp(spike)", "chg75p_zeros", "arima_p3d1q2")
-    filter_names <- c("chg75p_exp(spike)")
+    filter_names <- c("test", "chg75p_spike", "chg75p_zeros")
     
     if (contest_info$Match_ID[i] %in% contest_info$Match_ID[1:(i-1)] == FALSE | i==1) {
       # read in hist_fpts_mat and unfiltered covar matrix
