@@ -1,7 +1,7 @@
 ######### Instructions #########
 
 # After running, view Results using the following commands: 
-# View(PnL[,c(1,2,4,5)])
+# View(PnL[,c(1,2,6,7)])
 # View(PnL$Lineups[[NUMBER]])
 # View(aggregated_PnL)
 
@@ -58,7 +58,7 @@ aggregated_PnL <- aggregate(PnL$PnL, by= list(PnL$Name), sum)
 
 ####### GRAPHS CUMSUM #####
 
-final_data <- as.data.table(PnL[,c(1,2,4,5)])
+final_data <- as.data.table(PnL[,c(1,2,6,7)])
 
 final_data$Date <- as.Date(final_data$Date, "%m/%d/%Y")
 
