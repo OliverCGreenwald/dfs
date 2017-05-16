@@ -134,7 +134,7 @@ download_DK_daily_contests_MLB <- function(contest_info) {
   #My Code Begins
   
   checkForServer()
-  startServer()
+  startServer(invisible = FALSE, log = FALSE)
   
   # Load webpage
   mybrowser <- remoteDriver(browser = "chrome")
