@@ -230,8 +230,8 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
 # debug
 
 # date.start <- "2017-04-02"
-# date.end <- "2017-04-29"
-# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-04-29/$3.00entry_MLB$5KMoonshot(Afternoon)/hitters.csv"), stringsAsFactors = F, header = T)
+# date.end <- "2017-05-14"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-14/$50.00entry_MLB$300KMother'sDaySpecial/hitters.csv"), stringsAsFactors = F, header = T)
 # min_games_pctg <- NULL
 
 # asdf <- read.csv(file = "MLB/data_warehouse/2017-04-29/$33.00entry_MLB$110KFastball(Early)/covariance_mat_chg75p_exp(spike).csv", stringsAsFactors = F, header = T, check.names = F)
