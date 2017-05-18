@@ -6,25 +6,25 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Description #######
-date.start <- "2017-04-02"
-date.end <- "2017-05-14"
-julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-14/$50.00entry_MLB$300KMother'sDaySpecial/hitters.csv"), stringsAsFactors = F, header = T)
-min_games_pctg <- NULL
-
-date.start <- "2017-04-02"
-date.end <- "2017-05-13"
-julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-13/$40.00entry_MLB$250KSaturdaySlugfest/hitters.csv"), stringsAsFactors = F, header = T)
-min_games_pctg <- NULL
-
-date.start <- "2017-04-02"
-date.end <- "2017-05-08"
-julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-08/$8.00entry_MLB$175KCrazy8's/hitters.csv"), stringsAsFactors = F, header = T)
-min_games_pctg <- NULL
-
-date.start <- "2017-04-02"
-date.end <- "2017-05-01"
-julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-01/$33.00entry_MLB$325KFastball[$50Kto1st]/hitters.csv"), stringsAsFactors = F, header = T)
-min_games_pctg <- NULL
+# date.start <- "2017-04-02"
+# date.end <- "2017-05-14"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-14/$50.00entry_MLB$300KMother'sDaySpecial/hitters.csv"), stringsAsFactors = F, header = T)
+# min_games_pctg <- NULL
+# 
+# date.start <- "2017-04-02"
+# date.end <- "2017-05-13"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-13/$40.00entry_MLB$250KSaturdaySlugfest/hitters.csv"), stringsAsFactors = F, header = T)
+# min_games_pctg <- NULL
+# 
+# date.start <- "2017-04-02"
+# date.end <- "2017-05-08"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-08/$8.00entry_MLB$175KCrazy8's/hitters.csv"), stringsAsFactors = F, header = T)
+# min_games_pctg <- NULL
+# 
+# date.start <- "2017-04-02"
+# date.end <- "2017-05-01"
+# julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/2017-05-01/$33.00entry_MLB$325KFastball[$50Kto1st]/hitters.csv"), stringsAsFactors = F, header = T)
+# min_games_pctg <- NULL
 
 ####### Import Libraries #######
 require(stringr)
@@ -32,6 +32,19 @@ require(stringr)
 
 ###### Import Functions #######
 source("MLB/functions_global/createHistoricalFptsMatrix.R")
+
+
+#####
+baseline_contests <- read.csv(file = "MLB/optimizationCode/baseline_contests.csv", stringsAsFactors = F, header = T)
+date.start <- "2017-04-02"
+k <- 25
+contest_date <- baseline_contests$Date[k]
+julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_date, "/", baseline_contests$Contest_names[k], "/hitters.csv"), stringsAsFactors = F, header = T)
+min_games_pctg <- NULL
+
+date.end <- as.Date(contest_date) - 1 # offset by 1 to avoid lookahead bias
+#####
+
 
 
 # date sequence
@@ -178,7 +191,10 @@ for (team in temp_all_teams) {
   
   # 5
   rownames(gdp)[which(V(ag)$colors=="red")]
+
   
   print(paste0(team, ": ", length(which(V(ag)$colors=="red"))))
   print(rownames(gdp)[which(V(ag)$colors=="red")])
 }
+
+print(contest_date)

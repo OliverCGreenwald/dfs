@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Clayton Kershaw",14400,"LAD@SF 03:45PM ET",25.181,"LAD","SF",31.65,26.3,26.7025,NA,27.95
+"SP","Johnny Cueto",11500,"LAD@SF 03:45PM ET",17.25,"SF","LAD",23.91,16.8,20.5385,NA,10.1
+"SP","Lance McCullers",10800,"HOU@MIA 12:10PM ET",21.144,"HOU","MIA",23.93,21.1,19.348,NA,19.3
+"SP","Alex Cobb",7500,"TB@CLE 12:10PM ET",13.25,"TB","CLE",12.91,11.9,14.998,NA,22.95
+"SP","Josh Tomlin",7400,"TB@CLE 12:10PM ET",9.579,"CLE","TB",17.78,12.4,17.813,NA,-0.95
+"SP","Patrick Corbin",6900,"NYM@ARI 03:40PM ET",11.733,"ARI","NYM",17.92,12.7,13.868,NA,11.5
+"SP","Jose Urena",6600,"HOU@MIA 12:10PM ET",7.713,"MIA","HOU",13.38,12,9.458,NA,10.75
+"SP","Matt Harvey",6000,"NYM@ARI 03:40PM ET",8.075,"NYM","ARI",13.88,12,19.332,NA,10
