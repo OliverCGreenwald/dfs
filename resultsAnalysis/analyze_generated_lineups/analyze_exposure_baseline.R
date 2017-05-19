@@ -21,7 +21,7 @@ temp_user_results <- baseline_contests
 for (i in 1:nrow(baseline_contests)) {
   ###### Read
   formulation <- "formulations.formulation3_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_0.6_covar_chg75p_exp(spike)"
-  temp_user_lineups <- read.csv(file = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/" , baseline_contests$Contest_names[i], "/lineups/", formulation, ".csv"), stringsAsFactors = F, header = T, , check.names = F)
+  temp_user_lineups <- read.csv(file = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/" , baseline_contests$Contest_names[i], "/lineups/", formulation, ".csv"), stringsAsFactors = F, header = T, check.names = F)
   
   ###### Max Position Exposures
   # pitcher

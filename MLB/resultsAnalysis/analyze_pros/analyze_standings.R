@@ -11,9 +11,10 @@ if(file.exists("~/Projects/DFS/")) {
 
 ####### Import Functions #######
 source("MLB/functions_global/parseContestStandings.R")
+source("MLB/functions_global/cleanPlayerNames.R")
 
 ###### Function Inputs
-user_name <- "ChipotleAddict"
+user_name <- "fallfromgrace"
 # fallfromgrace, youdacao, ChipotleAddict, SaahilSud, ehafner, petteytheft89, moklovin, papagates, Awesemo, scout326
 # DraftCheat, ThatStunna (don't max enter)
 
@@ -136,6 +137,37 @@ for (i in 1:nrow(baseline_contests)) {
   occurences <- sort(table(unlist(temp_user_lineups[,c("OF3")])), decreasing=T)
   exposure <- occurences / nrow(temp_user_lineups)
   temp_user_results$Max_Exp_OF3[i] <- exposure[1] # top exposure rate
+  
+  ###### Salary Distribution by Position
+  if (nrow(temp_user_standings) != 0) {
+    # read DK salaries
+    temp_salaries <- read.csv(file = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/" , baseline_contests$Contest_names[i], "/DKSalaries.csv"), stringsAsFactors = F, header = T)
+    temp_salaries$Name <- cleanPlayerNames(temp_salaries$Name)
+    
+    # make copy
+    temp_user_salaries <- temp_user_lineups
+    temp_user_salaries[,] <- NA
+    
+    # fill salaries
+    for (m in 1:nrow(temp_user_salaries)) {
+      for (n in 1:ncol(temp_user_salaries)) {
+        match_salary <- which(temp_salaries$Name==as.character(temp_user_lineups[m,n]))
+        if (length(match_salary) != 1) {
+          temp_user_salaries[m,n] <- NA
+        } else {
+          temp_user_salaries[m,n] <- temp_salaries$Salary[which(temp_salaries$Name==as.character(temp_user_lineups[m,n]))] 
+        }
+      }
+    }
+    
+    temp_user_salaries <- na.omit(temp_user_salaries)
+    
+    temp_user_results$Salary_Avg_Ps[i] <- mean(temp_user_salaries$P1 + temp_user_salaries$P2)
+    temp_user_results$Salary_Avg_C[i] <- mean(temp_user_salaries$C)
+    temp_user_results$Salary_Avg_Bs[i] <- mean(temp_user_salaries$`1B` + temp_user_salaries$`2B` + temp_user_salaries$`3B`)
+    temp_user_results$Salary_Avg_SS[i] <- mean(temp_user_salaries$SS)
+    temp_user_results$Salary_Avg_OFs[i] <- mean(temp_user_salaries$OF1 + temp_user_salaries$OF2 + temp_user_salaries$OF3)
+  }
 }
 
 ###### Total PnL
@@ -164,6 +196,26 @@ for (d in 1:nrow(temp_user_results)) {
     abline(v = as.Date(temp_user_results$Date[d]), lty = 2, col = "red")
   }
 }
+
+###### Plot Mean Salary by Position
+plot(as.Date(temp_user_results$Date), temp_user_results$Salary_Avg_Ps, col = 1, type = "b", ylim = c(0,30000), ylab = "Salary", xlab = "Contest Date", main = paste0(user_name, ": Salary Distribution (baseline_contests)"))
+points(as.Date(temp_user_results$Date), temp_user_results$Salary_Avg_C, col = 2, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Salary_Avg_Bs, col = 3, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Salary_Avg_SS, col = 4, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Salary_Avg_OFs, col = 5, type = "b")
+
+# add legend
+legend(x = "topleft", legend = c("Pitchers", "Catcher", "Basemen", "Shortstop", "Outfielders"), lwd = 1, col = 1:5, cex = 0.5)
+
+
+###### Stacked Bar Plot: Salary Distribution by Position
+# temp_user_salaries <- temp_user_salaries[order(rowSums(temp_user_salaries[,1:10], na.rm = T), decreasing = T),] # sort descending
+# bar.data <- rbind(t(temp_user_salaries[,1:10]))
+# rownames(bar.data) <- c(colnames(temp_user_salaries))
+# colnames(bar.data) <- 1:temp_user_results$Num_Lineups[i]
+# bar.data <- as.table(bar.data, header = T)
+# barplot(bar.data, main=paste0(temp_user_results$Date[i], " ", user_name, " Salary Distribution"), xlab="Lineup", ylab = "Salary", col=colors()[c(35,36,410,128,131,132,91,257,258,259)])
+# legend("topright", legend = rownames(bar.data), cex = 0.6, fill = 1:10)
 
 
 
