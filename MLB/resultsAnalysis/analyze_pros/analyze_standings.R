@@ -12,11 +12,10 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Import Functions #######
 source("MLB/functions_global/parseContestStandings.R")
 
-
 ###### Function Inputs
-user_name <- "DraftCheat"
-# SaahilSud, youdacao, scout326, ehafner, ChipotleAddict, Theclone, awesemo, AssaniFisher, aejones, CONDIA, DraftCheat
-
+user_name <- "ChipotleAddict"
+# fallfromgrace, youdacao, ChipotleAddict, SaahilSud, ehafner, petteytheft89, moklovin, papagates, Awesemo, scout326
+# DraftCheat, ThatStunna (don't max enter)
 
 ###### Set Contests
 baseline_contests <- read.csv(file = "MLB/optimizationCode/baseline_contests.csv", stringsAsFactors = F, header = T)
@@ -33,6 +32,10 @@ for (i in 1:nrow(baseline_contests)) {
   ###### Number of Cashing Lineups
   temp_payouts <- read.csv(file = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/payout_structure.csv"), stringsAsFactors = F, header = T)
   # print(paste0("Number of cashing lineups / total: ", sum(temp_user_standings$Rank < temp_payouts$Place_hi[nrow(temp_payouts)]), " / ", nrow(temp_user_standings)))
+  
+  # store
+  temp_user_results$Num_Lineups[i] <- nrow(temp_user_standings)
+  temp_user_results$Num_Cashing[i] <- sum(temp_user_standings$Rank < temp_payouts$Place_hi[nrow(temp_payouts)])
   
   if (nrow(temp_user_standings) != 0) {
     ###### PnL
@@ -77,15 +80,90 @@ for (i in 1:nrow(baseline_contests)) {
     }
     temp_user_results$Best_Place[i] <- NA
   }
+  
+  ###### Max Position Exposures
+  # subset
+  temp_user_lineups <- temp_user_standings[,c("P1", "P2", "C", "1B", "2B", "3B", "SS", "OF1", "OF2", "OF3")]
+  
+  # init
+  # temp_user_results[,c("Max_Exp_Ps", "Max_Exp_C", "Max_Exp_Bs", "Max_Exp_1B", "Max_Exp_2B", "Max_Exp_3B", "Max_Exp_SS", "Max_Exp_OFs", "Max_Exp_OF1", "Max_Exp_OF2", "Max_Exp_OF3")] <- NA
+  
+  # pitcher
+  occurences <- sort(table(unlist(temp_user_lineups[,c("P1", "P2")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_Ps[i] <- exposure[1] # top exposure rate
+  
+  # catcher
+  occurences <- sort(table(unlist(temp_user_lineups[,c("C")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_C[i] <- exposure[1] # top exposure rate
+  
+  # basemen
+  occurences <- sort(table(unlist(temp_user_lineups[,c("1B", "2B", "3B")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_Bs[i] <- exposure[1] # top exposure rate
+  
+  occurences <- sort(table(unlist(temp_user_lineups[,c("1B")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_1B[i] <- exposure[1] # top exposure rate
+  
+  occurences <- sort(table(unlist(temp_user_lineups[,c("2B")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_2B[i] <- exposure[1] # top exposure rate
+  
+  occurences <- sort(table(unlist(temp_user_lineups[,c("3B")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_3B[i] <- exposure[1] # top exposure rate
+  
+  # SS
+  occurences <- sort(table(unlist(temp_user_lineups[,c("SS")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_SS[i] <- exposure[1] # top exposure rate
+  
+  # outfielders
+  occurences <- sort(table(unlist(temp_user_lineups[,c("OF1", "OF2", "OF3")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_OFs[i] <- exposure[1] # top exposure rate
+  
+  occurences <- sort(table(unlist(temp_user_lineups[,c("OF1")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_OF1[i] <- exposure[1] # top exposure rate
+  
+  occurences <- sort(table(unlist(temp_user_lineups[,c("OF2")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_OF2[i] <- exposure[1] # top exposure rate
+  
+  occurences <- sort(table(unlist(temp_user_lineups[,c("OF3")])), decreasing=T)
+  exposure <- occurences / nrow(temp_user_lineups)
+  temp_user_results$Max_Exp_OF3[i] <- exposure[1] # top exposure rate
 }
 
 ###### Total PnL
 print(paste0("Total PnL over all baseline_contests: ", sum(temp_user_results$PnL)))
 
-
 ###### Plot Aggregate PnL
 plot(as.Date(temp_user_results$Date), temp_user_results$PnL_Aggregate, type = "b", main = paste0(user_name, ": Aggregate PnL (baseline_contests)"), xlab = "Contest Date", ylab = "Aggregate PnL")
 
+###### Plot Max Exposures
+plot(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Ps, col = 1, type = "b", ylim = c(0,1.25), ylab = "Exposure", xlab = "Contest Date", main = paste0(user_name, ": Position Exposures (baseline_contests)"))
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_C, col = 2, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Bs, col = 3, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_SS, col = 4, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_OFs, col = 5, type = "b")
+
+# add legend
+legend(x = "topleft", legend = c("Pitchers", "Catcher", "Basemen", "Shortstop", "Outfielders"), lwd = 1, col = 1:5, cex = 0.5)
+
+# add vertical green line when Best_Place in top 5, red line when out of top 1000 (and submitted more than 50 lineups)
+for (d in 1:nrow(temp_user_results)) {
+  if (temp_user_results$Best_Place[d] <= 5 & !is.na(temp_user_results$Best_Place[d])) {
+    abline(v = as.Date(temp_user_results$Date[d]), lty = 2, col = "green")
+  }
+  
+  if (temp_user_results$Best_Place[d] > 1000 & temp_user_results$Num_Lineups[d] > 50 & !is.na(temp_user_results$Best_Place[d])) {
+    abline(v = as.Date(temp_user_results$Date[d]), lty = 2, col = "red")
+  }
+}
 
 
 
