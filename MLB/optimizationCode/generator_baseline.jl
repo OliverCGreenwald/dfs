@@ -53,7 +53,7 @@ for contest_info_index in 1:size(baseline_contest_data)[1]
 
                 start_time = time_ns()
 
-                data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure,  path_to_output);
+                data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF,  path_to_output);
 
 
                 println("##############################")

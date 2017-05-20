@@ -24,13 +24,21 @@ num_overlap = 5;
 stack_size = 4; 
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
-formulation = formulations.formulation3_covar
+formulation = formulations.formulation5_covar
 
 # Covariance term 
 lambda_var = 0.006
 
 # Exposure Constraints
 exposure = 0.6
+
+exposure_P = 1.0
+exposure_B1 = 1.0 
+exposure_B2 = 1.0
+exposure_B3 = 1.0
+exposure_C = 1.0
+exposure_SS = 1.0
+exposure_OF = 1.0
 
 ################################################################################################################
 contest_directory_path = string("../data_warehouse/", contest_date, "/", contest_name, "/");
@@ -41,7 +49,8 @@ path_hitters = string(contest_directory_path, "hitters.csv");
 path_covar_matrix = string(contest_directory_path, "covariance_mat_test.csv"); 
 # path_to_output is a string  that gives the path to the csv file that will give the outputted results
 path_to_output= string(contest_directory_path, "lineups/",
-                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,"_exposure_", exposure,"_test.csv"); 
+                       string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,
+                       "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_testEXPOSURES.csv"); 
 
 # path_to_output_proj is a string  that gives the path to the csv file that will give the outputted results with projected lineup points
 #path_to_output_proj = string("proj_baseball_", string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,".csv"); 
@@ -58,7 +67,7 @@ println("Calculating DraftKings baseball linueps.\n ", num_lineups, " lineups\n"
 
 start_time = time_ns()
 
-data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure,  path_to_output);
+data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, path_to_output);
 
 
 println("##############################")
