@@ -1,0 +1,15 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Carlos Martinez",11100,"SF@STL 07:15PM ET",19.313,"STL","SF",23.81,19.6,16.059,NA,33.45
+"SP","Justin Verlander",10500,"TEX@DET 07:15PM ET",16.094,"DET","TEX",23.56,18.9,22.9825,NA,20.15
+"SP","Jeff Samardzija",9500,"SF@STL 07:15PM ET",16.339,"SF","STL",17.22,18.3,14.651,NA,30.4
+"SP","Robbie Ray",8900,"ARI@SD 10:10PM ET",17.8,"ARI","SD",19.54,19.2,17.623,NA,30.25
+"SP","Julio Urias",8200,"MIA@LAD 10:10PM ET",9.113,"LAD","MIA",21.46,17.3,16.424,NA,-12.75
+"SP","Zack Wheeler",8000,"LAA@NYM 07:15PM ET",12.931,"NYM","LAA",19.31,16.9,17.682,NA,15.25
+"SP","Dan Straily",7900,"MIA@LAD 10:10PM ET",14.894,"MIA","LAD",15.93,14.8,14.257,NA,22.55
+"SP","AJ Griffin",7600,"TEX@DET 07:15PM ET",18.775,"TEX","DET",11.92,12.8,12.405,NA,-10.5
+"SP","Yovani Gallardo",7100,"CWS@SEA 10:10PM ET",11.294,"SEA","CWS",17.37,13.3,14.114,NA,-8.35
+"SP","Luis Perdomo",7000,"ARI@SD 10:10PM ET",14.175,"SD","ARI",19.34,12.7,15.152,NA,-13.05
+"SP","Alex Meyer",6400,"LAA@NYM 07:15PM ET",12.575,"LAA","NYM",16.62,14.9,14.771,NA,12.2
+"SP","Kevin Gausman",5900,"TOR@BAL 07:35PM ET",5.511,"BAL","TOR",15.35,12.5,16.388,NA,12.9
+"SP","Mike Bolsinger",5300,"TOR@BAL 07:35PM ET",5.625,"TOR","BAL",NA,13.3,NA,NA,7.4
+"SP","Mike Pelfrey",4800,"CWS@SEA 10:10PM ET",3.65,"CWS","SEA",7.41,7.3,7.999,NA,19.1
