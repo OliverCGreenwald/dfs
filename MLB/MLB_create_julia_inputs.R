@@ -230,7 +230,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
       
       # filter options
       # filter_names <- c("test", "chg75p_spike", "chg75p_exp(spike)", "chg75p_zeros", "arima_p3d1q2")
-      filter_names <- c("test", "chg75p_spike", "chg75p_zeros")
+      filter_names <- c("chg75p_exp(spike)")
       
       if (contest_info$Match_ID[i] %in% contest_info$Match_ID[1:(i-1)] == FALSE | i==1) {
         # read in hist_fpts_mat and unfiltered covar matrix
@@ -275,5 +275,5 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
       
       print(paste0("Completed: ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
     }
-  } 
+  }
 }
