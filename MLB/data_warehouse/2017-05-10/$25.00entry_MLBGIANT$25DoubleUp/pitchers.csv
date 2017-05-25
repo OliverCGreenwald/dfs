@@ -1,1 +1,17 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Chris Archer",10800,"KC@TB 07:10PM ET",19.486,"TB","KC",NA,21.7,41,NA,40.4
+"SP","Yu Darvish",10700,"SD@TEX 08:05PM ET",21.164,"TEX","SD",NA,23.4,15.3,NA,15.3
+"SP","Stephen Strasburg",10400,"BAL@WAS 07:05PM ET",20.85,"WAS","BAL",NA,23.2,15.5,NA,14.9
+"SP","Danny Salazar",9700,"CLE@TOR 07:07PM ET",19.758,"CLE","TOR",NA,19.3,-0.1925,NA,-0.2
+"SP","Kenta Maeda",9200,"PIT@LAD 10:10PM ET",13.858,"LAD","PIT",NA,17.7,25.7425,NA,25.75
+"SP","Lance Lynn",8400,"STL@MIA 07:10PM ET",19.383,"STL","MIA",NA,16.8,5.6,NA,5.6
+"SP","Francisco Liriano",7700,"CLE@TOR 07:07PM ET",12.075,"TOR","CLE",NA,12.8,-14.3,NA,-14.3
+"SP","Jason Hammel",7600,"KC@TB 07:10PM ET",8.808,"KC","TB",NA,12.9,7.35,NA,6.75
+"SP","Wade Miley",6500,"BAL@WAS 07:05PM ET",18.242,"BAL","WAS",NA,12.1,11.85,NA,11.85
+"SP","Tom Koehler",6300,"STL@MIA 07:10PM ET",8.983,"MIA","STL",NA,12.2,9.7925,NA,8.6
+"SP","Chase Anderson",6200,"BOS@MIL 08:10PM ET",16.367,"MIL","BOS",NA,13.2,9.1075,NA,8.5
+"SP","Luis Perdomo",6000,"SD@TEX 08:05PM ET",12.063,"SD","TEX",NA,11.2,14.9,NA,15.5
+"SP","Matthew Boyd",5900,"DET@ARI 09:40PM ET",12.233,"DET","ARI",NA,12.9,NA,NA,NA
+"SP","Chad Kuhl",5800,"PIT@LAD 10:10PM ET",6.586,"PIT","LAD",NA,10.7,6.45,NA,6.45
+"SP","Kyle Kendrick",5200,"BOS@MIL 08:10PM ET",-7,"BOS","MIL",NA,11.5,-4.8575,NA,-4.85
+"SP","Zack Godley",4800,"DET@ARI 09:40PM ET",15.05,"ARI","DET",NA,14.1,26.75,NA,26.75

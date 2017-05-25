@@ -1,1 +1,5 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Yu Darvish",10700,"SD@TEX 08:05PM ET",21.164,"TEX","SD",NA,23.4,15.3,NA,15.3
+"SP","Chase Anderson",6200,"BOS@MIL 08:10PM ET",16.367,"MIL","BOS",NA,13.2,9.1075,NA,8.5
+"SP","Luis Perdomo",6000,"SD@TEX 08:05PM ET",12.063,"SD","TEX",NA,11.2,14.9,NA,15.5
+"SP","Kyle Kendrick",5200,"BOS@MIL 08:10PM ET",-7,"BOS","MIL",NA,11.5,-4.8575,NA,-4.85
