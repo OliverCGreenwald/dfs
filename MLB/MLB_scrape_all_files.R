@@ -33,7 +33,6 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
 # Find Earliest index of "yesterday's" contests
 first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date() - 1))
-# first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date() ))
 
 ### Update Files
 
