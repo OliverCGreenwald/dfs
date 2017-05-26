@@ -435,6 +435,10 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
   
   ####### Filter: "arima_p3d1q2" #######
   if (filter_name == "arima_p3d1q2") {
+    ####### Import Libraries #######
+    require(forecast)
+    
+    
     ####### Compute Covariance of Player Pairs (on Latest Date) over Time FOR UNFILTERED MATRIX #######
     # read in UNFILTERED covariance and counts matrix
     # cov_mat_unfiltered_temp <- read.csv(file = paste0("MLB/data_warehouse/", contest.date, "/", paste0(contest_entry_fee,"entry_",gsub(" ", "", contest_name)), "/covariance_mat_unfiltered.csv"), stringsAsFactors = F, header = T, check.names = F)
