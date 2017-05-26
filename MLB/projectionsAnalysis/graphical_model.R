@@ -35,7 +35,7 @@ date.end <- as.Date(contest_date) - 1 # offset by 1 to avoid lookahead bias
 dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
 
 ####### Aggregate All Player Data for Each Day #######
-list_all_players <- aggregateAllPlayerResults(dates)
+list_all_players <- aggregateAllPlayerResults(dates, julia_hitter_df)
 
 ####### Construct Matrix of Historical Fpts #######
 # list of unique player names and their position

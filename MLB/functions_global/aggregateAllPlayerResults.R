@@ -7,7 +7,7 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Description #######
 # Function for constructing dataframe where rows are all player's results for a given day.
 
-aggregateAllPlayerResults <- function(dates) {
+aggregateAllPlayerResults <- function(dates, julia_hitter_df) {
   ####### Aggregate All Player Data for Each Day #######
   # load contest info file
   contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
