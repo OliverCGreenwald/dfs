@@ -144,7 +144,7 @@ temp <- read.csv(file = paste0("MLB/data_warehouse/projections/dailyfantasynerd/
 temp <- temp[,c("Player.Name", "Pos", "Salary", "Team", "Opp", "Floor.FP", "Ceil.FP", "Proj.FP", "Actual.FP")]
 temp <- temp[order(temp$Actual.FP, decreasing = T),]
 
-temp <- temp[temp$Actual.FP > quantile(temp$Actual.FP, 0.95),]
+temp <- temp[temp$Actual.FP > quantile(temp$Actual.FP, 0.90),]
 
 temp_counts <- count(temp$Team)
 temp_counts <- temp_counts[order(temp_counts$freq, decreasing = T),]
