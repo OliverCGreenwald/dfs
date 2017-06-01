@@ -15,7 +15,7 @@ contest_name = "\$40.00entry_MLB\$250KSaturdaySlugfest";
 
 #INPUT PARAMS
 # num_lineups is the total number of lineups
-num_lineups = 10; 
+num_lineups = 150; 
 
 # num_overlap is the maximum overlap of players between the lineups 
 num_overlap = 5;
@@ -32,13 +32,13 @@ lambda_var = 0.006
 # Exposure Constraints
 exposure = 0.6
 
-exposure_P = 1.0
-exposure_B1 = 1.0 
-exposure_B2 = 1.0
-exposure_B3 = 1.0
-exposure_C = 1.0
-exposure_SS = 1.0
-exposure_OF = 1.0
+exposure_P = 0.8
+exposure_B1 = 0.6 
+exposure_B2 = 0.6
+exposure_B3 = 0.6
+exposure_C = 0.4
+exposure_SS = 0.4
+exposure_OF = 0.75
 
 ################################################################################################################
 contest_directory_path = string("../data_warehouse/", contest_date, "/", contest_name, "/");

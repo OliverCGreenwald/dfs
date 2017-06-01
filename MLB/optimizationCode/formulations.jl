@@ -822,45 +822,45 @@ function formulation5_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
                    8*sum(P[k] * players_lineup[k] * players_teams[k,g] for k = 1:num_players) + 
                     sum((1 - P[k]) * players_lineup[k] * players_opp[k,g] for k = 1:num_players) <= 8)
 
-    # Exposure Constraint P,B1,B2,B3,C,SS,OF
-    # for i in 1:num_players
-    #     if (P[i] == 1)
-    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_P)
-    #     end
-    #     if (B1[i] == 1)
-    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B1)
-    #     end
-    #     if (B2[i] == 1)
-    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B2)
-    #     end
-    #     if (B3[i] == 1)
-    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B3)
-    #     end
-    #     if (C[i] == 1)
-    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_C)
-    #     end
-    #     if (SS[i] == 1)
-    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_SS)
-    #     end
-    #     if (OF[i] == 1)
-    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_OF)
-    #     end
-    # end
+    # Exposure Constraint
+    @constraint(m, constr[j=1:num_players], sum(old_lineups[j,i] for i = 1:(size(old_lineups))[2]) + players_lineup[j] <= num_lineups * exposure)
    
    
-
     #STACK: at least stack_size hitters from at least 1 team, consecutive hitting order
    #define a variable for each stack on each team.  This variable =1 if the stack on the team is used
     @variable(m, used_stack_batters[i=1:num_teams,j=1:num_stacks], Bin)
     
     #constraint for each stack, used or not
-    @constraint(m, constraint_stack[i=1:num_teams,j=1:num_stacks], stack_size*used_stack_batters[i,j] + 1 <= 
-                   sum(players_teams[t,i] * players_stacks[t,j] * players_lineup[t] for t = 1:num_players))  
+    @constraint(m, constraint_stack[i=1:num_teams,j=1:num_stacks], stack_size*used_stack_batters[i,j] <= 
+                   sum(players_teams[t,i] * players_stacks[t,j] * players_lineup[t] for t = num_pitchers + 1:num_players))  
     
     #make sure at least one stack is used
     @constraint(m, sum(used_stack_batters[i,j] for i = 1:num_teams for j = 1:num_stacks) >= 1)  
 
-
+    # Exposure Constraint P,B1,B2,B3,C,SS,OF
+    for i in 1:num_players
+        if (P[i] == 1)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_P)
+        end
+        if (B1[i] == 1)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B1)
+        end
+        if (B2[i] == 1)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B2)
+        end
+        if (B3[i] == 1)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B3)
+        end
+        if (C[i] == 1)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_C)
+        end
+        if (SS[i] == 1)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_SS)
+        end
+        if (OF[i] == 1)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_OF)
+        end
+    end
 
    ########################################################################################################
     # Solve the integer programming problem  
@@ -882,6 +882,9 @@ function formulation5_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
         return(players_lineup_copy)
     end
 end
+
+   
+
 
 
 end
