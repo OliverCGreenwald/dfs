@@ -24,7 +24,7 @@ num_overlap = 5;
 stack_size = 4; 
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
-formulation = formulations.formulation5_covar
+formulation = formulations.formulation6_covar
 
 # Covariance term 
 lambda_var = 0.006
