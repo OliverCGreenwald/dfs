@@ -30,7 +30,7 @@ using Gurobi
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation_feasibility(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
+function formulation_feasibility(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
     
 
     #################################################################################################
@@ -153,7 +153,7 @@ end
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation0_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
+function formulation0_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
     
 
     #################################################################################################
@@ -273,7 +273,7 @@ end
 # No pitcher opposite batter
 # Batters with consecutive batting order
 #only keep 4th order and earlier batters, cuz they make more points
-function formulation1_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
+function formulation1_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
     
 
     #################################################################################################
@@ -383,7 +383,7 @@ end
     #- Optimization is max(projections + (lambda)*covariance)
     #- General Team Stacking 
     #- Exposure Constraints 
-function formulation2_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
+function formulation2_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
     
 
     #################################################################################################
@@ -502,7 +502,7 @@ end
 # This is a function that creates one lineup using the  Stacking Type 3 formulation
 # No pitcher opposite batter
 # Batters with consecutive batting order
-function formulation3_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
+function formulation3_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
     
 
     #################################################################################################
@@ -623,7 +623,7 @@ end
     #- General Team Stacking 
         #- Team + Pitcher Stacking
     #- Exposure Constraints 
-function formulation4_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups)
+function formulation4_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
     
 
     #################################################################################################
@@ -823,30 +823,29 @@ function formulation5_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
                     sum((1 - P[k]) * players_lineup[k] * players_opp[k,g] for k = 1:num_players) <= 8)
 
     # Exposure Constraint P,B1,B2,B3,C,SS,OF
-    for i in 1:num_players
-        if (P[i] == 1)
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_P)
-        end
-        if (B1[i] == 1)
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B1)
-        end
-        if (B2[i] == 1)
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B2)
-        end
-        if (B3[i] == 1)
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B3)
-        end
-        if (C[i] == 1)
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_C)
-        end
-        if (SS[i] == 1)
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_SS)
-        end
-        if (OF[i] == 1)
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_OF)
-        end
-        end
-    end
+    # for i in 1:num_players
+    #     if (P[i] == 1)
+    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_P)
+    #     end
+    #     if (B1[i] == 1)
+    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B1)
+    #     end
+    #     if (B2[i] == 1)
+    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B2)
+    #     end
+    #     if (B3[i] == 1)
+    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B3)
+    #     end
+    #     if (C[i] == 1)
+    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_C)
+    #     end
+    #     if (SS[i] == 1)
+    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_SS)
+    #     end
+    #     if (OF[i] == 1)
+    #         @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_OF)
+    #     end
+    # end
    
    
 
