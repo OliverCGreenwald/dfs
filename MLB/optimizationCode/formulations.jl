@@ -826,18 +826,25 @@ function formulation5_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
     for i in 1:num_players
         if (P[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_P)
-        elseif (B1[i] == 1)
+        end
+        if (B1[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B1)
-        elseif (B2[i] == 1)
+        end
+        if (B2[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B2)
-        elseif (B3[i] == 1)
+        end
+        if (B3[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B3)
-        elseif (C[i] == 1)
+        end
+        if (C[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_C)
-        elseif (SS[i] == 1)
+        end
+        if (SS[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_SS)
-        elseif (OF[i] == 1)
+        end
+        if (OF[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_OF)
+        end
         end
     end
    
