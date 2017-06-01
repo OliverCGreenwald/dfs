@@ -14,7 +14,7 @@ source("MLB/functions_global/parseContestStandings.R")
 source("MLB/functions_global/cleanPlayerNames.R")
 
 ###### Function Inputs
-user_name <- "fallfromgrace"
+user_name <- "youdacao"
 # fallfromgrace, youdacao, ChipotleAddict, SaahilSud, ehafner, petteytheft89, moklovin, papagates, Awesemo, scout326
 # DraftCheat, ThatStunna (don't max enter)
 
@@ -179,12 +179,18 @@ plot(as.Date(temp_user_results$Date), temp_user_results$PnL_Aggregate, type = "b
 ###### Plot Max Exposures
 plot(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Ps, col = 1, type = "b", ylim = c(0,1.25), ylab = "Exposure", xlab = "Contest Date", main = paste0(user_name, ": Position Exposures (baseline_contests)"))
 points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_C, col = 2, type = "b")
-points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Bs, col = 3, type = "b")
+
+# points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Bs, col = 3, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_1B, col = 3, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_2B, col = 3, type = "b")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_3B, col = 3, type = "b")
+
 points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_SS, col = 4, type = "b")
 points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_OFs, col = 5, type = "b")
 
 # add legend
-legend(x = "topleft", legend = c("Pitchers", "Catcher", "Basemen", "Shortstop", "Outfielders"), lwd = 1, col = 1:5, cex = 0.5)
+# legend(x = "topleft", legend = c("Pitchers", "Catcher", "Basemen", "Shortstop", "Outfielders"), lwd = 1, col = 1:5, cex = 0.5)
+legend(x = "topleft", legend = c("Pitchers", "Catcher", "1B","2B","3B", "Shortstop", "Outfielders"), lwd = 1, col = 1:5, cex = 0.5)
 
 # add vertical green line when Best_Place in top 5, red line when out of top 1000 (and submitted more than 50 lineups)
 for (d in 1:nrow(temp_user_results)) {
