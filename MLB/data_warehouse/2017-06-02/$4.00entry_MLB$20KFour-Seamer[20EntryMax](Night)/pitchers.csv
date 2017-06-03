@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Stephen Strasburg",12000,"WAS@OAK 10:05PM ET",23.63,"WAS","OAK",27.93,23.3,23.1835,NA,25.55
+"SP","Jake Odorizzi",7500,"TB@SEA 10:10PM ET",15.3,"TB","SEA",16.73,16.7,15.39,NA,-0.95
+"SP","German Marquez",7200,"COL@SD 10:10PM ET",15.614,"COL","SD",19.65,17.7,15.114,NA,11.85
+"SP","JC Ramirez",6900,"MIN@LAA 10:07PM ET",12.638,"LAA","MIN",17.86,15.4,12.94,NA,-3.65
+"SP","Andrew Triggs",5900,"WAS@OAK 10:05PM ET",16.45,"OAK","WAS",17.88,12.3,13.902,NA,-3.75
+"SP","Kyle Gibson",5500,"MIN@LAA 10:07PM ET",3.513,"MIN","LAA",11.11,12.3,11.763,NA,19.95
+"SP","Christian Bergman",5200,"TB@SEA 10:10PM ET",9.19,"SEA","TB",15.86,9.9,12.38,NA,20.1
+"SP","Clayton Richard",5200,"COL@SD 10:10PM ET",13.055,"SD","COL",15.37,13.6,11.884,NA,10.15
