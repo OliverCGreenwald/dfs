@@ -27,6 +27,17 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 # Scrape DK Site for todays contests 
 contest_info <- download_DK_daily_contests_MLB(contest_info)
 
+# remove arcade mode contests
+inds_arcade <- NULL
+for (i in which(contest_info$Contest_Date==Sys.Date())) {
+  if (grepl("arcade", contest_info$Contest_Name[i], ignore.case = T)) {
+    inds_arcade <- c(inds_arcade, i)
+  }
+}
+if (!is.null(inds_arcade)) {
+  contest_info <- contest_info[-c(inds_arcade),] 
+}
+
 ### re-read in Contest File (not sure if needed but a safety precaution)
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
