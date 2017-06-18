@@ -1,5 +1,4 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev"
-<<<<<<< Updated upstream
 "SP","Clayton Kershaw",13100,"LAD@MIL 02:10PM ET",25.979,"LAD"
 "SP","Chris Sale",12800,"BOS@BAL 01:35PM ET",29.791,"BOS"
 "SP","Zack Greinke",12700,"ARI@MIA 01:10PM ET",22.477,"ARI"
@@ -1590,4 +1589,3 @@
 "C","Luis Torrens",2000,"SD@ARI 09:40PM ET",1.619,"SD"
 "OF","Lane Adams",2000,"PHI@ATL 07:35PM ET",2.556,"ATL"
 "2B/SS","Johan Camargo",2000,"PHI@ATL 07:35PM ET",3.5,"ATL"
->>>>>>> Stashed changes
