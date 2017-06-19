@@ -172,7 +172,9 @@ download_BBmonster_projections <- function() {
   download_pitchers_button$sendKeysToElement(list( key = "enter"))
   
   ### Pick up csv's in download folder
-  setwd('~/Downloads')
+  # setwd('~/Downloads')
+  setwd("/Users/alandu/Downloads")
+  print(getwd())
   pitchers_file_name <- paste0('Export_Pitchers_', Sys.Date(), ".csv")
   pitchers_file_name <- gsub("-","_",pitchers_file_name) 
   hitters_file_name <- paste0('Export_Hitters_', Sys.Date(), ".csv")
@@ -192,6 +194,7 @@ download_BBmonster_projections <- function() {
   file.remove(pitchers_file_name)
   #setwd(paste0(original_wd, 'MLB/data_warehouse/', date)
   bbmonster_projections_path <- file.path(original_wd,'MLB/data_warehouse/projections/baseballmonster')
+  print(bbmonster_projections_path)
   
   setwd(bbmonster_projections_path)
   pitchers_file_name <- paste0('Export_Pitchers_', Sys.Date(), ".csv")

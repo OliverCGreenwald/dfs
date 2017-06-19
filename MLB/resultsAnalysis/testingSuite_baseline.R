@@ -78,3 +78,11 @@ ggplot(data=plotdata,
        aes(x=as.Date(as.character(PlotDate),'%Y%m%d'), y=cumsum, colour=Name)) +
   geom_line() + theme(legend.position="none")
 
+
+
+# view a particular formulation
+inds_form <- which(PnL$Name=="formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv")
+inds_form <- which(PnL$Name=="formulations.formulation3_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_0.6_covar_chg75p_exp(spike).csv")
+plot(as.Date(PnL$Date[inds_form]), PnL$PnL[inds_form], type = "b")
+
+

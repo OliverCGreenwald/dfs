@@ -36,6 +36,7 @@ for (i in which(contest_info$Contest_Date==Sys.Date())) {
 }
 if (!is.null(inds_arcade)) {
   contest_info <- contest_info[-c(inds_arcade),] 
+  write.csv(contest_info, file = 'MLB/data_warehouse/contests.csv', row.names = F)
 }
 
 ### re-read in Contest File (not sure if needed but a safety precaution)
@@ -80,6 +81,9 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
   
   
 }
+
+setwd("~/Documents/DFS/")
+
 # Download Yesterday's Updated DFN File
 print('Download Yesterday\'s Updated DFN File')
 download_dfn_update(Sys.Date()-1)

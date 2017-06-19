@@ -140,7 +140,7 @@ download_dfn_update <- function(update_date) {
   
   checkForServer()
   startServer()
-  
+  print("working 1")
   # Load webpage
   mybrowser <- remoteDriver(browser = "chrome")
   mybrowser$open(silent = TRUE)
@@ -157,25 +157,27 @@ download_dfn_update <- function(update_date) {
   Sys.sleep(2)
   mybrowser$navigate(paste0('https://dailyfantasynerd.com/optimizer/draftkings/mlb?d=',format(update_date, "%a %b %d %Y")))
   Sys.sleep(2)
-  
+  print("working 2")
   # Download Hitters
   download_hitters_button = mybrowser$findElement(using = 'name', value = "Hitters")
   download_hitters_button$clickElement()
-  
+  print("working 3")
   #Switch to Pitchers
   download_pitchers_button = mybrowser$findElement(using = 'name', value = "Pitchers")
   download_pitchers_button$clickElement()
-  
+  print("working 4")
   # Close out of Browser
   mybrowser$quit()
   
   date <- as.character(paste(month(update_date), day(update_date), sep="-"))
-  
+  print("working 5")
   ### Pick up csv's in download folder
-  setwd('~/Downloads')
+  # setwd('~/Downloads')
+  setwd("/Users/alandu/Downloads")
+  print(getwd())
   pitchers_file_name <- paste0('DFN MLB Pitchers DK ', date, ".csv")
   hitters_file_name <- paste0('DFN MLB Hitters DK ', date, ".csv")
-  
+  print("working 6")
   while(!file.exists(pitchers_file_name)){
     Sys.sleep(1)
   }
