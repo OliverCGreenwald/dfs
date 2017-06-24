@@ -172,8 +172,12 @@ download_BBmonster_projections <- function() {
   download_pitchers_button$sendKeysToElement(list( key = "enter"))
   
   ### Pick up csv's in download folder
-  # setwd('~/Downloads')
-  setwd("/Users/alandu/Downloads")
+  if(file.exists('~/Downloads')) {
+    setwd('~/Downloads')
+  } else {
+    setwd("/Users/alandu/Downloads")
+  }
+  
   print(getwd())
   pitchers_file_name <- paste0('Export_Pitchers_', Sys.Date(), ".csv")
   pitchers_file_name <- gsub("-","_",pitchers_file_name) 
