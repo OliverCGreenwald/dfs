@@ -51,7 +51,7 @@ first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date
 for(index in first_contest_update:length(contest_info$Contest_Date)) {
   print(paste0(index, ' of ', length(contest_info$Contest_Date), ' | Currently: ', contest_info$Contest_Name[index]))
   # Case: Contest Occured Yesterday 
-  if (as.Date(contest_info$Contest_Date[index]) == (Sys.Date() - 1)) {
+  if (as.Date(contest_info$Contest_Date[index]) < (Sys.Date())) {
     contest_name <- gsub(" ", "", contest_info$Contest_Name[index], fixed = TRUE)
 
     #Load in Player Results

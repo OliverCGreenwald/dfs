@@ -172,8 +172,11 @@ download_dfn_update <- function(update_date) {
   date <- as.character(paste(month(update_date), day(update_date), sep="-"))
   print("working 5")
   ### Pick up csv's in download folder
-  # setwd('~/Downloads')
-  setwd("/Users/alandu/Downloads")
+  if(file.exists('~/Downloads')) {
+    setwd('~/Downloads')
+  } else {
+    setwd("/Users/alandu/Downloads")
+  }
   print(getwd())
   pitchers_file_name <- paste0('DFN MLB Pitchers DK ', date, ".csv")
   hitters_file_name <- paste0('DFN MLB Hitters DK ', date, ".csv")
