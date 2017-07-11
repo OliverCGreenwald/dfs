@@ -23,7 +23,7 @@ compute_lineup_fpts <- function(player_performance_df, payout_structure, lineups
     row <- t(lineups[index,])
     colnames(row) <- 'Player'
     row <- merge(row, total_results, by = 'Player')
-    lineups$total[index] <- sum(row$Actual.Score)
+    lineups$total[index] <- sum(row$Actual.Score, na.rm = TRUE)
   }
   
   
