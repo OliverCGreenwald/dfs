@@ -301,7 +301,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
 }
 
 
-MLB_create_julia_inputs(date_start = "2017-06-06", date_end = "2017-06-15")
+MLB_create_julia_inputs(date_start = "2017-06-16", date_end = "2017-06-20")
 # MLB_create_julia_inputs(date_start = "2017-06-08", date_end = "2017-06-08")
 
 

@@ -47,7 +47,10 @@ aggregateAllPlayerResults <- function(dates, julia_hitter_df) {
         # append
         list_players_day <- rbind(list_players_day, temp_players_day)
       } else {
-        print(paste0("contest folder missing ", dates[d], ": ", temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])))
+        # only print missing contest folders for last date
+        if (d==length(dates)) {
+          print(paste0("contest folder missing ", dates[d], ": ", temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i]))) 
+        }
       }
     }
     
