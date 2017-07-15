@@ -20,8 +20,8 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
   
   
   ####### Import Functions #######
-  date.start <- date_start  # "2017-05-15" # Sys.Date() # "2017-04-07"
-  date.end <- date_end # "2017-05-15" # Sys.Date() # "2017-04-29"
+  date.start <- date_start
+  date.end <- date_end
   
   
   ####### Section I (player data df) #######
@@ -279,6 +279,6 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
 }
 
 
-# MLB_create_julia_inputs(date_start = "2017-05-19", date_end = "2017-05-23")
+MLB_create_julia_inputs(date_start = "2017-05-28", date_end = "2017-06-01")
 
 

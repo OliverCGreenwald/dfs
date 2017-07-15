@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Dan Straily",9000,"PHI@MIA 01:10PM ET",15.89,"MIA","PHI",20.4,15.2,16.897,NA,31
+"SP","Zack Godley",8700,"ARI@PIT 12:35PM ET",18.69,"ARI","PIT",NA,16.9,9.884,NA,14.7
+"SP","Aaron Nola",8000,"PHI@MIA 01:10PM ET",14.13,"PHI","MIA",18.26,17.5,15.264,NA,3.15
+"SP","Tim Adleman",6000,"CIN@TOR 12:37PM ET",11.85,"CIN","TOR",11.21,10.1,9.692,NA,NA
+"SP","Hector Santiago",5400,"HOU@MIN 01:10PM ET",11.032,"MIN","HOU",13.78,10.3,11.934,NA,1.5
+"SP","Mike Bolsinger",4900,"CIN@TOR 12:37PM ET",5.788,"TOR","CIN",NA,12.9,NA,NA,15.2
+"SP","Chad Kuhl",4800,"ARI@PIT 12:35PM ET",6.305,"PIT","ARI",10.86,9.8,13.321,NA,11.65
+"RP","David Paulino",4000,"HOU@MIN 01:10PM ET",0,"HOU","MIN",10.61,12.8,12.884,NA,17.4

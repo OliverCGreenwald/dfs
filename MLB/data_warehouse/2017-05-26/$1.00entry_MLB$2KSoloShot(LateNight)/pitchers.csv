@@ -1,5 +1,5 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
-"SP","Alex Wood",9600,"CHC@LAD 10:10PM ET",19.528,"LAD","CHC",21.13,19,14.748,NA
-"SP","Jake Arrieta",9200,"CHC@LAD 10:10PM ET",13.236,"CHC","LAD",19.51,15.4,19.1295,NA
-"SP","Jaime Garcia",7000,"ATL@SF 10:15PM ET",12.063,"ATL","SF",13.88,16.6,13.113,NA
-"SP","Matt Cain",6400,"ATL@SF 10:15PM ET",9.872,"SF","ATL",15.24,10.4,12.5,NA
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Alex Wood",9600,"CHC@LAD 10:10PM ET",19.528,"LAD","CHC",21.13,19,14.748,NA,28.25
+"SP","Jake Arrieta",9200,"CHC@LAD 10:10PM ET",13.236,"CHC","LAD",19.51,15.4,19.1295,NA,19.9
+"SP","Jaime Garcia",7000,"ATL@SF 10:15PM ET",12.063,"ATL","SF",13.88,16.6,13.113,NA,26
+"SP","Matt Cain",6400,"ATL@SF 10:15PM ET",9.872,"SF","ATL",15.24,10.4,12.5,NA,15.55

@@ -1,0 +1,5 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Dan Straily",9000,"PHI@MIA 01:10PM ET",15.89,"MIA","PHI",20.4,15.2,16.897,NA,31
+"SP","Aaron Nola",8000,"PHI@MIA 01:10PM ET",14.13,"PHI","MIA",18.26,17.5,15.264,NA,3.15
+"SP","Hector Santiago",5400,"HOU@MIN 01:10PM ET",11.032,"MIN","HOU",13.78,10.3,11.934,NA,1.5
+"RP","David Paulino",4000,"HOU@MIN 01:10PM ET",0,"HOU","MIN",10.61,12.8,12.884,NA,17.4
