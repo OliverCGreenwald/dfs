@@ -19,30 +19,36 @@ aggregateAllPlayerResults <- function(dates, julia_hitter_df) {
     # get list of players for the day
     list_players_day <- NULL
     for (i in 1:nrow(temp_contest_info)) {
-      # load
-      temp_hitters <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
-      temp_pitchers <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/pitchers.csv"), stringsAsFactors = F, header = T)
-      
-      # subset columns and append
-      temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts", "Batting_Order_Confirmed")]
-      temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
-      temp_pitchers <- temp_pitchers$Batting_Order_Confirmed <- NA # empty column for appending hitters and pitchers
-      if (is.null(julia_hitter_df)) {
-        temp_players_day <- rbind(temp_hitters, temp_pitchers) 
+      # check if contest folder exists
+      temp.dksalaries.path <- paste0(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/DKSalaries.csv"))
+      if (file.exists(temp.dksalaries.path)) {
+        # load
+        temp_hitters <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
+        temp_pitchers <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/pitchers.csv"), stringsAsFactors = F, header = T)
+        
+        # subset columns and append
+        temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts", "Batting_Order_Confirmed")]
+        temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
+        temp_pitchers <- temp_pitchers$Batting_Order_Confirmed <- NA # empty column for appending hitters and pitchers
+        if (is.null(julia_hitter_df)) {
+          temp_players_day <- rbind(temp_hitters, temp_pitchers) 
+        } else {
+          temp_players_day <- temp_hitters
+        }
+        
+        # add date
+        temp_players_day$Date <- dates[d]
+        
+        # remove Position, Salary, GameInfo (currently just uses first game in a double header. TODO: fix this)
+        temp_players_day$Position <- NULL
+        temp_players_day$Salary <- NULL
+        temp_players_day$GameInfo <- NULL
+        
+        # append
+        list_players_day <- rbind(list_players_day, temp_players_day)
       } else {
-        temp_players_day <- temp_hitters
+        print(paste0("contest folder missing ", dates[d], ": ", temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])))
       }
-      
-      # add date
-      temp_players_day$Date <- dates[d]
-      
-      # remove Position, Salary, GameInfo (currently just uses first game in a double header. TODO: fix this)
-      temp_players_day$Position <- NULL
-      temp_players_day$Salary <- NULL
-      temp_players_day$GameInfo <- NULL
-      
-      # append
-      list_players_day <- rbind(list_players_day, temp_players_day)
     }
     
     # append to the unique rows (players) to the running list

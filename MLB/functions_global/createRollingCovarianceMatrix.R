@@ -37,50 +37,9 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
   # date sequence
   dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
   
-  # aggregate all past players if NULL, otherwise only players in contest
+  
   ####### Aggregate All Player Data for Each Day #######
   list_all_players <- aggregateAllPlayerResults(dates, julia_hitter_df)
-  # # load contest info file
-  # contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-  # list_all_players <- NULL
-  # for (d in 1:length(dates)) {
-  #   # print(dates[d])
-  # 
-  #   # subset contest_info by date
-  #   temp_contest_info <- contest_info[contest_info$Contest_Date==dates[d],]
-  # 
-  #   # get list of players for the day
-  #   list_players_day <- NULL
-  #   for (i in 1:nrow(temp_contest_info)) {
-  #     # load
-  #     temp_hitters <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
-  #     temp_pitchers <- read.csv(file = paste0("MLB/data_warehouse/", dates[d],"/", paste0(temp_contest_info$Entry_Fee[i],"entry_",gsub(" ", "", temp_contest_info$Contest_Name[i])), "/pitchers.csv"), stringsAsFactors = F, header = T)
-  # 
-  #     # subset columns and append
-  #     temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
-  #     temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
-  #     if (is.null(julia_hitter_df)) {
-  #       temp_players_day <- rbind(temp_hitters, temp_pitchers)
-  #     } else {
-  #       temp_players_day <- temp_hitters
-  #     }
-  # 
-  #     # add date
-  #     temp_players_day$Date <- dates[d]
-  # 
-  #     # remove Position, Salary, GameInfo (currently just uses first game in a double header. TODO: fix this)
-  #     temp_players_day$Position <- NULL
-  #     temp_players_day$Salary <- NULL
-  #     temp_players_day$GameInfo <- NULL
-  # 
-  #     # append
-  #     list_players_day <- rbind(list_players_day, temp_players_day)
-  #   }
-  # 
-  #   # append to the unique rows (players) to the running list
-  #   list_all_players <- rbind(list_all_players, unique(list_players_day))
-  #   remove(list_players_day) # remove temp
-  # }
   
   
   ####### Construct Matrix of Historical Fpts #######
@@ -91,8 +50,13 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
   if (is.null(julia_hitter_df)) {
     names_unique_players <- unique(temp_names)
   } else {
-    # unique(temp_names)
     names_unique_players <- paste0(julia_hitter_df$Name, "_", julia_hitter_df$teamAbbrev) # must match order of julia_hitter_df (this line should be equivlaent to running unique(temp_names) but different order)
+    if (length(names_unique_players) != length(unique(names_unique_players))) {
+      print("========== PROBLEM: SOMETHING WEIRD IN DKSALARIES.CSV ==========")
+      print("For some reason there are duplicate players in DKSalaries.csv and hitters.csv. Examine files.")
+      stop("See above. Fix and rerun.")
+      names_unique_players <- unique(names_unique_players)
+    }
   }
   
   # call createHistoricalFptsMatrix function
@@ -130,7 +94,7 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
 
     # function for computing covariance, excluding when players not on same team
     only_keep_teammates <- function(row) {
-      if (row[1] %% row[2] == 0 & row[2] %% 10 == 0) {
+      if (row[1] %% row[2] == 0 & row[2] %% 50 == 0) {
         # print(paste0("Index ", row[1], ", ", row[2], " / (", nrow(cov_mat), ", ", ncol(cov_mat), ")", " Completed"))
         print(paste0("Column ", row[2], " / ", nrow(cov_mat), " Completed"))
       }

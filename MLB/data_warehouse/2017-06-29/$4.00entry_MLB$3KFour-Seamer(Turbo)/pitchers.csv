@@ -1,0 +1,5 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Brad Peacock",9700,"OAK@HOU 02:10PM ET",10.417,"HOU","OAK",20.02,16.8,16.14,NA,22.45
+"SP","Michael Fulmer",9400,"KC@DET 01:10PM ET",17.325,"DET","KC",21.52,16.4,20.011,NA,29.3
+"SP","Jake Junis",5700,"KC@DET 01:10PM ET",7.15,"KC","DET",NA,10.8,11.897,NA,5.5
+"RP","Daniel Gossett",5400,"OAK@HOU 02:10PM ET",12.2,"OAK","HOU",14.15,9.1,8.932,NA,-1.55

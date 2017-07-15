@@ -1,0 +1,15 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Corey Kluber",12600,"MIN@CLE 04:10PM ET",24.58,"CLE","MIN",27.68,24.4,23.9805,NA,39.35
+"SP","Jon Lester",10200,"CHC@MIA 04:10PM ET",17.367,"CHC","MIA",22.34,18.5,16.393,NA,18.75
+"SP","Jacob Faria",8900,"BAL@TB 04:10PM ET",27.617,"TB","BAL",17.47,17.6,16.423,NA,16.7
+"SP","Jason Vargas",8300,"TOR@KC 02:15PM ET",19.493,"KC","TOR",16.04,12.7,13.131,NA,14.95
+"SP","Marco Estrada",7800,"TOR@KC 02:15PM ET",15.59,"TOR","KC",15.15,14,14.009,NA,16.35
+"SP","Dylan Bundy",6600,"BAL@TB 04:10PM ET",14.627,"BAL","TB",15.76,13.1,15.226,NA,24.35
+"SP","James Shields",6200,"OAK@CWS 02:10PM ET",15.863,"CWS","OAK",15.16,14.2,14.615,NA,-1.85
+"SP","Joe Ross",5900,"CIN@WAS 04:05PM ET",6.597,"WAS","CIN",NA,13.5,14.827,NA,23.55
+"SP","Matt Garza",5700,"MIL@ATL 04:10PM ET",11.915,"MIL","ATL",11.83,11,9.671,NA,11.3
+"RP","Daniel Gossett",5400,"OAK@CWS 02:10PM ET",6.35,"OAK","CWS",13.59,10.8,7.302,NA,23.9
+"SP","RA Dickey",5300,"MIL@ATL 04:10PM ET",10.496,"ATL","MIL",15.03,16.6,14.126,NA,26.15
+"SP","Justin Nicolino",4900,"CHC@MIA 04:10PM ET",5.3,"MIA","CHC",11.99,10.2,7.188,NA,8.8
+"SP","Kyle Gibson",4700,"MIN@CLE 04:10PM ET",6.829,"MIN","CLE",11.84,9,8.402,NA,5.7
+"SP","Homer Bailey",4400,"CIN@WAS 04:05PM ET",0,"CIN","WAS",16.6,13.3,9.991,NA,-13.65

@@ -19,7 +19,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
   source("MLB/functions_global/filterCovarianceMatrix.R")
   
   
-  ####### Import Functions #######
+  ####### Set variables #######
   date.start <- date_start
   date.end <- date_end
   
@@ -56,6 +56,8 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
         ####### Write to CSV file #######
         write.csv(aggregated_data_hitters[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), row.names = F)
         write.csv(aggregated_data_pitchers[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/pitchers.csv"), row.names = F)
+      } else {
+        print(paste0("contest folder missing: ", paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))))
       }
     }
     
@@ -89,7 +91,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
 
 
   ####### Section III (covariance matrices - contest - no filtering) #######
-  print("Creating contest covariance matrices (no filtered)...")
+  print("Creating contest covariance matrices (no filtering)...")
 
   dates_last <- seq(from = as.Date(date.start) - 2, to  = as.Date(date.end) - 2, by = "day") # date range
   for (d in 1:length(dates_last)) {
@@ -190,7 +192,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
 
 
   ####### Section IV (covariance matrices - contest - apply filters) #######
-  print("Creating contest covariance matrices (no filtered)...")
+  print("Creating contest covariance matrices (filtered)...")
 
   dates_last <- seq(from = as.Date(date.start) - 2, to  = as.Date(date.end) - 2, by = "day") # date range
   for (d in 1:length(dates_last)) {
@@ -299,7 +301,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
 }
 
 
-MLB_create_julia_inputs(date_start = "2017-06-02", date_end = "2017-06-04")
-# MLB_create_julia_inputs(date_start = "2017-06-04", date_end = "2017-06-04")
+MLB_create_julia_inputs(date_start = "2017-06-06", date_end = "2017-06-15")
+# MLB_create_julia_inputs(date_start = "2017-06-08", date_end = "2017-06-08")
 
 

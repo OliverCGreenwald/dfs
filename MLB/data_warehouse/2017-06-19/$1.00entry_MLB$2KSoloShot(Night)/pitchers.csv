@@ -1,0 +1,7 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Clayton Kershaw",13500,"NYM@LAD 10:10PM ET",25.918,"LAD","NYM",32.19,29,29.9065,NA,22.05
+"SP","Brad Peacock",8100,"HOU@OAK 10:05PM ET",9.432,"HOU","OAK",16.77,15.2,14.712,NA,27.15
+"SP","Zack Wheeler",7000,"NYM@LAD 10:10PM ET",11.781,"NYM","LAD",15.86,15.1,15.47,NA,-10.3
+"SP","Anibal Sanchez",6500,"DET@SEA 10:10PM ET",2.132,"DET","SEA",11.95,14.6,12.172,NA,11.85
+"RP","Sam Gaviglio",6200,"DET@SEA 10:10PM ET",12.379,"SEA","DET",13.47,11.8,10.824,NA,NA
+"RP","Daniel Gossett",4200,"HOU@OAK 10:05PM ET",-6.7,"OAK","HOU",8.41,7.6,10.268,NA,19.4

@@ -1,0 +1,15 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Chris Sale",14100,"BOS@PHI 07:05PM ET",28.873,"BOS","PHI",NA,26.9,35.5,NA,33
+"SP","Gio Gonzalez",9000,"WAS@NYM 07:10PM ET",17.888,"WAS","NYM",NA,17.7,22.75,NA,22.75
+"SP","Jordan Montgomery",8600,"NYY@OAK 10:05PM ET",16.645,"NYY","OAK",NA,16.1,9.9575,NA,9.95
+"SP","Alex Cobb",8200,"TB@DET 07:10PM ET",12.988,"TB","DET",NA,12.3,11.0075,NA,10.4
+"SP","Sonny Gray",7700,"NYY@OAK 10:05PM ET",15.813,"OAK","NYY",NA,15.4,11.3925,NA,11.4
+"SP","Justin Verlander",7600,"TB@DET 07:10PM ET",13.612,"DET","TB",NA,17.8,17.15,NA,17.15
+"SP","Jeff Hoffman",7500,"SF@COL 08:40PM ET",23.63,"COL","SF",NA,14.2,7.25,NA,7.25
+"SP","Zach Davies",7300,"MIL@STL 07:15PM ET",11.15,"MIL","STL",NA,13.8,-0.149999999999999,NA,-0.15
+"SP","Ricky Nolasco",6700,"KC@LAA 10:07PM ET",12.788,"LAA","KC",NA,14.1,4.3,NA,4.3
+"SP","Michael Wacha",6300,"MIL@STL 07:15PM ET",13.327,"STL","MIL",NA,13.8,5,NA,5
+"SP","Robert Gsellman",6200,"WAS@NYM 07:10PM ET",7.674,"NYM","WAS",NA,12.5,-4.55,NA,-4.55
+"SP","Matt Moore",5100,"SF@COL 08:40PM ET",10.442,"SF","COL",NA,11.4,-3.05,NA,-2.45
+"RP","Matt Strahm",4700,"KC@LAA 10:07PM ET",3.215,"KC","LAA",NA,18,18.85,NA,NA
+"SP","Nick Pivetta",4500,"BOS@PHI 07:05PM ET",9.367,"PHI","BOS",NA,11.5,30.15,NA,30.15

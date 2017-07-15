@@ -1,0 +1,17 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Chris Archer",12200,"OAK@TB 01:10PM ET",22.388,"TB","OAK",27.05,23.1,24.175,NA,15.5
+"SP","Carlos Carrasco",11500,"CWS@CLE 01:10PM ET",19.832,"CLE","CWS",23.88,17.3,22.4595,NA,14.6
+"SP","Jake Arrieta",8700,"COL@CHC 02:20PM ET",14.807,"CHC","COL",23.1,15.1,23.9255,NA,2.35
+"SP","Adam Wainwright",8100,"PHI@STL 02:15PM ET",11.585,"STL","PHI",20.17,14.9,15.376,NA,13.85
+"SP","Jose Quintana",7900,"CWS@CLE 01:10PM ET",13.729,"CWS","CLE",18.8,13.1,12.056,NA,7.05
+"SP","Jaime Garcia",7600,"NYM@ATL 01:35PM ET",13.755,"ATL","NYM",18.54,16.5,13.785,NA,24.95
+"SP","Jesse Chavez",6600,"LAA@HOU 02:10PM ET",11.661,"LAA","HOU",14.79,12.1,11.475,NA,-2.55
+"SP","Ivan Nova",6500,"MIA@PIT 01:35PM ET",15.971,"PIT","MIA",20.42,14.6,14.9365,NA,24.9
+"RP","David Paulino",6400,"LAA@HOU 02:10PM ET",13.375,"HOU","LAA",17.22,14.2,11.097,NA,2.2
+"SP","Antonio Senzatela",6100,"COL@CHC 02:20PM ET",13.969,"COL","CHC",17.39,10.8,12.613,NA,7.6
+"SP","Aaron Nola",6000,"PHI@STL 02:15PM ET",14.6,"PHI","STL",13.64,17.3,14.085,NA,13.65
+"SP","Jesse Hahn",5800,"OAK@TB 01:10PM ET",13.285,"OAK","TB",14.36,10.6,12.947,NA,9.85
+"SP","Jeff Locke",5500,"MIA@PIT 01:35PM ET",14.325,"MIA","PIT",12.95,11.5,8.921,NA,6.6
+"SP","Kevin Gausman",5400,"BAL@NYY 01:05PM ET",7.423,"BAL","NYY",15.12,10.7,14.686,NA,-14.9
+"SP","Seth Lugo",5100,"NYM@ATL 01:35PM ET",0,"NYM","ATL",14.63,11.9,10.668,NA,24.35
+"SP","Chad Green",5000,"BAL@NYY 01:05PM ET",9.271,"NYY","BAL",13.27,14.2,15.22,NA,4.7

@@ -1,0 +1,13 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Carlos Martinez",13500,"STL@PHI 01:05PM ET",23.904,"STL","PHI",28.49,26,12.7,NA,12.7
+"SP","Chase Anderson",9400,"PIT@MIL 02:10PM ET",17.721,"MIL","PIT",20.7,16.4,25.1,NA,24.5
+"SP","Marcus Stroman",8700,"TOR@TEX 02:05PM ET",16.273,"TOR","TEX",18.6,16.1,-0.4,NA,-0.4
+"SP","Jose Quintana",8300,"CWS@MIN 01:10PM ET",13.811,"CWS","MIN",15.83,15.6,34.0075,NA,34
+"SP","Ivan Nova",7400,"PIT@MIL 02:10PM ET",16.964,"PIT","MIL",15.46,16.5,9.95,NA,9.35
+"SP","Zack Godley",7200,"ARI@COL 03:10PM ET",18.838,"ARI","COL",NA,11.5,26.75,NA,26.75
+"SP","Aaron Nola",6600,"STL@PHI 01:05PM ET",13.861,"PHI","STL",15.32,17.6,30.8925,NA,30.9
+"SP","Antonio Senzatela",6500,"ARI@COL 03:10PM ET",13.633,"COL","ARI",11.07,11.8,-7.35,NA,-7.35
+"SP","David Paulino",6300,"HOU@OAK 03:35PM ET",12.513,"HOU","OAK",14.44,15.1,16.5925,NA,16.6
+"SP","Jesse Hahn",5600,"HOU@OAK 03:35PM ET",13.529,"OAK","HOU",13.97,8.3,-18.9,NA,-19.5
+"SP","Martin Perez",5000,"TOR@TEX 02:05PM ET",10.339,"TEX","TOR",12.23,9.7,10.9,NA,10.3
+"SP","Nik Turley",4300,"CWS@MIN 01:10PM ET",-1.85,"MIN","CWS",7.99,13.7,-12.0925,NA,-12.1

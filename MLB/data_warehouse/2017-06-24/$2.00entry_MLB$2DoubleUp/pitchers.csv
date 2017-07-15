@@ -1,0 +1,15 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Clayton Kershaw",12500,"COL@LAD 10:10PM ET",25.66,"LAD","COL",28.82,26.1,31.4825,NA,30.5
+"SP","Robbie Ray",12300,"PHI@ARI 10:10PM ET",24.361,"ARI","PHI",25.45,21.8,20.418,NA,18.25
+"SP","Jacob deGrom",11400,"NYM@SF 07:15PM ET",19.29,"NYM","SF",21.15,20.2,15.991,NA,31
+"SP","Lance McCullers",10800,"HOU@SEA 10:10PM ET",21.454,"HOU","SEA",20.57,16.9,19.506,NA,26.85
+"SP","Johnny Cueto",8600,"NYM@SF 07:15PM ET",16.29,"SF","NYM",20.53,17,17.0355,NA,14.95
+"SP","Gerrit Cole",8000,"PIT@STL 07:15PM ET",13.553,"PIT","STL",17.91,19,14.924,NA,21.3
+"SP","David Price",7700,"LAA@BOS 07:15PM ET",12.36,"BOS","LAA",19,17.5,17.8615,NA,15.3
+"SP","Tyler Chatwood",7400,"COL@LAD 10:10PM ET",15.123,"COL","LAD",14.55,16.4,13.362,NA,-1.1
+"SP","Lance Lynn",7100,"PIT@STL 07:15PM ET",16.575,"STL","PIT",17.09,15.3,13.849,NA,-0.65
+"SP","Dinelson Lamet",6800,"DET@SD 10:10PM ET",15.12,"SD","DET",15.88,17,14.154,NA,17.1
+"SP","Anibal Sanchez",5600,"DET@SD 10:10PM ET",2.942,"DET","SD",11.16,19.9,13.482,NA,17.7
+"SP","JC Ramirez",5500,"LAA@BOS 07:15PM ET",11.309,"LAA","BOS",15.72,8.5,7.867,NA,22.5
+"SP","Ben Lively",5100,"PHI@ARI 10:10PM ET",10.838,"PHI","ARI",NA,10.6,11.305,NA,-0.2
+"RP","Sam Gaviglio",5000,"HOU@SEA 10:10PM ET",11.463,"SEA","HOU",14.97,7.4,8.398,NA,NA

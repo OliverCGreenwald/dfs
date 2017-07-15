@@ -1,0 +1,13 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Chris Sale",12700,"DET@BOS 07:15PM ET",29.417,"BOS","DET",29.18,22.8,25.1005,NA,22.35
+"SP","Luis Severino",9800,"BAL@NYY 07:15PM ET",21.159,"NYY","BAL",24.57,16.1,18.829,NA,31.35
+"SP","Alex Wood",9500,"CIN@LAD 10:10PM ET",20.4,"LAD","CIN",23.86,18.8,15.356,NA,17.15
+"SP","Marcus Stroman",8600,"TOR@SEA 10:10PM ET",15.615,"TOR","SEA",19.86,16.3,17.1165,NA,25.55
+"SP","Justin Verlander",7700,"DET@BOS 07:15PM ET",14.258,"DET","BOS",22.14,15.1,15.2045,NA,6.45
+"SP","Ariel Miranda",7400,"TOR@SEA 10:10PM ET",15.077,"SEA","TOR",19.21,15.5,13.749,NA,10.05
+"SP","Josh Tomlin",7300,"CWS@CLE 07:15PM ET",10.764,"CLE","CWS",19.21,12.7,14.791,NA,-6
+"SP","Zack Godley",7100,"MIL@ARI 10:10PM ET",18.025,"ARI","MIL",NA,13.9,16.781,NA,20.6
+"SP","Junior Guerra",5700,"MIL@ARI 10:10PM ET",13.813,"MIL","ARI",13.82,11.7,11.831,NA,8.1
+"SP","Chris Tillman",5400,"BAL@NYY 07:15PM ET",6.475,"BAL","NYY",13.25,8.3,11.073,NA,-19
+"SP","Asher Wojciechowski",5200,"CIN@LAD 10:10PM ET",8.375,"CIN","LAD",NA,12.4,7.042,NA,1.65
+"SP","David Holmberg",4400,"CWS@CLE 07:15PM ET",3.89,"CWS","CLE",6.9,5.7,6.93,NA,16.85

@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Clayton Kershaw",12500,"COL@LAD 10:10PM ET",25.66,"LAD","COL",28.82,26.1,31.4825,NA,30.5
+"SP","Robbie Ray",12300,"PHI@ARI 10:10PM ET",24.361,"ARI","PHI",25.45,21.8,20.418,NA,18.25
+"SP","Lance McCullers",10800,"HOU@SEA 10:10PM ET",21.454,"HOU","SEA",20.57,16.9,19.506,NA,26.85
+"SP","Tyler Chatwood",7400,"COL@LAD 10:10PM ET",15.123,"COL","LAD",14.55,16.4,13.362,NA,-1.1
+"SP","Dinelson Lamet",6800,"DET@SD 10:10PM ET",15.12,"SD","DET",15.88,17,14.154,NA,17.1
+"SP","Anibal Sanchez",5600,"DET@SD 10:10PM ET",2.942,"DET","SD",11.16,19.9,13.482,NA,17.7
+"SP","Ben Lively",5100,"PHI@ARI 10:10PM ET",10.838,"PHI","ARI",NA,10.6,11.305,NA,-0.2
+"RP","Sam Gaviglio",5000,"HOU@SEA 10:10PM ET",11.463,"SEA","HOU",14.97,7.4,8.398,NA,NA
