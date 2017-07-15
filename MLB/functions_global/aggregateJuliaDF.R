@@ -72,40 +72,40 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   if (file.exists(path.rotogrinders)) {
     temp.rotogrinders.hitters <- read.csv(file = path.rotogrinders, stringsAsFactors = F, header = T)
     if (is.null(temp.rotogrinders.hitters$Name)) {
-      warning(paste0("Rotogrinders headers incorrect."))
+      print(paste0("Rotogrinders (hitters) headers incorrect. ", contest.date))
     }
     temp.rotogrinders.hitters$Name <- cleanPlayerNames(temp.rotogrinders.hitters$Name)
     temp.dksalaries.hitters$Projection <- temp.rotogrinders.hitters$Projections[match(temp.dksalaries.hitters$Name, temp.rotogrinders.hitters$Name)]
   } else {
     temp.dksalaries.hitters$Projection <- NA
-    warning(paste0("Rotogrinders projections not found.", contest.date))
+    warning(paste0("Rotogrinders projections not found. ", contest.date))
   }
   
   # dfn
   if (file.exists(path.dfn)) {
     temp.dfn.hitters <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
     if (is.null(temp.dfn.hitters$Player.Name)) {
-      warning(paste0("DFN headers incorrect."))
+      print(paste0("DFN (hitters) headers incorrect. ", contest.date))
     }
     temp.dfn.hitters$Player.Name <- cleanPlayerNames(temp.dfn.hitters$Player.Name)
     temp.dksalaries.hitters$Projection_dfn <- temp.dfn.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Projection_dfn <- NA
-    warning(paste0("DFN projections not found.", contest.date))
+    warning(paste0("DFN projections not found. ", contest.date))
   }
   
   # baseballmonster (fpts manually computed)
   if (file.exists(path.baseballmonster)) {
     temp.baseballmonster.hitters <- read.csv(file = path.baseballmonster, stringsAsFactors = F, header = T)
-    if (is.null(temp.baseballmonster.hitters$Proj.FP)) {
-      warning(paste0("BBM headers incorrect."))
+    if (is.null(temp.baseballmonster.hitters$singles)) {
+      print(paste0("BBM (hitters) headers incorrect. ", contest.date))
     }
     temp.baseballmonster.hitters$Proj.FP <- 3*temp.baseballmonster.hitters$singles + 5*temp.baseballmonster.hitters$doubles + 8*temp.baseballmonster.hitters$triples + 10*temp.baseballmonster.hitters$home_runs + 2*temp.baseballmonster.hitters$rbi + 2*temp.baseballmonster.hitters$runs + 2*temp.baseballmonster.hitters$walks + 2*temp.baseballmonster.hitters$hbp + 5*temp.baseballmonster.hitters$sb # compute Fpts
     temp.baseballmonster.hitters$Name <- cleanPlayerNames(paste0(temp.baseballmonster.hitters$first_name, " ", temp.baseballmonster.hitters$last_name))
     temp.dksalaries.hitters$Projection_baseballmonster  <- temp.baseballmonster.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.baseballmonster.hitters$Name)]
   } else {
     temp.dksalaries.hitters$Projection_baseballmonster <- NA
-    warning(paste0("Baseballmonster projections not found.", contest.date))
+    warning(paste0("BBM projections not found. ", contest.date))
   }
   
   # fantasypros
@@ -142,13 +142,13 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   if (file.exists(path.dfn)) {
     temp.dfn.hitters <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
     if (is.null(temp.dfn.hitters$Player.Name)) {
-      warning(paste0("DFN file headers incorrect."))
+      print(paste0("DFN file headers incorrect. ", contest.date))
     }
     temp.dfn.hitters$Player.Name <- cleanPlayerNames(temp.dfn.hitters$Player.Name)
     temp.dksalaries.hitters$Batting_Order_Projected <- temp.dfn.hitters$Batting.Order..Projected.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters$Player.Name)]
   } else {
     temp.dksalaries.hitters$Batting_Order_Projected <- NA
-    warning(paste0("DFN projections not found.", contest.date))
+    warning(paste0("DFN projections not found. ", contest.date))
   }
   
   # add DFN batting order data (confirmed)
@@ -156,13 +156,13 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   if (file.exists(path.dfn.confirmed)) {
     temp.dfn.hitters.confirmed <- read.csv(file = path.dfn.confirmed, stringsAsFactors = F, header = T)
     if (is.null(temp.dfn.hitters.confirmed$Player.Name)) {
-      warning(paste0("DFN update file headers incorrect."))
+      print(paste0("DFN update file headers incorrect. ", contest.date))
     }
     temp.dfn.hitters.confirmed$Player.Name <- cleanPlayerNames(temp.dfn.hitters.confirmed$Player.Name)
     temp.dksalaries.hitters$Batting_Order_Confirmed <- temp.dfn.hitters.confirmed$Batting.Order..Confirmed.[match(temp.dksalaries.hitters$Name, temp.dfn.hitters.confirmed$Player.Name)]
   } else {
     temp.dksalaries.hitters$Batting_Order_Confirmed <- NA
-    warning(paste0("Updated DFN file not found.", contest.date))
+    warning(paste0("Updated DFN file not found. ", contest.date))
   }
   
   # set all projections to NA if confirmed batting order is "x" (i.e. will not play)
@@ -195,33 +195,33 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   if (file.exists(path.rotogrinders)) {
     temp.rotogrinders.pitchers <- read.csv(file = path.rotogrinders, stringsAsFactors = F, header = T)
     if (is.null(temp.rotogrinders.pitchers$Name)) {
-      warning(paste0("Rotogrinders (pitchers) headers incorrect."))
+      print(paste0("Rotogrinders (pitchers) headers incorrect. ", contest.date))
     }
     temp.rotogrinders.pitchers$Name <- cleanPlayerNames(temp.rotogrinders.pitchers$Name)
     temp.dksalaries.pitchers$Projection <- temp.rotogrinders.pitchers$Projections[match(temp.dksalaries.pitchers$Name, temp.rotogrinders.pitchers$Name)]
   } else {
     temp.dksalaries.pitchers$Projection <- NA
-    warning(paste0("Rotogrinders projections not found.", contest.date))
+    warning(paste0("Rotogrinders projections not found. ", contest.date))
   }
   
   # dfn
   if (file.exists(path.dfn)) {
     temp.dfn.pitchers <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
     if (is.null(temp.dfn.pitchers$Player.Name)) {
-      warning(paste0("DFN (pitchers) headers incorrect."))
+      print(paste0("DFN (pitchers) headers incorrect. ", contest.date))
     }
     temp.dfn.pitchers$Player.Name <- cleanPlayerNames(temp.dfn.pitchers$Player.Name)
     temp.dksalaries.pitchers$Projection_dfn <- temp.dfn.pitchers$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.pitchers$Player.Name)]
   } else {
     temp.dksalaries.pitchers$Projection_dfn <- NA
-    warning(paste0("DFN projections not found.", contest.date))
+    warning(paste0("DFN projections not found. ", contest.date))
   }
   
   # baseballmonster
   if (file.exists(path.baseballmonster)) {
     temp.baseballmonster.pitchers <- read.csv(file = path.baseballmonster, stringsAsFactors = F, header = T)
-    if (is.null(temp.baseballmonster.pitchers$Proj.FP)) {
-      warning(paste0("DFN (pitchers) headers incorrect."))
+    if (is.null(temp.baseballmonster.pitchers$singles)) {
+      print(paste0("BBM (pitchers) headers incorrect. ", contest.date))
     }
     hits_against <- temp.baseballmonster.pitchers$singles + temp.baseballmonster.pitchers$doubles + temp.baseballmonster.pitchers$triples + temp.baseballmonster.pitchers$home_runs # for projections
     temp.baseballmonster.pitchers$Proj.FP <- 2.25*temp.baseballmonster.pitchers$innings + 2*temp.baseballmonster.pitchers$strikeouts + 4*temp.baseballmonster.pitchers$wins + (-2)*temp.baseballmonster.pitchers$earned_runs + (-0.6)*hits_against + (-0.6)*temp.baseballmonster.pitchers$walks + (-0.6)*temp.baseballmonster.pitchers$hbp + 2.5*temp.baseballmonster.pitchers$cg # MISSING: Complete Game Shut Out, No Hitter (Notes: "hbp" is "Hit Batsman")
