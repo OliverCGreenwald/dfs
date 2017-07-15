@@ -12,11 +12,12 @@ if(file.exists("~/Projects/DFS/")) {
 # - Section III: hitters covariance matrices for each contest
 
 
-MLB_create_julia_inputs <- function(date_start, date_end) {
+MLB_create_julia_inputs <- function(date_start, date_end, filter_names) {
   ####### Import Functions #######
   source("MLB/functions_global/aggregateJuliaDF.R")
   source("MLB/functions_global/createRollingCovarianceMatrix.R")
   source("MLB/functions_global/filterCovarianceMatrix.R")
+  source("MLB/functions_global/findDuplicateContests.R")
   
   
   ####### Set variables #######
@@ -104,42 +105,8 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
     print(paste0("End Date in createRollingCovarianceMatrix function: ", contest_info$Contest_Date[1]))
 
     # identify contests that have the same julia input file so that we don't need to run the covariance code multiple times for the same set of players
-    contest_info$Match_ID <- NA
-    list_contest <- NULL
-    temp_ind <- 1
-    for (i in 1:nrow(contest_info)) {
-      # check if contest folder exists
-      temp.dksalaries.path <- paste0(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/DKSalaries.csv"))
-      if (file.exists(temp.dksalaries.path)) {
-        # load julia input file
-        temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
-        
-        # if no other hitter dfs in list then add first df to list
-        if (is.null(list_contest)==TRUE) {
-          list_contest[[1]] <- temp_julia_hitter_df
-          contest_info$Match_ID[i] <- temp_ind # add new match index
-          temp_ind <- temp_ind + 1 # increment match index
-        } else {
-          # check each df in list for matches
-          for (j in 1:length(list_contest)) {
-            # if df matches previous df then don't add it
-            if (identical(list_contest[[j]]$Name, temp_julia_hitter_df$Name)==T) {
-              contest_info$Match_ID[i] <- j # match the index in the list of df
-              break
-            }
-          }
-          
-          # if there was no match in the df (i.e. Match_ID[i] is NA) then add df to list
-          if (is.na(contest_info$Match_ID[i])==TRUE) {
-            contest_info$Match_ID[i] <- temp_ind # add new match index
-            temp_ind <- temp_ind + 1 # increment match index
-            list_contest[[length(list_contest)+1]] <- temp_julia_hitter_df
-          }
-        }
-      }
-    }
-    print(paste0("Number of contests with unique hitter.csv files: ", length(unique(contest_info$Match_ID))))
-
+    # print(paste0("Number of contests with unique hitter.csv files: ", length(unique(contest_info$Match_ID))))
+    contest_info <- findDuplicateContests(contest_info)
 
     # iterate through the contests (only call createRollingCovarianceMatrix when contest's corresponding Match_ID hasn't been run yet)
     for (i in 1:nrow(contest_info)) {
@@ -205,42 +172,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
     print(paste0("End Date in createRollingCovarianceMatrix function: ", contest_info$Contest_Date[1]))
 
     # identify contests that have the same julia input file so that we don't need to run the covariance code multiple times for the same set of players
-    contest_info$Match_ID <- NA
-    list_contest <- NULL
-    temp_ind <- 1
-    for (i in 1:nrow(contest_info)) {
-      # check if contest folder exists
-      temp.dksalaries.path <- paste0(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/DKSalaries.csv"))
-      if (file.exists(temp.dksalaries.path)) {
-        # load julia input file
-        temp_julia_hitter_df <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hitters.csv"), stringsAsFactors = F, header = T)
-        
-        # if no other hitter dfs in list then add first df to list
-        if (is.null(list_contest)==TRUE) {
-          list_contest[[1]] <- temp_julia_hitter_df
-          contest_info$Match_ID[i] <- temp_ind # add new match index
-          temp_ind <- temp_ind + 1 # increment match index
-        } else {
-          # check each df in list for matches
-          for (j in 1:length(list_contest)) {
-            # if df matches previous df then don't add it
-            if (identical(list_contest[[j]]$Name, temp_julia_hitter_df$Name)==T) {
-              contest_info$Match_ID[i] <- j # match the index in the list of df
-              break
-            }
-          }
-          
-          # if there was no match in the df (i.e. Match_ID[i] is NA) then add df to list
-          if (is.na(contest_info$Match_ID[i])==TRUE) {
-            contest_info$Match_ID[i] <- temp_ind # add new match index
-            temp_ind <- temp_ind + 1 # increment match index
-            list_contest[[length(list_contest)+1]] <- temp_julia_hitter_df
-          }
-        }
-      }
-    }
-    print(paste0("Number of contests with unique hitter.csv files: ", length(unique(contest_info$Match_ID))))
-
+    contest_info <- findDuplicateContests(contest_info)
 
     # iterate through the contests (only call createRollingCovarianceMatrix when contest's corresponding Match_ID hasn't been run yet)
     for (i in 1:nrow(contest_info)) {
@@ -249,10 +181,8 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
       if (file.exists(temp.dksalaries.path)) {
         print(paste0("Begin (Contest ", i, " / ", nrow(contest_info),"): ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))))
         
-        # filter options
+        # Apply filter
         # filter_names <- c("test", "chg75p_spike", "chg75p_exp(spike)", "chg75p_zeros", "arima_p3d1q2")
-        filter_names <- c("chg75p_exp(spike)")
-        
         if (contest_info$Match_ID[i] %in% contest_info$Match_ID[1:(i-1)] == FALSE | i==1) {
           # read in hist_fpts_mat and unfiltered covar matrix
           hist_fpts_mat <- read.csv(file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/hist_fpts_mat.csv"), stringsAsFactors = F, header = T, check.names=FALSE)
@@ -268,7 +198,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
             }
           }
           
-          # write to file
+          # iterate through each filter
           for (filter_name in filter_names) {
             # apply filter
             cov_mat <- filterCovarianceMatrix(contest_date = contest_info$Contest_Date[i], cov_mat_unfiltered = cov_mat, filter_name = filter_name, contest_entry_fee = contest_info$Entry_Fee[i], contest_name = gsub(" ", "", contest_info$Contest_Name[i]))
@@ -280,7 +210,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
               warning(paste0("NAs found (replaced with 0's): ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), " There were ", temp_sum, " NAs."))
             }
             
-            # write
+            # write to file
             write.csv(cov_mat, file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/covariance_mat_", filter_name, ".csv"), row.names = F)
           }
         } else {
@@ -301,8 +231,7 @@ MLB_create_julia_inputs <- function(date_start, date_end) {
 }
 
 
-MLB_create_julia_inputs(date_start = "2017-06-16", date_end = "2017-06-20")
-# TODO: MLB_create_julia_inputs(date_start = "2017-06-21", date_end = "2017-07-14")
-# MLB_create_julia_inputs(date_start = "2017-06-08", date_end = "2017-06-08")
+MLB_create_julia_inputs(date_start = "2017-06-26", date_end = "2017-07-01", filter_names = c("chg75p_exp(spike)"))
+# MLB_create_julia_inputs(date_start = "2017-06-17", date_end = "2017-06-17", filter_names = c("chg75p_exp(spike)"))
 
 

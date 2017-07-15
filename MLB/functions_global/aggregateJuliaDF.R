@@ -124,7 +124,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.hitters$Projection_rotowire <- temp.rotowire.hitters$Proj.FP[match(temp.dksalaries.hitters$Name, temp.rotowire.hitters$Full.Name)]
   } else {
     temp.dksalaries.hitters$Projection_rotowire <- NA
-    warning(paste0("Rotowire projections not found.", contest.date))
+    # warning(paste0("Rotowire projections not found.", contest.date))
   }
   
   # rotowire2
@@ -247,7 +247,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dksalaries.pitchers$Projection_rotowire <- temp.rotowire.pitchers$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.rotowire.pitchers$Full.Name)]
   } else {
     temp.dksalaries.pitchers$Projection_rotowire <- NA
-    warning(paste0("Rotowire projections not found.", contest.date))
+    # warning(paste0("Rotowire projections not found.", contest.date))
   }
   
   # rotowire2
