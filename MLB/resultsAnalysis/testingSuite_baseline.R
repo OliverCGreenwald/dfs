@@ -74,6 +74,10 @@ plotdata <- final_data[, .(PnL  = cumsum(PnL)), by = list(PlotDate, Name)]
 plotdata = plotdata[order(plotdata$PlotDate), ]
 plotdata <- mutate(group_by(plotdata,Name), cumsum=cumsum(PnL))
 
+
+#Subset on any substring you want
+#plotdata <- plotdata[grepl('formulation5',plotdata$Name),]
+
 ggplot(data=plotdata,
        aes(x=as.Date(as.character(PlotDate),'%Y%m%d'), y=cumsum, colour=Name)) +
   geom_line() + theme(legend.position="none")
