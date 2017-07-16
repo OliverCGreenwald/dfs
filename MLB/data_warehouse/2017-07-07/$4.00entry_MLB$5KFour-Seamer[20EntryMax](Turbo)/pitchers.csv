@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jacob deGrom",11800,"NYM@STL 08:15PM ET",19.983,"NYM","STL",23.44,25.6,18.805,NA,16.95
+"SP","Carlos Martinez",10700,"NYM@STL 08:15PM ET",21.924,"STL","NYM",22.71,18.7,17.2395,NA,2.65
+"SP","Cole Hamels",7800,"LAA@TEX 08:05PM ET",10.081,"TEX","LAA",22.25,14.8,15.6295,NA,30.85
+"SP","Kevin Gausman",7300,"BAL@MIN 08:10PM ET",9.269,"BAL","MIN",13.12,15.7,14.246,NA,7
+"SP","Ricky Nolasco",6700,"LAA@TEX 08:05PM ET",14.132,"LAA","TEX",13.82,12.6,13.403,NA,-13.65
+"SP","German Marquez",5700,"CWS@COL 08:40PM ET",13.092,"COL","CWS",12.38,12.6,11.192,NA,18.35
+"SP","Derek Holland",4900,"CWS@COL 08:40PM ET",12.516,"CWS","COL",8.53,8.5,7.634,NA,-7
+"SP","Felix Jorge",4700,"BAL@MIN 08:10PM ET",8.45,"MIN","BAL",11.2,8.3,7.372,NA,-6.8

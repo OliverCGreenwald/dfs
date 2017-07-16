@@ -207,7 +207,7 @@ MLB_create_julia_inputs <- function(date_start, date_end, filter_names) {
             if (sum(is.na(cov_mat)) != 0) {
               temp_sum <- sum(is.na(cov_mat))
               cov_mat[is.na(cov_mat)] <- 0
-              warning(paste0("NAs found (replaced with 0's): ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), " There were ", temp_sum, " NAs."))
+              warning(paste0("NAs found (replaced with 0's) in filtered covariance matrix for ", contest_info$Contest_Date[i], " ", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), ". There were ", temp_sum, " NAs."))
             }
             
             # write to file
@@ -231,7 +231,7 @@ MLB_create_julia_inputs <- function(date_start, date_end, filter_names) {
 }
 
 
-MLB_create_julia_inputs(date_start = "2017-06-26", date_end = "2017-07-01", filter_names = c("chg75p_exp(spike)"))
-# MLB_create_julia_inputs(date_start = "2017-06-17", date_end = "2017-06-17", filter_names = c("chg75p_exp(spike)"))
+MLB_create_julia_inputs(date_start = "2017-07-16", date_end = "2017-07-16", filter_names = c("chg75p_exp(spike)"))
+# MLB_create_julia_inputs(date_start = "2017-07-15", date_end = "2017-07-15", filter_names = c("chg75p_exp(spike)"))
 
 

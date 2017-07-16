@@ -16,6 +16,9 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
   require(stringr)
   require(forecast)
   
+  ####### Import Functions #######
+  source("MLB/functions_global/listMissingDates.R")
+  
   
   ####### Load Covariance and Counts Matrices #######
   # set date
@@ -72,17 +75,21 @@ filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name
   # initializations
   list_cov_mats <- list()
   cov_time <- as.data.frame(matrix(data = NA, nrow = nrow(top_cov_pairs), ncol = length(dates), dimnames = list(paste0(top_cov_pairs$Player_A[1:nrow(top_cov_pairs)], ", ", top_cov_pairs$Player_B[1:nrow(top_cov_pairs)]), as.character(dates))))
+  missing_dates <- listMissingDates()
   
   # loop through dates
   for (i in 1:length(dates)) {
-    temp_cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", dates[i], "/covariance_mat.csv"), header = T, stringsAsFactors = F, check.names=FALSE)
-    list_cov_mats[[i]] <- temp_cov_mat
-    
-    for (j in 1:nrow(top_cov_pairs)) {
-      ind_a <- which(colnames(temp_cov_mat) == top_cov_pairs$Player_A[j])
-      ind_b <- which(colnames(temp_cov_mat) == top_cov_pairs$Player_B[j])
-      if (length(ind_a)!=0 & length(ind_b)!=0) {
-        cov_time[j,i] <- temp_cov_mat[ind_a, ind_b] 
+    # skip if no data for this date
+    if (!(dates[i] %in% missing_dates)) {
+      temp_cov_mat <- read.csv(file = paste0("MLB/data_warehouse/", dates[i], "/covariance_mat.csv"), header = T, stringsAsFactors = F, check.names=FALSE)
+      list_cov_mats[[i]] <- temp_cov_mat
+      
+      for (j in 1:nrow(top_cov_pairs)) {
+        ind_a <- which(colnames(temp_cov_mat) == top_cov_pairs$Player_A[j])
+        ind_b <- which(colnames(temp_cov_mat) == top_cov_pairs$Player_B[j])
+        if (length(ind_a)!=0 & length(ind_b)!=0) {
+          cov_time[j,i] <- temp_cov_mat[ind_a, ind_b] 
+        }
       }
     }
   }

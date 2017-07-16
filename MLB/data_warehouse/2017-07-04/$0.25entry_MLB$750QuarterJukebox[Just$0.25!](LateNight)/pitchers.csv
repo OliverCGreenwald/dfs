@@ -1,0 +1,7 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Clayton Kershaw",12900,"ARI@LAD 09:10PM ET",26.832,"LAD","ARI",0,26.7,30.5645,NA,39.35
+"SP","Yu Darvish",11200,"BOS@TEX 08:08PM ET",20.479,"TEX","BOS",0,16.1,19.4415,NA,-2.85
+"SP","David Price",8900,"BOS@TEX 08:08PM ET",14.464,"BOS","TEX",0,16.6,16.403,NA,30.7
+"SP","Patrick Corbin",6600,"ARI@LAD 09:10PM ET",11.4,"ARI","LAD",0,15.3,13.759,NA,15.1
+"SP","Kyle Freeland",6000,"CIN@COL 08:10PM ET",11.15,"COL","CIN",0,9.5,7.001,NA,-2
+"SP","Homer Bailey",4000,"CIN@COL 08:10PM ET",-10.15,"CIN","COL",0,9.1,5.114,NA,16.7

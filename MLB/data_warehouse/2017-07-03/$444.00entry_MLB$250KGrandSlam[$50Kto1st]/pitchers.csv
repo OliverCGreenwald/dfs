@@ -1,0 +1,17 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Marcus Stroman",10900,"TOR@NYY 07:05PM ET",16.315,"TOR","NYY",18.09,13.6,15.5405,NA,8.45
+"SP","Masahiro Tanaka",9900,"TOR@NYY 07:05PM ET",13.9,"NYY","TOR",19.25,16.5,18.225,NA,29.55
+"SP","Aaron Nola",8800,"PIT@PHI 07:05PM ET",16.727,"PHI","PIT",19.79,19.7,14.605,NA,32.75
+"SP","Ivan Nova",8600,"PIT@PHI 07:05PM ET",15.881,"PIT","PHI",19.11,16.4,14.9165,NA,2.7
+"SP","Adam Wainwright",8400,"MIA@STL 07:15PM ET",11.353,"STL","MIA",17.97,13.4,12.586,NA,13.85
+"SP","Jharel Cotton",8000,"CWS@OAK 09:05PM ET",12.619,"OAK","CWS",14.32,18.2,16.118,NA,7.85
+"SP","Jeff Hoffman",7800,"CIN@COL 08:10PM ET",16.406,"COL","CIN",11.72,13.3,9.628,NA,17.55
+"SP","Rick Porcello",7500,"BOS@TEX 08:05PM ET",13.897,"BOS","TEX",13.32,15.1,14.421,NA,10.65
+"SP","Ian Kennedy",7300,"KC@SEA 10:10PM ET",11.989,"KC","SEA",13.02,14.4,14.535,NA,27.4
+"SP","Alex Meyer",6900,"LAA@MIN 08:10PM ET",15.082,"LAA","MIN",15.77,17.9,13.5,NA,6.65
+"SP","Adalberto Mejia",6600,"LAA@MIN 08:10PM ET",10.445,"MIN","LAA",14.62,11.1,10.631,NA,17.75
+"SP","Carlos Rodon",6500,"CWS@OAK 09:05PM ET",10.45,"CWS","OAK",15.34,18.6,16.016,NA,30.05
+"RP","Luis Castillo",5900,"CIN@COL 08:10PM ET",16.6,"CIN","COL",8.68,9.8,6.966,NA,14.75
+"SP","Martin Perez",5700,"BOS@TEX 08:05PM ET",10.337,"TEX","BOS",10.77,9.2,7.871,NA,8.15
+"SP","Andrew Moore",5500,"KC@SEA 10:10PM ET",18.15,"SEA","KC",13.62,12.9,10.213,NA,17
+"SP","Jeff Locke",4900,"MIA@STL 07:15PM ET",8.8,"MIA","STL",9.22,11.4,8.566,NA,-20.4

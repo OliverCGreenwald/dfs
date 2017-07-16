@@ -1,0 +1,12 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Zack Wheeler",7700,"PHI@NYM 04:10PM ET",10.204,"NYM","PHI",20.69,16.6,18.32,NA,13.25
+"SP","Dylan Bundy",7100,"TB@BAL 04:05PM ET",15.234,"BAL","TB",19.62,12.6,14.576,NA,8.8
+"SP","Jake Odorizzi",7000,"TB@BAL 04:05PM ET",13.489,"TB","BAL",16.53,13.1,11.56,NA,11.05
+"SP","Zach Davies",6600,"MIA@MIL 04:10PM ET",9.975,"MIL","MIA",14.68,13,12.187,NA,15.3
+"SP","RA Dickey",6500,"ATL@OAK 04:05PM ET",11.54,"ATL","OAK",12.24,14.4,12.618,NA,14.1
+"SP","Jeremy Hellickson",6300,"PHI@NYM 04:10PM ET",9.569,"PHI","NYM",16.16,10.7,12.613,NA,9.45
+"SP","Matt Moore",5900,"SF@PIT 04:05PM ET",9.8,"SF","PIT",17.72,13.9,10.767,NA,14.75
+"SP","Chad Kuhl",5700,"SF@PIT 04:05PM ET",8.05,"PIT","SF",13.92,12.2,9.762,NA,15.7
+"SP","Eddie Butler",5600,"CHC@CIN 04:10PM ET",10.539,"CHC","CIN",12.55,8.3,6.56,NA,-0.55
+"SP","Tom Koehler",4800,"MIA@MIL 04:10PM ET",6.581,"MIA","MIL",13.33,15.8,11.559,NA,-3.05
+"RP","Jackson Stephens",4500,"CHC@CIN 04:10PM ET",0,"CIN","CHC",10.22,18.1,9.604,NA,21.05

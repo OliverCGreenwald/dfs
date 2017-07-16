@@ -1,0 +1,16 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Stephen Strasburg",12500,"ATL@WAS 04:05PM ET",22.679,"WAS","ATL",26.66,20.9,25.0025,NA,-4.05
+"SP","Luis Severino",11500,"MIL@NYY 01:05PM ET",20.366,"NYY","MIL",23.46,19.5,21.439,NA,24.35
+"SP","Aaron Nola",9900,"SD@PHI 04:05PM ET",18.063,"PHI","SD",19.81,24.6,20.093,NA,28.4
+"SP","Marcus Stroman",8200,"HOU@TOR 01:07PM ET",15.878,"TOR","HOU",16.91,12.2,15.2525,NA,24.35
+"SP","Jhoulys Chacin",7700,"SD@PHI 04:05PM ET",12.182,"SD","PHI",16.13,18.7,16.453,NA,25.25
+"SP","Adam Wainwright",7600,"NYM@STL 04:10PM ET",11.492,"STL","NYM",17.97,12.7,16.722,NA,28
+"SP","Mike Fiers",7500,"HOU@TOR 01:07PM ET",13.603,"HOU","TOR",NA,13.3,12.945,NA,13.5
+"SP","Alex Cobb",7100,"BOS@TB 04:10PM ET",13.45,"TB","BOS",15.56,11.7,19.2715,NA,25.45
+"SP","Adalberto Mejia",6800,"BAL@MIN 02:10PM ET",11.054,"MIN","BAL",15.74,11.6,11.637,NA,14.8
+"SP","Julio Teheran",6700,"ATL@WAS 04:05PM ET",8.461,"ATL","WAS",18.32,12.2,17.0755,NA,26.15
+"SP","Rick Porcello",6500,"BOS@TB 04:10PM ET",13.717,"BOS","TB",19.47,17.2,20.739,NA,25.2
+"SP","Zack Wheeler",6400,"NYM@STL 04:10PM ET",10.407,"NYM","STL",15.37,14.3,18.73,NA,14.1
+"SP","Wade Miley",5700,"BAL@MIN 02:10PM ET",9.832,"BAL","MIN",11.97,11.7,11.543,NA,16.15
+"SP","Brent Suter",5000,"MIL@NYY 01:05PM ET",6.045,"MIL","NYY",9.78,9.1,6.896,NA,16.65
+"RP","Chris Smith",4700,"HOU@TOR 01:07PM ET",1.65,"TOR","HOU",8.67,13.4,12.944,NA,11.3
