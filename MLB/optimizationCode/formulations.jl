@@ -822,8 +822,7 @@ function formulation5_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
                    8*sum(P[k] * players_lineup[k] * players_teams[k,g] for k = 1:num_players) + 
                     sum((1 - P[k]) * players_lineup[k] * players_opp[k,g] for k = 1:num_players) <= 8)
 
-    # Exposure Constraint
-    @constraint(m, constr[j=1:num_players], sum(old_lineups[j,i] for i = 1:(size(old_lineups))[2]) + players_lineup[j] <= num_lineups * exposure)
+
    
    
     #STACK: at least stack_size hitters from at least 1 team, consecutive hitting order
