@@ -14,6 +14,9 @@ parseContestStandings <- function(contest.date, contest.name) {
   # load libraries
   require(stringr)
   
+  # import functions
+  source("MLB/functions_global/cleanPlayerNames.R")
+  
   # read in contest standings
   temp.results <- read.csv(file = paste0("MLB/data_warehouse/", contest.date, "/", contest.name, "/contest-standings.csv"), stringsAsFactors = F, header = T)
   
@@ -31,8 +34,38 @@ parseContestStandings <- function(contest.date, contest.name) {
   
   # function for parsing the Lineup column
   splitPlayers <- function(x) {
-    return(str_split_fixed(x, "P | P | C | 1B | 2B | 3B | SS | OF ", 11)[2:11])
+    # remove Jr., Sr., middle initial (code won't work if name format isn't: first last)
+    x <- cleanPlayerNames(x)
+    
+    # split at spaces
+    temp <- str_split_fixed(x, " ", 30)
+    
+    # concatenate elements 1:3, 4:6, etc to create a vector with elements SS first last, 1B first last, etc.
+    temp_vec <- NULL
+    for (i in seq(1,30,3)) {
+      temp_vec <- c(temp_vec, paste0(temp[i], " ", temp[i+1], " ", temp[i+2]))
+    }
+    
+    # sort the vector in alphabetical order (uses the fact that every element begins with a position label: SS, 1B, etc.)
+    temp_vec <- sort(temp_vec)
+    
+    # reorder into the desired order: P | P | C | 1B | 2B | 3B | SS | OF
+    temp_vec <- c(temp_vec[8], temp_vec[9], temp_vec[4], temp_vec[1], temp_vec[2], temp_vec[3], temp_vec[10], temp_vec[5], temp_vec[6], temp_vec[7])
+    
+    # collapse vector to string
+    temp_vec <- paste(temp_vec, collapse = " ")
+    
+    # split string, removing the position labels
+    return(str_split_fixed(temp_vec, "P | P | C | 1B | 2B | 3B | SS | OF ", 11)[2:11])
   }
+  
+  
+  
+  # splitPlayers <- function(x) {
+  #   return(str_split_fixed(x, "P | P | C | 1B | 2B | 3B | SS | OF ", 11)[2:11])
+  # }
+  
+  
   
   # fill position columns by parsing Lineup column
   temp.players <- data.frame(matrix(unlist(lapply(X = temp.results$Lineup[1:nrow(temp.results)], FUN = splitPlayers)), nrow=nrow(temp.results), byrow=T))
