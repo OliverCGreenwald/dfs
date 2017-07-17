@@ -6,10 +6,9 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Description #######
-# Function that returns the player pairs to keep in a covariance matrix, based on
-# the number of times covariance has spiked above the 75th percentile (in change)
-# up to that point in time. The purpose is to remove pairs that were just one hit
-# wonders.
+# Function that applies a given filter to the covariance matrix.
+# Implemented filters: test, chg75p_spike, chg75p_exp(spike), chg75p_zeros, arima_p3d1q2
+
 
 filterCovarianceMatrix <- function(contest_date, cov_mat_unfiltered, filter_name, contest_entry_fee = NULL, contest_name = NULL) {
   ####### Import Libraries #######
