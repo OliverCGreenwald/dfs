@@ -9,20 +9,28 @@ Formulations Dictionary:
 
 3. formulation1_covar
    - Optimization is max(projections + (lambda)*covariance)
-   - Exposure Constraints
+   - Max exposure constraint
 
 4. formulation2_covar
    - Optimization is max(projections + (lambda)*covariance)
    - General Team Stacking 
-   - Exposure Constraints 
+   - Max exposure constraint
 
 5. formulation3_covar 
    - Optimization is max(projections + (lambda)*covariance)
    - Consecutive Stacking  
-   - Exposure Constraints 
+   - Max exposure constraint
 
 6. formulation4_covar (IN PROGRESS)
    - Optimization is max(projections + (lambda)*covariance)
    - General Team Stacking 
       - Team + Pitcher Stacking
-   - Exposure Constraints 
+   - Max exposure constraint
+
+7. formulation5_covar
+   - formulation3_covar with position-specific max exposure constraints
+
+8. formulation6_covar
+   - formulation4_covar with position-specific max exposure constraints
+
+
