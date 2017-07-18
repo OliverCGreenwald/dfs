@@ -103,7 +103,7 @@ daily_pnl <- read.csv(file = paste0("MLB/resultsAnalysis/analyze_generated_lineu
 temp_df <- as.data.frame(matrix(data = NA, nrow = 150, ncol = 2, dimnames = list(NULL, c("Total_Fpts","output.df"))))
 
 # iterate through contests
-for (i in 1:2) {
+for (i in 1:nrow(baseline_contests)) {
   cat("***********************************************************************************************\n")
   cat(paste0("Contest ", i, ": ", baseline_contests$Date[i], " ", baseline_contests$Contest_names[i]))
   cat("\n***********************************************************************************************\n")
