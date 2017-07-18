@@ -1,1 +1,5 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Chris Sale",13000,"NYY@BOS 04:05PM ET",30.019,"BOS","NYY",30.49,23.2,26.6965,NA,40.25
+"SP","Luis Severino",10400,"NYY@BOS 04:05PM ET",20.6,"NYY","BOS",20.46,13.4,15.088,NA,22.15
+"SP","Michael Fulmer",9400,"TOR@DET 06:10PM ET",17.938,"DET","TOR",21.1,16.3,17.2615,NA,24.2
+"SP","Francisco Liriano",6700,"TOR@DET 06:10PM ET",10.414,"TOR","DET",13.2,11.8,11.777,NA,-5.7

@@ -1,7 +1,7 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
-"SP","Rick Porcello",11000,"BOS@MIN 02:10PM ET",16.292,"BOS","MIN",20.51,16.1,19.1695,NA,NA
-"SP","Marco Estrada",10000,"TOR@TB 04:10PM ET",19.575,"TOR","TB",16.87,16.7,17.887,NA,NA
-"SP","Jake Odorizzi",7900,"TOR@TB 04:10PM ET",12.075,"TB","TOR",17.66,14.9,16.848,NA,NA
-"SP","Josh Tomlin",7700,"CLE@KC 04:15PM ET",4.66,"CLE","KC",12.35,11.9,13.679,NA,NA
-"SP","Jason Vargas",7600,"CLE@KC 04:15PM ET",23.33,"KC","CLE",19.18,14.5,11.847,NA,NA
-"SP","Nick Tepesch",5000,"BOS@MIN 02:10PM ET",0,"MIN","BOS",10.35,11.1,6.569,NA,NA
+"SP","Rick Porcello",11000,"BOS@MIN 02:10PM ET",16.292,"BOS","MIN",20.51,16.1,19.1695,NA,25.55
+"SP","Marco Estrada",10000,"TOR@TB 04:10PM ET",19.575,"TOR","TB",16.87,16.7,17.887,NA,12.7
+"SP","Jake Odorizzi",7900,"TOR@TB 04:10PM ET",12.075,"TB","TOR",17.66,14.9,16.848,NA,27.95
+"SP","Josh Tomlin",7700,"CLE@KC 04:15PM ET",4.66,"CLE","KC",12.35,11.9,13.679,NA,17.95
+"SP","Jason Vargas",7600,"CLE@KC 04:15PM ET",23.33,"KC","CLE",19.18,14.5,11.847,NA,21.3
+"SP","Nick Tepesch",5000,"BOS@MIN 02:10PM ET",0,"MIN","BOS",10.35,11.1,6.569,NA,1.55

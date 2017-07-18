@@ -28,11 +28,10 @@ cleanPlayerNames <- function(df_name_column) {
   df_name_column <- gsub("ú", "u", df_name_column)
   df_name_column <- gsub("ñ", "n", df_name_column)
   
-  # edit specific player names
+  # edit specific player names (from, to, string)
   df_name_column <- sub("Shin-soo", "Shin-Soo", df_name_column)
-  
-  # edit specific player names
   df_name_column <- sub("Nori Aoki", "Norichika Aoki", df_name_column)
+  df_name_column <- sub("Yulieski Gurriel", "Yuli Gurriel", df_name_column)
   
   return(df_name_column)
 }

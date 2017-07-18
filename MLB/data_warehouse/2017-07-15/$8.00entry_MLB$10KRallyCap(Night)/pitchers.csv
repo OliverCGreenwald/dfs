@@ -1,1 +1,7 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Corey Kluber",12200,"CLE@OAK 09:05PM ET",27.157,"CLE","OAK",30.6,26.1,25.2235,NA,31.5
+"SP","Madison Bumgarner",10500,"SF@SD 08:40PM ET",20.813,"SF","SD",24.09,24.9,22.333,NA,16.15
+"SP","Jhoulys Chacin",7600,"SF@SD 08:40PM ET",12.835,"SD","SF",13.87,14.7,12.672,NA,9.5
+"SP","Alex Cobb",7500,"TB@LAA 09:07PM ET",14.117,"TB","LAA",17.09,13.8,13.515,NA,21.85
+"SP","JC Ramirez",5700,"TB@LAA 09:07PM ET",11.488,"LAA","TB",17.97,11.9,15.497,NA,10.1
+"SP","Paul Blackburn",5000,"CLE@OAK 09:05PM ET",16.175,"OAK","CLE",14.3,7.7,9.926,NA,10.1

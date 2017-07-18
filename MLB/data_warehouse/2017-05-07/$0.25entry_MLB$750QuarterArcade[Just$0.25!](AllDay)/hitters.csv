@@ -325,7 +325,7 @@
 "1B/OF","Mark Canha",2900,"DET@OAK 04:05PM ET",1.667,"OAK","DET",NA,0,NA,NA,"x","x",NA
 "2B","Danny Espinosa",2900,"HOU@LAA 03:37PM ET",4.6,"LAA","HOU",4.66,4.7,5.46,NA,"8","9",2
 "OF","Derek Fisher",2900,"HOU@LAA 03:37PM ET",0,"HOU","LAA",NA,0,NA,NA,"x","x",NA
-"1B","Yuli Gurriel",2900,"HOU@LAA 03:37PM ET",6.269,"HOU","LAA",NA,6.2,NA,NA,"8","6",NA
+"1B","Yuli Gurriel",2900,"HOU@LAA 03:37PM ET",6.269,"HOU","LAA",6.27,6.2,6.77,NA,"8","6",0
 "1B","Justin Bour",2900,"MIA@NYM 01:10PM ET",6.536,"MIA","NYM",NA,0,NA,NA,"x","x",NA
 "OF","Brandon Nimmo",2900,"MIA@NYM 01:10PM ET",0,"NYM","MIA",NA,0,NA,NA,"x","x",NA
 "1B/3B","TJ Rivera",2900,"MIA@NYM 01:10PM ET",6,"NYM","MIA",6.73,6.4,NA,NA,"7","2",4
@@ -351,7 +351,7 @@
 "OF","Steve Selsky",2800,"BOS@MIN 02:10PM ET",0.625,"BOS","MIN",NA,0,NA,NA,"x","x",NA
 "3B/SS","Marco Hernandez",2800,"BOS@MIN 02:10PM ET",3.619,"BOS","MIN",NA,0,NA,NA,"x","x",NA
 "2B/3B","Tommy La Stella",2800,"NYY@CHC 08:08PM ET",1.833,"CHC","NYY",NA,0,NA,NA,"x","x",NA
-"2B/3B","Yolmer Sanchez",2800,"CWS@BAL 01:35PM ET",5.294,"CWS","BAL",NA,5.5,NA,NA,"x","9",NA
+"2B/3B","Yolmer Sanchez",2800,"CWS@BAL 01:35PM ET",5.294,"CWS","BAL",NA,5.5,NA,NA,"x","9",9
 "OF","Kirk Nieuwenhuis",2800,"MIL@PIT 01:35PM ET",2.2,"MIL","PIT",NA,0,NA,NA,"x","x",NA
 "C","Andrew Susac",2800,"MIL@PIT 01:35PM ET",0,"MIL","PIT",NA,0,NA,NA,"x","x",NA
 "OF","Jose Osuna",2800,"MIL@PIT 01:35PM ET",4.933,"PIT","MIL",5.62,6,NA,NA,"x","5",16
