@@ -78,6 +78,7 @@ MLB_create_julia_inputs <- function(date_start, date_end, filter_names) {
     cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, min_games_pctg = 0.2)
     cov_mat <- cov.dat[[1]]
     cov_mat_counts <- cov.dat[[2]]
+    hist_fpts_mat <- cov.dat[[3]]
 
     # set NAs to 0 in covariance matrix for julia code
     cov_mat[is.na(cov_mat)] <- 0
@@ -86,6 +87,7 @@ MLB_create_julia_inputs <- function(date_start, date_end, filter_names) {
     # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
     write.csv(cov_mat, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_mat.csv"), row.names = F)
     write.csv(cov_mat_counts, file = paste0("MLB/data_warehouse/", date_last+1, "/covariance_counts_mat.csv"), row.names = F)
+    write.csv(hist_fpts_mat, file = paste0("MLB/data_warehouse/", date_last+1, "/hist_fpts_mat.csv"), row.names = T)
 
     print(paste0(date_last+1, " full covariance matrix completed"))
   }
