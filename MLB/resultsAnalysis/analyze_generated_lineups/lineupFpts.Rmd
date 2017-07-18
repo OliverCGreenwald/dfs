@@ -1,5 +1,5 @@
 ---
-title: "Baseline Contests (2017-04-16 to 2017-05-24)"
+title: "Lineups Report: Baseline Contests (2017-04-16 to 2017-05-24)"
 output: html_document
 ---
 
@@ -110,7 +110,7 @@ for (i in 1:nrow(baseline_contests)) {
   # sort in decreasing order of total fpts
   temp_df <- temp_df[order(temp_df$Total_Fpts, decreasing = T),]
   
-  # print top 5 and bottom 5 lineups
+  # print the 150 lineups
   for (k in c(1:150)) {
     cat("\n")
     print(paste0("Total fpts: ", temp_df$Total_Fpts[k], " (", k, ")"))
