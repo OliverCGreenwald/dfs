@@ -1,3 +1,18 @@
+---
+title: "Baseline Contests (2017-04-16 to 2017-05-24)"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#####formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.3_
+#####exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)
+
+
+```{r, echo=FALSE, comment=NA, message=FALSE}
 if(file.exists("~/Projects/DFS/")) {
   setwd("~/Projects/DFS/")
 } else {
@@ -8,6 +23,7 @@ if(file.exists("~/Projects/DFS/")) {
 ####### DESCRIPTION #######
 # Function that takes a lineup as input and returns the fpts, mean historical fpts,
 # and sd historical fpts of each player in the lineup as output.
+
 
 lineupFpts <- function(contest_date, contest_name, formulation_name, lineup_index) {
   # import libraries
@@ -73,29 +89,40 @@ lineupFpts <- function(contest_date, contest_name, formulation_name, lineup_inde
   return(output.df)
 }
 
+
 # load baseline contest info
 baseline_contests <- read.csv(file = "MLB/optimizationCode/baseline_contests.csv", stringsAsFactors = F, header = T)
-i <- 1
+baseline_contests <- baseline_contests[1:which(baseline_contests$Date == "2017-05-24"),]
+
 temp_df <- as.data.frame(matrix(data = NA, nrow = 150, ncol = 2, dimnames = list(NULL, c("Total_Fpts","output.df"))))
 
-for (j in 1:150) {
-  # cat("\n")
-  output <- lineupFpts(contest_date = baseline_contests$Date[i], contest_name = baseline_contests$Contest_names[i], formulation_name = "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)", lineup_index = j)
-  # print(paste0("Total fpts: ", sum(output$Fpts)))
-  # print(output)
-  temp_df$Total_Fpts[j] <- sum(output$Fpts)
-  temp_df$output.df[j] <- list(output)
+for (i in 1:nrow(baseline_contests)) {
+  cat("***********************************************************************************************\n")
+  cat(paste0("Contest ", i, ": ", baseline_contests$Date[i], " ", baseline_contests$Contest_names[i]))
+  cat("\n***********************************************************************************************\n")
+  
+  for (j in 1:150) {
+    output <- lineupFpts(contest_date = baseline_contests$Date[i], contest_name = baseline_contests$Contest_names[i], formulation_name = "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)", lineup_index = j)
+    temp_df$Total_Fpts[j] <- sum(output$Fpts)
+    temp_df$output.df[j] <- list(output)
+  }
+  
+  # sort in decreasing order of total fpts
+  temp_df <- temp_df[order(temp_df$Total_Fpts, decreasing = T),]
+  
+  # print top 5 and bottom 5 lineups
+  for (k in c(1:150)) {
+    cat("\n")
+    print(paste0("Total fpts: ", temp_df$Total_Fpts[k], " (", k, ")"))
+    print(temp_df$output.df[[k]])
+  }
+  cat("\n\n\n")
 }
 
-# sort in decreasing order of total fpts
-temp_df <- temp_df[order(temp_df$Total_Fpts, decreasing = T),]
+```
 
-# print top 5 and bottom 5 lineups
-for (k in c(1:5, 146:150)) {
-  cat("\n")
-  print(paste0("Total fpts: ", temp_df$Total_Fpts[k]))
-  print(temp_df$output.df[[k]])
-}
+
+
 
 
 
