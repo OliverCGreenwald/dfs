@@ -85,8 +85,19 @@ ggplot(data=plotdata,
 
 
 # view a particular formulation
-inds_form <- which(PnL$Name=="formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv")
-inds_form <- which(PnL$Name=="formulations.formulation3_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_0.6_covar_chg75p_exp(spike).csv")
-plot(as.Date(PnL$Date[inds_form]), PnL$PnL[inds_form], type = "b")
+form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)"
+# form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)"
+# form_name <- "formulations.formulation3_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_0.6_covar_chg75p_exp(spike)"
+inds_form <- which(PnL$Name==form_name)
+plot(as.Date(PnL$Date[inds_form]), PnL$PnL[inds_form], type = "b", ylim = c(-6000, 6000))
+mean(PnL$PnL[PnL$PnL<0])
 
+# write to file
+# pnl.df <- as.data.frame(matrix(data = NA, nrow = length(inds_form), ncol = 2, dimnames = list(NULL, c("Date", "PnL"))))
+# pnl.df$Date <- as.Date(PnL$Date[inds_form])
+# pnl.df$PnL <- PnL$PnL[inds_form]
+# write.csv(pnl.df, file = paste0("MLB/resultsAnalysis/analyze_generated_lineups/", form_name, "/daily_pnl.csv"), row.names = F)
 
+# save workspace variables
+# save(list = ls(all.names = TRUE), file = "MLB/resultsAnalysis/baseline_pnl_2017-05-26.RData", envir = .GlobalEnv)
+# load("MLB/resultsAnalysis/baseline_pnl_2017-05-26.RData")
