@@ -8,11 +8,10 @@ if(file.exists("~/Projects/DFS/")) {
 ####### DESCRIPTION #######
 
 
-
 ####### Import Functions #######
 source("MLB/functions_global/parseContestStandings.R")
 source("MLB/functions_global/cleanPlayerNames.R")
-
+source("MLB/functions_global/isOrderedStack.R")
 ###### Function Inputs
 user_name <- "fallfromgrace"
 # fallfromgrace, youdacao, ChipotleAddict, SaahilSud, ehafner, petteytheft89, moklovin, papagates, Awesemo, scout326
@@ -23,6 +22,7 @@ baseline_contests <- read.csv(file = "MLB/optimizationCode/baseline_contests.csv
 baseline_contests <- baseline_contests[1:which(baseline_contests$Date == "2017-06-16"),]
 ###### Make Copy to Store User Results
 temp_user_results <- baseline_contests
+temp_user_results$count_ordered_major_stack <- NULL
 temp_user_results$avg_unique_teams_per_lineup <- NULL
 temp_user_results$avg_hitters_from_most_pop_team <- NULL
 temp_user_results$avg_hitters_from_most_second_pop_team <- NULL
@@ -63,6 +63,7 @@ for (i in 1:nrow(baseline_contests)) {
     
     # Lineup Specific analysis
     temp_lineup_postions <- temp_user_standings
+    temp_lineup_order <- temp_user_standings
     for(position in c("P1", "P2")) {
       temp_lineup_postions[, position] <- cleanPlayerNames(temp_lineup_postions[, position])
       temp_lineup_postions <- merge(temp_lineup_postions,temp_pitchers_info[, c('Name','teamAbbrev')], by.x = position, by.y = 'Name')
@@ -73,14 +74,19 @@ for (i in 1:nrow(baseline_contests)) {
       temp_lineup_postions[, position] <- cleanPlayerNames(temp_lineup_postions[, position])
       temp_lineup_postions <- merge(temp_lineup_postions,temp_hitters_info[, c('Name','teamAbbrev')], by.x = position, by.y = 'Name')
       colnames(temp_lineup_postions)[ncol(temp_lineup_postions)] <- paste0(position, "_team")
+      
+      temp_lineup_order[, position] <- cleanPlayerNames(temp_lineup_order[, position])
+      temp_lineup_order <- merge(temp_lineup_order,temp_hitters_info[, c('Name','Batting_Order_Confirmed')], by.x = position, by.y = 'Name')
+      colnames(temp_lineup_order)[ncol(temp_lineup_order)] <- paste0(position, "_order")
     }
+    temp_lineup_order <- temp_lineup_order[,19:26]
     temp_lineup_postions <- temp_lineup_postions[,19:28]
     temp_lineup_postions$unique_teams <- NULL
     temp_lineup_postions$num_hitters_from_most_pop_team <- NULL
     temp_lineup_postions$num_hitters_from_most_second_pop_team <- NULL
     temp_lineup_postions$num_hitters_from_P1_team <- NULL
     temp_lineup_postions$num_hitters_from_P2_team <- NULL
-    
+    temp_lineup_postions$is_ordered <- FALSE
     for(index in 1:ncol(temp_lineup_postions)) {
       aggregate_teams <- sort(table(as.character(temp_lineup_postions[index,c("C_team", "1B_team", "2B_team", "3B_team", "SS_team", "OF1_team", "OF2_team", "OF3_team")])), decreasing = T)
       temp_lineup_postions$unique_teams[index] <- length(aggregate_teams)
@@ -88,6 +94,10 @@ for (i in 1:nrow(baseline_contests)) {
       temp_lineup_postions$num_hitters_from_most_second_pop_team[index] <- aggregate_teams[[2]]
       temp_lineup_postions$num_hitters_from_P1_team[index] <- sum(temp_lineup_postions$P1_team[index] == as.character(temp_lineup_postions[index,3:10]))
       temp_lineup_postions$num_hitters_from_P2_team[index] <- sum(temp_lineup_postions$P2_team[index] == as.character(temp_lineup_postions[index,3:10]))
+      
+      largest_stack <- names(aggregate_teams)[1]
+      partOfTeam <- largest_stack == as.character(temp_lineup_postions[index,c("C_team", "1B_team", "2B_team", "3B_team", "SS_team", "OF1_team", "OF2_team", "OF3_team")])
+      temp_lineup_postions$is_ordered[index] <- isOrderedStack(unlist(temp_lineup_order[index, partOfTeam]))
     }
     # Add Lineup data to results
     temp_user_results$avg_unique_teams_per_lineup[i] <- mean(temp_lineup_postions$unique_teams)
@@ -95,7 +105,7 @@ for (i in 1:nrow(baseline_contests)) {
     temp_user_results$avg_hitters_from_most_second_pop_team[i] <- mean(temp_lineup_postions$num_hitters_from_most_second_pop_team)
     temp_user_results$avg_hitters_from_P1_team[i] <- mean(temp_lineup_postions$num_hitters_from_P1_team)
     temp_user_results$avg_hitters_from_P2_team[i] <- mean(temp_lineup_postions$num_hitters_from_P2_team)
-    
+    temp_user_results$count_ordered_major_stack[i] <- sum(temp_lineup_postions$is_ordered)
     
     # get contest entry fee for PnL calculation
     contest_info <- read.csv(file = "MLB/data_warehouse/contests.csv", stringsAsFactors = F, header = T)
