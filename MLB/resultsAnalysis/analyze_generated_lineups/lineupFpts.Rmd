@@ -89,18 +89,29 @@ lineupFpts <- function(contest_date, contest_name, formulation_name, lineup_inde
   return(output.df)
 }
 
+# set formulation
+form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)"
 
 # load baseline contest info
 baseline_contests <- read.csv(file = "MLB/optimizationCode/baseline_contests.csv", stringsAsFactors = F, header = T)
 baseline_contests <- baseline_contests[1:which(baseline_contests$Date == "2017-05-24"),]
 
+# load PnL
+daily_pnl <- read.csv(file = paste0("MLB/resultsAnalysis/analyze_generated_lineups/", form_name, "/daily_pnl.csv"), header = T, stringsAsFactors = F)
+
+# initialize
 temp_df <- as.data.frame(matrix(data = NA, nrow = 150, ncol = 2, dimnames = list(NULL, c("Total_Fpts","output.df"))))
 
-for (i in 1:nrow(baseline_contests)) {
+# iterate through contests
+for (i in 1:2) {
   cat("***********************************************************************************************\n")
   cat(paste0("Contest ", i, ": ", baseline_contests$Date[i], " ", baseline_contests$Contest_names[i]))
   cat("\n***********************************************************************************************\n")
   
+  # print PnL
+  print(paste0("PnL: ", daily_pnl$PnL[daily_pnl$Date==baseline_contests$Date[i]]))
+  
+  # loop through the 150 lineups
   for (j in 1:150) {
     output <- lineupFpts(contest_date = baseline_contests$Date[i], contest_name = baseline_contests$Contest_names[i], formulation_name = "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)", lineup_index = j)
     temp_df$Total_Fpts[j] <- sum(output$Fpts)
