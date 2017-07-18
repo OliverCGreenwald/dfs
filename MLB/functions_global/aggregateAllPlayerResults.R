@@ -38,7 +38,7 @@ aggregateAllPlayerResults <- function(dates, julia_hitter_df) {
           # subset columns and append
           temp_hitters <- temp_hitters[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts", "Batting_Order_Confirmed")]
           temp_pitchers <- temp_pitchers[, c("Position", "Name", "Salary", "GameInfo", "teamAbbrev", "Actual_fpts")]
-          temp_pitchers <- temp_pitchers$Batting_Order_Confirmed <- NA # empty column for appending hitters and pitchers
+          temp_pitchers$Batting_Order_Confirmed <- NA # empty column for appending hitters and pitchers
           if (is.null(julia_hitter_df)) {
             temp_players_day <- rbind(temp_hitters, temp_pitchers) 
           } else {
