@@ -24,12 +24,12 @@ num_lineups = 150;
 baseline_contest_data = readtable("baseline_contests.csv");
 
 for contest_info_index in 1:size(baseline_contest_data)[1]
-    for stack in 4:5 #stack
+    for stack in 5:5 #stack
         for overlap in 5:5
-            for lambda in 1:3 # time line
+            for lambda in 1:1 # time line
               for exposure_P in [0.8] # time line
                 for exposure_B1 in [0.3,0.5] # time line
-                  for exposure_B2 in [0.3,0.4] # time line
+                  for exposure_B2 in [0.4] # time line
                     for exposure_B3 in [0.6] # time line
                       for exposure_C in [0.3,0.5] # time line
                         for exposure_SS in [0.3,0.5] # time line
