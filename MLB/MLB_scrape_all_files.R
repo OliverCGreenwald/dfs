@@ -82,7 +82,7 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
   
 }
 
-setwd("~/Documents/DFS/")
+#setwd("~/Documents/DFS/")
 
 # Download Yesterday's Updated DFN File
 print('Download Yesterday\'s Updated DFN File')
