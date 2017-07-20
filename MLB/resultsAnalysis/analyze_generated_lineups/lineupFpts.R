@@ -29,23 +29,32 @@ lineupFpts <- function(contest_date, contest_name, formulation_name, lineup_inde
   # load FC results to fill Fpts column in output.df
   temp_fc_results <- read.csv(paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/player_results.csv"), stringsAsFactors = F, header = T)
   temp_fc_results$Player <- cleanPlayerNames(temp_fc_results$Player)
+  temp_bb_stats <- read.csv(paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/Daily_Player_Stats.csv"), stringsAsFactors = F, header = T)
+  temp_bb_stats$Name <- cleanPlayerNames(temp_bb_stats$Name)
   
   # match player in output.df to FC results
   for (k in 1:length(lineup)) {
     temp_match <- temp_fc_results$Player==output.df$Player[k]
+    temp_match_stats <- temp_bb_stats$Name==output.df$Player[k]
     if (length(which(temp_match)) == 1) {
       output.df$Team[k] <- temp_fc_results$Team[temp_match]
       output.df$Pos[k] <- temp_fc_results$Pos[temp_match]
       output.df$Fpts[k] <- temp_fc_results$Actual.Score[temp_match]
+      output.df$num_AB[k] <- temp_bb_stats$AB[temp_match_stats]
+      output.df$batting_order[k] <- temp_bb_stats$Order[temp_match_stats]
     } else if (length(which(temp_match)) > 1) {
       print(paste0("Warning: ", output.df$Player[k], " fpts score may be incorrect b/c same name on different teams."))
       output.df$Team[k] <- temp_fc_results$Team[temp_match][1] # use first index match
       output.df$Pos[k] <- temp_fc_results$Pos[temp_match][1]
       output.df$Fpts[k] <- temp_fc_results$Actual.Score[temp_match][1]
+      output.df$num_AB[k] <- temp_bb_stats$AB[temp_bb_stats][1]
+      output.df$batting_order[k] <- temp_bb_stats$Order[temp_match_stats][1]
     } else {
       output.df$Team[k] <- NA
       output.df$Pos[k] <- NA
       output.df$Fpts[k] <- NA
+      output.df$num_AB[k] <- NA
+      output.df$batting_order[k] <- NA
     }
   }
   

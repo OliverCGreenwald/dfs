@@ -88,6 +88,10 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
 print('Download Yesterday\'s Updated DFN File')
 download_dfn_update(Sys.Date()-1)
 
+# Download Yesterday's Updated BBMonster Player Stats
+print('Download Yesterday\'s Updated Player Stats')
+download_BBmonster_player_stats(Sys.Date()-1)
+
 ### Download Rotogrinders Projections
 print('Downloading Rotogrinders Projections')
 download_rotogrinders_projections_MLB(Sys.Date())
