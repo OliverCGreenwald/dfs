@@ -5,6 +5,6 @@
 # TODO: download DFN 7/10 (esp. pitcher file), regenerate pitcher.csv, and remove from list
 
 listMissingDates <- function() {
-  missing_dates <- as.Date(c("2017-06-28", "2017-07-09", "2017-07-10", "2017-07-11", "2017-07-12", "2017-07-13"))
+  missing_dates <- as.Date(c("2017-06-28", "2017-07-09", "2017-07-11", "2017-07-12", "2017-07-13"))
   return(missing_dates)
 }
