@@ -7,8 +7,8 @@ include("formulations.jl")  #this code has all the different formualations
 ################################################################################################################
 # Contest information
 
-contest_date = "2017-04-22";
-contest_name = "\$40.00entry_MLB\$250KSaturdaySlugfest";
+contest_date = "2017-06-15";
+contest_name = "\$33.00entry_MLB\$150KFastball";
 
 
 ################################################################################################################
@@ -21,24 +21,24 @@ num_lineups = 150;
 num_overlap = 5;
 
 #number of hitters in the stack (number of consecutive hitters in the hitting order)
-stack_size = 4; 
+stack_size = 5; 
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
-formulation = formulations.formulation6_covar
+formulation = formulations.formulation5_covar
 
 # Covariance term 
-lambda_var = 0.006
+lambda_var = 0.001
 
 # Exposure Constraints
 exposure = 0.6
 
 exposure_P = 0.8
-exposure_B1 = 0.6 
-exposure_B2 = 0.6
+exposure_B1 = 0.3
+exposure_B2 = 0.4
 exposure_B3 = 0.6
-exposure_C = 0.4
-exposure_SS = 0.4
-exposure_OF = 0.75
+exposure_C = 0.3
+exposure_SS = 0.3
+exposure_OF = 0.6
 
 ################################################################################################################
 contest_directory_path = string("../data_warehouse/", contest_date, "/", contest_name, "/");
@@ -46,11 +46,11 @@ contest_directory_path = string("../data_warehouse/", contest_date, "/", contest
 #path to the csv file with the players information (pitchers and hitters);
 path_pitchers = string(contest_directory_path, "pitchers.csv"); 
 path_hitters = string(contest_directory_path, "hitters.csv"); 
-path_covar_matrix = string(contest_directory_path, "covariance_mat_test.csv"); 
+path_covar_matrix = string(contest_directory_path, "covariance_mat_chg75p_exp(spike).csv");
 # path_to_output is a string  that gives the path to the csv file that will give the outputted results
 path_to_output= string(contest_directory_path, "lineups/",
                        string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,
-                       "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_testEXPOSURES.csv"); 
+                       "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_covar_chg75p_exp(spike).csv");
 
 # path_to_output_proj is a string  that gives the path to the csv file that will give the outputted results with projected lineup points
 #path_to_output_proj = string("proj_baseball_", string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,".csv"); 
