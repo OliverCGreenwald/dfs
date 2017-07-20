@@ -744,7 +744,8 @@ end
 # This is a function that creates one lineup using the  Stacking Type 3 formulation
     #- Optimization is max(projections + (lambda)*covariance)
     #- General Team Stacking 
-    #- Positional Exposure Constraints 
+    #- Positional Exposure Constraints
+    #- consecutive stacking like formulation 3
 function formulation5_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
     
 
