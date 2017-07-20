@@ -32,10 +32,12 @@ createRollingCovarianceMatrix <- function(date.start, date.end, julia_hitter_df,
   ###### Import Functions #######
   source("MLB/functions_global/createHistoricalFptsMatrix.R")
   source("MLB/functions_global/aggregateAllPlayerResults.R")
+  source("MLB/functions_global/listMissingDates.R")
   
   
   # date sequence
   dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
+  dates <- dates[-which(dates %in% listMissingDates())] # remove missing dates
   
   
   ####### Aggregate All Player Data for Each Day #######
