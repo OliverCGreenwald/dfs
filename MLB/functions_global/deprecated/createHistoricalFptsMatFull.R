@@ -6,25 +6,11 @@ if(file.exists("~/Projects/DFS/")) {
 
 
 ####### Description #######
-# Function for constructing the covariance matrix for MVO. Only computed for players on same team.
-#
-# Arguments:
-# - julia_hitter_df: set to NULL if computing full covariance matrix, otherwise pass in hitter df for a contest
-# - min_games_pctg: set between 0-1
-#
-# TODO:
-# - consider other correlation/covariance measures (spearman, kendall)
-# - determine if pairwise.complete.obs is appropriate for our problem. considered dangerous
-# - add opposing pitcher into covariance matrix calculation
-# - add opposing batters? (ballpark effect?)
-#
-# Notes:
-# - we remove players that have played less than half the games
-# - consider using Vectorize library in the future to vectorize for outer function rather than code up yourself
+# Function for constructing the hist_fpts_mat.csv. Part of createRollingCovarianceMatrix() function.
 
 
-####### Function for Computing Covariance Matrix Given Start and End Date #######
-createRollingCovarianceMatrix_debugHfpts <- function(date.start, date.end, julia_hitter_df, min_games_pctg) {
+####### Begin function
+createHistoricalFptsMatFull <- function(date.start, date.end, julia_hitter_df, min_games_pctg) {
   ####### Import Libraries #######
   require(stringr)
   
@@ -32,10 +18,12 @@ createRollingCovarianceMatrix_debugHfpts <- function(date.start, date.end, julia
   ###### Import Functions #######
   source("MLB/functions_global/createHistoricalFptsMatrix.R")
   source("MLB/functions_global/aggregateAllPlayerResults.R")
+  source("MLB/functions_global/listMissingDates.R")
   
   
   # date sequence
   dates <- seq(from = as.Date(date.start), to = as.Date(date.end), by = "day")
+  dates <- dates[-which(dates %in% listMissingDates())]
   
   
   ####### Aggregate All Player Data for Each Day #######
@@ -83,14 +71,14 @@ createRollingCovarianceMatrix_debugHfpts <- function(date.start, date.end, julia
 
 
 
+####### Set Dates (T+1)
+date.start = "2017-07-18"
+date.end = "2017-07-20"
 
-date.start = "2017-06-02"
-date.end = "2017-07-18"
 
 
-
-####### Section II (covariance matrices - full) #######
-print("Creating full covariance matrices...")
+####### Section II (hist_fpts_mat.csv matrix - full) #######
+print("Creating full hist_fpts_mat.csv matrix...")
 
 dates_last <- seq(from = as.Date(date.start) - 2, to  = as.Date(date.end) - 2, by = "day") # date range
 for (i in 1:length(dates_last)) {
@@ -98,7 +86,7 @@ for (i in 1:length(dates_last)) {
   date_last <- dates_last[i]
   
   # construct covariance and counts matrices
-  hist_fpts_mat <- createRollingCovarianceMatrix_debugHfpts(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, min_games_pctg = 0.1)
+  hist_fpts_mat <- createHistoricalFptsMatFull(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, min_games_pctg = 0.05)
   
   
   # write to date_last+1 folder because cov matrix used in julia code on day d is constructed using results from day d-1 and earlier
