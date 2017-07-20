@@ -75,7 +75,7 @@ MLB_create_julia_inputs <- function(date_start, date_end, filter_names) {
     date_last <- dates_last[i]
 
     # construct covariance and counts matrices
-    cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, min_games_pctg = 0.2)
+    cov.dat <- createRollingCovarianceMatrix(date.start = "2017-04-02", date.end = date_last, julia_hitter_df = NULL, min_games_pctg = 0.05)
     cov_mat <- cov.dat[[1]]
     cov_mat_counts <- cov.dat[[2]]
     hist_fpts_mat <- cov.dat[[3]]
