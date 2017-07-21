@@ -9,7 +9,7 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-lineup_name <- "*lambda_0.0*" # "*covar_arima_p3d1q2*"
+lineup_name <- "*lambda_0.0*" # "*covar_arima_p3d1q2*" "*_no_covar" "*lambda_0.0*" "*covar_chg75p_exp*"
 ######### Code Begins #########
 #install.packages("data.table")
 library(data.table)
