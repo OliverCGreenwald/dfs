@@ -48,6 +48,7 @@ PnL <- data.frame(Name=character(),
                  stringsAsFactors=FALSE) 
 
 for(contest_row in contest_row_index) {
+  print(as.Date(contest_info$Contest_Date)[contest_row])
   temp <- singleContest_manyLineups_PnL_comparison(contest_row, lineup_name)
   temp$contest <- contest_info$Contest_Name[contest_row]
   temp$Date <- as.Date(contest_info$Contest_Date)[contest_row]
