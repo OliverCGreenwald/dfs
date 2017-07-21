@@ -13,13 +13,13 @@ source("MLB/functions_global/parseContestStandings.R")
 source("MLB/functions_global/cleanPlayerNames.R")
 source("MLB/functions_global/isOrderedStack.R")
 ###### Function Inputs
-user_name <- "youdacao"
+user_name <- "fallfromgrace"
 # fallfromgrace, youdacao, ChipotleAddict, SaahilSud, ehafner, petteytheft89, moklovin, papagates, Awesemo, scout326
 # DraftCheat, ThatStunna (don't max enter)
 
 ###### Set Contests
 baseline_contests <- read.csv(file = "MLB/optimizationCode/baseline_contests.csv", stringsAsFactors = F, header = T)
-baseline_contests <- baseline_contests[1:which(baseline_contests$Date == "2017-06-16"),]
+baseline_contests <- baseline_contests[1:which(baseline_contests$Date == "2017-07-14"),]
 ###### Make Copy to Store User Results
 temp_user_results <- baseline_contests
 temp_user_results$count_ordered_major_stack <- NULL
