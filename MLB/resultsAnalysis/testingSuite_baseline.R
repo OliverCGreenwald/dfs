@@ -9,7 +9,7 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-lineup_name <- "*covar_chg75p_exp*" # "*covar_arima_p3d1q2*"
+lineup_name <- "*lambda_0.0*" # "*covar_arima_p3d1q2*"
 ######### Code Begins #########
 #install.packages("data.table")
 library(data.table)
@@ -85,11 +85,11 @@ ggplot(data=plotdata,
 
 
 # view a particular formulation
-form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)"
+form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv"
 # form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike)"
 # form_name <- "formulations.formulation3_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_0.6_covar_chg75p_exp(spike)"
 inds_form <- which(PnL$Name==form_name)
-plot(as.Date(PnL$Date[inds_form]), PnL$PnL[inds_form], type = "b", ylim = c(-6000, 6000))
+plot(as.Date(PnL$Date[inds_form]), PnL$PnL[inds_form], type = "b")
 mean(PnL$PnL[PnL$PnL<0])
 
 # write to file
