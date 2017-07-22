@@ -22,4 +22,6 @@ Generated Lineups:
                     for exposure_B3 in [0.6] # time line
                       for exposure_C in [0.3,0.5] # time line
                         for exposure_SS in [0.3,0.5] # time line
-                          for exposure_OF in [0.6] # time line 
+                          for exposure_OF in [0.6] # time line
+
+3. Same as #2 but with lambda [5,10,100]
