@@ -1,5 +1,5 @@
 ---
-title: "Lineups Report: Baseline Contests (2017-04-16 to 2017-05-24)"
+title: "Lineups Report: Baseline Contests (2017-05-28 to 2017-07-14)"
 output: html_document
 ---
 
@@ -104,6 +104,9 @@ lineupFpts <- function(contest_date, contest_name, formulation_name, lineup_inde
     output.df$Num_Games[k] <- sum(!is.na(temp_fpts))
   }
   
+  # change column name to reflect lineup index
+  colnames(output.df)[1] <- paste0("Lineup (",lineup_index,")")
+  
   return(output.df)
 }
 
@@ -118,8 +121,8 @@ daily_pnl <- read.csv(file = paste0("MLB/resultsAnalysis/analyze_generated_lineu
 
 # initialize
 temp_df <- as.data.frame(matrix(data = NA, nrow = 150, ncol = 2, dimnames = list(NULL, c("Total_Fpts","output.df"))))
-ind_start <- which(baseline_contests$Date == "2017-04-16")
-ind_end <- which(baseline_contests$Date == "2017-05-24")
+ind_start <- which(baseline_contests$Date == "2017-05-28")
+ind_end <- which(baseline_contests$Date == "2017-07-14")
 
 # iterate through contests
 for (i in ind_start:ind_end) {
