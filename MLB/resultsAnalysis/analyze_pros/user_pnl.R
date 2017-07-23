@@ -213,12 +213,3 @@ points(as.Date(temp_user_results$Date), temp_user_results$Salary_Avg_OFs, col = 
 # add legend
 legend(x = "topleft", legend = c("Pitchers", "Catcher", "Basemen", "Shortstop", "Outfielders"), lwd = 1, col = 1:5, cex = 0.5)
 
-
-###### Stacked Bar Plot: Salary Distribution by Position
-# temp_user_salaries <- temp_user_salaries[order(rowSums(temp_user_salaries[,1:10], na.rm = T), decreasing = T),] # sort descending
-# bar.data <- rbind(t(temp_user_salaries[,1:10]))
-# rownames(bar.data) <- c(colnames(temp_user_salaries))
-# colnames(bar.data) <- 1:temp_user_results$Num_Lineups[i]
-# bar.data <- as.table(bar.data, header = T)
-# barplot(bar.data, main=paste0(temp_user_results$Date[i], " ", user_name, " Salary Distribution"), xlab="Lineup", ylab = "Salary", col=colors()[c(35,36,410,128,131,132,91,257,258,259)])
-# legend("topright", legend = rownames(bar.data), cex = 0.6, fill = 1:10)
