@@ -95,7 +95,7 @@ download_dfn_update(Sys.Date()-1)
 
 # Download Yesterday's Updated BBMonster Player Stats
 print('Download Yesterday\'s Updated Player Stats')
-download_BBmonster_player_stats(Sys.Date()-1)
+#download_BBmonster_player_stats(Sys.Date()-1)
 
 ### Download Rotogrinders Projections
 print('Downloading Rotogrinders Projections')
