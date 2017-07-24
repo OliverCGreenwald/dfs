@@ -15,7 +15,7 @@ source("MLB/resultsAnalysis/helperFunctions/userPnL.R")
 list_users <- c("fallfromgrace", "youdacao", "ChipotleAddict", "SaahilSud", "ehafner", "petteytheft89", "moklovin", "papagates", "Awesemo", "scout326", "DraftCheat", "ThatStunna")
 
 # initialize
-sharpe.df <- as.data.frame(matrix(data = NA, nrow = length(list_users), ncol = 6, dimnames = list(NULL, c("Username", "Num_Contests", "Total_PnL", "SD", "Sharpe_Ratio", "Max_Drawdown"))))
+sharpe.df <- as.data.frame(matrix(data = NA, nrow = length(list_users), ncol = 8, dimnames = list(NULL, c("Username", "Num_Contests", "Total_PnL", "SD", "Sharpe_Ratio", "Max_Drawdown", "Neg_Avg", "Neg_SD"))))
 
 for (i in 1:length(list_users)) {
   # compute PnL for user
@@ -37,6 +37,10 @@ for (i in 1:length(list_users)) {
   sharpe.df$SD[i] <- sd(temp_user_pnl$PnL)
   sharpe.df$Sharpe_Ratio[i] <- sum(temp_user_pnl$PnL) / sd(temp_user_pnl$PnL)
   sharpe.df$Max_Drawdown[i] <- min(temp_user_pnl$PnL_Aggregate)
+  sharpe.df$Neg_Avg[i] <- mean(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)])
+  sharpe.df$Neg_SD[i] <- sd(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)])
+  sharpe.df$Neg_PnLperLineup_Avg[i] <- mean(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)] / temp_user_pnl$Num_Lineups[which(temp_user_pnl$PnL < 0)])
+  sharpe.df$Neg_PnLperLineup_SD[i] <- sd(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)] / temp_user_pnl$Num_Lineups[which(temp_user_pnl$PnL < 0)])
   
   # print
   print(paste0("Num Contests: ", nrow(temp_user_pnl)))
@@ -44,9 +48,32 @@ for (i in 1:length(list_users)) {
   print(paste0("SD: ", sd(temp_user_pnl$PnL)))
   print(paste0("Sharpe Ratio: ", sum(temp_user_pnl$PnL) / sd(temp_user_pnl$PnL)))
   print(paste0("Max Drawdown: ", min(temp_user_pnl$PnL_Aggregate)))
+  print(paste0("Neg Days Avg: ", mean(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)])))
+  print(paste0("Neg Days SD: ", sd(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)])))
+  print(paste0("Neg Days PnL/Lineup Avg: ", mean(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)] / temp_user_pnl$Num_Lineups[which(temp_user_pnl$PnL < 0)])))
+  print(paste0("Neg Days PnL/Lineup SD: ", sd(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)] / temp_user_pnl$Num_Lineups[which(temp_user_pnl$PnL < 0)])))
   cat("\n")
 }
 
 # save workspace variables
 # save(list = ls(all.names = TRUE), file = "MLB/resultsAnalysis/analyze_pros/sharpe_ratio.RData", envir = .GlobalEnv)
-# load("MLB/resultsAnalysis/sharpe_ratio.RData")
+# load("MLB/resultsAnalysis/analyze_pros/sharpe_ratio.RData")
+
+# study youdacao, fallfromgrace, Awesemo
+
+# debug
+# for (i in 1:length(list_users)) {
+#   temp_user_pnl <- eval(parse(text=paste0("results_", list_users[i])))
+#   
+#   if (length(which(temp_user_pnl$Num_Lineups <= 10)) > 0) {
+#     temp_user_pnl <- temp_user_pnl[-which(temp_user_pnl$Num_Lineups <= 10), ]
+#   }
+#   
+#   sharpe.df$Neg_PnLperLineup_Avg[i] <- mean(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)] / temp_user_pnl$Num_Lineups[which(temp_user_pnl$PnL < 0)])
+#   sharpe.df$Neg_PnLperLineup_SD[i] <- sd(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)] / temp_user_pnl$Num_Lineups[which(temp_user_pnl$PnL < 0)])
+#   
+#   sharpe.df$Neg_Avg[i] <- mean(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)])
+#   sharpe.df$Neg_SD[i] <- sd(temp_user_pnl$PnL[which(temp_user_pnl$PnL < 0)])
+# }
+
+
