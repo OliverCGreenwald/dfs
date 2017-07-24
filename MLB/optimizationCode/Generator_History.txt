@@ -12,17 +12,17 @@ Generated Lineups:
                         for exposure_SS in [0.3,0.5] # time line
                           for exposure_OF in [0.6] # time line
 
-2. Form 5 6/4-onwards (note: starting 6/9 we use an improved form 5)
+2. Form 5 6/4-onwards (note: starting 6/9 we use a debugged form 5)
     for stack in 5:5 #stack
         for overlap in 5:5
             for lambda in 1:1 # time line
               for exposure_P in [0.8] # time line
-                for exposure_B1 in [0.3,0.5] # time line
-                  for exposure_B2 in [0.4] # time line
-                    for exposure_B3 in [0.6] # time line
-                      for exposure_C in [0.3,0.5] # time line
-                        for exposure_SS in [0.3,0.5] # time line
-                          for exposure_OF in [0.6] # time line
+                for exposure_B1 in [0.3,0.5] # never past 0.4, few past 0.3
+                  for exposure_B2 in [0.4] # almost never hits upper
+                    for exposure_B3 in [0.6] # never past 0.4
+                      for exposure_C in [0.3,0.5] # never past 0.4, few past 0.3
+                        for exposure_SS in [0.3,0.5] # never past 0.4
+                          for exposure_OF in [0.6] # hits 0.6 once, rarely past 0.5
 
 3. Like #2 but with lambda [5,10,100]
     for stack in 5:5 #stack

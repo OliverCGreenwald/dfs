@@ -177,16 +177,20 @@ print(paste0("Total PnL over all baseline_contests: ", sum(temp_user_results$PnL
 plot(as.Date(temp_user_results$Date), temp_user_results$PnL_Aggregate, type = "b", main = paste0(user_name, ": Aggregate PnL (baseline_contests)"), xlab = "Contest Date", ylab = "Aggregate PnL")
 
 ###### Plot Max Exposures
-plot(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Ps, col = 1, type = "b", ylim = c(0,1.25), ylab = "Exposure", xlab = "Contest Date", main = paste0(user_name, ": Position Exposures (baseline_contests)"))
-points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_C, col = 2, type = "b")
+if (length(which(temp_user_results$Num_Lineups <= 25)) > 0) {
+  temp_user_results <- temp_user_results[-which(temp_user_results$Num_Lineups <= 25),] 
+}
 
-# points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Bs, col = 3, type = "b")
-points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_1B, col = 3, type = "b")
-points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_2B, col = 3, type = "b")
-points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_3B, col = 3, type = "b")
+plot(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Ps, col = 1, type = "l", ylim = c(0,1.25), ylab = "Exposure", xlab = "Contest Date", main = paste0(user_name, ": Position Exposures (baseline_contests)"))
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_C, col = 2, type = "l")
 
-points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_SS, col = 4, type = "b")
-points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_OFs, col = 5, type = "b")
+# points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_Bs, col = 3, type = "l")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_1B, col = 3, type = "l")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_2B, col = 4, type = "l")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_3B, col = 5, type = "l")
+
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_SS, col = 6, type = "l")
+points(as.Date(temp_user_results$Date), temp_user_results$Max_Exp_OFs, col = 7, type = "l")
 
 # add legend
 # legend(x = "topleft", legend = c("Pitchers", "Catcher", "Basemen", "Shortstop", "Outfielders"), lwd = 1, col = 1:5, cex = 0.5)
