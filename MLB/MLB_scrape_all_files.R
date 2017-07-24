@@ -82,7 +82,12 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
   
 }
 
-#setwd("~/Documents/DFS/")
+if(file.exists("~/Projects/DFS/")) {
+  setwd("~/Projects/DFS/")
+} else {
+  setwd("~/Documents/DFS/")
+}
+
 
 # Download Yesterday's Updated DFN File
 print('Download Yesterday\'s Updated DFN File')
