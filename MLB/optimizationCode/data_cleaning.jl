@@ -187,7 +187,7 @@ end
 #####################################################################################################################
 #####################################################################################################################
 #this function will create the lineups and save them to a file
-function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers, path_hitters, path_covar_matrix, covar_lambda, exposure, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, path_to_output)
+function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers, path_hitters, path_covar_matrix, covar_lambda, exposure, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure, path_to_output)
     #=
     num_lineups is an integer that is the number of lineups
     num_overlap is an integer that gives the overlap between each lineup
@@ -445,19 +445,19 @@ function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_p
            #baseball_formulation(players, old_lineups, num_overlap, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, stack_size)
     old_lineups =  hcat(zeros(Int, num_players))
     the_lineup  = formulation(players, old_lineups, num_overlap,stack_size, 
-                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
+                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure)
 
     println("Calculating lineup 2 of ", num_lineups)
     old_lineups =hcat(the_lineup)
     the_lineup2 = formulation(players, old_lineups, num_overlap,stack_size, 
-                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
+                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure)
 
     old_lineups = hcat(the_lineup, the_lineup2)
     for i=1:(num_lineups-2)
         println("Calculating lineup ", i+2, " of ", num_lineups)
         try
             thelineup = formulation(players, old_lineups, num_overlap,stack_size, 
-                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
+                              P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure)
             old_lineups = hcat(old_lineups,thelineup)
         catch
             print("some optimization error")

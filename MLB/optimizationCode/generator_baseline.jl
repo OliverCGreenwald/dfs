@@ -45,6 +45,8 @@ for contest_info_index in 1:size(baseline_contest_data)[1]
                             # Exposure Constraints
                             exposure = 0.6
 
+                            min_pitcher_exposure = 0.6
+
                             contest_date = baseline_contest_data[contest_info_index,:Date] #Hard Coded 'Date'
                             contest_name = baseline_contest_data[contest_info_index,:Contest_names] # Hard Coded 'Contest_name'
 
@@ -58,12 +60,12 @@ for contest_info_index in 1:size(baseline_contest_data)[1]
 
                            path_to_output= string(contest_directory_path, "lineups/",
                                    string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,
-                                   "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_covar_chg75p_exp(spike).csv"); 
+                                   "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_min_pitcher_exposure", min_pitcher_exposure,"_covar_chg75p_exp(spike).csv"); 
 
 
                             start_time = time_ns()
 
-                            data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, path_to_output);
+                            data_cleaning.create_lineups(num_lineups, num_overlap, stack_size,formulation, path_pitchers,path_hitters, path_covar_matrix, lambda_var, exposure, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure, path_to_output);
 
 
                             println("##############################")
