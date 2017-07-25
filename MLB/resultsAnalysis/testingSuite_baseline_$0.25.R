@@ -62,12 +62,15 @@ write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$0.25.csv", 
 ####### Description #######
 baseline_contests <- baseline_contests[which(baseline_contests$Date %in% output_df$Date),]
 
-for (i in 1:nrow(baseline_contests)) {
+for (i in 1:10) {
   # list file paths all generated lineups
   file_paths <- list.files(path = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/lineups"), pattern = "*.csv*")
   
   print(baseline_contests$Date[i])
   print(paste0("Num files: ", length(file_paths)))
+  
+  # create empty lineups folder if it doesn't exist
+  dir.create(file.path("MLB/data_warehouse/", output_df$Date[i], "/", output_df$Contest_names[i], "/lineups/"), showWarnings = FALSE)
   
   # cut down to max_entry of $0.25 contest and write to $0.25 contest folder
   temp_max <- as.numeric(as.character(output_df$max_entry[i]))
@@ -76,7 +79,7 @@ for (i in 1:nrow(baseline_contests)) {
     temp_csv <- temp_csv[1:temp_max,]
     
     # write to $0.25 contest folder
-    write.csv(temp_csv, file = paste0("MLB/data_warehouse/", output_df$Date[i], "/", output_df$Contest_names[i], "/lineups/", file_paths[j]))
+    write.csv(temp_csv, file = paste0("MLB/data_warehouse/", output_df$Date[i], "/", output_df$Contest_names[i], "/lineups/", file_paths[j]), row.names = F)
   }
 }
 
