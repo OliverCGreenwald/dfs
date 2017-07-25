@@ -52,7 +52,7 @@ for (d in 4:length(dates)) {
 colnames(output_df) <- c("Date","Contest_names","contest_row_index", "max_entry")
 
 # remove dates where missing $0.25 contest results
-missing_dates <- c("2017-05-21", "2017-06-13", "2017-06-18")
+missing_dates <- c("2017-05-21", "2017-05-23", "2017-06-13", "2017-06-18")
 output_df <- output_df[-which(output_df$Date %in% missing_dates),]
 
 # write to file
