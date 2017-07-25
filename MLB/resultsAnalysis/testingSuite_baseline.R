@@ -37,7 +37,7 @@ setwd(original_wd)
 ### Read in Contest File (Not necessary but useful to look at to find correct row)
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
-contest_baseline <- read.csv('MLB/optimizationCode/baseline_contests.csv', stringsAsFactors = F)
+contest_baseline <- read.csv('MLB/optimizationCode/baseline_contests_$0.25.csv', stringsAsFactors = F)
 contest_row_index <- contest_baseline$contest_row_index
 
 PnL <- data.frame(Name=character(),
@@ -107,7 +107,7 @@ pnl.df$PnL <- as.numeric(as.character(pnl.df$PnL))
 # pnl.df <- pnl.df[order(pnl.df$PnL, decreasing = T),]
 
 # write to file
-write.csv(pnl.df, file = paste0("MLB/resultsAnalysis/analyze_generated_lineups/", substr(form_name, 1, nchar(form_name)-4), "/daily_pnl.csv"), row.names = F)
+# write.csv(pnl.df, file = paste0("MLB/resultsAnalysis/analyze_generated_lineups/", substr(form_name, 1, nchar(form_name)-4), "/daily_pnl.csv"), row.names = F)
 
 # save workspace variables
 # save(list = ls(all.names = TRUE), file = "MLB/resultsAnalysis/baseline_PNL.RData", envir = .GlobalEnv)

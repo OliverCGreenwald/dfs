@@ -31,6 +31,9 @@ for (d in 4:length(dates)) {
   match_id <- temp_contest_info$Match_ID[baseline_contests$Contest_names[d] == temp_contest_info$file]
   temp_contest_info <- temp_contest_info[temp_contest_info$Match_ID == match_id, ]
   
+  # remove the special entry contests
+  temp_contest_info <- temp_contest_info[-which(grepl(pattern = "[*[0-9]x]", x = temp_contest_info$Contest_Name)),]
+  
   # find $0.25 contest
   ind <- which(temp_contest_info$Entry_Fee == "$0.25")
   
