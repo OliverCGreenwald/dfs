@@ -21,7 +21,7 @@ num_lineups = 150;
 
 
 
-baseline_contest_data = readtable("baseline_contests_temp.csv");
+baseline_contest_data = readtable("baseline_contests.csv");
 
 for contest_info_index in 1:size(baseline_contest_data)[1]
     for stack in 5:5 #stack
@@ -45,7 +45,7 @@ for contest_info_index in 1:size(baseline_contest_data)[1]
                             # Exposure Constraints
                             exposure = 0.6
 
-                            min_pitcher_exposure = 0.6
+                            min_pitcher_exposure = 0.55
 
                             contest_date = baseline_contest_data[contest_info_index,:Date] #Hard Coded 'Date'
                             contest_name = baseline_contest_data[contest_info_index,:Contest_names] # Hard Coded 'Contest_name'
