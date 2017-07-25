@@ -62,7 +62,8 @@ write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$0.25.csv", 
 ####### Description #######
 baseline_contests <- baseline_contests[which(baseline_contests$Date %in% output_df$Date),]
 
-for (i in 1:10) {
+# be careful, this creates a lot of new files
+for (i in 1:nrow(baseline_contests)) {
   # list file paths all generated lineups
   file_paths <- list.files(path = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/lineups"), pattern = "*.csv*")
   
@@ -82,7 +83,4 @@ for (i in 1:10) {
     write.csv(temp_csv, file = paste0("MLB/data_warehouse/", output_df$Date[i], "/", output_df$Contest_names[i], "/lineups/", file_paths[j]), row.names = F)
   }
 }
-
-
-
 
