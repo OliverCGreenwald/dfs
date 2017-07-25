@@ -83,7 +83,7 @@ for (i in 1:nrow(baseline_contests)) {
   temp_max <- as.numeric(as.character(output_df$max_entry[i]))
   for (j in 1:length(file_paths)) {
     temp_csv <- read.csv(file = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/lineups/", file_paths[j]), stringsAsFactors = F, header = T, check.names = F)
-    temp_csv <- temp_csv[1:temp_max,]
+    temp_csv <- temp_csv[1:min(temp_max, nrow(temp_csv)),]
     
     # write to $0.25 contest folder
     write.csv(temp_csv, file = paste0("MLB/data_warehouse/", output_df$Date[i], "/", output_df$Contest_names[i], "/lineups/", file_paths[j]), row.names = F)
