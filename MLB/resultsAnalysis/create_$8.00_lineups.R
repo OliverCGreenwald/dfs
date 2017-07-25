@@ -75,7 +75,7 @@ baseline_contests <- baseline_contests[which(baseline_contests$Date %in% output_
 dates_skip <- c("2017-05-08", "2017-05-23", "2017-07-04", "2017-07-08")
 
 # be careful, this creates a lot of new files
-for (i in 1:7) {
+for (i in 8:16) {
   if (!(output_df$Date[i] %in% dates_skip)) {
     # list file paths all generated lineups
     file_paths <- list.files(path = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/lineups"), pattern = "*.csv*")
