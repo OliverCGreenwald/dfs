@@ -36,9 +36,11 @@ for (d in 4:length(dates)) {
     temp_contest_info <- temp_contest_info[-which(grepl(pattern = "[*[0-9]x]", x = temp_contest_info$Contest_Name)),] 
   }
   
+  # remove entries with < 100 max entry
+  temp_contest_info <- temp_contest_info[temp_contest_info$Max_Entry > 100,]
   
   # find $0.25 contest
-  ind <- which(temp_contest_info$Entry_Fee == "$0.25")
+  ind <- which(as.numeric(substring(temp_contest_info$Entry_Fee, 2)) < 10)
   
   # keep larger max entry contest if multiple matches
   if (length(ind) > 1) {
@@ -57,12 +59,12 @@ for (d in 4:length(dates)) {
 # fix column names
 colnames(output_df) <- c("Date","Contest_names","contest_row_index", "max_entry")
 
-# remove dates where missing $0.25 contest results
-missing_dates <- c("2017-05-21", "2017-05-23", "2017-06-13", "2017-06-18")
-output_df <- output_df[-which(output_df$Date %in% missing_dates),]
+# remove dates where missing $8.00 contest results
+# missing_dates <- c("2017-05-21", "2017-05-23", "2017-06-13", "2017-06-18")
+# output_df <- output_df[-which(output_df$Date %in% missing_dates),]
 
 # write to file
-write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$0.25.csv", row.names = F)
+write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$8.00.csv", row.names = F)
 
 
 ####### Description #######
