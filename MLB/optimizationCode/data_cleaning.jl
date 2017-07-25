@@ -443,12 +443,12 @@ function create_lineups(num_lineups, num_overlap, stack_size,formulation, path_p
     # Lineups using formulation as the stacking type
     println("Calculating lineup 1 of ", num_lineups)
            #baseball_formulation(players, old_lineups, num_overlap, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, stack_size)
-    old_lineups =  hcat(zeros(Int, num_players), zeros(Int, num_players))
+    old_lineups =  hcat(zeros(Int, num_players))
     the_lineup  = formulation(players, old_lineups, num_overlap,stack_size, 
                               P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
 
     println("Calculating lineup 2 of ", num_lineups)
-    old_lineups =hcat(the_lineup, zeros(Int, num_players))
+    old_lineups =hcat(the_lineup)
     the_lineup2 = formulation(players, old_lineups, num_overlap,stack_size, 
                               P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF)
 

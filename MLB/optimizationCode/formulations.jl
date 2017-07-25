@@ -1099,11 +1099,11 @@ function formulation7_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
     @constraint(m, constr[i=1:num_teams], sum(players_teams[t,i] * (1 - P[t]) * players_lineup[t] for t = 1:num_players) <= 5)
     
 
-    #OVERLAP Constraint
+    # #OVERLAP Constraint
     @constraint(m, constr[i=1:size(old_lineups)[2]], sum(old_lineups[j,i] * players_lineup[j] for j = 1:num_players) <= num_overlap)
 
  
-    #NO PITCHER VS BATTER no pitcher vs batter constraint
+    # #NO PITCHER VS BATTER no pitcher vs batter constraint
     @constraint(m, hitter_pitcher[g=1:num_teams], 
                    8*sum(P[k] * players_lineup[k] * players_teams[k,g] for k = 1:num_players) + 
                     sum((1 - P[k]) * players_lineup[k] * players_opp[k,g] for k = 1:num_players) <= 8)
@@ -1128,10 +1128,10 @@ function formulation7_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
     # Exposure Constraint P,B1,B2,B3,C,SS,OF
     for i in 1:num_players
         if (P[i] == 1)
-            #@constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_P)
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_P)
 
             #Min Exposure Constraint
-            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] >= 0.6*num_lineups*pitcher_count[i])
+            @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] >= 0.6*(size(old_lineups)[2])*pitcher_count[i])
         end
         if (B1[i] == 1)
             @constraint(m, sum(old_lineups[i,j] for j = 1:(size(old_lineups))[2]) + players_lineup[i] <= num_lineups * exposure_B1)
@@ -1153,7 +1153,7 @@ function formulation7_covar(players, old_lineups, num_overlap,stack_size, P,B1,B
         end
     end
 
-    #make sure at least one stack is used
+    #make sure at least one pitcher is above the exposure constraint
     @constraint(m, sum(pitcher_count[i]*P[i] for i = 1:num_players) >= 1)  
     
 
