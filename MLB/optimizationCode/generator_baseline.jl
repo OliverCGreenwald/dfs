@@ -8,7 +8,7 @@ include("formulations.jl")  #this code has all the different formualations
 # Choose Formulation
 
 #FORMULATION:  formulation is the type of formulation that you would like to use. 
-formulation = formulations.formulation7_covar
+formulation = formulations.formulation8_covar
 # formulation_feasibility
 # formulation0_covar
 # formulation1_covar - no stacking
@@ -21,12 +21,12 @@ num_lineups = 150;
 
 
 
-baseline_contest_data = readtable("baseline_contests_temp.csv");
+baseline_contest_data = readtable("baseline_contests.csv");
 
 for contest_info_index in 1:size(baseline_contest_data)[1]
     for stack in 5:5 #stack
         for overlap in 5:5
-            for lambda in [0] # time line
+            for lambda in [1] # time line
               for exposure_P in [0.8] # time line
                 for exposure_B1 in [0.3] # time line
                   for exposure_B2 in [0.4] # time line
