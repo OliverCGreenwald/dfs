@@ -21,7 +21,7 @@ num_lineups = 150;
 
 
 
-baseline_contest_data = readtable("baseline_contests.csv");
+baseline_contest_data = readtable("baseline_contests_temp.csv");
 
 for contest_info_index in 1:size(baseline_contest_data)[1]
     for stack in 5:5 #stack
