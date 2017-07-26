@@ -9,7 +9,7 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-lineup_name <- "formulation7" # "formulation7" # "*covar_arima_p3d1q2*" "*_no_covar*" "*lambda_0.0*" "*covar_chg75p_exp*"
+lineup_name <- "*lambda_0.*" # "formulation7" # "*covar_arima_p3d1q2*" "*_no_covar*" "*lambda_0.0*" "*covar_chg75p_exp*"
 ######### Code Begins #########
 #install.packages("data.table")
 library(data.table)
@@ -37,7 +37,7 @@ setwd(original_wd)
 ### Read in Contest File (Not necessary but useful to look at to find correct row)
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
-contest_baseline <- read.csv('MLB/optimizationCode/baseline_contests_$8.00.csv', stringsAsFactors = F)
+contest_baseline <- read.csv('MLB/optimizationCode/baseline_contests_$5.00DoubleUp.csv', stringsAsFactors = F)
 contest_row_index <- contest_baseline$contest_row_index
 
 PnL <- data.frame(Name=character(),

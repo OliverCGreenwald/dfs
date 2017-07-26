@@ -76,7 +76,7 @@ baseline_contests <- baseline_contests[which(baseline_contests$Date %in% output_
 dates_skip <- NULL
 
 # be careful, this creates a lot of new files
-for (i in 21:nrow(baseline_contests)) {
+for (i in 1:nrow(baseline_contests)) {
   if (!(output_df$Date[i] %in% dates_skip)) {
     # list file paths all generated lineups
     file_paths <- list.files(path = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/lineups"), pattern = "*.csv*")
@@ -87,8 +87,8 @@ for (i in 21:nrow(baseline_contests)) {
     # create empty lineups folder if it doesn't exist
     dir.create(file.path("MLB/data_warehouse/", output_df$Date[i], "/", output_df$Contest_names[i], "/lineups/"), showWarnings = FALSE)
     
-    # cut down to max_entry of $8.00 contest and write to $8.00 contest folder
-    temp_max <- as.numeric(as.character(output_df$max_entry[i]))
+    # cut down to max_entry of contest and write to contest folder
+    temp_max <- 10 # as.numeric(as.character(output_df$max_entry[i]))
     for (j in 1:length(file_paths)) {
       temp_csv <- read.csv(file = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/lineups/", file_paths[j]), stringsAsFactors = F, header = T, check.names = F)
       temp_csv <- temp_csv[1:min(temp_max, nrow(temp_csv)),]
