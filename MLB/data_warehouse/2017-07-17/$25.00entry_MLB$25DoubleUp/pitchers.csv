@@ -1,1 +1,25 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Lance McCullers",11500,"SEA@HOU 08:10PM ET",19.881,"HOU","SEA",23.59,17,20.185,NA,6.5
+"SP","Jon Lester",9800,"CHC@ATL 07:35PM ET",15.605,"CHC","ATL",18.34,17.2,16.251,NA,27.35
+"SP","Adam Wainwright",9100,"STL@NYM 07:10PM ET",12.361,"STL","NYM",16.33,13.5,13.292,NA,13.35
+"SP","Marcus Stroman",8900,"TOR@BOS 07:08PM ET",16.324,"TOR","BOS",16.88,11.8,11.9495,NA,20.2
+"SP","Jason Vargas",8800,"DET@KC 08:15PM ET",18.344,"KC","DET",17.42,11.3,11.109,NA,-4
+"SP","Julio Teheran",8400,"CHC@ATL 07:35PM ET",9.23,"ATL","CHC",15.89,14.7,14.879,NA,14.1
+"SP","Eduardo Rodriguez",8200,"TOR@BOS 07:08PM ET",17.459,"BOS","TOR",18.34,10.4,14.14,NA,16
+"SP","Josh Tomlin",8000,"CLE@SF 10:15PM ET",9.926,"CLE","SF",13.36,14.2,11.277,NA,20.9
+"SP","German Marquez",7600,"SD@COL 08:40PM ET",13.468,"COL","SD",12.67,16.4,11.98,NA,25
+"SP","Jake Odorizzi",7400,"TB@OAK 10:05PM ET",12.441,"TB","OAK",16.35,15.2,15.012,NA,25.95
+"SP","Zack Wheeler",6900,"STL@NYM 07:10PM ET",10.638,"NYM","STL",15.76,14.5,15.634,NA,7.4
+"SP","Adalberto Mejia",6700,"NYY@MIN 08:10PM ET",11.296,"MIN","NYY",13.63,10,10.89,NA,14.4
+"SP","Jerad Eickhoff",6400,"PHI@MIA 07:10PM ET",11.823,"PHI","MIA",11.84,15.1,12.174,NA,13.5
+"SP","Brent Suter",6200,"MIL@PIT 07:05PM ET",7.009,"MIL","PIT",13.6,12.7,9.6,NA,5.7
+"SP","Andrew Cashner",6100,"TEX@BAL 07:05PM ET",10.3,"TEX","BAL",13.89,9.1,10.414,NA,10.2
+"SP","Tom Koehler",5900,"PHI@MIA 07:10PM ET",6.405,"MIA","PHI",13.4,15.9,13.84,NA,3.05
+"SP","Chad Kuhl",5600,"MIL@PIT 07:05PM ET",8.979,"PIT","MIL",13.1,13.6,12.878,NA,18.55
+"SP","Jordan Zimmermann",5500,"DET@KC 08:15PM ET",9.079,"DET","KC",11.08,10.4,10.035,NA,26.2
+"RP","Daniel Gossett",5400,"TB@OAK 10:05PM ET",7.408,"OAK","TB",11.83,11.4,11.328,NA,10.95
+"SP","Matt Moore",5300,"CLE@SF 10:15PM ET",9.103,"SF","CLE",10.08,13.2,12.845,NA,17.55
+"SP","Chris Tillman",5100,"TEX@BAL 07:05PM ET",3.332,"BAL","TEX",8.96,8.5,10.33,NA,13.9
+"SP","Ariel Miranda",5000,"SEA@HOU 08:10PM ET",13.437,"SEA","HOU",12.64,8.8,10.85,NA,6.55
+"SP","Luis Perdomo",4900,"SD@COL 08:40PM ET",11.913,"SD","COL",9.58,7.8,6.545,NA,-10.15
+"RP","Bryan Mitchell",4400,"NYY@MIN 08:10PM ET",2.4,"NYY","MIN",9.31,13.9,8.842,NA,8.45

@@ -1,0 +1,15 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jacob deGrom",12600,"STL@NYM 07:08PM ET",19.793,"NYM","STL",26.73,21.5,22.067,NA,18.2
+"SP","Zack Greinke",11700,"ARI@CIN 07:10PM ET",22.455,"ARI","CIN",23.44,18.8,18.349,NA,4.65
+"SP","Gerrit Cole",8900,"MIL@PIT 07:05PM ET",14.138,"PIT","MIL",18.62,15.7,18.193,NA,30.15
+"SP","Justin Verlander",7900,"DET@KC 08:15PM ET",13.647,"DET","KC",18.36,16.4,16.679,NA,23.55
+"SP","Kenta Maeda",7800,"LAD@CWS 08:10PM ET",13.956,"LAD","CWS",17.74,15.6,17.007,NA,15.65
+"SP","Drew Pomeranz",7200,"TOR@BOS 07:10PM ET",16.889,"BOS","TOR",19.62,16.1,15.863,NA,20.2
+"SP","Carlos Rodon",7000,"LAD@CWS 08:10PM ET",14.567,"CWS","LAD",16.12,14.4,16.278,NA,0.25
+"SP","Zach Davies",6900,"MIL@PIT 07:05PM ET",10.579,"MIL","PIT",14.45,12.9,10.325,NA,18.35
+"SP","Aaron Sanchez",6800,"TOR@BOS 07:10PM ET",8.686,"TOR","BOS",13.66,11.6,10.499,NA,0.4
+"SP","Mike Leake",6600,"STL@NYM 07:08PM ET",15.111,"STL","NYM",14,11.7,13.171,NA,-9.5
+"SP","Jason Hammel",6400,"DET@KC 08:15PM ET",11.075,"KC","DET",13.92,11.6,11.868,NA,13.25
+"SP","Kevin Gausman",6100,"TEX@BAL 07:05PM ET",8.49,"BAL","TEX",11.81,12,13.596,NA,27.9
+"SP","Martin Perez",5300,"TEX@BAL 07:05PM ET",10.209,"TEX","BAL",11.64,11.3,10.577,NA,6.7
+"SP","Tim Adleman",5200,"ARI@CIN 07:10PM ET",12.15,"CIN","ARI",12.35,9.9,12.457,NA,NA

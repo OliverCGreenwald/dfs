@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Mike Clevinger",9100,"CLE@SF 10:15PM ET",17.033,"CLE","SF",NA,16.2,12.196,NA,25.1
+"SP","Antonio Senzatela",7200,"SD@COL 08:40PM ET",11.263,"COL","SD",12.67,11.3,9.624,NA,9.65
+"SP","Dinelson Lamet",7000,"SD@COL 08:40PM ET",16.056,"SD","COL",13.35,11.6,11.062,NA,8.8
+"SP","Blake Snell",6600,"TB@OAK 10:05PM ET",10,"TB","OAK",13.71,16.2,13.369,NA,11.4
+"SP","Ty Blach",6100,"CLE@SF 10:15PM ET",6.4,"SF","CLE",NA,10.2,8.446,NA,14.95
+"SP","Edwin Jackson",5300,"WAS@LAA 10:07PM ET",-0.583,"WAS","LAA",9.55,12.4,8.548,NA,19.95
+"SP","Jesse Chavez",5200,"WAS@LAA 10:07PM ET",10.528,"LAA","WAS",12.06,12.6,15.151,NA,14.7
+"SP","Chris Smith",4800,"TB@OAK 10:05PM ET",11.3,"OAK","TB",10.47,14,12.826,NA,18.75

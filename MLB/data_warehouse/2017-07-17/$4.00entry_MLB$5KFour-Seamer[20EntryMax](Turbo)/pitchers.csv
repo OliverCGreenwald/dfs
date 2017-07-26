@@ -1,1 +1,7 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Lance McCullers",11500,"SEA@HOU 08:10PM ET",19.881,"HOU","SEA",23.59,17,20.185,NA,6.5
+"SP","Jason Vargas",8800,"DET@KC 08:15PM ET",18.344,"KC","DET",17.42,11.3,11.109,NA,-4
+"SP","Adalberto Mejia",6700,"NYY@MIN 08:10PM ET",11.296,"MIN","NYY",13.63,10,10.89,NA,14.4
+"SP","Jordan Zimmermann",5500,"DET@KC 08:15PM ET",9.079,"DET","KC",11.08,10.4,10.035,NA,26.2
+"SP","Ariel Miranda",5000,"SEA@HOU 08:10PM ET",13.437,"SEA","HOU",12.64,8.8,10.85,NA,6.55
+"RP","Bryan Mitchell",4400,"NYY@MIN 08:10PM ET",2.4,"NYY","MIN",9.31,13.9,8.842,NA,8.45

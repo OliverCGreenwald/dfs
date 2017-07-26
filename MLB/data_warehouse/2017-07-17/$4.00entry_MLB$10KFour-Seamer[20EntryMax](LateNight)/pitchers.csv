@@ -1,1 +1,5 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Josh Tomlin",8000,"CLE@SF 10:15PM ET",9.926,"CLE","SF",13.36,14.2,11.277,NA,20.9
+"SP","Jake Odorizzi",7400,"TB@OAK 10:05PM ET",12.441,"TB","OAK",16.35,15.2,15.012,NA,25.95
+"RP","Daniel Gossett",5400,"TB@OAK 10:05PM ET",7.408,"OAK","TB",11.83,11.4,11.328,NA,10.95
+"SP","Matt Moore",5300,"CLE@SF 10:15PM ET",9.103,"SF","CLE",10.08,13.2,12.845,NA,17.55
