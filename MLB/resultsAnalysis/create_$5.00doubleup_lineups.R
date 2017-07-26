@@ -60,6 +60,10 @@ for (d in 1:length(dates)) {
 # fix column names
 colnames(output_df) <- c("Date","Contest_names","contest_row_index", "max_entry")
 
+# remove dates where missing data
+missing_dates <- c("2017-05-21", "2017-05-23", "2017-06-13")
+output_df <- output_df[-which(output_df$Date %in% missing_dates),]
+
 # write to file
 write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$5.00DoubleUp.csv", row.names = F)
 
@@ -69,10 +73,10 @@ write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$5.00DoubleU
 baseline_contests <- baseline_contests[which(baseline_contests$Date %in% output_df$Date),]
 
 # contests to skip bc already used in baseline_contests and don't want to overwrite
-dates_skip <- c("2017-05-08", "2017-05-23", "2017-07-04", "2017-07-08")
+dates_skip <- NULL
 
 # be careful, this creates a lot of new files
-for (i in 1:nrow(baseline_contests)) {
+for (i in 21:nrow(baseline_contests)) {
   if (!(output_df$Date[i] %in% dates_skip)) {
     # list file paths all generated lineups
     file_paths <- list.files(path = paste0("MLB/data_warehouse/", baseline_contests$Date[i], "/", baseline_contests$Contest_names[i], "/lineups"), pattern = "*.csv*")
