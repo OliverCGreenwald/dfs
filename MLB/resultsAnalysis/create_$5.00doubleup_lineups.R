@@ -47,7 +47,11 @@ for (d in 1:length(dates)) {
   # add row to output_df
   temp_date <- temp_contest_info$Contest_Date[ind]
   temp_contest_name <- temp_contest_info$file[ind]
-  temp_contest_row_index <- which(temp_contest_info$file[ind] == contest_info$file & temp_contest_info$Contest_Date[ind] == contest_info$Contest_Date)
+  if (length(which(temp_contest_info$file[ind] == contest_info$file & temp_contest_info$Contest_Date[ind] == contest_info$Contest_Date)) != 0) {
+    temp_contest_row_index <- max(which(temp_contest_info$file[ind] == contest_info$file & temp_contest_info$Contest_Date[ind] == contest_info$Contest_Date)) 
+  } else {
+    temp_contest_row_index <- which(temp_contest_info$file[ind] == contest_info$file & temp_contest_info$Contest_Date[ind] == contest_info$Contest_Date)
+  }
   temp_max_entry <- temp_contest_info$Max_Entry[ind]
   
   output_df <- rbind(output_df, cbind(temp_date, temp_contest_name, temp_contest_row_index, temp_max_entry))
@@ -56,19 +60,15 @@ for (d in 1:length(dates)) {
 # fix column names
 colnames(output_df) <- c("Date","Contest_names","contest_row_index", "max_entry")
 
-# remove dates where missing $8.00 contest results
-# missing_dates <- c("2017-05-21", "2017-05-23", "2017-06-13", "2017-06-18")
-# output_df <- output_df[-which(output_df$Date %in% missing_dates),]
-
 # write to file
-write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$8.00.csv", row.names = F)
+write.csv(output_df, file = "MLB/optimizationCode/baseline_contests_$5.00DoubleUp.csv", row.names = F)
 
 
 ####### Description #######
 # only keep dates matched
 baseline_contests <- baseline_contests[which(baseline_contests$Date %in% output_df$Date),]
 
-# $8.00 contests to skip bc already used in baseline_contests and don't want to overwrite
+# contests to skip bc already used in baseline_contests and don't want to overwrite
 dates_skip <- c("2017-05-08", "2017-05-23", "2017-07-04", "2017-07-08")
 
 # be careful, this creates a lot of new files
