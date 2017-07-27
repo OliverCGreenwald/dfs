@@ -9,7 +9,7 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-lineup_name <- "*lambda_0.*" # "formulation7" # "*covar_arima_p3d1q2*" "*_no_covar*" "*lambda_0.0*" "*covar_chg75p_exp*"
+lineup_name <- "formulation9" # "formulation7" # "*covar_arima_p3d1q2*" "*_no_covar*" "*lambda_0.0*" "*covar_chg75p_exp*"
 ######### Code Begins #########
 #install.packages("data.table")
 library(data.table)
@@ -37,7 +37,7 @@ setwd(original_wd)
 ### Read in Contest File (Not necessary but useful to look at to find correct row)
 contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
-contest_baseline <- read.csv('MLB/optimizationCode/baseline_contests_$5.00DoubleUp.csv', stringsAsFactors = F)
+contest_baseline <- read.csv('MLB/optimizationCode/baseline_contests.csv', stringsAsFactors = F)
 contest_row_index <- contest_baseline$contest_row_index
 
 PnL <- data.frame(Name=character(),
@@ -86,7 +86,7 @@ ggplot(data=plotdata,
 
 
 # view a particular formulation
-form_name <- "formulations.formulation7_covar_stacksize_5_overlap_5_lineups_150_lambda_0.0_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_min_pitcher_exposure0.5_covar_chg75p_exp(spike).csv"
+form_name <- "formulations.formulation9_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv"
 # form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv"
 # form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.0_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_no_covar.csv"
 # form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv"
