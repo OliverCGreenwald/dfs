@@ -20,13 +20,12 @@ formulation = formulations.formulation8_covar
 num_lineups = 150; 
 
 
-
 baseline_contest_data = readtable("baseline_contests_temp.csv");
 
 for contest_info_index in 1:size(baseline_contest_data)[1]
     for stack in 5:5 #stack
         for overlap in 5:5
-            for lambda in [0,1] # time line
+            for lambda in [5] # time line
               for exposure_P in [0.8] # time line
                 for exposure_B1 in [0.5] # time line
                   for exposure_B2 in [0.4] # time line
@@ -34,7 +33,8 @@ for contest_info_index in 1:size(baseline_contest_data)[1]
                       for exposure_C in [0.5] # time line
                         for exposure_SS in [0.5] # time line
                           for exposure_OF in [0.6] # time line
-                            for min_pitcher_exposure in [0.5, 0.55, 0.6, 0.7]
+                            for min_pitcher_exposure in [0.7]
+
                               num_overlap = overlap
 
                               stack_size = stack

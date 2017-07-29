@@ -74,4 +74,16 @@ Generated Lineups:
                         for exposure_SS in [0.5] # time line
                           for exposure_OF in [0.6] # time line
 
-
+5. Form 8
+    for stack in 5:5 #stack
+        for overlap in 5:5
+            for lambda in [0, 6, 7, 8, 9, 10, 50] # time line
+              for exposure_P in [0.8] # time line
+                for exposure_B1 in [0.5] # time line
+                  for exposure_B2 in [0.4] # time line
+                    for exposure_B3 in [0.6] # time line
+                      for exposure_C in [0.5] # time line
+                        for exposure_SS in [0.5] # time line
+                          for exposure_OF in [0.6] # time line
+                            for min_pitcher_exposure in [0.6, 0.7]
+                              num_overlap = overlap

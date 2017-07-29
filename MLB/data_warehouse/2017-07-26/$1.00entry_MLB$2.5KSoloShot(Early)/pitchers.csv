@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Chris Sale",13400,"BOS@SEA 03:40PM ET",30.625,"BOS","SEA",32.7,26,26.1785,NA,38.75
+"SP","Luis Severino",11500,"CIN@NYY 01:05PM ET",20.984,"NYY","CIN",25.74,19.5,21.81,NA,34.75
+"SP","Patrick Corbin",7900,"ATL@ARI 03:40PM ET",12.87,"ARI","ATL",17.85,14.2,13.61,NA,16.3
+"SP","Jeff Samardzija",7600,"PIT@SF 03:45PM ET",14.841,"SF","PIT",19.31,17.4,20.4995,NA,30.75
+"RP","Trevor Williams",6300,"PIT@SF 03:45PM ET",8.625,"PIT","SF",14.86,12.7,12.311,NA,11.3
+"SP","Homer Bailey",5500,"CIN@NYY 01:05PM ET",3.783,"CIN","NYY",7.95,10.6,15.667,NA,-3.7
+"SP","Andrew Moore",4800,"BOS@SEA 03:40PM ET",7.58,"SEA","BOS",10.72,10.7,11.21,NA,8.8
+"SP","Aaron Blair",4500,"ATL@ARI 03:40PM ET",0,"ATL","ARI",7.51,8.2,6.705,NA,-3.25

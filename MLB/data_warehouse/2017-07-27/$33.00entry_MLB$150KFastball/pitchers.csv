@@ -1,0 +1,11 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jon Lester",11900,"CHC@CWS 08:10PM ET",17.117,"CHC","CWS",20.6,17.7,20.383,NA,20.75
+"SP","Chris Archer",11100,"TB@NYY 07:05PM ET",21.314,"TB","NYY",19.56,19.9,21.9075,NA,22.1
+"SP","Zack Godley",8400,"ARI@STL 07:15PM ET",17.914,"ARI","STL",NA,16.7,14.991,NA,30.15
+"SP","CC Sabathia",7700,"TB@NYY 07:05PM ET",14.966,"NYY","TB",15.98,13,16.296,NA,4.15
+"SP","Chris Flexen",6500,"NYM@SD 09:10PM ET",0,"NYM","SD",12.38,16.6,9.712,NA,-1.25
+"SP","Luke Weaver",6400,"ARI@STL 07:15PM ET",4.175,"STL","ARI",10.89,15.9,13.776,NA,9.05
+"SP","Luis Perdomo",6300,"NYM@SD 09:10PM ET",10.709,"SD","NYM",16.32,11.1,13.437,NA,10.4
+"RP","Chris O'Grady",5700,"CIN@MIA 07:10PM ET",12.45,"MIA","CIN",12.01,11.3,11.36,NA,24.95
+"SP","Mike Pelfrey",4900,"CHC@CWS 08:10PM ET",7.978,"CWS","CHC",7.46,7,7.348,NA,2.45
+"SP","Robert Stephenson",4600,"CIN@MIA 07:10PM ET",2.807,"CIN","MIA",9.78,14.3,11.056,NA,1.15

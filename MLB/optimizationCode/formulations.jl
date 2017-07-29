@@ -1031,6 +1031,7 @@ end
     #- General Team Stacking 
     #- Positional Exposure Constraints
     #- consecutive stacking like formulation 3
+    #- Min Exposure Constraint for Pitcher
 function formulation7_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure)
     
 
@@ -1184,6 +1185,7 @@ end
     #- Optimization is max(projections + (lambda)*covariance)
     #- General Team Stacking 
     #- Position Exposure Constraints 
+    #- Min Exposure Constraint for Pitcher
 function formulation8_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure)
     
 
@@ -1335,6 +1337,7 @@ end
     #- General Team Stacking 
     #- Positional Exposure Constraints
     #- consecutive stacking like formulation 3
+    #- Min Exposure Constraint for Pitcher
     #- C salary <= 3200
 function formulation9_covar(players, old_lineups, num_overlap,stack_size, P,B1,B2,B3,C,SS,OF, players_teams, players_opp, players_games,players_stacks, covar_matrix, num_pitchers, covar_lambda, exposure, num_lineups, exposure_P,exposure_B1,exposure_B2,exposure_B3,exposure_C,exposure_SS,exposure_OF, min_pitcher_exposure)
     
