@@ -1,1 +1,5 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jon Gray",9000,"COL@STL 08:15PM ET",10.057,"COL","STL",15.86,17.9,NA,NA,14.45
+"SP","Cole Hamels",8200,"MIA@TEX 08:05PM ET",12.05,"TEX","MIA",17.3,14,15.0855,NA,14.1
+"SP","Lance Lynn",7500,"COL@STL 08:15PM ET",16.35,"STL","COL",18.1,15,15.906,NA,20.5
+"SP","Dan Straily",7200,"MIA@TEX 08:05PM ET",16.29,"MIA","TEX",14.08,12.3,12.686,NA,-5
