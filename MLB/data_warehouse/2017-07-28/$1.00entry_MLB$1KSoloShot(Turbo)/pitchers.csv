@@ -1,0 +1,21 @@
+<<<<<<< Updated upstream
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"SP","Jose Quintana",9800,"CHC@MIL 08:10PM ET",17.2,"CHC","MIL",20.66,17.3,18.963,NA
+"SP","Danny Salazar",9500,"CLE@CWS 08:10PM ET",15.5,"CLE","CWS",20.24,20,19.806,NA
+"SP","Robbie Ray",9400,"ARI@STL 08:15PM ET",22.739,"ARI","STL",21.74,19.6,19.57,NA
+"SP","Michael Wacha",8600,"ARI@STL 08:15PM ET",16.172,"STL","ARI",18.43,15.9,15.445,NA
+"SP","Andrew Cashner",6500,"BAL@TEX 08:05PM ET",10.606,"TEX","BAL",13.61,7.9,12.004,NA
+"SP","Brent Suter",5600,"CHC@MIL 08:10PM ET",7.746,"MIL","CHC",12.25,12,11.878,NA
+"SP","Chris Tillman",5400,"BAL@TEX 08:05PM ET",4.796,"BAL","TEX",9.87,8.1,8.474,NA
+"SP","Derek Holland",4800,"CLE@CWS 08:10PM ET",10.468,"CWS","CLE",9.11,9.7,10.578,NA
+=======
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jose Quintana",9800,"CHC@MIL 08:10PM ET",17.2,"CHC","MIL",20.66,17.3,18.963,NA,17.9
+"SP","Danny Salazar",9500,"CLE@CWS 08:10PM ET",15.5,"CLE","CWS",20.24,20,19.806,NA,26.5
+"SP","Robbie Ray",9400,"ARI@STL 08:15PM ET",22.739,"ARI","STL",21.74,19.6,19.57,NA,6.55
+"SP","Michael Wacha",8600,"ARI@STL 08:15PM ET",16.172,"STL","ARI",18.43,15.9,15.445,NA,25.1
+"SP","Andrew Cashner",6500,"BAL@TEX 08:05PM ET",10.606,"TEX","BAL",13.61,7.9,12.004,NA,21.55
+"SP","Brent Suter",5600,"CHC@MIL 08:10PM ET",7.746,"MIL","CHC",12.25,12,11.878,NA,26.75
+"SP","Chris Tillman",5400,"BAL@TEX 08:05PM ET",4.796,"BAL","TEX",9.87,8.1,8.474,NA,-0.85
+"SP","Derek Holland",4800,"CLE@CWS 08:10PM ET",10.468,"CWS","CLE",9.11,9.7,10.578,NA,-10.05
+>>>>>>> Stashed changes

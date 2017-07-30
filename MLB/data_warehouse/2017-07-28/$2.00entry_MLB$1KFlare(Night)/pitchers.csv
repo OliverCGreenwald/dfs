@@ -1,0 +1,21 @@
+<<<<<<< Updated upstream
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
+"SP","Alex Wood",11700,"SF@LAD 10:10PM ET",21.159,"LAD","SF",25.72,19.4,18.244,NA
+"SP","Jaime Garcia",6900,"MIN@OAK 10:05PM ET",13.458,"MIN","OAK",16.56,16.3,14.687,NA
+"SP","Chad Kuhl",6300,"PIT@SD 10:10PM ET",9.336,"PIT","SD",12.6,13.9,15.016,NA
+"RP","Daniel Gossett",6200,"MIN@OAK 10:05PM ET",9.588,"OAK","MIN",13.85,11.2,11.176,NA
+"SP","Ariel Miranda",6000,"NYM@SEA 10:10PM ET",13.06,"SEA","NYM",15.99,12.7,15.68,NA
+"SP","Rafael Montero",5800,"NYM@SEA 10:10PM ET",5.49,"NYM","SEA",10.68,16.4,11.198,NA
+"SP","Matt Moore",5700,"SF@LAD 10:10PM ET",9.835,"SF","LAD",13.73,13.9,12.549,NA
+"RP","Travis Wood",5300,"PIT@SD 10:10PM ET",1.627,"SD","PIT",10.12,11.2,12.539,NA
+=======
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Alex Wood",11700,"SF@LAD 10:10PM ET",21.159,"LAD","SF",25.72,19.4,18.244,NA,16.95
+"SP","Jaime Garcia",6900,"MIN@OAK 10:05PM ET",13.458,"MIN","OAK",16.56,16.3,14.687,NA,20.4
+"SP","Chad Kuhl",6300,"PIT@SD 10:10PM ET",9.336,"PIT","SD",12.6,13.9,15.016,NA,11.2
+"RP","Daniel Gossett",6200,"MIN@OAK 10:05PM ET",9.588,"OAK","MIN",13.85,11.2,11.176,NA,1.05
+"SP","Ariel Miranda",6000,"NYM@SEA 10:10PM ET",13.06,"SEA","NYM",15.99,12.7,15.68,NA,23.9
+"SP","Rafael Montero",5800,"NYM@SEA 10:10PM ET",5.49,"NYM","SEA",10.68,16.4,11.198,NA,5.7
+"SP","Matt Moore",5700,"SF@LAD 10:10PM ET",9.835,"SF","LAD",13.73,13.9,12.549,NA,16.05
+"RP","Travis Wood",5300,"PIT@SD 10:10PM ET",1.627,"SD","PIT",10.12,11.2,12.539,NA,25.1
+>>>>>>> Stashed changes
