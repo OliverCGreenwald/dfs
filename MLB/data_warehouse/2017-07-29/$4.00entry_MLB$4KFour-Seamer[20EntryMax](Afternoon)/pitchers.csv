@@ -1,0 +1,7 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jacob deGrom",12900,"NYM@SEA 04:10PM ET",19.319,"NYM","SEA",22.53,22.2,23.307,NA,25.3
+"SP","Rich Hill",12400,"SF@LAD 04:05PM ET",17.982,"LAD","SF",26.11,19.6,18.017,NA,18.95
+"SP","Collin McHugh",7500,"HOU@DET 06:10PM ET",6.3,"HOU","DET",15.52,13.4,16.697,NA,22.5
+"SP","Yovani Gallardo",6700,"NYM@SEA 04:10PM ET",8.747,"SEA","NYM",12.75,10.6,13.825,NA,14.55
+"SP","Ty Blach",5400,"SF@LAD 04:05PM ET",7.035,"SF","LAD",NA,10.8,13.54,NA,11.75
+"SP","Matthew Boyd",5200,"HOU@DET 06:10PM ET",8.7,"DET","HOU",NA,9.4,NA,NA,NA

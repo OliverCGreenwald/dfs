@@ -233,7 +233,7 @@ MLB_create_julia_inputs <- function(date_start, date_end, filter_names) {
 }
 
 
-MLB_create_julia_inputs(date_start = "2017-07-22", date_end = "2017-07-22", filter_names = c("chg75p_exp(spike)"))
+MLB_create_julia_inputs(date_start = "2017-07-26", date_end = "2017-07-31", filter_names = c("chg75p_exp(spike)"))
 # MLB_create_julia_inputs(date_start = "2017-07-15", date_end = "2017-07-15", filter_names = c("chg75p_exp(spike)"))
 
 

@@ -1,1 +1,11 @@
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jameson Taillon",10900,"PIT@SF 10:15PM ET",15.746,"PIT","SF",18.18,16.2,12.866,NA,-15.25
+"SP","Madison Bumgarner",9700,"PIT@SF 10:15PM ET",18.575,"SF","PIT",25.71,18.9,20.057,NA,17.65
+"SP","Felix Hernandez",8300,"BOS@SEA 10:10PM ET",15.782,"SEA","BOS",19.42,13.6,16.3315,NA,9.15
+"SP","Drew Pomeranz",7800,"BOS@SEA 10:10PM ET",17.063,"BOS","SEA",16.9,16.3,16.505,NA,14.45
+"SP","Seth Lugo",7700,"NYM@SD 10:10PM ET",13.25,"NYM","SD",19.3,15.1,13.162,NA,8.7
+"SP","Kenta Maeda",7600,"MIN@LAD 10:10PM ET",14.056,"LAD","MIN",17.14,18.1,17.837,NA,17.05
+"SP","Jhoulys Chacin",7400,"NYM@SD 10:10PM ET",12.941,"SD","NYM",17.19,14.3,14.158,NA,NA
+"SP","Jose Berrios",7100,"MIN@LAD 10:10PM ET",18.665,"MIN","LAD",15.19,15.1,14.85,NA,2.2
+"SP","Taijuan Walker",6800,"ATL@ARI 09:40PM ET",15.367,"ARI","ATL",15.53,14,13.839,NA,20.5
+"SP","Mike Foltynewicz",6400,"ATL@ARI 09:40PM ET",14.321,"ATL","ARI",NA,14.3,11.614,NA,NA

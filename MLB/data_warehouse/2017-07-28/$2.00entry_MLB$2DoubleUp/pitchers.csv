@@ -1,36 +1,3 @@
-<<<<<<< Updated upstream
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire"
-"SP","Alex Wood",11700,"SF@LAD 10:10PM ET",21.159,"LAD","SF",25.72,19.4,18.244,NA
-"SP","Dallas Keuchel",11600,"HOU@DET 07:10PM ET",23.213,"HOU","DET",24.32,17.3,16.9995,NA
-"SP","David Price",10200,"KC@BOS 07:10PM ET",16.882,"BOS","KC",21.08,18.8,19.2665,NA
-"SP","Jose Quintana",9800,"CHC@MIL 08:10PM ET",17.2,"CHC","MIL",20.66,17.3,18.963,NA
-"SP","Danny Salazar",9500,"CLE@CWS 08:10PM ET",15.5,"CLE","CWS",20.24,20,19.806,NA
-"SP","Robbie Ray",9400,"ARI@STL 08:15PM ET",22.739,"ARI","STL",21.74,19.6,19.57,NA
-"SP","Michael Wacha",8600,"ARI@STL 08:15PM ET",16.172,"STL","ARI",18.43,15.9,15.445,NA
-"SP","Julio Teheran",8100,"ATL@PHI 07:05PM ET",9.546,"ATL","PHI",18.78,16.1,15.603,NA
-"SP","Masahiro Tanaka",7800,"TB@NYY 07:05PM ET",14.703,"NYY","TB",21.95,17.2,17.664,NA
-"SP","Tanner Roark",7500,"COL@WAS 07:05PM ET",13.058,"WAS","COL",19.64,13.1,15.952,NA
-"SP","Jason Vargas",7100,"KC@BOS 07:10PM ET",16.511,"KC","BOS",14.99,11.2,9.087,NA
-"SP","Parker Bridwell",7000,"LAA@TOR 07:07PM ET",13.975,"LAA","TOR",12.12,10.9,10.852,NA
-"SP","Jaime Garcia",6900,"MIN@OAK 10:05PM ET",13.458,"MIN","OAK",16.56,16.3,14.687,NA
-"SP","JA Happ",6800,"LAA@TOR 07:07PM ET",13.923,"TOR","LAA",16.54,13.7,17.183,NA
-"SP","German Marquez",6700,"COL@WAS 07:05PM ET",15.231,"COL","WAS",13.21,15.4,10.874,NA
-"SP","Sal Romano",6600,"CIN@MIA 07:10PM ET",11.125,"CIN","MIA",NA,13,8.133,NA
-"SP","Andrew Cashner",6500,"BAL@TEX 08:05PM ET",10.606,"TEX","BAL",13.61,7.9,12.004,NA
-"SP","Chad Kuhl",6300,"PIT@SD 10:10PM ET",9.336,"PIT","SD",12.6,13.9,15.016,NA
-"RP","Daniel Gossett",6200,"MIN@OAK 10:05PM ET",9.588,"OAK","MIN",13.85,11.2,11.176,NA
-"SP","Jeremy Hellickson",6100,"ATL@PHI 07:05PM ET",10.028,"PHI","ATL",12.1,12.1,12.958,NA
-"SP","Ariel Miranda",6000,"NYM@SEA 10:10PM ET",13.06,"SEA","NYM",15.99,12.7,15.68,NA
-"SP","Rafael Montero",5800,"NYM@SEA 10:10PM ET",5.49,"NYM","SEA",10.68,16.4,11.198,NA
-"SP","Matt Moore",5700,"SF@LAD 10:10PM ET",9.835,"SF","LAD",13.73,13.9,12.549,NA
-"SP","Brent Suter",5600,"CHC@MIL 08:10PM ET",7.746,"MIL","CHC",12.25,12,11.878,NA
-"SP","Chris Tillman",5400,"BAL@TEX 08:05PM ET",4.796,"BAL","TEX",9.87,8.1,8.474,NA
-"RP","Travis Wood",5300,"PIT@SD 10:10PM ET",1.627,"SD","PIT",10.12,11.2,12.539,NA
-"SP","Jordan Zimmermann",5000,"HOU@DET 07:10PM ET",9.105,"DET","HOU",9.94,8.4,8.899,NA
-"SP","Derek Holland",4800,"CLE@CWS 08:10PM ET",10.468,"CWS","CLE",9.11,9.7,10.578,NA
-"SP","Austin Pruitt",4600,"TB@NYY 07:05PM ET",3.692,"TB","NYY",9.74,14.2,NA,NA
-"SP","Vance Worley",4500,"CIN@MIA 07:10PM ET",3.55,"MIA","CIN",13.62,11.7,9.946,NA
-=======
 "Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
 "SP","Alex Wood",11700,"SF@LAD 10:10PM ET",21.159,"LAD","SF",25.72,19.4,18.244,NA,16.95
 "SP","Dallas Keuchel",11600,"HOU@DET 07:10PM ET",23.213,"HOU","DET",24.32,17.3,16.9995,NA,1.35
@@ -62,4 +29,3 @@
 "SP","Derek Holland",4800,"CLE@CWS 08:10PM ET",10.468,"CWS","CLE",9.11,9.7,10.578,NA,-10.05
 "SP","Austin Pruitt",4600,"TB@NYY 07:05PM ET",3.692,"TB","NYY",9.74,14.2,NA,NA,11.65
 "SP","Vance Worley",4500,"CIN@MIA 07:10PM ET",3.55,"MIA","CIN",13.62,11.7,9.946,NA,4.8
->>>>>>> Stashed changes

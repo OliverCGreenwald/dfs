@@ -1,0 +1,10 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jacob deGrom",12900,"NYM@SEA 04:10PM ET",19.319,"NYM","SEA",22.53,22.2,23.307,NA,25.3
+"SP","Rich Hill",12400,"SF@LAD 04:05PM ET",17.982,"LAD","SF",26.11,19.6,18.017,NA,18.95
+"SP","Francisco Liriano",7700,"LAA@TOR 01:07PM ET",9.224,"TOR","LAA",15.71,12.4,15.495,NA,11.9
+"SP","Blake Snell",7200,"TB@NYY 01:05PM ET",10.413,"TB","NYY",14.03,14.7,13.059,NA,9.2
+"SP","Yovani Gallardo",6700,"NYM@SEA 04:10PM ET",8.747,"SEA","NYM",12.75,10.6,13.825,NA,14.55
+"SP","Ty Blach",5400,"SF@LAD 04:05PM ET",7.035,"SF","LAD",NA,10.8,13.54,NA,11.75
+"RP","Caleb Smith",4900,"TB@NYY 01:05PM ET",5.2,"NYY","TB",13.61,14.4,9.97,NA,7.9
+"RP","Chris Smith",4700,"LAA@TOR 01:07PM ET",2.367,"TOR","LAA",10.39,13.7,14.92,NA,5.25
+"SP","Yusmeiro Petit",4300,"LAA@TOR 01:07PM ET",5.164,"LAA","TOR",12.45,15.4,16.066,NA,17.2

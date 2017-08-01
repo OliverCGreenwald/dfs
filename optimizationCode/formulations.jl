@@ -1760,50 +1760,50 @@ function one_lineup_Type_14(offensive_players, defenses, lineups, num_overlap, n
     =#
 
     # One Defense constraint
-    @constraint(m, sum{defenses_lineup[i], i=1:num_defenses} == 1)
+    @constraint(m, sum(defenses_lineup[i] for i=1:num_defenses) == 1)
 
     # Eight Offensive_Players constraint
-    @constraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
-                   sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} + 
-                   sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} +
-                   sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 8)
+    @constraint(m, sum(quarterBack[i]*offensive_players_lineup[i] for i=1:num_offensive_players) +
+                   sum(runningBack[i]*offensive_players_lineup[i] for i=1:num_offensive_players) + 
+                   sum(wideReciever[i]*offensive_players_lineup[i] for i=1:num_offensive_players) +
+                   sum(tightEnd[i]*offensive_players_lineup[i] for i=1:num_offensive_players) == 8)
 
     # One QB constraint
-    @constraint(m, sum{quarterBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} == 1)
+    @constraint(m, sum(quarterBack[i]*offensive_players_lineup[i] for i=1:num_offensive_players) == 1)
 
     # between 2 and 3 RB (Because of FLEX player)
-    @constraint(m, 2<=sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players})
-    @constraint(m, sum{runningBack[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 3)
+    @constraint(m, 2<=sum(runningBack[i]*offensive_players_lineup[i] for i=1:num_offensive_players))
+    @constraint(m, sum(runningBack[i]*offensive_players_lineup[i] for i=1:num_offensive_players) <= 3)
 
     # between 3 and 4 WR (Because of FLEX player)
-    @constraint(m, 3 <= sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players})
-    @constraint(m, sum{wideReciever[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 4)
+    @constraint(m, 3 <= sum(wideReciever[i]*offensive_players_lineup[i] for i=1:num_offensive_players))
+    @constraint(m, sum(wideReciever[i]*offensive_players_lineup[i] for i=1:num_offensive_players) <= 4)
 
     # 1 TE (no TE FLEX player)
-    @constraint(m, 1 == sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
+    @constraint(m, 1 == sum(tightEnd[i]*offensive_players_lineup[i] for i=1:num_offensive_players))
     #@constraint(m, 1 <= sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players})
     #@constraint(m, sum{tightEnd[i]*offensive_players_lineup[i], i=1:num_offensive_players} <= 2)
 
     # Financial Constraint
-    @constraint(m, sum{offensive_players[i,:Salary]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Salary]*defenses_lineup[i], i=1:num_defenses} <= 50000)
+    @constraint(m, sum(offensive_players[i,:Salary]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Salary]*defenses_lineup[i] for i=1:num_defenses) <= 50000)
 
     # at least 3 different teams for the 8 skaters constraints
     @variable(m, used_team[i=1:num_teams], Bin)
-    @constraint(m, constr[i=1:num_teams], used_team[i] <= sum{offensive_players_teams[t, i]*offensive_players_lineup[t], t=1:num_offensive_players})
-    @constraint(m, sum{used_team[i], i=1:num_teams} >= 2)
+    @constraint(m, constr[i=1:num_teams], used_team[i] <= sum(offensive_players_teams[t, i]*offensive_players_lineup[t] for t=1:num_offensive_players))
+    @constraint(m, sum(used_team[i] for i=1:num_teams) >= 2)
 
     # No Defenses going against Offensive_Players constraint
-    @constraint(m, constr[i=1:num_defenses], 6*defenses_lineup[i] + sum{defenses_opponents[k, i]*offensive_players_lineup[k], k=1:num_offensive_players}<=6)
+    @constraint(m, constr[i=1:num_defenses], 6*defenses_lineup[i] + sum(defenses_opponents[k, i]*offensive_players_lineup[k] for k=1:num_offensive_players)<=6)
 
     # Must have a QB/WR Pair
     # QB is weighted 9 and WR is weighted 1 so in order to have a sum >= 10 there must be 
     # at least a QB/WR Pair
     @variable(m, QBWR_stack[i=1:num_pairs], Bin)
-    @constraint(m, constr[i=1:num_pairs], 10*QBWR_stack[i] <= sum{team_pairs[k,i]*offensive_players_lineup[k], k=1:num_offensive_players})
-    @constraint(m, sum{QBWR_stack[i], i=1:num_pairs} >= 1)
+    @constraint(m, constr[i=1:num_pairs], 10*QBWR_stack[i] <= sum(team_pairs[k,i]*offensive_players_lineup[k] for k=1:num_offensive_players))
+    @constraint(m, sum(QBWR_stack[i] for i=1:num_pairs) >= 1)
 
     # Overlap Constraint
-    @constraint(m, constr[i=1:size(lineups)[2]], sum{lineups[j,i]*offensive_players_lineup[j], j=1:num_offensive_players} + sum{lineups[num_offensive_players+j,i]*defenses_lineup[j], j=1:num_defenses} <= num_overlap)
+    @constraint(m, constr[i=1:size(lineups)[2]], sum(lineups[j,i]*offensive_players_lineup[j] for j=1:num_offensive_players) + sum(lineups[num_offensive_players+j,i]*defenses_lineup[j] for j=1:num_defenses) <= num_overlap)
 
     # Exposure Constraint
     #QB 
@@ -1816,34 +1816,34 @@ function one_lineup_Type_14(offensive_players, defenses, lineups, num_overlap, n
     # @constraint(m, constr[j=1:num_offensive_players], sum{lineups[j,i], i=1:size(lineups)[2]} + offensive_players_lineup[j]*tightEnd[j] <= num_lineups * exposure_te)
     for i in 1:num_offensive_players
         if (quarterBack[i] == 1)
-            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_qb)
+            @constraint(m, sum(lineups[i,j] for j=1:size(lineups)[2]) + offensive_players_lineup[i] <= num_lineups * exposure_qb)
         elseif (runningBack[i] == 1)
-            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_rb)
+            @constraint(m, sum(lineups[i,j] for j=1:size(lineups)[2]) + offensive_players_lineup[i] <= num_lineups * exposure_rb)
         elseif (wideReciever[i] == 1)
-            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_wr)
+            @constraint(m, sum(lineups[i,j] for j=1:size(lineups)[2]) + offensive_players_lineup[i] <= num_lineups * exposure_wr)
         elseif (tightEnd[i] == 1)
-            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_te)
+            @constraint(m, sum(lineups[i,j] for j=1:size(lineups)[2]) + offensive_players_lineup[i] <= num_lineups * exposure_te)
         end
     end
 
     # Defense
-    @constraint(m, constr[j=1:num_defenses], sum{lineups[num_offensive_players + j,i], i=1:size(lineups)[2]} + defenses_lineup[j] <= num_lineups * exposure_defense)
+    @constraint(m, constr[j=1:num_defenses], sum(lineups[num_offensive_players + j,i] for i=1:size(lineups)[2]) + defenses_lineup[j] <= num_lineups * exposure_defense)
     # Objective
     # @objective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
     if (projections_source == "Projection")
-        @objective(m, Max, sum{offensive_players[i,:Projection]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection]*defenses_lineup[i], i=1:num_defenses})
+        @objective(m, Max, sum(offensive_players[i,:Projection]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Projection]*defenses_lineup[i] for i=1:num_defenses))
     elseif (projections_source == "Projection_dfn")
-        @objective(m, Max, sum{offensive_players[i,:Projection_dfn]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+        @objective(m, Max, sum(offensive_players[i,:Projection_dfn]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Projection_dfn]*defenses_lineup[i] for i=1:num_defenses))
     elseif (projections_source == "Projection_fc")
-        @objective(m, Max, sum{offensive_players[i,:Projection_fc]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_fc]*defenses_lineup[i], i=1:num_defenses})
+        @objective(m, Max, sum(offensive_players[i,:Projection_fc]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Projection_fc]*defenses_lineup[i] for i=1:num_defenses))
     elseif (projections_source == "Projection_dfn_perturbed")
-        @objective(m, Max, sum{offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+        @objective(m, Max, sum(offensive_players[i,:Projection_dfn_perturbed]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Projection_dfn]*defenses_lineup[i] for i=1:num_defenses))
     elseif (projections_source == "Projection_reg")
-        @objective(m, Max, sum{offensive_players[i,:Projection_reg]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+        @objective(m, Max, sum(offensive_players[i,:Projection_reg]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Projection_dfn]*defenses_lineup[i] for i=1:num_defenses))
     elseif (projections_source == "Projection_reg_split")
-        @objective(m, Max, sum{offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Projection_dfn]*defenses_lineup[i], i=1:num_defenses})
+        @objective(m, Max, sum(offensive_players[i,:Projection_reg_split]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Projection_dfn]*defenses_lineup[i] for i=1:num_defenses))
     elseif (projections_source == "Actual")
-        @objective(m, Max, sum{offensive_players[i,:Actual]*offensive_players_lineup[i], i=1:num_offensive_players} + sum{defenses[i,:Actual]*defenses_lineup[i], i=1:num_defenses})
+        @objective(m, Max, sum(offensive_players[i,:Actual]*offensive_players_lineup[i] for i=1:num_offensive_players) + sum(defenses[i,:Actual]*defenses_lineup[i] for i=1:num_defenses))
     end
 
     # Solve the integer programming problem
