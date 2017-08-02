@@ -118,7 +118,7 @@ download_BBmonster_projections()
 
 ### Create Julia Inputs (hitters.csv, pitchers.csv, covariance matrices)
 source("MLB/MLB_create_julia_inputs.R")
-MLB_create_julia_inputs(date_start = Sys.Date(), date_end = Sys.Date())
+MLB_create_julia_inputs(date_start = Sys.Date(), date_end = Sys.Date(), filter_names = c("chg75p_exp(spike)"))
 
 
 

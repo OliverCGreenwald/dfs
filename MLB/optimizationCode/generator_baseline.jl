@@ -20,7 +20,7 @@ formulation = formulations.formulation8_covar
 num_lineups = 150; 
 
 
-baseline_contest_data = readtable("baseline_contests.csv");
+baseline_contest_data = readtable("baseline_contests_temp.csv");
 
 for contest_info_index in 1:size(baseline_contest_data)[1]
     for stack in 5:5 #stack
@@ -53,17 +53,17 @@ for contest_info_index in 1:size(baseline_contest_data)[1]
                              #path to the csv file with the players information (pitchers and hitters);
                              path_pitchers = string(contest_directory_path, "pitchers.csv"); 
                              path_hitters = string(contest_directory_path, "hitters.csv"); 
-                             path_covar_matrix = string(contest_directory_path, "covariance_mat_unfiltered.csv"); 
+                             path_covar_matrix = string(contest_directory_path, "covariance_mat_chg75p_exp(spike).csv"); 
                              # path_to_output is a string  that gives the path to the csv file that will give the outputted results
 
                               if formulation == formulations.formulation7_covar || formulation == formulations.formulation8_covar
                                 path_to_output= string(contest_directory_path, "lineups/",
                                      string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,
-                                     "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_min_pitcher_exposure", min_pitcher_exposure,"_covar_mat_unfiltered.csv"); 
+                                     "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_min_pitcher_exposure", min_pitcher_exposure,"_covariance_mat_chg75p_exp(spike).csv"); 
                               else
                                 path_to_output= string(contest_directory_path, "lineups/",
                                      string(formulation), "_stacksize_", stack_size,"_overlap_", num_overlap,"_lineups_", num_lineups,"_lambda_", lambda_var,
-                                     "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_covar_mat_unfiltered.csv"); 
+                                     "_exposure_P", exposure_P,"_exposure_B1", exposure_B1,"_exposure_B2", exposure_B2,"_exposure_B3", exposure_B3,"_exposure_C", exposure_C,"_exposure_SS", exposure_SS,"_exposure_OF", exposure_OF,"_covariance_mat_chg75p_exp(spike).csv"); 
                               end
 
 

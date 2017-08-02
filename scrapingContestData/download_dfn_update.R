@@ -151,7 +151,7 @@ download_dfn_update <- function(update_date) {
   
   
   username = mybrowser$findElement(using = "css selector", "#input-username")
-  username$sendKeysToElement(list('dfsoptimizers'))
+  username$sendKeysToElement(list('dfsoptimizers2017'))
   password = mybrowser$findElement(using = "css selector", "#input-password")
   password$sendKeysToElement(list('pizza1995', key = "enter"))
   Sys.sleep(2)
