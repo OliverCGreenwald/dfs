@@ -43,8 +43,8 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
         # TODO (done in aggregateJuliaDF.R file for now)
         
         ####### Write to CSV file #######
-        write.csv(aggregated_data_offense[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/offense.csv"), row.names = F)
-        write.csv(aggregated_data_defense[[i]], file = paste0("MLB/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/defense.csv"), row.names = F)
+        write.csv(aggregated_data_offense[[i]], file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/offensive_players.csv"), row.names = F)
+        write.csv(aggregated_data_defense[[i]], file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/defenses.csv"), row.names = F)
       } else {
         print(paste0("contest folder missing: ", paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))))
       }
