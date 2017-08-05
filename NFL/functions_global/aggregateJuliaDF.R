@@ -8,12 +8,10 @@ if(file.exists("~/Projects/DFS/")) {
 ####### Description #######
 # Aggregates the following data into a dataframe:
 # - projections (sources: Rotogrinders, DFN)
-# - actual fpts (source: Fantasy Cruncher)
+# - actual fpts (source: DFN)
 #
 # TODO:
 # - match by player and position and team (not just player name)
-# - BaseballMonster: MISSING Complete Game Shut Out & No Hitter DK fpts PITCHER computation
-# - remove FantasyPros (deprecated)
 
 
 aggregateJuliaDF <- function(contest.date, contest.name) {
@@ -21,7 +19,8 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   require(stringr)
   
   ####### Import Functions #######
-  source("MLB/functions_global/cleanPlayerNames.R")
+  source("NFL/functions_global/cleanPlayerNames.R")
+  source("NFL/functions_global/convertTeamNames.R")
   
   ####### Load and Clean DK Salaries #######
   # load
@@ -48,7 +47,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   temp.dksalaries$TeamAbbrev <- toupper(temp.dksalaries$TeamAbbrev)
   temp.dksalaries$Opponent <- toupper(temp.dksalaries$Opponent)
   
-  # split into hitters and pitchers
+  # split into offense and defense
   temp.dksalaries.offense <- temp.dksalaries[!(temp.dksalaries$Position %in% c("DST")), ]
   temp.dksalaries.defense <- temp.dksalaries[temp.dksalaries$Position %in% c("DST"), ]
   remove(temp.dksalaries) # don't need original df anymore
@@ -86,89 +85,76 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   }
 
   
-  # ####### Load projection Sources, Clean, and Add to DKSalaries DF (Defense) #######
-  # # projection file paths
-  # path.rotogrinders <- paste0("MLB/data_warehouse/projections/rotogrinders/pitchers-", contest.date, ".csv")
-  # path.dfn <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/pitchers_", contest.date, ".csv")
-  # 
-  # # rotogrinders
-  # if (file.exists(path.rotogrinders)) {
-  #   temp.rotogrinders.defense <- read.csv(file = path.rotogrinders, stringsAsFactors = F, header = T)
-  #   if (is.null(temp.rotogrinders.defense$Name)) {
-  #     print(paste0("Rotogrinders (pitchers) headers incorrect. ", contest.date))
+  ####### Load projection Sources, Clean, and Add to DKSalaries DF (Defense) #######
+  # projection file paths
+  path.rotogrinders <- paste0("NFL/data_warehouse/projections/rotogrinders/roto_defense_", contest.date, ".csv")
+  path.dfn <- paste0("NFL/data_warehouse/projections/dailyfantasynerd/dfn_defense_", contest.date, ".csv")
+
+  # rotogrinders
+  if (file.exists(path.rotogrinders)) {
+    temp.rotogrinders.defense <- read.csv(file = path.rotogrinders, stringsAsFactors = F, header = T)
+    if (is.null(temp.rotogrinders.defense$player)) {
+      print(paste0("Rotogrinders (pitchers) headers incorrect. ", contest.date))
+    }
+    temp.rotogrinders.defense$player <- cleanPlayerNames(temp.rotogrinders.defense$player)
+    temp.rotogrinders.defense$team <- convertTeamNames(team_vec = temp.rotogrinders.defense$team, from_source = "RG", to_source = "DK")
+    temp.dksalaries.defense$Projection <- temp.rotogrinders.defense$fpts[match(temp.dksalaries.defense$TeamAbbrev, temp.rotogrinders.defense$team)]
+  } else {
+    temp.dksalaries.defense$Projection <- NA
+    warning(paste0("Rotogrinders projections not found. ", contest.date))
+  }
+
+  # dfn
+  if (file.exists(path.dfn)) {
+    temp.dfn.defense <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
+    if (is.null(temp.dfn.defense$Player.Name)) {
+      print(paste0("DFN (pitchers) headers incorrect. ", contest.date))
+    }
+    temp.dfn.defense$Player.Name <- cleanPlayerNames(temp.dfn.defense$Player.Name)
+    temp.dksalaries.defense$Projection_dfn <- temp.dfn.defense$Proj.FP[match(temp.dksalaries.defense$TeamAbbrev, temp.dfn.defense$Team)]
+  } else {
+    temp.dksalaries.defense$Projection_dfn <- NA
+    warning(paste0("DFN projections not found. ", contest.date))
+  }
+
+  ####### Add Actual Fpts Column #######
+  # Offense (dfn)
+  path.dfn.offense.actual <- paste0("NFL/data_warehouse/projections/dailyfantasynerd/updates/dfn_offense_", contest.date, ".csv")
+  if (file.exists(path.dfn.offense.actual)) {
+    temp.dfn.offense.actual <- read.csv(path.dfn.offense.actual, stringsAsFactors = F, header = T)
+    temp.dfn.offense.actual$Player.Name <- cleanPlayerNames(temp.dfn.offense.actual$Player.Name)
+    temp.dksalaries.offense$Actual_fpts <- temp.dfn.offense.actual$Actual.FP[match(temp.dksalaries.offense$Name, temp.dfn.offense.actual$Player.Name)]
+  } else {
+    temp.dksalaries.offense$Actual_fpts <- NA
+  }
+
+  # Defense (dfn)
+  path.dfn.defense.actual <- paste0("NFL/data_warehouse/projections/dailyfantasynerd/updates/dfn_defense_", contest.date, ".csv")
+  if (file.exists(path.dfn.defense.actual)) {
+    temp.dfn.defense.actual <- read.csv(path.dfn.defense.actual, stringsAsFactors = F, header = T)
+    temp.dfn.defense.actual$Player.Name <- cleanPlayerNames(temp.dfn.defense.actual$Player.Name)
+    temp.dksalaries.defense$Actual_fpts <- temp.dfn.defense.actual$Actual.FP[match(temp.dksalaries.defense$TeamAbbrev, temp.dfn.defense.actual$Team)]
+  } else {
+    temp.dksalaries.defense$Actual_fpts <- NA
+  }
+
+  # Hitters and Pitchers (fantasy cruncher)
+  # path.actual.fpts <- paste0("MLB/data_warehouse/", contest.date,"/player_results.csv")
+  # if (file.exists(path.actual.fpts)) {
+  #   temp.actual.fpts <- read.csv(path.actual.fpts, stringsAsFactors = F, header = T)
+  #   temp.actual.fpts$Player <- cleanPlayerNames(temp.actual.fpts$Player)
+  #   temp.dksalaries.hitters$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.hitters$Name, temp.actual.fpts$Player)]
+  #   temp.dksalaries.pitchers$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.pitchers$Name, temp.actual.fpts$Player)]
+  #   if (sum(is.na(temp.dksalaries.pitchers$Actual_fpts))==length(temp.dksalaries.pitchers$Actual_fpts)) {
+  #     warning(paste0("All Actual_fpts elements are NA.", contest.date))
   #   }
-  #   temp.rotogrinders.defense$Name <- cleanPlayerNames(temp.rotogrinders.defense$Name)
-  #   temp.dksalaries.pitchers$Projection <- temp.rotogrinders.defense$Projections[match(temp.dksalaries.pitchers$Name, temp.rotogrinders.defense$Name)]
   # } else {
-  #   temp.dksalaries.pitchers$Projection <- NA
-  #   warning(paste0("Rotogrinders projections not found. ", contest.date))
+  #   temp.dksalaries.hitters$Actual_fpts <- NA
+  #   warning(paste0("Fantasy Cruncher player_results.csv not found.", contest.date))
   # }
-  # 
-  # # dfn
-  # if (file.exists(path.dfn)) {
-  #   temp.dfn.defense <- read.csv(file = path.dfn, stringsAsFactors = F, header = T)
-  #   if (is.null(temp.dfn.defense$Player.Name)) {
-  #     print(paste0("DFN (pitchers) headers incorrect. ", contest.date))
-  #   }
-  #   temp.dfn.defense$Player.Name <- cleanPlayerNames(temp.dfn.defense$Player.Name)
-  #   temp.dksalaries.pitchers$Projection_dfn <- temp.dfn.defense$Proj.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.defense$Player.Name)]
-  # } else {
-  #   temp.dksalaries.pitchers$Projection_dfn <- NA
-  #   warning(paste0("DFN projections not found. ", contest.date))
-  # }
-  # 
-  # ####### Add Actual Fpts Column #######
-  # # Hitters (dfn)
-  # # path.dfn.hitters.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/hitters_", contest.date, ".csv")
-  # # if (file.exists(path.dfn.hitters.actual)) {
-  # #   temp.dfn.offense.actual <- read.csv(path.dfn.hitters.actual, stringsAsFactors = F, header = T)
-  # #   temp.dfn.offense.actual$Player.Name <- cleanPlayerNames(temp.dfn.offense.actual$Player.Name)
-  # #   temp.dksalaries.hitters$Actual_fpts <- temp.dfn.offense.actual$Actual.FP[match(temp.dksalaries.hitters$Name, temp.dfn.offense.actual$Player.Name)]
-  # # } else {
-  # #   temp.dksalaries.hitters$Actual_fpts <- NA
-  # # }
-  # 
-  # # Pitchers (dfn)
-  # # path.dfn.pitchers.actual <- paste0("MLB/data_warehouse/projections/dailyfantasynerd/updates/pitchers_", contest.date, ".csv")
-  # # if (file.exists(path.dfn.pitchers.actual)) {
-  # #   temp.dfn.defense.actual <- read.csv(path.dfn.pitchers.actual, stringsAsFactors = F, header = T)
-  # #   temp.dfn.defense.actual$Player.Name <- cleanPlayerNames(temp.dfn.defense.actual$Player.Name)
-  # #   temp.dksalaries.pitchers$Actual_fpts <- temp.dfn.defense.actual$Actual.FP[match(temp.dksalaries.pitchers$Name, temp.dfn.defense.actual$Player.Name)]
-  # # } else {
-  # #   temp.dksalaries.pitchers$Actual_fpts <- NA
-  # # }
-  # 
-  # # Hitters and Pitchers (fantasy cruncher)
-  # # path.actual.fpts <- paste0("MLB/data_warehouse/", contest.date,"/player_results.csv")
-  # # if (file.exists(path.actual.fpts)) {
-  # #   temp.actual.fpts <- read.csv(path.actual.fpts, stringsAsFactors = F, header = T)
-  # #   temp.actual.fpts$Player <- cleanPlayerNames(temp.actual.fpts$Player)
-  # #   temp.dksalaries.hitters$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.hitters$Name, temp.actual.fpts$Player)]
-  # #   temp.dksalaries.pitchers$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.pitchers$Name, temp.actual.fpts$Player)]
-  # #   if (sum(is.na(temp.dksalaries.pitchers$Actual_fpts))==length(temp.dksalaries.pitchers$Actual_fpts)) {
-  # #     warning(paste0("All Actual_fpts elements are NA.", contest.date))
-  # #   }
-  # # } else {
-  # #   temp.dksalaries.hitters$Actual_fpts <- NA
-  # #   warning(paste0("Fantasy Cruncher player_results.csv not found.", contest.date))
-  # # }
   
   # return
-  julia.inputs <- list(temp.dksalaries.hitters, temp.dksalaries.pitchers)
+  julia.inputs <- list(temp.dksalaries.offense, temp.dksalaries.defense)
   return(julia.inputs)
 }
 
-
-# debugging
-# contest_info <- read.csv(file = 'MLB/data_warehouse/contests.csv', stringsAsFactors = F)
-# i <- 46
-# 
-# contest.date <- contest_info$Contest_Date[i]
-# contest.name <- paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i]))
-# 
-# projections.dat <- aggregate_projections(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
-# aggregated_data_hitters[[i]] <- projections.dat[[1]]
-# aggregated_data_pitchers[[i]] <- projections.dat[[2]]
-
-# contest.date <- "2017-04-21"
-# contest.name <- "$33.00entry_MLB$300KFastball"
