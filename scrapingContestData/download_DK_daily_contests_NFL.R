@@ -1,7 +1,6 @@
-# TODO:
-# - fix date subset (lines 202-205)
 
-download_DK_daily_contests_NFL <- function(contest_info) { 
+
+download_DK_daily_contests_NFL <- function(contest_info, sunday_date) { 
   original_wd <- getwd()
   
   library(RSelenium)
@@ -154,10 +153,7 @@ download_DK_daily_contests_NFL <- function(contest_info) {
   mybrowser$navigate(url)
   
   
-  #webElem <- mybrowser$findElement(using = 'css selector', value = "._1zpPDEgsQJYHz7UOkFa1TK:nth-child(3) a")
-  #webElem$clickElement()
-  
-  ########## THIS PART DOESNT WORK
+  ########## 
   script <- "return packagedContests;"
   dk_contests_json <- mybrowser$executeScript(script, args = list())
   
@@ -198,19 +194,22 @@ download_DK_daily_contests_NFL <- function(contest_info) {
   df$mec <- as.numeric(df$mec)
   df <- df[df$mec > 10,]
   
-  
-  # todays_day <- format(as.Date(Sys.Date()), '%a')
-  
-  
-  # df <- df[grepl(as.character(todays_day), df$sdstring),]
-  vars_needed <- c('id','n', 'mec', "a")
+  vars_needed <- c('id','n', 'mec', "a", "sdstring")
   df <- df[, vars_needed]
-  df$Contest_Date <- as.Date(Sys.Date())
-  names(df) <- c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Contest_Date')
+  df$Contest_Date <- sunday_date
+  names(df) <- c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Slate', 'Contest_Date')
   df$Entry_Fee <- as.numeric(df$Entry_Fee)
   df$Entry_Fee <- sprintf("%.2f", as.numeric(df$Entry_Fee))
   df$Entry_Fee <- paste0('$',df$Entry_Fee)
   
+  # slate
+  df$Slate <- sub(":", "", df$Slate)
+  df <- df[,c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Contest_Date','Slate')]
+  
+  # replace characters that mess up file paths
+  df$Contest_Name <- sub("&", "And", df$Contest_Name)
+  df$Contest_Name <- sub("/", " ", df$Contest_Name)
+  df$Contest_Name <- sub(":", " ", df$Contest_Name)
   
   return_df <- rbind(contest_info, df)
   write.csv(return_df, file = 'NFL/data_warehouse/contests.csv', row.names = F)

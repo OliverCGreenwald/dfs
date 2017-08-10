@@ -1,7 +1,5 @@
 # TODO:
-# - fix date system
 # - download contest results section
-# - deal with "&" in contest name
 
 if(file.exists("~/Projects/DFS/")) {
   setwd("~/Projects/DFS/")
@@ -28,7 +26,7 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
 
 # Scrape DK Site for todays contests 
-contest_info <- download_DK_daily_contests_NFL(contest_info)
+contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = "2017-09-10") # hard coded date
 
 
 ### re-read in Contest File (not sure if needed but a safety precaution)
@@ -36,7 +34,7 @@ contest_info <- read.csv(file = 'NFL/data_warehouse/contests.csv', stringsAsFact
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
 # Find Earliest index of last contest
-first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date()))
+# first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date()))
 
 # Index of 
 
@@ -71,12 +69,12 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
 
 ### Clean DK Salary File
 # TODO: probably add this to download_DK_player_salary_file.R
-source("NFL/functions_global/cleanDKSalaries.R")
-cleanDKSalaries(data = NULL)
+# source("NFL/functions_global/cleanDKSalaries.R")
+# cleanDKSalaries(data = NULL)
 
 
 ### Download Rotogrinders Projections
-print('Downloading Rotogrinders Projections')
-download_rotogrinders_projections_MLB(Sys.Date())
+# print('Downloading Rotogrinders Projections')
+# download_rotogrinders_projections_MLB(Sys.Date())
 
 

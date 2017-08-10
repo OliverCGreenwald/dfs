@@ -1,6 +1,3 @@
-#setwd("~/Projects/DFS/")
-#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
-
 library(dplyr)
 library(rvest)
 
