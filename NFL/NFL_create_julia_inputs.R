@@ -1,3 +1,7 @@
+# TODO:
+# - check if ValueWR 10% is actually working in julia output.
+# - fix name outputs (accidentally got rid of e.g. Jr., Sr., A.J. in output)
+
 if(file.exists("~/Projects/DFS/")) {
   setwd("~/Projects/DFS/")
 } else {

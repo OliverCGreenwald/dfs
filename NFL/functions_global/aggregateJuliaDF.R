@@ -21,6 +21,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   ####### Import Functions #######
   source("NFL/functions_global/cleanPlayerNames.R")
   source("NFL/functions_global/convertTeamNames.R")
+  source("NFL/functions_global/addValueWR.R")
   
   ####### Load and Clean DK Salaries #######
   # load
@@ -158,10 +159,13 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   temp.dksalaries.offense$RankTargets <- NA
   temp.dksalaries.offense$RollingTargetPctg <- NA
   temp.dksalaries.offense$FreqInd <- NA
-  temp.dksalaries.offense$ValueWR <- NA
+  # temp.dksalaries.offense$ValueWR <- NA
   temp.dksalaries.offense$TierRank <- NA
   
-  ####### Rename column #######
+  ####### ValueWR column #######
+  temp.dksalaries.offense$ValueWR <- addValueWR(offense_data = temp.dksalaries.offense, max_salary = 5000)
+  
+  ####### Rename teamAbbrev column #######
   colnames(temp.dksalaries.offense)[which(colnames(temp.dksalaries.offense)=="teamAbbrev")] <- "Team"
   colnames(temp.dksalaries.defense)[which(colnames(temp.dksalaries.defense)=="teamAbbrev")] <- "Team"
   

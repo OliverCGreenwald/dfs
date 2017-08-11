@@ -1,4 +1,4 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","Team","Opponent","Projection","Projection_dfn","Actual_fpts","RankTargets","RollingTargetPctg","FreqInd","ValueWR","TierRank"
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","Team","Opponent","Projection","Projection_dfn","Actual_fpts","RankTargets","RollingTargetPctg","FreqInd","TierRank","ValueWR"
 "QB","Matt Ryan",5500,"ATL@MIA 07:00PM ET",24.759,"ATL","MIA",0,24.759,0,0,0,0,0,0
 "QB","Matt Schaub",5500,"ATL@MIA 07:00PM ET",0.088,"ATL","MIA",0,0.088,0,0,0,0,0,0
 "QB","Matt Simms",5500,"ATL@MIA 07:00PM ET",0,"ATL","MIA",0,0,0,0,0,0,0,0
