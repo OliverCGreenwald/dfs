@@ -40,7 +40,7 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
         aggregated_data_offense[[i]]$Projection_dfn <- aggregated_data_offense[[i]]$AvgPointsPerGame
         aggregated_data_defense[[i]]$Projection_dfn <- aggregated_data_defense[[i]]$AvgPointsPerGame
         
-        # remove NAs
+        # set NAs to 0
         aggregated_data_offense[[i]][is.na(aggregated_data_offense[[i]])] <- 0
         aggregated_data_defense[[i]][is.na(aggregated_data_defense[[i]])] <- 0
         
