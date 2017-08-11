@@ -36,11 +36,13 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
         aggregated_data_offense[[i]] <- projections.dat[[1]]
         aggregated_data_defense[[i]] <- projections.dat[[2]]
         
-        # remove NAs in pitchers df
-        # aggregated_data_pitchers[[i]] <- aggregated_data_pitchers[[i]][!is.na(aggregated_data_pitchers[[i]]$Projection_dfn),]
+        # temp
+        aggregated_data_offense[[i]]$Projection_dfn <- aggregated_data_offense[[i]]$AvgPointsPerGame
+        aggregated_data_defense[[i]]$Projection_dfn <- aggregated_data_defense[[i]]$AvgPointsPerGame
         
-        # DK changed team name convention to all caps starting 4/29, so we convert everything to all caps
-        # TODO (done in aggregateJuliaDF.R file for now)
+        # remove NAs
+        aggregated_data_offense[[i]][is.na(aggregated_data_offense[[i]])] <- 0
+        aggregated_data_defense[[i]][is.na(aggregated_data_defense[[i]])] <- 0
         
         ####### Write to CSV file #######
         write.csv(aggregated_data_offense[[i]], file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/offensive_players.csv"), row.names = F)
@@ -55,6 +57,6 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
 }
 
 
-NFL_create_julia_inputs(date_start = "2016-10-09", date_end = "2016-10-09")
+NFL_create_julia_inputs(date_start = "2017-09-10", date_end = "2017-09-10")
 
 

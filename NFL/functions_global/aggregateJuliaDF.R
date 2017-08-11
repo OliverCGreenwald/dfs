@@ -33,7 +33,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   temp.dksalaries$Temp_Team1 <- str_split_fixed(str_split_fixed(temp.dksalaries$GameInfo, " ", 2)[,1], "@", 2)[,1]
   temp.dksalaries$Temp_Team2 <- str_split_fixed(str_split_fixed(temp.dksalaries$GameInfo, " ", 2)[,1], "@", 2)[,2]
   for (i in 1:nrow(temp.dksalaries)) {
-    if (temp.dksalaries$TeamAbbrev[i]==temp.dksalaries$Temp_Team1[i]) {
+    if (temp.dksalaries$teamAbbrev[i]==temp.dksalaries$Temp_Team1[i]) {
       temp.dksalaries$Opponent[i] <- temp.dksalaries$Temp_Team2[i]
     } else {
       temp.dksalaries$Opponent[i] <- temp.dksalaries$Temp_Team1[i]
@@ -44,7 +44,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   
   # change team names to uppercase to normalize with other naming conventions
   temp.dksalaries$GameInfo <- toupper(temp.dksalaries$GameInfo)
-  temp.dksalaries$TeamAbbrev <- toupper(temp.dksalaries$TeamAbbrev)
+  temp.dksalaries$teamAbbrev <- toupper(temp.dksalaries$teamAbbrev)
   temp.dksalaries$Opponent <- toupper(temp.dksalaries$Opponent)
   
   # split into offense and defense
@@ -67,7 +67,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.rotogrinders.offense$player <- cleanPlayerNames(temp.rotogrinders.offense$player)
     temp.dksalaries.offense$Projection <- temp.rotogrinders.offense$fpts[match(paste0(temp.dksalaries.offense$Name, temp.dksalaries.offense$Position), paste0(temp.rotogrinders.offense$player, temp.rotogrinders.offense$pos))]
   } else {
-    temp.dksalaries.hitters$Projection <- NA
+    temp.dksalaries.offense$Projection <- NA
     warning(paste0("Rotogrinders projections not found. ", contest.date))
   }
   
@@ -80,7 +80,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     temp.dfn.offense$Player.Name <- cleanPlayerNames(temp.dfn.offense$Player.Name)
     temp.dksalaries.offense$Projection_dfn <- temp.dfn.offense$Proj.FP[match(paste0(temp.dksalaries.offense$Name, temp.dksalaries.offense$Position), paste0(temp.dfn.offense$Player.Name, temp.dfn.offense$Pos))]
   } else {
-    temp.dksalaries.hitters$Projection_dfn <- NA
+    temp.dksalaries.offense$Projection_dfn <- NA
     warning(paste0("DFN projections not found. ", contest.date))
   }
 
@@ -139,19 +139,31 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   }
 
   # Hitters and Pitchers (fantasy cruncher)
-  # path.actual.fpts <- paste0("MLB/data_warehouse/", contest.date,"/player_results.csv")
+  # path.actual.fpts <- paste0("NFL/data_warehouse/", contest.date,"/player_results.csv")
   # if (file.exists(path.actual.fpts)) {
   #   temp.actual.fpts <- read.csv(path.actual.fpts, stringsAsFactors = F, header = T)
   #   temp.actual.fpts$Player <- cleanPlayerNames(temp.actual.fpts$Player)
-  #   temp.dksalaries.hitters$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.hitters$Name, temp.actual.fpts$Player)]
-  #   temp.dksalaries.pitchers$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.pitchers$Name, temp.actual.fpts$Player)]
-  #   if (sum(is.na(temp.dksalaries.pitchers$Actual_fpts))==length(temp.dksalaries.pitchers$Actual_fpts)) {
+  #   temp.dksalaries.offense$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.offense$Name, temp.actual.fpts$Player)]
+  #   temp.dksalaries.defense$Actual_fpts <- temp.actual.fpts$Actual.Score[match(temp.dksalaries.defense$Name, temp.actual.fpts$Player)]
+  #   if (sum(is.na(temp.dksalaries.defense$Actual_fpts))==length(temp.dksalaries.defense$Actual_fpts)) {
   #     warning(paste0("All Actual_fpts elements are NA.", contest.date))
   #   }
   # } else {
-  #   temp.dksalaries.hitters$Actual_fpts <- NA
+  #   temp.dksalaries.offense$Actual_fpts <- NA
   #   warning(paste0("Fantasy Cruncher player_results.csv not found.", contest.date))
   # }
+  
+  ####### Additional columns to offense #######
+  # RankTargets
+  temp.dksalaries.offense$RankTargets <- NA
+  temp.dksalaries.offense$RollingTargetPctg <- NA
+  temp.dksalaries.offense$FreqInd <- NA
+  temp.dksalaries.offense$ValueWR <- NA
+  temp.dksalaries.offense$TierRank <- NA
+  
+  ####### Rename column #######
+  colnames(temp.dksalaries.offense)[which(colnames(temp.dksalaries.offense)=="teamAbbrev")] <- "Team"
+  colnames(temp.dksalaries.defense)[which(colnames(temp.dksalaries.defense)=="teamAbbrev")] <- "Team"
   
   # return
   julia.inputs <- list(temp.dksalaries.offense, temp.dksalaries.defense)
