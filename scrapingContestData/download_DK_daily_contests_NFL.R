@@ -194,17 +194,17 @@ download_DK_daily_contests_NFL <- function(contest_info, sunday_date) {
   df$mec <- as.numeric(df$mec)
   df <- df[df$mec > 10,]
   
-  vars_needed <- c('id','n', 'mec', "a", "sdstring")
+  vars_needed <- c('id','n', 'mec', "a", "sdstring", "m")
   df <- df[, vars_needed]
   df$Contest_Date <- sunday_date
-  names(df) <- c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Slate', 'Contest_Date')
+  names(df) <- c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Slate', 'Contest_Size', 'Contest_Date')
   df$Entry_Fee <- as.numeric(df$Entry_Fee)
   df$Entry_Fee <- sprintf("%.2f", as.numeric(df$Entry_Fee))
   df$Entry_Fee <- paste0('$',df$Entry_Fee)
   
   # slate
   df$Slate <- sub(":", "", df$Slate)
-  df <- df[,c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Contest_Date','Slate')]
+  df <- df[,c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Contest_Date','Slate','Contest_Size')]
   
   # replace characters that mess up file paths
   df$Contest_Name <- sub("&", "And", df$Contest_Name)
