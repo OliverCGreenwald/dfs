@@ -1,0 +1,9 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jon Lester",10200,"WAS@CHC 02:20PM ET",17.209,"CHC","WAS",20.58,15.3,20.115,NA,18.8
+"SP","Danny Duffy",9000,"SEA@KC 02:15PM ET",16.176,"KC","SEA",18.52,16.3,18.1795,NA,17.35
+"SP","Marcus Stroman",8300,"TOR@HOU 02:10PM ET",16.315,"TOR","HOU",17.14,14.3,16.3035,NA,15.2
+"SP","Mike Fiers",8200,"TOR@HOU 02:10PM ET",14.623,"HOU","TOR",NA,14.6,16.196,NA,12.1
+"SP","Jose Berrios",7300,"TEX@MIN 02:10PM ET",17.613,"MIN","TEX",13.53,13.4,17.73,NA,12.45
+"SP","Erick Fedde",5300,"WAS@CHC 02:20PM ET",-2.2,"WAS","CHC",10.02,11,9.518,NA,12
+"SP","Marco Gonzales",4800,"SEA@KC 02:15PM ET",-2.1,"SEA","KC",12.67,12.6,11.899,NA,4.2
+"SP","Nick Martinez",4000,"TEX@MIN 02:10PM ET",7.383,"TEX","MIN",11.24,7.7,12.061,NA,4.8
