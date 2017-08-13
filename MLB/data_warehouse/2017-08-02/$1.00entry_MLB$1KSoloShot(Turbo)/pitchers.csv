@@ -1,0 +1,11 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Dallas Keuchel",10500,"TB@HOU 08:10PM ET",21.531,"HOU","TB",21.33,18.3,23.5975,NA,3.85
+"SP","Jake Arrieta",10300,"ARI@CHC 08:05PM ET",14.271,"CHC","ARI",19.82,17.4,22.623,NA,26.15
+"SP","Zack Godley",9200,"ARI@CHC 08:05PM ET",18.73,"ARI","CHC",NA,16.4,15.991,NA,24.5
+"SP","Andrew Cashner",6400,"SEA@TEX 08:05PM ET",11.25,"TEX","SEA",12.74,8.5,13.916,NA,18.7
+"SP","Brent Suter",6200,"STL@MIL 08:10PM ET",9.104,"MIL","STL",17.06,12.9,15.748,NA,10
+"SP","Ariel Miranda",5900,"SEA@TEX 08:05PM ET",13.552,"SEA","TEX",12.52,11.2,14.488,NA,10.55
+"SP","Tyler Chatwood",5800,"NYM@COL 08:40PM ET",10.777,"COL","NYM",11.32,10.7,12.125,NA,-2.8
+"SP","Luke Weaver",4800,"STL@MIL 08:10PM ET",5.8,"STL","MIL",11.7,14.9,17.42,NA,26.05
+"SP","Austin Pruitt",4000,"TB@HOU 08:10PM ET",3.905,"TB","HOU",10.42,13.2,12.47,NA,20.65
+"SP","Chris Flexen",4000,"NYM@COL 08:40PM ET",-1.25,"NYM","COL",6.43,7.9,9.854,NA,-4.65
