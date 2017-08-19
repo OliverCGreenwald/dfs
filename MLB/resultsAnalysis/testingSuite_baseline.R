@@ -9,7 +9,7 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-lineup_name <- "formulation9" # "formulation7" # "*covar_arima_p3d1q2*" "*_no_covar*" "*lambda_0.0*" "*covar_chg75p_exp*"
+lineup_name <- "formulation8" # "formulation7" # "*covar_arima_p3d1q2*" "*_no_covar*" "*lambda_0.0*" "*covar_chg75p_exp*"
 ######### Code Begins #########
 #install.packages("data.table")
 library(data.table)
@@ -112,5 +112,5 @@ pnl.df$PnL <- as.numeric(as.character(pnl.df$PnL))
 # write.csv(pnl.df, file = paste0("MLB/resultsAnalysis/analyze_generated_lineups/", substr(form_name, 1, nchar(form_name)-4), "/daily_pnl.csv"), row.names = F)
 
 # save workspace variables
-# save(list = ls(all.names = TRUE), file = "MLB/resultsAnalysis/baseline_PNL.RData", envir = .GlobalEnv)
-# load("MLB/resultsAnalysis/baseline_PNL.RData")
+# save(list = ls(all.names = TRUE), file = "MLB/resultsAnalysis/baseline_PNL_form8_2017-08-01.RData", envir = .GlobalEnv)
+# load("MLB/resultsAnalysis/baseline_PNL_form8_2017-08-01.RData")
