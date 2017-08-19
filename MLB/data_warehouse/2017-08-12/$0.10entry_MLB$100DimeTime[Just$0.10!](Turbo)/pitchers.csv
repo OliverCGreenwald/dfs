@@ -1,0 +1,5 @@
+"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Projection_baseballmonster","Projection_rotowire","Actual_fpts"
+"SP","Jon Lester",9600,"CHC@ARI 08:10PM ET",17.275,"CHC","ARI",21.66,17.3,16.605,NA,20.7
+"SP","Patrick Corbin",8100,"CHC@ARI 08:10PM ET",12.548,"ARI","CHC",15.86,13.1,13.306,NA,31.4
+"SP","Mike Fiers",7800,"HOU@TEX 08:05PM ET",14.513,"HOU","TEX",NA,12.8,14.05,NA,-5
+"SP","Tyson Ross",5300,"HOU@TEX 08:05PM ET",6.907,"TEX","HOU",10.45,9.4,10.769,NA,8.15
