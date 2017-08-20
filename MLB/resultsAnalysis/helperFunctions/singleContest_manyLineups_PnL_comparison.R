@@ -38,44 +38,48 @@ singleContest_manyLineups_PnL_comparison <- function(contest_info_row_number, re
   names(results) <- c('Name', 'PnL', 'Lineups', 'Lineups_Projections', 'Lineups_positions')
   results$Name <- file_names
   
-  for (counter in 1:length(file_names)) {
-    if (counter %% 10 == 0) {
-      print(paste0("Working on Lineup ", counter, " of ", length(file_names)))
-    }
-    
-    lineup <- lineups[[counter]]
-    
-    output <- compute_lineup_fpts(player_performance, payout_structure, lineup, contest_info$Entry_Fee[contest_info_row_number], 
-                                  contest_standings)
-    PnL <- output[[2]]
-    results$PnL[counter] <- PnL
-    
-    results$Lineups[counter] <- list(output[[1]])
-    #print(paste0("PnL: ", PnL, "| Counter = ", counter, " | Lineup: ", temp[counter]))
-    
-    #Build Lineups Projections
-    projection_lineup <- output[[1]]
-    for(row in 1:10) {
-      if(row <= 2) {
-        projection_lineup[,row] <- paste0(pitchers_input$Projection_dfn[match(projection_lineup[,row],pitchers_input$Name)], " / ", pitchers_input$Actual_fpts[match(projection_lineup[,row],pitchers_input$Name)])
-      } else {
-        projection_lineup[,row] <- paste0(hitters_input$Projection_dfn[match(projection_lineup[,row],hitters_input$Name)], " / ", hitters_input$Actual_fpts[match(projection_lineup[,row],hitters_input$Name)])
+  if (length(file_names) != 0) {
+    for (counter in 1:length(file_names)) {
+      if (counter %% 10 == 0) {
+        print(paste0("Working on Lineup ", counter, " of ", length(file_names)))
       }
-    }
-    # projection_lineup$projected_total <- rowSums(projection_lineup[,c(1:10)])
-    results$Lineups_Projections[counter] <- list(projection_lineup)
-    
-    
-    #Build Lineups Position
-    position_lineup <- output[[1]]
-    for(row in 1:10) {
-      if(row <= 2) {
-        position_lineup[,row] <- paste0(pitchers_input$teamAbbrev[match(position_lineup[,row],pitchers_input$Name)])
-      } else {
-        position_lineup[,row] <- paste0(hitters_input$teamAbbrev[match(position_lineup[,row],hitters_input$Name)], "_", hitters_input$Batting_Order_Confirmed[match(position_lineup[,row],hitters_input$Name)])
+      
+      lineup <- lineups[[counter]]
+      
+      output <- compute_lineup_fpts(player_performance, payout_structure, lineup, contest_info$Entry_Fee[contest_info_row_number], 
+                                    contest_standings)
+      PnL <- output[[2]]
+      results$PnL[counter] <- PnL
+      
+      results$Lineups[counter] <- list(output[[1]])
+      #print(paste0("PnL: ", PnL, "| Counter = ", counter, " | Lineup: ", temp[counter]))
+      
+      #Build Lineups Projections
+      projection_lineup <- output[[1]]
+      for(row in 1:10) {
+        if(row <= 2) {
+          projection_lineup[,row] <- paste0(pitchers_input$Projection_dfn[match(projection_lineup[,row],pitchers_input$Name)], " / ", pitchers_input$Actual_fpts[match(projection_lineup[,row],pitchers_input$Name)])
+        } else {
+          projection_lineup[,row] <- paste0(hitters_input$Projection_dfn[match(projection_lineup[,row],hitters_input$Name)], " / ", hitters_input$Actual_fpts[match(projection_lineup[,row],hitters_input$Name)])
+        }
       }
-    }
-    results$Lineups_positions[counter] <- list(position_lineup)
+      # projection_lineup$projected_total <- rowSums(projection_lineup[,c(1:10)])
+      results$Lineups_Projections[counter] <- list(projection_lineup)
+      
+      
+      #Build Lineups Position
+      position_lineup <- output[[1]]
+      for(row in 1:10) {
+        if(row <= 2) {
+          position_lineup[,row] <- paste0(pitchers_input$teamAbbrev[match(position_lineup[,row],pitchers_input$Name)])
+        } else {
+          position_lineup[,row] <- paste0(hitters_input$teamAbbrev[match(position_lineup[,row],hitters_input$Name)], "_", hitters_input$Batting_Order_Confirmed[match(position_lineup[,row],hitters_input$Name)])
+        }
+      }
+      results$Lineups_positions[counter] <- list(position_lineup)
+    } 
+  } else {
+    results <- NULL
   }
   
   return(results)

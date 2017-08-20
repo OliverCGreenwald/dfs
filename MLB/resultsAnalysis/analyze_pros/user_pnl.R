@@ -14,7 +14,7 @@ source("MLB/functions_global/parseContestStandings.R")
 source("MLB/functions_global/cleanPlayerNames.R")
 
 ###### Function Inputs
-user_name <- "youdacao"
+user_name <- "fallfromgrace"
 # fallfromgrace, youdacao, ChipotleAddict, SaahilSud, ehafner, petteytheft89, moklovin, papagates, Awesemo, scout326
 # DraftCheat, ThatStunna (don't max enter)
 

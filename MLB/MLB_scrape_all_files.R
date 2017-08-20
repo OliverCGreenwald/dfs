@@ -30,7 +30,7 @@ contest_info <- download_DK_daily_contests_MLB(contest_info)
 # remove arcade mode contests
 inds_arcade <- NULL
 for (i in which(contest_info$Contest_Date==Sys.Date())) {
-  if (grepl("arcade", contest_info$Contest_Name[i], ignore.case = T)) {
+  if (grepl("arcade", contest_info$Contest_Name[i], ignore.case = T) | grepl("pick'em", contest_info$Contest_Name[i], ignore.case = T)) {
     inds_arcade <- c(inds_arcade, i)
   }
 }
