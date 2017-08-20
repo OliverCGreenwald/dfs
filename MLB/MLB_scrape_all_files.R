@@ -27,7 +27,7 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 # Scrape DK Site for todays contests 
 contest_info <- download_DK_daily_contests_MLB(contest_info)
 
-# remove arcade mode contests
+# remove arcade mode and pick'em contests
 inds_arcade <- NULL
 for (i in which(contest_info$Contest_Date==Sys.Date())) {
   if (grepl("arcade", contest_info$Contest_Name[i], ignore.case = T) | grepl("pick'em", contest_info$Contest_Name[i], ignore.case = T)) {

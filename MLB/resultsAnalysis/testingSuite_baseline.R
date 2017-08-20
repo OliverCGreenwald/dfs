@@ -9,7 +9,7 @@
 #########   Variables   #########
 
 # the Row number that corresponds to the desired contest in 'contest_info' 
-lineup_name <- "*min_pitcher_exposure*"
+lineup_name <- "formulations.formulation8_covar_stacksize_5_overlap_5_lineups_150_lambda_0.005_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_min_pitcher_exposure0.6_covariance_mat_update*"
 ######### Code Begins #########
 #install.packages("data.table")
 library(data.table)
@@ -89,7 +89,7 @@ ggplot(data=plotdata,
 
 # view a particular formulation
 # form_name <- "formulations.formulation9_covar_stacksize_5_overlap_5_lineups_150_lambda_0.001_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv"
-form_name <- "formulations.formulation8_covar_stacksize_5_overlap_5_lineups_150_lambda_0.008_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_min_pitcher_exposure0.6_covar_chg75p_exp(spike).csv"
+form_name <- "formulations.formulation8_covar_stacksize_5_overlap_5_lineups_150_lambda_0.005_exposure_P0.8_exposure_B10.5_exposure_B20.4_exposure_B30.6_exposure_C0.5_exposure_SS0.5_exposure_OF0.6_min_pitcher_exposure0.6_covar_chg75p_exp(spike).csv"
 # form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.0_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_no_covar.csv"
 # form_name <- "formulations.formulation5_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_P0.8_exposure_B10.3_exposure_B20.4_exposure_B30.6_exposure_C0.3_exposure_SS0.5_exposure_OF0.6_covar_chg75p_exp(spike).csv"
 # form_name <- "formulations.formulation3_covar_stacksize_5_overlap_5_lineups_150_lambda_0.002_exposure_0.6_covar_chg75p_exp(spike)"
@@ -112,8 +112,9 @@ pnl.df$PnL <- as.numeric(as.character(pnl.df$PnL))
 
 # aggregated_PnL
 for (i in 1:nrow(aggregated_PnL)) {
-  
-  aggregated_PnL$Adj_PnL[i]
+  temp <- PnL$PnL[which(PnL$Name==aggregated_PnL$Group.1[i])]
+  temp[temp > 60000] <- 60000
+  aggregated_PnL$Adj_PnL[i] <- sum(temp)
   aggregated_PnL$Num_25k[i] <- sum(PnL$PnL[which(PnL$Name==aggregated_PnL$Group.1[i])] > 25000)
   aggregated_PnL$Max_Win[i] <- max(PnL$PnL[which(PnL$Name==aggregated_PnL$Group.1[i])])
 }
