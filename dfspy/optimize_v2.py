@@ -12,9 +12,8 @@ MIN_PARTICIPATING_MATCHUPS = 2
 class OptimizationProblem(object):
     """Optimization problem definition"""
 
-    def __init__(self, db, roster_set=None):
+    def __init__(self, db, roster_set=None, constraint_fns=None):
         super(OptimizationProblem, self).__init__()
-
         if roster_set is None:
             roster_set = RosterSet()
         self.roster_set = roster_set
@@ -31,6 +30,23 @@ class OptimizationProblem(object):
             for team in db.teams()}
         self.matchup_vars = {matchup: pulp.LpVariable(name="matchup-%s" % '-'.join(matchup), 
             cat='Binary') for matchup in db.matchups()}
+
+        # List of constraints to be called during refresh.
+        if constraint_fns == None:
+            constraint_fns = {}
+        self.constraint_fns = constraint_fns
+
+
+    def __str__(self):
+        return str(self.prob)
+
+
+    def _refresh(self):
+        """Refresh variables and constraints in problem."""
+        self.__init__(self.db, self.roster_set, self.constraint_fns)
+        self.add_objective()
+        for fns in self.constraint_fns.keys():
+            fns(*self.constraint_fns[fns])
 
 
     def _solve(self):
@@ -52,6 +68,9 @@ class OptimizationProblem(object):
 
     def add_feasibility_constraint(self, num_players=9, salary_cap=50000):
         """Basic contraints for valid lineups."""
+        # Add function to be called on refresh.
+        self.constraint_fns[self.add_feasibility_constraint] = [num_players, salary_cap]
+
         self.prob += (sum(self.player_vars.values()) == num_players,
             "%s players required" % num_players)
 
@@ -79,10 +98,14 @@ class OptimizationProblem(object):
 
     def add_overlap_constraint(self, overlap_ceiling=4):
         """Overlap contraint prevents similar rosters."""
+        # Add function to be called on refresh.
+        self.constraint_fns[self.add_overlap_constraint] = [overlap_ceiling]
+
         for i, roster in enumerate(self.roster_set.rosters):
             overlap = 0.0
             for pid in roster.pids:
-                overlap += player_vars[pid]
+                overlap += self.player_vars[pid]
+            print "dsf"
             self.prob += (overlap <= overlap_ceiling,
                 "Roster %d overlap must not exceed %s" % (i, overlap_ceiling))
 
@@ -92,6 +115,8 @@ class OptimizationProblem(object):
         self.roster_set = RosterSet()
         for _ in range(roster_set_size):
             self.roster_set.add(self._solve())
+            self._refresh()
+
 
 
 
@@ -103,7 +128,8 @@ if __name__ == '__main__':
     op.add_objective()
     op.add_feasibility_constraint()
     op.add_overlap_constraint()
-    op.solve(1)
+
+    op.solve(3)
     print op.roster_set.to_string(db)
 
 
