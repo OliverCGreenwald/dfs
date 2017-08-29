@@ -155,8 +155,8 @@ if __name__ == '__main__':
     op.add_overlap_constraint()
     #op.add_qb_wr_constraint()
 
-    #op.solve(150, solver = pulp.GUROBI(msg=False))
-    op.solve(2)
+    op.solve(1, solver = pulp.GUROBI(msg=False))
+    #op.solve(2)
     print op.roster_set.print_dk_format(db)
 
 

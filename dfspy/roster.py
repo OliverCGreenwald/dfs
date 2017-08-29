@@ -1,5 +1,5 @@
 from database import *
-
+from position import Positions
 
 class Roster(object):
     """Holds a single roster."""
@@ -25,10 +25,20 @@ class Roster(object):
 
     def print_dk_format(self, db):
         strings = []
-        for pid in sorted(self.pids, key = lambda pid: self.dk_player_order(db, pid)):
-            string = "%s (%s)" % (db.name(pid), 
+        flex = []
+        num_required = {'QB':1, 'RB': 2, 'WR':3, 'TE':1, 'DST':1}
+        for i, pid in enumerate(sorted(self.pids, key = lambda pid: self.dk_player_order(db, pid))):
+            num_required[db.position(pid)] -= 1
+            if num_required[db.position(pid)] < 0:
+                flex = "%s (%s)" % (db.name(pid), 
                 pid)
-            strings.append(string)
+            else:
+                string = "%s (%s)" % (db.name(pid), 
+                pid)
+                strings.append(string)
+
+            if i == 7:
+                strings.append(flex)
         return ', '.join(strings)
 
 class RosterSet(object):
