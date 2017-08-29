@@ -23,6 +23,10 @@ class Database(object):
         """All player ids for given position."""
         return set(self.df[self.df.Position == position].ID)
 
+    def pid_teams(self, team):
+        """All GIDs for given team."""
+        return set(self.df[self.df.Team == team].ID)
+
     def name(self, pid):
         return list(self.df[self.df.ID == pid].Name)[0]
 

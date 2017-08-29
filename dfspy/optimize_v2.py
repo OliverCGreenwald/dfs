@@ -42,7 +42,7 @@ class OptimizationProblem(object):
 
 
     def _refresh(self):
-        """Refresh variables and constraints in problem."""
+        """Refresh problem definition, variables and constraints."""
         self.__init__(self.db, self.roster_set, self.constraint_fns)
         self.add_objective()
         for fns in self.constraint_fns.keys():
@@ -72,7 +72,7 @@ class OptimizationProblem(object):
         self.constraint_fns[self.add_feasibility_constraint] = [num_players, salary_cap]
 
         self.prob += (sum(self.player_vars.values()) == num_players,
-            "%s players required" % num_players)
+            "%s players required" %num_players)
 
         for position in Positions.all():
             # Number of active players for position.
@@ -83,17 +83,17 @@ class OptimizationProblem(object):
             # Bounds on the active player per position.
             if Positions.is_flex(position):
                 self.prob += (active_in_position >= required_in_position,
-                    "%s requires at LEAST %s players" % (position, required_in_position))
+                    "%s requires at LEAST %s players" %(position, required_in_position))
                 self.prob += (active_in_position <= required_in_position+1,
-                    "%s requires at MOST %s players" % (position, required_in_position+1))
+                    "%s requires at MOST %s players" %(position, required_in_position+1))
             else:
                 self.prob += (active_in_position == required_in_position,
-                    "%s requires at MOST %s players" % (position, required_in_position))
+                    "%s requires at MOST %s players" %(position, required_in_position))
 
         # The total money spent on active players must be <= than salary cap.
-        self.prob += (sum(salary_cap >= self.player_vars[pid] * salary
+        self.prob += (salary_cap >= sum(self.player_vars[pid] * salary
             for pid, salary in zip(self.db.df.ID, self.db.df.Salary)),
-            "Must have salary below %s" % salary_cap)
+            "Must have salary below %s" %salary_cap)
 
 
     def add_overlap_constraint(self, overlap_ceiling=4):
@@ -105,15 +105,40 @@ class OptimizationProblem(object):
             overlap = 0.0
             for pid in roster.pids:
                 overlap += self.player_vars[pid]
-            print "dsf"
             self.prob += (overlap <= overlap_ceiling,
-                "Roster %d overlap must not exceed %s" % (i, overlap_ceiling))
+                "Roster %d overlap must not exceed %s" %(i, overlap_ceiling))
 
 
-    def solve(self, roster_set_size):
+    def add_qb_wr_constraint(self, qb_wr_clusters = 1, qb_wr_cluster_size = 2):
+        """QB WR same team contraint"""
+        # Add function to be called on refresh.
+        self.constraint_fns[self.add_qb_wr_constraint] = [qb_wr_clusters,
+            qb_wr_cluster_size]
+
+        # QB-WR clusters
+        qb_wr_variables = {team: pulp.LpVariable(name="qb-wr-count-%s" %team, cat='Binary')
+            for team in self.db.teams()}
+
+        for team in self.db.teams():
+            self.prob += (qb_wr_variables[team] * qb_wr_cluster_size <= sum(
+                self.player_vars[pid] for pid in self.db.pid_teams(team)
+                if self.db.position(pid) in {Positions.QB, Positions.WR}),
+                "Team %s QB WR Cluster * %s must be <= # Active QB & WR on team." %(team, qb_wr_cluster_size))
+
+        self.prob += (sum(qb_wr_variables.values()) >= qb_wr_clusters,
+            "Must have at least %s cluster of %s QB+WR on same team." 
+            %(qb_wr_clusters, qb_wr_cluster_size))
+
+
+    def solve(self, roster_set_size, verbose=True):
         """Iteratively solves problem to fill the roster set."""
         self.roster_set = RosterSet()
-        for _ in range(roster_set_size):
+        for i in range(roster_set_size):
+            # Print to std out current roster problem is solving.
+            if verbose:
+                print "Working on roster: %d" %(i+1)
+
+            # Get next optimal roster.
             self.roster_set.add(self._solve())
             self._refresh()
 
@@ -128,8 +153,9 @@ if __name__ == '__main__':
     op.add_objective()
     op.add_feasibility_constraint()
     op.add_overlap_constraint()
+    #op.add_qb_wr_constraint()
 
-    op.solve(3)
+    op.solve(1)
     print op.roster_set.to_string(db)
 
 
