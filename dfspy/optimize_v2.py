@@ -49,9 +49,9 @@ class OptimizationProblem(object):
             fns(*self.constraint_fns[fns])
 
 
-    def _solve(self):
+    def _solve(self, solver):
         """Solves the problem once with current roster set."""
-        self.prob.solve()
+        self.prob.solve(solver)
         if self.prob.status <= 0:
             raise Exception("Infeasible Solution.")
         return {pid for pid, variable 
@@ -130,7 +130,7 @@ class OptimizationProblem(object):
             %(qb_wr_clusters, qb_wr_cluster_size))
 
 
-    def solve(self, roster_set_size, verbose=True):
+    def solve(self, roster_set_size, solver = pulp.PULP_CBC_CMD(), verbose=True):
         """Iteratively solves problem to fill the roster set."""
         self.roster_set = RosterSet()
         for i in range(roster_set_size):
@@ -139,7 +139,7 @@ class OptimizationProblem(object):
                 print "Working on roster: %d" %(i+1)
 
             # Get next optimal roster.
-            self.roster_set.add(self._solve())
+            self.roster_set.add(self._solve(solver))
             self._refresh()
 
 
@@ -155,7 +155,8 @@ if __name__ == '__main__':
     op.add_overlap_constraint()
     #op.add_qb_wr_constraint()
 
-    op.solve(1)
-    print op.roster_set.to_string(db)
+    #op.solve(150, solver = pulp.GUROBI(msg=False))
+    op.solve(2)
+    print op.roster_set.print_dk_format(db)
 
 

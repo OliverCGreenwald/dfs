@@ -19,7 +19,17 @@ class Roster(object):
         strings.append(str(actual_roster_fp))
         return '|'.join(strings)
 
+    def dk_player_order(self, db, pid):
+        position_order = {'QB':1, 'RB': 2, 'WR':3, 'TE':4, 'DST':5}
+        return position_order[db.position(pid)]
 
+    def print_dk_format(self, db):
+        strings = []
+        for pid in sorted(self.pids, key = lambda pid: self.dk_player_order(db, pid)):
+            string = "%s (%s)" % (db.name(pid), 
+                pid)
+            strings.append(string)
+        return ', '.join(strings)
 
 class RosterSet(object):
     """Holds sequence of rosters."""
@@ -35,6 +45,12 @@ class RosterSet(object):
     def to_string(self, db):
         return '\n'.join([
           roster.to_string(db)
+          for roster in self.rosters
+        ])
+
+    def print_dk_format(self, db):
+        return '\n'.join([
+          roster.print_dk_format(db)
           for roster in self.rosters
         ])
 

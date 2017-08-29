@@ -11,6 +11,7 @@ class Database(object):
         """Return all teams."""
         return tuple(sorted(set(self.df.Team)))
 
+
     def pids(self):
         """Return all player ids."""
         return tuple(sorted(set(self.df.ID)))
