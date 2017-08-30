@@ -123,79 +123,7 @@ class OptimizationProblem(object):
                 "Roster %d overlap must not exceed %s" %(i, overlap_ceiling))
 
 
-    def add_qb_wr_constraint(self, num_stacks=1, num_wrs=1):
-        """QB WR same team contraint"""
-        # Add function to be called on refresh.
-        self.constraint_fns[self.add_qb_wr_constraint] = [num_stacks,
-            num_wrs]
-
-        # QB-WR stack.
-        qb_wr_variables = {team: pulp.LpVariable(name="qb-wr-count-%s" %team, cat='Binary')
-            for team in self.db.teams()}
-
-        for team in self.db.teams():
-            sum_qb_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(team)
-                if self.db.position(pid) in {Positions.QB})
-            sum_wr_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(team)
-                if self.db.position(pid) in {Positions.WR})
-            self.prob += (qb_wr_variables[team]*(9+num_wrs) <= 9*sum_qb_team + sum_wr_team,
-                "Team %s QB WR Stack * %s must be <= # Active 9*QB + WR on team." 
-                %(team, 9+num_wrs))
-
-        self.prob += (sum(qb_wr_variables.values()) >= num_stacks,
-            "Must have at least %s Stack of %s QB+WR on same team." 
-            %(num_stacks, num_wrs))
-
-
-    def add_qb_te_constraint(self, num_stacks=1, num_tes=1):
-        """QB TE same team constraint"""
-        # Add function to be called on refresh.
-        self.constraint_fns[self.add_qb_te_constraint] = [num_stacks,
-            num_tes]
-
-        # QB-TE stack.
-        qb_te_variables = {team: pulp.LpVariable(name="qb-te-count-%s" %team, cat='Binary')
-            for team in self.db.teams()}
-
-        for team in self.db.teams():
-            sum_qb_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(team)
-                if self.db.position(pid) in {Positions.QB})
-            sum_te_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(team)
-                if self.db.position(pid) in {Positions.TE})
-            self.prob += (qb_te_variables[team]*(9+num_tes) <= 9*sum_qb_team + sum_te_team,
-                "Team %s QB TE Stack * %s must be <= # Active 9*QB + TE on team." 
-                %(team, 9+num_tes))
-
-        self.prob += (sum(qb_te_variables.values()) >= num_stacks,
-            "Must have at least %s Stack of %s QB+TE on same team." 
-            %(num_stacks, num_tes))
-
-
-    def add_qb_rb_constraint(self, num_stacks=1, num_rbs=1):
-        """QB RB same team constraint"""
-        # Add function to be called on refresh.
-        self.constraint_fns[self.add_qb_rb_constraint] = [num_stacks,
-            num_rbs]
-
-        # QB-RB stack.
-        qb_rb_variables = {team: pulp.LpVariable(name="qb-rb-count-%s" %team, cat='Binary')
-            for team in self.db.teams()}
-
-        for team in self.db.teams():
-            sum_qb_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(team)
-                if self.db.position(pid) in {Positions.QB})
-            sum_rb_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(team)
-                if self.db.position(pid) in {Positions.RB})
-            self.prob += (qb_rb_variables[team]*(9+num_rbs) <= 9*sum_qb_team + sum_rb_team,
-                "Team %s QB RB Stack * %s must be <= # Active 9*QB + RB on team." 
-                %(team, 9+num_rbs))
-
-        self.prob += (sum(qb_rb_variables.values()) >= num_stacks,
-            "Must have at least %s Stack of %s QB+RB on same team." 
-            %(num_stacks, num_rbs))
-
-
-    def add_qb_stack_constraint(self, num_stacks=1, num_wrs=1, num_rbs=0, num_tes=0):
+    def add_qb_stack_constraint(self, num_stacks=1, num_wrs=0, num_rbs=0, num_tes=0):
         """QB and other positions same team constraint"""
         self.constraint_fns[self.add_qb_stack_constraint] = [num_stacks,
             num_wrs, num_rbs, num_tes]
@@ -205,7 +133,7 @@ class OptimizationProblem(object):
                    Positions.TE:num_tes}
         for pos in (Positions.WR, Positions.RB, Positions.TE):
             if pos_map[pos] <= 0:
-                break
+                continue
             qb_stack_vars = {team: pulp.LpVariable(name="QB-%s-count-%s" %(pos,team), cat='Binary')
                 for team in self.db.teams()}
             for team in self.db.teams():
@@ -249,10 +177,7 @@ if __name__ == '__main__':
     op.add_objective()
     op.add_feasibility_constraint()
     op.add_overlap_constraint()
-    #op.add_qb_stack_constraint(num_wrs=3, num_rbs=2)
-
-    op.add_qb_wr_constraint(num_wrs=3)
-    op.add_qb_rb_constraint(num_rbs=1)
+    op.add_qb_stack_constraint(num_wrs=1, num_tes=0, num_rbs=0)
 
     op.solve(3)
     print op.roster_set.to_string(db)
