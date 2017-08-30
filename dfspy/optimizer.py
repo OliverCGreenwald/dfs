@@ -149,9 +149,23 @@ class OptimizationProblem(object):
                 %(num_stacks, pos_map[pos], pos))
 
 
-    def add_opp_dst_constraint(self, no_qb=True, no_wr=True, no_te=True, no_rb=True):
+    def add_opp_dst_constraint(self, no_qb=True, no_wr=True, no_rb=True, no_te=True):
         """Does not allow offensive positions to be with opponents defense."""
-        return
+        self.constraint_fns[self.add_opp_dst_constraint] = [no_qb, no_wr, no_rb, no_te]
+
+        arg_map = {Positions.QB:no_qb,
+                   Positions.WR:no_wr,
+                   Positions.RB:no_rb,
+                   Positions.TE:no_te}
+        opposition_positions = [pos for pos in arg_map.keys() if arg_map[pos]]
+
+        for team in self.db.teams():
+            sum_dst_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(team)
+                if self.db.position(pid) in {Positions.DEF})
+            sum_opp_team = sum(self.player_vars[pid] for pid in self.db.pid_teams(self.db.opponent(team))
+                if self.db.position(pid) in opposition_positions)
+            self.prob += (9*sum_dst_team + sum_opp_team <= 9,
+                "9*Team %s DEF + Active Opponents <= 9." %(team))
 
 
     def solve(self, roster_set_size, verbose=True):
@@ -178,8 +192,9 @@ if __name__ == '__main__':
     op.add_feasibility_constraint()
     op.add_overlap_constraint()
     op.add_qb_stack_constraint(num_wrs=1, num_tes=0, num_rbs=0)
+    # op.add_opp_dst_constraint()
 
-    op.solve(3)
+    op.solve(150)
     print op.roster_set.to_string(db)
 
 
