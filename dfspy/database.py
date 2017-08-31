@@ -11,7 +11,6 @@ class Database(object):
         """Return all teams."""
         return tuple(sorted(set(self.df.Team)))
 
-
     def pids(self):
         """Return all player ids."""
         return tuple(sorted(set(self.df.ID)))
@@ -19,6 +18,10 @@ class Database(object):
     def matchups(self):
         """Return all matchups."""
         return set(map(tuple, map(sorted, zip(self.df.Team, self.df.Opponent))))
+
+    def opponent(self, team):
+        """Return opponent given a team."""
+        return  list(self.df[self.df.Team == team].Opponent)[0]
 
     def pid_positions(self, position):
         """All player ids for given position."""
@@ -51,4 +54,5 @@ if __name__=='__main__':
 
     csv_name = 'data/2016-09-18.csv'
     db = Database(csv_path = csv_name)
-    print db.pid_positions('WR')
+    print db.opponent('DEN')
+
