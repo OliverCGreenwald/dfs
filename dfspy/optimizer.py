@@ -125,6 +125,7 @@ class OptimizationProblem(object):
 
     def add_qb_stack_constraint(self, num_stacks=1, num_wrs=0, num_rbs=0, num_tes=0):
         """QB and other positions same team constraint"""
+        # Add function to be called on refresh.
         self.constraint_fns[self.add_qb_stack_constraint] = [num_stacks,
             num_wrs, num_rbs, num_tes]
 
@@ -151,6 +152,7 @@ class OptimizationProblem(object):
 
     def add_opp_dst_constraint(self, no_qb=True, no_wr=True, no_rb=True, no_te=True):
         """Does not allow offensive positions to be with opponents defense."""
+        # Add function to be called on refresh.
         self.constraint_fns[self.add_opp_dst_constraint] = [no_qb, no_wr, no_rb, no_te]
 
         arg_map = {Positions.QB:no_qb,
@@ -166,6 +168,33 @@ class OptimizationProblem(object):
                 if self.db.position(pid) in opposition_positions)
             self.prob += (9*sum_dst_team + sum_opp_team <= 9,
                 "9*Team %s DEF + Active Opponents <= 9." %(team))
+
+
+    def add_exposure_constraint(self, qb_exp=0.5, wr_exp=0.25, 
+                                rb_exp=0.75, te_exp=0.75, def_exp=0.25,
+                                num_rosters_ceiling=150):
+        """Exposure constraint, for each different position set an exposure
+           such that no player of that position can be in more than that 
+           percentage of the lineups.."""
+
+        self.constraint_fns[self.add_exposure_constraint] = [qb_exp, wr_exp, 
+            rb_exp, te_exp, def_exp]
+
+        arg_map = {Positions.QB:qb_exp,
+                   Positions.WR:wr_exp,
+                   Positions.RB:rb_exp,
+                   Positions.TE:te_exp,
+                   Positions.DEF:def_exp}
+        for pos in Positions.all():
+            for pid in self.db.pid_positions(pos):
+                num_active = 0.0
+                for roster in self.roster_set.rosters:
+                    if pid in roster.pids:
+                        num_active += 1.0
+                self.prob += (num_active + self.player_vars[pid] <= 
+                    num_rosters_ceiling*arg_map[pos],
+                    "Player %s exposure <= Number of rosters * %s" 
+                    %(pid, arg_map[pos]))
 
 
     def solve(self, roster_set_size, verbose=True):
@@ -192,7 +221,9 @@ if __name__ == '__main__':
     op.add_feasibility_constraint()
     op.add_overlap_constraint()
     op.add_qb_stack_constraint(num_wrs=1, num_tes=0, num_rbs=0)
-    # op.add_opp_dst_constraint()
+    op.add_opp_dst_constraint(no_qb=True, no_wr=True, 
+                              no_rb=True, no_te=True)
+    op.add_exposure_constraint()
 
     op.solve(150)
     print op.roster_set.to_string(db)
