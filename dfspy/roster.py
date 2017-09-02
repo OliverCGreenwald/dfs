@@ -9,14 +9,19 @@ class Roster(object):
         self.pids = pids
 
     def to_string(self, db):
-        strings = ["Roster:"]
+        strings = []
+        projected_roster_fp = 0
         actual_roster_fp = 0
         for pid in self.pids:
             string = "%s %s %s" % (db.position(pid), 
                 db.team(pid), db.name(pid))
             strings.append(string)
+            projected_roster_fp += db.projection(pid)
             actual_roster_fp += db.actual(pid)
-        strings.append(str(actual_roster_fp))
+
+        # Add the projected and actual points of roster.
+        strings.insert(0, "Proj %s" %(projected_roster_fp))
+        strings.insert(0, "Actual %s" %(actual_roster_fp))
         return '|'.join(strings)
 
     def dk_player_order(self, db, pid):
@@ -27,19 +32,18 @@ class Roster(object):
         strings = []
         flex = []
         num_required = {'QB':1, 'RB': 2, 'WR':3, 'TE':1, 'DST':1}
-        for i, pid in enumerate(sorted(self.pids, key = lambda pid: self.dk_player_order(db, pid))):
+        for i, pid in enumerate(sorted(self.pids, key=lambda pid: self.dk_player_order(db, pid))):
             num_required[db.position(pid)] -= 1
             if num_required[db.position(pid)] < 0:
-                flex = "%s (%s)" % (db.name(pid), 
-                pid)
+                flex = "%s (%s)" % (db.name(pid), pid)
             else:
-                string = "%s (%s)" % (db.name(pid), 
-                pid)
+                string = "%s (%s)" % (db.name(pid), pid)
                 strings.append(string)
-
             if i == 7:
                 strings.append(flex)
         return ', '.join(strings)
+
+
 
 class RosterSet(object):
     """Holds sequence of rosters."""
@@ -75,7 +79,6 @@ if __name__=='__main__':
     roster2 = Roster([7395553,7395608])
 
     roster_set = RosterSet([roster1, roster2])
-
 
     print roster_set.to_string(db)
 

@@ -1,7 +1,9 @@
 from position import Positions
 from database import Database
 from roster import *
+import cPickle as pickle
 import pulp
+
 
 
 
@@ -34,7 +36,9 @@ class OptimizationProblem(object):
 
 
     def __str__(self):
-        return str(self.prob)
+        summary = "\n".join(str(fns)+","+str(args) 
+            for fns, args in self.constraint_fns.iteritems())
+        return summary
 
 
     def _refresh(self):
@@ -67,7 +71,8 @@ class OptimizationProblem(object):
                                    min_participating_matchups=2):
         """Basic contraints for valid lineups."""
         # Add function to be called on refresh.
-        self.constraint_fns[self.add_feasibility_constraint] = [num_players, salary_cap]
+        self.constraint_fns[self.add_feasibility_constraint] = [num_players, salary_cap,
+            min_participating_teams, min_participating_matchups]
 
         self.prob += (sum(self.player_vars.values()) == num_players,
             "%s players required" %num_players)
@@ -176,9 +181,9 @@ class OptimizationProblem(object):
         """Exposure constraint, for each different position set an exposure
            such that no player of that position can be in more than that 
            percentage of the lineups.."""
-
+        # Add function to be called on refresh.
         self.constraint_fns[self.add_exposure_constraint] = [qb_exp, wr_exp, 
-            rb_exp, te_exp, def_exp]
+            rb_exp, te_exp, def_exp, num_rosters_ceiling]
 
         arg_map = {Positions.QB:qb_exp,
                    Positions.WR:wr_exp,
@@ -213,7 +218,7 @@ class OptimizationProblem(object):
 
 
 if __name__ == '__main__':
-    csv_name = 'data/2016-09-18.csv'
+    csv_name = '_data/2016-3/records.csv'
     db = Database(csv_path = csv_name)
 
     op = OptimizationProblem(db)
@@ -223,9 +228,11 @@ if __name__ == '__main__':
     op.add_qb_stack_constraint(num_wrs=1, num_tes=0, num_rbs=0)
     op.add_opp_dst_constraint(no_qb=True, no_wr=True, 
                               no_rb=True, no_te=True)
-    op.add_exposure_constraint()
-
-    op.solve(150)
+    #op.add_exposure_constraint()
+    op.solve(3)
     print op.roster_set.to_string(db)
+
+    with open('_experiments/test.pickle', 'wb') as output:
+        pickle.dump(op.roster_set, output, protocol=pickle.HIGHEST_PROTOCOL)
 
 
