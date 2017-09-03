@@ -21,7 +21,6 @@ using Gurobi
 using JuMP
 
 # Running
-# exec '/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin/julia'
 # exec '/Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia'
 # include("generator.jl")
 
@@ -84,7 +83,7 @@ formulation is the type of formulation that you would like to use.
         - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
         - 17 <- one_lineup_Type_17 (form 14 + 2700 <= DST Salary <= 3100)
 =#
-formulation_type = 14
+formulation_type = 17
 
 
 ############################  Setting Projections Source  ############################

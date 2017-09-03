@@ -13,11 +13,11 @@ if(file.exists("~/Projects/DFS/")) {
 convertTeamNames <- function(team_vec, from_source, to_source) {
   
   if (from_source=="DK" & to_source=="RG") {
-    from_team_names <- c("SEA", "KC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NE", "ATL", "GB", "IND", "NYG", "BAL", "TEN", "TB", "CHI", "DAL", "DET", "SD", "OAK", "JAX", "CLE", "NO", "MIA", "SF", "CAR", "DEN", "PIT", "LA", "WAS")
-    to_team_names <- c("SEA", "KCC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NEP", "ATL", "GBP", "IND", "NYG", "BAL", "TEN", "TBB", "CHI", "DAL", "DET", "SDC", "OAK", "JAC", "CLE", "NOS", "MIA", "SFO", "CAR", "DEN", "PIT", "LAR", "WAS")
+    from_team_names <- c("SEA", "KC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NE", "ATL", "GB", "IND", "NYG", "BAL", "TEN", "TB", "CHI", "DAL", "DET", "LAC", "OAK", "JAX", "CLE", "NO", "MIA", "SF", "CAR", "DEN", "PIT", "LAR", "WAS")
+    to_team_names <- c("SEA", "KCC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NEP", "ATL", "GBP", "IND", "NYG", "BAL", "TEN", "TBB", "CHI", "DAL", "DET", "LAC", "OAK", "JAC", "CLE", "NOS", "MIA", "SFO", "CAR", "DEN", "PIT", "LAR", "WAS")
   } else if (from_source=="RG" & to_source=="DK") {
-    from_team_names <- c("SEA", "KCC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NEP", "ATL", "GBP", "IND", "NYG", "BAL", "TEN", "TBB", "CHI", "DAL", "DET", "SDC", "OAK", "JAC", "CLE", "NOS", "MIA", "SFO", "CAR", "DEN", "PIT", "LAR", "WAS")
-    to_team_names <-c("SEA", "KC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NE", "ATL", "GB", "IND", "NYG", "BAL", "TEN", "TB", "CHI", "DAL", "DET", "SD", "OAK", "JAX", "CLE", "NO", "MIA", "SF", "CAR", "DEN", "PIT", "LA", "WAS")
+    from_team_names <- c("SEA", "KCC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NEP", "ATL", "GBP", "IND", "NYG", "BAL", "TEN", "TBB", "CHI", "DAL", "DET", "LAC", "OAK", "JAC", "CLE", "NOS", "MIA", "SFO", "CAR", "DEN", "PIT", "LAR", "WAS")
+    to_team_names <-c("SEA", "KC", "ARI", "NYJ", "PHI", "HOU", "MIN", "CIN", "BUF", "NE", "ATL", "GB", "IND", "NYG", "BAL", "TEN", "TB", "CHI", "DAL", "DET", "LAC", "OAK", "JAX", "CLE", "NO", "MIA", "SF", "CAR", "DEN", "PIT", "LAR", "WAS")
   } else {
     stop("From and To Team Name Sources Not Found.")
   }
