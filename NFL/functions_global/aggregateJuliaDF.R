@@ -34,7 +34,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   temp.dksalaries$Temp_Team1 <- str_split_fixed(str_split_fixed(temp.dksalaries$GameInfo, " ", 2)[,1], "@", 2)[,1]
   temp.dksalaries$Temp_Team2 <- str_split_fixed(str_split_fixed(temp.dksalaries$GameInfo, " ", 2)[,1], "@", 2)[,2]
   for (i in 1:nrow(temp.dksalaries)) {
-    if (temp.dksalaries$teamAbbrev[i]==temp.dksalaries$Temp_Team1[i]) {
+    if (temp.dksalaries$TeamAbbrev[i]==temp.dksalaries$Temp_Team1[i]) {
       temp.dksalaries$Opponent[i] <- temp.dksalaries$Temp_Team2[i]
     } else {
       temp.dksalaries$Opponent[i] <- temp.dksalaries$Temp_Team1[i]
@@ -45,7 +45,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   
   # change team names to uppercase to normalize with other naming conventions
   temp.dksalaries$GameInfo <- toupper(temp.dksalaries$GameInfo)
-  temp.dksalaries$teamAbbrev <- toupper(temp.dksalaries$teamAbbrev)
+  temp.dksalaries$TeamAbbrev <- toupper(temp.dksalaries$TeamAbbrev)
   temp.dksalaries$Opponent <- toupper(temp.dksalaries$Opponent)
   
   # split into offense and defense
@@ -99,7 +99,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
     }
     temp.rotogrinders.defense$player <- cleanPlayerNames(temp.rotogrinders.defense$player)
     temp.rotogrinders.defense$team <- convertTeamNames(team_vec = temp.rotogrinders.defense$team, from_source = "RG", to_source = "DK")
-    temp.dksalaries.defense$Projection <- temp.rotogrinders.defense$fpts[match(temp.dksalaries.defense$teamAbbrev, temp.rotogrinders.defense$team)]
+    temp.dksalaries.defense$Projection <- temp.rotogrinders.defense$fpts[match(temp.dksalaries.defense$TeamAbbrev, temp.rotogrinders.defense$team)]
   } else {
     temp.dksalaries.defense$Projection <- NA
     warning(paste0("Rotogrinders projections not found. ", contest.date))
@@ -112,7 +112,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
       print(paste0("DFN (pitchers) headers incorrect. ", contest.date))
     }
     temp.dfn.defense$Player.Name <- cleanPlayerNames(temp.dfn.defense$Player.Name)
-    temp.dksalaries.defense$Projection_dfn <- temp.dfn.defense$Proj.FP[match(temp.dksalaries.defense$teamAbbrev, temp.dfn.defense$Team)]
+    temp.dksalaries.defense$Projection_dfn <- temp.dfn.defense$Proj.FP[match(temp.dksalaries.defense$TeamAbbrev, temp.dfn.defense$Team)]
   } else {
     temp.dksalaries.defense$Projection_dfn <- NA
     warning(paste0("DFN projections not found. ", contest.date))
@@ -134,7 +134,7 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   if (file.exists(path.dfn.defense.actual)) {
     temp.dfn.defense.actual <- read.csv(path.dfn.defense.actual, stringsAsFactors = F, header = T)
     temp.dfn.defense.actual$Player.Name <- cleanPlayerNames(temp.dfn.defense.actual$Player.Name)
-    temp.dksalaries.defense$Actual_fpts <- temp.dfn.defense.actual$Actual.FP[match(temp.dksalaries.defense$teamAbbrev, temp.dfn.defense.actual$Team)]
+    temp.dksalaries.defense$Actual_fpts <- temp.dfn.defense.actual$Actual.FP[match(temp.dksalaries.defense$TeamAbbrev, temp.dfn.defense.actual$Team)]
   } else {
     temp.dksalaries.defense$Actual_fpts <- NA
   }
@@ -165,9 +165,9 @@ aggregateJuliaDF <- function(contest.date, contest.name) {
   ####### ValueWR column #######
   temp.dksalaries.offense$ValueWR <- addValueWR(offense_data = temp.dksalaries.offense, max_salary = 5000)
   
-  ####### Rename teamAbbrev column #######
-  colnames(temp.dksalaries.offense)[which(colnames(temp.dksalaries.offense)=="teamAbbrev")] <- "Team"
-  colnames(temp.dksalaries.defense)[which(colnames(temp.dksalaries.defense)=="teamAbbrev")] <- "Team"
+  ####### Rename TeamAbbrev column #######
+  colnames(temp.dksalaries.offense)[which(colnames(temp.dksalaries.offense)=="TeamAbbrev")] <- "Team"
+  colnames(temp.dksalaries.defense)[which(colnames(temp.dksalaries.defense)=="TeamAbbrev")] <- "Team"
   
   # return
   julia.inputs <- list(temp.dksalaries.offense, temp.dksalaries.defense)
