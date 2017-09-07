@@ -39,11 +39,7 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
         projections.dat <- aggregateJuliaDF(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
         aggregated_data_offense[[i]] <- projections.dat[[1]]
         aggregated_data_defense[[i]] <- projections.dat[[2]]
-        
-        # temp
-        aggregated_data_offense[[i]]$Projection_dfn <- aggregated_data_offense[[i]]$AvgPointsPerGame
-        aggregated_data_defense[[i]]$Projection_dfn <- aggregated_data_defense[[i]]$AvgPointsPerGame
-        
+
         # set NAs to 0
         aggregated_data_offense[[i]][is.na(aggregated_data_offense[[i]])] <- 0
         aggregated_data_defense[[i]][is.na(aggregated_data_defense[[i]])] <- 0
