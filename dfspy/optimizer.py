@@ -48,16 +48,14 @@ class OptimizationProblem(object):
         for fns in self.constraint_fns.keys():
             fns(*self.constraint_fns[fns])
 
-
-    def _solve(self):
+    def _solve(self, solver):
         """Solves the problem once with current roster set."""
-        self.prob.solve()
+        self.prob.solve(solver)
         if self.prob.status <= 0:
             raise Exception("Infeasible Solution.")
         return {pid for pid, variable 
             in self.player_vars.iteritems()
             if variable.varValue}
-
 
     def add_objective(self):
         """Objective function."""
@@ -175,8 +173,8 @@ class OptimizationProblem(object):
                 "9*Team %s DEF + Active Opponents <= 9." %(team))
 
 
-    def add_exposure_constraint(self, qb_exp=0.5, wr_exp=0.25, 
-                                rb_exp=0.75, te_exp=0.75, def_exp=0.25,
+    def add_exposure_constraint(self, qb_exp=1.0, wr_exp=1.0, 
+                                rb_exp=1.0, te_exp=1.0, def_exp=1.0,
                                 num_rosters_ceiling=150):
         """Exposure constraint, for each different position set an exposure
            such that no player of that position can be in more than that 
@@ -202,7 +200,25 @@ class OptimizationProblem(object):
                     %(pid, arg_map[pos]))
 
 
-    def solve(self, roster_set_size, verbose=True):
+    def add_no_flex_constraint(self, no_wr=False, no_rb=False, no_te=False):
+        """Don't allow certain positions to be the flex."""
+        # Add function to be called on refresh.
+        self.constraint_fns[self.add_no_flex_constraint] = [no_wr, no_rb, no_te]
+        arg_map = {Positions.WR:no_wr,
+                   Positions.RB:no_rb,
+                   Positions.TE:no_te}
+        for pos in arg_map.keys():
+            if not arg_map[pos]:
+                continue
+            active_in_position = sum(self.player_vars[pid] for pid 
+                in self.db.pid_positions(pos))
+            required_in_position = Positions.num_required(pos)
+            self.prob += (active_in_position == required_in_position,
+                "Contrained flex %s requires at MOST %s players" %(pos, 
+                required_in_position))
+
+
+    def solve(self, roster_set_size, solver = pulp.PULP_CBC_CMD(), verbose=True):
         """Iteratively solves problem to fill the roster set."""
         self.roster_set = RosterSet()
         for i in range(roster_set_size):
@@ -211,9 +227,8 @@ class OptimizationProblem(object):
                 print "Working on roster: %d" %(i+1)
 
             # Get next optimal roster.
-            self.roster_set.add(self._solve())
+            self.roster_set.add(self._solve(solver))
             self._refresh()
-
 
 
 
@@ -228,8 +243,11 @@ if __name__ == '__main__':
     op.add_qb_stack_constraint(num_wrs=1, num_tes=0, num_rbs=0)
     op.add_opp_dst_constraint(no_qb=True, no_wr=True, 
                               no_rb=True, no_te=True)
-    #op.add_exposure_constraint()
-    op.solve(3)
+    
+    op.add_exposure_constraint()
+    op.solve(10, solver = pulp.GUROBI(msg=False))
+
+
     print op.roster_set.to_string(db)
 
     with open('_experiments/test.pickle', 'wb') as output:

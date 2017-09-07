@@ -146,7 +146,7 @@ class OptimizationProblem(object):
 
 
 if __name__ == '__main__':
-    csv_name = 'data/2016-09-18.csv'
+    csv_name = '_data/2016-2/records.csv'
     db = Database(csv_path = csv_name)
 
     op = OptimizationProblem(db)

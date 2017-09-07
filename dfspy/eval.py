@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cPickle as pickle
 
-
+# NOTES: week 12 has no player ids, week 14 has no defense actual fp's.
 
 
 class Evaluation(object):
@@ -44,7 +44,6 @@ class Evaluation(object):
         self.roster_payouts = {}
 
 
-
     def money_earned(self):
         """Payout for current roster set."""
         return 
@@ -61,30 +60,38 @@ class Evaluation(object):
 
 
     def plot_standings(self):
+        """Plot the roster sets standings distrbution."""
         bins = list(self.payout.Place_lo)
         plt.xscale('log')
         plt.hist(self.roster_standings.values(),bins=bins) 
         plt.show()
 
 
+    def plot_actual_fp(self, bin_width=5):
+        """Plot the distribution of realized fantasy points."""
+        bins = range(int(min(self.actual_fp.values())), 
+                     int(max(self.actual_fp.values()))+bin_width, bin_width)
+        plt.hist(self.actual_fp.values())
+        plt.show()
+
+
 if __name__ == '__main__':
-    csv_name = '_data/2016-3/records.csv'
+
+    week = 3
+
+    csv_name = '_data/2016-%s/records.csv' %week
     db = Database(csv_path = csv_name)
 
-    with open('_experiments/formulation_1/2016-3.pickle', 'rb') as input:
+    with open('_experiments/formulation_4/2016-%s.pickle' %week, 'rb') as input:
         roster_set = pickle.load(input)
 
-    standings_path = '_data/2016-3/contest_standings.csv'
-    payout_path = '_data/2016-3/payout_structure.csv'
+    standings_path = '_data/2016-%s/contest_standings.csv' %week
+    payout_path = '_data/2016-%s/payout_structure.csv' %week
 
     ev = Evaluation(db=db,
                     payout_path=payout_path,
                     standings_path=standings_path,
                     roster_set=roster_set)
-    print ev.roster_standings
-    print ev.average_standing()
+    print roster_set.print_dk_format(db)
     ev.plot_standings()
-
-
-
-
+    ev.plot_actual_fp()
