@@ -11,10 +11,10 @@ library('stringr')
 
 
 ####### SET PARAMETER VALUES #########
-week.lo <- 7
+week.lo <- 2
 week.hi <- 16
 
-contest.entry.fee <- "$3"
+contest.entry.fee <- "$20"
 wk.4 <- c(10,16) # weeks where $3 contest was $4
 wk.27 <- c(11:15, 18:19) # weeks where $20 contest was $27
 wk.50 <- c(16) # weeks where $20 contest was $50
@@ -139,7 +139,7 @@ for (week.num in week.lo:week.hi) {
         #   file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv")
         # }
         
-        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/testing_alan/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
+        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
         # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
         
         lineups <- read.csv(file = file.name, stringsAsFactors = F)

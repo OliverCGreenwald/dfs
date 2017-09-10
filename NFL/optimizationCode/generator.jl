@@ -30,7 +30,7 @@ include("formulations.jl")
 # Contest information
 
 contest_date = "2017-09-10";
-contest_name = "\$20.00entry_NFL\$5.55MFantasyFootballMillionaire[\$1Mto1st]";
+contest_name = "\$8.00entry_NFL\$500KPostPattern";
 
 ############################  Setting Variables  ############################
 

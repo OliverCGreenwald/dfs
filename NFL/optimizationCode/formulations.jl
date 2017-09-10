@@ -2265,7 +2265,11 @@ function one_lineup_Type_17(offensive_players, defenses, lineups, num_overlap, n
         elseif (runningBack[i] == 1)
             @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_rb)
         elseif (wideReciever[i] == 1)
-            @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_wr)
+            if (valueWideReciever[i] == 1) 
+                @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_valueWideReciever)
+            else 
+                @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_wr)
+            end 
         elseif (tightEnd[i] == 1)
             @constraint(m, sum{lineups[i,j], j=1:size(lineups)[2]} + offensive_players_lineup[i] <= num_lineups * exposure_te)
         end

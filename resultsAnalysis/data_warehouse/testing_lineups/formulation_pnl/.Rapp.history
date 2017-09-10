@@ -1,0 +1,2 @@
+load("/Users/Michael/Projects/DFS/resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_allweeks_dfn_formulation4_overlap_4.rds")
+load("/Users/Michael/Projects/DFS/resultsAnalysis/data_warehouse/testing_lineups/formulation_pnl/pnlMatrix_allweeks_dfn_formulation4_exposure_1.rds")
