@@ -202,6 +202,9 @@ download_DK_daily_contests_NFL <- function(contest_info, sunday_date) {
   df$Entry_Fee <- sprintf("%.2f", as.numeric(df$Entry_Fee))
   df$Entry_Fee <- paste0('$',df$Entry_Fee)
   
+  # remove contests with less than 5000 entries
+  df <- df[as.numeric(df$Contest_Size) >= 5000,]
+  
   # slate
   df$Slate <- sub(":", "", df$Slate)
   df <- df[,c('Contest_ID', 'Contest_Name','Max_Entry', 'Entry_Fee', 'Contest_Date','Slate','Contest_Size')]

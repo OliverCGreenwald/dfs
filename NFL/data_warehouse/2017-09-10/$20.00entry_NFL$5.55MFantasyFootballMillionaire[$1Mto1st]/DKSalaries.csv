@@ -1,798 +1,798 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev"
-"RB","Le'Veon Bell",9800,"PIT@CLE 01:00PM ET",26.293,"PIT"
-"RB","David Johnson",9400,"ARI@DET 01:00PM ET",26.613,"ARI"
-"WR","Antonio Brown",8800,"PIT@CLE 01:00PM ET",21.456,"PIT"
-"WR","Julio Jones",8500,"ATL@CHI 01:00PM ET",20.094,"ATL"
-"WR","Odell Beckham Jr.",8300,"NYG@DAL 08:30PM ET",18.612,"NYG"
-"RB","LeSean McCoy",8200,"NYJ@BUF 01:00PM ET",21.287,"BUF"
-"RB","Ezekiel Elliott",8100,"NYG@DAL 08:30PM ET",22.731,"DAL"
-"WR","A.J. Green",8000,"BAL@CIN 01:00PM ET",19.84,"CIN"
-"WR","Mike Evans",7800,"TB@MIA 01:00PM ET",19.756,"TB"
-"WR","Jordy Nelson",7600,"SEA@GB 04:25PM ET",18.983,"GB"
-"WR","Dez Bryant",7500,"NYG@DAL 08:30PM ET",16.229,"DAL"
-"RB","DeMarco Murray",7400,"OAK@TEN 01:00PM ET",19.363,"TEN"
-"QB","Ben Roethlisberger",7300,"PIT@CLE 01:00PM ET",18.98,"PIT"
-"WR","Amari Cooper",7200,"OAK@TEN 01:00PM ET",14.547,"OAK"
-"QB","Cam Newton",7100,"CAR@SF 04:25PM ET",18.617,"CAR"
-"RB","Devonta Freeman",7000,"ATL@CHI 01:00PM ET",18.444,"ATL"
-"QB","Aaron Rodgers",7000,"SEA@GB 04:25PM ET",26.073,"GB"
-"QB","Matt Ryan",6900,"ATL@CHI 01:00PM ET",24.759,"ATL"
-"WR","T.Y. Hilton",6900,"IND@LAR 04:05PM ET",18.238,"IND"
-"QB","Russell Wilson",6900,"SEA@GB 04:25PM ET",18.257,"SEA"
-"QB","Marcus Mariota",6800,"OAK@TEN 01:00PM ET",18.463,"TEN"
-"QB","Derek Carr",6700,"OAK@TEN 01:00PM ET",19.299,"OAK"
-"WR","Doug Baldwin",6700,"SEA@GB 04:25PM ET",17.372,"SEA"
-"QB","Jameis Winston",6600,"TB@MIA 01:00PM ET",18.069,"TB"
-"WR","Golden Tate",6500,"ARI@DET 01:00PM ET",14.035,"DET"
-"RB","Jay Ajayi",6500,"TB@MIA 01:00PM ET",14.738,"MIA"
-"QB","Andrew Luck",6500,"IND@LAR 04:05PM ET",22.713,"IND"
-"QB","Kirk Cousins",6400,"PHI@WAS 01:00PM ET",21.018,"WAS"
-"RB","Jordan Howard",6300,"ATL@CHI 01:00PM ET",16.807,"CHI"
-"QB","Dak Prescott",6300,"NYG@DAL 08:30PM ET",19.427,"DAL"
-"QB","Tyrod Taylor",6200,"NYJ@BUF 01:00PM ET",18.795,"BUF"
-"WR","Sammy Watkins",6200,"NYJ@BUF 01:00PM ET",10.75,"BUF"
-"TE","Greg Olsen",6200,"CAR@SF 04:25PM ET",13.331,"CAR"
-"QB","Matthew Stafford",6100,"ARI@DET 01:00PM ET",18.44,"DET"
-"WR","Terrelle Pryor Sr.",6100,"PHI@WAS 01:00PM ET",13.903,"WAS"
-"RB","Darren McFadden",6100,"NYG@DAL 08:30PM ET",3.35,"DAL"
-"WR","Martavis Bryant",6000,"PIT@CLE 01:00PM ET",0,"PIT"
-"QB","Carson Palmer",6000,"ARI@DET 01:00PM ET",18.608,"ARI"
-"WR","Michael Crabtree",6000,"OAK@TEN 01:00PM ET",14.918,"OAK"
-"RB","Todd Gurley",6000,"IND@LAR 04:05PM ET",12.45,"LAR"
-"WR","Larry Fitzgerald",5900,"ARI@DET 01:00PM ET",15.488,"ARI"
-"WR","DeAndre Hopkins",5900,"JAX@HOU 01:00PM ET",12.978,"HOU"
-"TE","Jordan Reed",5900,"PHI@WAS 01:00PM ET",13.046,"WAS"
-"WR","Kelvin Benjamin",5900,"CAR@SF 04:25PM ET",12.569,"CAR"
-"WR","Alshon Jeffery",5800,"PHI@WAS 01:00PM ET",12.425,"PHI"
-"RB","Ty Montgomery",5800,"SEA@GB 04:25PM ET",10.183,"GB"
-"QB","Andy Dalton",5700,"BAL@CIN 01:00PM ET",17.728,"CIN"
-"RB","Leonard Fournette",5700,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Jamison Crowder",5600,"PHI@WAS 01:00PM ET",12.969,"WAS"
-"QB","Eli Manning",5600,"NYG@DAL 08:30PM ET",15.955,"NYG"
-"RB","Joe Mixon",5500,"BAL@CIN 01:00PM ET",0,"CIN"
-"QB","Joe Flacco",5500,"BAL@CIN 01:00PM ET",17.03,"BAL"
-"RB","Derrick Henry",5500,"OAK@TEN 01:00PM ET",6.606,"TEN"
-"QB","Derek Anderson",5500,"CAR@SF 04:25PM ET",4.504,"CAR"
-"RB","Tevin Coleman",5400,"ATL@CHI 01:00PM ET",15.093,"ATL"
-"QB","Jay Cutler",5400,"TB@MIA 01:00PM ET",10.752,"MIA"
-"WR","Jarvis Landry",5400,"TB@MIA 01:00PM ET",15.853,"MIA"
-"RB","Christian McCaffrey",5400,"CAR@SF 04:25PM ET",0,"CAR"
-"RB","Isaiah Crowell",5300,"PIT@CLE 01:00PM ET",13.694,"CLE"
-"WR","DeVante Parker",5300,"TB@MIA 01:00PM ET",10.619,"MIA"
-"RB","Marshawn Lynch",5300,"OAK@TEN 01:00PM ET",0,"OAK"
-"QB","Carson Wentz",5300,"PHI@WAS 01:00PM ET",15.186,"PHI"
-"WR","Randall Cobb",5300,"SEA@GB 04:25PM ET",13.519,"GB"
-"WR","Pierre Garcon",5300,"CAR@SF 04:25PM ET",12.756,"SF"
-"RB","Danny Woodhead",5200,"BAL@CIN 01:00PM ET",13.55,"BAL"
-"WR","Allen Robinson",5200,"JAX@HOU 01:00PM ET",12.831,"JAX"
-"QB","Colt McCoy",5200,"PHI@WAS 01:00PM ET",0,"WAS"
-"WR","Davante Adams",5200,"SEA@GB 04:25PM ET",16.442,"GB"
-"RB","Lamar Miller",5100,"JAX@HOU 01:00PM ET",14.394,"HOU"
-"TE","Jimmy Graham",5100,"SEA@GB 04:25PM ET",12.122,"SEA"
-"QB","Brian Hoyer",5100,"CAR@SF 04:25PM ET",15.433,"SF"
-"WR","Brandon Marshall",5100,"NYG@DAL 08:30PM ET",10.787,"NYG"
-"WR","Cameron Meredith",5000,"ATL@CHI 01:00PM ET",13.82,"CHI"
-"WR","Jeremy Maclin",5000,"BAL@CIN 01:00PM ET",8.792,"BAL"
-"QB","Ryan Tannehill",5000,"TB@MIA 01:00PM ET",16.246,"MIA"
-"WR","Eric Decker",5000,"OAK@TEN 01:00PM ET",14.467,"TEN"
-"WR","Donte Moncrief",5000,"IND@LAR 04:05PM ET",11.4,"IND"
-"RB","Eddie Lacy",5000,"SEA@GB 04:25PM ET",9.16,"SEA"
-"RB","Jonathan Stewart",5000,"CAR@SF 04:25PM ET",11.646,"CAR"
-"RB","Bilal Powell",4900,"NYJ@BUF 01:00PM ET",12.75,"NYJ"
-"QB","Mike Glennon",4900,"ATL@CHI 01:00PM ET",4.5,"CHI"
-"QB","Matt Moore",4900,"TB@MIA 01:00PM ET",10.071,"MIA"
-"RB","Jacquizz Rodgers",4900,"TB@MIA 01:00PM ET",9.68,"TB"
-"WR","DeSean Jackson",4900,"TB@MIA 01:00PM ET",12.219,"TB"
-"RB","Matt Forte",4800,"NYJ@BUF 01:00PM ET",13.614,"NYJ"
-"QB","DeShone Kizer",4800,"PIT@CLE 01:00PM ET",0,"CLE"
-"QB","Cody Kessler",4800,"PIT@CLE 01:00PM ET",9.222,"CLE"
-"WR","Kenny Britt",4800,"PIT@CLE 01:00PM ET",13.547,"CLE"
-"WR","John Brown",4800,"ARI@DET 01:00PM ET",7.113,"ARI"
-"QB","Tom Savage",4800,"JAX@HOU 01:00PM ET",6.213,"HOU"
-"QB","Deshaun Watson",4800,"JAX@HOU 01:00PM ET",0,"HOU"
-"QB","Blake Bortles",4800,"JAX@HOU 01:00PM ET",19.256,"JAX"
-"QB","Ryan Fitzpatrick",4800,"TB@MIA 01:00PM ET",11.029,"TB"
-"RB","Doug Martin",4800,"TB@MIA 01:00PM ET",10.813,"TB"
-"QB","Jared Goff",4800,"IND@LAR 04:05PM ET",7.77,"LAR"
-"RB","Thomas Rawls",4800,"SEA@GB 04:25PM ET",9.827,"SEA"
-"QB","Geno Smith",4800,"NYG@DAL 08:30PM ET",4.47,"NYG"
-"QB","AJ McCarron",4700,"BAL@CIN 01:00PM ET",0,"CIN"
-"RB","Terrance West",4700,"BAL@CIN 01:00PM ET",10.875,"BAL"
-"QB","Landry Jones",4700,"PIT@CLE 01:00PM ET",4.49,"PIT"
-"RB","Theo Riddick",4700,"ARI@DET 01:00PM ET",16.18,"DET"
-"QB","Brett Hundley",4700,"SEA@GB 04:25PM ET",0.176,"GB"
-"QB","Colin Kaepernick",4700,"CAR@SF 04:25PM ET",17.787,"SF"
-"WR","Cole Beasley",4700,"NYG@DAL 08:30PM ET",11.618,"DAL"
-"QB","Josh McCown",4600,"NYJ@BUF 01:00PM ET",13.62,"NYJ"
-"QB","Mitchell Trubisky",4600,"ATL@CHI 01:00PM ET",0,"CHI"
-"TE","Tyler Eifert",4600,"BAL@CIN 01:00PM ET",12.675,"CIN"
-"RB","Duke Johnson Jr.",4600,"PIT@CLE 01:00PM ET",9.075,"CLE"
-"QB","Nick Foles",4600,"PHI@WAS 01:00PM ET",9.333,"PHI"
-"RB","Carlos Hyde",4600,"CAR@SF 04:25PM ET",15.469,"SF"
-"QB","Matt Schaub",4500,"ATL@CHI 01:00PM ET",0.088,"ATL"
-"RB","Giovani Bernard",4500,"BAL@CIN 01:00PM ET",12.63,"CIN"
-"QB","Ryan Mallett",4500,"BAL@CIN 01:00PM ET",-0.14,"BAL"
-"WR","Mike Wallace",4500,"BAL@CIN 01:00PM ET",13.05,"BAL"
-"QB","Brock Osweiler",4500,"PIT@CLE 01:00PM ET",12.64,"CLE"
-"RB","James Conner",4500,"PIT@CLE 01:00PM ET",0,"PIT"
-"QB","Blaine Gabbert",4500,"ARI@DET 01:00PM ET",13.283,"ARI"
-"QB","Matt Cassel",4500,"OAK@TEN 01:00PM ET",3.532,"TEN"
-"QB","Connor Cook",4500,"OAK@TEN 01:00PM ET",3.86,"OAK"
-"RB","LeGarrette Blount",4500,"PHI@WAS 01:00PM ET",14.528,"PHI"
-"QB","Scott Tolzien",4500,"IND@LAR 04:05PM ET",2.735,"IND"
-"QB","Trevone Boykin",4500,"SEA@GB 04:25PM ET",1.483,"SEA"
-"QB","Christian Hackenberg",4400,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"RB","Jeremy Hill",4400,"BAL@CIN 01:00PM ET",12.153,"CIN"
-"WR","Corey Coleman",4400,"PIT@CLE 01:00PM ET",9.63,"CLE"
-"WR","Jordan Matthews",4400,"PHI@WAS 01:00PM ET",12.457,"PHI"
-"WR","Tyler Lockett",4400,"SEA@GB 04:25PM ET",8.473,"SEA"
-"QB","Kellen Moore",4400,"NYG@DAL 08:30PM ET",0,"DAL"
-"RB","Alfred Morris",4400,"NYG@DAL 08:30PM ET",2.886,"DAL"
-"QB","Mark Sanchez",4300,"ATL@CHI 01:00PM ET",0.507,"CHI"
-"RB","Ameer Abdullah",4300,"ARI@DET 01:00PM ET",13.4,"DET"
-"QB","Chad Henne",4300,"JAX@HOU 01:00PM ET",-0.2,"JAX"
-"TE","Delanie Walker",4300,"OAK@TEN 01:00PM ET",12.74,"TEN"
-"RB","Rob Kelley",4300,"PHI@WAS 01:00PM ET",9.04,"WAS"
-"RB","Frank Gore",4300,"IND@LAR 04:05PM ET",13.825,"IND"
-"QB","Sean Mannion",4300,"IND@LAR 04:05PM ET",-0.113,"LAR"
-"WR","Devin Funchess",4300,"CAR@SF 04:25PM ET",5.74,"CAR"
-"RB","Paul Perkins",4300,"NYG@DAL 08:30PM ET",5.9,"NYG"
-"QB","T.J. Yates",4200,"NYJ@BUF 01:00PM ET",0,"BUF"
-"WR","Mohamed Sanu",4200,"ATL@CHI 01:00PM ET",10.061,"ATL"
-"WR","Kevin White",4200,"ATL@CHI 01:00PM ET",9.65,"CHI"
-"RB","Alfred Blue",4200,"JAX@HOU 01:00PM ET",3.975,"HOU"
-"WR","Rishard Matthews",4200,"OAK@TEN 01:00PM ET",13.844,"TEN"
-"RB","Samaje Perine",4200,"PHI@WAS 01:00PM ET",0,"WAS"
-"WR","Marvin Jones Jr.",4100,"ARI@DET 01:00PM ET",11.9,"DET"
-"QB","Drew Stanton",4100,"ARI@DET 01:00PM ET",2.476,"ARI"
-"RB","D'Onta Foreman",4100,"JAX@HOU 01:00PM ET",0,"HOU"
-"RB","Kenyan Drake",4100,"TB@MIA 01:00PM ET",2.912,"MIA"
-"RB","DeAndre Washington",4100,"OAK@TEN 01:00PM ET",5.488,"OAK"
-"TE","Martellus Bennett",4100,"SEA@GB 04:25PM ET",10.372,"GB"
-"RB","C.J. Prosise",4100,"SEA@GB 04:25PM ET",10.167,"SEA"
-"RB","Tim Hightower",4100,"CAR@SF 04:25PM ET",8.113,"SF"
-"WR","Sterling Shepard",4100,"NYG@DAL 08:30PM ET",11.629,"NYG"
-"QB","Nathan Peterman",4000,"NYJ@BUF 01:00PM ET",0,"BUF"
-"QB","Bryce Petty",4000,"NYJ@BUF 01:00PM ET",6.71,"NYJ"
-"QB","Matt Simms",4000,"ATL@CHI 01:00PM ET",0,"ATL"
-"QB","Alek Torgersen",4000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Taylor Gabriel",4000,"ATL@CHI 01:00PM ET",10.367,"ATL"
-"QB","Connor Shaw",4000,"ATL@CHI 01:00PM ET",0,"CHI"
-"QB","Jeff Driskel",4000,"BAL@CIN 01:00PM ET",0,"CIN"
-"QB","Dustin Vaughan",4000,"BAL@CIN 01:00PM ET",0,"BAL"
-"QB","Josh Woodrum",4000,"BAL@CIN 01:00PM ET",0,"BAL"
-"QB","Robert Griffin III",4000,"PIT@CLE 01:00PM ET",14.088,"CLE"
-"QB","Kevin Hogan",4000,"PIT@CLE 01:00PM ET",5.415,"CLE"
-"WR","Josh Gordon",4000,"PIT@CLE 01:00PM ET",0,"CLE"
-"QB","Joshua Dobbs",4000,"PIT@CLE 01:00PM ET",0,"PIT"
-"QB","Bart Houston",4000,"PIT@CLE 01:00PM ET",0,"PIT"
-"RB","Fitzgerald Toussaint",4000,"PIT@CLE 01:00PM ET",0.672,"PIT"
-"WR","Justin Hunter",4000,"PIT@CLE 01:00PM ET",4.069,"PIT"
-"QB","Jake Rudock",4000,"ARI@DET 01:00PM ET",0,"DET"
-"QB","Brad Kaaya",4000,"ARI@DET 01:00PM ET",0,"DET"
-"QB","Trevor Knight",4000,"ARI@DET 01:00PM ET",0,"ARI"
-"QB","Brandon Weeden",4000,"JAX@HOU 01:00PM ET",0,"HOU"
-"QB","Brandon Allen",4000,"JAX@HOU 01:00PM ET",0,"JAX"
-"QB","Brandon Doughty",4000,"TB@MIA 01:00PM ET",0,"MIA"
-"QB","David Fales",4000,"TB@MIA 01:00PM ET",0.44,"MIA"
-"QB","Sefo Liufau",4000,"TB@MIA 01:00PM ET",0,"TB"
-"QB","Ryan Griffin",4000,"TB@MIA 01:00PM ET",0,"TB"
-"QB","Alex Tanney",4000,"OAK@TEN 01:00PM ET",0,"TEN"
-"QB","Tyler Ferguson",4000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Corey Davis",4000,"OAK@TEN 01:00PM ET",0,"TEN"
-"QB","EJ Manuel",4000,"OAK@TEN 01:00PM ET",1.206,"OAK"
-"QB","Dane Evans",4000,"PHI@WAS 01:00PM ET",0,"PHI"
-"QB","Matt McGloin",4000,"PHI@WAS 01:00PM ET",0.425,"PHI"
-"QB","Nate Sudfeld",4000,"PHI@WAS 01:00PM ET",0,"WAS"
-"QB","Phillip Walker",4000,"IND@LAR 04:05PM ET",0,"IND"
-"QB","Stephen Morris",4000,"IND@LAR 04:05PM ET",0,"IND"
-"RB","Robert Turbin",4000,"IND@LAR 04:05PM ET",7.22,"IND"
-"QB","Dan Orlovsky",4000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","Robert Woods",4000,"IND@LAR 04:05PM ET",9.377,"LAR"
-"QB","Joe Callahan",4000,"SEA@GB 04:25PM ET",0,"GB"
-"QB","Taysom Hill",4000,"SEA@GB 04:25PM ET",0,"GB"
-"QB","Austin Davis",4000,"SEA@GB 04:25PM ET",0,"SEA"
-"QB","Nick Mullens",4000,"CAR@SF 04:25PM ET",0,"SF"
-"QB","C.J. Beathard",4000,"CAR@SF 04:25PM ET",0,"SF"
-"QB","Matt Barkley",4000,"CAR@SF 04:25PM ET",13.834,"SF"
-"RB","Joe Williams",4000,"CAR@SF 04:25PM ET",0,"SF"
-"QB","Garrett Gilbert",4000,"CAR@SF 04:25PM ET",0,"CAR"
-"QB","Joe Webb",4000,"CAR@SF 04:25PM ET",0.093,"CAR"
-"QB","Luke McCown",4000,"NYG@DAL 08:30PM ET",0,"DAL"
-"QB","Cooper Rush",4000,"NYG@DAL 08:30PM ET",0,"DAL"
-"QB","Davis Webb",4000,"NYG@DAL 08:30PM ET",0,"NYG"
-"QB","Josh Johnson",4000,"NYG@DAL 08:30PM ET",0,"NYG"
-"RB","Jonathan Williams",3900,"NYJ@BUF 01:00PM ET",1.309,"BUF"
-"DST","Bills ",3900,"NYJ@BUF 01:00PM ET",6.5,"BUF"
-"RB","Jeremy Langford",3900,"ATL@CHI 01:00PM ET",6.267,"CHI"
-"WR","Eli Rogers",3900,"PIT@CLE 01:00PM ET",9.513,"PIT"
-"RB","Chris Johnson",3900,"ARI@DET 01:00PM ET",3.875,"ARI"
-"WR","Braxton Miller",3900,"JAX@HOU 01:00PM ET",3.09,"HOU"
-"RB","T.J. Yeldon",3900,"JAX@HOU 01:00PM ET",9.247,"JAX"
-"RB","Charles Sims",3900,"TB@MIA 01:00PM ET",9.843,"TB"
-"RB","Jalen Richard",3900,"OAK@TEN 01:00PM ET",6.976,"OAK"
-"RB","Darren Sproles",3900,"PHI@WAS 01:00PM ET",11.033,"PHI"
-"RB","Malcolm Brown",3900,"IND@LAR 04:05PM ET",0.656,"LAR"
-"RB","Jamaal Williams",3900,"SEA@GB 04:25PM ET",0,"GB"
-"RB","Rod Smith",3900,"NYG@DAL 08:30PM ET",0.2,"DAL"
-"TE","Jason Witten",3900,"NYG@DAL 08:30PM ET",10.247,"DAL"
-"WR","Robby Anderson",3800,"NYJ@BUF 01:00PM ET",7.244,"NYJ"
-"WR","Sammie Coates",3800,"PIT@CLE 01:00PM ET",5.076,"PIT"
-"RB","Zach Zenner",3800,"ARI@DET 01:00PM ET",7.253,"DET"
-"RB","Kerwynn Williams",3800,"ARI@DET 01:00PM ET",2.93,"ARI"
-"WR","Will Fuller V",3800,"JAX@HOU 01:00PM ET",9.156,"HOU"
-"DST","Texans ",3800,"JAX@HOU 01:00PM ET",6.222,"HOU"
-"WR","Marqise Lee",3800,"JAX@HOU 01:00PM ET",11.588,"JAX"
-"RB","Damien Williams",3800,"TB@MIA 01:00PM ET",6.45,"MIA"
-"WR","Kenny Stills",3800,"TB@MIA 01:00PM ET",10.871,"MIA"
-"RB","Wendell Smallwood",3800,"PHI@WAS 01:00PM ET",4.131,"PHI"
-"WR","Nelson Agholor",3800,"PHI@WAS 01:00PM ET",5.86,"PHI"
-"WR","Tavon Austin",3800,"IND@LAR 04:05PM ET",9.853,"LAR"
-"WR","Jeremy Kerley",3800,"CAR@SF 04:25PM ET",9.419,"SF"
-"WR","Terrance Williams",3800,"NYG@DAL 08:30PM ET",8.071,"DAL"
-"RB","Shane Vereen",3800,"NYG@DAL 08:30PM ET",8.04,"NYG"
-"WR","ArDarius Stewart",3700,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Brandon LaFell",3700,"BAL@CIN 01:00PM ET",11.813,"CIN"
-"WR","J.J. Nelson",3700,"ARI@DET 01:00PM ET",9.54,"ARI"
-"DST","Jaguars ",3700,"JAX@HOU 01:00PM ET",4.5,"JAX"
-"RB","Jeremy McNichols",3700,"TB@MIA 01:00PM ET",0,"TB"
-"WR","Torrey Smith",3700,"PHI@WAS 01:00PM ET",5.392,"PHI"
-"RB","Chris Thompson",3700,"PHI@WAS 01:00PM ET",9.281,"WAS"
-"TE","Jack Doyle",3700,"IND@LAR 04:05PM ET",9.15,"IND"
-"WR","Cooper Kupp",3700,"IND@LAR 04:05PM ET",0,"LAR"
-"RB","Aaron Jones",3700,"SEA@GB 04:25PM ET",0,"GB"
-"WR","Paul Richardson",3700,"SEA@GB 04:25PM ET",4.847,"SEA"
-"RB","Fozzy Whittaker",3700,"CAR@SF 04:25PM ET",4.756,"CAR"
-"RB","Benny Cunningham",3600,"ATL@CHI 01:00PM ET",2.933,"CHI"
-"WR","Tyler Boyd",3600,"BAL@CIN 01:00PM ET",7.819,"CIN"
-"WR","JuJu Smith-Schuster",3600,"PIT@CLE 01:00PM ET",0,"PIT"
-"DST","Steelers ",3600,"PIT@CLE 01:00PM ET",6.579,"PIT"
-"WR","Kenny Golladay",3600,"ARI@DET 01:00PM ET",0,"DET"
-"TE","Eric Ebron",3600,"ARI@DET 01:00PM ET",10.607,"DET"
-"RB","Chris Ivory",3600,"JAX@HOU 01:00PM ET",9.136,"JAX"
-"WR","Adam Humphries",3600,"TB@MIA 01:00PM ET",9.067,"TB"
-"WR","Taywan Taylor",3600,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Jeff Janis",3600,"SEA@GB 04:25PM ET",1.9,"GB"
-"WR","Curtis Samuel",3600,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Zay Jones",3500,"NYJ@BUF 01:00PM ET",0,"BUF"
-"WR","Anquan Boldin",3500,"NYJ@BUF 01:00PM ET",10.459,"BUF"
-"RB","Elijah McGuire",3500,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Charone Peake",3500,"NYJ@BUF 01:00PM ET",2.907,"NYJ"
-"WR","Markus Wheaton",3500,"ATL@CHI 01:00PM ET",4.275,"CHI"
-"WR","Breshad Perriman",3500,"BAL@CIN 01:00PM ET",6.319,"BAL"
-"WR","Jaelen Strong",3500,"JAX@HOU 01:00PM ET",3.388,"HOU"
-"WR","Allen Hurns",3500,"JAX@HOU 01:00PM ET",9.155,"JAX"
-"RB","Donnel Pumphrey",3500,"PHI@WAS 01:00PM ET",0,"PHI"
-"TE","Zach Ertz",3500,"PHI@WAS 01:00PM ET",13.543,"PHI"
-"WR","Josh Doctson",3500,"PHI@WAS 01:00PM ET",4.3,"WAS"
-"WR","Kamar Aiken",3500,"IND@LAR 04:05PM ET",4.238,"IND"
-"RB","Devante Mays",3500,"SEA@GB 04:25PM ET",0,"GB"
-"DST","Panthers ",3500,"CAR@SF 04:25PM ET",8,"CAR"
-"RB","Wayne Gallman",3500,"NYG@DAL 08:30PM ET",0,"NYG"
-"RB","Andre Ellington",3400,"ARI@DET 01:00PM ET",1.881,"ARI"
-"DST","Buccaneers ",3400,"TB@MIA 01:00PM ET",8.313,"TB"
-"WR","Ryan Grant",3400,"PHI@WAS 01:00PM ET",1.038,"WAS"
-"RB","Marlon Mack",3400,"IND@LAR 04:05PM ET",0,"IND"
-"WR","Jermaine Kearse",3400,"SEA@GB 04:25PM ET",5.733,"SEA"
-"DST","Falcons ",3300,"ATL@CHI 01:00PM ET",7.167,"ATL"
-"WR","Victor Cruz",3300,"ATL@CHI 01:00PM ET",6.788,"CHI"
-"WR","John Ross",3300,"BAL@CIN 01:00PM ET",0,"CIN"
-"RB","Dwayne Washington",3300,"ARI@DET 01:00PM ET",3.746,"DET"
-"WR","Jaron Brown",3300,"ARI@DET 01:00PM ET",5.1,"ARI"
-"WR","Seth Roberts",3300,"OAK@TEN 01:00PM ET",6.635,"OAK"
-"TE","Jared Cook",3300,"OAK@TEN 01:00PM ET",10.123,"OAK"
-"WR","Phillip Dorsett",3300,"IND@LAR 04:05PM ET",6.587,"IND"
-"WR","Aldrick Robinson",3300,"CAR@SF 04:25PM ET",3.739,"SF"
-"WR","Russell Shepard",3300,"CAR@SF 04:25PM ET",5,"CAR"
-"WR","Roger Lewis",3300,"NYG@DAL 08:30PM ET",2.05,"NYG"
-"TE","Charles Clay",3200,"NYJ@BUF 01:00PM ET",9.08,"BUF"
-"WR","Kendall Wright",3200,"ATL@CHI 01:00PM ET",8.464,"CHI"
-"RB","Ryan Mathews",3200,"PHI@WAS 01:00PM ET",11.738,"PHI"
-"DST","Rams ",3200,"IND@LAR 04:05PM ET",5.813,"LAR"
-"WR","Marquise Goodwin",3200,"CAR@SF 04:25PM ET",6.207,"SF"
-"WR","Tavarres King",3200,"NYG@DAL 08:30PM ET",2.913,"NYG"
-"DST","Bengals ",3100,"BAL@CIN 01:00PM ET",6.125,"CIN"
-"TE","C.J. Fiedorowicz",3100,"JAX@HOU 01:00PM ET",8.941,"HOU"
-"TE","Cameron Brate",3100,"TB@MIA 01:00PM ET",11.4,"TB"
-"WR","Tajae Sharpe",3100,"OAK@TEN 01:00PM ET",6.581,"TEN"
-"RB","Elijah Hood",3100,"OAK@TEN 01:00PM ET",0,"OAK"
-"WR","Brian Quick",3100,"PHI@WAS 01:00PM ET",7.213,"WAS"
-"WR","Pharoh Cooper",3100,"IND@LAR 04:05PM ET",2.36,"LAR"
-"RB","Orleans Darkwa",3100,"NYG@DAL 08:30PM ET",2.63,"NYG"
-"RB","Mike Tolbert",3000,"NYJ@BUF 01:00PM ET",2.163,"BUF"
-"RB","Joe Banyard",3000,"NYJ@BUF 01:00PM ET",0.7,"BUF"
-"RB","Patrick DiMarco",3000,"NYJ@BUF 01:00PM ET",1.239,"BUF"
-"RB","Taiwan Jones",3000,"NYJ@BUF 01:00PM ET",0.536,"BUF"
-"RB","Cedric O'Neal",3000,"NYJ@BUF 01:00PM ET",0,"BUF"
-"RB","Jordan Johnson",3000,"NYJ@BUF 01:00PM ET",0,"BUF"
-"WR","Daikiel Shorts Jr.",3000,"NYJ@BUF 01:00PM ET",0,"BUF"
-"WR","Andre Holmes",3000,"NYJ@BUF 01:00PM ET",3.506,"BUF"
-"WR","Corey Brown",3000,"NYJ@BUF 01:00PM ET",3.763,"BUF"
-"WR","Walt Powell",3000,"NYJ@BUF 01:00PM ET",3.133,"BUF"
-"WR","Rod Streater",3000,"NYJ@BUF 01:00PM ET",3.069,"BUF"
-"WR","Brandon Reilly",3000,"NYJ@BUF 01:00PM ET",0,"BUF"
-"WR","Jeremy Butler",3000,"NYJ@BUF 01:00PM ET",0.775,"BUF"
-"WR","Rashad Ross",3000,"NYJ@BUF 01:00PM ET",0.36,"BUF"
-"WR","Dezmin Lewis",3000,"NYJ@BUF 01:00PM ET",0,"BUF"
-"WR","Brandon Tate",3000,"NYJ@BUF 01:00PM ET",1.633,"BUF"
-"RB","Julian Howsare",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"RB","Anthony Firkser",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"RB","Marcus Murphy",3000,"NYJ@BUF 01:00PM ET",0.433,"NYJ"
-"RB","Jordan Todman",3000,"NYJ@BUF 01:00PM ET",0.744,"NYJ"
-"RB","Algernon Brown",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"RB","Romar Morris",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Deshon Foxx",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Chris Harper",3000,"NYJ@BUF 01:00PM ET",2.922,"NYJ"
-"WR","Gabe Marks",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Myles White",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Frankie Hammond Jr.",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Quincy Enunwa",3000,"NYJ@BUF 01:00PM ET",10.744,"NYJ"
-"WR","Chad Hansen",3000,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"WR","Marquess Wilson",3000,"NYJ@BUF 01:00PM ET",11.333,"NYJ"
-"WR","Jalin Marshall",3000,"NYJ@BUF 01:00PM ET",4.02,"NYJ"
-"WR","Lucky Whitehead",3000,"NYJ@BUF 01:00PM ET",0.938,"NYJ"
-"RB","Kelvin Taylor",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"RB","Derrick Coleman",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"RB","Terron Ward",3000,"ATL@CHI 01:00PM ET",3.44,"ATL"
-"RB","Brian Hill",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"RB","Tyler Renew",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Marvin Hall",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Nick Williams",3000,"ATL@CHI 01:00PM ET",5.45,"ATL"
-"WR","Justin Hardy",3000,"ATL@CHI 01:00PM ET",3.839,"ATL"
-"WR","B.J. Daniels",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Andre Roberts",3000,"ATL@CHI 01:00PM ET",2.929,"ATL"
-"WR","Bra'Lon Cherry",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Reggie Davis",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Josh Magee",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Deante Burton",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Reginald Davis III",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"WR","Anthony Dable",3000,"ATL@CHI 01:00PM ET",0,"ATL"
-"TE","Austin Hooper",3000,"ATL@CHI 01:00PM ET",4.4,"ATL"
-"RB","Ka'Deem Carey",3000,"ATL@CHI 01:00PM ET",1.777,"CHI"
-"RB","Michael Burton",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"RB","Josh Rounds",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"RB","Tarik Cohen",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"RB","Freddie Stevenson",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"WR","Tanner Gentry",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"WR","Josh Bellamy",3000,"ATL@CHI 01:00PM ET",3.556,"CHI"
-"WR","Titus Davis",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"WR","Deonte Thompson",3000,"ATL@CHI 01:00PM ET",3.806,"CHI"
-"WR","Rueben Randle",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"WR","Alton Howard",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"WR","Daniel Braverman",3000,"ATL@CHI 01:00PM ET",0,"CHI"
-"RB","Tra Carson",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"RB","Darrin Laufasa",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"RB","Jarveon Williams",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"RB","Stanley Williams",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"RB","Cedric Peerman",3000,"BAL@CIN 01:00PM ET",0.25,"CIN"
-"WR","Jake Kumerow",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"WR","Josh Malone",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"WR","Levonte Whitfield",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"WR","Alonzo Russell",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"WR","Chris Brown",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"WR","Karel Hamilton",3000,"BAL@CIN 01:00PM ET",0,"CIN"
-"WR","Cody Core",3000,"BAL@CIN 01:00PM ET",4.625,"CIN"
-"WR","Alex Erickson",3000,"BAL@CIN 01:00PM ET",0.819,"CIN"
-"RB","Bobby Rainey",3000,"BAL@CIN 01:00PM ET",2.65,"BAL"
-"RB","Javorius Allen",3000,"BAL@CIN 01:00PM ET",0.988,"BAL"
-"RB","Kenneth Dixon",3000,"BAL@CIN 01:00PM ET",8.533,"BAL"
-"RB","Ricky Ortiz",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"RB","Taquan Mizzell",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"RB","Lorenzo Taliaferro",3000,"BAL@CIN 01:00PM ET",1.333,"BAL"
-"WR","Chris Moore",3000,"BAL@CIN 01:00PM ET",0.9,"BAL"
-"WR","Vince Mayle",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"WR","Quincy Adeboyejo",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"WR","Tim White",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"WR","Chris Matthews",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"WR","Kenny Bell",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"WR","Michael Campanaro",3000,"BAL@CIN 01:00PM ET",2.4,"BAL"
-"WR","Griff Whalen",3000,"BAL@CIN 01:00PM ET",0.525,"BAL"
-"WR","Keenan Reynolds",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"WR","C.J. Board",3000,"BAL@CIN 01:00PM ET",0,"BAL"
-"RB","Matthew Dayes",3000,"PIT@CLE 01:00PM ET",0,"CLE"
-"RB","Danny Vitale",3000,"PIT@CLE 01:00PM ET",0.744,"CLE"
-"RB","Brandon Wilds",3000,"PIT@CLE 01:00PM ET",1.675,"CLE"
-"RB","Terrence Magee",3000,"PIT@CLE 01:00PM ET",0.6,"CLE"
-"WR","Rannell Hall",3000,"PIT@CLE 01:00PM ET",0,"CLE"
-"WR","Jordan Payton",3000,"PIT@CLE 01:00PM ET",0.325,"CLE"
-"WR","Richard Mullaney",3000,"PIT@CLE 01:00PM ET",0,"CLE"
-"WR","Rashard Higgins",3000,"PIT@CLE 01:00PM ET",0.856,"CLE"
-"WR","Mario Alford",3000,"PIT@CLE 01:00PM ET",0,"CLE"
-"WR","Ricardo Louis",3000,"PIT@CLE 01:00PM ET",2.406,"CLE"
-"WR","Rasheed Bailey",3000,"PIT@CLE 01:00PM ET",0,"CLE"
-"WR","Jordan Leslie",3000,"PIT@CLE 01:00PM ET",0,"CLE"
-"WR","Josh Boyce",3000,"PIT@CLE 01:00PM ET",0,"CLE"
-"RB","Terrell Watson",3000,"PIT@CLE 01:00PM ET",10.3,"PIT"
-"RB","Trey Williams",3000,"PIT@CLE 01:00PM ET",0,"PIT"
-"RB","Brandon Brown-Dukes",3000,"PIT@CLE 01:00PM ET",0,"PIT"
-"RB","DeAngelo Williams",3000,"PIT@CLE 01:00PM ET",9.754,"PIT"
-"RB","Roosevelt Nix",3000,"PIT@CLE 01:00PM ET",0.192,"PIT"
-"RB","Knile Davis",3000,"PIT@CLE 01:00PM ET",0.936,"PIT"
-"WR","Darrius Heyward-Bey",3000,"PIT@CLE 01:00PM ET",3.1,"PIT"
-"WR","Marcus Tucker",3000,"PIT@CLE 01:00PM ET",0,"PIT"
-"WR","Demarcus Ayers",3000,"PIT@CLE 01:00PM ET",5.45,"PIT"
-"WR","Cobi Hamilton",3000,"PIT@CLE 01:00PM ET",4.821,"PIT"
-"WR","Canaan Severin",3000,"PIT@CLE 01:00PM ET",0,"PIT"
-"TE","Jesse James",3000,"PIT@CLE 01:00PM ET",6.079,"PIT"
-"RB","Tion Green",3000,"ARI@DET 01:00PM ET",0,"DET"
-"RB","Mike James",3000,"ARI@DET 01:00PM ET",2.025,"DET"
-"RB","Matt Asiata",3000,"ARI@DET 01:00PM ET",8.344,"DET"
-"WR","Keshawn Martin",3000,"ARI@DET 01:00PM ET",-1,"DET"
-"WR","Ryan Spadola",3000,"ARI@DET 01:00PM ET",0,"DET"
-"WR","TJ Jones",3000,"ARI@DET 01:00PM ET",3.575,"DET"
-"WR","Jared Abbrederis",3000,"ARI@DET 01:00PM ET",0.36,"DET"
-"WR","Jace Billingsley",3000,"ARI@DET 01:00PM ET",0,"DET"
-"WR","Michael Rector",3000,"ARI@DET 01:00PM ET",0,"DET"
-"WR","Dontez Ford",3000,"ARI@DET 01:00PM ET",0,"DET"
-"WR","Noel Thomas",3000,"ARI@DET 01:00PM ET",0,"DET"
-"RB","T.J. Logan",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"RB","James Summers",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"RB","Elijhaa Penny",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"WR","Chris Hubert",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"WR","Carlton Agudosi",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"WR","Krishawn Hogan",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"WR","Jeremy Ross",3000,"ARI@DET 01:00PM ET",2.283,"ARI"
-"WR","Marquis Bundy",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"WR","Aaron Dobson",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"WR","Brittan Golden",3000,"ARI@DET 01:00PM ET",1.767,"ARI"
-"WR","Chad Williams",3000,"ARI@DET 01:00PM ET",0,"ARI"
-"RB","Dare Ogunbowale",3000,"JAX@HOU 01:00PM ET",0,"HOU"
-"RB","Akeem Hunt",3000,"JAX@HOU 01:00PM ET",2.03,"HOU"
-"RB","Tyler Ervin",3000,"JAX@HOU 01:00PM ET",0.221,"HOU"
-"RB","Jay Prosch",3000,"JAX@HOU 01:00PM ET",0.153,"HOU"
-"WR","Dres Anderson",3000,"JAX@HOU 01:00PM ET",0,"HOU"
-"WR","DeAndrew White",3000,"JAX@HOU 01:00PM ET",0,"HOU"
-"WR","Devin Street",3000,"JAX@HOU 01:00PM ET",0.5,"HOU"
-"WR","Justin Hardee",3000,"JAX@HOU 01:00PM ET",0,"HOU"
-"WR","Riley McCarron",3000,"JAX@HOU 01:00PM ET",0,"HOU"
-"WR","Chris Thompson",3000,"JAX@HOU 01:00PM ET",0,"HOU"
-"WR","Wendall Williams",3000,"JAX@HOU 01:00PM ET",3.833,"HOU"
-"WR","Marcus Leak",3000,"JAX@HOU 01:00PM ET",0,"HOU"
-"RB","Tyler Gaffney",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"RB","Tommy Bohanon",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"RB","Tim Cook",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"RB","Marquez Williams",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"RB","Corey Grant",3000,"JAX@HOU 01:00PM ET",3.536,"JAX"
-"RB","I'Tavius Mathers",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Keelan Cole",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Dede Westbrook",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Arrelious Benn",3000,"JAX@HOU 01:00PM ET",1.507,"JAX"
-"WR","Kenneth Walker III",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Amba Etta-Tawo",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Larry Pinkard",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Rashad Greene Sr.",3000,"JAX@HOU 01:00PM ET",0.9,"JAX"
-"WR","Jamal Robinson",3000,"JAX@HOU 01:00PM ET",0,"JAX"
-"WR","Shane Wynn",3000,"JAX@HOU 01:00PM ET",0.68,"JAX"
-"RB","Senorise Perry",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"RB","De'Veon Smith",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"RB","Storm Johnson",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Isaiah Ford",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Rashawn Scott",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Jakeem Grant",3000,"TB@MIA 01:00PM ET",0.3,"MIA"
-"WR","Francis Owusu",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Drew Morgan",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Damore'ea Stringfellow",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Leonte Carroo",3000,"TB@MIA 01:00PM ET",0.85,"MIA"
-"WR","Jordan Westerkamp",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Malcolm Lewis",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"WR","Mitch Mathews",3000,"TB@MIA 01:00PM ET",0,"MIA"
-"RB","Austin Johnson",3000,"TB@MIA 01:00PM ET",0,"TB"
-"RB","Peyton Barber",3000,"TB@MIA 01:00PM ET",2.407,"TB"
-"RB","Russell Hansbrough",3000,"TB@MIA 01:00PM ET",0,"TB"
-"RB","Quayvon Hicks",3000,"TB@MIA 01:00PM ET",0,"TB"
-"RB","Blake Sims",3000,"TB@MIA 01:00PM ET",0,"TB"
-"WR","Donteea Dye",3000,"TB@MIA 01:00PM ET",0,"TB"
-"WR","Vincent Jackson",3000,"TB@MIA 01:00PM ET",6.46,"TB"
-"WR","Chris Godwin",3000,"TB@MIA 01:00PM ET",0,"TB"
-"WR","Bernard Reedy",3000,"TB@MIA 01:00PM ET",0,"TB"
-"WR","Freddie Martino",3000,"TB@MIA 01:00PM ET",2.169,"TB"
-"WR","Shaq Hill",3000,"TB@MIA 01:00PM ET",0,"TB"
-"WR","Josh Huff",3000,"TB@MIA 01:00PM ET",4.08,"TB"
-"WR","Bobo Wilson",3000,"TB@MIA 01:00PM ET",0,"TB"
-"WR","Derel Walker",3000,"TB@MIA 01:00PM ET",0,"TB"
-"TE","O.J. Howard",3000,"TB@MIA 01:00PM ET",0,"TB"
-"RB","Akeem Judd",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"RB","Khalfani Muhammad",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"RB","Brandon Radcliff",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"RB","Joe Bacci",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"RB","Jalston Fowler",3000,"OAK@TEN 01:00PM ET",0.169,"TEN"
-"RB","David Fluellen",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Harry Douglas",3000,"OAK@TEN 01:00PM ET",3.273,"TEN"
-"WR","Eric Weems",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Darius Jennings",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Mekale McKay",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Tre McBride",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","KeVonn Mabon",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Jonathan Krause",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"WR","Giovanni Pascascio",3000,"OAK@TEN 01:00PM ET",0,"TEN"
-"RB","Jamize Olawale",3000,"OAK@TEN 01:00PM ET",3.412,"OAK"
-"RB","George Atkinson III",3000,"OAK@TEN 01:00PM ET",0.588,"OAK"
-"RB","John Crockett",3000,"OAK@TEN 01:00PM ET",0,"OAK"
-"WR","Cordarrelle Patterson",3000,"OAK@TEN 01:00PM ET",7.475,"OAK"
-"WR","Ishmael Zamora",3000,"OAK@TEN 01:00PM ET",0,"OAK"
-"WR","Isaac Whitney",3000,"OAK@TEN 01:00PM ET",0,"OAK"
-"WR","Johnny Holton",3000,"OAK@TEN 01:00PM ET",0.544,"OAK"
-"WR","K.J. Brent",3000,"OAK@TEN 01:00PM ET",0,"OAK"
-"WR","Keon Hatcher",3000,"OAK@TEN 01:00PM ET",0,"OAK"
-"WR","Jaydon Mickens",3000,"OAK@TEN 01:00PM ET",0,"OAK"
-"RB","Corey Clement",3000,"PHI@WAS 01:00PM ET",0,"PHI"
-"RB","Byron Marshall",3000,"PHI@WAS 01:00PM ET",3.467,"PHI"
-"WR","Marcus Johnson",3000,"PHI@WAS 01:00PM ET",0,"PHI"
-"WR","David Watford",3000,"PHI@WAS 01:00PM ET",0,"PHI"
-"WR","Paul Turner",3000,"PHI@WAS 01:00PM ET",5.4,"PHI"
-"WR","Bryce Treggs",3000,"PHI@WAS 01:00PM ET",1.3,"PHI"
-"WR","Mack Hollins",3000,"PHI@WAS 01:00PM ET",0,"PHI"
-"WR","Shelton Gibson",3000,"PHI@WAS 01:00PM ET",0,"PHI"
-"WR","Greg Ward Jr.",3000,"PHI@WAS 01:00PM ET",0,"PHI"
-"RB","Matt Jones",3000,"PHI@WAS 01:00PM ET",9.256,"WAS"
-"RB","Kenny Hilliard",3000,"PHI@WAS 01:00PM ET",0,"WAS"
-"RB","Mack Brown",3000,"PHI@WAS 01:00PM ET",1.667,"WAS"
-"WR","Maurice Harris",3000,"PHI@WAS 01:00PM ET",1.46,"WAS"
-"WR","Kendal Thompson",3000,"PHI@WAS 01:00PM ET",0,"WAS"
-"WR","Matt Hazel",3000,"PHI@WAS 01:00PM ET",0,"WAS"
-"WR","Zach Pascal",3000,"PHI@WAS 01:00PM ET",0,"WAS"
-"WR","Levern Jacobs",3000,"PHI@WAS 01:00PM ET",0,"WAS"
-"WR","James Quick",3000,"PHI@WAS 01:00PM ET",0,"WAS"
-"WR","Robert Davis",3000,"PHI@WAS 01:00PM ET",0,"WAS"
-"TE","Vernon Davis",3000,"PHI@WAS 01:00PM ET",7.144,"WAS"
-"DST","Redskins ",3000,"PHI@WAS 01:00PM ET",5.938,"WAS"
-"RB","Troymaine Pope",3000,"IND@LAR 04:05PM ET",1.475,"IND"
-"RB","Dalton Crossan",3000,"IND@LAR 04:05PM ET",0,"IND"
-"RB","Christine Michael",3000,"IND@LAR 04:05PM ET",8.228,"IND"
-"RB","Josh Ferguson",3000,"IND@LAR 04:05PM ET",2.225,"IND"
-"WR","Chester Rogers",3000,"IND@LAR 04:05PM ET",3.307,"IND"
-"WR","Harvey Binford",3000,"IND@LAR 04:05PM ET",0,"IND"
-"WR","Quan Bray",3000,"IND@LAR 04:05PM ET",1.217,"IND"
-"WR","Chris Briggs",3000,"IND@LAR 04:05PM ET",0,"IND"
-"WR","Bug Howard",3000,"IND@LAR 04:05PM ET",0,"IND"
-"WR","JoJo Natson Jr.",3000,"IND@LAR 04:05PM ET",0,"IND"
-"WR","Tevaun Smith",3000,"IND@LAR 04:05PM ET",0,"IND"
-"WR","Fred Brown",3000,"IND@LAR 04:05PM ET",0,"IND"
-"RB","Aaron Green",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"RB","Lance Dunbar",3000,"IND@LAR 04:05PM ET",2.664,"LAR"
-"RB","Justin Davis",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"RB","De'Mard Llorens",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"RB","Sam Rogers",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"RB","Lenard Tillery",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","Justin Thomas",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","Paul McRoberts",3000,"IND@LAR 04:05PM ET",0.8,"LAR"
-"WR","Brandon Shippen",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","Nelson Spruce",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","Shakeir Ryan",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","C.J. Germany",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","Josh Reynolds",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","K.D. Cannon",3000,"IND@LAR 04:05PM ET",0,"LAR"
-"WR","Mike Thomas",3000,"IND@LAR 04:05PM ET",0.38,"LAR"
-"RB","Kalif Phillips",3000,"SEA@GB 04:25PM ET",0,"GB"
-"RB","Joe Kerridge",3000,"SEA@GB 04:25PM ET",0,"GB"
-"RB","Aaron Ripkowski",3000,"SEA@GB 04:25PM ET",3.426,"GB"
-"RB","William Stanback",3000,"SEA@GB 04:25PM ET",0,"GB"
-"WR","DeAngelo Yancey",3000,"SEA@GB 04:25PM ET",0,"GB"
-"WR","Michael Clark",3000,"SEA@GB 04:25PM ET",0,"GB"
-"WR","Montay Crockett",3000,"SEA@GB 04:25PM ET",0,"GB"
-"WR","Trevor Davis",3000,"SEA@GB 04:25PM ET",0.8,"GB"
-"WR","Max McCaffrey",3000,"SEA@GB 04:25PM ET",0,"GB"
-"WR","Colby Pearson",3000,"SEA@GB 04:25PM ET",0,"GB"
-"WR","Geronimo Allison",3000,"SEA@GB 04:25PM ET",4.285,"GB"
-"WR","Malachi Dupre",3000,"SEA@GB 04:25PM ET",0,"GB"
-"RB","J.D. McKissic",3000,"SEA@GB 04:25PM ET",1.867,"SEA"
-"RB","Mike Davis",3000,"SEA@GB 04:25PM ET",1.938,"SEA"
-"RB","Alex Collins",3000,"SEA@GB 04:25PM ET",3.492,"SEA"
-"RB","Kyle Coleman",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"RB","Chris Carson",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"RB","Tre Madden",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"RB","Marcel Reece",3000,"SEA@GB 04:25PM ET",2.967,"SEA"
-"WR","Jamel Johnson",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"WR","Tanner McEvoy",3000,"SEA@GB 04:25PM ET",2.295,"SEA"
-"WR","Amara Darboh",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"WR","Cyril Grayson",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"WR","David Moore",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"WR","Kenny Lawler",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"WR","Darreus Rogers",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"WR","Kasen Williams",3000,"SEA@GB 04:25PM ET",0,"SEA"
-"RB","Matt Breida",3000,"CAR@SF 04:25PM ET",0,"SF"
-"RB","Tyler McCloskey",3000,"CAR@SF 04:25PM ET",0,"SF"
-"RB","Kyle Juszczyk",3000,"CAR@SF 04:25PM ET",4.613,"SF"
-"RB","Raheem Mostert",3000,"CAR@SF 04:25PM ET",0.2,"SF"
-"RB","Kapri Bibbs",3000,"CAR@SF 04:25PM ET",2.367,"SF"
-"WR","DeAndre Carter",3000,"CAR@SF 04:25PM ET",0,"SF"
-"WR","Trent Taylor",3000,"CAR@SF 04:25PM ET",0,"SF"
-"WR","Louis Murphy",3000,"CAR@SF 04:25PM ET",0,"SF"
-"WR","Tim Patrick",3000,"CAR@SF 04:25PM ET",0,"SF"
-"WR","Victor Bolden Jr.",3000,"CAR@SF 04:25PM ET",0,"SF"
-"WR","Aaron Burbridge",3000,"CAR@SF 04:25PM ET",0.925,"SF"
-"WR","Kendrick Bourne",3000,"CAR@SF 04:25PM ET",0,"SF"
-"WR","DeAndre Smelter",3000,"CAR@SF 04:25PM ET",1.65,"SF"
-"RB","Cameron Artis-Payne",3000,"CAR@SF 04:25PM ET",9.5,"CAR"
-"RB","Darrel Young",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"RB","Alex Armah",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"RB","Jalen Simmons",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Fred Ross",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Keyarris Garrett",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Mose Frazier",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Austin Duke",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Damiere Byrd",3000,"CAR@SF 04:25PM ET",2.6,"CAR"
-"WR","Kaelin Clay",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Trevor Graham",3000,"CAR@SF 04:25PM ET",0,"CAR"
-"WR","Brenton Bersin",3000,"CAR@SF 04:25PM ET",0.37,"CAR"
-"RB","Keith Smith",3000,"NYG@DAL 08:30PM ET",0.324,"DAL"
-"RB","Ronnie Hillman",3000,"NYG@DAL 08:30PM ET",3.675,"DAL"
-"WR","Brice Butler",3000,"NYG@DAL 08:30PM ET",3.288,"DAL"
-"WR","Ryan Switzer",3000,"NYG@DAL 08:30PM ET",0,"DAL"
-"WR","Noah Brown",3000,"NYG@DAL 08:30PM ET",0,"DAL"
-"WR","Brian Brown",3000,"NYG@DAL 08:30PM ET",0,"DAL"
-"WR","EZ Nwachukwu",3000,"NYG@DAL 08:30PM ET",0,"DAL"
-"WR","Andy Jones",3000,"NYG@DAL 08:30PM ET",0,"DAL"
-"WR","Javontee Herndon",3000,"NYG@DAL 08:30PM ET",0,"DAL"
-"WR","Lance Lenoir",3000,"NYG@DAL 08:30PM ET",0,"DAL"
-"RB","Shaun Draughn",3000,"NYG@DAL 08:30PM ET",6.869,"NYG"
-"RB","Rashad Jennings",3000,"NYG@DAL 08:30PM ET",10.193,"NYG"
-"RB","Shane Smith",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"RB","Jacob Huesman",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"RB","Khalid Abdullah",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"WR","Jerome Lane",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"WR","Travis Rudolph",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"WR","Kevin Snead",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"WR","Keeon Johnson",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"WR","Darius Powe",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"WR","Kevin Norwood",3000,"NYG@DAL 08:30PM ET",0,"NYG"
-"WR","Dwayne Harris",3000,"NYG@DAL 08:30PM ET",0.429,"NYG"
-"TE","Julius Thomas",2900,"TB@MIA 01:00PM ET",9.122,"MIA"
-"DST","Seahawks ",2900,"SEA@GB 04:25PM ET",7.278,"SEA"
-"DST","Cowboys ",2900,"NYG@DAL 08:30PM ET",5.588,"DAL"
-"TE","Evan Engram",2900,"NYG@DAL 08:30PM ET",0,"NYG"
-"TE","Zach Miller",2800,"ATL@CHI 01:00PM ET",11.96,"CHI"
-"TE","Benjamin Watson",2800,"BAL@CIN 01:00PM ET",0,"BAL"
-"DST","Ravens ",2800,"BAL@CIN 01:00PM ET",7.875,"BAL"
-"DST","Cardinals ",2800,"ARI@DET 01:00PM ET",9.188,"ARI"
-"DST","Dolphins ",2800,"TB@MIA 01:00PM ET",7.294,"MIA"
-"TE","Vance McDonald",2800,"CAR@SF 04:25PM ET",7.918,"SF"
-"TE","Austin Seferian-Jenkins",2700,"NYJ@BUF 01:00PM ET",3.822,"NYJ"
-"TE","David Njoku",2700,"PIT@CLE 01:00PM ET",0,"CLE"
-"TE","Jermaine Gresham",2700,"ARI@DET 01:00PM ET",5.506,"ARI"
-"TE","Ryan Griffin",2700,"JAX@HOU 01:00PM ET",6.172,"HOU"
-"DST","Eagles ",2700,"PHI@WAS 01:00PM ET",8.938,"PHI"
-"TE","Erik Swoope",2700,"IND@LAR 04:05PM ET",3.169,"IND"
-"DST","Colts ",2700,"IND@LAR 04:05PM ET",5.563,"IND"
-"TE","Richard Rodgers",2700,"SEA@GB 04:25PM ET",4.184,"GB"
-"TE","Maxx Williams",2600,"BAL@CIN 01:00PM ET",0,"BAL"
-"DST","Lions ",2600,"ARI@DET 01:00PM ET",5.235,"DET"
-"DST","Titans ",2600,"OAK@TEN 01:00PM ET",5.938,"TEN"
-"TE","Tyler Higbee",2600,"IND@LAR 04:05PM ET",1.594,"LAR"
-"TE","Garrett Celek",2600,"CAR@SF 04:25PM ET",5.063,"SF"
-"TE","Will Tye",2600,"NYG@DAL 08:30PM ET",6.124,"NYG"
-"DST","Giants ",2600,"NYG@DAL 08:30PM ET",8.471,"NYG"
-"TE","Nick O'Leary",2500,"NYJ@BUF 01:00PM ET",1.4,"BUF"
-"TE","Wes Saxton",2500,"NYJ@BUF 01:00PM ET",0,"BUF"
-"TE","Jason Croom",2500,"NYJ@BUF 01:00PM ET",0,"BUF"
-"TE","Logan Thomas",2500,"NYJ@BUF 01:00PM ET",0,"BUF"
-"TE","Eric Tomlinson",2500,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"TE","Chris Gragg",2500,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"TE","Jordan Leggett",2500,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"TE","Jason Vander Laan",2500,"NYJ@BUF 01:00PM ET",0,"NYJ"
-"TE","Eric Saubert",2500,"ATL@CHI 01:00PM ET",0,"ATL"
-"TE","Levine Toilolo",2500,"ATL@CHI 01:00PM ET",3.194,"ATL"
-"TE","Alex Gray",2500,"ATL@CHI 01:00PM ET",0,"ATL"
-"TE","Jacob Tamme",2500,"ATL@CHI 01:00PM ET",7.625,"ATL"
-"TE","Joshua Perkins",2500,"ATL@CHI 01:00PM ET",1.32,"ATL"
-"TE","Darion Griswold",2500,"ATL@CHI 01:00PM ET",0,"ATL"
-"TE","Patrick Scales",2500,"ATL@CHI 01:00PM ET",0,"CHI"
-"TE","Daniel Brown",2500,"ATL@CHI 01:00PM ET",4.3,"CHI"
-"TE","Dion Sims",2500,"ATL@CHI 01:00PM ET",5.6,"CHI"
-"TE","MyCole Pruitt",2500,"ATL@CHI 01:00PM ET",0.825,"CHI"
-"TE","Ben Braunecker",2500,"ATL@CHI 01:00PM ET",0.623,"CHI"
-"TE","Adam Shaheen",2500,"ATL@CHI 01:00PM ET",0,"CHI"
-"TE","Tyler Kroft",2500,"BAL@CIN 01:00PM ET",1.371,"CIN"
-"TE","C.J. Uzomah",2500,"BAL@CIN 01:00PM ET",5.44,"CIN"
-"TE","Cethan Carter",2500,"BAL@CIN 01:00PM ET",0,"CIN"
-"TE","Mason Schreck",2500,"BAL@CIN 01:00PM ET",0,"CIN"
-"TE","Ryan Hewitt",2500,"BAL@CIN 01:00PM ET",0.206,"CIN"
-"TE","Clark Harris",2500,"BAL@CIN 01:00PM ET",0,"CIN"
-"TE","Larry Donnell",2500,"BAL@CIN 01:00PM ET",1.947,"BAL"
-"TE","Ryan Malleck",2500,"BAL@CIN 01:00PM ET",0,"BAL"
-"TE","Nick Boyle",2500,"BAL@CIN 01:00PM ET",1.733,"BAL"
-"TE","Randall Telfer",2500,"PIT@CLE 01:00PM ET",0.171,"CLE"
-"TE","Gary Barnidge",2500,"PIT@CLE 01:00PM ET",8.138,"CLE"
-"TE","J.P. Holtz",2500,"PIT@CLE 01:00PM ET",0,"CLE"
-"TE","Seth DeValve",2500,"PIT@CLE 01:00PM ET",2.892,"CLE"
-"TE","Taylor McNamara",2500,"PIT@CLE 01:00PM ET",0,"CLE"
-"TE","Nate Iese",2500,"PIT@CLE 01:00PM ET",0,"CLE"
-"TE","Jake McGee",2500,"PIT@CLE 01:00PM ET",0,"PIT"
-"TE","Ladarius Green",2500,"PIT@CLE 01:00PM ET",9.567,"PIT"
-"TE","Xavier Grimble",2500,"PIT@CLE 01:00PM ET",2.175,"PIT"
-"TE","Phazahn Odom",2500,"PIT@CLE 01:00PM ET",0,"PIT"
-"TE","David Johnson",2500,"PIT@CLE 01:00PM ET",0.953,"PIT"
-"TE","Robert Tonyan Jr.",2500,"ARI@DET 01:00PM ET",0,"DET"
-"TE","Darren Fells",2500,"ARI@DET 01:00PM ET",2.529,"DET"
-"TE","Cole Wick",2500,"ARI@DET 01:00PM ET",0.633,"DET"
-"TE","Khari Lee",2500,"ARI@DET 01:00PM ET",0,"DET"
-"TE","Michael Roberts",2500,"ARI@DET 01:00PM ET",0,"DET"
-"TE","Brandon Barnes",2500,"ARI@DET 01:00PM ET",0,"DET"
-"TE","Hakeem Valles",2500,"ARI@DET 01:00PM ET",0,"ARI"
-"TE","Ricky Seals-Jones",2500,"ARI@DET 01:00PM ET",0,"ARI"
-"TE","Troy Niklas",2500,"ARI@DET 01:00PM ET",0.333,"ARI"
-"TE","Gerald Christian",2500,"ARI@DET 01:00PM ET",0.8,"ARI"
-"TE","Ifeanyi Momah",2500,"ARI@DET 01:00PM ET",1.4,"ARI"
-"TE","Evan Baylis",2500,"JAX@HOU 01:00PM ET",0,"HOU"
-"TE","RaShaun Allen",2500,"JAX@HOU 01:00PM ET",0,"HOU"
-"TE","Stephen Anderson",2500,"JAX@HOU 01:00PM ET",1.753,"HOU"
-"TE","Marcedes Lewis",2500,"JAX@HOU 01:00PM ET",4.29,"JAX"
-"TE","Ben Koyack",2500,"JAX@HOU 01:00PM ET",2.936,"JAX"
-"TE","Alex Ellis",2500,"JAX@HOU 01:00PM ET",0.683,"JAX"
-"TE","Neal Sterling",2500,"JAX@HOU 01:00PM ET",2.3,"JAX"
-"TE","Caleb Bluiett",2500,"JAX@HOU 01:00PM ET",0,"JAX"
-"TE","Mychal Rivera",2500,"JAX@HOU 01:00PM ET",3.593,"JAX"
-"TE","MarQueis Gray",2500,"TB@MIA 01:00PM ET",1.847,"MIA"
-"TE","Chris Pantale",2500,"TB@MIA 01:00PM ET",0,"MIA"
-"TE","Anthony Fasano",2500,"TB@MIA 01:00PM ET",1.769,"MIA"
-"TE","Thomas Duarte",2500,"TB@MIA 01:00PM ET",0,"MIA"
-"TE","Antony Auclair",2500,"TB@MIA 01:00PM ET",0,"TB"
-"TE","Luke Stocker",2500,"TB@MIA 01:00PM ET",0.562,"TB"
-"TE","Alan Cross",2500,"TB@MIA 01:00PM ET",1.129,"TB"
-"TE","Tevin Westbrook",2500,"TB@MIA 01:00PM ET",0,"TB"
-"TE","Jonnu Smith",2500,"OAK@TEN 01:00PM ET",0,"TEN"
-"TE","Tim Semisch",2500,"OAK@TEN 01:00PM ET",0,"TEN"
-"TE","Jace Amaro",2500,"OAK@TEN 01:00PM ET",2.225,"TEN"
-"TE","Jerome Cunningham",2500,"OAK@TEN 01:00PM ET",0,"TEN"
-"TE","Phillip Supernaw",2500,"OAK@TEN 01:00PM ET",0.68,"TEN"
-"TE","Beau Brinkley",2500,"OAK@TEN 01:00PM ET",0,"TEN"
-"TE","Lee Smith",2500,"OAK@TEN 01:00PM ET",2.225,"OAK"
-"TE","Cooper Helfet",2500,"OAK@TEN 01:00PM ET",0,"OAK"
-"TE","Gabe Holmes",2500,"OAK@TEN 01:00PM ET",0,"OAK"
-"TE","Clive Walford",2500,"OAK@TEN 01:00PM ET",5.656,"OAK"
-"TE","Ryan O'Malley",2500,"OAK@TEN 01:00PM ET",0,"OAK"
-"TE","Pharaoh Brown",2500,"OAK@TEN 01:00PM ET",0,"OAK"
-"DST","Raiders ",2500,"OAK@TEN 01:00PM ET",5.647,"OAK"
-"TE","Brent Celek",2500,"PHI@WAS 01:00PM ET",1.844,"PHI"
-"TE","Trey Burton",2500,"PHI@WAS 01:00PM ET",5.047,"PHI"
-"TE","Anthony Denham",2500,"PHI@WAS 01:00PM ET",0,"PHI"
-"TE","Adam Zaruba",2500,"PHI@WAS 01:00PM ET",0,"PHI"
-"TE","Billy Brown",2500,"PHI@WAS 01:00PM ET",0,"PHI"
-"TE","E.J. Bibbs",2500,"PHI@WAS 01:00PM ET",0,"WAS"
-"TE","Derek Carrier",2500,"PHI@WAS 01:00PM ET",0.375,"WAS"
-"TE","Jeremy Sprinkle",2500,"PHI@WAS 01:00PM ET",0,"WAS"
-"TE","Manasseh Garner",2500,"PHI@WAS 01:00PM ET",0,"WAS"
-"TE","Niles Paul",2500,"PHI@WAS 01:00PM ET",0.588,"WAS"
-"TE","Brandon Williams",2500,"IND@LAR 04:05PM ET",0.311,"IND"
-"TE","Steven Wroblewski",2500,"IND@LAR 04:05PM ET",0,"IND"
-"TE","Darrell Daniels",2500,"IND@LAR 04:05PM ET",0,"IND"
-"TE","Henry Krieger-Coble",2500,"IND@LAR 04:05PM ET",1.15,"IND"
-"TE","Johnny Mundt",2500,"IND@LAR 04:05PM ET",0,"LAR"
-"TE","Gerald Everett",2500,"IND@LAR 04:05PM ET",0,"LAR"
-"TE","Temarrick Hemingway",2500,"IND@LAR 04:05PM ET",0,"LAR"
-"TE","Cory Harkey",2500,"IND@LAR 04:05PM ET",0,"LAR"
-"TE","Travis Wilson",2500,"IND@LAR 04:05PM ET",0,"LAR"
-"TE","Emanuel Byrd",2500,"SEA@GB 04:25PM ET",0,"GB"
-"TE","Lance Kendricks",2500,"SEA@GB 04:25PM ET",6.931,"GB"
-"TE","Beau Sandland",2500,"SEA@GB 04:25PM ET",0,"GB"
-"TE","Aaron Peck",2500,"SEA@GB 04:25PM ET",0,"GB"
-"DST","Packers ",2500,"SEA@GB 04:25PM ET",5.737,"GB"
-"TE","Luke Willson",2500,"SEA@GB 04:25PM ET",3.177,"SEA"
-"TE","Tyler Ott",2500,"SEA@GB 04:25PM ET",0,"SEA"
-"TE","Marcus Lucas",2500,"SEA@GB 04:25PM ET",0,"SEA"
-"TE","Stevie Donatell",2500,"SEA@GB 04:25PM ET",0,"SEA"
-"TE","Nick Vannett",2500,"SEA@GB 04:25PM ET",0.689,"SEA"
-"TE","Tyrone Swoopes",2500,"SEA@GB 04:25PM ET",0,"SEA"
-"TE","George Kittle",2500,"CAR@SF 04:25PM ET",0,"SF"
-"TE","Cole Hikutini",2500,"CAR@SF 04:25PM ET",0,"SF"
-"TE","Kyle Nelson",2500,"CAR@SF 04:25PM ET",0,"SF"
-"TE","Logan Paulsen",2500,"CAR@SF 04:25PM ET",0.281,"SF"
-"TE","Blake Bell",2500,"CAR@SF 04:25PM ET",0.962,"SF"
-"TE","Eric Wallace",2500,"CAR@SF 04:25PM ET",0,"CAR"
-"TE","Ed Dickson",2500,"CAR@SF 04:25PM ET",1.838,"CAR"
-"TE","Scott Simonson",2500,"CAR@SF 04:25PM ET",0,"CAR"
-"TE","Chris Manhertz",2500,"CAR@SF 04:25PM ET",0.286,"CAR"
-"TE","Bryce Williams",2500,"CAR@SF 04:25PM ET",0,"CAR"
-"TE","Rico Gathers",2500,"NYG@DAL 08:30PM ET",0,"DAL"
-"TE","Connor Hamlett",2500,"NYG@DAL 08:30PM ET",2.9,"DAL"
-"TE","Blake Jarwin",2500,"NYG@DAL 08:30PM ET",0,"DAL"
-"TE","Geoff Swaim",2500,"NYG@DAL 08:30PM ET",1.433,"DAL"
-"TE","James Hanna",2500,"NYG@DAL 08:30PM ET",0,"DAL"
-"TE","Rhett Ellison",2500,"NYG@DAL 08:30PM ET",1.387,"NYG"
-"TE","Matt LaCosse",2500,"NYG@DAL 08:30PM ET",0,"NYG"
-"TE","Jerell Adams",2500,"NYG@DAL 08:30PM ET",2.631,"NYG"
-"TE","Colin Thompson",2500,"NYG@DAL 08:30PM ET",0,"NYG"
-"DST","Jets ",2400,"NYJ@BUF 01:00PM ET",3.75,"NYJ"
-"DST","Bears ",2200,"ATL@CHI 01:00PM ET",5.313,"CHI"
-"DST","49ers ",2100,"CAR@SF 04:25PM ET",4.063,"SF"
-"DST","Browns ",2000,"PIT@CLE 01:00PM ET",3.125,"CLE"
+\nPosition,Name + ID,Name,ID,Salary,GameInfo,TeamAbbrev 
+\nRB,Le'Veon Bell (9213140),Le'Veon Bell,9213140,9800,PIT@CLE 01:00PM ET,PIT
+\nRB,David Johnson (9213077),David Johnson,9213077,9400,ARI@DET 01:00PM ET,ARI
+\nWR,Antonio Brown (9213146),Antonio Brown,9213146,8800,PIT@CLE 01:00PM ET,PIT
+\nWR,Julio Jones (9212141),Julio Jones,9212141,8500,ATL@CHI 01:00PM ET,ATL
+\nWR,Odell Beckham Jr. (9212937),Odell Beckham Jr.,9212937,8300,NYG@DAL 08:30PM ET,NYG
+\nRB,LeSean McCoy (9212185),LeSean McCoy,9212185,8200,NYJ@BUF 01:00PM ET,BUF
+\nRB,Ezekiel Elliott (9212467),Ezekiel Elliott,9212467,8100,NYG@DAL 08:30PM ET,DAL
+\nWR,A.J. Green (9212364),A.J. Green,9212364,8000,BAL@CIN 01:00PM ET,CIN
+\nWR,Mike Evans (9213337),Mike Evans,9213337,7800,Postponed,TB
+\nWR,Jordy Nelson (9212592),Jordy Nelson,9212592,7600,SEA@GB 04:25PM ET,GB
+\nWR,Dez Bryant (9212471),Dez Bryant,9212471,7500,NYG@DAL 08:30PM ET,DAL
+\nRB,DeMarco Murray (9212621),DeMarco Murray,9212621,7400,OAK@TEN 01:00PM ET,TEN
+\nQB,Ben Roethlisberger (9213125),Ben Roethlisberger,9213125,7300,PIT@CLE 01:00PM ET,PIT
+\nWR,Amari Cooper (9212752),Amari Cooper,9212752,7200,OAK@TEN 01:00PM ET,OAK
+\nQB,Cam Newton (9213415),Cam Newton,9213415,7100,CAR@SF 04:25PM ET,CAR
+\nRB,Devonta Freeman (9212125),Devonta Freeman,9212125,7000,ATL@CHI 01:00PM ET,ATL
+\nQB,Aaron Rodgers (9212563),Aaron Rodgers,9212563,7000,SEA@GB 04:25PM ET,GB
+\nQB,Matt Ryan (9212113),Matt Ryan,9212113,6900,ATL@CHI 01:00PM ET,ATL
+\nWR,T.Y. Hilton (9212704),T.Y. Hilton,9212704,6900,IND@LAR 04:05PM ET,IND
+\nQB,Russell Wilson (9213239),Russell Wilson,9213239,6900,SEA@GB 04:25PM ET,SEA
+\nQB,Marcus Mariota (9212618),Marcus Mariota,9212618,6800,OAK@TEN 01:00PM ET,TEN
+\nQB,Derek Carr (9212734),Derek Carr,9212734,6700,OAK@TEN 01:00PM ET,OAK
+\nWR,Doug Baldwin (9213272),Doug Baldwin,9213272,6700,SEA@GB 04:25PM ET,SEA
+\nQB,Jameis Winston (9213302),Jameis Winston,9213302,6600,Postponed,TB
+\nWR,Golden Tate (9212523),Golden Tate,9212523,6500,ARI@DET 01:00PM ET,DET
+\nRB,Jay Ajayi (9212854),Jay Ajayi,9212854,6500,Postponed,MIA
+\nQB,Andrew Luck (9212680),Andrew Luck,9212680,6500,IND@LAR 04:05PM ET,IND
+\nQB,Kirk Cousins (9213361),Kirk Cousins,9213361,6400,PHI@WAS 01:00PM ET,WAS
+\nRB,Jordan Howard (9212296),Jordan Howard,9212296,6300,ATL@CHI 01:00PM ET,CHI
+\nQB,Dak Prescott (9212457),Dak Prescott,9212457,6300,NYG@DAL 08:30PM ET,DAL
+\nQB,Tyrod Taylor (9212175),Tyrod Taylor,9212175,6200,NYJ@BUF 01:00PM ET,BUF
+\nWR,Sammy Watkins (9212213),Sammy Watkins,9212213,6200,IND@LAR 04:05PM ET,LAR
+\nTE,Greg Olsen (9213460),Greg Olsen,9213460,6200,CAR@SF 04:25PM ET,CAR
+\nQB,Matthew Stafford (9212506),Matthew Stafford,9212506,6100,ARI@DET 01:00PM ET,DET
+\nWR,Terrelle Pryor Sr. (9213379),Terrelle Pryor Sr.,9213379,6100,PHI@WAS 01:00PM ET,WAS
+\nRB,Darren McFadden (9212469),Darren McFadden,9212469,6100,NYG@DAL 08:30PM ET,DAL
+\nWR,Martavis Bryant (9213164),Martavis Bryant,9213164,6000,PIT@CLE 01:00PM ET,PIT
+\nQB,Carson Palmer (9213068),Carson Palmer,9213068,6000,ARI@DET 01:00PM ET,ARI
+\nWR,Michael Crabtree (9212768),Michael Crabtree,9212768,6000,OAK@TEN 01:00PM ET,OAK
+\nRB,Todd Gurley II (9212792),Todd Gurley II,9212792,6000,IND@LAR 04:05PM ET,LAR
+\nWR,Larry Fitzgerald (9213091),Larry Fitzgerald,9213091,5900,ARI@DET 01:00PM ET,ARI
+\nWR,DeAndre Hopkins (9212253),DeAndre Hopkins,9212253,5900,JAX@HOU 01:00PM ET,HOU
+\nTE,Jordan Reed (9213411),Jordan Reed,9213411,5900,PHI@WAS 01:00PM ET,WAS
+\nWR,Kelvin Benjamin (9213442),Kelvin Benjamin,9213442,5900,CAR@SF 04:25PM ET,CAR
+\nWR,Alshon Jeffery (9213046),Alshon Jeffery,9213046,5800,PHI@WAS 01:00PM ET,PHI
+\nRB,Ty Montgomery (9212570),Ty Montgomery,9212570,5800,SEA@GB 04:25PM ET,GB
+\nQB,Andy Dalton (9212341),Andy Dalton,9212341,5700,BAL@CIN 01:00PM ET,CIN
+\nRB,Leonard Fournette (9213472),Leonard Fournette,9213472,5700,JAX@HOU 01:00PM ET,JAX
+\nWR,Jamison Crowder (9213387),Jamison Crowder,9213387,5600,PHI@WAS 01:00PM ET,WAS
+\nQB,Eli Manning (9212900),Eli Manning,9212900,5600,NYG@DAL 08:30PM ET,NYG
+\nRB,Joe Mixon (9212344),Joe Mixon,9212344,5500,BAL@CIN 01:00PM ET,CIN
+\nQB,Joe Flacco (9213530),Joe Flacco,9213530,5500,BAL@CIN 01:00PM ET,BAL
+\nRB,Derrick Henry (9212623),Derrick Henry,9212623,5500,OAK@TEN 01:00PM ET,TEN
+\nQB,Derek Anderson (9213417),Derek Anderson,9213417,5500,CAR@SF 04:25PM ET,CAR
+\nRB,Tevin Coleman (9212117),Tevin Coleman,9212117,5400,ATL@CHI 01:00PM ET,ATL
+\nQB,Jay Cutler (9212846),Jay Cutler,9212846,5400,Postponed,MIA
+\nWR,Jarvis Landry (9212868),Jarvis Landry,9212868,5400,Postponed,MIA
+\nRB,Christian McCaffrey (9213418),Christian McCaffrey,9213418,5400,CAR@SF 04:25PM ET,CAR
+\nRB,Isaiah Crowell (9212410),Isaiah Crowell,9212410,5300,PIT@CLE 01:00PM ET,CLE
+\nWR,DeVante Parker (9212866),DeVante Parker,9212866,5300,Postponed,MIA
+\nRB,Marshawn Lynch (9212748),Marshawn Lynch,9212748,5300,OAK@TEN 01:00PM ET,OAK
+\nQB,Carson Wentz (9213014),Carson Wentz,9213014,5300,PHI@WAS 01:00PM ET,PHI
+\nWR,Randall Cobb (9212590),Randall Cobb,9212590,5300,SEA@GB 04:25PM ET,GB
+\nWR,Pierre Garcon (9213206),Pierre Garcon,9213206,5300,CAR@SF 04:25PM ET,SF
+\nRB,Danny Woodhead (9213533),Danny Woodhead,9213533,5200,BAL@CIN 01:00PM ET,BAL
+\nWR,Allen Robinson (9213512),Allen Robinson,9213512,5200,JAX@HOU 01:00PM ET,JAX
+\nQB,Colt McCoy (9213360),Colt McCoy,9213360,5200,PHI@WAS 01:00PM ET,WAS
+\nWR,Davante Adams (9212586),Davante Adams,9212586,5200,SEA@GB 04:25PM ET,GB
+\nRB,Lamar Miller (9212239),Lamar Miller,9212239,5100,JAX@HOU 01:00PM ET,HOU
+\nTE,Jimmy Graham (9213292),Jimmy Graham,9213292,5100,SEA@GB 04:25PM ET,SEA
+\nQB,Brian Hoyer (9213183),Brian Hoyer,9213183,5100,CAR@SF 04:25PM ET,SF
+\nWR,Brandon Marshall (9212919),Brandon Marshall,9212919,5100,NYG@DAL 08:30PM ET,NYG
+\nWR,Cameron Meredith (9212310),Cameron Meredith,9212310,5000,ATL@CHI 01:00PM ET,CHI
+\nWR,Jeremy Maclin (9213563),Jeremy Maclin,9213563,5000,BAL@CIN 01:00PM ET,BAL
+\nQB,Ryan Tannehill (9212845),Ryan Tannehill,9212845,5000,Postponed,MIA
+\nWR,Eric Decker (9212637),Eric Decker,9212637,5000,OAK@TEN 01:00PM ET,TEN
+\nWR,Donte Moncrief (9212700),Donte Moncrief,9212700,5000,IND@LAR 04:05PM ET,IND
+\nRB,Eddie Lacy (9213258),Eddie Lacy,9213258,5000,SEA@GB 04:25PM ET,SEA
+\nRB,Jonathan Stewart (9213422),Jonathan Stewart,9213422,5000,CAR@SF 04:25PM ET,CAR
+\nRB,Bilal Powell (9212969),Bilal Powell,9212969,4900,NYJ@BUF 01:00PM ET,NYJ
+\nQB,Mike Glennon (9212284),Mike Glennon,9212284,4900,ATL@CHI 01:00PM ET,CHI
+\nQB,Matt Moore (9212847),Matt Moore,9212847,4900,Postponed,MIA
+\nRB,Jacquizz Rodgers (9213307),Jacquizz Rodgers,9213307,4900,Postponed,TB
+\nWR,DeSean Jackson (9213345),DeSean Jackson,9213345,4900,Postponed,TB
+\nRB,Matt Forte (9212967),Matt Forte,9212967,4800,NYJ@BUF 01:00PM ET,NYJ
+\nQB,DeShone Kizer (9212399),DeShone Kizer,9212399,4800,PIT@CLE 01:00PM ET,CLE
+\nQB,Cody Kessler (9212402),Cody Kessler,9212402,4800,PIT@CLE 01:00PM ET,CLE
+\nWR,Kenny Britt (9212436),Kenny Britt,9212436,4800,PIT@CLE 01:00PM ET,CLE
+\nWR,John Brown (9213097),John Brown,9213097,4800,ARI@DET 01:00PM ET,ARI
+\nQB,Tom Savage (9212231),Tom Savage,9212231,4800,JAX@HOU 01:00PM ET,HOU
+\nQB,Deshaun Watson (9212232),Deshaun Watson,9212232,4800,JAX@HOU 01:00PM ET,HOU
+\nQB,Blake Bortles (9213471),Blake Bortles,9213471,4800,JAX@HOU 01:00PM ET,JAX
+\nQB,Ryan Fitzpatrick (9213304),Ryan Fitzpatrick,9213304,4800,Postponed,TB
+\nRB,Doug Martin (9213305),Doug Martin,9213305,4800,Postponed,TB
+\nQB,Jared Goff (9212787),Jared Goff,9212787,4800,IND@LAR 04:05PM ET,LAR
+\nRB,Thomas Rawls (9213242),Thomas Rawls,9213242,4800,SEA@GB 04:25PM ET,SEA
+\nQB,Geno Smith (9212898),Geno Smith,9212898,4800,NYG@DAL 08:30PM ET,NYG
+\nQB,AJ McCarron (9212342),AJ McCarron,9212342,4700,BAL@CIN 01:00PM ET,CIN
+\nRB,Terrance West (9213537),Terrance West,9213537,4700,BAL@CIN 01:00PM ET,BAL
+\nQB,Landry Jones (9213124),Landry Jones,9213124,4700,PIT@CLE 01:00PM ET,PIT
+\nRB,Theo Riddick (9212515),Theo Riddick,9212515,4700,ARI@DET 01:00PM ET,DET
+\nQB,Brett Hundley (9212561),Brett Hundley,9212561,4700,SEA@GB 04:25PM ET,GB
+\nQB,Colin Kaepernick (9213182),Colin Kaepernick,9213182,4700,CAR@SF 04:25PM ET,SF
+\nWR,Cole Beasley (9212475),Cole Beasley,9212475,4700,NYG@DAL 08:30PM ET,DAL
+\nQB,Josh McCown (9212956),Josh McCown,9212956,4600,NYJ@BUF 01:00PM ET,NYJ
+\nQB,Mitchell Trubisky (9212282),Mitchell Trubisky,9212282,4600,ATL@CHI 01:00PM ET,CHI
+\nTE,Tyler Eifert (9212396),Tyler Eifert,9212396,4600,BAL@CIN 01:00PM ET,CIN
+\nRB,Duke Johnson Jr. (9212406),Duke Johnson Jr.,9212406,4600,PIT@CLE 01:00PM ET,CLE
+\nQB,Nick Foles (9213016),Nick Foles,9213016,4600,PHI@WAS 01:00PM ET,PHI
+\nRB,Carlos Hyde (9213196),Carlos Hyde,9213196,4600,CAR@SF 04:25PM ET,SF
+\nQB,Matt Schaub (9212114),Matt Schaub,9212114,4500,ATL@CHI 01:00PM ET,ATL
+\nRB,Giovani Bernard (9212356),Giovani Bernard,9212356,4500,BAL@CIN 01:00PM ET,CIN
+\nQB,Ryan Mallett (9213529),Ryan Mallett,9213529,4500,BAL@CIN 01:00PM ET,BAL
+\nWR,Mike Wallace (9213565),Mike Wallace,9213565,4500,BAL@CIN 01:00PM ET,BAL
+\nQB,Brock Osweiler (9212403),Brock Osweiler,9212403,4500,PIT@CLE 01:00PM ET,CLE
+\nRB,James Conner (9213134),James Conner,9213134,4500,PIT@CLE 01:00PM ET,PIT
+\nQB,Blaine Gabbert (9213069),Blaine Gabbert,9213069,4500,ARI@DET 01:00PM ET,ARI
+\nQB,Matt Cassel (9212617),Matt Cassel,9212617,4500,OAK@TEN 01:00PM ET,TEN
+\nQB,Connor Cook (9212733),Connor Cook,9212733,4500,OAK@TEN 01:00PM ET,OAK
+\nRB,LeGarrette Blount (9213028),LeGarrette Blount,9213028,4500,PHI@WAS 01:00PM ET,PHI
+\nQB,Scott Tolzien (9212681),Scott Tolzien,9212681,4500,IND@LAR 04:05PM ET,IND
+\nQB,Trevone Boykin (9213241),Trevone Boykin,9213241,4500,SEA@GB 04:25PM ET,SEA
+\nQB,Christian Hackenberg (9212958),Christian Hackenberg,9212958,4400,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Jordan Matthews (9213038),Jordan Matthews,9213038,4400,NYJ@BUF 01:00PM ET,BUF
+\nRB,Jeremy Hill (9212348),Jeremy Hill,9212348,4400,BAL@CIN 01:00PM ET,CIN
+\nWR,Corey Coleman (9212428),Corey Coleman,9212428,4400,PIT@CLE 01:00PM ET,CLE
+\nWR,Tyler Lockett (9213270),Tyler Lockett,9213270,4400,SEA@GB 04:25PM ET,SEA
+\nQB,Kellen Moore (9212456),Kellen Moore,9212456,4400,NYG@DAL 08:30PM ET,DAL
+\nRB,Alfred Morris (9212459),Alfred Morris,9212459,4400,NYG@DAL 08:30PM ET,DAL
+\nQB,Mark Sanchez (9212285),Mark Sanchez,9212285,4300,ATL@CHI 01:00PM ET,CHI
+\nRB,Ameer Abdullah (9212509),Ameer Abdullah,9212509,4300,ARI@DET 01:00PM ET,DET
+\nQB,Chad Henne (9213469),Chad Henne,9213469,4300,JAX@HOU 01:00PM ET,JAX
+\nTE,Delanie Walker (9212663),Delanie Walker,9212663,4300,OAK@TEN 01:00PM ET,TEN
+\nRB,Rob Kelley (9213373),Rob Kelley,9213373,4300,PHI@WAS 01:00PM ET,WAS
+\nRB,Frank Gore (9212688),Frank Gore,9212688,4300,IND@LAR 04:05PM ET,IND
+\nQB,Sean Mannion (9212786),Sean Mannion,9212786,4300,IND@LAR 04:05PM ET,LAR
+\nWR,Devin Funchess (9213448),Devin Funchess,9213448,4300,CAR@SF 04:25PM ET,CAR
+\nRB,Paul Perkins (9212909),Paul Perkins,9212909,4300,NYG@DAL 08:30PM ET,NYG
+\nQB,T.J. Yates (9212176),T.J. Yates,9212176,4200,NYJ@BUF 01:00PM ET,BUF
+\nWR,Mohamed Sanu (9212139),Mohamed Sanu,9212139,4200,ATL@CHI 01:00PM ET,ATL
+\nWR,Kevin White (9212304),Kevin White,9212304,4200,ATL@CHI 01:00PM ET,CHI
+\nRB,Alfred Blue (9212241),Alfred Blue,9212241,4200,JAX@HOU 01:00PM ET,HOU
+\nWR,Rishard Matthews (9212653),Rishard Matthews,9212653,4200,OAK@TEN 01:00PM ET,TEN
+\nRB,Samaje Perine (9213363),Samaje Perine,9213363,4200,PHI@WAS 01:00PM ET,WAS
+\nWR,Marvin Jones Jr. (9212525),Marvin Jones Jr.,9212525,4100,ARI@DET 01:00PM ET,DET
+\nQB,Drew Stanton (9213067),Drew Stanton,9213067,4100,ARI@DET 01:00PM ET,ARI
+\nRB,D'Onta Foreman (9212233),D'Onta Foreman,9212233,4100,JAX@HOU 01:00PM ET,HOU
+\nRB,Kenyan Drake (9212852),Kenyan Drake,9212852,4100,Postponed,MIA
+\nRB,DeAndre Washington (9212742),DeAndre Washington,9212742,4100,OAK@TEN 01:00PM ET,OAK
+\nTE,Martellus Bennett (9212606),Martellus Bennett,9212606,4100,SEA@GB 04:25PM ET,GB
+\nRB,C.J. Prosise (9213250),C.J. Prosise,9213250,4100,SEA@GB 04:25PM ET,SEA
+\nRB,Tim Hightower (9213198),Tim Hightower,9213198,4100,CAR@SF 04:25PM ET,SF
+\nWR,Sterling Shepard (9212931),Sterling Shepard,9212931,4100,NYG@DAL 08:30PM ET,NYG
+\nQB,Nathan Peterman (9212174),Nathan Peterman,9212174,4000,NYJ@BUF 01:00PM ET,BUF
+\nQB,Bryce Petty (9212957),Bryce Petty,9212957,4000,NYJ@BUF 01:00PM ET,NYJ
+\nQB,Joe Webb (9213416),Joe Webb,9213416,4000,NYJ@BUF 01:00PM ET,BUF
+\nQB,Matt Simms (9212115),Matt Simms,9212115,4000,ATL@CHI 01:00PM ET,ATL
+\nQB,Alek Torgersen (9212116),Alek Torgersen,9212116,4000,ATL@CHI 01:00PM ET,ATL
+\nWR,Taylor Gabriel (9212155),Taylor Gabriel,9212155,4000,ATL@CHI 01:00PM ET,ATL
+\nQB,Connor Shaw (9212283),Connor Shaw,9212283,4000,ATL@CHI 01:00PM ET,CHI
+\nQB,Jeff Driskel (9212343),Jeff Driskel,9212343,4000,BAL@CIN 01:00PM ET,CIN
+\nQB,Dustin Vaughan (9213527),Dustin Vaughan,9213527,4000,BAL@CIN 01:00PM ET,BAL
+\nQB,Robert Griffin III (9212400),Robert Griffin III,9212400,4000,PIT@CLE 01:00PM ET,CLE
+\nQB,Kevin Hogan (9212401),Kevin Hogan,9212401,4000,PIT@CLE 01:00PM ET,CLE
+\nWR,Josh Gordon (9212418),Josh Gordon,9212418,4000,PIT@CLE 01:00PM ET,CLE
+\nQB,Joshua Dobbs (9213122),Joshua Dobbs,9213122,4000,PIT@CLE 01:00PM ET,PIT
+\nQB,Bart Houston (9213123),Bart Houston,9213123,4000,PIT@CLE 01:00PM ET,PIT
+\nRB,Fitzgerald Toussaint (9213128),Fitzgerald Toussaint,9213128,4000,PIT@CLE 01:00PM ET,PIT
+\nWR,Justin Hunter (9213144),Justin Hunter,9213144,4000,PIT@CLE 01:00PM ET,PIT
+\nQB,Josh Woodrum (9213528),Josh Woodrum,9213528,4000,PIT@CLE 01:00PM ET,CLE
+\nQB,Jake Rudock (9212507),Jake Rudock,9212507,4000,ARI@DET 01:00PM ET,DET
+\nQB,Trevor Knight (9213070),Trevor Knight,9213070,4000,ARI@DET 01:00PM ET,ARI
+\nQB,Brandon Weeden (9212230),Brandon Weeden,9212230,4000,JAX@HOU 01:00PM ET,HOU
+\nQB,Brandon Doughty (9212843),Brandon Doughty,9212843,4000,Postponed,MIA
+\nQB,David Fales (9212844),David Fales,9212844,4000,Postponed,MIA
+\nQB,Sefo Liufau (9213301),Sefo Liufau,9213301,4000,Postponed,TB
+\nQB,Ryan Griffin (9213303),Ryan Griffin,9213303,4000,Postponed,TB
+\nQB,Alex Tanney (9212619),Alex Tanney,9212619,4000,OAK@TEN 01:00PM ET,TEN
+\nQB,Tyler Ferguson (9212620),Tyler Ferguson,9212620,4000,OAK@TEN 01:00PM ET,TEN
+\nWR,Corey Davis (9212651),Corey Davis,9212651,4000,OAK@TEN 01:00PM ET,TEN
+\nQB,EJ Manuel (9212735),EJ Manuel,9212735,4000,OAK@TEN 01:00PM ET,OAK
+\nQB,Dane Evans (9213015),Dane Evans,9213015,4000,PHI@WAS 01:00PM ET,PHI
+\nQB,Matt McGloin (9213017),Matt McGloin,9213017,4000,PHI@WAS 01:00PM ET,PHI
+\nQB,Nate Sudfeld (9213362),Nate Sudfeld,9213362,4000,PHI@WAS 01:00PM ET,WAS
+\nQB,Phillip Walker (9212678),Phillip Walker,9212678,4000,IND@LAR 04:05PM ET,IND
+\nQB,Stephen Morris (9212679),Stephen Morris,9212679,4000,IND@LAR 04:05PM ET,IND
+\nRB,Robert Turbin (9212690),Robert Turbin,9212690,4000,IND@LAR 04:05PM ET,IND
+\nQB,Dan Orlovsky (9212785),Dan Orlovsky,9212785,4000,IND@LAR 04:05PM ET,LAR
+\nWR,Robert Woods (9212814),Robert Woods,9212814,4000,IND@LAR 04:05PM ET,LAR
+\nQB,Brandon Allen (9213470),Brandon Allen,9213470,4000,IND@LAR 04:05PM ET,LAR
+\nQB,Joe Callahan (9212560),Joe Callahan,9212560,4000,SEA@GB 04:25PM ET,GB
+\nQB,Taysom Hill (9212562),Taysom Hill,9212562,4000,SEA@GB 04:25PM ET,GB
+\nQB,Austin Davis (9213240),Austin Davis,9213240,4000,SEA@GB 04:25PM ET,SEA
+\nQB,Brad Kaaya (9212508),Brad Kaaya,9212508,4000,CAR@SF 04:25PM ET,CAR
+\nQB,Nick Mullens (9213179),Nick Mullens,9213179,4000,CAR@SF 04:25PM ET,SF
+\nQB,C.J. Beathard (9213180),C.J. Beathard,9213180,4000,CAR@SF 04:25PM ET,SF
+\nQB,Matt Barkley (9213181),Matt Barkley,9213181,4000,CAR@SF 04:25PM ET,SF
+\nRB,Joe Williams (9213186),Joe Williams,9213186,4000,CAR@SF 04:25PM ET,SF
+\nQB,Garrett Gilbert (9213414),Garrett Gilbert,9213414,4000,CAR@SF 04:25PM ET,CAR
+\nQB,Luke McCown (9212455),Luke McCown,9212455,4000,NYG@DAL 08:30PM ET,DAL
+\nQB,Cooper Rush (9212458),Cooper Rush,9212458,4000,NYG@DAL 08:30PM ET,DAL
+\nQB,Davis Webb (9212897),Davis Webb,9212897,4000,NYG@DAL 08:30PM ET,NYG
+\nQB,Josh Johnson (9212899),Josh Johnson,9212899,4000,NYG@DAL 08:30PM ET,NYG
+\nRB,Jonathan Williams (9212191),Jonathan Williams,9212191,3900,NYJ@BUF 01:00PM ET,BUF
+\nDST,Bills  (9212229),Bills ,9212229,3900,NYJ@BUF 01:00PM ET,BUF
+\nRB,Jeremy Langford (9212290),Jeremy Langford,9212290,3900,BAL@CIN 01:00PM ET,BAL
+\nWR,Eli Rogers (9213160),Eli Rogers,9213160,3900,PIT@CLE 01:00PM ET,PIT
+\nRB,Chris Johnson (9213083),Chris Johnson,9213083,3900,ARI@DET 01:00PM ET,ARI
+\nWR,Braxton Miller (9212249),Braxton Miller,9212249,3900,JAX@HOU 01:00PM ET,HOU
+\nRB,T.J. Yeldon (9213484),T.J. Yeldon,9213484,3900,JAX@HOU 01:00PM ET,JAX
+\nRB,Charles Sims (9213313),Charles Sims,9213313,3900,Postponed,TB
+\nRB,Jalen Richard (9212740),Jalen Richard,9212740,3900,OAK@TEN 01:00PM ET,OAK
+\nRB,Darren Sproles (9213026),Darren Sproles,9213026,3900,PHI@WAS 01:00PM ET,PHI
+\nRB,Malcolm Brown (9212788),Malcolm Brown,9212788,3900,IND@LAR 04:05PM ET,LAR
+\nRB,Jamaal Williams (9212574),Jamaal Williams,9212574,3900,SEA@GB 04:25PM ET,GB
+\nRB,Rod Smith (9212461),Rod Smith,9212461,3900,NYG@DAL 08:30PM ET,DAL
+\nTE,Jason Witten (9212503),Jason Witten,9212503,3900,NYG@DAL 08:30PM ET,DAL
+\nWR,Robby Anderson (9212977),Robby Anderson,9212977,3800,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Jeremy Kerley (9213208),Jeremy Kerley,9213208,3800,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Sammie Coates (9213162),Sammie Coates,9213162,3800,PIT@CLE 01:00PM ET,CLE
+\nRB,Zach Zenner (9212513),Zach Zenner,9212513,3800,ARI@DET 01:00PM ET,DET
+\nRB,Kerwynn Williams (9213075),Kerwynn Williams,9213075,3800,ARI@DET 01:00PM ET,ARI
+\nWR,Will Fuller V (9212267),Will Fuller V,9212267,3800,JAX@HOU 01:00PM ET,HOU
+\nDST,Texans  (9212281),Texans ,9212281,3800,JAX@HOU 01:00PM ET,HOU
+\nWR,Marqise Lee (9213508),Marqise Lee,9213508,3800,JAX@HOU 01:00PM ET,JAX
+\nRB,Damien Williams (9212850),Damien Williams,9212850,3800,Postponed,MIA
+\nWR,Kenny Stills (9212870),Kenny Stills,9212870,3800,Postponed,MIA
+\nRB,Wendell Smallwood (9213022),Wendell Smallwood,9213022,3800,PHI@WAS 01:00PM ET,PHI
+\nWR,Nelson Agholor (9213044),Nelson Agholor,9213044,3800,PHI@WAS 01:00PM ET,PHI
+\nWR,Tavon Austin (9212804),Tavon Austin,9212804,3800,IND@LAR 04:05PM ET,LAR
+\nWR,Terrance Williams (9212473),Terrance Williams,9212473,3800,NYG@DAL 08:30PM ET,DAL
+\nRB,Shane Vereen (9212903),Shane Vereen,9212903,3800,NYG@DAL 08:30PM ET,NYG
+\nWR,ArDarius Stewart (9213001),ArDarius Stewart,9213001,3700,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Brandon LaFell (9212360),Brandon LaFell,9212360,3700,BAL@CIN 01:00PM ET,CIN
+\nWR,J.J. Nelson (9213103),J.J. Nelson,9213103,3700,ARI@DET 01:00PM ET,ARI
+\nDST,Jaguars  (9213526),Jaguars ,9213526,3700,JAX@HOU 01:00PM ET,JAX
+\nRB,Jeremy McNichols (9213319),Jeremy McNichols,9213319,3700,Postponed,TB
+\nWR,Torrey Smith (9213040),Torrey Smith,9213040,3700,PHI@WAS 01:00PM ET,PHI
+\nRB,Chris Thompson (9213367),Chris Thompson,9213367,3700,PHI@WAS 01:00PM ET,WAS
+\nTE,Jack Doyle (9212720),Jack Doyle,9212720,3700,IND@LAR 04:05PM ET,IND
+\nWR,Cooper Kupp (9212806),Cooper Kupp,9212806,3700,IND@LAR 04:05PM ET,LAR
+\nRB,Aaron Jones (9212576),Aaron Jones,9212576,3700,SEA@GB 04:25PM ET,GB
+\nWR,Paul Richardson (9213266),Paul Richardson,9213266,3700,SEA@GB 04:25PM ET,SEA
+\nRB,Fozzy Whittaker (9213426),Fozzy Whittaker,9213426,3700,CAR@SF 04:25PM ET,CAR
+\nRB,Benny Cunningham (9212286),Benny Cunningham,9212286,3600,ATL@CHI 01:00PM ET,CHI
+\nWR,Tyler Boyd (9212370),Tyler Boyd,9212370,3600,BAL@CIN 01:00PM ET,CIN
+\nWR,JuJu Smith-Schuster (9213150),JuJu Smith-Schuster,9213150,3600,PIT@CLE 01:00PM ET,PIT
+\nDST,Steelers  (9213178),Steelers ,9213178,3600,PIT@CLE 01:00PM ET,PIT
+\nWR,Kenny Golladay (9212537),Kenny Golladay,9212537,3600,ARI@DET 01:00PM ET,DET
+\nTE,Eric Ebron (9212545),Eric Ebron,9212545,3600,ARI@DET 01:00PM ET,DET
+\nRB,Chris Ivory (9213488),Chris Ivory,9213488,3600,JAX@HOU 01:00PM ET,JAX
+\nWR,Adam Humphries (9213333),Adam Humphries,9213333,3600,Postponed,TB
+\nWR,Taywan Taylor (9212657),Taywan Taylor,9212657,3600,OAK@TEN 01:00PM ET,TEN
+\nWR,Jeff Janis (9212598),Jeff Janis,9212598,3600,SEA@GB 04:25PM ET,GB
+\nWR,Curtis Samuel (9213440),Curtis Samuel,9213440,3600,CAR@SF 04:25PM ET,CAR
+\nWR,Zay Jones (9212193),Zay Jones,9212193,3500,NYJ@BUF 01:00PM ET,BUF
+\nWR,Anquan Boldin (9212217),Anquan Boldin,9212217,3500,NYJ@BUF 01:00PM ET,BUF
+\nRB,Elijah McGuire (9212961),Elijah McGuire,9212961,3500,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Charone Peake (9212981),Charone Peake,9212981,3500,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Markus Wheaton (9212312),Markus Wheaton,9212312,3500,ATL@CHI 01:00PM ET,CHI
+\nWR,Breshad Perriman (9213571),Breshad Perriman,9213571,3500,BAL@CIN 01:00PM ET,BAL
+\nWR,Jaelen Strong (9212259),Jaelen Strong,9212259,3500,JAX@HOU 01:00PM ET,HOU
+\nWR,Allen Hurns (9213502),Allen Hurns,9213502,3500,JAX@HOU 01:00PM ET,JAX
+\nRB,Donnel Pumphrey (9213018),Donnel Pumphrey,9213018,3500,PHI@WAS 01:00PM ET,PHI
+\nTE,Zach Ertz (9213056),Zach Ertz,9213056,3500,PHI@WAS 01:00PM ET,PHI
+\nWR,Josh Doctson (9213383),Josh Doctson,9213383,3500,PHI@WAS 01:00PM ET,WAS
+\nWR,Kamar Aiken (9212702),Kamar Aiken,9212702,3500,IND@LAR 04:05PM ET,IND
+\nRB,Devante Mays (9212566),Devante Mays,9212566,3500,SEA@GB 04:25PM ET,GB
+\nDST,Panthers  (9213468),Panthers ,9213468,3500,CAR@SF 04:25PM ET,CAR
+\nRB,Wayne Gallman (9212917),Wayne Gallman,9212917,3500,NYG@DAL 08:30PM ET,NYG
+\nWR,Jermaine Kearse (9213262),Jermaine Kearse,9213262,3400,NYJ@BUF 01:00PM ET,NYJ
+\nRB,Andre Ellington (9213081),Andre Ellington,9213081,3400,ARI@DET 01:00PM ET,ARI
+\nDST,Buccaneers  (9213359),Buccaneers ,9213359,3400,Postponed,TB
+\nWR,Ryan Grant (9213377),Ryan Grant,9213377,3400,PHI@WAS 01:00PM ET,WAS
+\nRB,Marlon Mack (9212694),Marlon Mack,9212694,3400,IND@LAR 04:05PM ET,IND
+\nDST,Falcons  (9212173),Falcons ,9212173,3300,ATL@CHI 01:00PM ET,ATL
+\nWR,Victor Cruz (9212320),Victor Cruz,9212320,3300,ATL@CHI 01:00PM ET,CHI
+\nWR,John Ross (9212378),John Ross,9212378,3300,BAL@CIN 01:00PM ET,CIN
+\nRB,Dwayne Washington (9212521),Dwayne Washington,9212521,3300,ARI@DET 01:00PM ET,DET
+\nWR,Jaron Brown (9213095),Jaron Brown,9213095,3300,ARI@DET 01:00PM ET,ARI
+\nWR,Seth Roberts (9212760),Seth Roberts,9212760,3300,OAK@TEN 01:00PM ET,OAK
+\nTE,Jared Cook (9212772),Jared Cook,9212772,3300,OAK@TEN 01:00PM ET,OAK
+\nWR,Phillip Dorsett (9212706),Phillip Dorsett,9212706,3300,IND@LAR 04:05PM ET,IND
+\nWR,Aldrick Robinson (9213210),Aldrick Robinson,9213210,3300,CAR@SF 04:25PM ET,SF
+\nWR,Russell Shepard (9213454),Russell Shepard,9213454,3300,CAR@SF 04:25PM ET,CAR
+\nWR,Roger Lewis (9212923),Roger Lewis,9212923,3300,NYG@DAL 08:30PM ET,NYG
+\nTE,Charles Clay (9212227),Charles Clay,9212227,3200,NYJ@BUF 01:00PM ET,BUF
+\nWR,Kendall Wright (9212316),Kendall Wright,9212316,3200,ATL@CHI 01:00PM ET,CHI
+\nRB,Ryan Mathews (9213024),Ryan Mathews,9213024,3200,PHI@WAS 01:00PM ET,PHI
+\nDST,Rams  (9212842),Rams ,9212842,3200,IND@LAR 04:05PM ET,LAR
+\nWR,Marquise Goodwin (9213200),Marquise Goodwin,9213200,3200,CAR@SF 04:25PM ET,SF
+\nWR,Tavarres King (9212939),Tavarres King,9212939,3200,NYG@DAL 08:30PM ET,NYG
+\nDST,Bengals  (9212398),Bengals ,9212398,3100,BAL@CIN 01:00PM ET,CIN
+\nTE,C.J. Fiedorowicz (9212273),C.J. Fiedorowicz,9212273,3100,JAX@HOU 01:00PM ET,HOU
+\nTE,Cameron Brate (9213357),Cameron Brate,9213357,3100,Postponed,TB
+\nWR,Tajae Sharpe (9212659),Tajae Sharpe,9212659,3100,OAK@TEN 01:00PM ET,TEN
+\nRB,Elijah Hood (9212744),Elijah Hood,9212744,3100,OAK@TEN 01:00PM ET,OAK
+\nWR,Brian Quick (9213375),Brian Quick,9213375,3100,PHI@WAS 01:00PM ET,WAS
+\nWR,Pharoh Cooper (9212820),Pharoh Cooper,9212820,3100,IND@LAR 04:05PM ET,LAR
+\nRB,Orleans Darkwa (9212905),Orleans Darkwa,9212905,3100,NYG@DAL 08:30PM ET,NYG
+\nRB,Mike Tolbert (9212177),Mike Tolbert,9212177,3000,NYJ@BUF 01:00PM ET,BUF
+\nRB,Joe Banyard (9212179),Joe Banyard,9212179,3000,NYJ@BUF 01:00PM ET,BUF
+\nRB,Patrick DiMarco (9212181),Patrick DiMarco,9212181,3000,NYJ@BUF 01:00PM ET,BUF
+\nRB,Taiwan Jones (9212183),Taiwan Jones,9212183,3000,NYJ@BUF 01:00PM ET,BUF
+\nRB,Cedric O'Neal (9212187),Cedric O'Neal,9212187,3000,NYJ@BUF 01:00PM ET,BUF
+\nRB,Jordan Johnson (9212189),Jordan Johnson,9212189,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Daikiel Shorts (9212195),Daikiel Shorts,9212195,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Andre Holmes (9212197),Andre Holmes,9212197,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Philly Brown (9212199),Philly Brown,9212199,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Walter Powell (9212201),Walter Powell,9212201,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Rod Streater (9212203),Rod Streater,9212203,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Brandon Reilly (9212205),Brandon Reilly,9212205,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Jeremy Butler (9212207),Jeremy Butler,9212207,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Rashad Ross (9212209),Rashad Ross,9212209,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Dezmin Lewis (9212211),Dezmin Lewis,9212211,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Brandon Tate (9212215),Brandon Tate,9212215,3000,NYJ@BUF 01:00PM ET,BUF
+\nWR,Damore'ea Stringfellow (9212876),Damore'ea Stringfellow,9212876,3000,NYJ@BUF 01:00PM ET,NYJ
+\nRB,Julian Howsare (9212959),Julian Howsare,9212959,3000,NYJ@BUF 01:00PM ET,NYJ
+\nRB,Anthony Firkser (9212963),Anthony Firkser,9212963,3000,NYJ@BUF 01:00PM ET,NYJ
+\nRB,Marcus Murphy (9212965),Marcus Murphy,9212965,3000,NYJ@BUF 01:00PM ET,NYJ
+\nRB,Algernon Brown (9212973),Algernon Brown,9212973,3000,NYJ@BUF 01:00PM ET,NYJ
+\nRB,Romar Morris (9212975),Romar Morris,9212975,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Deshon Foxx (9212979),Deshon Foxx,9212979,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Chris Harper (9212983),Chris Harper,9212983,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Gabe Marks (9212985),Gabe Marks,9212985,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Myles White (9212987),Myles White,9212987,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Frankie Hammond Jr. (9212989),Frankie Hammond Jr.,9212989,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Quincy Enunwa (9212991),Quincy Enunwa,9212991,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Chad Hansen (9212993),Chad Hansen,9212993,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Marquess Wilson (9212995),Marquess Wilson,9212995,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Jalin Marshall (9212997),Jalin Marshall,9212997,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Lucky Whitehead (9212999),Lucky Whitehead,9212999,3000,NYJ@BUF 01:00PM ET,NYJ
+\nWR,Kaelin Clay (9213446),Kaelin Clay,9213446,3000,NYJ@BUF 01:00PM ET,BUF
+\nRB,Kelvin Taylor (9212119),Kelvin Taylor,9212119,3000,ATL@CHI 01:00PM ET,ATL
+\nRB,Derrick Coleman (9212121),Derrick Coleman,9212121,3000,ATL@CHI 01:00PM ET,ATL
+\nRB,Terron Ward (9212123),Terron Ward,9212123,3000,ATL@CHI 01:00PM ET,ATL
+\nRB,Brian Hill (9212127),Brian Hill,9212127,3000,ATL@CHI 01:00PM ET,ATL
+\nRB,Tyler Renew (9212129),Tyler Renew,9212129,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Marvin Hall (9212131),Marvin Hall,9212131,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Nick Williams (9212133),Nick Williams,9212133,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Justin Hardy (9212135),Justin Hardy,9212135,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,B.J. Daniels (9212137),B.J. Daniels,9212137,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Andre Roberts (9212143),Andre Roberts,9212143,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Bra'Lon Cherry (9212145),Bra'Lon Cherry,9212145,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Josh Magee (9212149),Josh Magee,9212149,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Deante Burton (9212151),Deante Burton,9212151,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Reginald Davis III (9212153),Reginald Davis III,9212153,3000,ATL@CHI 01:00PM ET,ATL
+\nWR,Anthony Dable (9212157),Anthony Dable,9212157,3000,ATL@CHI 01:00PM ET,ATL
+\nTE,Austin Hooper (9212161),Austin Hooper,9212161,3000,ATL@CHI 01:00PM ET,ATL
+\nRB,Ka'Deem Carey (9212288),Ka'Deem Carey,9212288,3000,ATL@CHI 01:00PM ET,CHI
+\nRB,Michael Burton (9212292),Michael Burton,9212292,3000,ATL@CHI 01:00PM ET,CHI
+\nRB,Josh Rounds (9212294),Josh Rounds,9212294,3000,ATL@CHI 01:00PM ET,CHI
+\nRB,Tarik Cohen (9212298),Tarik Cohen,9212298,3000,ATL@CHI 01:00PM ET,CHI
+\nRB,Freddie Stevenson (9212300),Freddie Stevenson,9212300,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Tanner Gentry (9212302),Tanner Gentry,9212302,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Josh Bellamy (9212306),Josh Bellamy,9212306,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Titus Davis (9212308),Titus Davis,9212308,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Deonte Thompson (9212314),Deonte Thompson,9212314,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Rueben Randle (9212318),Rueben Randle,9212318,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Alton Howard (9212322),Alton Howard,9212322,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Daniel Braverman (9212324),Daniel Braverman,9212324,3000,ATL@CHI 01:00PM ET,CHI
+\nWR,Tre McBride (9212647),Tre McBride,9212647,3000,ATL@CHI 01:00PM ET,CHI
+\nRB,Taquan Mizzell (9213543),Taquan Mizzell,9213543,3000,ATL@CHI 01:00PM ET,CHI
+\nRB,Tra Carson (9212346),Tra Carson,9212346,3000,BAL@CIN 01:00PM ET,CIN
+\nRB,Darrin Laufasa (9212350),Darrin Laufasa,9212350,3000,BAL@CIN 01:00PM ET,CIN
+\nRB,Jarveon Williams (9212352),Jarveon Williams,9212352,3000,BAL@CIN 01:00PM ET,CIN
+\nRB,Stanley Williams (9212354),Stanley Williams,9212354,3000,BAL@CIN 01:00PM ET,CIN
+\nRB,Cedric Peerman (9212358),Cedric Peerman,9212358,3000,BAL@CIN 01:00PM ET,CIN
+\nWR,Jake Kumerow (9212362),Jake Kumerow,9212362,3000,BAL@CIN 01:00PM ET,CIN
+\nWR,Josh Malone (9212366),Josh Malone,9212366,3000,BAL@CIN 01:00PM ET,CIN
+\nWR,Kermit Whitfield (9212368),Kermit Whitfield,9212368,3000,BAL@CIN 01:00PM ET,CIN
+\nWR,Alonzo Russell (9212372),Alonzo Russell,9212372,3000,BAL@CIN 01:00PM ET,CIN
+\nWR,Chris Brown (9212374),Chris Brown,9212374,3000,BAL@CIN 01:00PM ET,CIN
+\nWR,Cody Core (9212380),Cody Core,9212380,3000,BAL@CIN 01:00PM ET,CIN
+\nWR,Alex Erickson (9212382),Alex Erickson,9212382,3000,BAL@CIN 01:00PM ET,CIN
+\nRB,Bobby Rainey (9213531),Bobby Rainey,9213531,3000,BAL@CIN 01:00PM ET,BAL
+\nRB,Javorius Allen (9213535),Javorius Allen,9213535,3000,BAL@CIN 01:00PM ET,BAL
+\nRB,Kenneth Dixon (9213539),Kenneth Dixon,9213539,3000,BAL@CIN 01:00PM ET,BAL
+\nRB,Ricky Ortiz (9213541),Ricky Ortiz,9213541,3000,BAL@CIN 01:00PM ET,BAL
+\nRB,Lorenzo Taliaferro (9213545),Lorenzo Taliaferro,9213545,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Chris Moore (9213547),Chris Moore,9213547,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Vince Mayle (9213549),Vince Mayle,9213549,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Quincy Adeboyejo (9213551),Quincy Adeboyejo,9213551,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Tim White (9213553),Tim White,9213553,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Chris Matthews (9213555),Chris Matthews,9213555,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Kenny Bell (9213557),Kenny Bell,9213557,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Michael Campanaro (9213559),Michael Campanaro,9213559,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Griff Whalen (9213561),Griff Whalen,9213561,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Keenan Reynolds (9213567),Keenan Reynolds,9213567,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,C.J. Board (9213569),C.J. Board,9213569,3000,BAL@CIN 01:00PM ET,BAL
+\nWR,Reggie Davis (9212147),Reggie Davis,9212147,3000,PIT@CLE 01:00PM ET,CLE
+\nRB,Matthew Dayes (9212404),Matthew Dayes,9212404,3000,PIT@CLE 01:00PM ET,CLE
+\nRB,Danny Vitale (9212408),Danny Vitale,9212408,3000,PIT@CLE 01:00PM ET,CLE
+\nRB,Brandon Wilds (9212412),Brandon Wilds,9212412,3000,PIT@CLE 01:00PM ET,CLE
+\nRB,Terrence Magee (9212414),Terrence Magee,9212414,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Rannell Hall (9212416),Rannell Hall,9212416,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Jordan Payton (9212420),Jordan Payton,9212420,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Richard Mullaney (9212422),Richard Mullaney,9212422,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Rashard Higgins (9212424),Rashard Higgins,9212424,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Mario Alford (9212426),Mario Alford,9212426,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Ricardo Louis (9212430),Ricardo Louis,9212430,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Rasheed Bailey (9212432),Rasheed Bailey,9212432,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Jordan Leslie (9212434),Jordan Leslie,9212434,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Josh Boyce (9212438),Josh Boyce,9212438,3000,PIT@CLE 01:00PM ET,CLE
+\nWR,Justin Thomas (9212808),Justin Thomas,9212808,3000,PIT@CLE 01:00PM ET,PIT
+\nRB,Terrell Watson (9213126),Terrell Watson,9213126,3000,PIT@CLE 01:00PM ET,PIT
+\nRB,Trey Williams (9213130),Trey Williams,9213130,3000,PIT@CLE 01:00PM ET,PIT
+\nRB,Brandon Brown-Dukes (9213132),Brandon Brown-Dukes,9213132,3000,PIT@CLE 01:00PM ET,PIT
+\nRB,DeAngelo Williams (9213136),DeAngelo Williams,9213136,3000,PIT@CLE 01:00PM ET,PIT
+\nRB,Roosevelt Nix (9213138),Roosevelt Nix,9213138,3000,PIT@CLE 01:00PM ET,PIT
+\nRB,Knile Davis (9213142),Knile Davis,9213142,3000,PIT@CLE 01:00PM ET,PIT
+\nWR,Darrius Heyward-Bey (9213148),Darrius Heyward-Bey,9213148,3000,PIT@CLE 01:00PM ET,PIT
+\nWR,Marcus Tucker (9213152),Marcus Tucker,9213152,3000,PIT@CLE 01:00PM ET,PIT
+\nWR,Demarcus Ayers (9213154),Demarcus Ayers,9213154,3000,PIT@CLE 01:00PM ET,PIT
+\nWR,Cobi Hamilton (9213156),Cobi Hamilton,9213156,3000,PIT@CLE 01:00PM ET,PIT
+\nTE,Jesse James (9213174),Jesse James,9213174,3000,PIT@CLE 01:00PM ET,PIT
+\nWR,Kasen Williams (9213284),Kasen Williams,9213284,3000,PIT@CLE 01:00PM ET,CLE
+\nRB,Tion Green (9212511),Tion Green,9212511,3000,ARI@DET 01:00PM ET,DET
+\nRB,Mike James (9212517),Mike James,9212517,3000,ARI@DET 01:00PM ET,DET
+\nRB,Matt Asiata (9212519),Matt Asiata,9212519,3000,ARI@DET 01:00PM ET,DET
+\nWR,Keshawn Martin (9212527),Keshawn Martin,9212527,3000,ARI@DET 01:00PM ET,DET
+\nWR,Ryan Spadola (9212529),Ryan Spadola,9212529,3000,ARI@DET 01:00PM ET,DET
+\nWR,TJ Jones (9212531),TJ Jones,9212531,3000,ARI@DET 01:00PM ET,DET
+\nWR,Jared Abbrederis (9212533),Jared Abbrederis,9212533,3000,ARI@DET 01:00PM ET,DET
+\nWR,Jace Billingsley (9212535),Jace Billingsley,9212535,3000,ARI@DET 01:00PM ET,DET
+\nWR,Michael Rector (9212539),Michael Rector,9212539,3000,ARI@DET 01:00PM ET,DET
+\nWR,Dontez Ford (9212541),Dontez Ford,9212541,3000,ARI@DET 01:00PM ET,DET
+\nWR,Noel Thomas (9212543),Noel Thomas,9212543,3000,ARI@DET 01:00PM ET,DET
+\nRB,T.J. Logan (9213071),T.J. Logan,9213071,3000,ARI@DET 01:00PM ET,ARI
+\nRB,James Summers (9213073),James Summers,9213073,3000,ARI@DET 01:00PM ET,ARI
+\nRB,Elijhaa Penny (9213079),Elijhaa Penny,9213079,3000,ARI@DET 01:00PM ET,ARI
+\nWR,Chris Hubert (9213085),Chris Hubert,9213085,3000,ARI@DET 01:00PM ET,ARI
+\nWR,Carlton Agudosi (9213087),Carlton Agudosi,9213087,3000,ARI@DET 01:00PM ET,ARI
+\nWR,Krishawn Hogan (9213089),Krishawn Hogan,9213089,3000,ARI@DET 01:00PM ET,ARI
+\nWR,Jeremy Ross (9213093),Jeremy Ross,9213093,3000,ARI@DET 01:00PM ET,ARI
+\nWR,Aaron Dobson (9213101),Aaron Dobson,9213101,3000,ARI@DET 01:00PM ET,ARI
+\nWR,Brittan Golden (9213105),Brittan Golden,9213105,3000,ARI@DET 01:00PM ET,ARI
+\nWR,Chad Williams (9213107),Chad Williams,9213107,3000,ARI@DET 01:00PM ET,ARI
+\nRB,Dare Ogunbowale (9212235),Dare Ogunbowale,9212235,3000,JAX@HOU 01:00PM ET,HOU
+\nRB,Akeem Hunt (9212237),Akeem Hunt,9212237,3000,JAX@HOU 01:00PM ET,HOU
+\nRB,Tyler Ervin (9212243),Tyler Ervin,9212243,3000,JAX@HOU 01:00PM ET,HOU
+\nRB,Jay Prosch (9212245),Jay Prosch,9212245,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Dres Anderson (9212247),Dres Anderson,9212247,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,DeAndrew White (9212251),DeAndrew White,9212251,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Devin Street (9212255),Devin Street,9212255,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Justin Hardee (9212257),Justin Hardee,9212257,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Riley McCarron (9212261),Riley McCarron,9212261,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Chris Thompson (9212263),Chris Thompson,9212263,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Wendall Williams (9212265),Wendall Williams,9212265,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Marcus Leak (9212269),Marcus Leak,9212269,3000,JAX@HOU 01:00PM ET,HOU
+\nWR,Andy Jones (9212487),Andy Jones,9212487,3000,JAX@HOU 01:00PM ET,HOU
+\nRB,Jordan Todman (9212971),Jordan Todman,9212971,3000,JAX@HOU 01:00PM ET,HOU
+\nRB,Tyler Gaffney (9213474),Tyler Gaffney,9213474,3000,JAX@HOU 01:00PM ET,JAX
+\nRB,Tommy Bohanon (9213476),Tommy Bohanon,9213476,3000,JAX@HOU 01:00PM ET,JAX
+\nRB,Tim Cook (9213478),Tim Cook,9213478,3000,JAX@HOU 01:00PM ET,JAX
+\nRB,Marquez Williams (9213480),Marquez Williams,9213480,3000,JAX@HOU 01:00PM ET,JAX
+\nRB,Corey Grant (9213482),Corey Grant,9213482,3000,JAX@HOU 01:00PM ET,JAX
+\nRB,I'Tavius Mathers (9213486),I'Tavius Mathers,9213486,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Keelan Cole (9213490),Keelan Cole,9213490,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Dede Westbrook (9213492),Dede Westbrook,9213492,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Arrelious Benn (9213494),Arrelious Benn,9213494,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Kenneth Walker III (9213496),Kenneth Walker III,9213496,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Amba Etta-Tawo (9213498),Amba Etta-Tawo,9213498,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Larry Pinkard (9213500),Larry Pinkard,9213500,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Rashad Greene Sr. (9213504),Rashad Greene Sr.,9213504,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Jamal Robinson (9213506),Jamal Robinson,9213506,3000,JAX@HOU 01:00PM ET,JAX
+\nWR,Shane Wynn (9213510),Shane Wynn,9213510,3000,JAX@HOU 01:00PM ET,JAX
+\nRB,Senorise Perry (9212848),Senorise Perry,9212848,3000,Postponed,MIA
+\nRB,De'Veon Smith (9212856),De'Veon Smith,9212856,3000,Postponed,MIA
+\nRB,Storm Johnson (9212858),Storm Johnson,9212858,3000,Postponed,MIA
+\nWR,Isaiah Ford (9212860),Isaiah Ford,9212860,3000,Postponed,MIA
+\nWR,Rashawn Scott (9212862),Rashawn Scott,9212862,3000,Postponed,MIA
+\nWR,Jakeem Grant (9212864),Jakeem Grant,9212864,3000,Postponed,MIA
+\nWR,Francis Owusu (9212872),Francis Owusu,9212872,3000,Postponed,MIA
+\nWR,Drew Morgan (9212874),Drew Morgan,9212874,3000,Postponed,MIA
+\nWR,Leonte Carroo (9212878),Leonte Carroo,9212878,3000,Postponed,MIA
+\nWR,Jordan Westerkamp (9212880),Jordan Westerkamp,9212880,3000,Postponed,MIA
+\nWR,Malcolm Lewis (9212882),Malcolm Lewis,9212882,3000,Postponed,MIA
+\nWR,Mitch Mathews (9212884),Mitch Mathews,9212884,3000,Postponed,MIA
+\nRB,Austin Johnson (9213309),Austin Johnson,9213309,3000,Postponed,TB
+\nRB,Peyton Barber (9213311),Peyton Barber,9213311,3000,Postponed,TB
+\nRB,Russell Hansbrough (9213315),Russell Hansbrough,9213315,3000,Postponed,TB
+\nRB,Quayvon Hicks (9213317),Quayvon Hicks,9213317,3000,Postponed,TB
+\nRB,Blake Sims (9213321),Blake Sims,9213321,3000,Postponed,TB
+\nWR,Donteea Dye (9213323),Donteea Dye,9213323,3000,Postponed,TB
+\nWR,Vincent Jackson (9213325),Vincent Jackson,9213325,3000,Postponed,TB
+\nWR,Chris Godwin (9213327),Chris Godwin,9213327,3000,Postponed,TB
+\nWR,Bernard Reedy (9213329),Bernard Reedy,9213329,3000,Postponed,TB
+\nWR,Freddie Martino (9213331),Freddie Martino,9213331,3000,Postponed,TB
+\nWR,Shaq Hill (9213335),Shaq Hill,9213335,3000,Postponed,TB
+\nWR,Josh Huff (9213339),Josh Huff,9213339,3000,Postponed,TB
+\nWR,Bobo Wilson (9213341),Bobo Wilson,9213341,3000,Postponed,TB
+\nWR,Derel Walker (9213343),Derel Walker,9213343,3000,Postponed,TB
+\nTE,O.J. Howard (9213351),O.J. Howard,9213351,3000,Postponed,TB
+\nRB,Akeem Judd (9212625),Akeem Judd,9212625,3000,OAK@TEN 01:00PM ET,TEN
+\nRB,Khalfani Muhammad (9212627),Khalfani Muhammad,9212627,3000,OAK@TEN 01:00PM ET,TEN
+\nRB,Brandon Radcliff (9212629),Brandon Radcliff,9212629,3000,OAK@TEN 01:00PM ET,TEN
+\nRB,Joe Bacci (9212631),Joe Bacci,9212631,3000,OAK@TEN 01:00PM ET,TEN
+\nRB,Jalston Fowler (9212633),Jalston Fowler,9212633,3000,OAK@TEN 01:00PM ET,TEN
+\nRB,David Fluellen (9212635),David Fluellen,9212635,3000,OAK@TEN 01:00PM ET,TEN
+\nWR,Harry Douglas (9212639),Harry Douglas,9212639,3000,OAK@TEN 01:00PM ET,TEN
+\nWR,Eric Weems (9212641),Eric Weems,9212641,3000,OAK@TEN 01:00PM ET,TEN
+\nWR,Darius Jennings (9212643),Darius Jennings,9212643,3000,OAK@TEN 01:00PM ET,TEN
+\nWR,Mekale McKay (9212645),Mekale McKay,9212645,3000,OAK@TEN 01:00PM ET,TEN
+\nWR,KeVonn Mabon (9212649),KeVonn Mabon,9212649,3000,OAK@TEN 01:00PM ET,TEN
+\nWR,Jonathan Krause (9212655),Jonathan Krause,9212655,3000,OAK@TEN 01:00PM ET,TEN
+\nWR,Giovanni Pascascio (9212661),Giovanni Pascascio,9212661,3000,OAK@TEN 01:00PM ET,TEN
+\nRB,Jamize Olawale (9212736),Jamize Olawale,9212736,3000,OAK@TEN 01:00PM ET,OAK
+\nRB,George Atkinson III (9212738),George Atkinson III,9212738,3000,OAK@TEN 01:00PM ET,OAK
+\nRB,John Crockett (9212746),John Crockett,9212746,3000,OAK@TEN 01:00PM ET,OAK
+\nWR,Cordarrelle Patterson (9212750),Cordarrelle Patterson,9212750,3000,OAK@TEN 01:00PM ET,OAK
+\nWR,Ishmael Zamora (9212754),Ishmael Zamora,9212754,3000,OAK@TEN 01:00PM ET,OAK
+\nWR,Isaac Whitney (9212756),Isaac Whitney,9212756,3000,OAK@TEN 01:00PM ET,OAK
+\nWR,Johnny Holton (9212758),Johnny Holton,9212758,3000,OAK@TEN 01:00PM ET,OAK
+\nWR,K.J. Brent (9212762),K.J. Brent,9212762,3000,OAK@TEN 01:00PM ET,OAK
+\nWR,Keon Hatcher (9212764),Keon Hatcher,9212764,3000,OAK@TEN 01:00PM ET,OAK
+\nWR,Jaydon Mickens (9212766),Jaydon Mickens,9212766,3000,OAK@TEN 01:00PM ET,OAK
+\nRB,Corey Clement (9213020),Corey Clement,9213020,3000,PHI@WAS 01:00PM ET,PHI
+\nRB,Byron Marshall (9213030),Byron Marshall,9213030,3000,PHI@WAS 01:00PM ET,PHI
+\nWR,Marcus Johnson (9213032),Marcus Johnson,9213032,3000,PHI@WAS 01:00PM ET,PHI
+\nWR,David Watford (9213034),David Watford,9213034,3000,PHI@WAS 01:00PM ET,PHI
+\nWR,Paul Turner (9213036),Paul Turner,9213036,3000,PHI@WAS 01:00PM ET,PHI
+\nWR,Bryce Treggs (9213042),Bryce Treggs,9213042,3000,PHI@WAS 01:00PM ET,PHI
+\nWR,Mack Hollins (9213048),Mack Hollins,9213048,3000,PHI@WAS 01:00PM ET,PHI
+\nWR,Shelton Gibson (9213050),Shelton Gibson,9213050,3000,PHI@WAS 01:00PM ET,PHI
+\nWR,Greg Ward Jr. (9213052),Greg Ward Jr.,9213052,3000,PHI@WAS 01:00PM ET,PHI
+\nRB,Kenny Hilliard (9213369),Kenny Hilliard,9213369,3000,PHI@WAS 01:00PM ET,WAS
+\nRB,Mack Brown (9213371),Mack Brown,9213371,3000,PHI@WAS 01:00PM ET,WAS
+\nWR,Maurice Harris (9213381),Maurice Harris,9213381,3000,PHI@WAS 01:00PM ET,WAS
+\nWR,Kendal Thompson (9213385),Kendal Thompson,9213385,3000,PHI@WAS 01:00PM ET,WAS
+\nWR,Zach Pascal (9213391),Zach Pascal,9213391,3000,PHI@WAS 01:00PM ET,WAS
+\nWR,Levern Jacobs (9213393),Levern Jacobs,9213393,3000,PHI@WAS 01:00PM ET,WAS
+\nWR,James Quick (9213395),James Quick,9213395,3000,PHI@WAS 01:00PM ET,WAS
+\nWR,Robert Davis (9213397),Robert Davis,9213397,3000,PHI@WAS 01:00PM ET,WAS
+\nTE,Vernon Davis (9213409),Vernon Davis,9213409,3000,PHI@WAS 01:00PM ET,WAS
+\nDST,Redskins  (9213413),Redskins ,9213413,3000,PHI@WAS 01:00PM ET,WAS
+\nRB,Troymaine Pope (9212682),Troymaine Pope,9212682,3000,IND@LAR 04:05PM ET,IND
+\nRB,Dalton Crossan (9212684),Dalton Crossan,9212684,3000,IND@LAR 04:05PM ET,IND
+\nRB,Christine Michael (9212686),Christine Michael,9212686,3000,IND@LAR 04:05PM ET,IND
+\nRB,Josh Ferguson (9212692),Josh Ferguson,9212692,3000,IND@LAR 04:05PM ET,IND
+\nWR,Chester Rogers (9212696),Chester Rogers,9212696,3000,IND@LAR 04:05PM ET,IND
+\nWR,Harvey Binford (9212698),Harvey Binford,9212698,3000,IND@LAR 04:05PM ET,IND
+\nWR,Quan Bray (9212708),Quan Bray,9212708,3000,IND@LAR 04:05PM ET,IND
+\nWR,Chris Briggs (9212710),Chris Briggs,9212710,3000,IND@LAR 04:05PM ET,IND
+\nWR,Bug Howard (9212712),Bug Howard,9212712,3000,IND@LAR 04:05PM ET,IND
+\nWR,JoJo Natson Jr. (9212714),JoJo Natson Jr.,9212714,3000,IND@LAR 04:05PM ET,IND
+\nWR,Tevaun Smith (9212716),Tevaun Smith,9212716,3000,IND@LAR 04:05PM ET,IND
+\nWR,Fred Brown (9212718),Fred Brown,9212718,3000,IND@LAR 04:05PM ET,IND
+\nRB,Aaron Green (9212790),Aaron Green,9212790,3000,IND@LAR 04:05PM ET,LAR
+\nRB,Lance Dunbar (9212794),Lance Dunbar,9212794,3000,IND@LAR 04:05PM ET,LAR
+\nRB,Justin Davis (9212796),Justin Davis,9212796,3000,IND@LAR 04:05PM ET,LAR
+\nRB,De'Mard Llorens (9212798),De'Mard Llorens,9212798,3000,IND@LAR 04:05PM ET,IND
+\nRB,Sam Rogers (9212800),Sam Rogers,9212800,3000,IND@LAR 04:05PM ET,LAR
+\nRB,Lenard Tillery (9212802),Lenard Tillery,9212802,3000,IND@LAR 04:05PM ET,LAR
+\nWR,Paul McRoberts (9212810),Paul McRoberts,9212810,3000,IND@LAR 04:05PM ET,LAR
+\nWR,Brandon Shippen (9212812),Brandon Shippen,9212812,3000,IND@LAR 04:05PM ET,LAR
+\nWR,Nelson Spruce (9212816),Nelson Spruce,9212816,3000,IND@LAR 04:05PM ET,LAR
+\nWR,Shakeir Ryan (9212818),Shakeir Ryan,9212818,3000,IND@LAR 04:05PM ET,LAR
+\nWR,Josh Reynolds (9212824),Josh Reynolds,9212824,3000,IND@LAR 04:05PM ET,LAR
+\nWR,K.D. Cannon (9212826),K.D. Cannon,9212826,3000,IND@LAR 04:05PM ET,LAR
+\nWR,Michael Thomas (9212828),Michael Thomas,9212828,3000,IND@LAR 04:05PM ET,LAR
+\nRB,Matt Jones (9213365),Matt Jones,9213365,3000,IND@LAR 04:05PM ET,IND
+\nWR,Matt Hazel (9213389),Matt Hazel,9213389,3000,IND@LAR 04:05PM ET,IND
+\nRB,Kalif Phillips (9212564),Kalif Phillips,9212564,3000,SEA@GB 04:25PM ET,GB
+\nRB,Joe Kerridge (9212568),Joe Kerridge,9212568,3000,SEA@GB 04:25PM ET,GB
+\nRB,Aaron Ripkowski (9212572),Aaron Ripkowski,9212572,3000,SEA@GB 04:25PM ET,GB
+\nRB,William Stanback (9212578),William Stanback,9212578,3000,SEA@GB 04:25PM ET,GB
+\nWR,DeAngelo Yancey (9212580),DeAngelo Yancey,9212580,3000,SEA@GB 04:25PM ET,GB
+\nWR,Michael Clark (9212582),Michael Clark,9212582,3000,SEA@GB 04:25PM ET,GB
+\nWR,Montay Crockett (9212584),Montay Crockett,9212584,3000,SEA@GB 04:25PM ET,GB
+\nWR,Trevor Davis (9212588),Trevor Davis,9212588,3000,SEA@GB 04:25PM ET,GB
+\nWR,Max McCaffrey (9212594),Max McCaffrey,9212594,3000,SEA@GB 04:25PM ET,GB
+\nWR,Colby Pearson (9212596),Colby Pearson,9212596,3000,SEA@GB 04:25PM ET,GB
+\nWR,Geronimo Allison (9212600),Geronimo Allison,9212600,3000,SEA@GB 04:25PM ET,GB
+\nWR,Malachi Dupre (9212602),Malachi Dupre,9212602,3000,SEA@GB 04:25PM ET,GB
+\nRB,J.D. McKissic (9213244),J.D. McKissic,9213244,3000,SEA@GB 04:25PM ET,SEA
+\nRB,Mike Davis (9213246),Mike Davis,9213246,3000,SEA@GB 04:25PM ET,SEA
+\nRB,Alex Collins (9213248),Alex Collins,9213248,3000,SEA@GB 04:25PM ET,SEA
+\nRB,Kyle Coleman (9213252),Kyle Coleman,9213252,3000,SEA@GB 04:25PM ET,SEA
+\nRB,Chris Carson (9213254),Chris Carson,9213254,3000,SEA@GB 04:25PM ET,SEA
+\nRB,Tre Madden (9213256),Tre Madden,9213256,3000,SEA@GB 04:25PM ET,SEA
+\nRB,Marcel Reece (9213260),Marcel Reece,9213260,3000,SEA@GB 04:25PM ET,SEA
+\nWR,Jamel Johnson (9213264),Jamel Johnson,9213264,3000,SEA@GB 04:25PM ET,SEA
+\nWR,Tanner McEvoy (9213268),Tanner McEvoy,9213268,3000,SEA@GB 04:25PM ET,SEA
+\nWR,Amara Darboh (9213274),Amara Darboh,9213274,3000,SEA@GB 04:25PM ET,SEA
+\nWR,Cyril Grayson (9213276),Cyril Grayson,9213276,3000,SEA@GB 04:25PM ET,SEA
+\nWR,David Moore (9213278),David Moore,9213278,3000,SEA@GB 04:25PM ET,SEA
+\nWR,Kenny Lawler Jr. (9213280),Kenny Lawler Jr.,9213280,3000,SEA@GB 04:25PM ET,SEA
+\nWR,Darreus Rogers (9213282),Darreus Rogers,9213282,3000,SEA@GB 04:25PM ET,SEA
+\nRB,Matt Breida (9213184),Matt Breida,9213184,3000,CAR@SF 04:25PM ET,SF
+\nRB,Tyler McCloskey (9213188),Tyler McCloskey,9213188,3000,CAR@SF 04:25PM ET,SF
+\nRB,Kyle Juszczyk (9213190),Kyle Juszczyk,9213190,3000,CAR@SF 04:25PM ET,SF
+\nRB,Raheem Mostert (9213192),Raheem Mostert,9213192,3000,CAR@SF 04:25PM ET,SF
+\nRB,Kapri Bibbs (9213194),Kapri Bibbs,9213194,3000,CAR@SF 04:25PM ET,SF
+\nWR,DeAndre Carter (9213202),DeAndre Carter,9213202,3000,CAR@SF 04:25PM ET,SF
+\nWR,Trent Taylor (9213204),Trent Taylor,9213204,3000,CAR@SF 04:25PM ET,SF
+\nWR,Louis Murphy (9213212),Louis Murphy,9213212,3000,CAR@SF 04:25PM ET,SF
+\nWR,Tim Patrick (9213214),Tim Patrick,9213214,3000,CAR@SF 04:25PM ET,SF
+\nWR,Victor Bolden Jr. (9213216),Victor Bolden Jr.,9213216,3000,CAR@SF 04:25PM ET,SF
+\nWR,Aaron Burbridge (9213218),Aaron Burbridge,9213218,3000,CAR@SF 04:25PM ET,SF
+\nWR,Kendrick Bourne (9213220),Kendrick Bourne,9213220,3000,CAR@SF 04:25PM ET,SF
+\nWR,DeAndre Smelter (9213222),DeAndre Smelter,9213222,3000,CAR@SF 04:25PM ET,SF
+\nRB,Cameron Artis-Payne (9213420),Cameron Artis-Payne,9213420,3000,CAR@SF 04:25PM ET,CAR
+\nRB,Darrel Young (9213424),Darrel Young,9213424,3000,CAR@SF 04:25PM ET,CAR
+\nRB,Alex Armah (9213428),Alex Armah,9213428,3000,CAR@SF 04:25PM ET,CAR
+\nRB,Jalen Simmons (9213430),Jalen Simmons,9213430,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Fred Ross Jr. (9213432),Fred Ross Jr.,9213432,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Keyarris Garrett (9213434),Keyarris Garrett,9213434,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Mose Frazier (9213436),Mose Frazier,9213436,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Austin Duke (9213438),Austin Duke,9213438,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Damiere Byrd (9213444),Damiere Byrd,9213444,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Trevor Graham (9213450),Trevor Graham,9213450,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Brenton Bersin (9213452),Brenton Bersin,9213452,3000,CAR@SF 04:25PM ET,CAR
+\nWR,Karel Hamilton (9212376),Karel Hamilton,9212376,3000,NYG@DAL 08:30PM ET,DAL
+\nRB,Keith Smith (9212463),Keith Smith,9212463,3000,NYG@DAL 08:30PM ET,DAL
+\nRB,Ronnie Hillman (9212465),Ronnie Hillman,9212465,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,Brice Butler (9212477),Brice Butler,9212477,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,Ryan Switzer (9212479),Ryan Switzer,9212479,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,Noah Brown (9212481),Noah Brown,9212481,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,Brian Brown (9212483),Brian Brown,9212483,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,Uzoma Nwachukwu (9212485),Uzoma Nwachukwu,9212485,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,Javontee Herndon (9212489),Javontee Herndon,9212489,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,Lance Lenoir (9212491),Lance Lenoir,9212491,3000,NYG@DAL 08:30PM ET,DAL
+\nWR,C.J. Germany (9212822),C.J. Germany,9212822,3000,NYG@DAL 08:30PM ET,NYG
+\nRB,Shaun Draughn (9212901),Shaun Draughn,9212901,3000,NYG@DAL 08:30PM ET,NYG
+\nRB,Rashad Jennings (9212907),Rashad Jennings,9212907,3000,NYG@DAL 08:30PM ET,NYG
+\nRB,Shane Smith (9212911),Shane Smith,9212911,3000,NYG@DAL 08:30PM ET,NYG
+\nRB,Jacob Huesman (9212913),Jacob Huesman,9212913,3000,NYG@DAL 08:30PM ET,NYG
+\nRB,Khalid Abdullah (9212915),Khalid Abdullah,9212915,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Jerome Lane (9212921),Jerome Lane,9212921,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Travis Rudolph (9212925),Travis Rudolph,9212925,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Kevin Snead (9212927),Kevin Snead,9212927,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Keeon Johnson (9212929),Keeon Johnson,9212929,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Darius Powe (9212933),Darius Powe,9212933,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Kevin Norwood (9212935),Kevin Norwood,9212935,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Dwayne Harris (9212941),Dwayne Harris,9212941,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Marquis Bundy (9213099),Marquis Bundy,9213099,3000,NYG@DAL 08:30PM ET,NYG
+\nWR,Canaan Severin (9213158),Canaan Severin,9213158,3000,NYG@DAL 08:30PM ET,NYG
+\nTE,Julius Thomas (9212886),Julius Thomas,9212886,2900,Postponed,MIA
+\nDST,Seahawks  (9213300),Seahawks ,9213300,2900,SEA@GB 04:25PM ET,SEA
+\nDST,Cowboys  (9212505),Cowboys ,9212505,2900,NYG@DAL 08:30PM ET,DAL
+\nTE,Evan Engram (9212953),Evan Engram,9212953,2900,NYG@DAL 08:30PM ET,NYG
+\nTE,Zach Miller (9212326),Zach Miller,9212326,2800,ATL@CHI 01:00PM ET,CHI
+\nTE,Benjamin Watson (9213575),Benjamin Watson,9213575,2800,BAL@CIN 01:00PM ET,BAL
+\nDST,Ravens  (9213583),Ravens ,9213583,2800,BAL@CIN 01:00PM ET,BAL
+\nTE,Vance McDonald (9213234),Vance McDonald,9213234,2800,PIT@CLE 01:00PM ET,PIT
+\nDST,Cardinals  (9213121),Cardinals ,9213121,2800,ARI@DET 01:00PM ET,ARI
+\nDST,Dolphins  (9212896),Dolphins ,9212896,2800,Postponed,MIA
+\nTE,Austin Seferian-Jenkins (9213009),Austin Seferian-Jenkins,9213009,2700,NYJ@BUF 01:00PM ET,NYJ
+\nTE,David Njoku (9212444),David Njoku,9212444,2700,PIT@CLE 01:00PM ET,CLE
+\nTE,Jermaine Gresham (9213119),Jermaine Gresham,9213119,2700,ARI@DET 01:00PM ET,ARI
+\nTE,Ryan Griffin (9212279),Ryan Griffin,9212279,2700,JAX@HOU 01:00PM ET,HOU
+\nDST,Eagles  (9213066),Eagles ,9213066,2700,PHI@WAS 01:00PM ET,PHI
+\nTE,Erik Swoope (9212722),Erik Swoope,9212722,2700,IND@LAR 04:05PM ET,IND
+\nDST,Colts  (9212732),Colts ,9212732,2700,IND@LAR 04:05PM ET,IND
+\nTE,Richard Rodgers (9212610),Richard Rodgers,9212610,2700,SEA@GB 04:25PM ET,GB
+\nTE,Will Tye (9212945),Will Tye,9212945,2600,NYJ@BUF 01:00PM ET,NYJ
+\nTE,Maxx Williams (9213581),Maxx Williams,9213581,2600,BAL@CIN 01:00PM ET,BAL
+\nDST,Lions  (9212559),Lions ,9212559,2600,ARI@DET 01:00PM ET,DET
+\nDST,Titans  (9212677),Titans ,9212677,2600,OAK@TEN 01:00PM ET,TEN
+\nTE,Tyler Higbee (9212836),Tyler Higbee,9212836,2600,IND@LAR 04:05PM ET,LAR
+\nTE,Garrett Celek (9213232),Garrett Celek,9213232,2600,CAR@SF 04:25PM ET,SF
+\nDST,Giants  (9212955),Giants ,9212955,2600,NYG@DAL 08:30PM ET,NYG
+\nTE,Nick O'Leary (9212219),Nick O'Leary,9212219,2500,NYJ@BUF 01:00PM ET,BUF
+\nTE,Wes Saxton (9212221),Wes Saxton,9212221,2500,NYJ@BUF 01:00PM ET,BUF
+\nTE,Jason Croom (9212223),Jason Croom,9212223,2500,NYJ@BUF 01:00PM ET,BUF
+\nTE,Logan Thomas (9212225),Logan Thomas,9212225,2500,NYJ@BUF 01:00PM ET,BUF
+\nTE,Khari Lee (9212553),Khari Lee,9212553,2500,NYJ@BUF 01:00PM ET,BUF
+\nTE,Brandon Barnes (9212557),Brandon Barnes,9212557,2500,NYJ@BUF 01:00PM ET,NYJ
+\nTE,Eric Tomlinson (9213003),Eric Tomlinson,9213003,2500,NYJ@BUF 01:00PM ET,NYJ
+\nTE,Chris Gragg (9213005),Chris Gragg,9213005,2500,NYJ@BUF 01:00PM ET,NYJ
+\nTE,Jordan Leggett (9213007),Jordan Leggett,9213007,2500,NYJ@BUF 01:00PM ET,NYJ
+\nTE,Jason Vander Laan (9213011),Jason Vander Laan,9213011,2500,NYJ@BUF 01:00PM ET,NYJ
+\nTE,Neal Sterling (9213520),Neal Sterling,9213520,2500,NYJ@BUF 01:00PM ET,NYJ
+\nTE,Eric Saubert (9212159),Eric Saubert,9212159,2500,ATL@CHI 01:00PM ET,ATL
+\nTE,Levine Toilolo (9212163),Levine Toilolo,9212163,2500,ATL@CHI 01:00PM ET,ATL
+\nTE,Alex Gray (9212165),Alex Gray,9212165,2500,ATL@CHI 01:00PM ET,ATL
+\nTE,Jacob Tamme (9212167),Jacob Tamme,9212167,2500,ATL@CHI 01:00PM ET,ATL
+\nTE,Joshua Perkins (9212169),Joshua Perkins,9212169,2500,ATL@CHI 01:00PM ET,ATL
+\nTE,Darion Griswold (9212171),Darion Griswold,9212171,2500,ATL@CHI 01:00PM ET,ATL
+\nTE,Patrick Scales (9212328),Patrick Scales,9212328,2500,ATL@CHI 01:00PM ET,CHI
+\nTE,Daniel Brown (9212330),Daniel Brown,9212330,2500,ATL@CHI 01:00PM ET,CHI
+\nTE,Dion Sims (9212332),Dion Sims,9212332,2500,ATL@CHI 01:00PM ET,CHI
+\nTE,MyCole Pruitt (9212334),MyCole Pruitt,9212334,2500,ATL@CHI 01:00PM ET,CHI
+\nTE,Ben Braunecker (9212336),Ben Braunecker,9212336,2500,ATL@CHI 01:00PM ET,CHI
+\nTE,Adam Shaheen (9212338),Adam Shaheen,9212338,2500,ATL@CHI 01:00PM ET,CHI
+\nTE,Tyler Kroft (9212384),Tyler Kroft,9212384,2500,BAL@CIN 01:00PM ET,CIN
+\nTE,C.J. Uzomah (9212386),C.J. Uzomah,9212386,2500,BAL@CIN 01:00PM ET,CIN
+\nTE,Cethan Carter (9212388),Cethan Carter,9212388,2500,BAL@CIN 01:00PM ET,CIN
+\nTE,Mason Schreck (9212390),Mason Schreck,9212390,2500,BAL@CIN 01:00PM ET,CIN
+\nTE,Ryan Hewitt (9212392),Ryan Hewitt,9212392,2500,BAL@CIN 01:00PM ET,CIN
+\nTE,Clark Harris (9212394),Clark Harris,9212394,2500,BAL@CIN 01:00PM ET,CIN
+\nTE,Larry Donnell (9213573),Larry Donnell,9213573,2500,BAL@CIN 01:00PM ET,BAL
+\nTE,Ryan Malleck (9213577),Ryan Malleck,9213577,2500,BAL@CIN 01:00PM ET,BAL
+\nTE,Nick Boyle (9213579),Nick Boyle,9213579,2500,BAL@CIN 01:00PM ET,BAL
+\nTE,Randall Telfer (9212440),Randall Telfer,9212440,2500,PIT@CLE 01:00PM ET,CLE
+\nTE,Gary Barnidge (9212442),Gary Barnidge,9212442,2500,PIT@CLE 01:00PM ET,CLE
+\nTE,J.P. Holtz (9212446),J.P. Holtz,9212446,2500,PIT@CLE 01:00PM ET,CLE
+\nTE,Seth DeValve (9212448),Seth DeValve,9212448,2500,PIT@CLE 01:00PM ET,CLE
+\nTE,Taylor McNamara (9212450),Taylor McNamara,9212450,2500,PIT@CLE 01:00PM ET,CLE
+\nTE,Nate Iese (9212452),Nate Iese,9212452,2500,PIT@CLE 01:00PM ET,CLE
+\nTE,Jake McGee (9213166),Jake McGee,9213166,2500,PIT@CLE 01:00PM ET,PIT
+\nTE,Ladarius Green (9213168),Ladarius Green,9213168,2500,PIT@CLE 01:00PM ET,PIT
+\nTE,Xavier Grimble (9213170),Xavier Grimble,9213170,2500,PIT@CLE 01:00PM ET,PIT
+\nTE,Phazahn Odom (9213172),Phazahn Odom,9213172,2500,PIT@CLE 01:00PM ET,PIT
+\nTE,David Johnson (9213176),David Johnson,9213176,2500,PIT@CLE 01:00PM ET,PIT
+\nTE,Robert Tonyan (9212547),Robert Tonyan,9212547,2500,ARI@DET 01:00PM ET,DET
+\nTE,Darren Fells (9212549),Darren Fells,9212549,2500,ARI@DET 01:00PM ET,DET
+\nTE,Cole Wick (9212551),Cole Wick,9212551,2500,ARI@DET 01:00PM ET,DET
+\nTE,Michael Roberts (9212555),Michael Roberts,9212555,2500,ARI@DET 01:00PM ET,DET
+\nTE,Hakeem Valles (9213109),Hakeem Valles,9213109,2500,ARI@DET 01:00PM ET,ARI
+\nTE,Ricky Seals-Jones (9213111),Ricky Seals-Jones,9213111,2500,ARI@DET 01:00PM ET,ARI
+\nTE,Troy Niklas (9213113),Troy Niklas,9213113,2500,ARI@DET 01:00PM ET,ARI
+\nTE,Gerald Christian (9213115),Gerald Christian,9213115,2500,ARI@DET 01:00PM ET,ARI
+\nTE,Ifeanyi Momah (9213117),Ifeanyi Momah,9213117,2500,ARI@DET 01:00PM ET,ARI
+\nTE,Evan Baylis (9212271),Evan Baylis,9212271,2500,JAX@HOU 01:00PM ET,HOU
+\nTE,RaShaun Allen (9212275),RaShaun Allen,9212275,2500,JAX@HOU 01:00PM ET,HOU
+\nTE,Stephen Anderson (9212277),Stephen Anderson,9212277,2500,JAX@HOU 01:00PM ET,HOU
+\nTE,Marcedes Lewis (9213514),Marcedes Lewis,9213514,2500,JAX@HOU 01:00PM ET,JAX
+\nTE,Ben Koyack (9213516),Ben Koyack,9213516,2500,JAX@HOU 01:00PM ET,JAX
+\nTE,Alex Ellis (9213518),Alex Ellis,9213518,2500,JAX@HOU 01:00PM ET,JAX
+\nTE,Caleb Bluiett (9213522),Caleb Bluiett,9213522,2500,JAX@HOU 01:00PM ET,JAX
+\nTE,Mychal Rivera (9213524),Mychal Rivera,9213524,2500,JAX@HOU 01:00PM ET,JAX
+\nTE,MarQueis Gray (9212888),MarQueis Gray,9212888,2500,Postponed,MIA
+\nTE,Chris Pantale (9212890),Chris Pantale,9212890,2500,Postponed,MIA
+\nTE,Anthony Fasano (9212892),Anthony Fasano,9212892,2500,Postponed,MIA
+\nTE,Thomas Duarte (9212894),Thomas Duarte,9212894,2500,Postponed,MIA
+\nTE,Antony Auclair (9213347),Antony Auclair,9213347,2500,Postponed,TB
+\nTE,Luke Stocker (9213349),Luke Stocker,9213349,2500,Postponed,TB
+\nTE,Alan Cross (9213353),Alan Cross,9213353,2500,Postponed,TB
+\nTE,Tevin Westbrook (9213355),Tevin Westbrook,9213355,2500,Postponed,TB
+\nTE,Jonnu Smith (9212665),Jonnu Smith,9212665,2500,OAK@TEN 01:00PM ET,TEN
+\nTE,Tim Semisch (9212667),Tim Semisch,9212667,2500,OAK@TEN 01:00PM ET,TEN
+\nTE,Jace Amaro (9212669),Jace Amaro,9212669,2500,OAK@TEN 01:00PM ET,TEN
+\nTE,Jerome Cunningham (9212671),Jerome Cunningham,9212671,2500,OAK@TEN 01:00PM ET,TEN
+\nTE,Phillip Supernaw (9212673),Phillip Supernaw,9212673,2500,OAK@TEN 01:00PM ET,TEN
+\nTE,Beau Brinkley (9212675),Beau Brinkley,9212675,2500,OAK@TEN 01:00PM ET,TEN
+\nTE,Lee Smith (9212770),Lee Smith,9212770,2500,OAK@TEN 01:00PM ET,OAK
+\nTE,Cooper Helfet (9212774),Cooper Helfet,9212774,2500,OAK@TEN 01:00PM ET,OAK
+\nTE,Gabe Holmes (9212776),Gabe Holmes,9212776,2500,OAK@TEN 01:00PM ET,OAK
+\nTE,Clive Walford (9212778),Clive Walford,9212778,2500,OAK@TEN 01:00PM ET,OAK
+\nTE,Ryan O'Malley (9212780),Ryan O'Malley,9212780,2500,OAK@TEN 01:00PM ET,OAK
+\nTE,Pharaoh Brown (9212782),Pharaoh Brown,9212782,2500,OAK@TEN 01:00PM ET,OAK
+\nDST,Raiders  (9212784),Raiders ,9212784,2500,OAK@TEN 01:00PM ET,OAK
+\nTE,Brent Celek (9213054),Brent Celek,9213054,2500,PHI@WAS 01:00PM ET,PHI
+\nTE,Trey Burton (9213058),Trey Burton,9213058,2500,PHI@WAS 01:00PM ET,PHI
+\nTE,Anthony Denham (9213060),Anthony Denham,9213060,2500,PHI@WAS 01:00PM ET,PHI
+\nTE,Adam Zaruba (9213062),Adam Zaruba,9213062,2500,PHI@WAS 01:00PM ET,PHI
+\nTE,Billy Brown (9213064),Billy Brown,9213064,2500,PHI@WAS 01:00PM ET,PHI
+\nTE,E.J. Bibbs (9213399),E.J. Bibbs,9213399,2500,PHI@WAS 01:00PM ET,WAS
+\nTE,Jeremy Sprinkle (9213403),Jeremy Sprinkle,9213403,2500,PHI@WAS 01:00PM ET,WAS
+\nTE,Manasseh Garner (9213405),Manasseh Garner,9213405,2500,PHI@WAS 01:00PM ET,WAS
+\nTE,Niles Paul (9213407),Niles Paul,9213407,2500,PHI@WAS 01:00PM ET,WAS
+\nTE,Brandon Williams (9212724),Brandon Williams,9212724,2500,IND@LAR 04:05PM ET,IND
+\nTE,Steven Wroblewski (9212726),Steven Wroblewski,9212726,2500,IND@LAR 04:05PM ET,IND
+\nTE,Darrell Daniels (9212728),Darrell Daniels,9212728,2500,IND@LAR 04:05PM ET,IND
+\nTE,Henry Krieger-Coble (9212730),Henry Krieger-Coble,9212730,2500,IND@LAR 04:05PM ET,IND
+\nTE,Johnny Mundt (9212830),Johnny Mundt,9212830,2500,IND@LAR 04:05PM ET,LAR
+\nTE,Gerald Everett (9212832),Gerald Everett,9212832,2500,IND@LAR 04:05PM ET,LAR
+\nTE,Temarrick Hemingway (9212834),Temarrick Hemingway,9212834,2500,IND@LAR 04:05PM ET,LAR
+\nTE,Cory Harkey (9212838),Cory Harkey,9212838,2500,IND@LAR 04:05PM ET,LAR
+\nTE,Travis Wilson (9212840),Travis Wilson,9212840,2500,IND@LAR 04:05PM ET,LAR
+\nTE,Derek Carrier (9213401),Derek Carrier,9213401,2500,IND@LAR 04:05PM ET,LAR
+\nTE,Emanuel Byrd (9212604),Emanuel Byrd,9212604,2500,SEA@GB 04:25PM ET,GB
+\nTE,Lance Kendricks (9212608),Lance Kendricks,9212608,2500,SEA@GB 04:25PM ET,GB
+\nTE,Beau Sandland (9212612),Beau Sandland,9212612,2500,SEA@GB 04:25PM ET,GB
+\nTE,Aaron Peck (9212614),Aaron Peck,9212614,2500,SEA@GB 04:25PM ET,GB
+\nDST,Packers  (9212616),Packers ,9212616,2500,SEA@GB 04:25PM ET,GB
+\nTE,Luke Willson (9213286),Luke Willson,9213286,2500,SEA@GB 04:25PM ET,SEA
+\nTE,Tyler Ott (9213288),Tyler Ott,9213288,2500,SEA@GB 04:25PM ET,SEA
+\nTE,Marcus Lucas (9213290),Marcus Lucas,9213290,2500,SEA@GB 04:25PM ET,SEA
+\nTE,Stevie Donatell (9213294),Stevie Donatell,9213294,2500,SEA@GB 04:25PM ET,SEA
+\nTE,Nick Vannett (9213296),Nick Vannett,9213296,2500,SEA@GB 04:25PM ET,SEA
+\nTE,Tyrone Swoopes (9213298),Tyrone Swoopes,9213298,2500,SEA@GB 04:25PM ET,SEA
+\nTE,George Kittle (9213224),George Kittle,9213224,2500,CAR@SF 04:25PM ET,SF
+\nTE,Cole Hikutini (9213226),Cole Hikutini,9213226,2500,CAR@SF 04:25PM ET,SF
+\nTE,Kyle Nelson (9213228),Kyle Nelson,9213228,2500,CAR@SF 04:25PM ET,SF
+\nTE,Logan Paulsen (9213230),Logan Paulsen,9213230,2500,CAR@SF 04:25PM ET,SF
+\nTE,Blake Bell (9213236),Blake Bell,9213236,2500,CAR@SF 04:25PM ET,SF
+\nTE,Eric Wallace (9213456),Eric Wallace,9213456,2500,CAR@SF 04:25PM ET,CAR
+\nTE,Ed Dickson (9213458),Ed Dickson,9213458,2500,CAR@SF 04:25PM ET,CAR
+\nTE,Scott Simonson (9213462),Scott Simonson,9213462,2500,CAR@SF 04:25PM ET,CAR
+\nTE,Chris Manhertz (9213464),Chris Manhertz,9213464,2500,CAR@SF 04:25PM ET,CAR
+\nTE,Bryce Williams (9213466),Bryce Williams,9213466,2500,CAR@SF 04:25PM ET,CAR
+\nTE,Rico Gathers (9212493),Rico Gathers,9212493,2500,NYG@DAL 08:30PM ET,DAL
+\nTE,Connor Hamlett (9212495),Connor Hamlett,9212495,2500,NYG@DAL 08:30PM ET,DAL
+\nTE,Blake Jarwin (9212497),Blake Jarwin,9212497,2500,NYG@DAL 08:30PM ET,DAL
+\nTE,Geoff Swaim (9212499),Geoff Swaim,9212499,2500,NYG@DAL 08:30PM ET,DAL
+\nTE,James Hanna (9212501),James Hanna,9212501,2500,NYG@DAL 08:30PM ET,DAL
+\nTE,Rhett Ellison (9212943),Rhett Ellison,9212943,2500,NYG@DAL 08:30PM ET,NYG
+\nTE,Matt LaCosse (9212947),Matt LaCosse,9212947,2500,NYG@DAL 08:30PM ET,NYG
+\nTE,Jerell Adams (9212949),Jerell Adams,9212949,2500,NYG@DAL 08:30PM ET,NYG
+\nTE,Colin Thompson (9212951),Colin Thompson,9212951,2500,NYG@DAL 08:30PM ET,NYG
+\nDST,Jets  (9213013),Jets ,9213013,2400,NYJ@BUF 01:00PM ET,NYJ
+\nDST,Bears  (9212340),Bears ,9212340,2200,ATL@CHI 01:00PM ET,CHI
+\nDST,49ers  (9213238),49ers ,9213238,2100,CAR@SF 04:25PM ET,SF
+\nDST,Browns  (9212454),Browns ,9212454,2000,PIT@CLE 01:00PM ET,CLE

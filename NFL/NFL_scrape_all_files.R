@@ -28,15 +28,25 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 # Scrape DK Site for todays contests 
 contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = "2017-09-10") # hard coded date
 
+# remove arcade mode and pick'em contests
+inds_arcade <- NULL
+for (i in which(contest_info$Contest_Date==Sys.Date())) {
+  if (grepl("arcade", contest_info$Contest_Name[i], ignore.case = T) | grepl("pick'em", contest_info$Contest_Name[i], ignore.case = T)) {
+    inds_arcade <- c(inds_arcade, i)
+  }
+}
+if (!is.null(inds_arcade)) {
+  contest_info <- contest_info[-c(inds_arcade),] 
+  write.csv(contest_info, file = 'NFL/data_warehouse/contests.csv', row.names = F)
+}
 
-### re-read in Contest File (not sure if needed but a safety precaution)
+### re-read in Contest File (reset row index from 1)
 contest_info <- read.csv(file = 'NFL/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
 # Find Earliest index of last contest
 # first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date()))
-
-# Index of 
+first_contest_update <- 37
 
 for(index in first_contest_update:length(contest_info$Contest_Date)) {
   print(paste0(index, ' of ', length(contest_info$Contest_Date), ' | Currently: ', contest_info$Contest_Name[index]))
@@ -57,13 +67,15 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
     contest_name <- gsub(" ", "", contest_info$Contest_Name[index], fixed = TRUE)
     
     # Load in DK Salary Files
-    download_DK_player_salary_file_NFL(contest_info$Contest_ID[index], 
-                                   as.Date(contest_info$Contest_Date[index]))
+    download_DK_player_salary_file_NFL(contest_info$Contest_ID[index],
+                                   as.Date(contest_info$Contest_Date[index]),
+                                   entryFee = contest_info$Entry_Fee[index],
+                                   eventName = contest_info$Contest_Name[index])
     
     # Download DK Payout Structure
-    download_DK_payout_structure_NFL(contest_info$Contest_ID[index], 
-                                     as.Date(contest_info$Contest_Date[index]),
-                                     contest_name)
+    download_DK_payout_structure_NFL(contest_number = contest_info$Contest_ID[index], 
+                                     date = as.Date(contest_info$Contest_Date[index]),
+                                     contest_name = contest_name)
   }
 }
 

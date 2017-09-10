@@ -38,7 +38,7 @@ contest_name = "\$8.00entry_NFL\$500KPostPattern";
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 150
+num_lineups = 151
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 4
