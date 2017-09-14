@@ -34,9 +34,9 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
     aggregated_data_defense <- list()
     for (i in 1:nrow(contest_info)) {
       # check if folder for contest exists
-      temp.dksalaries.path <- paste0(file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/DKSalaries.csv"))
+      temp.dksalaries.path <- paste0(file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/", contest_info$Entry_Fee[i],"entry_",contest_info$Contest_Name[i], "/DKSalaries.csv"))
       if (file.exists(temp.dksalaries.path)) {
-        projections.dat <- aggregateJuliaDF(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))
+        projections.dat <- aggregateJuliaDF(contest.date = contest_info$Contest_Date[i], contest.name = paste0(contest_info$Entry_Fee[i],"entry_",contest_info$Contest_Name[i]))
         aggregated_data_offense[[i]] <- projections.dat[[1]]
         aggregated_data_defense[[i]] <- projections.dat[[2]]
 
@@ -45,10 +45,10 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
         aggregated_data_defense[[i]][is.na(aggregated_data_defense[[i]])] <- 0
         
         ####### Write to CSV file #######
-        write.csv(aggregated_data_offense[[i]], file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/offensive_players.csv"), row.names = F)
-        write.csv(aggregated_data_defense[[i]], file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])), "/defenses.csv"), row.names = F)
+        write.csv(aggregated_data_offense[[i]], file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",contest_info$Contest_Name[i]), "/offensive_players.csv"), row.names = F)
+        write.csv(aggregated_data_defense[[i]], file = paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/" , paste0(contest_info$Entry_Fee[i],"entry_",contest_info$Contest_Name[i]), "/defenses.csv"), row.names = F)
       } else {
-        print(paste0("contest folder missing: ", paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/", paste0(contest_info$Entry_Fee[i],"entry_",gsub(" ", "", contest_info$Contest_Name[i])))))
+        print(paste0("contest folder missing: ", paste0("NFL/data_warehouse/", contest_info$Contest_Date[i],"/", paste0(contest_info$Entry_Fee[i],"entry_", contest_info$Contest_Name[i]))))
       }
     }
     
@@ -57,6 +57,6 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
 }
 
 
-NFL_create_julia_inputs(date_start = "2017-09-10", date_end = "2017-09-10")
+NFL_create_julia_inputs(date_start = "2017-09-17", date_end = "2017-09-17")
 
 
