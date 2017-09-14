@@ -156,37 +156,9 @@ download_DK_payout_structure_NFL <- function(contest_number, date, contest_name)
   url <- paste0('https://www.draftkings.com/draft/contest/', contest_number)
   mybrowser$navigate(url)
   
-  # # Get past first clickwall
-  # Sys.sleep(1.5)
-  # webElem <- mybrowser$findElement(using = 'id', value = "fancybox-close")
-  # webElem$clickElement()
-  
-  # Open Contest Information Link 
-  #Sys.sleep(1.5)
-  #element <- try(unlist(mybrowser$findElement(using = 'id', value = "fancybox-close")$getElementAttribute('id')),silent = TRUE)
-  
-  # Old UI
-  # if(substring(element[1], 1, 5) != "Error") {
-  #   webElem <- mybrowser$findElement(using = 'css selector', value = "#contest-details-link")
-  #   webElem$clickElement()
-  #   
-  #   # Parse HTML Table
-  #   Sys.sleep(1.5)
-  #   doc <- htmlParse(mybrowser$getPageSource()[[1]])
-  #   
-  #   # Close out of Browser
-  #   mybrowser$quit()
-  #   
-  #   payout_structure <- readHTMLTable(doc)[[6]]
-  #   payout_structure$Payout <- 0
-  #   names(payout_structure) <- c('Place_lo', 'Place_hi', 'Payout')
-  #   
-  #   
-  # } 
-  
   #New UI
   Sys.sleep(1.5)
-  webElem <- mybrowser$findElement(using = 'css selector', value = "._2XCxvDE2uWbmtH2QTVQoSH span")
+  webElem <- mybrowser$findElement(using = 'css selector', value = ".ContestInformation_text span")
   webElem$clickElement()
   
   # Parse HTML Table

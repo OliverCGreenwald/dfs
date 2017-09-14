@@ -2238,7 +2238,7 @@ function one_lineup_Type_17(offensive_players, defenses, lineups, num_overlap, n
     @constraint(m, sum{used_team[i], i=1:num_teams} >= 2)
 
     # No Defenses going against Offensive_Players constraint
-    @constraint(m, constr[i=1:num_defenses], 6*defenses_lineup[i] + sum{defenses_opponents[k, i]*offensive_players_lineup[k], k=1:num_offensive_players}<=6)
+    @constraint(m, constr[i=1:num_defenses-2], 6*defenses_lineup[i] + sum{defenses_opponents[k, i]*offensive_players_lineup[k], k=1:num_offensive_players}<=6)
 
     # Must have a QB/WR Pair
     # QB is weighted 9 and WR is weighted 1 so in order to have a sum >= 10 there must be 

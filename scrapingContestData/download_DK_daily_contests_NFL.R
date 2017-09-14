@@ -193,7 +193,7 @@ download_DK_daily_contests_NFL <- function(contest_info, sunday_date) {
   df$Cash <- as.numeric(df$Cash)
   df$mec <- as.numeric(df$mec)
   df <- df[df$mec > 10,]
-  
+  df <- df[df$gameType == 'Classic',]
   vars_needed <- c('id','n', 'mec', "a", "sdstring", "m")
   df <- df[, vars_needed]
   df$Contest_Date <- sunday_date

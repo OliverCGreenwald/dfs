@@ -1,51 +1,45 @@
 library(dplyr)
 library(rvest)
 
-
-download_DK_player_salary_file_NFL <- function(contest_number, date, entryFee, eventName) {
+  
+download_DK_player_salary_file_NFL <- function(contest_info, index) {
   original_wd <- getwd()
   
-  # url <- paste0('https://www.draftkings.com/contest/draftteam/', contest_number)
-  # thepage = readLines(url)
-  # 
-  # #Clean draftGroupId
-  # draftGroupId <- grep('draftGroupId:', thepage, value=TRUE)
-  # draftGroupId <- gsub(" ", "", draftGroupId, fixed = TRUE)
-  # draftGroupId <- gsub(",", "", draftGroupId, fixed = TRUE)
-  # draftGroupId <- strsplit(draftGroupId, ":")[[1]][2]
-  # 
-  # #Clean contestTypeId 
-  # contestTypeId <- grep('contestTypeId:', thepage, value=TRUE)
-  # contestTypeId <- gsub(" ", "", contestTypeId, fixed = TRUE)
-  # contestTypeId <- gsub(",", "", contestTypeId, fixed = TRUE)
-  # contestTypeId <- strsplit(contestTypeId, ":")[[1]][2]
-  # 
-  # #Clean entryFee
-  # entryFee <- grep('Entry Fee - ', thepage, value=TRUE)
-  # entryFee <- gsub(" ", "", entryFee, fixed = TRUE)
-  # entryFee <- strsplit(entryFee, "-")[[1]][2]
-  # entryFee <- strsplit(entryFee, "<")[[1]][1]
-  # 
-  # 
-  # #Clean eventName
-  # eventName <- grep('event-name', thepage, value=TRUE)
-  # eventName <- gsub(" ", "", eventName, fixed = TRUE)
-  # eventName <- strsplit(eventName, ">")[[1]][2]
-  # eventName <- strsplit(eventName, "<")[[1]][1]
-  # eventName <- sub("&#39;", "'", eventName, fixed = TRUE)
-  # 
-  # 
-  # browseURL(paste0('https://www.draftkings.com/lineup/getavailableplayerscsv?contestTypeId=', contestTypeId, "&draftGroupId=", draftGroupId))
-  # Sys.sleep(5)
-  # 
-  # setwd('~/Downloads')
-  # 
-  # while(!file.exists("DKSalaries.csv")){
-  #   Sys.sleep(1)
-  # }
-  # 
-  # player_salaries <- read.csv("DKSalaries.csv", stringsAsFactors = F)
-  # file.remove("DKSalaries.csv")
+  contest_number <- contest_info$Contest_ID[index]
+  entryFee <- contest_info$Entry_Fee[index]
+  date <- contest_info$Contest_Date[index]
+  eventName <- contest_info$Contest_Name[index]
+  
+  url <- paste0('https://www.draftkings.com/contest/draftteam/', contest_number)
+  thepage = readLines(url)
+  
+  html_block <- grep('draftGroupId\":', thepage, value=TRUE)[2]
+  
+  #Clean draftGroupId
+  draftGroupId_start <- gregexpr("draftGroupId\"", html_block, fixed = TRUE)[[1]][1]
+  draftGroupId <- substring(html_block,draftGroupId_start,nchar(html_block))
+  draftGroupId <- substring(draftGroupId, 15, gregexpr(',', draftGroupId)[[1]][1] - 1)
+  
+  #Clean contestTypeId 
+  contestTypeId_start <- gregexpr("contestTypeId\"", html_block, fixed = TRUE)[[1]][1]
+  contestTypeId <- substring(html_block,contestTypeId_start,nchar(html_block))
+  contestTypeId <- substring(contestTypeId, 16, gregexpr(',', contestTypeId)[[1]][1] - 1)
+  
+  
+  
+  
+  browseURL(paste0('https://www.draftkings.com/lineup/getavailableplayerscsv?contestTypeId=', contestTypeId, "&draftGroupId=", draftGroupId))
+  Sys.sleep(5)
+  
+  setwd('~/Downloads')
+  
+  while(!file.exists("DKSalaries.csv")){
+    Sys.sleep(1)
+  }
+  
+  player_salaries <- read.csv("DKSalaries.csv", stringsAsFactors = F)
+  file.remove("DKSalaries.csv")
+
   data_warehouse_path <- file.path(original_wd,'NFL/data_warehouse')
   
   setwd(data_warehouse_path)

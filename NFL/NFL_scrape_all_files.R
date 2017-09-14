@@ -26,7 +26,7 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
 
 # Scrape DK Site for todays contests 
-contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = "2017-09-10") # hard coded date
+contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = "2017-09-17") # hard coded date
 
 # remove arcade mode and pick'em contests
 inds_arcade <- NULL
@@ -44,33 +44,33 @@ if (!is.null(inds_arcade)) {
 contest_info <- read.csv(file = 'NFL/data_warehouse/contests.csv', stringsAsFactors = F)
 contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
+write.csv(contest_info, file = 'NFL/data_warehouse/contests.csv', row.names = F)
 # Find Earliest index of last contest
-# first_contest_update <- min(which(as.Date(contest_info$Contest_Date) == Sys.Date()))
-first_contest_update <- 37
 
+first_contest_update <- min(which(as.Date(contest_info$Contest_Date) >= Sys.Date()))
+
+# Index of 
 for(index in first_contest_update:length(contest_info$Contest_Date)) {
   print(paste0(index, ' of ', length(contest_info$Contest_Date), ' | Currently: ', contest_info$Contest_Name[index]))
   # Case: Contest Occured Yesterday 
   if (as.Date(contest_info$Contest_Date[index]) < (Sys.Date())) {
-    # contest_name <- gsub(" ", "", contest_info$Contest_Name[index], fixed = TRUE)
-    # 
-    # #Load in Player Results
-    # download_player_results('MLB', as.Date(contest_info$Contest_Date[index]))
-    # 
-    # #Download DK Results File 
-    # download_DK_contest_file_MLB(contest_info$Contest_ID[index], 
-    #                              as.Date(contest_info$Contest_Date[index]),
-    #                              contest_name)
+    contest_name <- gsub(" ", "", contest_info$Contest_Name[index], fixed = TRUE)
+
+    #Load in Player Results
+    #download_player_results('NFL', as.Date(contest_info$Contest_Date[index]))
+
+    #Download DK Results File
+    download_DK_contest_file_NFL(contest_info$Contest_ID[index],
+                                 as.Date(contest_info$Contest_Date[index]),
+                                 contest_name)
     
-  } else if (as.Date(contest_info$Contest_Date[index]) == (Sys.Date())) {
+  } else if (as.Date(contest_info$Contest_Date[index]) >= (Sys.Date())) {
     # CASE: If contest Occurs Today
     contest_name <- gsub(" ", "", contest_info$Contest_Name[index], fixed = TRUE)
     
     # Load in DK Salary Files
-    download_DK_player_salary_file_NFL(contest_info$Contest_ID[index],
-                                   as.Date(contest_info$Contest_Date[index]),
-                                   entryFee = contest_info$Entry_Fee[index],
-                                   eventName = contest_info$Contest_Name[index])
+    download_DK_player_salary_file_NFL(contest_info, index)
+
     
     # Download DK Payout Structure
     download_DK_payout_structure_NFL(contest_number = contest_info$Contest_ID[index], 
