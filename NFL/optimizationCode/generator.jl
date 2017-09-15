@@ -29,8 +29,8 @@ include("formulations.jl")
 ################################################################################################################
 # Contest information
 
-contest_date = "2017-09-10";
-contest_name = "\$8.00entry_NFL\$500KPostPattern";
+contest_date = "2017-09-17";
+contest_name = "\$8.00entry_NFL \$600K Kickoff Special [\$100K to 1st] (Thu)";
 
 ############################  Setting Variables  ############################
 

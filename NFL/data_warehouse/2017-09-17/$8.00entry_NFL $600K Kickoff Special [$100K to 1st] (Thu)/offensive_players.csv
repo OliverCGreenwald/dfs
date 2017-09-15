@@ -1,523 +1,523 @@
-"Position","Name","Salary","GameInfo","AvgPointsPerGame","teamAbbrev","Opponent","Projection","Projection_dfn","Actual_fpts","RankTargets","RollingTargetPctg","FreqInd","TierRank","ValueWR"
-"RB","David Johnson",10000,"ARI@IND 01:00PM ET",14.1,"ARI","IND",0,0,0,0,0,0,0,0
-"RB","Le'Veon Bell",9800,"MIN@PIT 01:00PM ET",7.7,"PIT","MIN",0,21.7,0,0,0,0,0,0
-"WR","Antonio Brown",9400,"MIN@PIT 01:00PM ET",32.2,"PIT","MIN",0,20.3,0,0,0,0,0,0
-"WR","Julio Jones",9200,"GB@ATL 08:30PM ET",10.6,"ATL","GB",0,24.2,0,0,0,0,0,0
-"RB","LeSean McCoy",8600,"BUF@CAR 01:00PM ET",23.9,"BUF","CAR",0,16.3,0,0,0,0,0,0
-"WR","Brandin Cooks",8200,"NE@NO 01:00PM ET",11.8,"NE","NO",0,20.1,0,0,0,0,0,0
-"WR","Amari Cooper",8100,"NYJ@OAK 04:05PM ET",17.2,"OAK","NYJ",0,13.2,0,0,0,0,0,0
-"WR","Odell Beckham",8000,"DET@NYG 08:30PM ET",0,"NYG","DET",0,17,0,0,0,0,0,0
-"QB","Tom Brady",7900,"NE@NO 01:00PM ET",10.68,"NE","NO",0,24.8,0,0,0,0,0,0
-"WR","Jordy Nelson",7900,"GB@ATL 08:30PM ET",20.9,"GB","ATL",0,16.7,0,0,0,0,0,0
-"WR","AJ Green",7800,"HOU@CIN 08:25PM ET",12.4,"CIN","HOU",0,19.1,0,0,0,0,0,0
-"RB","Ezekiel Elliott",7800,"DAL@DEN 04:25PM ET",22,"DAL","DEN",0,21,0,0,0,0,0,0
-"QB","Drew Brees",7700,"NE@NO 01:00PM ET",15.64,"NO","NE",0,19.7,0,0,0,0,0,0
-"WR","Mike Evans",7700,"CHI@TB 01:00PM ET",0,"TB","CHI",0,19.5,0,0,0,0,0,0
-"WR","Michael Thomas",7500,"NE@NO 01:00PM ET",9.5,"NO","NE",0,16.3,0,0,0,0,0,0
-"QB","Matt Ryan",7500,"GB@ATL 08:30PM ET",20.94,"ATL","GB",0,23,0,0,0,0,0,0
-"QB","Aaron Rodgers",7400,"GB@ATL 08:30PM ET",20.54,"GB","ATL",0,22.2,0,0,0,0,0,0
-"RB","Devonta Freeman",7300,"GB@ATL 08:30PM ET",11.9,"ATL","GB",0,13.6,0,0,0,0,0,0
-"QB","Derek Carr",7200,"NYJ@OAK 04:05PM ET",18.68,"OAK","NYJ",0,18.6,0,0,0,0,0,0
-"WR","Michael Crabtree",7100,"NYJ@OAK 04:05PM ET",14.3,"OAK","NYJ",0,13.1,0,0,0,0,0,0
-"RB","Melvin Gordon",7000,"MIA@LAC 04:05PM ET",18.9,"LAC","MIA",0,19.3,0,0,0,0,0,0
-"TE","Rob Gronkowski",6900,"NE@NO 01:00PM ET",5.3,"NE","NO",0,12.9,0,0,0,0,0,0
-"RB","Kareem Hunt",6800,"PHI@KC 01:00PM ET",49.6,"KC","PHI",0,15.2,0,0,0,0,0,0
-"RB","Todd Gurley II",6800,"WAS@LAR 04:25PM ET",20.6,"LAR","WAS",0,16,0,0,0,0,0,0
-"QB","Russell Wilson",6800,"SF@SEA 04:25PM ET",9.32,"SEA","SF",0,19.8,0,0,0,0,0,0
-"WR","Golden Tate",6800,"DET@NYG 08:30PM ET",24.4,"DET","NYG",0,12.9,0,0,0,0,0,0
-"QB","Ben Roethlisberger",6700,"MIN@PIT 01:00PM ET",16.72,"PIT","MIN",0,18.2,0,0,0,0,0,0
-"WR","Doug Baldwin",6700,"SF@SEA 04:25PM ET",10,"SEA","SF",0,13.2,0,0,0,0,0,0
-"WR","Dez Bryant",6600,"DAL@DEN 04:25PM ET",6.3,"DAL","DEN",0,13.6,0,0,0,0,0,0
-"QB","Cam Newton",6500,"BUF@CAR 01:00PM ET",14.14,"CAR","BUF",0,22.3,0,0,0,0,0,0
-"WR","Larry Fitzgerald",6500,"ARI@IND 01:00PM ET",13.4,"ARI","IND",0,14.3,0,0,0,0,0,0
-"RB","Leonard Fournette",6500,"TEN@JAX 01:00PM ET",24.4,"JAX","TEN",0,15.6,0,0,0,0,0,0
-"QB","Marcus Mariota",6400,"TEN@JAX 01:00PM ET",18.84,"TEN","JAX",0,16.3,0,0,0,0,0,0
-"RB","Jay Ajayi",6400,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,15.3,0,0,0,0,0,0
-"RB","DeMarco Murray",6300,"TEN@JAX 01:00PM ET",8,"TEN","JAX",0,13.3,0,0,0,0,0,0
-"QB","Jameis Winston",6300,"CHI@TB 01:00PM ET",0,"TB","CHI",0,18.1,0,0,0,0,0,0
-"WR","Tyreek Hill",6200,"PHI@KC 01:00PM ET",29.8,"KC","PHI",0,18.3,0,0,0,0,0,0
-"WR","Stefon Diggs",6100,"MIN@PIT 01:00PM ET",27.7,"MIN","PIT",0,11.3,0,0,0,0,0,0
-"QB","Kirk Cousins",6100,"WAS@LAR 04:25PM ET",13.6,"WAS","LAR",0,18.7,0,0,0,0,0,0
-"QB","Carson Palmer",6000,"ARI@IND 01:00PM ET",11.96,"ARI","IND",0,18.9,0,0,0,0,0,0
-"RB","Marshawn Lynch",6000,"NYJ@OAK 04:05PM ET",10.2,"OAK","NYJ",0,15.6,0,0,0,0,0,0
-"WR","Terrelle Pryor",6000,"WAS@LAR 04:25PM ET",12.6,"WAS","LAR",0,13.8,0,0,0,0,0,0
-"QB","Andrew Luck",5900,"ARI@IND 01:00PM ET",0,"IND","ARI",0,0,0,0,0,0,0,0
-"QB","Carson Wentz",5900,"PHI@KC 01:00PM ET",23.88,"PHI","KC",0,15,0,0,0,0,0,0
-"RB","Dalvin Cook",5900,"MIN@PIT 01:00PM ET",19.7,"MIN","PIT",0,13.5,0,0,0,0,0,0
-"RB","Jordan Howard",5900,"CHI@TB 01:00PM ET",15.6,"CHI","TB",0,16.6,0,0,0,0,0,0
-"WR","Demaryius Thomas",5900,"DAL@DEN 04:25PM ET",11.7,"DEN","DAL",0,14.9,0,0,0,0,0,0
-"WR","Randall Cobb",5900,"GB@ATL 08:30PM ET",17.5,"GB","ATL",0,11.1,0,0,0,0,0,0
-"WR","DeAndre Hopkins",5800,"HOU@CIN 08:25PM ET",18.5,"HOU","CIN",0,14.9,0,0,0,0,0,0
-"QB","Jimmy Garoppolo",5800,"NE@NO 01:00PM ET",0,"NE","NO",0,0,0,0,0,0,0,0
-"QB","Philip Rivers",5800,"MIA@LAC 04:05PM ET",18.68,"LAC","MIA",0,18.5,0,0,0,0,0,0
-"WR","Keenan Allen",5800,"MIA@LAC 04:05PM ET",14.5,"LAC","MIA",0,13.9,0,0,0,0,0,0
-"RB","Ty Montgomery",5800,"GB@ATL 08:30PM ET",19.3,"GB","ATL",0,15,0,0,0,0,0,0
-"QB","Matthew Stafford",5800,"DET@NYG 08:30PM ET",28.08,"DET","NYG",0,17.8,0,0,0,0,0,0
-"QB","Alex Smith",5700,"PHI@KC 01:00PM ET",34.02,"KC","PHI",0,17.9,0,0,0,0,0,0
-"WR","Alshon Jeffery",5700,"PHI@KC 01:00PM ET",8.8,"PHI","KC",0,16.3,0,0,0,0,0,0
-"RB","Mike Gillislee",5700,"NE@NO 01:00PM ET",22.5,"NE","NO",0,9.7,0,0,0,0,0,0
-"WR","Kelvin Benjamin",5600,"BUF@CAR 01:00PM ET",3.5,"CAR","BUF",0,17.2,0,0,0,0,0,0
-"RB","Christian McCaffrey",5600,"BUF@CAR 01:00PM ET",12.5,"CAR","BUF",0,12.5,0,0,0,0,0,0
-"WR","Chris Hogan",5600,"NE@NO 01:00PM ET",3.5,"NE","NO",0,11.8,0,0,0,0,0,0
-"QB","Dak Prescott",5600,"DAL@DEN 04:25PM ET",17.12,"DAL","DEN",0,15.4,0,0,0,0,0,0
-"WR","Davante Adams",5600,"GB@ATL 08:30PM ET",7.7,"GB","ATL",0,12,0,0,0,0,0,0
-"QB","Andy Dalton",5500,"HOU@CIN 08:25PM ET",2,"CIN","HOU",0,15,0,0,0,0,0,0
-"QB","Derek Anderson",5500,"BUF@CAR 01:00PM ET",0,"CAR","BUF",0,0,0,0,0,0,0,0
-"TE","Greg Olsen",5500,"BUF@CAR 01:00PM ET",3.8,"CAR","BUF",0,10,0,0,0,0,0,0
-"RB","Derrick Henry",5500,"TEN@JAX 01:00PM ET",2.5,"TEN","JAX",0,7.3,0,0,0,0,0,0
-"QB","Sam Bradford",5500,"MIN@PIT 01:00PM ET",28.54,"MIN","PIT",0,14.8,0,0,0,0,0,0
-"WR","Martavis Bryant",5500,"MIN@PIT 01:00PM ET",3.4,"PIT","MIN",0,11,0,0,0,0,0,0
-"WR","Jarvis Landry",5500,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,13.9,0,0,0,0,0,0
-"QB","Jay Cutler",5400,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,15.3,0,0,0,0,0,0
-"WR","DeVante Parker",5400,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,12.1,0,0,0,0,0,0
-"RB","Lamar Miller",5300,"HOU@CIN 08:25PM ET",11.6,"HOU","CIN",0,13.5,0,0,0,0,0,0
-"QB","Tyrod Taylor",5300,"BUF@CAR 01:00PM ET",19.76,"BUF","CAR",0,16,0,0,0,0,0,0
-"WR","TY Hilton",5300,"ARI@IND 01:00PM ET",7.7,"IND","ARI",0,15.2,0,0,0,0,0,0
-"TE","Zach Ertz",5300,"PHI@KC 01:00PM ET",17.3,"PHI","KC",0,8.1,0,0,0,0,0,0
-"RB","Tevin Coleman",5300,"GB@ATL 08:30PM ET",9.8,"ATL","GB",0,10,0,0,0,0,0,0
-"QB","Eli Manning",5300,"DET@NYG 08:30PM ET",7.7,"NYG","DET",0,18.7,0,0,0,0,0,0
-"QB","Joe Flacco",5200,"CLE@BAL 01:00PM ET",7.84,"BAL","CLE",0,17.1,0,0,0,0,0,0
-"RB","Darren McFadden",5200,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,0,0,0,0,0,0,0
-"WR","Emmanuel Sanders",5200,"DAL@DEN 04:25PM ET",5.6,"DEN","DAL",0,13.2,0,0,0,0,0,0
-"TE","Jordan Reed",5200,"WAS@LAR 04:25PM ET",8.6,"WAS","LAR",0,12.9,0,0,0,0,0,0
-"WR","Sammy Watkins",5200,"WAS@LAR 04:25PM ET",10.8,"LAR","WAS",0,14.7,0,0,0,0,0,0
-"RB","Terrance West",5100,"CLE@BAL 01:00PM ET",14,"BAL","CLE",0,11.7,0,0,0,0,0,0
-"QB","DeShone Kizer",5100,"CLE@BAL 01:00PM ET",19.58,"CLE","BAL",0,14.6,0,0,0,0,0,0
-"TE","Travis Kelce",5100,"PHI@KC 01:00PM ET",9.4,"KC","PHI",0,9.9,0,0,0,0,0,0
-"WR","Danny Amendola",5100,"NE@NO 01:00PM ET",19,"NE","NO",0,11.5,0,0,0,0,0,0
-"QB","Jared Goff",5100,"WAS@LAR 04:25PM ET",19.44,"LAR","WAS",0,15.3,0,0,0,0,0,0
-"RB","Joe Mixon",5000,"HOU@CIN 08:25PM ET",5.4,"CIN","HOU",0,10.9,0,0,0,0,0,0
-"WR","Jeremy Maclin",5000,"CLE@BAL 01:00PM ET",13.6,"BAL","CLE",0,13.2,0,0,0,0,0,1
-"WR","John Brown",5000,"ARI@IND 01:00PM ET",8.2,"ARI","IND",0,11.3,0,0,0,0,0,1
-"WR","Adam Thielen",5000,"MIN@PIT 01:00PM ET",27.7,"MIN","PIT",0,13.5,0,0,0,0,0,1
-"RB","Bilal Powell",5000,"NYJ@OAK 04:05PM ET",8.9,"NYJ","OAK",0,11.1,0,0,0,0,0,0
-"QB","Colt McCoy",5000,"WAS@LAR 04:25PM ET",0,"WAS","LAR",0,0,0,0,0,0,0,0
-"WR","Brandon Marshall",5000,"DET@NYG 08:30PM ET",2,"NYG","DET",0,10.4,0,0,0,0,0,1
-"RB","Isaiah Crowell",4900,"CLE@BAL 01:00PM ET",10.6,"CLE","BAL",0,11.9,0,0,0,0,0,0
-"RB","Mark Ingram",4900,"NE@NO 01:00PM ET",12.1,"NO","NE",0,10.3,0,0,0,0,0,0
-"WR","DeSean Jackson",4900,"CHI@TB 01:00PM ET",0,"TB","CHI",0,13.4,0,0,0,0,0,1
-"QB","Trevor Siemian",4900,"DAL@DEN 04:25PM ET",23.66,"DEN","DAL",0,15.8,0,0,0,0,0,0
-"WR","Jamison Crowder",4900,"WAS@LAR 04:25PM ET",3.4,"WAS","LAR",0,10.7,0,0,0,0,0,1
-"TE","Jimmy Graham",4900,"SF@SEA 04:25PM ET",3.8,"SEA","SF",0,8.8,0,0,0,0,0,0
-"WR","Pierre Garcon",4900,"SF@SEA 04:25PM ET",14.1,"SF","SEA",0,13,0,0,0,0,0,1
-"RB","Carlos Hyde",4900,"SF@SEA 04:25PM ET",13.7,"SF","SEA",0,12.7,0,0,0,0,0,0
-"RB","Kerwynn Williams",4800,"ARI@IND 01:00PM ET",8.2,"ARI","IND",0,10.6,0,0,0,0,0,0
-"WR","Allen Robinson",4800,"TEN@JAX 01:00PM ET",2.7,"JAX","TEN",0,0,0,0,0,0,0,1
-"WR","Ted Ginn",4800,"NE@NO 01:00PM ET",9.8,"NO","NE",0,10.9,0,0,0,0,0,1
-"QB","AJ McCarron",4700,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,0
-"WR","Corey Coleman",4700,"CLE@BAL 01:00PM ET",16.3,"CLE","BAL",0,10.5,0,0,0,0,0,1
-"TE","Delanie Walker",4700,"TEN@JAX 01:00PM ET",14.6,"TEN","JAX",0,10.7,0,0,0,0,0,0
-"QB","Patrick Mahomes II",4700,"PHI@KC 01:00PM ET",0,"KC","PHI",0,0,0,0,0,0,0,0
-"RB","Adrian Peterson",4700,"NE@NO 01:00PM ET",1.8,"NO","NE",0,5.4,0,0,0,0,0,0
-"WR","Tyrell Williams",4700,"MIA@LAC 04:05PM ET",10.4,"LAC","MIA",0,9.8,0,0,0,0,0,1
-"RB","CJ Anderson",4700,"DAL@DEN 04:25PM ET",9.8,"DEN","DAL",0,16.1,0,0,0,0,0,0
-"WR","Sterling Shepard",4700,"DET@NYG 08:30PM ET",12,"NYG","DET",0,12.6,0,0,0,0,0,1
-"QB","Tom Savage",4600,"HOU@CIN 08:25PM ET",0.48,"HOU","CIN",0,0,0,0,0,0,0,0
-"WR","Rishard Matthews",4600,"TEN@JAX 01:00PM ET",12.1,"TEN","JAX",0,10.4,0,0,0,0,0,1
-"QB","Chase Daniel",4600,"NE@NO 01:00PM ET",0,"NO","NE",0,0,0,0,0,0,0,0
-"QB","Mike Glennon",4600,"CHI@TB 01:00PM ET",12.52,"CHI","TB",0,13.7,0,0,0,0,0,0
-"RB","Thomas Rawls",4600,"SF@SEA 04:25PM ET",0,"SEA","SF",0,8.8,0,0,0,0,0,0
-"RB","Danny Woodhead",4500,"CLE@BAL 01:00PM ET",6.7,"BAL","CLE",0,0,0,0,0,0,0,0
-"QB","Jacoby Brissett",4500,"ARI@IND 01:00PM ET",2.04,"IND","ARI",0,0,0,0,0,0,0,0
-"WR","Willie Snead",4500,"NE@NO 01:00PM ET",0,"NO","NE",0,0,0,0,0,0,0,1
-"QB","Case Keenum",4500,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,0,0,0,0,0,0,0
-"QB","Landry Jones",4500,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,0,0,0,0,0,0,0
-"RB","James Conner",4500,"MIN@PIT 01:00PM ET",1.1,"PIT","MIN",0,2.3,0,0,0,0,0,0
-"QB","Mitchell Trubisky",4500,"CHI@TB 01:00PM ET",0,"CHI","TB",0,0,0,0,0,0,0,0
-"QB","Matt Moore",4500,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,0,0,0,0,0,0,0
-"QB","Cardale Jones",4500,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,0,0,0,0,0,0,0
-"QB","Josh McCown",4500,"NYJ@OAK 04:05PM ET",11.48,"NYJ","OAK",0,13.7,0,0,0,0,0,0
-"RB","Alfred Morris",4500,"DAL@DEN 04:25PM ET",0.1,"DAL","DEN",0,3.6,0,0,0,0,0,0
-"QB","Cooper Rush",4500,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,0,0,0,0,0,0,0
-"QB","Brian Hoyer",4500,"SF@SEA 04:25PM ET",5.22,"SF","SEA",0,14,0,0,0,0,0,0
-"WR","Mohamed Sanu",4500,"GB@ATL 08:30PM ET",10.7,"ATL","GB",0,12.1,0,0,0,0,0,1
-"RB","Theo Riddick",4500,"DET@NYG 08:30PM ET",14.6,"DET","NYG",0,10.9,0,0,0,0,0,0
-"QB","Geno Smith",4500,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,0
-"QB","Deshaun Watson",4400,"HOU@CIN 08:25PM ET",7.68,"HOU","CIN",0,14.5,0,0,0,0,0,0
-"RB","Jonathan Stewart",4400,"BUF@CAR 01:00PM ET",16.2,"CAR","BUF",0,8.9,0,0,0,0,0,0
-"WR","Eric Decker",4400,"TEN@JAX 01:00PM ET",4,"TEN","JAX",0,10.1,0,0,0,0,0,1
-"QB","Blake Bortles",4400,"TEN@JAX 01:00PM ET",10.3,"JAX","TEN",0,16.2,0,0,0,0,0,0
-"RB","LeGarrette Blount",4400,"PHI@KC 01:00PM ET",11.7,"PHI","KC",0,9.7,0,0,0,0,0,0
-"WR","Nelson Agholor",4400,"PHI@KC 01:00PM ET",20.6,"PHI","KC",0,7.3,0,0,0,0,0,1
-"QB","Ryan Fitzpatrick",4400,"CHI@TB 01:00PM ET",0,"TB","CHI",0,0,0,0,0,0,0,0
-"RB","Jacquizz Rodgers",4400,"CHI@TB 01:00PM ET",0,"TB","CHI",0,8.6,0,0,0,0,0,0
-"RB","Jamaal Williams",4400,"GB@ATL 08:30PM ET",0.9,"GB","ATL",0,5,0,0,0,0,0,0
-"TE","Tyler Eifert",4300,"HOU@CIN 08:25PM ET",1.4,"CIN","HOU",0,7.9,0,0,0,0,0,0
-"QB","Scott Tolzien",4300,"ARI@IND 01:00PM ET",3.32,"IND","ARI",0,13.4,0,0,0,0,0,0
-"QB","Blaine Gabbert",4300,"ARI@IND 01:00PM ET",0,"ARI","IND",0,0,0,0,0,0,0,0
-"QB","Matt Cassel",4300,"TEN@JAX 01:00PM ET",0,"TEN","JAX",0,0,0,0,0,0,0,0
-"QB","Chad Henne",4300,"TEN@JAX 01:00PM ET",0,"JAX","TEN",0,0,0,0,0,0,0,0
-"QB","Nick Foles",4300,"PHI@KC 01:00PM ET",0,"PHI","KC",0,0,0,0,0,0,0,0
-"RB","Doug Martin",4300,"CHI@TB 01:00PM ET",0,"TB","CHI",0,0,0,0,0,0,0,0
-"QB","Connor Cook",4300,"NYJ@OAK 04:05PM ET",0,"OAK","NYJ",0,0,0,0,0,0,0,0
-"WR","Cole Beasley",4300,"DAL@DEN 04:25PM ET",6.2,"DAL","DEN",0,8.1,0,0,0,0,0,1
-"QB","Austin Davis",4300,"SF@SEA 04:25PM ET",0,"SEA","SF",0,0,0,0,0,0,0,0
-"QB","Matt Schaub",4300,"GB@ATL 08:30PM ET",0,"ATL","GB",0,0,0,0,0,0,0,0
-"RB","Alfred Blue",4200,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,0,0,0,0,0,0,0
-"QB","Cody Kessler",4200,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,0,0,0,0,0,0,0
-"TE","Kyle Rudolph",4200,"MIN@PIT 01:00PM ET",11.6,"MIN","PIT",0,11.2,0,0,0,0,0,0
-"RB","Matt Forte",4200,"NYJ@OAK 04:05PM ET",6.6,"NYJ","OAK",0,9.3,0,0,0,0,0,0
-"RB","Jamaal Charles",4200,"DAL@DEN 04:25PM ET",3,"DEN","DAL",0,10,0,0,0,0,0,0
-"QB","Brock Osweiler",4200,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,0,0,0,0,0,0,0
-"QB","Sean Mannion",4200,"WAS@LAR 04:25PM ET",-0.22,"LAR","WAS",0,0,0,0,0,0,0,0
-"RB","Eddie Lacy",4200,"SF@SEA 04:25PM ET",0.3,"SEA","SF",0,3.4,0,0,0,0,0,0
-"WR","Paul Richardson",4200,"SF@SEA 04:25PM ET",9.9,"SEA","SF",0,12.1,0,0,0,0,0,1
-"QB","CJ Beathard",4200,"SF@SEA 04:25PM ET",0,"SF","SEA",0,0,0,0,0,0,0,0
-"QB","Brett Hundley",4200,"GB@ATL 08:30PM ET",0,"GB","ATL",0,0,0,0,0,0,0,0
-"QB","Jake Rudock",4200,"DET@NYG 08:30PM ET",0,"DET","NYG",0,0,0,0,0,0,0,0
-"WR","Marvin Jones",4200,"DET@NYG 08:30PM ET",11.7,"DET","NYG",0,8.9,0,0,0,0,0,1
-"RB","D'Onta Foreman",4100,"HOU@CIN 08:25PM ET",0.4,"HOU","CIN",0,2.3,0,0,0,0,0,0
-"RB","Javorius Allen",4100,"CLE@BAL 01:00PM ET",7.1,"BAL","CLE",0,9.5,0,0,0,0,0,0
-"WR","Corey Davis",4100,"TEN@JAX 01:00PM ET",12.9,"TEN","JAX",0,7.7,0,0,0,0,0,1
-"RB","Latavius Murray",4100,"MIN@PIT 01:00PM ET",0.6,"MIN","PIT",0,2.9,0,0,0,0,0,0
-"RB","Tarik Cohen",4100,"CHI@TB 01:00PM ET",25.3,"CHI","TB",0,12.3,0,0,0,0,0,0
-"QB","Christian Hackenberg",4100,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,0,0,0,0,0,0,0
-"WR","Cooper Kupp",4100,"WAS@LAR 04:25PM ET",17.6,"LAR","WAS",0,6.7,0,0,0,0,0,1
-"RB","Chris Carson",4100,"SF@SEA 04:25PM ET",5.9,"SEA","SF",0,3.7,0,0,0,0,0,0
-"RB","Ameer Abdullah",4100,"DET@NYG 08:30PM ET",7.1,"DET","NYG",0,10,0,0,0,0,0,0
-"RB","Giovani Bernard",4000,"HOU@CIN 08:25PM ET",8.9,"CIN","HOU",0,6.7,0,0,0,0,0,0
-"WR","Kenny Britt",4000,"CLE@BAL 01:00PM ET",2.3,"CLE","BAL",0,10.3,0,0,0,0,0,1
-"QB","Ryan Mallett",4000,"CLE@BAL 01:00PM ET",0,"BAL","CLE",0,0,0,0,0,0,0,0
-"WR","Josh Gordon",4000,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,0,0,0,0,0,0,1
-"QB","Kevin Hogan",4000,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,0,0,0,0,0,0,0
-"QB","Joe Webb",4000,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,0,0,0,0,0,0,0
-"QB","Nathan Peterman",4000,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,0,0,0,0,0,0,0
-"QB","Brad Kaaya",4000,"BUF@CAR 01:00PM ET",0,"CAR","BUF",0,0,0,0,0,0,0,0
-"RB","Frank Gore",4000,"ARI@IND 01:00PM ET",6.2,"IND","ARI",0,11.7,0,0,0,0,0,0
-"QB","Drew Stanton",4000,"ARI@IND 01:00PM ET",0,"ARI","IND",0,0,0,0,0,0,0,0
-"RB","Robert Turbin",4000,"ARI@IND 01:00PM ET",1.3,"IND","ARI",0,4.4,0,0,0,0,0,0
-"RB","Andre Ellington",4000,"ARI@IND 01:00PM ET",5.5,"ARI","IND",0,9.9,0,0,0,0,0,0
-"WR","Donte Moncrief",4000,"ARI@IND 01:00PM ET",6,"IND","ARI",0,13.9,0,0,0,0,0,1
-"QB","Tyler Bray",4000,"PHI@KC 01:00PM ET",0,"KC","PHI",0,0,0,0,0,0,0,0
-"RB","Charcandrick West",4000,"PHI@KC 01:00PM ET",9.5,"KC","PHI",0,2.6,0,0,0,0,0,0
-"QB","Taysom Hill",4000,"NE@NO 01:00PM ET",0,"NO","NE",0,0,0,0,0,0,0,0
-"RB","James White",4000,"NE@NO 01:00PM ET",9.8,"NE","NO",0,10.1,0,0,0,0,0,0
-"QB","Joshua Dobbs",4000,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,0,0,0,0,0,0,0
-"QB","Mark Sanchez",4000,"CHI@TB 01:00PM ET",0,"CHI","TB",0,0,0,0,0,0,0,0
-"WR","Kevin White",4000,"CHI@TB 01:00PM ET",2.6,"CHI","TB",0,0,0,0,0,0,0,1
-"QB","Kellen Clemens",4000,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,0,0,0,0,0,0,0
-"RB","Branden Oliver",4000,"MIA@LAC 04:05PM ET",1,"LAC","MIA",0,4.3,0,0,0,0,0,0
-"RB","Kenyan Drake",4000,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,4.2,0,0,0,0,0,0
-"QB","EJ Manuel",4000,"NYJ@OAK 04:05PM ET",0,"OAK","NYJ",0,0,0,0,0,0,0,0
-"QB","Bryce Petty",4000,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,0,0,0,0,0,0,0
-"RB","DeAndre Washington",4000,"NYJ@OAK 04:05PM ET",4.2,"OAK","NYJ",0,5.1,0,0,0,0,0,0
-"RB","Jalen Richard",4000,"NYJ@OAK 04:05PM ET",3.8,"OAK","NYJ",0,6.7,0,0,0,0,0,0
-"QB","Kellen Moore",4000,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,0,0,0,0,0,0,0
-"QB","Paxton Lynch",4000,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,0,0,0,0,0,0,0
-"QB","Brandon Allen",4000,"WAS@LAR 04:25PM ET",0,"LAR","WAS",0,0,0,0,0,0,0,0
-"WR","Tyler Lockett",4000,"SF@SEA 04:25PM ET",1.8,"SEA","SF",0,11.1,0,0,0,0,0,1
-"WR","Taylor Gabriel",4000,"GB@ATL 08:30PM ET",6.6,"ATL","GB",0,12,0,0,0,0,0,1
-"WR","Kenny Golladay",4000,"DET@NYG 08:30PM ET",22.9,"DET","NYG",0,6.7,0,0,0,0,0,1
-"QB","Davis Webb",4000,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,0
-"RB","Shane Vereen",4000,"DET@NYG 08:30PM ET",14.1,"NYG","DET",0,8.4,0,0,0,0,0,0
-"RB","Jeremy Hill",3900,"HOU@CIN 08:25PM ET",3.4,"CIN","HOU",0,5.5,0,0,0,0,0,0
-"WR","Mike Wallace",3900,"CLE@BAL 01:00PM ET",1.8,"BAL","CLE",0,11.9,0,0,0,0,0,1
-"RB","Duke Johnson",3900,"CLE@BAL 01:00PM ET",4,"CLE","BAL",0,5.1,0,0,0,0,0,0
-"WR","Jordan Matthews",3900,"BUF@CAR 01:00PM ET",8.1,"BUF","CAR",0,12.1,0,0,0,0,0,1
-"WR","Devin Funchess",3900,"BUF@CAR 01:00PM ET",4,"CAR","BUF",0,12.4,0,0,0,0,0,1
-"WR","Allen Hurns",3900,"TEN@JAX 01:00PM ET",7.2,"JAX","TEN",0,11.7,0,0,0,0,0,1
-"RB","TJ Yeldon",3900,"TEN@JAX 01:00PM ET",0,"JAX","TEN",0,5.9,0,0,0,0,0,0
-"RB","Darren Sproles",3900,"PHI@KC 01:00PM ET",9.5,"PHI","KC",0,9,0,0,0,0,0,0
-"RB","Rex Burkhead",3900,"NE@NO 01:00PM ET",3.3,"NE","NO",0,3.2,0,0,0,0,0,0
-"WR","Phillip Dorsett",3900,"NE@NO 01:00PM ET",0,"NE","NO",0,2.8,0,0,0,0,0,1
-"WR","Kendall Wright",3900,"CHI@TB 01:00PM ET",6.4,"CHI","TB",0,11.3,0,0,0,0,0,1
-"RB","Charles Sims",3900,"CHI@TB 01:00PM ET",0,"TB","CHI",0,7.7,0,0,0,0,0,0
-"WR","Kenny Stills",3900,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,9.4,0,0,0,0,0,1
-"WR","Jermaine Kearse",3900,"NYJ@OAK 04:05PM ET",12.9,"NYJ","OAK",0,9.1,0,0,0,0,0,1
-"RB","Rob Kelley",3900,"WAS@LAR 04:25PM ET",3,"WAS","LAR",0,13.3,0,0,0,0,0,0
-"RB","Malcolm Brown",3900,"WAS@LAR 04:25PM ET",7.6,"LAR","WAS",0,3.4,0,0,0,0,0,0
-"RB","CJ Prosise",3900,"SF@SEA 04:25PM ET",1.1,"SEA","SF",0,5.9,0,0,0,0,0,0
-"TE","Martellus Bennett",3900,"GB@ATL 08:30PM ET",7.3,"GB","ATL",0,12,0,0,0,0,0,0
-"WR","Will Fuller V",3800,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,0,0,0,0,0,0,1
-"RB","Mike Tolbert",3800,"BUF@CAR 01:00PM ET",12.4,"BUF","CAR",0,7.1,0,0,0,0,0,0
-"WR","JJ Nelson",3800,"ARI@IND 01:00PM ET",15.3,"ARI","IND",0,10.6,0,0,0,0,0,1
-"RB","Marlon Mack",3800,"ARI@IND 01:00PM ET",11.5,"IND","ARI",0,7.1,0,0,0,0,0,0
-"WR","Marqise Lee",3800,"TEN@JAX 01:00PM ET",0,"JAX","TEN",0,10.4,0,0,0,0,0,1
-"RB","Wendell Smallwood",3800,"PHI@KC 01:00PM ET",1.9,"PHI","KC",0,4.1,0,0,0,0,0,0
-"RB","Damien Williams",3800,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,1.9,0,0,0,0,0,0
-"RB","Chris Thompson",3800,"WAS@LAR 04:25PM ET",15.6,"WAS","LAR",0,10,0,0,0,0,0,0
-"RB","Samaje Perine",3800,"WAS@LAR 04:25PM ET",0,"WAS","LAR",0,3.5,0,0,0,0,0,0
-"RB","Matt Breida",3800,"SF@SEA 04:25PM ET",1.1,"SF","SEA",0,5.1,0,0,0,0,0,0
-"RB","Dwayne Washington",3800,"DET@NYG 08:30PM ET",2.2,"DET","NYG",0,2.7,0,0,0,0,0,0
-"RB","Paul Perkins",3800,"DET@NYG 08:30PM ET",4.5,"NYG","DET",0,13.2,0,0,0,0,0,0
-"WR","Brandon LaFell",3700,"HOU@CIN 08:25PM ET",5.4,"CIN","HOU",0,7.3,0,0,0,0,0,1
-"WR","Mike Williams",3700,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,0,0,0,0,0,0,1
-"RB","Aaron Jones",3700,"GB@ATL 08:30PM ET",0,"GB","ATL",0,0,0,0,0,0,0,0
-"WR","Tyler Boyd",3600,"HOU@CIN 08:25PM ET",2.1,"CIN","HOU",0,8.5,0,0,0,0,0,1
-"RB","Chris Ivory",3600,"TEN@JAX 01:00PM ET",6.3,"JAX","TEN",0,3.6,0,0,0,0,0,0
-"WR","Taywan Taylor",3600,"TEN@JAX 01:00PM ET",3.4,"TEN","JAX",0,2.4,0,0,0,0,0,1
-"WR","Torrey Smith",3600,"PHI@KC 01:00PM ET",4,"PHI","KC",0,8.8,0,0,0,0,0,1
-"WR","Eli Rogers",3600,"MIN@PIT 01:00PM ET",3.1,"PIT","MIN",0,6.3,0,0,0,0,0,1
-"WR","Adam Humphries",3600,"CHI@TB 01:00PM ET",0,"TB","CHI",0,5.2,0,0,0,0,0,1
-"TE","Hunter Henry",3600,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,10.2,0,0,0,0,0,0
-"WR","Jeremy Kerley",3600,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,6.7,0,0,0,0,0,1
-"WR","Terrance Williams",3600,"DAL@DEN 04:25PM ET",12.8,"DAL","DEN",0,7.5,0,0,0,0,0,1
-"RB","De'Angelo Henderson",3600,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,0,0,0,0,0,0,0
-"WR","Jaelen Strong",3500,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,3.7,0,0,0,0,0,1
-"WR","Russell Shepard",3500,"BUF@CAR 01:00PM ET",13.3,"CAR","BUF",0,3.8,0,0,0,0,0,1
-"WR","Zay Jones",3500,"BUF@CAR 01:00PM ET",3.1,"BUF","CAR",0,6.9,0,0,0,0,0,1
-"RB","CJ Spiller",3500,"PHI@KC 01:00PM ET",0,"KC","PHI",0,1.3,0,0,0,0,0,0
-"RB","Alvin Kamara",3500,"NE@NO 01:00PM ET",7.8,"NO","NE",0,8.9,0,0,0,0,0,0
-"WR","Markus Wheaton",3500,"CHI@TB 01:00PM ET",0,"CHI","TB",0,6.2,0,0,0,0,0,1
-"WR","Travis Benjamin",3500,"MIA@LAC 04:05PM ET",13.3,"LAC","MIA",0,7.1,0,0,0,0,0,1
-"RB","Elijah McGuire",3500,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,1.6,0,0,0,0,0,0
-"RB","Devontae Booker",3500,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,0,0,0,0,0,0,0
-"WR","Ryan Grant",3500,"WAS@LAR 04:25PM ET",10.1,"WAS","LAR",0,2.8,0,0,0,0,0,1
-"WR","Tavon Austin",3500,"WAS@LAR 04:25PM ET",1.8,"LAR","WAS",0,5.3,0,0,0,0,0,1
-"WR","Josh Doctson",3500,"WAS@LAR 04:25PM ET",0,"WAS","LAR",0,8.1,0,0,0,0,0,1
-"WR","Marquise Goodwin",3500,"SF@SEA 04:25PM ET",5.1,"SF","SEA",0,10.1,0,0,0,0,0,1
-"TE","Austin Hooper",3500,"GB@ATL 08:30PM ET",23.8,"ATL","GB",0,7.5,0,0,0,0,0,0
-"RB","Devante Mays",3500,"GB@ATL 08:30PM ET",0,"GB","ATL",0,0,0,0,0,0,0,0
-"WR","Braxton Miller",3400,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,7.2,0,0,0,0,0,1
-"RB","Dion Lewis",3400,"NE@NO 01:00PM ET",0.9,"NE","NO",0,2.6,0,0,0,0,0,0
-"WR","Dontrelle Inman",3400,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,2.3,0,0,0,0,0,1
-"WR","Robby Anderson",3400,"NYJ@OAK 04:05PM ET",6.2,"NYJ","OAK",0,9,0,0,0,0,0,1
-"WR","Seth Roberts",3400,"NYJ@OAK 04:05PM ET",8.9,"OAK","NYJ",0,5.8,0,0,0,0,0,1
-"TE","Jason Witten",3400,"DAL@DEN 04:25PM ET",18.9,"DAL","DEN",0,8.3,0,0,0,0,0,0
-"WR","Robert Woods",3400,"WAS@LAR 04:25PM ET",8.3,"LAR","WAS",0,9.4,0,0,0,0,0,1
-"RB","Orleans Darkwa",3400,"DET@NYG 08:30PM ET",2.3,"NYG","DET",0,5.2,0,0,0,0,0,0
-"WR","Bruce Ellington",3300,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,0,0,0,0,0,0,1
-"WR","John Ross",3300,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,1
-"WR","Sammie Coates",3300,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,1,0,0,0,0,0,1
-"WR","Albert Wilson",3300,"PHI@KC 01:00PM ET",8.7,"KC","PHI",0,8.6,0,0,0,0,0,1
-"WR","Brandon Coleman",3300,"NE@NO 01:00PM ET",3.3,"NO","NE",0,8.1,0,0,0,0,0,1
-"WR","Laquon Treadwell",3300,"MIN@PIT 01:00PM ET",1.7,"MIN","PIT",0,5,0,0,0,0,0,1
-"TE","Jared Cook",3300,"NYJ@OAK 04:05PM ET",10.6,"OAK","NYJ",0,8.2,0,0,0,0,0,0
-"RB","Rod Smith",3300,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,1.3,0,0,0,0,0,0
-"WR","Jeff Janis",3300,"GB@ATL 08:30PM ET",0,"GB","ATL",0,1.3,0,0,0,0,0,1
-"RB","Zach Zenner",3300,"DET@NYG 08:30PM ET",0,"DET","NYG",0,0,0,0,0,0,0,0
-"WR","Roger Lewis",3300,"DET@NYG 08:30PM ET",9.4,"NYG","DET",0,1.7,0,0,0,0,0,1
-"WR","Curtis Samuel",3200,"BUF@CAR 01:00PM ET",0,"CAR","BUF",0,5.9,0,0,0,0,0,1
-"WR","Jaron Brown",3200,"ARI@IND 01:00PM ET",0,"ARI","IND",0,5.3,0,0,0,0,0,1
-"WR","Chris Conley",3200,"PHI@KC 01:00PM ET",6.3,"KC","PHI",0,8.8,0,0,0,0,0,1
-"RB","Jerick McKinnon",3200,"MIN@PIT 01:00PM ET",6.7,"MIN","PIT",0,4.8,0,0,0,0,0,0
-"TE","Jesse James",3200,"MIN@PIT 01:00PM ET",22.1,"PIT","MIN",0,6.5,0,0,0,0,0,0
-"WR","ArDarius Stewart",3200,"NYJ@OAK 04:05PM ET",3,"NYJ","OAK",0,5.4,0,0,0,0,0,1
-"TE","Evan Engram",3200,"DET@NYG 08:30PM ET",8.4,"NYG","DET",0,9.9,0,0,0,0,0,0
-"TE","CJ Fiedorowicz",3100,"HOU@CIN 08:25PM ET",8.6,"HOU","CIN",0,0,0,0,0,0,0,0
-"WR","Breshad Perriman",3100,"CLE@BAL 01:00PM ET",1.5,"BAL","CLE",0,8.6,0,0,0,0,0,1
-"RB","Fozzy Whittaker",3100,"BUF@CAR 01:00PM ET",0.1,"CAR","BUF",0,1.1,0,0,0,0,0,0
-"TE","Coby Fleener",3100,"NE@NO 01:00PM ET",16.4,"NO","NE",0,10.4,0,0,0,0,0,0
-"WR","Austin Carr",3100,"NE@NO 01:00PM ET",0,"NO","NE",0,0,0,0,0,0,0,1
-"RB","Jordan Todman",3000,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,0,0,0,0,0,0,0
-"RB","Jay Prosch",3000,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,0,0,0,0,0,0,0
-"RB","Tyler Ervin",3000,"HOU@CIN 08:25PM ET",6.6,"HOU","CIN",0,1.2,0,0,0,0,0,0
-"WR","Alex Erickson",3000,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,1
-"WR","Cody Core",3000,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,1.1,0,0,0,0,0,1
-"WR","Andy Jones",3000,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,0,0,0,0,0,0,1
-"WR","Josh Malone",3000,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,1
-"WR","Michael Campanaro",3000,"CLE@BAL 01:00PM ET",0.2,"BAL","CLE",0,3.8,0,0,0,0,0,1
-"WR","Chris Matthews",3000,"CLE@BAL 01:00PM ET",0,"BAL","CLE",0,0,0,0,0,0,0,1
-"WR","Chris Moore",3000,"CLE@BAL 01:00PM ET",0,"BAL","CLE",0,0,0,0,0,0,0,1
-"WR","Kasen Williams",3000,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,3.3,0,0,0,0,0,1
-"RB","Danny Vitale",3000,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,1.2,0,0,0,0,0,0
-"WR","Ricardo Louis",3000,"CLE@BAL 01:00PM ET",5.2,"CLE","BAL",0,3.8,0,0,0,0,0,1
-"WR","Reggie Davis",3000,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,0,0,0,0,0,0,1
-"RB","Matthew Dayes",3000,"CLE@BAL 01:00PM ET",3.6,"CLE","BAL",0,3.7,0,0,0,0,0,0
-"WR","Vince Mayle",3000,"CLE@BAL 01:00PM ET",0,"BAL","CLE",0,0,0,0,0,0,0,1
-"WR","Brandon Tate",3000,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,2.7,0,0,0,0,0,1
-"RB","Taiwan Jones",3000,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,0,0,0,0,0,0,0
-"RB","Joe Banyard",3000,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,2.3,0,0,0,0,0,0
-"TE","Charles Clay",3000,"BUF@CAR 01:00PM ET",15.3,"BUF","CAR",0,9.1,0,0,0,0,0,0
-"RB","Patrick DiMarco",3000,"BUF@CAR 01:00PM ET",1.5,"BUF","CAR",0,1.7,0,0,0,0,0,0
-"WR","Walter Powell",3000,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,0,0,0,0,0,0,1
-"WR","Kaelin Clay",3000,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,0,0,0,0,0,0,1
-"WR","Andre Holmes",3000,"BUF@CAR 01:00PM ET",7.1,"BUF","CAR",0,6.1,0,0,0,0,0,1
-"WR","Damiere Byrd",3000,"BUF@CAR 01:00PM ET",0,"CAR","BUF",0,2.6,0,0,0,0,0,1
-"RB","Cameron Artis-Payne",3000,"BUF@CAR 01:00PM ET",0,"CAR","BUF",0,0,0,0,0,0,0,0
-"WR","Kamar Aiken",3000,"ARI@IND 01:00PM ET",1.3,"IND","ARI",0,4,0,0,0,0,0,1
-"WR","Matt Hazel",3000,"ARI@IND 01:00PM ET",1.1,"IND","ARI",0,0,0,0,0,0,0,1
-"WR","Quan Bray",3000,"ARI@IND 01:00PM ET",0,"IND","ARI",0,2.6,0,0,0,0,0,1
-"RB","Elijhaa Penny",3000,"ARI@IND 01:00PM ET",0,"ARI","IND",0,0,0,0,0,0,0,0
-"WR","Brittan Golden",3000,"ARI@IND 01:00PM ET",0,"ARI","IND",0,3.3,0,0,0,0,0,1
-"WR","Chester Rogers",3000,"ARI@IND 01:00PM ET",0,"IND","ARI",0,5.5,0,0,0,0,0,1
-"WR","Chad Williams",3000,"ARI@IND 01:00PM ET",0,"ARI","IND",0,0,0,0,0,0,0,1
-"WR","Eric Weems",3000,"TEN@JAX 01:00PM ET",0,"TEN","JAX",0,0,0,0,0,0,0,1
-"WR","Arrelious Benn",3000,"TEN@JAX 01:00PM ET",2.2,"JAX","TEN",0,6.4,0,0,0,0,0,1
-"RB","Tommy Bohanon",3000,"TEN@JAX 01:00PM ET",7.1,"JAX","TEN",0,0,0,0,0,0,0,0
-"RB","Jalston Fowler",3000,"TEN@JAX 01:00PM ET",0,"TEN","JAX",0,0,0,0,0,0,0,0
-"RB","Corey Grant",3000,"TEN@JAX 01:00PM ET",0,"JAX","TEN",0,0,0,0,0,0,0,0
-"RB","David Fluellen",3000,"TEN@JAX 01:00PM ET",0,"TEN","JAX",0,0,0,0,0,0,0,0
-"WR","Keelan Cole",3000,"TEN@JAX 01:00PM ET",0,"JAX","TEN",0,4.9,0,0,0,0,0,1
-"RB","Anthony Sherman",3000,"PHI@KC 01:00PM ET",0,"KC","PHI",0,0,0,0,0,0,0,0
-"WR","De'Anthony Thomas",3000,"PHI@KC 01:00PM ET",1.2,"KC","PHI",0,1.4,0,0,0,0,0,1
-"WR","Marcus Johnson",3000,"PHI@KC 01:00PM ET",0,"PHI","KC",0,1.1,0,0,0,0,0,1
-"WR","Jehu Chesson",3000,"PHI@KC 01:00PM ET",0,"KC","PHI",0,0,0,0,0,0,0,1
-"WR","Mack Hollins",3000,"PHI@KC 01:00PM ET",0,"PHI","KC",0,2.3,0,0,0,0,0,1
-"WR","Demarcus Robinson",3000,"PHI@KC 01:00PM ET",0,"KC","PHI",0,1.5,0,0,0,0,0,1
-"WR","Shelton Gibson",3000,"PHI@KC 01:00PM ET",0,"PHI","KC",0,0,0,0,0,0,0,1
-"RB","Corey Clement",3000,"PHI@KC 01:00PM ET",0,"PHI","KC",0,0,0,0,0,0,0,0
-"RB","Donnel Pumphrey",3000,"PHI@KC 01:00PM ET",0,"PHI","KC",0,0,0,0,0,0,0,0
-"WR","Matthew Slater",3000,"NE@NO 01:00PM ET",0,"NE","NO",0,0,0,0,0,0,0,1
-"RB","John Kuhn",3000,"NE@NO 01:00PM ET",0.2,"NO","NE",0,2.3,0,0,0,0,0,0
-"RB","James Develin",3000,"NE@NO 01:00PM ET",0,"NE","NO",0,0,0,0,0,0,0,0
-"RB","Brandon Bolden",3000,"NE@NO 01:00PM ET",0,"NE","NO",0,0,0,0,0,0,0,0
-"WR","Tommylee Lewis",3000,"NE@NO 01:00PM ET",7.2,"NO","NE",0,4.7,0,0,0,0,0,1
-"RB","Trey Edmunds",3000,"NE@NO 01:00PM ET",0,"NO","NE",0,0,0,0,0,0,0,0
-"WR","Darrius Heyward-Bey",3000,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,0,0,0,0,0,0,1
-"WR","Michael Floyd",3000,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,0,0,0,0,0,0,1
-"WR","Jarius Wright",3000,"MIN@PIT 01:00PM ET",3.1,"MIN","PIT",0,5,0,0,0,0,0,1
-"WR","Justin Hunter",3000,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,0,0,0,0,0,0,1
-"RB","Roosevelt Nix",3000,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,0,0,0,0,0,0,0
-"RB","Terrell Watson",3000,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,0,0,0,0,0,0,0
-"WR","Stacy Coley",3000,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,0,0,0,0,0,0,1
-"WR","Rodney Adams",3000,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,0,0,0,0,0,0,1
-"WR","JuJu Smith-Schuster",3000,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,2.2,0,0,0,0,0,1
-"RB","CJ Ham",3000,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,0,0,0,0,0,0,0
-"WR","Deonte Thompson",3000,"CHI@TB 01:00PM ET",2.5,"CHI","TB",0,5.3,0,0,0,0,0,1
-"RB","Benny Cunningham",3000,"CHI@TB 01:00PM ET",0,"CHI","TB",0,0,0,0,0,0,0,0
-"TE","Cameron Brate",3000,"CHI@TB 01:00PM ET",0,"TB","CHI",0,7.6,0,0,0,0,0,0
-"WR","Josh Bellamy",3000,"CHI@TB 01:00PM ET",5.7,"CHI","TB",0,3,0,0,0,0,0,1
-"RB","Michael Burton",3000,"CHI@TB 01:00PM ET",0.7,"CHI","TB",0,0,0,0,0,0,0,0
-"WR","Bernard Reedy",3000,"CHI@TB 01:00PM ET",0,"TB","CHI",0,0,0,0,0,0,0,1
-"WR","Tre McBride",3000,"CHI@TB 01:00PM ET",0,"CHI","TB",0,2.4,0,0,0,0,0,1
-"RB","Peyton Barber",3000,"CHI@TB 01:00PM ET",0,"TB","CHI",0,1.2,0,0,0,0,0,0
-"RB","Taquan Mizzell",3000,"CHI@TB 01:00PM ET",0,"CHI","TB",0,0,0,0,0,0,0,0
-"WR","Chris Godwin",3000,"CHI@TB 01:00PM ET",0,"TB","CHI",0,2.3,0,0,0,0,0,1
-"TE","Antonio Gates",3000,"MIA@LAC 04:05PM ET",3.7,"LAC","MIA",0,10.1,0,0,0,0,0,0
-"RB","Senorise Perry",3000,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,0,0,0,0,0,0,0
-"WR","Jakeem Grant",3000,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,0,0,0,0,0,0,1
-"RB","Derek Watt",3000,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,0,0,0,0,0,0,0
-"WR","Leonte Carroo",3000,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,2,0,0,0,0,0,1
-"RB","Austin Ekeler",3000,"MIA@LAC 04:05PM ET",3.8,"LAC","MIA",0,1.7,0,0,0,0,0,0
-"RB","Jamize Olawale",3000,"NYJ@OAK 04:05PM ET",0,"OAK","NYJ",0,0,0,0,0,0,0,0
-"WR","Charone Peake",3000,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,3.2,0,0,0,0,0,1
-"WR","Cordarrelle Patterson",3000,"NYJ@OAK 04:05PM ET",1.7,"OAK","NYJ",0,2.8,0,0,0,0,0,1
-"WR","Kalif Raymond",3000,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,0,0,0,0,0,0,1
-"WR","Jalin Marshall",3000,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,0,0,0,0,0,0,1
-"WR","Johnny Holton",3000,"NYJ@OAK 04:05PM ET",0,"OAK","NYJ",0,1.1,0,0,0,0,0,1
-"WR","Chad Hansen",3000,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,2.7,0,0,0,0,0,1
-"WR","Brice Butler",3000,"DAL@DEN 04:25PM ET",4,"DAL","DEN",0,2.9,0,0,0,0,0,1
-"WR","Bennie Fowler",3000,"DAL@DEN 04:25PM ET",17.1,"DEN","DAL",0,8.1,0,0,0,0,0,1
-"WR","Jordan Taylor",3000,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,0,0,0,0,0,0,1
-"RB","Keith Smith",3000,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,0,0,0,0,0,0,0
-"WR","Cody Latimer",3000,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,1.6,0,0,0,0,0,1
-"RB","Andy Janovich",3000,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,0,0,0,0,0,0,0
-"WR","Ryan Switzer",3000,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,1.4,0,0,0,0,0,1
-"WR","Isaiah McKenzie",3000,"DAL@DEN 04:25PM ET",0,"DEN","DAL",0,0,0,0,0,0,0,1
-"WR","Noah Brown",3000,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,0,0,0,0,0,0,1
-"TE","Vernon Davis",3000,"WAS@LAR 04:25PM ET",0,"WAS","LAR",0,4.7,0,0,0,0,0,0
-"WR","Brian Quick",3000,"WAS@LAR 04:25PM ET",2.1,"WAS","LAR",0,0,0,0,0,0,0,1
-"RB","Mack Brown",3000,"WAS@LAR 04:25PM ET",0,"WAS","LAR",0,0,0,0,0,0,0,0
-"RB","Justin Davis",3000,"WAS@LAR 04:25PM ET",0.1,"LAR","WAS",0,0,0,0,0,0,0,0
-"WR","Pharoh Cooper",3000,"WAS@LAR 04:25PM ET",0,"LAR","WAS",0,1.2,0,0,0,0,0,1
-"WR","Josh Reynolds",3000,"WAS@LAR 04:25PM ET",0,"LAR","WAS",0,1.8,0,0,0,0,0,1
-"WR","Michael Thomas",3000,"WAS@LAR 04:25PM ET",0,"LAR","WAS",0,16.3,0,0,0,0,0,1
-"WR","Aldrick Robinson",3000,"SF@SEA 04:25PM ET",1.7,"SF","SEA",0,6.6,0,0,0,0,0,1
-"RB","Kyle Juszczyk",3000,"SF@SEA 04:25PM ET",3.7,"SF","SEA",0,5.7,0,0,0,0,0,0
-"RB","Tre Madden",3000,"SF@SEA 04:25PM ET",0,"SEA","SF",0,0,0,0,0,0,0,0
-"WR","Tanner McEvoy",3000,"SF@SEA 04:25PM ET",0,"SEA","SF",0,2.3,0,0,0,0,0,1
-"RB","Raheem Mostert",3000,"SF@SEA 04:25PM ET",0,"SF","SEA",0,1.9,0,0,0,0,0,0
-"RB","JD McKissic",3000,"SF@SEA 04:25PM ET",0,"SEA","SF",0,0,0,0,0,0,0,0
-"WR","Amara Darboh",3000,"SF@SEA 04:25PM ET",0,"SEA","SF",0,1.1,0,0,0,0,0,1
-"WR","Trent Taylor",3000,"SF@SEA 04:25PM ET",1.8,"SF","SEA",0,2.2,0,0,0,0,0,1
-"WR","Victor Bolden",3000,"SF@SEA 04:25PM ET",0,"SF","SEA",0,0,0,0,0,0,0,1
-"WR","Kendrick Bourne",3000,"SF@SEA 04:25PM ET",0,"SF","SEA",0,1.1,0,0,0,0,0,1
-"WR","Andre Roberts",3000,"GB@ATL 08:30PM ET",0,"ATL","GB",0,0,0,0,0,0,0,1
-"RB","Derrick Coleman",3000,"GB@ATL 08:30PM ET",0,"ATL","GB",0,0,0,0,0,0,0,0
-"WR","Nick Williams",3000,"GB@ATL 08:30PM ET",0,"ATL","GB",0,0,0,0,0,0,0,1
-"WR","Justin Hardy",3000,"GB@ATL 08:30PM ET",0,"ATL","GB",0,1.7,0,0,0,0,0,1
-"RB","Terron Ward",3000,"GB@ATL 08:30PM ET",0,"ATL","GB",0,1.3,0,0,0,0,0,0
-"RB","Aaron Ripkowski",3000,"GB@ATL 08:30PM ET",0,"GB","ATL",0,2.1,0,0,0,0,0,0
-"WR","Trevor Davis",3000,"GB@ATL 08:30PM ET",0,"GB","ATL",0,0,0,0,0,0,0,1
-"WR","Geronimo Allison",3000,"GB@ATL 08:30PM ET",0,"GB","ATL",0,0,0,0,0,0,0,1
-"RB","Brian Hill",3000,"GB@ATL 08:30PM ET",0,"ATL","GB",0,0,0,0,0,0,0,0
-"RB","Tion Green",3000,"DET@NYG 08:30PM ET",0,"DET","NYG",0,0,0,0,0,0,0,0
-"WR","TJ Jones",3000,"DET@NYG 08:30PM ET",5.2,"DET","NYG",0,3.9,0,0,0,0,0,1
-"WR","Jared Abbrederis",3000,"DET@NYG 08:30PM ET",0,"DET","NYG",0,0,0,0,0,0,0,1
-"TE","Eric Ebron",3000,"DET@NYG 08:30PM ET",2.9,"DET","NYG",0,8.3,0,0,0,0,0,0
-"RB","Wayne Gallman",3000,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,0
-"RB","Shane Smith",3000,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,0
-"WR","Tavarres King",3000,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,1
-"WR","Dwayne Harris",3000,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,1
-"TE","Jack Doyle",2900,"ARI@IND 01:00PM ET",6.1,"IND","ARI",0,5.3,0,0,0,0,0,0
-"TE","Zach Miller",2900,"CHI@TB 01:00PM ET",7.9,"CHI","TB",0,8.5,0,0,0,0,0,0
-"TE","OJ Howard",2900,"CHI@TB 01:00PM ET",0,"TB","CHI",0,5.8,0,0,0,0,0,0
-"TE","Julius Thomas",2800,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,7.7,0,0,0,0,0,0
-"TE","Ryan Griffin",2700,"HOU@CIN 08:25PM ET",0,"HOU","CIN",0,0,0,0,0,0,0,0
-"TE","Jermaine Gresham",2700,"ARI@IND 01:00PM ET",4.5,"ARI","IND",0,8,0,0,0,0,0,0
-"TE","Austin Seferian-Jenkins",2700,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,0,0,0,0,0,0,0
-"TE","Virgil Green",2700,"DAL@DEN 04:25PM ET",5.4,"DEN","DAL",0,4.6,0,0,0,0,0,0
-"TE","Richard Rodgers",2700,"GB@ATL 08:30PM ET",0,"GB","ATL",0,0,0,0,0,0,0,0
-"TE","Benjamin Watson",2600,"CLE@BAL 01:00PM ET",0,"BAL","CLE",0,4.2,0,0,0,0,0,0
-"TE","Demetrius Harris",2600,"PHI@KC 01:00PM ET",9.5,"KC","PHI",0,2,0,0,0,0,0,0
-"TE","Vance McDonald",2600,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,3.1,0,0,0,0,0,0
-"TE","Will Tye",2600,"NYJ@OAK 04:05PM ET",6.4,"NYJ","OAK",0,4,0,0,0,0,0,0
-"TE","AJ Derby",2600,"DAL@DEN 04:25PM ET",6.4,"DEN","DAL",0,4.5,0,0,0,0,0,0
-"TE","Tyler Higbee",2600,"WAS@LAR 04:25PM ET",3.7,"LAR","WAS",0,6.9,0,0,0,0,0,0
-"TE","Clark Harris",2500,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,0
-"TE","Ryan Hewitt",2500,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,0
-"TE","Tyler Kroft",2500,"HOU@CIN 08:25PM ET",1.5,"CIN","HOU",0,1.1,0,0,0,0,0,0
-"TE","CJ Uzomah",2500,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,0
-"TE","Stephen Anderson",2500,"HOU@CIN 08:25PM ET",3.4,"HOU","CIN",0,0,0,0,0,0,0,0
-"TE","Cethan Carter",2500,"HOU@CIN 08:25PM ET",0,"CIN","HOU",0,0,0,0,0,0,0,0
-"TE","Randall Telfer",2500,"CLE@BAL 01:00PM ET",0,"CLE","BAL",0,1.4,0,0,0,0,0,0
-"TE","Nick Boyle",2500,"CLE@BAL 01:00PM ET",2.4,"BAL","CLE",0,5.6,0,0,0,0,0,0
-"TE","Seth DeValve",2500,"CLE@BAL 01:00PM ET",8.2,"CLE","BAL",0,5.6,0,0,0,0,0,0
-"TE","Maxx Williams",2500,"CLE@BAL 01:00PM ET",1.5,"BAL","CLE",0,4.2,0,0,0,0,0,0
-"TE","David Njoku",2500,"CLE@BAL 01:00PM ET",4,"CLE","BAL",0,4.8,0,0,0,0,0,0
-"TE","Ed Dickson",2500,"BUF@CAR 01:00PM ET",0,"CAR","BUF",0,0,0,0,0,0,0,0
-"TE","Logan Thomas",2500,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,0,0,0,0,0,0,0
-"TE","Chris Manhertz",2500,"BUF@CAR 01:00PM ET",0,"CAR","BUF",0,0,0,0,0,0,0,0
-"TE","Nick O'Leary",2500,"BUF@CAR 01:00PM ET",3.2,"BUF","CAR",0,1.6,0,0,0,0,0,0
-"TE","Khari Lee",2500,"BUF@CAR 01:00PM ET",0,"BUF","CAR",0,0,0,0,0,0,0,0
-"TE","Ifeanyi Momah",2500,"ARI@IND 01:00PM ET",0,"ARI","IND",0,0,0,0,0,0,0,0
-"TE","Brandon Williams",2500,"ARI@IND 01:00PM ET",0,"IND","ARI",0,0,0,0,0,0,0,0
-"TE","Troy Niklas",2500,"ARI@IND 01:00PM ET",0,"ARI","IND",0,3.1,0,0,0,0,0,0
-"TE","Darrell Daniels",2500,"ARI@IND 01:00PM ET",0,"IND","ARI",0,0,0,0,0,0,0,0
-"TE","Marcedes Lewis",2500,"TEN@JAX 01:00PM ET",0,"JAX","TEN",0,5.3,0,0,0,0,0,0
-"TE","Beau Brinkley",2500,"TEN@JAX 01:00PM ET",0,"TEN","JAX",0,0,0,0,0,0,0,0
-"TE","James O'Shaughnessy",2500,"TEN@JAX 01:00PM ET",2.8,"JAX","TEN",0,2.1,0,0,0,0,0,0
-"TE","Ben Koyack",2500,"TEN@JAX 01:00PM ET",0,"JAX","TEN",0,3.2,0,0,0,0,0,0
-"TE","Phillip Supernaw",2500,"TEN@JAX 01:00PM ET",0,"TEN","JAX",0,0,0,0,0,0,0,0
-"TE","Jonnu Smith",2500,"TEN@JAX 01:00PM ET",0,"TEN","JAX",0,1.9,0,0,0,0,0,0
-"TE","Brent Celek",2500,"PHI@KC 01:00PM ET",2.1,"PHI","KC",0,1.4,0,0,0,0,0,0
-"TE","James Winchester",2500,"PHI@KC 01:00PM ET",0,"KC","PHI",0,0,0,0,0,0,0,0
-"TE","Trey Burton",2500,"PHI@KC 01:00PM ET",0,"PHI","KC",0,1.6,0,0,0,0,0,0
-"TE","Ross Travis",2500,"PHI@KC 01:00PM ET",0,"KC","PHI",0,0,0,0,0,0,0,0
-"TE","Michael Hoomanawanui",2500,"NE@NO 01:00PM ET",0,"NO","NE",0,0,0,0,0,0,0,0
-"TE","Dwayne Allen",2500,"NE@NO 01:00PM ET",0,"NE","NO",0,3.6,0,0,0,0,0,0
-"TE","Josh Hill",2500,"NE@NO 01:00PM ET",0,"NO","NE",0,4.7,0,0,0,0,0,0
-"TE","Jacob Hollister",2500,"NE@NO 01:00PM ET",0,"NE","NO",0,0,0,0,0,0,0,0
-"TE","Kevin McDermott",2500,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,0,0,0,0,0,0,0
-"TE","Blake Bell",2500,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,0,0,0,0,0,0,0
-"TE","Xavier Grimble",2500,"MIN@PIT 01:00PM ET",0,"PIT","MIN",0,0,0,0,0,0,0,0
-"TE","David Morgan",2500,"MIN@PIT 01:00PM ET",0,"MIN","PIT",0,2.8,0,0,0,0,0,0
-"TE","Andrew DePaola",2500,"CHI@TB 01:00PM ET",0,"CHI","TB",0,0,0,0,0,0,0,0
-"TE","Luke Stocker",2500,"CHI@TB 01:00PM ET",0,"TB","CHI",0,0,0,0,0,0,0,0
-"TE","Dion Sims",2500,"CHI@TB 01:00PM ET",5.1,"CHI","TB",0,4.3,0,0,0,0,0,0
-"TE","Daniel Brown",2500,"CHI@TB 01:00PM ET",0,"CHI","TB",0,0,0,0,0,0,0,0
-"TE","Alan Cross",2500,"CHI@TB 01:00PM ET",0,"TB","CHI",0,0,0,0,0,0,0,0
-"TE","Adam Shaheen",2500,"CHI@TB 01:00PM ET",0,"CHI","TB",0,1.2,0,0,0,0,0,0
-"TE","Antony Auclair",2500,"CHI@TB 01:00PM ET",0,"TB","CHI",0,0,0,0,0,0,0,0
-"TE","Anthony Fasano",2500,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,2,0,0,0,0,0,0
-"TE","Sean McGrath",2500,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,0,0,0,0,0,0,0
-"TE","MarQueis Gray",2500,"MIA@LAC 04:05PM ET",0,"MIA","LAC",0,0,0,0,0,0,0,0
-"TE","Sean Culkin",2500,"MIA@LAC 04:05PM ET",0,"LAC","MIA",0,0,0,0,0,0,0,0
-"TE","Lee Smith",2500,"NYJ@OAK 04:05PM ET",0,"OAK","NYJ",0,0,0,0,0,0,0,0
-"TE","Clive Walford",2500,"NYJ@OAK 04:05PM ET",0,"OAK","NYJ",0,3.8,0,0,0,0,0,0
-"TE","Eric Tomlinson",2500,"NYJ@OAK 04:05PM ET",4.5,"NYJ","OAK",0,0,0,0,0,0,0,0
-"TE","Neal Sterling",2500,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,0,0,0,0,0,0,0
-"TE","Jordan Leggett",2500,"NYJ@OAK 04:05PM ET",0,"NYJ","OAK",0,4.2,0,0,0,0,0,0
-"TE","James Hanna",2500,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,0,0,0,0,0,0,0
-"TE","Jeff Heuerman",2500,"DAL@DEN 04:25PM ET",3,"DEN","DAL",0,0,0,0,0,0,0,0
-"TE","Geoff Swaim",2500,"DAL@DEN 04:25PM ET",0,"DAL","DEN",0,0,0,0,0,0,0,0
-"TE","Niles Paul",2500,"WAS@LAR 04:25PM ET",0,"WAS","LAR",0,0,0,0,0,0,0,0
-"TE","Derek Carrier",2500,"WAS@LAR 04:25PM ET",2.2,"LAR","WAS",0,0,0,0,0,0,0,0
-"TE","Jeremy Sprinkle",2500,"WAS@LAR 04:25PM ET",0,"WAS","LAR",0,0,0,0,0,0,0,0
-"TE","Gerald Everett",2500,"WAS@LAR 04:25PM ET",4.9,"LAR","WAS",0,4.1,0,0,0,0,0,0
-"TE","Logan Paulsen",2500,"SF@SEA 04:25PM ET",0,"SF","SEA",0,0,0,0,0,0,0,0
-"TE","Kyle Nelson",2500,"SF@SEA 04:25PM ET",0,"SF","SEA",0,0,0,0,0,0,0,0
-"TE","Garrett Celek",2500,"SF@SEA 04:25PM ET",0,"SF","SEA",0,0,0,0,0,0,0,0
-"TE","Luke Willson",2500,"SF@SEA 04:25PM ET",0,"SEA","SF",0,1.3,0,0,0,0,0,0
-"TE","Tyler Ott",2500,"SF@SEA 04:25PM ET",0,"SEA","SF",0,0,0,0,0,0,0,0
-"TE","Nick Vannett",2500,"SF@SEA 04:25PM ET",2,"SEA","SF",0,0,0,0,0,0,0,0
-"TE","George Kittle",2500,"SF@SEA 04:25PM ET",7.7,"SF","SEA",0,6.8,0,0,0,0,0,0
-"TE","Lance Kendricks",2500,"GB@ATL 08:30PM ET",3.8,"GB","ATL",0,3.8,0,0,0,0,0,0
-"TE","Levine Toilolo",2500,"GB@ATL 08:30PM ET",0,"ATL","GB",0,1.6,0,0,0,0,0,0
-"TE","Eric Saubert",2500,"GB@ATL 08:30PM ET",0,"ATL","GB",0,1.1,0,0,0,0,0,0
-"TE","Michael Roberts",2500,"DET@NYG 08:30PM ET",0,"DET","NYG",0,0,0,0,0,0,0,0
-"TE","Darren Fells",2500,"DET@NYG 08:30PM ET",0,"DET","NYG",0,3.8,0,0,0,0,0,0
-"TE","Jerell Adams",2500,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,0
-"TE","Matt LaCosse",2500,"DET@NYG 08:30PM ET",0,"NYG","DET",0,0,0,0,0,0,0,0
-"TE","Rhett Ellison",2500,"DET@NYG 08:30PM ET",1.9,"NYG","DET",0,1.5,0,0,0,0,0,0
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","Opponent","Projection","Projection_dfn","Actual_fpts","RankTargets","RollingTargetPctg","FreqInd","TierRank","ValueWR"
+"RB","David Johnson (9446358)","David Johnson",9446358,10000,"ARI@IND 01:00PM ET","ARI","IND",0,0,0,0,0,0,0,0
+"RB","Le'Veon Bell (9446339)","Le'Veon Bell",9446339,9800,"MIN@PIT 01:00PM ET","PIT","MIN",0,21.7,0,0,0,0,0,0
+"WR","Antonio Brown (9446173)","Antonio Brown",9446173,9400,"MIN@PIT 01:00PM ET","PIT","MIN",0,20.3,0,0,0,0,0,0
+"WR","Julio Jones (9446186)","Julio Jones",9446186,9200,"GB@ATL 08:30PM ET","ATL","GB",0,24.2,0,0,0,0,0,0
+"RB","LeSean McCoy (9446134)","LeSean McCoy",9446134,8600,"BUF@CAR 01:00PM ET","BUF","CAR",0,16.3,0,0,0,0,0,0
+"WR","Brandin Cooks (9446563)","Brandin Cooks",9446563,8200,"NE@NO 01:00PM ET","NE","NO",0,20.1,0,0,0,0,0,0
+"WR","Amari Cooper (9446602)","Amari Cooper",9446602,8100,"NYJ@OAKI 04:05PM ET","OAK","NYJ",0,13.2,0,0,0,0,0,0
+"WR","Odell Beckham Jr. (9446918)","Odell Beckham",9446918,8000,"DET@NYG 08:30PM ET","NYG","DET",0,17,0,0,0,0,0,0
+"QB","Tom Brady (9445969)","Tom Brady",9445969,7900,"NE@NO 01:00PM ET","NE","NO",0,24.8,0,0,0,0,0,0
+"WR","Jordy Nelson (9446000)","Jordy Nelson",9446000,7900,"GB@ATL 08:30PM ET","GB","ATL",0,16.7,0,0,0,0,0,0
+"WR","A.J. Green (9446192)","AJ Green",9446192,7800,"HOU@CIN 08:25PM ET","CIN","HOU",0,19.1,0,0,0,0,0,0
+"RB","Ezekiel Elliott (9446712)","Ezekiel Elliott",9446712,7800,"DAL@DEN 04:25PM ET","DAL","DEN",0,21,0,0,0,0,0,0
+"QB","Drew Brees (9445970)","Drew Brees",9445970,7700,"NE@NO 01:00PM ET","NO","NE",0,19.7,0,0,0,0,0,0
+"WR","Mike Evans (9446470)","Mike Evans",9446470,7700,"CHI@TB 01:00PM ET","TB","CHI",0,19.5,0,0,0,0,0,0
+"WR","Michael Thomas (9446620)","Michael Thomas",9446620,7500,"NE@NO 01:00PM ET","NO","NE",0,16.3,0,0,0,0,0,0
+"QB","Matt Ryan (9445991)","Matt Ryan",9445991,7500,"GB@ATL 08:30PM ET","ATL","GB",0,23,0,0,0,0,0,0
+"QB","Aaron Rodgers (9445984)","Aaron Rodgers",9445984,7400,"GB@ATL 08:30PM ET","GB","ATL",0,22.2,0,0,0,0,0,0
+"RB","Devonta Freeman (9446456)","Devonta Freeman",9446456,7300,"GB@ATL 08:30PM ET","ATL","GB",0,13.6,0,0,0,0,0,0
+"QB","Derek Carr (9446260)","Derek Carr",9446260,7200,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,18.6,0,0,0,0,0,0
+"WR","Michael Crabtree (9446074)","Michael Crabtree",9446074,7100,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,13.1,0,0,0,0,0,0
+"RB","Melvin Gordon (9446539)","Melvin Gordon",9446539,7000,"MIA@LAC 04:05PM ET","LAC","MIA",0,19.3,0,0,0,0,0,0
+"TE","Rob Gronkowski (9446115)","Rob Gronkowski",9446115,6900,"NE@NO 01:00PM ET","NE","NO",0,12.9,0,0,0,0,0,0
+"RB","Kareem Hunt (9446769)","Kareem Hunt",9446769,6800,"PHI@KC 01:00PM ET","KC","PHI",0,15.2,0,0,0,0,0,0
+"RB","Todd Gurley II (9446658)","Todd Gurley II",9446658,6800,"WAS@LAR 04:25PM ET","LAR","WAS",0,16,0,0,0,0,0,0
+"QB","Russell Wilson (9446160)","Russell Wilson",9446160,6800,"SF@SEA 04:25PM ET","SEA","SF",0,19.8,0,0,0,0,0,0
+"WR","Golden Tate (9446888)","Golden Tate",9446888,6800,"DET@NYG 08:30PM ET","DET","NYG",0,12.9,0,0,0,0,0,0
+"QB","Ben Roethlisberger (9446017)","Ben Roethlisberger",9446017,6700,"MIN@PIT 01:00PM ET","PIT","MIN",0,18.2,0,0,0,0,0,0
+"WR","Doug Baldwin (9446143)","Doug Baldwin",9446143,6700,"SF@SEA 04:25PM ET","SEA","SF",0,13.2,0,0,0,0,0,0
+"WR","Dez Bryant (9446132)","Dez Bryant",9446132,6600,"DAL@DEN 04:25PM ET","DAL","DEN",0,13.6,0,0,0,0,0,0
+"QB","Cam Newton (9446114)","Cam Newton",9446114,6500,"BUF@CAR 01:00PM ET","CAR","BUF",0,22.3,0,0,0,0,0,0
+"WR","Larry Fitzgerald (9446014)","Larry Fitzgerald",9446014,6500,"ARI@IND 01:00PM ET","ARI","IND",0,14.3,0,0,0,0,0,0
+"RB","Leonard Fournette (9446824)","Leonard Fournette",9446824,6500,"TEN@JAX 01:00PM ET","JAX","TEN",0,15.6,0,0,0,0,0,0
+"QB","Marcus Mariota (9446560)","Marcus Mariota",9446560,6400,"TEN@JAX 01:00PM ET","TEN","JAX",0,16.3,0,0,0,0,0,0
+"RB","Jay Ajayi (9446444)","Jay Ajayi",9446444,6400,"MIA@LAC 04:05PM ET","MIA","LAC",0,15.3,0,0,0,0,0,0
+"RB","DeMarco Murray (9446085)","DeMarco Murray",9446085,6300,"TEN@JAX 01:00PM ET","TEN","JAX",0,13.3,0,0,0,0,0,0
+"QB","Jameis Winston (9446634)","Jameis Winston",9446634,6300,"CHI@TB 01:00PM ET","TB","CHI",0,18.1,0,0,0,0,0,0
+"WR","Tyreek Hill (9446830)","Tyreek Hill",9446830,6200,"PHI@KC 01:00PM ET","KC","PHI",0,18.3,0,0,0,0,0,0
+"WR","Stefon Diggs (9446653)","Stefon Diggs",9446653,6100,"MIN@PIT 01:00PM ET","MIN","PIT",0,11.3,0,0,0,0,0,0
+"QB","Kirk Cousins (9446170)","Kirk Cousins",9446170,6100,"WAS@LAR 04:25PM ET","WAS","LAR",0,18.7,0,0,0,0,0,0
+"QB","Carson Palmer (9445981)","Carson Palmer",9445981,6000,"ARI@IND 01:00PM ET","ARI","IND",0,18.9,0,0,0,0,0,0
+"RB","Marshawn Lynch (9446033)","Marshawn Lynch",9446033,6000,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,15.6,0,0,0,0,0,0
+"WR","Terrelle Pryor Sr. (9446190)","Terrelle Pryor",9446190,6000,"WAS@LAR 04:25PM ET","WAS","LAR",0,13.8,0,0,0,0,0,0
+"QB","Andrew Luck (9446206)","Andrew Luck",9446206,5900,"ARI@IND 01:00PM ET","IND","ARI",0,0,0,0,0,0,0,0
+"QB","Carson Wentz (9446589)","Carson Wentz",9446589,5900,"PHI@KC 01:00PM ET","PHI","KC",0,15,0,0,0,0,0,0
+"RB","Dalvin Cook (9446834)","Dalvin Cook",9446834,5900,"MIN@PIT 01:00PM ET","MIN","PIT",0,13.5,0,0,0,0,0,0
+"RB","Jordan Howard (9446790)","Jordan Howard",9446790,5900,"CHI@TB 01:00PM ET","CHI","TB",0,16.6,0,0,0,0,0,0
+"WR","Demaryius Thomas (9446100)","Demaryius Thomas",9446100,5900,"DAL@DEN 04:25PM ET","DEN","DAL",0,14.9,0,0,0,0,0,0
+"WR","Randall Cobb (9446234)","Randall Cobb",9446234,5900,"GB@ATL 08:30PM ET","GB","ATL",0,11.1,0,0,0,0,0,0
+"WR","DeAndre Hopkins (9446428)","DeAndre Hopkins",9446428,5800,"HOU@CIN 08:25PM ET","HOU","CIN",0,14.9,0,0,0,0,0,0
+"QB","Jimmy Garoppolo (9446380)","Jimmy Garoppolo",9446380,5800,"NE@NO 01:00PM ET","NE","NO",0,0,0,0,0,0,0,0
+"QB","Philip Rivers (9446016)","Philip Rivers",9446016,5800,"MIA@LAC 04:05PM ET","LAC","MIA",0,18.5,0,0,0,0,0,0
+"WR","Keenan Allen (9446403)","Keenan Allen",9446403,5800,"MIA@LAC 04:05PM ET","LAC","MIA",0,13.9,0,0,0,0,0,0
+"RB","Ty Montgomery (9446479)","Ty Montgomery",9446479,5800,"GB@ATL 08:30PM ET","GB","ATL",0,15,0,0,0,0,0,0
+"QB","Matthew Stafford (9446870)","Matthew Stafford",9446870,5800,"DET@NYG 08:30PM ET","DET","NYG",0,17.8,0,0,0,0,0,0
+"QB","Alex Smith (9445995)","Alex Smith",9445995,5700,"PHI@KC 01:00PM ET","KC","PHI",0,17.9,0,0,0,0,0,0
+"WR","Alshon Jeffery (9446286)","Alshon Jeffery",9446286,5700,"PHI@KC 01:00PM ET","PHI","KC",0,16.3,0,0,0,0,0,0
+"RB","Mike Gillislee (9446301)","Mike Gillislee",9446301,5700,"NE@NO 01:00PM ET","NE","NO",0,9.7,0,0,0,0,0,0
+"WR","Kelvin Benjamin (9446528)","Kelvin Benjamin",9446528,5600,"BUF@CAR 01:00PM ET","CAR","BUF",0,17.2,0,0,0,0,0,0
+"RB","Christian McCaffrey (9446837)","Christian McCaffrey",9446837,5600,"BUF@CAR 01:00PM ET","CAR","BUF",0,12.5,0,0,0,0,0,0
+"WR","Chris Hogan (9446437)","Chris Hogan",9446437,5600,"NE@NO 01:00PM ET","NE","NO",0,11.8,0,0,0,0,0,0
+"QB","Dak Prescott (9446450)","Dak Prescott",9446450,5600,"DAL@DEN 04:25PM ET","DAL","DEN",0,15.4,0,0,0,0,0,0
+"WR","Davante Adams (9446583)","Davante Adams",9446583,5600,"GB@ATL 08:30PM ET","GB","ATL",0,12,0,0,0,0,0,0
+"QB","Andy Dalton (9446069)","Andy Dalton",9446069,5500,"HOU@CIN 08:25PM ET","CIN","HOU",0,15,0,0,0,0,0,0
+"QB","Derek Anderson (9445976)","Derek Anderson",9445976,5500,"BUF@CAR 01:00PM ET","CAR","BUF",0,0,0,0,0,0,0,0
+"TE","Greg Olsen (9446004)","Greg Olsen",9446004,5500,"BUF@CAR 01:00PM ET","CAR","BUF",0,10,0,0,0,0,0,0
+"RB","Derrick Henry (9446716)","Derrick Henry",9446716,5500,"TEN@JAX 01:00PM ET","TEN","JAX",0,7.3,0,0,0,0,0,0
+"QB","Sam Bradford (9446087)","Sam Bradford",9446087,5500,"MIN@PIT 01:00PM ET","MIN","PIT",0,14.8,0,0,0,0,0,0
+"WR","Martavis Bryant (9446491)","Martavis Bryant",9446491,5500,"MIN@PIT 01:00PM ET","PIT","MIN",0,11,0,0,0,0,0,0
+"WR","Jarvis Landry (9446439)","Jarvis Landry",9446439,5500,"MIA@LAC 04:05PM ET","MIA","LAC",0,13.9,0,0,0,0,0,0
+"QB","Jay Cutler (9445975)","Jay Cutler",9445975,5400,"MIA@LAC 04:05PM ET","MIA","LAC",0,15.3,0,0,0,0,0,0
+"WR","DeVante Parker (9446499)","DeVante Parker",9446499,5400,"MIA@LAC 04:05PM ET","MIA","LAC",0,12.1,0,0,0,0,0,0
+"RB","Lamar Miller (9446305)","Lamar Miller",9446305,5300,"HOU@CIN 08:25PM ET","HOU","CIN",0,13.5,0,0,0,0,0,0
+"QB","Tyrod Taylor (9446142)","Tyrod Taylor",9446142,5300,"BUF@CAR 01:00PM ET","BUF","CAR",0,16,0,0,0,0,0,0
+"WR","T.Y. Hilton (9446240)","TY Hilton",9446240,5300,"ARI@IND 01:00PM ET","IND","ARI",0,15.2,0,0,0,0,0,0
+"TE","Zach Ertz (9446276)","Zach Ertz",9446276,5300,"PHI@KC 01:00PM ET","PHI","KC",0,8.1,0,0,0,0,0,0
+"RB","Tevin Coleman (9446668)","Tevin Coleman",9446668,5300,"GB@ATL 08:30PM ET","ATL","GB",0,10,0,0,0,0,0,0
+"QB","Eli Manning (9446899)","Eli Manning",9446899,5300,"DET@NYG 08:30PM ET","NYG","DET",0,18.7,0,0,0,0,0,0
+"QB","Joe Flacco (9445994)","Joe Flacco",9445994,5200,"CLE@BAL 01:00PM ET","BAL","CLE",0,17.1,0,0,0,0,0,0
+"RB","Darren McFadden (9446039)","Darren McFadden",9446039,5200,"DAL@DEN 04:25PM ET","DAL","DEN",0,0,0,0,0,0,0,0
+"WR","Emmanuel Sanders (9446072)","Emmanuel Sanders",9446072,5200,"DAL@DEN 04:25PM ET","DEN","DAL",0,13.2,0,0,0,0,0,0
+"TE","Jordan Reed (9446303)","Jordan Reed",9446303,5200,"WAS@LAR 04:25PM ET","WAS","LAR",0,12.9,0,0,0,0,0,0
+"WR","Sammy Watkins (9446497)","Sammy Watkins",9446497,5200,"WAS@LAR 04:25PM ET","LAR","WAS",0,14.7,0,0,0,0,0,0
+"RB","Terrance West (9446474)","Terrance West",9446474,5100,"CLE@BAL 01:00PM ET","BAL","CLE",0,11.7,0,0,0,0,0,0
+"QB","DeShone Kizer (9446855)","DeShone Kizer",9446855,5100,"CLE@BAL 01:00PM ET","CLE","BAL",0,14.6,0,0,0,0,0,0
+"TE","Travis Kelce (9446180)","Travis Kelce",9446180,5100,"PHI@KC 01:00PM ET","KC","PHI",0,9.9,0,0,0,0,0,0
+"WR","Danny Amendola (9446023)","Danny Amendola",9446023,5100,"NE@NO 01:00PM ET","NE","NO",0,11.5,0,0,0,0,0,0
+"QB","Jared Goff (9446696)","Jared Goff",9446696,5100,"WAS@LAR 04:25PM ET","LAR","WAS",0,15.3,0,0,0,0,0,0
+"RB","Joe Mixon (9446816)","Joe Mixon",9446816,5000,"HOU@CIN 08:25PM ET","CIN","HOU",0,10.9,0,0,0,0,0,0
+"WR","Jeremy Maclin (9446092)","Jeremy Maclin",9446092,5000,"CLE@BAL 01:00PM ET","BAL","CLE",0,13.2,0,0,0,0,0,1
+"WR","John Brown (9446248)","John Brown",9446248,5000,"ARI@IND 01:00PM ET","ARI","IND",0,11.3,0,0,0,0,0,1
+"WR","Adam Thielen (9446722)","Adam Thielen",9446722,5000,"MIN@PIT 01:00PM ET","MIN","PIT",0,13.5,0,0,0,0,0,1
+"RB","Bilal Powell (9446165)","Bilal Powell",9446165,5000,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,11.1,0,0,0,0,0,0
+"QB","Colt McCoy (9446068)","Colt McCoy",9446068,5000,"WAS@LAR 04:25PM ET","WAS","LAR",0,0,0,0,0,0,0,0
+"WR","Brandon Marshall (9446916)","Brandon Marshall",9446916,5000,"DET@NYG 08:30PM ET","NYG","DET",0,10.4,0,0,0,0,0,1
+"RB","Isaiah Crowell (9446549)","Isaiah Crowell",9446549,4900,"CLE@BAL 01:00PM ET","CLE","BAL",0,11.9,0,0,0,0,0,0
+"RB","Mark Ingram (9446184)","Mark Ingram",9446184,4900,"NE@NO 01:00PM ET","NO","NE",0,10.3,0,0,0,0,0,0
+"WR","DeSean Jackson (9446058)","DeSean Jackson",9446058,4900,"CHI@TB 01:00PM ET","TB","CHI",0,13.4,0,0,0,0,0,1
+"QB","Trevor Siemian (9446349)","Trevor Siemian",9446349,4900,"DAL@DEN 04:25PM ET","DEN","DAL",0,15.8,0,0,0,0,0,0
+"WR","Jamison Crowder (9446487)","Jamison Crowder",9446487,4900,"WAS@LAR 04:25PM ET","WAS","LAR",0,10.7,0,0,0,0,0,1
+"TE","Jimmy Graham (9446043)","Jimmy Graham",9446043,4900,"SF@SEA 04:25PM ET","SEA","SF",0,8.8,0,0,0,0,0,0
+"WR","Pierre Garcon (9446147)","Pierre Garcon",9446147,4900,"SF@SEA 04:25PM ET","SF","SEA",0,13,0,0,0,0,0,1
+"RB","Carlos Hyde (9446345)","Carlos Hyde",9446345,4900,"SF@SEA 04:25PM ET","SF","SEA",0,12.7,0,0,0,0,0,0
+"RB","Kerwynn Williams (9446294)","Kerwynn Williams",9446294,4800,"ARI@IND 01:00PM ET","ARI","IND",0,10.6,0,0,0,0,0,0
+"WR","Allen Robinson (9446577)","Allen Robinson",9446577,4800,"TEN@JAX 01:00PM ET","JAX","TEN",0,0,0,0,0,0,0,1
+"WR","Ted Ginn Jr. (9446021)","Ted Ginn",9446021,4800,"NE@NO 01:00PM ET","NO","NE",0,10.9,0,0,0,0,0,1
+"QB","AJ McCarron (9446300)","AJ McCarron",9446300,4700,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,0
+"WR","Corey Coleman (9446666)","Corey Coleman",9446666,4700,"CLE@BAL 01:00PM ET","CLE","BAL",0,10.5,0,0,0,0,0,1
+"TE","Delanie Walker (9445998)","Delanie Walker",9445998,4700,"TEN@JAX 01:00PM ET","TEN","JAX",0,10.7,0,0,0,0,0,0
+"QB","Patrick Mahomes II (9446854)","Patrick Mahomes II",9446854,4700,"PHI@KC 01:00PM ET","KC","PHI",0,0,0,0,0,0,0,0
+"RB","Adrian Peterson (9446027)","Adrian Peterson",9446027,4700,"NE@NO 01:00PM ET","NO","NE",0,5.4,0,0,0,0,0,0
+"WR","Tyrell Williams (9446598)","Tyrell Williams",9446598,4700,"MIA@LAC 04:05PM ET","LAC","MIA",0,9.8,0,0,0,0,0,1
+"RB","C.J. Anderson (9446554)","CJ Anderson",9446554,4700,"DAL@DEN 04:25PM ET","DEN","DAL",0,16.1,0,0,0,0,0,0
+"WR","Sterling Shepard (9446920)","Sterling Shepard",9446920,4700,"DET@NYG 08:30PM ET","NYG","DET",0,12.6,0,0,0,0,0,1
+"QB","Tom Savage (9446317)","Tom Savage",9446317,4600,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,0
+"WR","Rishard Matthews (9446409)","Rishard Matthews",9446409,4600,"TEN@JAX 01:00PM ET","TEN","JAX",0,10.4,0,0,0,0,0,1
+"QB","Chase Daniel (9446055)","Chase Daniel",9446055,4600,"NE@NO 01:00PM ET","NO","NE",0,0,0,0,0,0,0,0
+"QB","Mike Glennon (9446223)","Mike Glennon",9446223,4600,"CHI@TB 01:00PM ET","CHI","TB",0,13.7,0,0,0,0,0,0
+"RB","Thomas Rawls (9446532)","Thomas Rawls",9446532,4600,"SF@SEA 04:25PM ET","SEA","SF",0,8.8,0,0,0,0,0,0
+"RB","Danny Woodhead (9446104)","Danny Woodhead",9446104,4500,"CLE@BAL 01:00PM ET","BAL","CLE",0,0,0,0,0,0,0,0
+"QB","Jacoby Brissett (9446551)","Jacoby Brissett",9446551,4500,"ARI@IND 01:00PM ET","IND","ARI",0,0,0,0,0,0,0,0
+"WR","Willie Snead (9446446)","Willie Snead",9446446,4500,"NE@NO 01:00PM ET","NO","NE",0,0,0,0,0,0,0,1
+"QB","Case Keenum (9446106)","Case Keenum",9446106,4500,"MIN@PIT 01:00PM ET","MIN","PIT",0,0,0,0,0,0,0,0
+"QB","Landry Jones (9446179)","Landry Jones",9446179,4500,"MIN@PIT 01:00PM ET","PIT","MIN",0,0,0,0,0,0,0,0
+"RB","James Conner (9446749)","James Conner",9446749,4500,"MIN@PIT 01:00PM ET","PIT","MIN",0,2.3,0,0,0,0,0,0
+"QB","Mitchell Trubisky (9446707)","Mitchell Trubisky",9446707,4500,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,0
+"QB","Matt Moore (9445987)","Matt Moore",9445987,4500,"MIA@LAC 04:05PM ET","MIA","LAC",0,0,0,0,0,0,0,0
+"QB","Cardale Jones (9446619)","Cardale Jones",9446619,4500,"MIA@LAC 04:05PM ET","LAC","MIA",0,0,0,0,0,0,0,0
+"QB","Josh McCown (9445971)","Josh McCown",9445971,4500,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,13.7,0,0,0,0,0,0
+"RB","Alfred Morris (9446124)","Alfred Morris",9446124,4500,"DAL@DEN 04:25PM ET","DAL","DEN",0,3.6,0,0,0,0,0,0
+"QB","Cooper Rush (9446655)","Cooper Rush",9446655,4500,"DAL@DEN 04:25PM ET","DAL","DEN",0,0,0,0,0,0,0,0
+"QB","Brian Hoyer (9446025)","Brian Hoyer",9446025,4500,"SF@SEA 04:25PM ET","SF","SEA",0,14,0,0,0,0,0,0
+"WR","Mohamed Sanu (9446254)","Mohamed Sanu",9446254,4500,"GB@ATL 08:30PM ET","ATL","GB",0,12.1,0,0,0,0,0,1
+"RB","Theo Riddick (9446878)","Theo Riddick",9446878,4500,"DET@NYG 08:30PM ET","DET","NYG",0,10.9,0,0,0,0,0,0
+"QB","Geno Smith (9446900)","Geno Smith",9446900,4500,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,0
+"QB","Deshaun Watson (9446836)","Deshaun Watson",9446836,4400,"HOU@CIN 08:25PM ET","HOU","CIN",0,14.5,0,0,0,0,0,0
+"RB","Jonathan Stewart (9446047)","Jonathan Stewart",9446047,4400,"BUF@CAR 01:00PM ET","CAR","BUF",0,8.9,0,0,0,0,0,0
+"WR","Eric Decker (9446053)","Eric Decker",9446053,4400,"TEN@JAX 01:00PM ET","TEN","JAX",0,10.1,0,0,0,0,0,1
+"QB","Blake Bortles (9446432)","Blake Bortles",9446432,4400,"TEN@JAX 01:00PM ET","JAX","TEN",0,16.2,0,0,0,0,0,0
+"RB","LeGarrette Blount (9446182)","LeGarrette Blount",9446182,4400,"PHI@KC 01:00PM ET","PHI","KC",0,9.7,0,0,0,0,0,0
+"WR","Nelson Agholor (9446628)","Nelson Agholor",9446628,4400,"PHI@KC 01:00PM ET","PHI","KC",0,7.3,0,0,0,0,0,1
+"QB","Ryan Fitzpatrick (9445977)","Ryan Fitzpatrick",9445977,4400,"CHI@TB 01:00PM ET","TB","CHI",0,0,0,0,0,0,0,0
+"RB","Jacquizz Rodgers (9446194)","Jacquizz Rodgers",9446194,4400,"CHI@TB 01:00PM ET","TB","CHI",0,8.6,0,0,0,0,0,0
+"RB","Jamaal Williams (9446664)","Jamaal Williams",9446664,4400,"GB@ATL 08:30PM ET","GB","ATL",0,5,0,0,0,0,0,0
+"TE","Tyler Eifert (9446307)","Tyler Eifert",9446307,4300,"HOU@CIN 08:25PM ET","CIN","HOU",0,7.9,0,0,0,0,0,0
+"QB","Scott Tolzien (9446082)","Scott Tolzien",9446082,4300,"ARI@IND 01:00PM ET","IND","ARI",0,13.4,0,0,0,0,0,0
+"QB","Blaine Gabbert (9446210)","Blaine Gabbert",9446210,4300,"ARI@IND 01:00PM ET","ARI","IND",0,0,0,0,0,0,0,0
+"QB","Matt Cassel (9445972)","Matt Cassel",9445972,4300,"TEN@JAX 01:00PM ET","TEN","JAX",0,0,0,0,0,0,0,0
+"QB","Chad Henne (9446026)","Chad Henne",9446026,4300,"TEN@JAX 01:00PM ET","JAX","TEN",0,0,0,0,0,0,0,0
+"QB","Nick Foles (9446169)","Nick Foles",9446169,4300,"PHI@KC 01:00PM ET","PHI","KC",0,0,0,0,0,0,0,0
+"RB","Doug Martin (9446122)","Doug Martin",9446122,4300,"CHI@TB 01:00PM ET","TB","CHI",0,0,0,0,0,0,0,0
+"QB","Connor Cook (9446534)","Connor Cook",9446534,4300,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,0,0,0,0,0,0,0
+"WR","Cole Beasley (9446204)","Cole Beasley",9446204,4300,"DAL@DEN 04:25PM ET","DAL","DEN",0,8.1,0,0,0,0,0,1
+"QB","Austin Davis (9446157)","Austin Davis",9446157,4300,"SF@SEA 04:25PM ET","SEA","SF",0,0,0,0,0,0,0,0
+"QB","Matt Schaub (9446020)","Matt Schaub",9446020,4300,"GB@ATL 08:30PM ET","ATL","GB",0,0,0,0,0,0,0,0
+"RB","Alfred Blue (9446322)","Alfred Blue",9446322,4200,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,0
+"QB","Cody Kessler (9446451)","Cody Kessler",9446451,4200,"CLE@BAL 01:00PM ET","CLE","BAL",0,0,0,0,0,0,0,0
+"TE","Kyle Rudolph (9446242)","Kyle Rudolph",9446242,4200,"MIN@PIT 01:00PM ET","MIN","PIT",0,11.2,0,0,0,0,0,0
+"RB","Matt Forte (9446029)","Matt Forte",9446029,4200,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,9.3,0,0,0,0,0,0
+"RB","Jamaal Charles (9446060)","Jamaal Charles",9446060,4200,"DAL@DEN 04:25PM ET","DEN","DAL",0,10,0,0,0,0,0,0
+"QB","Brock Osweiler (9446263)","Brock Osweiler",9446263,4200,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,0
+"QB","Sean Mannion (9446415)","Sean Mannion",9446415,4200,"WAS@LAR 04:25PM ET","LAR","WAS",0,0,0,0,0,0,0,0
+"RB","Eddie Lacy (9446298)","Eddie Lacy",9446298,4200,"SF@SEA 04:25PM ET","SEA","SF",0,3.4,0,0,0,0,0,0
+"WR","Paul Richardson (9446426)","Paul Richardson",9446426,4200,"SF@SEA 04:25PM ET","SEA","SF",0,12.1,0,0,0,0,0,1
+"QB","C.J. Beathard (9446639)","CJ Beathard",9446639,4200,"SF@SEA 04:25PM ET","SF","SEA",0,0,0,0,0,0,0,0
+"QB","Brett Hundley (9446441)","Brett Hundley",9446441,4200,"GB@ATL 08:30PM ET","GB","ATL",0,0,0,0,0,0,0,0
+"QB","Jake Rudock (9446871)","Jake Rudock",9446871,4200,"DET@NYG 08:30PM ET","DET","NYG",0,0,0,0,0,0,0,0
+"WR","Marvin Jones Jr. (9446886)","Marvin Jones",9446886,4200,"DET@NYG 08:30PM ET","DET","NYG",0,8.9,0,0,0,0,0,1
+"RB","D'Onta Foreman (9446846)","D'Onta Foreman",9446846,4100,"HOU@CIN 08:25PM ET","HOU","CIN",0,2.3,0,0,0,0,0,0
+"RB","Javorius Allen (9446481)","Javorius Allen",9446481,4100,"CLE@BAL 01:00PM ET","BAL","CLE",0,9.5,0,0,0,0,0,0
+"WR","Corey Davis (9446714)","Corey Davis",9446714,4100,"TEN@JAX 01:00PM ET","TEN","JAX",0,7.7,0,0,0,0,0,1
+"RB","Latavius Murray (9446238)","Latavius Murray",9446238,4100,"MIN@PIT 01:00PM ET","MIN","PIT",0,2.9,0,0,0,0,0,0
+"RB","Tarik Cohen (9446802)","Tarik Cohen",9446802,4100,"CHI@TB 01:00PM ET","CHI","TB",0,12.3,0,0,0,0,0,0
+"QB","Christian Hackenberg (9446777)","Christian Hackenberg",9446777,4100,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,0,0,0,0,0,0,0
+"WR","Cooper Kupp (9446682)","Cooper Kupp",9446682,4100,"WAS@LAR 04:25PM ET","LAR","WAS",0,6.7,0,0,0,0,0,1
+"RB","Chris Carson (9446862)","Chris Carson",9446862,4100,"SF@SEA 04:25PM ET","SEA","SF",0,3.7,0,0,0,0,0,0
+"RB","Ameer Abdullah (9446874)","Ameer Abdullah",9446874,4100,"DET@NYG 08:30PM ET","DET","NYG",0,10,0,0,0,0,0,0
+"RB","Giovani Bernard (9446347)","Giovani Bernard",9446347,4000,"HOU@CIN 08:25PM ET","CIN","HOU",0,6.7,0,0,0,0,0,0
+"WR","Kenny Britt (9446102)","Kenny Britt",9446102,4000,"CLE@BAL 01:00PM ET","CLE","BAL",0,10.3,0,0,0,0,0,1
+"QB","Ryan Mallett (9446113)","Ryan Mallett",9446113,4000,"CLE@BAL 01:00PM ET","BAL","CLE",0,0,0,0,0,0,0,0
+"WR","Josh Gordon (9446283)","Josh Gordon",9446283,4000,"CLE@BAL 01:00PM ET","CLE","BAL",0,0,0,0,0,0,0,1
+"QB","Kevin Hogan (9446478)","Kevin Hogan",9446478,4000,"CLE@BAL 01:00PM ET","CLE","BAL",0,0,0,0,0,0,0,0
+"QB","Joe Webb (9446049)","Joe Webb",9446049,4000,"BUF@CAR 01:00PM ET","BUF","CAR",0,0,0,0,0,0,0,0
+"QB","Nathan Peterman (9446604)","Nathan Peterman",9446604,4000,"BUF@CAR 01:00PM ET","BUF","CAR",0,0,0,0,0,0,0,0
+"QB","Brad Kaaya (9446839)","Brad Kaaya",9446839,4000,"BUF@CAR 01:00PM ET","CAR","BUF",0,0,0,0,0,0,0,0
+"RB","Frank Gore (9445973)","Frank Gore",9445973,4000,"ARI@IND 01:00PM ET","IND","ARI",0,11.7,0,0,0,0,0,0
+"QB","Drew Stanton (9445990)","Drew Stanton",9445990,4000,"ARI@IND 01:00PM ET","ARI","IND",0,0,0,0,0,0,0,0
+"RB","Robert Turbin (9446163)","Robert Turbin",9446163,4000,"ARI@IND 01:00PM ET","IND","ARI",0,4.4,0,0,0,0,0,0
+"RB","Andre Ellington (9446213)","Andre Ellington",9446213,4000,"ARI@IND 01:00PM ET","ARI","IND",0,9.9,0,0,0,0,0,0
+"WR","Donte Moncrief (9446552)","Donte Moncrief",9446552,4000,"ARI@IND 01:00PM ET","IND","ARI",0,13.9,0,0,0,0,0,1
+"QB","Tyler Bray (9446330)","Tyler Bray",9446330,4000,"PHI@KC 01:00PM ET","KC","PHI",0,0,0,0,0,0,0,0
+"RB","Charcandrick West (9446798)","Charcandrick West",9446798,4000,"PHI@KC 01:00PM ET","KC","PHI",0,2.6,0,0,0,0,0,0
+"QB","Taysom Hill (9446280)","Taysom Hill",9446280,4000,"NE@NO 01:00PM ET","NO","NE",0,0,0,0,0,0,0,0
+"RB","James White (9446391)","James White",9446391,4000,"NE@NO 01:00PM ET","NE","NO",0,10.1,0,0,0,0,0,0
+"QB","Joshua Dobbs (9446742)","Joshua Dobbs",9446742,4000,"MIN@PIT 01:00PM ET","PIT","MIN",0,0,0,0,0,0,0,0
+"QB","Mark Sanchez (9446052)","Mark Sanchez",9446052,4000,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,0
+"WR","Kevin White (9446703)","Kevin White",9446703,4000,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,1
+"QB","Kellen Clemens (9445980)","Kellen Clemens",9445980,4000,"MIA@LAC 04:05PM ET","LAC","MIA",0,0,0,0,0,0,0,0
+"RB","Branden Oliver (9446288)","Branden Oliver",9446288,4000,"MIA@LAC 04:05PM ET","LAC","MIA",0,4.3,0,0,0,0,0,0
+"RB","Kenyan Drake (9446656)","Kenyan Drake",9446656,4000,"MIA@LAC 04:05PM ET","MIA","LAC",0,4.2,0,0,0,0,0,0
+"QB","EJ Manuel (9446209)","EJ Manuel",9446209,4000,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,0,0,0,0,0,0,0
+"QB","Bryce Petty (9446285)","Bryce Petty",9446285,4000,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,0,0,0,0,0,0,0
+"RB","DeAndre Washington (9446526)","DeAndre Washington",9446526,4000,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,5.1,0,0,0,0,0,0
+"RB","Jalen Richard (9446647)","Jalen Richard",9446647,4000,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,6.7,0,0,0,0,0,0
+"QB","Kellen Moore (9446121)","Kellen Moore",9446121,4000,"DAL@DEN 04:25PM ET","DAL","DEN",0,0,0,0,0,0,0,0
+"QB","Paxton Lynch (9446646)","Paxton Lynch",9446646,4000,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,0
+"QB","Brandon Allen (9446511)","Brandon Allen",9446511,4000,"WAS@LAR 04:25PM ET","LAR","WAS",0,0,0,0,0,0,0,0
+"WR","Tyler Lockett (9446520)","Tyler Lockett",9446520,4000,"SF@SEA 04:25PM ET","SEA","SF",0,11.1,0,0,0,0,0,1
+"WR","Taylor Gabriel (9446796)","Taylor Gabriel",9446796,4000,"GB@ATL 08:30PM ET","ATL","GB",0,12,0,0,0,0,0,1
+"WR","Kenny Golladay (9446890)","Kenny Golladay",9446890,4000,"DET@NYG 08:30PM ET","DET","NYG",0,6.7,0,0,0,0,0,1
+"QB","Davis Webb (9446901)","Davis Webb",9446901,4000,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,0
+"RB","Shane Vereen (9446910)","Shane Vereen",9446910,4000,"DET@NYG 08:30PM ET","NYG","DET",0,8.4,0,0,0,0,0,0
+"RB","Jeremy Hill (9446605)","Jeremy Hill",9446605,3900,"HOU@CIN 08:25PM ET","CIN","HOU",0,5.5,0,0,0,0,0,0
+"WR","Mike Wallace (9446107)","Mike Wallace",9446107,3900,"CLE@BAL 01:00PM ET","BAL","CLE",0,11.9,0,0,0,0,0,1
+"RB","Duke Johnson Jr. (9446635)","Duke Johnson",9446635,3900,"CLE@BAL 01:00PM ET","CLE","BAL",0,5.1,0,0,0,0,0,0
+"WR","Jordan Matthews (9446383)","Jordan Matthews",9446383,3900,"BUF@CAR 01:00PM ET","BUF","CAR",0,12.1,0,0,0,0,0,1
+"WR","Devin Funchess (9446674)","Devin Funchess",9446674,3900,"BUF@CAR 01:00PM ET","CAR","BUF",0,12.4,0,0,0,0,0,1
+"WR","Allen Hurns (9446326)","Allen Hurns",9446326,3900,"TEN@JAX 01:00PM ET","JAX","TEN",0,11.7,0,0,0,0,0,1
+"RB","T.J. Yeldon (9446607)","TJ Yeldon",9446607,3900,"TEN@JAX 01:00PM ET","JAX","TEN",0,5.9,0,0,0,0,0,0
+"RB","Darren Sproles (9445978)","Darren Sproles",9445978,3900,"PHI@KC 01:00PM ET","PHI","KC",0,9,0,0,0,0,0,0
+"RB","Rex Burkhead (9446268)","Rex Burkhead",9446268,3900,"NE@NO 01:00PM ET","NE","NO",0,3.2,0,0,0,0,0,0
+"WR","Phillip Dorsett (9446476)","Phillip Dorsett",9446476,3900,"NE@NO 01:00PM ET","NE","NO",0,2.8,0,0,0,0,0,1
+"WR","Kendall Wright (9446200)","Kendall Wright",9446200,3900,"CHI@TB 01:00PM ET","CHI","TB",0,11.3,0,0,0,0,0,1
+"RB","Charles Sims (9446296)","Charles Sims",9446296,3900,"CHI@TB 01:00PM ET","TB","CHI",0,7.7,0,0,0,0,0,0
+"WR","Kenny Stills (9446335)","Kenny Stills",9446335,3900,"MIA@LAC 04:05PM ET","MIA","LAC",0,9.4,0,0,0,0,0,1
+"WR","Jermaine Kearse (9446198)","Jermaine Kearse",9446198,3900,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,9.1,0,0,0,0,0,1
+"RB","Rob Kelley (9446507)","Rob Kelley",9446507,3900,"WAS@LAR 04:25PM ET","WAS","LAR",0,13.3,0,0,0,0,0,0
+"RB","Malcolm Brown (9446512)","Malcolm Brown",9446512,3900,"WAS@LAR 04:25PM ET","LAR","WAS",0,3.4,0,0,0,0,0,0
+"RB","C.J. Prosise (9446680)","CJ Prosise",9446680,3900,"SF@SEA 04:25PM ET","SEA","SF",0,5.9,0,0,0,0,0,0
+"TE","Martellus Bennett (9446064)","Martellus Bennett",9446064,3900,"GB@ATL 08:30PM ET","GB","ATL",0,12,0,0,0,0,0,0
+"WR","Will Fuller V (9446784)","Will Fuller V",9446784,3800,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,1
+"RB","Mike Tolbert (9446031)","Mike Tolbert",9446031,3800,"BUF@CAR 01:00PM ET","BUF","CAR",0,7.1,0,0,0,0,0,0
+"WR","J.J. Nelson (9446413)","JJ Nelson",9446413,3800,"ARI@IND 01:00PM ET","ARI","IND",0,10.6,0,0,0,0,0,1
+"RB","Marlon Mack (9446856)","Marlon Mack",9446856,3800,"ARI@IND 01:00PM ET","IND","ARI",0,7.1,0,0,0,0,0,0
+"WR","Marqise Lee (9446483)","Marqise Lee",9446483,3800,"TEN@JAX 01:00PM ET","JAX","TEN",0,10.4,0,0,0,0,0,1
+"RB","Wendell Smallwood (9446701)","Wendell Smallwood",9446701,3800,"PHI@KC 01:00PM ET","PHI","KC",0,4.1,0,0,0,0,0,0
+"RB","Damien Williams (9446630)","Damien Williams",9446630,3800,"MIA@LAC 04:05PM ET","MIA","LAC",0,1.9,0,0,0,0,0,0
+"RB","Chris Thompson (9446309)","Chris Thompson",9446309,3800,"WAS@LAR 04:25PM ET","WAS","LAR",0,10,0,0,0,0,0,0
+"RB","Samaje Perine (9446818)","Samaje Perine",9446818,3800,"WAS@LAR 04:25PM ET","WAS","LAR",0,3.5,0,0,0,0,0,0
+"RB","Matt Breida (9446786)","Matt Breida",9446786,3800,"SF@SEA 04:25PM ET","SF","SEA",0,5.1,0,0,0,0,0,0
+"RB","Dwayne Washington (9446876)","Dwayne Washington",9446876,3800,"DET@NYG 08:30PM ET","DET","NYG",0,2.7,0,0,0,0,0,0
+"RB","Paul Perkins (9446906)","Paul Perkins",9446906,3800,"DET@NYG 08:30PM ET","NYG","DET",0,13.2,0,0,0,0,0,0
+"WR","Brandon LaFell (9446066)","Brandon LaFell",9446066,3700,"HOU@CIN 08:25PM ET","CIN","HOU",0,7.3,0,0,0,0,0,1
+"WR","Mike Williams (9446728)","Mike Williams",9446728,3700,"MIA@LAC 04:05PM ET","LAC","MIA",0,0,0,0,0,0,0,1
+"RB","Aaron Jones (9446743)","Aaron Jones",9446743,3700,"GB@ATL 08:30PM ET","GB","ATL",0,0,0,0,0,0,0,0
+"WR","Tyler Boyd (9446747)","Tyler Boyd",9446747,3600,"HOU@CIN 08:25PM ET","CIN","HOU",0,8.5,0,0,0,0,0,1
+"RB","Chris Ivory (9446098)","Chris Ivory",9446098,3600,"TEN@JAX 01:00PM ET","JAX","TEN",0,3.6,0,0,0,0,0,0
+"WR","Taywan Taylor (9446788)","Taywan Taylor",9446788,3600,"TEN@JAX 01:00PM ET","TEN","JAX",0,2.4,0,0,0,0,0,1
+"WR","Torrey Smith (9446140)","Torrey Smith",9446140,3600,"PHI@KC 01:00PM ET","PHI","KC",0,8.8,0,0,0,0,0,1
+"WR","Eli Rogers (9446547)","Eli Rogers",9446547,3600,"MIN@PIT 01:00PM ET","PIT","MIN",0,6.3,0,0,0,0,0,1
+"WR","Adam Humphries (9446493)","Adam Humphries",9446493,3600,"CHI@TB 01:00PM ET","TB","CHI",0,5.2,0,0,0,0,0,1
+"TE","Hunter Henry (9446755)","Hunter Henry",9446755,3600,"MIA@LAC 04:05PM ET","LAC","MIA",0,10.2,0,0,0,0,0,0
+"WR","Jeremy Kerley (9446151)","Jeremy Kerley",9446151,3600,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,6.7,0,0,0,0,0,1
+"WR","Terrance Williams (9446202)","Terrance Williams",9446202,3600,"DAL@DEN 04:25PM ET","DAL","DEN",0,7.5,0,0,0,0,0,1
+"RB","De'Angelo Henderson (9446503)","De'Angelo Henderson",9446503,3600,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,0
+"WR","Jaelen Strong (9446933)","Jaelen Strong",9446933,3500,"HOU@CIN 08:25PM ET","HOU","CIN",0,3.7,0,0,0,0,0,1
+"WR","Russell Shepard (9446252)","Russell Shepard",9446252,3500,"BUF@CAR 01:00PM ET","CAR","BUF",0,3.8,0,0,0,0,0,1
+"WR","Zay Jones (9446765)","Zay Jones",9446765,3500,"BUF@CAR 01:00PM ET","BUF","CAR",0,6.9,0,0,0,0,0,1
+"RB","C.J. Spiller (9446083)","CJ Spiller",9446083,3500,"PHI@KC 01:00PM ET","KC","PHI",0,1.3,0,0,0,0,0,0
+"RB","Alvin Kamara (9446792)","Alvin Kamara",9446792,3500,"NE@NO 01:00PM ET","NO","NE",0,8.9,0,0,0,0,0,0
+"WR","Markus Wheaton (9446266)","Markus Wheaton",9446266,3500,"CHI@TB 01:00PM ET","CHI","TB",0,6.2,0,0,0,0,0,1
+"WR","Travis Benjamin (9446224)","Travis Benjamin",9446224,3500,"MIA@LAC 04:05PM ET","LAC","MIA",0,7.1,0,0,0,0,0,1
+"RB","Elijah McGuire (9446734)","Elijah McGuire",9446734,3500,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,1.6,0,0,0,0,0,0
+"RB","Devontae Booker (9446720)","Devontae Booker",9446720,3500,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,0
+"WR","Ryan Grant (9446264)","Ryan Grant",9446264,3500,"WAS@LAR 04:25PM ET","WAS","LAR",0,2.8,0,0,0,0,0,1
+"WR","Tavon Austin (9446320)","Tavon Austin",9446320,3500,"WAS@LAR 04:25PM ET","LAR","WAS",0,5.3,0,0,0,0,0,1
+"WR","Josh Doctson (9446454)","Josh Doctson",9446454,3500,"WAS@LAR 04:25PM ET","WAS","LAR",0,8.1,0,0,0,0,0,1
+"WR","Marquise Goodwin (9446290)","Marquise Goodwin",9446290,3500,"SF@SEA 04:25PM ET","SF","SEA",0,10.1,0,0,0,0,0,1
+"TE","Austin Hooper (9446736)","Austin Hooper",9446736,3500,"GB@ATL 08:30PM ET","ATL","GB",0,7.5,0,0,0,0,0,0
+"RB","Devante Mays (9446860)","Devante Mays",9446860,3500,"GB@ATL 08:30PM ET","GB","ATL",0,0,0,0,0,0,0,0
+"WR","Braxton Miller (9446468)","Braxton Miller",9446468,3400,"HOU@CIN 08:25PM ET","HOU","CIN",0,7.2,0,0,0,0,0,1
+"RB","Dion Lewis (9446256)","Dion Lewis",9446256,3400,"NE@NO 01:00PM ET","NE","NO",0,2.6,0,0,0,0,0,0
+"WR","Dontrelle Inman (9446138)","Dontrelle Inman",9446138,3400,"MIA@LAC 04:05PM ET","LAC","MIA",0,2.3,0,0,0,0,0,1
+"WR","Robby Anderson (9446571)","Robby Anderson",9446571,3400,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,9,0,0,0,0,0,1
+"WR","Seth Roberts (9446690)","Seth Roberts",9446690,3400,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,5.8,0,0,0,0,0,1
+"TE","Jason Witten (9445982)","Jason Witten",9445982,3400,"DAL@DEN 04:25PM ET","DAL","DEN",0,8.3,0,0,0,0,0,0
+"WR","Robert Woods (9446389)","Robert Woods",9446389,3400,"WAS@LAR 04:25PM ET","LAR","WAS",0,9.4,0,0,0,0,0,1
+"RB","Orleans Darkwa (9446908)","Orleans Darkwa",9446908,3400,"DET@NYG 08:30PM ET","NYG","DET",0,5.2,0,0,0,0,0,0
+"WR","Bruce Ellington (9446516)","Bruce Ellington",9446516,3300,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,1
+"WR","John Ross (9446773)","John Ross",9446773,3300,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,1
+"WR","Sammie Coates (9446460)","Sammie Coates",9446460,3300,"CLE@BAL 01:00PM ET","CLE","BAL",0,1,0,0,0,0,0,1
+"WR","Albert Wilson (9446397)","Albert Wilson",9446397,3300,"PHI@KC 01:00PM ET","KC","PHI",0,8.6,0,0,0,0,0,1
+"WR","Brandon Coleman (9446393)","Brandon Coleman",9446393,3300,"NE@NO 01:00PM ET","NO","NE",0,8.1,0,0,0,0,0,1
+"WR","Laquon Treadwell (9446775)","Laquon Treadwell",9446775,3300,"MIN@PIT 01:00PM ET","MIN","PIT",0,5,0,0,0,0,0,1
+"TE","Jared Cook (9446050)","Jared Cook",9446050,3300,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,8.2,0,0,0,0,0,0
+"RB","Rod Smith (9446370)","Rod Smith",9446370,3300,"DAL@DEN 04:25PM ET","DAL","DEN",0,1.3,0,0,0,0,0,0
+"WR","Jeff Janis (9446812)","Jeff Janis",9446812,3300,"GB@ATL 08:30PM ET","GB","ATL",0,1.3,0,0,0,0,0,1
+"RB","Zach Zenner (9446880)","Zach Zenner",9446880,3300,"DET@NYG 08:30PM ET","DET","NYG",0,0,0,0,0,0,0,0
+"WR","Roger Lewis (9446922)","Roger Lewis",9446922,3300,"DET@NYG 08:30PM ET","NYG","DET",0,1.7,0,0,0,0,0,1
+"WR","Curtis Samuel (9446822)","Curtis Samuel",9446822,3200,"BUF@CAR 01:00PM ET","CAR","BUF",0,5.9,0,0,0,0,0,1
+"WR","Jaron Brown (9446215)","Jaron Brown",9446215,3200,"ARI@IND 01:00PM ET","ARI","IND",0,5.3,0,0,0,0,0,1
+"WR","Chris Conley (9446448)","Chris Conley",9446448,3200,"PHI@KC 01:00PM ET","KC","PHI",0,8.8,0,0,0,0,0,1
+"RB","Jerick McKinnon (9446435)","Jerick McKinnon",9446435,3200,"MIN@PIT 01:00PM ET","MIN","PIT",0,4.8,0,0,0,0,0,0
+"TE","Jesse James (9446613)","Jesse James",9446613,3200,"MIN@PIT 01:00PM ET","PIT","MIN",0,6.5,0,0,0,0,0,0
+"WR","ArDarius Stewart (9446794)","ArDarius Stewart",9446794,3200,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,5.4,0,0,0,0,0,1
+"TE","Evan Engram (9446924)","Evan Engram",9446924,3200,"DET@NYG 08:30PM ET","NYG","DET",0,9.9,0,0,0,0,0,0
+"TE","C.J. Fiedorowicz (9446368)","CJ Fiedorowicz",9446368,3100,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,0
+"WR","Breshad Perriman (9446617)","Breshad Perriman",9446617,3100,"CLE@BAL 01:00PM ET","BAL","CLE",0,8.6,0,0,0,0,0,1
+"RB","Fozzy Whittaker (9446117)","Fozzy Whittaker",9446117,3100,"BUF@CAR 01:00PM ET","CAR","BUF",0,1.1,0,0,0,0,0,0
+"TE","Coby Fleener (9446145)","Coby Fleener",9446145,3100,"NE@NO 01:00PM ET","NO","NE",0,10.4,0,0,0,0,0,0
+"WR","Austin Carr (9446640)","Austin Carr",9446640,3100,"NE@NO 01:00PM ET","NO","NE",0,0,0,0,0,0,0,1
+"RB","Jordan Todman (9446226)","Jordan Todman",9446226,3000,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,0
+"RB","Jay Prosch (9446337)","Jay Prosch",9446337,3000,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,0
+"RB","Tyler Ervin (9446505)","Tyler Ervin",9446505,3000,"HOU@CIN 08:25PM ET","HOU","CIN",0,1.2,0,0,0,0,0,0
+"WR","Alex Erickson (9446615)","Alex Erickson",9446615,3000,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,1
+"WR","Cody Core (9446660)","Cody Core",9446660,3000,"HOU@CIN 08:25PM ET","CIN","HOU",0,1.1,0,0,0,0,0,1
+"WR","Andy Jones (9446688)","Andy Jones",9446688,3000,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,1
+"WR","Josh Malone (9446814)","Josh Malone",9446814,3000,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,1
+"WR","Michael Campanaro (9446272)","Michael Campanaro",9446272,3000,"CLE@BAL 01:00PM ET","BAL","CLE",0,3.8,0,0,0,0,0,1
+"WR","Chris Matthews (9446318)","Chris Matthews",9446318,3000,"CLE@BAL 01:00PM ET","BAL","CLE",0,0,0,0,0,0,0,1
+"WR","Chris Moore (9446543)","Chris Moore",9446543,3000,"CLE@BAL 01:00PM ET","BAL","CLE",0,0,0,0,0,0,0,1
+"WR","Kasen Williams (9446565)","Kasen Williams",9446565,3000,"CLE@BAL 01:00PM ET","CLE","BAL",0,3.3,0,0,0,0,0,1
+"RB","Danny Vitale (9446642)","Danny Vitale",9446642,3000,"CLE@BAL 01:00PM ET","CLE","BAL",0,1.2,0,0,0,0,0,0
+"WR","Ricardo Louis (9446651)","Ricardo Louis",9446651,3000,"CLE@BAL 01:00PM ET","CLE","BAL",0,3.8,0,0,0,0,0,1
+"WR","Reggie Davis (9446732)","Reggie Davis",9446732,3000,"CLE@BAL 01:00PM ET","CLE","BAL",0,0,0,0,0,0,0,1
+"RB","Matthew Dayes (9446745)","Matthew Dayes",9446745,3000,"CLE@BAL 01:00PM ET","CLE","BAL",0,3.7,0,0,0,0,0,0
+"WR","Vince Mayle (9446780)","Vince Mayle",9446780,3000,"CLE@BAL 01:00PM ET","BAL","CLE",0,0,0,0,0,0,0,1
+"WR","Brandon Tate (9446041)","Brandon Tate",9446041,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,2.7,0,0,0,0,0,1
+"RB","Taiwan Jones (9446126)","Taiwan Jones",9446126,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,0,0,0,0,0,0,0
+"RB","Joe Banyard (9446149)","Joe Banyard",9446149,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,2.3,0,0,0,0,0,0
+"TE","Charles Clay (9446155)","Charles Clay",9446155,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,9.1,0,0,0,0,0,0
+"RB","Patrick DiMarco (9446175)","Patrick DiMarco",9446175,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,1.7,0,0,0,0,0,0
+"WR","Walter Powell (9446381)","Walter Powell",9446381,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,0,0,0,0,0,0,1
+"WR","Kaelin Clay (9446405)","Kaelin Clay",9446405,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,0,0,0,0,0,0,1
+"WR","Andre Holmes (9446416)","Andre Holmes",9446416,3000,"BUF@CAR 01:00PM ET","BUF","CAR",0,6.1,0,0,0,0,0,1
+"WR","Damiere Byrd (9446514)","Damiere Byrd",9446514,3000,"BUF@CAR 01:00PM ET","CAR","BUF",0,2.6,0,0,0,0,0,1
+"RB","Cameron Artis-Payne (9446692)","Cameron Artis-Payne",9446692,3000,"BUF@CAR 01:00PM ET","CAR","BUF",0,0,0,0,0,0,0,0
+"WR","Kamar Aiken (9446153)","Kamar Aiken",9446153,3000,"ARI@IND 01:00PM ET","IND","ARI",0,4,0,0,0,0,0,1
+"WR","Matt Hazel (9446407)","Matt Hazel",9446407,3000,"ARI@IND 01:00PM ET","IND","ARI",0,0,0,0,0,0,0,1
+"WR","Quan Bray (9446458)","Quan Bray",9446458,3000,"ARI@IND 01:00PM ET","IND","ARI",0,2.6,0,0,0,0,0,1
+"RB","Elijhaa Penny (9446545)","Elijhaa Penny",9446545,3000,"ARI@IND 01:00PM ET","ARI","IND",0,0,0,0,0,0,0,0
+"WR","Brittan Golden (9446594)","Brittan Golden",9446594,3000,"ARI@IND 01:00PM ET","ARI","IND",0,3.3,0,0,0,0,0,1
+"WR","Chester Rogers (9446686)","Chester Rogers",9446686,3000,"ARI@IND 01:00PM ET","IND","ARI",0,5.5,0,0,0,0,0,1
+"WR","Chad Williams (9446804)","Chad Williams",9446804,3000,"ARI@IND 01:00PM ET","ARI","IND",0,0,0,0,0,0,0,1
+"WR","Eric Weems (9446006)","Eric Weems",9446006,3000,"TEN@JAX 01:00PM ET","TEN","JAX",0,0,0,0,0,0,0,1
+"WR","Arrelious Benn (9446119)","Arrelious Benn",9446119,3000,"TEN@JAX 01:00PM ET","JAX","TEN",0,6.4,0,0,0,0,0,1
+"RB","Tommy Bohanon (9446261)","Tommy Bohanon",9446261,3000,"TEN@JAX 01:00PM ET","JAX","TEN",0,0,0,0,0,0,0,0
+"RB","Jalston Fowler (9446341)","Jalston Fowler",9446341,3000,"TEN@JAX 01:00PM ET","TEN","JAX",0,0,0,0,0,0,0,0
+"RB","Corey Grant (9446399)","Corey Grant",9446399,3000,"TEN@JAX 01:00PM ET","JAX","TEN",0,0,0,0,0,0,0,0
+"RB","David Fluellen (9446420)","David Fluellen",9446420,3000,"TEN@JAX 01:00PM ET","TEN","JAX",0,0,0,0,0,0,0,0
+"WR","Keelan Cole (9446810)","Keelan Cole",9446810,3000,"TEN@JAX 01:00PM ET","JAX","TEN",0,4.9,0,0,0,0,0,1
+"RB","Anthony Sherman (9446158)","Anthony Sherman",9446158,3000,"PHI@KC 01:00PM ET","KC","PHI",0,0,0,0,0,0,0,0
+"WR","De'Anthony Thomas (9446561)","De'Anthony Thomas",9446561,3000,"PHI@KC 01:00PM ET","KC","PHI",0,1.4,0,0,0,0,0,1
+"WR","Marcus Johnson (9446632)","Marcus Johnson",9446632,3000,"PHI@KC 01:00PM ET","PHI","KC",0,1.1,0,0,0,0,0,1
+"WR","Jehu Chesson (9446670)","Jehu Chesson",9446670,3000,"PHI@KC 01:00PM ET","KC","PHI",0,0,0,0,0,0,0,1
+"WR","Mack Hollins (9446684)","Mack Hollins",9446684,3000,"PHI@KC 01:00PM ET","PHI","KC",0,2.3,0,0,0,0,0,1
+"WR","Demarcus Robinson (9446694)","Demarcus Robinson",9446694,3000,"PHI@KC 01:00PM ET","KC","PHI",0,1.5,0,0,0,0,0,1
+"WR","Shelton Gibson (9446738)","Shelton Gibson",9446738,3000,"PHI@KC 01:00PM ET","PHI","KC",0,0,0,0,0,0,0,1
+"RB","Corey Clement (9446751)","Corey Clement",9446751,3000,"PHI@KC 01:00PM ET","PHI","KC",0,0,0,0,0,0,0,0
+"RB","Donnel Pumphrey (9446763)","Donnel Pumphrey",9446763,3000,"PHI@KC 01:00PM ET","PHI","KC",0,0,0,0,0,0,0,0
+"WR","Matthew Slater (9446010)","Matthew Slater",9446010,3000,"NE@NO 01:00PM ET","NE","NO",0,0,0,0,0,0,0,1
+"RB","John Kuhn (9446037)","John Kuhn",9446037,3000,"NE@NO 01:00PM ET","NO","NE",0,2.3,0,0,0,0,0,0
+"RB","James Develin (9446109)","James Develin",9446109,3000,"NE@NO 01:00PM ET","NE","NO",0,0,0,0,0,0,0,0
+"RB","Brandon Bolden (9446232)","Brandon Bolden",9446232,3000,"NE@NO 01:00PM ET","NE","NO",0,0,0,0,0,0,0,0
+"WR","Tommylee Lewis (9446567)","Tommylee Lewis",9446567,3000,"NE@NO 01:00PM ET","NO","NE",0,4.7,0,0,0,0,0,1
+"RB","Trey Edmunds (9446637)","Trey Edmunds",9446637,3000,"NE@NO 01:00PM ET","NO","NE",0,0,0,0,0,0,0,0
+"WR","Darrius Heyward-Bey (9446035)","Darrius Heyward-Bey",9446035,3000,"MIN@PIT 01:00PM ET","PIT","MIN",0,0,0,0,0,0,0,1
+"WR","Michael Floyd (9446188)","Michael Floyd",9446188,3000,"MIN@PIT 01:00PM ET","MIN","PIT",0,0,0,0,0,0,0,1
+"WR","Jarius Wright (9446230)","Jarius Wright",9446230,3000,"MIN@PIT 01:00PM ET","MIN","PIT",0,5,0,0,0,0,0,1
+"WR","Justin Hunter (9446331)","Justin Hunter",9446331,3000,"MIN@PIT 01:00PM ET","PIT","MIN",0,0,0,0,0,0,0,1
+"RB","Roosevelt Nix (9446350)","Roosevelt Nix",9446350,3000,"MIN@PIT 01:00PM ET","PIT","MIN",0,0,0,0,0,0,0,0
+"RB","Terrell Watson (9446587)","Terrell Watson",9446587,3000,"MIN@PIT 01:00PM ET","PIT","MIN",0,0,0,0,0,0,0,0
+"WR","Stacy Coley (9446740)","Stacy Coley",9446740,3000,"MIN@PIT 01:00PM ET","MIN","PIT",0,0,0,0,0,0,0,1
+"WR","Rodney Adams (9446767)","Rodney Adams",9446767,3000,"MIN@PIT 01:00PM ET","MIN","PIT",0,0,0,0,0,0,0,1
+"WR","JuJu Smith-Schuster (9446848)","JuJu Smith-Schuster",9446848,3000,"MIN@PIT 01:00PM ET","PIT","MIN",0,2.2,0,0,0,0,0,1
+"RB","C.J. Ham (9446864)","CJ Ham",9446864,3000,"MIN@PIT 01:00PM ET","MIN","PIT",0,0,0,0,0,0,0,0
+"WR","Deonte Thompson (9446130)","Deonte Thompson",9446130,3000,"CHI@TB 01:00PM ET","CHI","TB",0,5.3,0,0,0,0,0,1
+"RB","Benny Cunningham (9446270)","Benny Cunningham",9446270,3000,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,0
+"TE","Cameron Brate (9446360)","Cameron Brate",9446360,3000,"CHI@TB 01:00PM ET","TB","CHI",0,7.6,0,0,0,0,0,0
+"WR","Josh Bellamy (9446372)","Josh Bellamy",9446372,3000,"CHI@TB 01:00PM ET","CHI","TB",0,3,0,0,0,0,0,1
+"RB","Michael Burton (9446395)","Michael Burton",9446395,3000,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,0
+"WR","Bernard Reedy (9446422)","Bernard Reedy",9446422,3000,"CHI@TB 01:00PM ET","TB","CHI",0,0,0,0,0,0,0,1
+"WR","Tre McBride (9446472)","Tre McBride",9446472,3000,"CHI@TB 01:00PM ET","CHI","TB",0,2.4,0,0,0,0,0,1
+"RB","Peyton Barber (9446757)","Peyton Barber",9446757,3000,"CHI@TB 01:00PM ET","TB","CHI",0,1.2,0,0,0,0,0,0
+"RB","Taquan Mizzell (9446761)","Taquan Mizzell",9446761,3000,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,0
+"WR","Chris Godwin (9446844)","Chris Godwin",9446844,3000,"CHI@TB 01:00PM ET","TB","CHI",0,2.3,0,0,0,0,0,1
+"TE","Antonio Gates (9446008)","Antonio Gates",9446008,3000,"MIA@LAC 04:05PM ET","LAC","MIA",0,10.1,0,0,0,0,0,0
+"RB","Senorise Perry (9446374)","Senorise Perry",9446374,3000,"MIA@LAC 04:05PM ET","MIA","LAC",0,0,0,0,0,0,0,0
+"WR","Jakeem Grant (9446524)","Jakeem Grant",9446524,3000,"MIA@LAC 04:05PM ET","MIA","LAC",0,0,0,0,0,0,0,1
+"RB","Derek Watt (9446541)","Derek Watt",9446541,3000,"MIA@LAC 04:05PM ET","LAC","MIA",0,0,0,0,0,0,0,0
+"WR","Leonte Carroo (9446676)","Leonte Carroo",9446676,3000,"MIA@LAC 04:05PM ET","MIA","LAC",0,2,0,0,0,0,0,1
+"RB","Austin Ekeler (9446808)","Austin Ekeler",9446808,3000,"MIA@LAC 04:05PM ET","LAC","MIA",0,1.7,0,0,0,0,0,0
+"RB","Jamize Olawale (9446424)","Jamize Olawale",9446424,3000,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,0,0,0,0,0,0,0
+"WR","Charone Peake (9446495)","Charone Peake",9446495,3000,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,3.2,0,0,0,0,0,1
+"WR","Cordarrelle Patterson (9446626)","Cordarrelle Patterson",9446626,3000,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,2.8,0,0,0,0,0,1
+"WR","Kalif Raymond (9446644)","Kalif Raymond",9446644,3000,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,0,0,0,0,0,0,1
+"WR","Jalin Marshall (9446710)","Jalin Marshall",9446710,3000,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,0,0,0,0,0,0,1
+"WR","Johnny Holton (9446778)","Johnny Holton",9446778,3000,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,1.1,0,0,0,0,0,1
+"WR","Chad Hansen (9446806)","Chad Hansen",9446806,3000,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,2.7,0,0,0,0,0,1
+"WR","Brice Butler (9446196)","Brice Butler",9446196,3000,"DAL@DEN 04:25PM ET","DAL","DEN",0,2.9,0,0,0,0,0,1
+"WR","Bennie Fowler (9446311)","Bennie Fowler",9446311,3000,"DAL@DEN 04:25PM ET","DEN","DAL",0,8.1,0,0,0,0,0,1
+"WR","Jordan Taylor (9446354)","Jordan Taylor",9446354,3000,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,1
+"RB","Keith Smith (9446418)","Keith Smith",9446418,3000,"DAL@DEN 04:25PM ET","DAL","DEN",0,0,0,0,0,0,0,0
+"WR","Cody Latimer (9446575)","Cody Latimer",9446575,3000,"DAL@DEN 04:25PM ET","DEN","DAL",0,1.6,0,0,0,0,0,1
+"RB","Andy Janovich (9446609)","Andy Janovich",9446609,3000,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,0
+"WR","Ryan Switzer (9446705)","Ryan Switzer",9446705,3000,"DAL@DEN 04:25PM ET","DAL","DEN",0,1.4,0,0,0,0,0,1
+"WR","Isaiah McKenzie (9446828)","Isaiah McKenzie",9446828,3000,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,1
+"WR","Noah Brown (9446850)","Noah Brown",9446850,3000,"DAL@DEN 04:25PM ET","DAL","DEN",0,0,0,0,0,0,0,1
+"TE","Vernon Davis (9445988)","Vernon Davis",9445988,3000,"WAS@LAR 04:25PM ET","WAS","LAR",0,4.7,0,0,0,0,0,0
+"WR","Brian Quick (9446128)","Brian Quick",9446128,3000,"WAS@LAR 04:25PM ET","WAS","LAR",0,0,0,0,0,0,0,1
+"RB","Mack Brown (9446401)","Mack Brown",9446401,3000,"WAS@LAR 04:25PM ET","WAS","LAR",0,0,0,0,0,0,0,0
+"RB","Justin Davis (9446697)","Justin Davis",9446697,3000,"WAS@LAR 04:25PM ET","LAR","WAS",0,0,0,0,0,0,0,0
+"WR","Pharoh Cooper (9446759)","Pharoh Cooper",9446759,3000,"WAS@LAR 04:25PM ET","LAR","WAS",0,1.2,0,0,0,0,0,1
+"WR","Josh Reynolds (9446826)","Josh Reynolds",9446826,3000,"WAS@LAR 04:25PM ET","LAR","WAS",0,1.8,0,0,0,0,0,1
+"WR","Michael Thomas (9446842)","Michael Thomas",9446842,3000,"WAS@LAR 04:25PM ET","LAR","WAS",0,16.3,0,0,0,0,0,1
+"WR","Aldrick Robinson (9446161)","Aldrick Robinson",9446161,3000,"SF@SEA 04:25PM ET","SF","SEA",0,6.6,0,0,0,0,0,1
+"RB","Kyle Juszczyk (9446274)","Kyle Juszczyk",9446274,3000,"SF@SEA 04:25PM ET","SF","SEA",0,5.7,0,0,0,0,0,0
+"RB","Tre Madden (9446485)","Tre Madden",9446485,3000,"SF@SEA 04:25PM ET","SEA","SF",0,0,0,0,0,0,0,0
+"WR","Tanner McEvoy (9446518)","Tanner McEvoy",9446518,3000,"SF@SEA 04:25PM ET","SEA","SF",0,2.3,0,0,0,0,0,1
+"RB","Raheem Mostert (9446537)","Raheem Mostert",9446537,3000,"SF@SEA 04:25PM ET","SF","SEA",0,1.9,0,0,0,0,0,0
+"RB","J.D. McKissic (9446569)","JD McKissic",9446569,3000,"SF@SEA 04:25PM ET","SEA","SF",0,0,0,0,0,0,0,0
+"WR","Amara Darboh (9446672)","Amara Darboh",9446672,3000,"SF@SEA 04:25PM ET","SEA","SF",0,1.1,0,0,0,0,0,1
+"WR","Trent Taylor (9446730)","Trent Taylor",9446730,3000,"SF@SEA 04:25PM ET","SF","SEA",0,2.2,0,0,0,0,0,1
+"WR","Victor Bolden Jr. (9446782)","Victor Bolden",9446782,3000,"SF@SEA 04:25PM ET","SF","SEA",0,0,0,0,0,0,0,1
+"WR","Kendrick Bourne (9446800)","Kendrick Bourne",9446800,3000,"SF@SEA 04:25PM ET","SF","SEA",0,1.1,0,0,0,0,0,1
+"WR","Andre Roberts (9446078)","Andre Roberts",9446078,3000,"GB@ATL 08:30PM ET","ATL","GB",0,0,0,0,0,0,0,1
+"RB","Derrick Coleman (9446207)","Derrick Coleman",9446207,3000,"GB@ATL 08:30PM ET","ATL","GB",0,0,0,0,0,0,0,0
+"WR","Nick Williams (9446315)","Nick Williams",9446315,3000,"GB@ATL 08:30PM ET","ATL","GB",0,0,0,0,0,0,0,1
+"WR","Justin Hardy (9446411)","Justin Hardy",9446411,3000,"GB@ATL 08:30PM ET","ATL","GB",0,1.7,0,0,0,0,0,1
+"RB","Terron Ward (9446442)","Terron Ward",9446442,3000,"GB@ATL 08:30PM ET","ATL","GB",0,1.3,0,0,0,0,0,0
+"RB","Aaron Ripkowski (9446522)","Aaron Ripkowski",9446522,3000,"GB@ATL 08:30PM ET","GB","ATL",0,2.1,0,0,0,0,0,0
+"WR","Trevor Davis (9446592)","Trevor Davis",9446592,3000,"GB@ATL 08:30PM ET","GB","ATL",0,0,0,0,0,0,0,1
+"WR","Geronimo Allison (9446820)","Geronimo Allison",9446820,3000,"GB@ATL 08:30PM ET","GB","ATL",0,0,0,0,0,0,0,1
+"RB","Brian Hill (9446832)","Brian Hill",9446832,3000,"GB@ATL 08:30PM ET","ATL","GB",0,0,0,0,0,0,0,0
+"RB","Tion Green (9446872)","Tion Green",9446872,3000,"DET@NYG 08:30PM ET","DET","NYG",0,0,0,0,0,0,0,0
+"WR","TJ Jones (9446882)","TJ Jones",9446882,3000,"DET@NYG 08:30PM ET","DET","NYG",0,3.9,0,0,0,0,0,1
+"WR","Jared Abbrederis (9446884)","Jared Abbrederis",9446884,3000,"DET@NYG 08:30PM ET","DET","NYG",0,0,0,0,0,0,0,1
+"TE","Eric Ebron (9446894)","Eric Ebron",9446894,3000,"DET@NYG 08:30PM ET","DET","NYG",0,8.3,0,0,0,0,0,0
+"RB","Wayne Gallman (9446902)","Wayne Gallman",9446902,3000,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,0
+"RB","Shane Smith (9446904)","Shane Smith",9446904,3000,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,0
+"WR","Tavarres King (9446912)","Tavarres King",9446912,3000,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,1
+"WR","Dwayne Harris (9446914)","Dwayne Harris",9446914,3000,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,1
+"TE","Jack Doyle (9446250)","Jack Doyle",9446250,2900,"ARI@IND 01:00PM ET","IND","ARI",0,5.3,0,0,0,0,0,0
+"TE","Zach Miller (9446012)","Zach Miller",9446012,2900,"CHI@TB 01:00PM ET","CHI","TB",0,8.5,0,0,0,0,0,0
+"TE","O.J. Howard (9446718)","OJ Howard",9446718,2900,"CHI@TB 01:00PM ET","TB","CHI",0,5.8,0,0,0,0,0,0
+"TE","Julius Thomas (9446352)","Julius Thomas",9446352,2800,"MIA@LAC 04:05PM ET","MIA","LAC",0,7.7,0,0,0,0,0,0
+"TE","Ryan Griffin (9446228)","Ryan Griffin",9446228,2700,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,0
+"TE","Jermaine Gresham (9446088)","Jermaine Gresham",9446088,2700,"ARI@IND 01:00PM ET","ARI","IND",0,8,0,0,0,0,0,0
+"TE","Austin Seferian-Jenkins (9446464)","Austin Seferian-Jenkins",9446464,2700,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,0,0,0,0,0,0,0
+"TE","Virgil Green (9446070)","Virgil Green",9446070,2700,"DAL@DEN 04:25PM ET","DEN","DAL",0,4.6,0,0,0,0,0,0
+"TE","Richard Rodgers (9446558)","Richard Rodgers",9446558,2700,"GB@ATL 08:30PM ET","GB","ATL",0,0,0,0,0,0,0,0
+"TE","Benjamin Watson (9446018)","Benjamin Watson",9446018,2600,"CLE@BAL 01:00PM ET","BAL","CLE",0,4.2,0,0,0,0,0,0
+"TE","Demetrius Harris (9446501)","Demetrius Harris",9446501,2600,"PHI@KC 01:00PM ET","KC","PHI",0,2,0,0,0,0,0,0
+"TE","Vance McDonald (9446258)","Vance McDonald",9446258,2600,"MIN@PIT 01:00PM ET","PIT","MIN",0,3.1,0,0,0,0,0,0
+"TE","Will Tye (9446364)","Will Tye",9446364,2600,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,4,0,0,0,0,0,0
+"TE","A.J. Derby (9446343)","AJ Derby",9446343,2600,"DAL@DEN 04:25PM ET","DEN","DAL",0,4.5,0,0,0,0,0,0
+"TE","Tyler Higbee (9446509)","Tyler Higbee",9446509,2600,"WAS@LAR 04:25PM ET","LAR","WAS",0,6.9,0,0,0,0,0,0
+"TE","Clark Harris (9445992)","Clark Harris",9445992,2500,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,0
+"TE","Ryan Hewitt (9446278)","Ryan Hewitt",9446278,2500,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,0
+"TE","Tyler Kroft (9446452)","Tyler Kroft",9446452,2500,"HOU@CIN 08:25PM ET","CIN","HOU",0,1.1,0,0,0,0,0,0
+"TE","C.J. Uzomah (9446462)","CJ Uzomah",9446462,2500,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,0
+"TE","Stephen Anderson (9446556)","Stephen Anderson",9446556,2500,"HOU@CIN 08:25PM ET","HOU","CIN",0,0,0,0,0,0,0,0
+"TE","Cethan Carter (9446708)","Cethan Carter",9446708,2500,"HOU@CIN 08:25PM ET","CIN","HOU",0,0,0,0,0,0,0,0
+"TE","Randall Telfer (9446387)","Randall Telfer",9446387,2500,"CLE@BAL 01:00PM ET","CLE","BAL",0,1.4,0,0,0,0,0,0
+"TE","Nick Boyle (9446573)","Nick Boyle",9446573,2500,"CLE@BAL 01:00PM ET","BAL","CLE",0,5.6,0,0,0,0,0,0
+"TE","Seth DeValve (9446600)","Seth DeValve",9446600,2500,"CLE@BAL 01:00PM ET","CLE","BAL",0,5.6,0,0,0,0,0,0
+"TE","Maxx Williams (9446611)","Maxx Williams",9446611,2500,"CLE@BAL 01:00PM ET","BAL","CLE",0,4.2,0,0,0,0,0,0
+"TE","David Njoku (9446840)","David Njoku",9446840,2500,"CLE@BAL 01:00PM ET","CLE","BAL",0,4.8,0,0,0,0,0,0
+"TE","Ed Dickson (9446045)","Ed Dickson",9446045,2500,"BUF@CAR 01:00PM ET","CAR","BUF",0,0,0,0,0,0,0,0
+"TE","Logan Thomas (9446292)","Logan Thomas",9446292,2500,"BUF@CAR 01:00PM ET","BUF","CAR",0,0,0,0,0,0,0,0
+"TE","Chris Manhertz (9446433)","Chris Manhertz",9446433,2500,"BUF@CAR 01:00PM ET","CAR","BUF",0,0,0,0,0,0,0,0
+"TE","Nick O'Leary (9446530)","Nick O'Leary",9446530,2500,"BUF@CAR 01:00PM ET","BUF","CAR",0,1.6,0,0,0,0,0,0
+"TE","Khari Lee (9446858)","Khari Lee",9446858,2500,"BUF@CAR 01:00PM ET","BUF","CAR",0,0,0,0,0,0,0,0
+"TE","Ifeanyi Momah (9446136)","Ifeanyi Momah",9446136,2500,"ARI@IND 01:00PM ET","ARI","IND",0,0,0,0,0,0,0,0
+"TE","Brandon Williams (9446324)","Brandon Williams",9446324,2500,"ARI@IND 01:00PM ET","IND","ARI",0,0,0,0,0,0,0,0
+"TE","Troy Niklas (9446581)","Troy Niklas",9446581,2500,"ARI@IND 01:00PM ET","ARI","IND",0,3.1,0,0,0,0,0,0
+"TE","Darrell Daniels (9446771)","Darrell Daniels",9446771,2500,"ARI@IND 01:00PM ET","IND","ARI",0,0,0,0,0,0,0,0
+"TE","Marcedes Lewis (9445985)","Marcedes Lewis",9445985,2500,"TEN@JAX 01:00PM ET","JAX","TEN",0,5.3,0,0,0,0,0,0
+"TE","Beau Brinkley (9446211)","Beau Brinkley",9446211,2500,"TEN@JAX 01:00PM ET","TEN","JAX",0,0,0,0,0,0,0,0
+"TE","James O'Shaughnessy (9446356)","James O'Shaughnessy",9446356,2500,"TEN@JAX 01:00PM ET","JAX","TEN",0,2.1,0,0,0,0,0,0
+"TE","Ben Koyack (9446579)","Ben Koyack",9446579,2500,"TEN@JAX 01:00PM ET","JAX","TEN",0,3.2,0,0,0,0,0,0
+"TE","Phillip Supernaw (9446596)","Phillip Supernaw",9446596,2500,"TEN@JAX 01:00PM ET","TEN","JAX",0,0,0,0,0,0,0,0
+"TE","Jonnu Smith (9446753)","Jonnu Smith",9446753,2500,"TEN@JAX 01:00PM ET","TEN","JAX",0,1.9,0,0,0,0,0,0
+"TE","Brent Celek (9446002)","Brent Celek",9446002,2500,"PHI@KC 01:00PM ET","PHI","KC",0,1.4,0,0,0,0,0,0
+"TE","James Winchester (9446246)","James Winchester",9446246,2500,"PHI@KC 01:00PM ET","KC","PHI",0,0,0,0,0,0,0,0
+"TE","Trey Burton (9446328)","Trey Burton",9446328,2500,"PHI@KC 01:00PM ET","PHI","KC",0,1.6,0,0,0,0,0,0
+"TE","Ross Travis (9446489)","Ross Travis",9446489,2500,"PHI@KC 01:00PM ET","KC","PHI",0,0,0,0,0,0,0,0
+"TE","Michael Hoomanawanui (9446090)","Michael Hoomanawanui",9446090,2500,"NE@NO 01:00PM ET","NO","NE",0,0,0,0,0,0,0,0
+"TE","Dwayne Allen (9446217)","Dwayne Allen",9446217,2500,"NE@NO 01:00PM ET","NE","NO",0,3.6,0,0,0,0,0,0
+"TE","Josh Hill (9446244)","Josh Hill",9446244,2500,"NE@NO 01:00PM ET","NO","NE",0,4.7,0,0,0,0,0,0
+"TE","Jacob Hollister (9446678)","Jacob Hollister",9446678,2500,"NE@NO 01:00PM ET","NE","NO",0,0,0,0,0,0,0,0
+"TE","Kevin McDermott (9446219)","Kevin McDermott",9446219,2500,"MIN@PIT 01:00PM ET","MIN","PIT",0,0,0,0,0,0,0,0
+"TE","Blake Bell (9446333)","Blake Bell",9446333,2500,"MIN@PIT 01:00PM ET","MIN","PIT",0,0,0,0,0,0,0,0
+"TE","Xavier Grimble (9446385)","Xavier Grimble",9446385,2500,"MIN@PIT 01:00PM ET","PIT","MIN",0,0,0,0,0,0,0,0
+"TE","David Morgan (9446585)","David Morgan",9446585,2500,"MIN@PIT 01:00PM ET","MIN","PIT",0,2.8,0,0,0,0,0,0
+"TE","Andrew DePaola (9446062)","Andrew DePaola",9446062,2500,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,0
+"TE","Luke Stocker (9446096)","Luke Stocker",9446096,2500,"CHI@TB 01:00PM ET","TB","CHI",0,0,0,0,0,0,0,0
+"TE","Dion Sims (9446313)","Dion Sims",9446313,2500,"CHI@TB 01:00PM ET","CHI","TB",0,4.3,0,0,0,0,0,0
+"TE","Daniel Brown (9446430)","Daniel Brown",9446430,2500,"CHI@TB 01:00PM ET","CHI","TB",0,0,0,0,0,0,0,0
+"TE","Alan Cross (9446590)","Alan Cross",9446590,2500,"CHI@TB 01:00PM ET","TB","CHI",0,0,0,0,0,0,0,0
+"TE","Adam Shaheen (9446866)","Adam Shaheen",9446866,2500,"CHI@TB 01:00PM ET","CHI","TB",0,1.2,0,0,0,0,0,0
+"TE","Antony Auclair (9446868)","Antony Auclair",9446868,2500,"CHI@TB 01:00PM ET","TB","CHI",0,0,0,0,0,0,0,0
+"TE","Anthony Fasano (9445996)","Anthony Fasano",9445996,2500,"MIA@LAC 04:05PM ET","MIA","LAC",0,2,0,0,0,0,0,0
+"TE","Sean McGrath (9446111)","Sean McGrath",9446111,2500,"MIA@LAC 04:05PM ET","LAC","MIA",0,0,0,0,0,0,0,0
+"TE","MarQueis Gray (9446221)","MarQueis Gray",9446221,2500,"MIA@LAC 04:05PM ET","MIA","LAC",0,0,0,0,0,0,0,0
+"TE","Sean Culkin (9446624)","Sean Culkin",9446624,2500,"MIA@LAC 04:05PM ET","LAC","MIA",0,0,0,0,0,0,0,0
+"TE","Lee Smith (9446094)","Lee Smith",9446094,2500,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,0,0,0,0,0,0,0
+"TE","Clive Walford (9446366)","Clive Walford",9446366,2500,"NYJ@OAK 04:05PM ET","OAK","NYJ",0,3.8,0,0,0,0,0,0
+"TE","Eric Tomlinson (9446376)","Eric Tomlinson",9446376,2500,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,0,0,0,0,0,0,0
+"TE","Neal Sterling (9446378)","Neal Sterling",9446378,2500,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,0,0,0,0,0,0,0
+"TE","Jordan Leggett (9446726)","Jordan Leggett",9446726,2500,"NYJ@OAK 04:05PM ET","NYJ","OAK",0,4.2,0,0,0,0,0,0
+"TE","James Hanna (9446177)","James Hanna",9446177,2500,"DAL@DEN 04:25PM ET","DAL","DEN",0,0,0,0,0,0,0,0
+"TE","Jeff Heuerman (9446466)","Jeff Heuerman",9446466,2500,"DAL@DEN 04:25PM ET","DEN","DAL",0,0,0,0,0,0,0,0
+"TE","Geoff Swaim (9446699)","Geoff Swaim",9446699,2500,"DAL@DEN 04:25PM ET","DAL","DEN",0,0,0,0,0,0,0,0
+"TE","Niles Paul (9446171)","Niles Paul",9446171,2500,"WAS@LAR 04:25PM ET","WAS","LAR",0,0,0,0,0,0,0,0
+"TE","Derek Carrier (9446622)","Derek Carrier",9446622,2500,"WAS@LAR 04:25PM ET","LAR","WAS",0,0,0,0,0,0,0,0
+"TE","Jeremy Sprinkle (9446649)","Jeremy Sprinkle",9446649,2500,"WAS@LAR 04:25PM ET","WAS","LAR",0,0,0,0,0,0,0,0
+"TE","Gerald Everett (9446852)","Gerald Everett",9446852,2500,"WAS@LAR 04:25PM ET","LAR","WAS",0,4.1,0,0,0,0,0,0
+"TE","Logan Paulsen (9446056)","Logan Paulsen",9446056,2500,"SF@SEA 04:25PM ET","SF","SEA",0,0,0,0,0,0,0,0
+"TE","Kyle Nelson (9446076)","Kyle Nelson",9446076,2500,"SF@SEA 04:25PM ET","SF","SEA",0,0,0,0,0,0,0,0
+"TE","Garrett Celek (9446167)","Garrett Celek",9446167,2500,"SF@SEA 04:25PM ET","SF","SEA",0,0,0,0,0,0,0,0
+"TE","Luke Willson (9446236)","Luke Willson",9446236,2500,"SF@SEA 04:25PM ET","SEA","SF",0,1.3,0,0,0,0,0,0
+"TE","Tyler Ott (9446362)","Tyler Ott",9446362,2500,"SF@SEA 04:25PM ET","SEA","SF",0,0,0,0,0,0,0,0
+"TE","Nick Vannett (9446535)","Nick Vannett",9446535,2500,"SF@SEA 04:25PM ET","SEA","SF",0,0,0,0,0,0,0,0
+"TE","George Kittle (9446724)","George Kittle",9446724,2500,"SF@SEA 04:25PM ET","SF","SEA",0,6.8,0,0,0,0,0,0
+"TE","Lance Kendricks (9446080)","Lance Kendricks",9446080,2500,"GB@ATL 08:30PM ET","GB","ATL",0,3.8,0,0,0,0,0,0
+"TE","Levine Toilolo (9446281)","Levine Toilolo",9446281,2500,"GB@ATL 08:30PM ET","ATL","GB",0,1.6,0,0,0,0,0,0
+"TE","Eric Saubert (9446662)","Eric Saubert",9446662,2500,"GB@ATL 08:30PM ET","ATL","GB",0,1.1,0,0,0,0,0,0
+"TE","Michael Roberts (9446892)","Michael Roberts",9446892,2500,"DET@NYG 08:30PM ET","DET","NYG",0,0,0,0,0,0,0,0
+"TE","Darren Fells (9446896)","Darren Fells",9446896,2500,"DET@NYG 08:30PM ET","DET","NYG",0,3.8,0,0,0,0,0,0
+"TE","Jerell Adams (9446926)","Jerell Adams",9446926,2500,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,0
+"TE","Matt LaCosse (9446928)","Matt LaCosse",9446928,2500,"DET@NYG 08:30PM ET","NYG","DET",0,0,0,0,0,0,0,0
+"TE","Rhett Ellison (9446930)","Rhett Ellison",9446930,2500,"DET@NYG 08:30PM ET","NYG","DET",0,1.5,0,0,0,0,0,0
