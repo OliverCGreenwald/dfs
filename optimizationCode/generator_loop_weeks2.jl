@@ -86,7 +86,7 @@ formulation is the type of formulation that you would like to use.
         - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
         - 17 <- one_lineup_Type_17 (form 14 + 2700 <= DST Salary <= 3100)
 =#
-formulation_type = 19
+formulation_type = 20
 
 
 ############################  Setting Projections Source  ############################
@@ -199,7 +199,7 @@ for week=2:17
     # end
     path_offensive_players = string("data_warehouse/2016_cleaned_input/wk", week, "/offensive_players.csv")
     path_defenses = string("data_warehouse/2016_cleaned_input/wk", week, "/defenses.csv")
-    path_to_output = "output.csv"
+    # path_to_output = "output.csv"
 
 
     if (formulation_type == 1) 

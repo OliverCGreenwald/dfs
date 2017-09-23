@@ -1,5 +1,8 @@
-#setwd("~/Projects/DFS/")
-#setwd("~/Documents/PrincetonFall16/fantasyfootball/DFS/")
+if(file.exists("~/Projects/DFS/")) {
+  setwd("~/Projects/DFS/")
+} else {
+  setwd("~/Documents/DFS/")
+}
 
 ####### DESCRIPTION #########
 # In this file we compute the PnLs of lineups for testing purposes.
@@ -12,7 +15,7 @@ library('stringr')
 
 ####### SET PARAMETER VALUES #########
 week.lo <- 2
-week.hi <- 16
+week.hi <- 17
 
 contest.entry.fee <- "$20"
 wk.4 <- c(10,16) # weeks where $3 contest was $4
@@ -23,7 +26,7 @@ thu_mon.bool <- F # True if using thursday-monday games, False if using only Sun
 predictions.source <- "_dfn" # "_dfn" or "" or "_dfn_perturbed" or "_actual"
 source.actual.fpts <- 'DFN' # 'FC' or 'DFN'
 
-formulation <- 14
+formulation <- 19
 
 overlap.lo <- 4 # overlap.lo and overlap.hi must be the same if exposure.range is not from 1 to 1
 overlap.hi <- 4
@@ -35,7 +38,7 @@ exposure.wr <- 0.25
 exposure.rb <- 0.75
 exposure.te <- 0.75
 exposure.qb <- 0.5
-exposure.valuewr <- "_valuewrexp_0.15" # "_valuewrexp_0.15" or ""
+exposure.valuewr <- "_valuewrexp_0.10" # "_valuewrexp_0.15" or ""
 freqInd <- "" # _FreqInd or ""
 
 num.lineups <- "" # "" or "_numlineups_1000"
@@ -139,8 +142,9 @@ for (week.num in week.lo:week.hi) {
         #   file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv")
         # }
         
-        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
+        # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14 (baseline)
         # file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/model1/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, num.lineups, ".csv") # form 14
+        file.name <- paste0("resultsAnalysis/data_warehouse/testing_lineups/week", week.num, predictions.source, freqInd, "_formulation", formulation, "_overlap_", k, "_defexp_", exposure.def, "_wrexp_", exposure.wr, "_rbexp_", exposure.rb, "_teexp_", exposure.te,"_qbexp_", exposure.qb, exposure.valuewr, num.lineups, ".csv")
         
         lineups <- read.csv(file = file.name, stringsAsFactors = F)
 
