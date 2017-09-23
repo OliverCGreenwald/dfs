@@ -26,7 +26,7 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
 
 # Scrape DK Site for todays contests 
-contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = "2017-09-17") # hard coded date
+contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = "2017-09-24") # hard coded date
 
 # remove arcade mode and pick'em contests
 inds_arcade <- NULL
@@ -47,7 +47,7 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 write.csv(contest_info, file = 'NFL/data_warehouse/contests.csv', row.names = F)
 # Find Earliest index of last contest
 
-first_contest_update <- min(which(as.Date(contest_info$Contest_Date) >= Sys.Date()))
+first_contest_update <- min(which(as.Date(contest_info$Contest_Date) >= Sys.Date() - 7))
 
 # Index of 
 for(index in first_contest_update:length(contest_info$Contest_Date)) {

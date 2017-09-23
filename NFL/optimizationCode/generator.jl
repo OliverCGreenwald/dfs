@@ -83,7 +83,7 @@ formulation is the type of formulation that you would like to use.
         - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
         - 17 <- one_lineup_Type_17 (form 14 + 2700 <= DST Salary <= 3100)
 =#
-formulation_type = 17
+formulation_type = 15
 
 
 ############################  Setting Projections Source  ############################
@@ -107,7 +107,7 @@ contest_directory_path = string("../data_warehouse/", contest_date, "/", contest
 #path to the csv file with the players information
 path_defenses = string(contest_directory_path, "defenses.csv"); 
 path_offensive_players = string(contest_directory_path, "offensive_players.csv"); 
-path_to_output = "output.csv"
+path_to_output = "output18.csv"
 
 if (formulation_type == 1) 
     formulation = formulations.one_lineup_Type_1
@@ -143,6 +143,8 @@ elseif (formulation_type == 16)
     formulation = formulations.one_lineup_Type_16
 elseif (formulation_type == 17) 
     formulation = formulations.one_lineup_Type_17
+elseif (formulation_type == 18) 
+    formulation = formulations.one_lineup_Type_18
 else
     formulation = formulations.one_lineup_no_stacking 
 end

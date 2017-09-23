@@ -2327,6 +2327,7 @@ end
 #   - exposure_valuewr constraint: must have one value wr
 #   - DST Salary >= 2700 and <= 3100
 #   - Only allow 1 WR with salary < 5000
+
 function one_lineup_Type_18(offensive_players, defenses, lineups, num_overlap, num_offensive_players, num_defenses, quarterBack, runningBack, wideReciever, tightEnd, num_teams, offensive_players_teams, defenses_opponents, team_pairs, num_pairs, exposure, team_pairs_QBoppWR, num_pairs_QBoppWR, cheapRunningBack, num_lineups, projections_source, team_pairs_RBWR, num_pairs_RBWR, team_pairs_targets, num_pairs_targets, team_pairs_QBoppTarget, num_pairs_QBoppTarget, topWideReciever, exposure_defense, exposure_wr, exposure_rb, exposure_te, exposure_qb, valueWideReciever, exposure_valueWideReciever, cheapWideReciever)
     #m = Model(solver=GLPKSolverMIP())
     m = Model(solver=GurobiSolver())
