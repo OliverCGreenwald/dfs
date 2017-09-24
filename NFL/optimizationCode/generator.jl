@@ -30,7 +30,7 @@ include("formulations.jl")
 # Contest information
 
 contest_date = "2017-09-24";
-contest_name = "\$8.00entry_NFL \$500K Post Pattern";
+contest_name = "\$5.00entry_NFL \$100K Flea Flicker (Early)";
 
 ############################  Setting Variables  ############################
 
@@ -107,7 +107,7 @@ contest_directory_path = string("../data_warehouse/", contest_date, "/", contest
 #path to the csv file with the players information
 path_defenses = string(contest_directory_path, "defenses.csv"); 
 path_offensive_players = string(contest_directory_path, "offensive_players.csv"); 
-path_to_output = "output18.csv"
+path_to_output = "output.csv"
 
 if (formulation_type == 1) 
     formulation = formulations.one_lineup_Type_1

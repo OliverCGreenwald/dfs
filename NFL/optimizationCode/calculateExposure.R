@@ -5,7 +5,7 @@ if(file.exists("~/Projects/DFS/")) {
 }
 
 # read file
-output.data <- read.csv("NFL/optimizationCode/output18.csv", stringsAsFactors = F, header = T)
+output.data <- read.csv("NFL/optimizationCode/output.csv", stringsAsFactors = F, header = T)
 
 # all players
 occurences <- sort(table(unlist(output.data)), decreasing=T)
