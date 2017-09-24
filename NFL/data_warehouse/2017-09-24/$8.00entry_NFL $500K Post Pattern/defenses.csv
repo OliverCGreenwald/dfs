@@ -1,0 +1,27 @@
+"Position","Name...ID","Name","ID","Salary","GameInfo","Team","Opponent","Projection","Projection_dfn","Actual_fpts"
+"DST","Patriots  (9490318)","Patriots ",9490318,3800,"HOU@NE 01:00PM ET","NE","HOU",9.96,11.3,0
+"DST","Dolphins  (9490345)","Dolphins ",9490345,3700,"MIA@NYJ 01:00PM ET","MIA","NYJ",10.99,9.4,0
+"DST","Broncos  (9489947)","Broncos ",9489947,3600,"DEN@BUF 01:00PM ET","DEN","BUF",10.83,8.1,0
+"DST","Seahawks  (9490504)","Seahawks ",9490504,3500,"SEA@TEN 04:05PM ET","SEA","TEN",8.83,6.9,0
+"DST","Steelers  (9490073)","Steelers ",9490073,3400,"PIT@CHI 01:00PM ET","PIT","CHI",11.44,9.3,0
+"DST","Packers  (9490570)","Packers ",9490570,3400,"CIN@GB 04:25PM ET","GB","CIN",10.02,7.5,0
+"DST","Vikings  (9490225)","Vikings ",9490225,3300,"TB@MIN 01:00PM ET","MIN","TB",9.73,7.1,0
+"DST","Colts  (9490193)","Colts ",9490193,3200,"CLE@IND 01:00PM ET","IND","CLE",9.09,6.2,0
+"DST","Buccaneers  (9490256)","Buccaneers ",9490256,3200,"TB@MIN 01:00PM ET","TB","MIN",8.7,8.7,0
+"DST","Giants  (9490413)","Giants ",9490413,3100,"NYG@PHI 01:00PM ET","NYG","PHI",8.57,5.4,0
+"DST","Browns  (9490167)","Browns ",9490167,3000,"CLE@IND 01:00PM ET","CLE","IND",8.92,7.2,0
+"DST","Eagles  (9490442)","Eagles ",9490442,3000,"NYG@PHI 01:00PM ET","PHI","NYG",11.26,8,0
+"DST","Chiefs  (9490602)","Chiefs ",9490602,2900,"KC@LAC 04:25PM ET","KC","LAC",9.76,7.8,0
+"DST","Chargers  (9490632)","Chargers ",9490632,2800,"KC@LAC 04:25PM ET","LAC","KC",7.32,5.7,0
+"DST","Titans  (9490471)","Titans ",9490471,2700,"SEA@TEN 04:05PM ET","TEN","SEA",9.72,7.2,0
+"DST","Bills  (9489915)","Bills ",9489915,2600,"DEN@BUF 01:00PM ET","BUF","DEN",8.68,5.6,0
+"DST","Panthers  (9490007)","Panthers ",9490007,2600,"NO@CAR 01:00PM ET","CAR","NO",11.13,7.8,0
+"DST","Falcons  (9490104)","Falcons ",9490104,2500,"ATL@DET 01:00PM ET","ATL","DET",7.25,6.2,0
+"DST","Bengals  (9490539)","Bengals ",9490539,2500,"CIN@GB 04:25PM ET","CIN","GB",7.08,4.9,0
+"DST","Raiders  (9490660)","Raiders ",9490660,2500,"OAK@WAS 08:30PM ET","OAK","WAS",7.74,5.2,0
+"DST","Lions  (9490133)","Lions ",9490133,2400,"ATL@DET 01:00PM ET","DET","ATL",8.13,3.9,0
+"DST","Redskins  (9490689)","Redskins ",9490689,2400,"OAK@WAS 08:30PM ET","WAS","OAK",7.49,3.6,0
+"DST","Texans  (9490287)","Texans ",9490287,2300,"HOU@NE 01:00PM ET","HOU","NE",5.82,3.4,0
+"DST","Bears  (9490043)","Bears ",9490043,2200,"PIT@CHI 01:00PM ET","CHI","PIT",6.28,5.7,0
+"DST","Jets  (9490379)","Jets ",9490379,2100,"MIA@NYJ 01:00PM ET","NYJ","MIA",6.53,5.6,0
+"DST","Saints  (9489979)","Saints ",9489979,2000,"NO@CAR 01:00PM ET","NO","CAR",4.52,5.4,0

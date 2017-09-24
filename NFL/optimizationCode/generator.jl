@@ -29,8 +29,8 @@ include("formulations.jl")
 ################################################################################################################
 # Contest information
 
-contest_date = "2017-09-17";
-contest_name = "\$8.00entry_NFL \$600K Kickoff Special [\$100K to 1st] (Thu)";
+contest_date = "2017-09-24";
+contest_name = "\$8.00entry_NFL \$500K Post Pattern";
 
 ############################  Setting Variables  ############################
 
@@ -38,7 +38,7 @@ contest_name = "\$8.00entry_NFL \$600K Kickoff Special [\$100K to 1st] (Thu)";
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 151
+num_lineups = 150
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 4
@@ -83,7 +83,7 @@ formulation is the type of formulation that you would like to use.
         - 16 <- one_lineup_Type_16 (form 13 + player exposure + must have 1 value wr + 2700 <= DST Salary <= 3100)
         - 17 <- one_lineup_Type_17 (form 14 + 2700 <= DST Salary <= 3100)
 =#
-formulation_type = 15
+formulation_type = 14
 
 
 ############################  Setting Projections Source  ############################
