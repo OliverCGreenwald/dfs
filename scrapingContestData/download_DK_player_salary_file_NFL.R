@@ -50,7 +50,7 @@ download_DK_player_salary_file_NFL <- function(contest_info, index) {
   dir.create(eventDir)
   setwd(eventDir)  
   
-  # write.csv(player_salaries, file = 'DKSalaries.csv', row.names = F)
+  write.csv(player_salaries, file = 'DKSalaries.csv', row.names = F)
   
   dir.create(file.path('lineups')) # Create Directory for future testing lineups
   

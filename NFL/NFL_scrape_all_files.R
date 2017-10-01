@@ -7,6 +7,7 @@ if(file.exists("~/Projects/DFS/")) {
   setwd("~/Documents/DFS/")
 }
 
+sunday_date = as.Date("2017-10-01") # hard coded date
 
 ### Save DFS Directory Path
 
@@ -26,11 +27,11 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 
 
 # Scrape DK Site for todays contests 
-contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = "2017-09-24") # hard coded date
+contest_info <- download_DK_daily_contests_NFL(contest_info = contest_info, sunday_date = sunday_date)
 
 # remove arcade mode and pick'em contests
 inds_arcade <- NULL
-for (i in which(contest_info$Contest_Date==Sys.Date())) {
+for (i in which(contest_info$Contest_Date==sunday_date)) {
   if (grepl("arcade", contest_info$Contest_Name[i], ignore.case = T) | grepl("pick'em", contest_info$Contest_Name[i], ignore.case = T)) {
     inds_arcade <- c(inds_arcade, i)
   }
@@ -47,13 +48,14 @@ contest_info$Contest_Date <- as.Date(contest_info$Contest_Date)
 write.csv(contest_info, file = 'NFL/data_warehouse/contests.csv', row.names = F)
 # Find Earliest index of last contest
 
-first_contest_update <- min(which(as.Date(contest_info$Contest_Date) >= Sys.Date() - 7))
+first_contest_update <- min(which(as.Date(contest_info$Contest_Date) >= sunday_date - 7))
+first_contest_update <- 360
 
 # Index of 
 for(index in first_contest_update:length(contest_info$Contest_Date)) {
   print(paste0(index, ' of ', length(contest_info$Contest_Date), ' | Currently: ', contest_info$Contest_Name[index]))
   # Case: Contest Occured Yesterday 
-  if (as.Date(contest_info$Contest_Date[index]) < (Sys.Date())) {
+  if (as.Date(contest_info$Contest_Date[index]) < sunday_date) {
     contest_name <- gsub(" ", "", contest_info$Contest_Name[index], fixed = TRUE)
 
     #Load in Player Results
@@ -87,6 +89,6 @@ for(index in first_contest_update:length(contest_info$Contest_Date)) {
 
 ### Download Rotogrinders Projections
 print('Downloading Rotogrinders Projections')
-download_rotogrinders_projections_NFL(Sys.Date())
+download_rotogrinders_projections_NFL(sunday_date)
 
 

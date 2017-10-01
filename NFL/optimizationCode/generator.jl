@@ -29,8 +29,8 @@ include("formulations.jl")
 ################################################################################################################
 # Contest information
 
-contest_date = "2017-09-24";
-contest_name = "\$5.00entry_NFL \$100K Flea Flicker (Early)";
+contest_date = "2017-10-01";
+contest_name = "\$5.00entry_NFL \$75K Flea Flicker (Early)";
 
 ############################  Setting Variables  ############################
 
@@ -38,7 +38,7 @@ contest_name = "\$5.00entry_NFL \$100K Flea Flicker (Early)";
 Variables for solving the problem (change these)
 =#
 # num_lineups is the total number of lineups
-num_lineups = 150
+num_lineups = 165
 
 # num_overlap is the maximum overlap of players between the lineups that you create
 num_overlap = 4

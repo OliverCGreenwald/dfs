@@ -57,6 +57,6 @@ NFL_create_julia_inputs <- function(date_start, date_end) {
 }
 
 
-NFL_create_julia_inputs(date_start = "2017-09-24", date_end = "2017-09-24")
+NFL_create_julia_inputs(date_start = "2017-10-01", date_end = "2017-10-01")
 
 
