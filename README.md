@@ -1,18 +1,23 @@
 ## Authors:
-[**Michael Chiang**](https://www.linkedin.com/in/mlchiang): mlchiang@princeton.edu
+[**Michael Chiang**](https://www.linkedin.com/in/mlchiang): mlchiang@alumni.princeton.edu
 
-[**Alan Du**](https://www.linkedin.com/in/alan-du-6525b28a): aydu@princeton.edu
+[**Alan Du**](https://www.linkedin.com/in/alan-du-6525b28a): aydu@alumni.princeton.edu
 
-## Future Work:
+## TO DO:
 
 - [x] Find and add historical data to repo
- - [ ] Finish Testing Suite
- - [ ] Test for Optimal number of lineups `n` to enter. *(0 <= n <= 150)*
- - [ ] Test for Optimal combination of variables (`overlap constraint` and `stack type`)
-- [ ] Integrate GUROBI
- - [ ] Think about leaving a greedy integer program and move into large (1500 constraint program)
-- [ ] Check to see if there is a difference in the distribution of scores between the $3 game and the $20 game.
+- [x] Finish Testing Suite
+- [ ] Test for Optimal number of lineups `n` to enter. *(0 <= n <= 150)*
+- [x] Test for Optimal combination of variables (`overlap constraint` and `stack type`)
+- [x] Integrate GUROBI
+- [ ] Think about leaving a greedy integer program and move into large (1500 constraint program)
+- [x] Check to see if there is a difference in the distribution of scores between the $3 game and the $20 game.
 - [ ] Look into 50-50 Games. Game Type where top 50% of lineup double money. 
+- [ ] Finish RShiny App on Analyzing Pros
+- [ ] Distribution based Projections
+- [ ] Use copulas not pearson’s correlation for heavy tailed marginal distributions or multi-dimensional (e.g. dependence between lineups)
+- [x] Covariance matrix for baseball
+- [ ] Covariance matrix for football
 
     
 ## Introduction:
