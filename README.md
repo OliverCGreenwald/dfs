@@ -65,3 +65,4 @@ julia> include("lineupGeneration.jl")
   - Any analysis of our weekly results in the GPP Draftkings contests are found here
 6. `results.md`
   - Details of our results in 2016 NFL Draftkings Contests.
+*** 10/3/17 Update: Ongoing process to migrate all code into NFL and MLB folders ***
