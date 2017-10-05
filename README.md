@@ -53,7 +53,8 @@ Run
 julia> include("lineupGeneration.jl")
 ```
 
-## Organization of Repository: (as of 9/19/16)
+## Organization of Repository:
+(On 10/4/17 #2-6 were moved into folder "NFL_old". New organizational structure is in folder "NFL".)
 1. `exampleCodeFromPaper`
   - Contents of https://github.com/dscotthunter/Fantasy-Hockey-IP-Code
   - Was used as a reference 
@@ -70,4 +71,3 @@ julia> include("lineupGeneration.jl")
   - Any analysis of our weekly results in the GPP Draftkings contests are found here
 6. `results.md`
   - Details of our results in 2016 NFL Draftkings Contests.
-7. *** 10/3/17 Update: Ongoing process to migrate all code into NFL and MLB folders ***
